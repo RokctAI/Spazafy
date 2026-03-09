@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_vibrate/flutter_vibrate.dart';
+import 'package:vibration/vibration.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import '../../../billing/presentation/bloc/billing_bloc.dart';
-import '../../../../core/theme/app_theme.dart';
-import '../../../../core/widgets/primary_button.dart';
-import '../../domain/entities/cart_item.dart';
+import 'package:billing_app/application/billing/billing_bloc.dart';
+import 'package:billing_app/presentation/theme/app_theme.dart';
+import 'package:billing_app/presentation/components/primary_button.dart';
+import 'package:billing_app/infrastructure/models/data/cart_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -53,9 +53,9 @@ class _HomePageState extends State<HomePage> {
         _lastScanTimes[rawValue] = now;
 
         // Vibrate
-        final canVibrate = await Vibrate.canVibrate;
+        final canVibrate = await Vibration.hasVibrator() == true;
         if (canVibrate) {
-          Vibrate.feedback(FeedbackType.success);
+          Vibration.vibrate();
         }
 
         if (mounted) {

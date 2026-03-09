@@ -1,6 +1,6 @@
 import 'package:fpdart/fpdart.dart';
-import '../../../../core/error/failure.dart';
-import '../../domain/entities/product.dart';
+import 'package:billing_app/presentation/components/error/failure.dart';
+import 'package:billing_app/infrastructure/models/data/product.dart';
 
 abstract class ProductRepository {
   Future<Either<Failure, List<Product>>> getProducts();

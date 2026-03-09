@@ -1,8 +1,8 @@
 import 'package:fpdart/fpdart.dart';
-import '../../../../core/error/failure.dart';
-import '../../../../core/usecase/usecase.dart';
-import '../entities/product.dart';
-import '../repositories/product_repository.dart';
+import 'package:billing_app/presentation/components/error/failure.dart';
+import 'package:billing_app/presentation/components/usecase/usecase.dart';
+import 'package:billing_app/infrastructure/models/data/product.dart';
+import 'package:billing_app/infrastructure/repository/product_repository.dart';
 
 class GetProductsUseCase implements UseCase<List<Product>, NoParams> {
   final ProductRepository repository;

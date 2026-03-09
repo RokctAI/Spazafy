@@ -1,9 +1,9 @@
 import 'package:fpdart/fpdart.dart';
-import '../../../../core/data/hive_database.dart';
-import '../../../../core/error/failure.dart';
-import '../../domain/entities/product.dart';
-import '../../domain/repositories/product_repository.dart';
-import '../models/product_model.dart';
+import 'package:billing_app/infrastructure/services/hive_database.dart';
+import 'package:billing_app/presentation/components/error/failure.dart';
+import 'package:billing_app/infrastructure/models/data/product.dart';
+import 'package:billing_app/infrastructure/repository/product_repository.dart';
+import 'package:billing_app/infrastructure/models/product_model.dart';
 
 class ProductRepositoryImpl implements ProductRepository {
   @override

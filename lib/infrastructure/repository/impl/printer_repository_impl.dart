@@ -1,7 +1,7 @@
 import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
-import '../../../../core/data/hive_database.dart';
-import '../../../../core/utils/printer_helper.dart';
-import '../../domain/repositories/printer_repository.dart';
+import 'package:billing_app/infrastructure/services/hive_database.dart';
+import 'package:billing_app/infrastructure/services/printer_helper.dart';
+import 'package:billing_app/infrastructure/repository/printer_repository.dart';
 
 class PrinterRepositoryImpl implements PrinterRepository {
   final PrinterHelper _printerHelper = PrinterHelper();

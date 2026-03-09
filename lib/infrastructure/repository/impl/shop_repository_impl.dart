@@ -1,9 +1,9 @@
 import 'package:fpdart/fpdart.dart';
-import '../../../../core/data/hive_database.dart';
-import '../../../../core/error/failure.dart';
-import '../../domain/entities/shop.dart';
-import '../../domain/repositories/shop_repository.dart';
-import '../models/shop_model.dart';
+import 'package:billing_app/infrastructure/services/hive_database.dart';
+import 'package:billing_app/presentation/components/error/failure.dart';
+import 'package:billing_app/infrastructure/models/data/shop.dart';
+import 'package:billing_app/infrastructure/repository/shop_repository.dart';
+import 'package:billing_app/infrastructure/models/shop_model.dart';
 
 class ShopRepositoryImpl implements ShopRepository {
   static const String shopKey = 'shop_details';

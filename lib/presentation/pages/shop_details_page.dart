@@ -1,12 +1,12 @@
-import 'package:billing_app/core/widgets/input_label.dart';
-import 'package:billing_app/core/widgets/primary_button.dart';
+import 'package:billing_app/presentation/components/input_label.dart';
+import 'package:billing_app/presentation/components/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../../domain/entities/shop.dart';
-import '../bloc/shop_bloc.dart';
-import '../../../../core/theme/app_theme.dart';
-import '../../../../core/utils/app_validators.dart';
+import 'package:billing_app/infrastructure/models/data/shop.dart';
+import 'package:billing_app/application/shop/shop_bloc.dart';
+import 'package:billing_app/presentation/theme/app_theme.dart';
+import 'package:billing_app/infrastructure/services/app_validators.dart';
 
 class ShopDetailsPage extends StatefulWidget {
   const ShopDetailsPage({super.key});

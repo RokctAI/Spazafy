@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'config/routes/app_routes.dart';
-import 'core/data/hive_database.dart';
-import 'core/service_locator.dart' as di;
-import 'core/theme/app_theme.dart';
-import 'features/billing/presentation/bloc/billing_bloc.dart';
-import 'features/product/presentation/bloc/product_bloc.dart';
-import 'features/shop/presentation/bloc/shop_bloc.dart';
-import 'features/settings/presentation/bloc/printer_bloc.dart';
-import 'features/settings/presentation/bloc/printer_event.dart';
+import 'package:billing_app/presentation/routes/app_routes.dart';
+import 'package:billing_app/infrastructure/services/hive_database.dart';
+import 'package:billing_app/infrastructure/services/service_locator.dart' as di;
+import 'package:billing_app/presentation/theme/app_theme.dart';
+import 'package:billing_app/application/billing/billing_bloc.dart';
+import 'package:billing_app/application/product/product_bloc.dart';
+import 'package:billing_app/application/shop/shop_bloc.dart';
+import 'package:billing_app/application/settings/printer_bloc.dart';
+import 'package:billing_app/application/settings/printer_event.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
