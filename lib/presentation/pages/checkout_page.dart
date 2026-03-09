@@ -253,13 +253,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                         footer: shopState.shop.footerText,
                                       ),
                                     );
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('Shop details not loaded'),
-                                    backgroundColor: Colors.red,
-                                  ),
-                                );
                               }
                             },
                             label: 'Print Receipt',

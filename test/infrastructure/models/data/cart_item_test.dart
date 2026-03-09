@@ -56,7 +56,8 @@ void main() {
         barcode: '999999',
         price: 1000000.0, // 1 million
       );
-      final item = CartItem(product: expensiveProduct, quantity: 1000); // 1 thousand
+      final item =
+          CartItem(product: expensiveProduct, quantity: 1000); // 1 thousand
       expect(item.total, 1000000000.0); // 1 billion
     });
   });
