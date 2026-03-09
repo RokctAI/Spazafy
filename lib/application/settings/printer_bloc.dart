@@ -45,10 +45,17 @@ class PrinterBloc extends Bloc<PrinterEvent, PrinterState> {
         return;
       }
 
-      bool connected = false;
-      for (var device in devices) {
+      final connectionFutures = devices.map((device) async {
         final success = await repository.connect(device.macAdress);
-        if (success) {
+        return MapEntry(device, success);
+      }).toList();
+
+      final results = await Future.wait(connectionFutures);
+
+      bool connected = false;
+      for (var result in results) {
+        if (result.value) {
+          final device = result.key;
           await repository.savePrinterData(device.macAdress, device.name);
           emit(
             state.copyWith(
