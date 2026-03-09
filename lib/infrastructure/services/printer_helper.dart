@@ -116,88 +116,84 @@ class PrinterHelper {
     if (!_isConnected) return;
 
     // Construct ESC/POS bytes manually or using helper
-    List<int> bytes = [];
+    final List<int> bytes = [];
 
     // Init
-    bytes += EscPos.init;
+    bytes.addAll(EscPos.init);
 
     // Shop Name (Center, Bold, Large)
-    bytes += EscPos.alignCenter;
-    bytes += EscPos.boldOn;
-    bytes += EscPos.textLarge;
-    bytes += _textToBytes(shopName);
-    bytes += EscPos.lineFeed;
+    bytes.addAll(EscPos.alignCenter);
+    bytes.addAll(EscPos.boldOn);
+    bytes.addAll(EscPos.textLarge);
+    bytes.addAll(shopName.codeUnits);
+    bytes.addAll(EscPos.lineFeed);
 
     // Address & Phone (Normal, Center)
-    bytes += EscPos.textNormal;
-    bytes += EscPos.boldOff;
+    bytes.addAll(EscPos.textNormal);
+    bytes.addAll(EscPos.boldOff);
     if (address1.isNotEmpty) {
-      bytes += _textToBytes(address1);
-      bytes += EscPos.lineFeed;
+      bytes.addAll(address1.codeUnits);
+      bytes.addAll(EscPos.lineFeed);
     }
     if (address2.isNotEmpty) {
-      bytes += _textToBytes(address2);
-      bytes += EscPos.lineFeed;
+      bytes.addAll(address2.codeUnits);
+      bytes.addAll(EscPos.lineFeed);
     }
-    bytes += _textToBytes(phone);
-    bytes += EscPos.lineFeed;
+    bytes.addAll(phone.codeUnits);
+    bytes.addAll(EscPos.lineFeed);
 
     // Date and Time
-    String formattedDate = DateFormat(
-      'dd-MM-yyyy hh:mm a',
-    ).format(DateTime.now());
-    bytes += _textToBytes(formattedDate);
-    bytes += EscPos.lineFeed;
+    final String formattedDate =
+        DateFormat('dd-MM-yyyy hh:mm a').format(DateTime.now());
+    bytes.addAll(formattedDate.codeUnits);
+    bytes.addAll(EscPos.lineFeed);
 
-    bytes += _textToBytes('--------------------------------');
-    bytes += EscPos.lineFeed;
+    bytes.addAll('--------------------------------'.codeUnits);
+    bytes.addAll(EscPos.lineFeed);
 
     // Header (Align Left)
-    bytes += EscPos.alignLeft;
-    bytes += _textToBytes('Item            Price   Total');
-    bytes += EscPos.lineFeed;
-    bytes += _textToBytes('--------------------------------');
-    bytes += EscPos.lineFeed;
+    bytes.addAll(EscPos.alignLeft);
+    bytes.addAll('Item            Price   Total'.codeUnits);
+    bytes.addAll(EscPos.lineFeed);
+    bytes.addAll('--------------------------------'.codeUnits);
+    bytes.addAll(EscPos.lineFeed);
 
     // Items
-    for (var item in items) {
-      String name = item['name'].toString();
-      String qty = item['qty'].toString();
-      String price = item['price'].toString();
-      String totalItem = item['total'].toString();
+    for (final item in items) {
+      final String name = item['name'].toString();
+      final String qty = item['qty'].toString();
+      final String price = item['price'].toString();
+      final String totalItem = item['total'].toString();
 
-      String prefix = '${qty}x $name';
-      if (prefix.length > 16) prefix = prefix.substring(0, 16);
+      final String prefix = '${qty}x $name';
+      final String truncatedPrefix =
+          prefix.length > 16 ? prefix.substring(0, 16) : prefix;
 
-      String line = prefix.padRight(16) + price.padRight(8) + totalItem;
-      bytes += _textToBytes(line);
-      bytes += EscPos.lineFeed;
+      final String line =
+          truncatedPrefix.padRight(16) + price.padRight(8) + totalItem;
+      bytes.addAll(line.codeUnits);
+      bytes.addAll(EscPos.lineFeed);
     }
 
-    bytes += _textToBytes('--------------------------------');
-    bytes += EscPos.lineFeed;
+    bytes.addAll('--------------------------------'.codeUnits);
+    bytes.addAll(EscPos.lineFeed);
 
     // Total (Align Right)
-    bytes += EscPos.alignRight;
-    bytes += EscPos.boldOn;
-    bytes += _textToBytes('TOTAL: $total');
-    bytes += EscPos.lineFeed;
-    bytes += EscPos.boldOff;
-    bytes += EscPos.lineFeed;
+    bytes.addAll(EscPos.alignRight);
+    bytes.addAll(EscPos.boldOn);
+    bytes.addAll('TOTAL: $total'.codeUnits);
+    bytes.addAll(EscPos.lineFeed);
+    bytes.addAll(EscPos.boldOff);
+    bytes.addAll(EscPos.lineFeed);
 
     // Footer (Center)
-    bytes += EscPos.alignCenter;
-    bytes += _textToBytes(footer);
-    bytes += EscPos.lineFeed;
-    bytes += EscPos.lineFeed; // One line space after footer
-    bytes += EscPos.lineFeed;
-    bytes += EscPos.lineFeed; // Additional Feed
+    bytes.addAll(EscPos.alignCenter);
+    bytes.addAll(footer.codeUnits);
+    bytes.addAll(EscPos.lineFeed);
+    bytes.addAll(EscPos.lineFeed); // One line space after footer
+    bytes.addAll(EscPos.lineFeed);
+    bytes.addAll(EscPos.lineFeed); // Additional Feed
 
     await PrintBluetoothThermal.writeBytes(bytes);
-  }
-
-  List<int> _textToBytes(String text) {
-    // Should verify encoding, but Latin-1 usually works for basic printers
-    return List.from(text.codeUnits);
   }
 }
