@@ -38,6 +38,9 @@ class _HomePageState extends State<HomePage> {
     final List<Barcode> barcodes = capture.barcodes;
     final now = DateTime.now();
 
+    // Vibrate check
+    final canVibrate = await Vibration.hasVibrator() == true;
+
     for (final barcode in barcodes) {
       if (barcode.rawValue != null) {
         final rawValue = barcode.rawValue!;
@@ -52,8 +55,6 @@ class _HomePageState extends State<HomePage> {
 
         _lastScanTimes[rawValue] = now;
 
-        // Vibrate
-        final canVibrate = await Vibration.hasVibrator() == true;
         if (canVibrate) {
           Vibration.vibrate();
         }
