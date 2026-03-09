@@ -40,8 +40,8 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
     AddProductToCartEvent event,
     Emitter<BillingState> emit,
   ) {
-    // Clear error when adding
-    final cleanState = state.copyWith(error: null);
+    // Clear error when adding by forcing clearError flag
+    final cleanState = state.copyWith(clearError: true);
 
     final existingIndex = cleanState.cartItems.indexWhere(
       (item) => item.product.id == event.product.id,
@@ -52,13 +52,13 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
       backendItems[existingIndex] = existingItem.copyWith(
         quantity: existingItem.quantity + 1,
       );
-      emit(cleanState.copyWith(cartItems: backendItems, error: null));
+      emit(cleanState.copyWith(cartItems: backendItems, clearError: true));
     } else {
       final newItem = CartItem(product: event.product);
       emit(
         cleanState.copyWith(
           cartItems: [...cleanState.cartItems, newItem],
-          error: null,
+          clearError: true,
         ),
       );
     }
