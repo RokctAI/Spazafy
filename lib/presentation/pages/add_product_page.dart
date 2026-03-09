@@ -37,9 +37,8 @@ class _AddProductPageState extends State<AddProductPage> {
       _formKey.currentState!.save();
 
       final productState = context.read<ProductBloc>().state;
-      final existingProduct = productState.products
-          .where((p) => p.barcode == _barcode)
-          .firstOrNull;
+      final existingProduct =
+          productState.products.where((p) => p.barcode == _barcode).firstOrNull;
 
       if (existingProduct != null) {
         ScaffoldMessenger.of(context).showSnackBar(

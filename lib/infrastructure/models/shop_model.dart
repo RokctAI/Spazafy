@@ -32,13 +32,13 @@ class ShopModel extends Shop {
     required this.upiId,
     required this.footerText,
   }) : super(
-         name: name,
-         addressLine1: addressLine1,
-         addressLine2: addressLine2,
-         phoneNumber: phoneNumber,
-         upiId: upiId,
-         footerText: footerText,
-       );
+          name: name,
+          addressLine1: addressLine1,
+          addressLine2: addressLine2,
+          phoneNumber: phoneNumber,
+          upiId: upiId,
+          footerText: footerText,
+        );
 
   factory ShopModel.fromEntity(Shop shop) {
     return ShopModel(
