@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../../domain/entities/product.dart';
-import '../../domain/usecases/product_usecases.dart';
-import '../../../../core/usecase/usecase.dart';
+import 'package:billing_app/infrastructure/models/data/product.dart';
+import 'package:billing_app/infrastructure/models/usecases/product_usecases.dart';
+import 'package:billing_app/presentation/components/usecase/usecase.dart';
 
 part 'product_event.dart';
 part 'product_state.dart';
@@ -26,60 +26,82 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   }
 
   Future<void> _onLoadProducts(
-      LoadProducts event, Emitter<ProductState> emit) async {
+    LoadProducts event,
+    Emitter<ProductState> emit,
+  ) async {
     emit(state.copyWith(status: ProductStatus.loading));
     final result = await getProductsUseCase(NoParams());
     result.fold(
-      (failure) => emit(state.copyWith(
-          status: ProductStatus.error, message: failure.message)),
+      (failure) => emit(
+        state.copyWith(status: ProductStatus.error, message: failure.message),
+      ),
       (products) => emit(
-          state.copyWith(status: ProductStatus.loaded, products: products)),
+        state.copyWith(status: ProductStatus.loaded, products: products),
+      ),
     );
   }
 
   Future<void> _onAddProduct(
-      AddProduct event, Emitter<ProductState> emit) async {
+    AddProduct event,
+    Emitter<ProductState> emit,
+  ) async {
     emit(state.copyWith(status: ProductStatus.loading)); // Keep products
     final result = await addProductUseCase(event.product);
     result.fold(
-      (failure) => emit(state.copyWith(
-          status: ProductStatus.error, message: failure.message)),
+      (failure) => emit(
+        state.copyWith(status: ProductStatus.error, message: failure.message),
+      ),
       (_) {
-        emit(state.copyWith(
+        emit(
+          state.copyWith(
             status: ProductStatus.success,
-            message: 'Product added successfully'));
+            message: 'Product added successfully',
+          ),
+        );
         add(LoadProducts());
       },
     );
   }
 
   Future<void> _onUpdateProduct(
-      UpdateProduct event, Emitter<ProductState> emit) async {
+    UpdateProduct event,
+    Emitter<ProductState> emit,
+  ) async {
     emit(state.copyWith(status: ProductStatus.loading));
     final result = await updateProductUseCase(event.product);
     result.fold(
-      (failure) => emit(state.copyWith(
-          status: ProductStatus.error, message: failure.message)),
+      (failure) => emit(
+        state.copyWith(status: ProductStatus.error, message: failure.message),
+      ),
       (_) {
-        emit(state.copyWith(
+        emit(
+          state.copyWith(
             status: ProductStatus.success,
-            message: 'Product updated successfully'));
+            message: 'Product updated successfully',
+          ),
+        );
         add(LoadProducts());
       },
     );
   }
 
   Future<void> _onDeleteProduct(
-      DeleteProduct event, Emitter<ProductState> emit) async {
+    DeleteProduct event,
+    Emitter<ProductState> emit,
+  ) async {
     emit(state.copyWith(status: ProductStatus.loading));
     final result = await deleteProductUseCase(event.id);
     result.fold(
-      (failure) => emit(state.copyWith(
-          status: ProductStatus.error, message: failure.message)),
+      (failure) => emit(
+        state.copyWith(status: ProductStatus.error, message: failure.message),
+      ),
       (_) {
-        emit(state.copyWith(
+        emit(
+          state.copyWith(
             status: ProductStatus.success,
-            message: 'Product deleted successfully'));
+            message: 'Product deleted successfully',
+          ),
+        );
         add(LoadProducts());
       },
     );

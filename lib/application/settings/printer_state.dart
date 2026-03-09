@@ -10,7 +10,7 @@ enum PrinterStatus {
   connected,
   connectionFailure,
   disconnected,
-  testPrinting
+  testPrinting,
 }
 
 class PrinterState extends Equatable {
@@ -46,6 +46,11 @@ class PrinterState extends Equatable {
   }
 
   @override
-  List<Object?> get props =>
-      [status, connectedMac, connectedName, devices, errorMessage];
+  List<Object?> get props => [
+        status,
+        connectedMac,
+        connectedName,
+        devices,
+        errorMessage,
+      ];
 }

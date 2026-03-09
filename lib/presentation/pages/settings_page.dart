@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:app_settings/app_settings.dart';
 
-import '../../../../core/theme/app_theme.dart';
-import '../../../shop/presentation/bloc/shop_bloc.dart';
-import '../bloc/printer_bloc.dart';
-import '../bloc/printer_event.dart';
-import '../bloc/printer_state.dart';
+import 'package:billing_app/presentation/theme/app_theme.dart';
+import 'package:billing_app/application/shop/shop_bloc.dart';
+import 'package:billing_app/application/settings/printer_bloc.dart';
+import 'package:billing_app/application/settings/printer_event.dart';
+import 'package:billing_app/application/settings/printer_state.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -28,14 +28,19 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+        title: const Text(
+          'Settings',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.chevron_left,
-              size: 28, color: Theme.of(context).primaryColor),
+          icon: Icon(
+            Icons.chevron_left,
+            size: 28,
+            color: Theme.of(context).primaryColor,
+          ),
           onPressed: () => context.pop(),
         ),
       ),
@@ -67,28 +72,37 @@ class _SettingsPageState extends State<SettingsPage> {
                         width: 96,
                         height: 96,
                         decoration: BoxDecoration(
-                            color: AppTheme.primaryColor,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppTheme.primaryColor
-                                    .withValues(alpha: 0.2),
-                                blurRadius: 15,
-                                spreadRadius: 5,
-                              )
-                            ]),
+                          color: AppTheme.primaryColor,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppTheme.primaryColor.withValues(
+                                alpha: 0.2,
+                              ),
+                              blurRadius: 15,
+                              spreadRadius: 5,
+                            ),
+                          ],
+                        ),
                         alignment: Alignment.center,
-                        child: Text(initials,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 32,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: -1)),
+                        child: Text(
+                          initials,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: -1,
+                          ),
+                        ),
                       ),
                       const SizedBox(height: 16),
-                      Text(shopName.toUpperCase(),
-                          style: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
+                      Text(
+                        shopName.toUpperCase(),
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   );
                 },
@@ -124,13 +138,19 @@ class _SettingsPageState extends State<SettingsPage> {
             BlocConsumer<PrinterBloc, PrinterState>(
               listener: (context, state) {
                 if (state.errorMessage != null) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
                       content: Text(state.errorMessage!),
-                      backgroundColor: Colors.red));
+                      backgroundColor: Colors.red,
+                    ),
+                  );
                 } else if (state.status == PrinterStatus.connected) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
                       content: Text('Connected to printer'),
-                      backgroundColor: Colors.green));
+                      backgroundColor: Colors.green,
+                    ),
+                  );
                 }
               },
               builder: (context, state) {
@@ -146,26 +166,32 @@ class _SettingsPageState extends State<SettingsPage> {
                                 ? (state.connectedName ?? 'Printer connected')
                                 : 'No printer connected',
                             style: TextStyle(
-                                fontSize: 12, color: Colors.grey[500]),
+                              fontSize: 12,
+                              color: Colors.grey[500],
+                            ),
                           ),
                           if (state.connectedMac != null) ...[
                             const SizedBox(width: 8),
                             Container(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 6, vertical: 2),
+                                horizontal: 6,
+                                vertical: 2,
+                              ),
                               decoration: BoxDecoration(
-                                  color: Colors.teal[100],
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: Colors.teal[200]!)),
+                                color: Colors.teal[100],
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Colors.teal[200]!),
+                              ),
                               child: Text(
                                 'CONNECTED',
                                 style: TextStyle(
-                                    fontSize: 9,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.teal[700]),
+                                  fontSize: 9,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.teal[700],
+                                ),
                               ),
                             ),
-                          ]
+                          ],
                         ],
                       ),
                       trailingWidget: Row(
@@ -174,23 +200,24 @@ class _SettingsPageState extends State<SettingsPage> {
                           if (state.status == PrinterStatus.scanning ||
                               state.status == PrinterStatus.connecting)
                             const SizedBox(
-                                width: 24,
-                                height: 24,
-                                child:
-                                    CircularProgressIndicator(strokeWidth: 2))
+                              width: 24,
+                              height: 24,
+                              child: CircularProgressIndicator(strokeWidth: 2),
+                            )
                           else
                             IconButton(
                               icon: const Icon(Icons.refresh),
-                              onPressed: () => context
-                                  .read<PrinterBloc>()
-                                  .add(RefreshPrinterEvent()),
+                              onPressed: () => context.read<PrinterBloc>().add(
+                                    RefreshPrinterEvent(),
+                                  ),
                               color: AppTheme.primaryColor,
                             ),
                           IconButton(
                             icon: const Icon(Icons.settings),
                             onPressed: () {
                               AppSettings.openAppSettings(
-                                  type: AppSettingsType.bluetooth);
+                                type: AppSettingsType.bluetooth,
+                              );
                             },
                             color: Colors.grey,
                           ),
@@ -207,9 +234,10 @@ class _SettingsPageState extends State<SettingsPage> {
               child: Text(
                 "To connect a new device, tap on the Settings gear to pair in phone's Bluetooth settings, then return and hit Refresh.",
                 style: TextStyle(
-                    fontSize: 11,
-                    fontStyle: FontStyle.italic,
-                    color: Colors.grey[500]),
+                  fontSize: 11,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.grey[500],
+                ),
               ),
             ),
 
@@ -228,10 +256,11 @@ class _SettingsPageState extends State<SettingsPage> {
         child: Text(
           title.toUpperCase(),
           style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey,
-              letterSpacing: 1.2),
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
+            color: Colors.grey,
+            letterSpacing: 1.2,
+          ),
         ),
       ),
     );
@@ -283,19 +312,24 @@ class _SettingsPageState extends State<SettingsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 14)),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14,
+                    ),
+                  ),
                   if (subtitle != null) ...[
                     const SizedBox(height: 2),
-                    Text(subtitle,
-                        style:
-                            TextStyle(fontSize: 12, color: Colors.grey[500])),
+                    Text(
+                      subtitle,
+                      style: TextStyle(fontSize: 12, color: Colors.grey[500]),
+                    ),
                   ],
                   if (subtitleWidget != null) ...[
                     const SizedBox(height: 4),
                     subtitleWidget,
-                  ]
+                  ],
                 ],
               ),
             ),

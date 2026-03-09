@@ -36,6 +36,12 @@ class Shop extends Equatable {
   }
 
   @override
-  List<Object?> get props =>
-      [name, addressLine1, addressLine2, phoneNumber, upiId, footerText];
+  List<Object?> get props => [
+        name,
+        addressLine1,
+        addressLine2,
+        phoneNumber,
+        upiId,
+        footerText,
+      ];
 }

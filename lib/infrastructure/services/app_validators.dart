@@ -1,8 +1,14 @@
 class AppValidators {
-  static String? Function(String?) required(String message) {
+  static String? Function(String?) required(
+    String message, {
+    int maxLength = 255,
+  }) {
     return (String? value) {
       if (value == null || value.trim().isEmpty) {
         return message;
+      }
+      if (value.length > maxLength) {
+        return 'Input too long (max $maxLength characters)';
       }
       return null;
     };
