@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_vibrate/flutter_vibrate.dart';
+import 'package:vibration/vibration.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import '../../../billing/presentation/bloc/billing_bloc.dart';
-import '../../../../core/theme/app_theme.dart';
-import '../../../../core/widgets/primary_button.dart';
-import '../../domain/entities/cart_item.dart';
+import 'package:billing_app/application/billing/billing_bloc.dart';
+import 'package:billing_app/presentation/theme/app_theme.dart';
+import 'package:billing_app/presentation/components/primary_button.dart';
+import 'package:billing_app/infrastructure/models/data/cart_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -53,9 +53,9 @@ class _HomePageState extends State<HomePage> {
         _lastScanTimes[rawValue] = now;
 
         // Vibrate
-        final canVibrate = await Vibrate.canVibrate;
+        final canVibrate = await Vibration.hasVibrator() == true;
         if (canVibrate) {
-          Vibrate.feedback(FeedbackType.success);
+          Vibration.vibrate();
         }
 
         if (mounted) {
@@ -105,20 +105,21 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomSheet:
-          BlocBuilder<BillingBloc, BillingState>(builder: (context, state) {
-        return PrimaryButton(
-          onPressed: state.cartItems.isEmpty
-              ? null
-              : () async {
-                  _scannerController.stop();
-                  await context.push('/checkout');
-                  if (_isCameraOn && mounted) _scannerController.start();
-                },
-          icon: Icons.payment,
-          label: 'Review Order',
-        );
-      }),
+      bottomSheet: BlocBuilder<BillingBloc, BillingState>(
+        builder: (context, state) {
+          return PrimaryButton(
+            onPressed: state.cartItems.isEmpty
+                ? null
+                : () async {
+                    _scannerController.stop();
+                    await context.push('/checkout');
+                    if (_isCameraOn && mounted) _scannerController.start();
+                  },
+            icon: Icons.payment,
+            label: 'Review Order',
+          );
+        },
+      ),
     );
   }
 
@@ -128,10 +129,7 @@ class _HomePageState extends State<HomePage> {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          MobileScanner(
-            controller: _scannerController,
-            onDetect: _onDetect,
-          ),
+          MobileScanner(controller: _scannerController, onDetect: _onDetect),
           if (!_isCameraOn) _buildCameraOffState(),
 
           // Overlay Actions (Top Right)
@@ -151,8 +149,9 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 16),
                 if (_isCameraOn)
                   _buildOverlayButton(
-                    icon:
-                        _isFlashOn ? Icons.flashlight_off : Icons.flashlight_on,
+                    icon: _isFlashOn
+                        ? Icons.flashlight_off
+                        : Icons.flashlight_on,
                     onPressed: () {
                       setState(() => _isFlashOn = !_isFlashOn);
                       _scannerController.toggleTorch();
@@ -217,14 +216,20 @@ class _HomePageState extends State<HomePage> {
               shape: BoxShape.circle,
             ),
             alignment: Alignment.center,
-            child:
-                const Icon(Icons.videocam_off, color: Colors.white, size: 32),
+            child: const Icon(
+              Icons.videocam_off,
+              color: Colors.white,
+              size: 32,
+            ),
           ),
           const SizedBox(height: 16),
           const Text(
             'Camera is turned off',
             style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
           ),
           const SizedBox(height: 8),
           const Padding(
@@ -241,24 +246,30 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: AppTheme.primaryColor,
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
+                borderRadius: BorderRadius.circular(20),
+              ),
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
             icon: const Icon(Icons.videocam),
-            label: const Text('Turn on Camera',
-                style: TextStyle(fontWeight: FontWeight.bold)),
+            label: const Text(
+              'Turn on Camera',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
             onPressed: () {
               setState(() => _isCameraOn = true);
               _scannerController.start();
             },
-          )
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildOverlayButton(
-      {required IconData icon, required VoidCallback onPressed, Color? color}) {
+  Widget _buildOverlayButton({
+    required IconData icon,
+    required VoidCallback onPressed,
+    Color? color,
+  }) {
     return Container(
       width: 44,
       height: 44,
@@ -283,19 +294,23 @@ class _HomePageState extends State<HomePage> {
         height: 32,
         decoration: BoxDecoration(
           border: Border(
-            top: (alignment == Alignment.topLeft ||
+            top:
+                (alignment == Alignment.topLeft ||
                     alignment == Alignment.topRight)
                 ? const BorderSide(color: Colors.greenAccent, width: 4)
                 : BorderSide.none,
-            bottom: (alignment == Alignment.bottomLeft ||
+            bottom:
+                (alignment == Alignment.bottomLeft ||
                     alignment == Alignment.bottomRight)
                 ? const BorderSide(color: Colors.greenAccent, width: 4)
                 : BorderSide.none,
-            left: (alignment == Alignment.topLeft ||
+            left:
+                (alignment == Alignment.topLeft ||
                     alignment == Alignment.bottomLeft)
                 ? const BorderSide(color: Colors.greenAccent, width: 4)
                 : BorderSide.none,
-            right: (alignment == Alignment.topRight ||
+            right:
+                (alignment == Alignment.topRight ||
                     alignment == Alignment.bottomRight)
                 ? const BorderSide(color: Colors.greenAccent, width: 4)
                 : BorderSide.none,
@@ -312,7 +327,10 @@ class _HomePageState extends State<HomePage> {
         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         boxShadow: const [
           BoxShadow(
-              color: Colors.black26, blurRadius: 15, offset: Offset(0, -5))
+            color: Colors.black26,
+            blurRadius: 15,
+            offset: Offset(0, -5),
+          ),
         ],
       ),
       child: Column(
@@ -331,40 +349,56 @@ class _HomePageState extends State<HomePage> {
           // Header
           BlocBuilder<BillingBloc, BillingState>(
             builder: (context, state) {
-              final totalItems =
-                  state.cartItems.fold<int>(0, (sum, i) => sum + i.quantity);
+              final totalItems = state.cartItems.fold<int>(
+                0,
+                (sum, i) => sum + i.quantity,
+              );
               return Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 8,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Scanned Items',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600)),
-                        Text('$totalItems items total',
-                            style: const TextStyle(
-                                fontSize: 12, color: Colors.grey)),
+                        const Text(
+                          'Scanned Items',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Text(
+                          '$totalItems items total',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey,
+                          ),
+                        ),
                       ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const Text('TOTAL PRICE',
-                            style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey,
-                                letterSpacing: 1.2)),
+                        const Text(
+                          'TOTAL PRICE',
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
                         Text(
                           '₹${state.totalAmount.toStringAsFixed(2)}',
                           style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900,
-                              color: Theme.of(context).primaryColor),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context).primaryColor,
+                          ),
                         ),
                       ],
                     ),
@@ -377,27 +411,33 @@ class _HomePageState extends State<HomePage> {
 
           // List View
           Expanded(
-            child: Stack(children: [
-              BlocBuilder<BillingBloc, BillingState>(
-                builder: (context, state) {
-                  if (state.cartItems.isEmpty) {
-                    return _buildEmptyCart();
-                  }
+            child: Stack(
+              children: [
+                BlocBuilder<BillingBloc, BillingState>(
+                  builder: (context, state) {
+                    if (state.cartItems.isEmpty) {
+                      return _buildEmptyCart();
+                    }
 
-                  return ListView.separated(
-                    padding: const EdgeInsets.only(
-                        left: 15, right: 15, top: 16, bottom: 100),
-                    itemCount: state.cartItems.length,
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: 12),
-                    itemBuilder: (context, index) {
-                      final item = state.cartItems[index];
-                      return _buildCartItemCard(context, item);
-                    },
-                  );
-                },
-              ),
-            ]),
+                    return ListView.separated(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                        right: 15,
+                        top: 16,
+                        bottom: 100,
+                      ),
+                      itemCount: state.cartItems.length,
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 12),
+                      itemBuilder: (context, index) {
+                        final item = state.cartItems[index];
+                        return _buildCartItemCard(context, item);
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -417,12 +457,17 @@ class _HomePageState extends State<HomePage> {
               shape: BoxShape.circle,
             ),
             alignment: Alignment.center,
-            child:
-                Icon(Icons.shopping_basket, size: 40, color: Colors.grey[300]),
+            child: Icon(
+              Icons.shopping_basket,
+              size: 40,
+              color: Colors.grey[300],
+            ),
           ),
           const SizedBox(height: 16),
-          const Text('List is empty',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          const Text(
+            'List is empty',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
           const SizedBox(height: 8),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 40),
@@ -437,17 +482,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildCartItemCard(
-    BuildContext context,
-    CartItem item,
-  ) {
+  Widget _buildCartItemCard(BuildContext context, CartItem item) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: Colors.grey[200]!),
         boxShadow: const [
-          BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 2))
+          BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 2)),
         ],
       ),
       padding: const EdgeInsets.all(16),
@@ -462,7 +504,9 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   item.product.name,
                   style: const TextStyle(
-                      fontWeight: FontWeight.w600, fontSize: 14),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                  ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -470,9 +514,10 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   '₹${item.product.price.toStringAsFixed(2)}',
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                      color: Colors.grey[600]),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: Colors.grey[600],
+                  ),
                 ),
               ],
             ),
@@ -487,17 +532,19 @@ class _HomePageState extends State<HomePage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 _circularIconButton(
-                    icon: Icons.remove,
-                    onPressed: () {
-                      if (item.quantity > 1) {
-                        context.read<BillingBloc>().add(UpdateQuantityEvent(
-                            item.product.id, item.quantity - 1));
-                      } else {
-                        context
-                            .read<BillingBloc>()
-                            .add(RemoveProductFromCartEvent(item.product.id));
-                      }
-                    }),
+                  icon: Icons.remove,
+                  onPressed: () {
+                    if (item.quantity > 1) {
+                      context.read<BillingBloc>().add(
+                        UpdateQuantityEvent(item.product.id, item.quantity - 1),
+                      );
+                    } else {
+                      context.read<BillingBloc>().add(
+                        RemoveProductFromCartEvent(item.product.id),
+                      );
+                    }
+                  },
+                ),
                 SizedBox(
                   width: 32,
                   child: Text(
@@ -507,11 +554,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 _circularIconButton(
-                    icon: Icons.add,
-                    onPressed: () {
-                      context.read<BillingBloc>().add(UpdateQuantityEvent(
-                          item.product.id, item.quantity + 1));
-                    }),
+                  icon: Icons.add,
+                  onPressed: () {
+                    context.read<BillingBloc>().add(
+                      UpdateQuantityEvent(item.product.id, item.quantity + 1),
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -520,8 +569,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _circularIconButton(
-      {required IconData icon, required VoidCallback onPressed}) {
+  Widget _circularIconButton({
+    required IconData icon,
+    required VoidCallback onPressed,
+  }) {
     return InkWell(
       onTap: onPressed,
       borderRadius: BorderRadius.circular(8),

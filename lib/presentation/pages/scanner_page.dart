@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_vibrate/flutter_vibrate.dart';
+import 'package:vibration/vibration.dart';
 
 class ScannerPage extends StatefulWidget {
   const ScannerPage({super.key});
@@ -31,9 +31,9 @@ class _ScannerPageState extends State<ScannerPage> {
       if (barcode.rawValue != null) {
         _isScanned = true;
         // Vibrate
-        final canVibrate = await Vibrate.canVibrate;
+        final canVibrate = await Vibration.hasVibrator() == true;
         if (canVibrate) {
-          Vibrate.feedback(FeedbackType.success);
+          Vibration.vibrate();
         }
 
         if (mounted) {
@@ -48,12 +48,19 @@ class _ScannerPageState extends State<ScannerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         leading: IconButton(
-          icon: Icon(Icons.chevron_left,
-              size: 28, color: Theme.of(context).primaryColor),
+        leading: IconButton(
+          icon: Icon(
+            Icons.chevron_left,
+            size: 28,
+            color: Theme.of(context).primaryColor,
+          ),
           onPressed: () => context.pop(),
         ),
-        title: const Text('Scan Barcode',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18))),
+        title: const Text(
+          'Scan Barcode',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+      ),
       body: Stack(
         children: [
           MobileScanner(
@@ -81,17 +88,11 @@ class _ScannerPageState extends State<ScannerPage> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _corner(0),
-                          _corner(1),
-                        ],
+                        children: [_corner(0), _corner(1)],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _corner(3),
-                          _corner(2),
-                        ],
+                        children: [_corner(3), _corner(2)],
                       ),
                     ],
                   ),

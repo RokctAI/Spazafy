@@ -50,8 +50,9 @@ class PrinterHelper {
 
   Future<bool> connect(String macAddress) async {
     try {
-      final bool result =
-          await PrintBluetoothThermal.connect(macPrinterAddress: macAddress);
+      final bool result = await PrintBluetoothThermal.connect(
+        macPrinterAddress: macAddress,
+      );
       _isConnected = result;
       return result;
     } catch (e) {
