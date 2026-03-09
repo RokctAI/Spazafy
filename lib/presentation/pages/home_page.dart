@@ -149,9 +149,8 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 16),
                 if (_isCameraOn)
                   _buildOverlayButton(
-                    icon: _isFlashOn
-                        ? Icons.flashlight_off
-                        : Icons.flashlight_on,
+                    icon:
+                        _isFlashOn ? Icons.flashlight_off : Icons.flashlight_on,
                     onPressed: () {
                       setState(() => _isFlashOn = !_isFlashOn);
                       _scannerController.toggleTorch();
@@ -294,23 +293,19 @@ class _HomePageState extends State<HomePage> {
         height: 32,
         decoration: BoxDecoration(
           border: Border(
-            top:
-                (alignment == Alignment.topLeft ||
+            top: (alignment == Alignment.topLeft ||
                     alignment == Alignment.topRight)
                 ? const BorderSide(color: Colors.greenAccent, width: 4)
                 : BorderSide.none,
-            bottom:
-                (alignment == Alignment.bottomLeft ||
+            bottom: (alignment == Alignment.bottomLeft ||
                     alignment == Alignment.bottomRight)
                 ? const BorderSide(color: Colors.greenAccent, width: 4)
                 : BorderSide.none,
-            left:
-                (alignment == Alignment.topLeft ||
+            left: (alignment == Alignment.topLeft ||
                     alignment == Alignment.bottomLeft)
                 ? const BorderSide(color: Colors.greenAccent, width: 4)
                 : BorderSide.none,
-            right:
-                (alignment == Alignment.topRight ||
+            right: (alignment == Alignment.topRight ||
                     alignment == Alignment.bottomRight)
                 ? const BorderSide(color: Colors.greenAccent, width: 4)
                 : BorderSide.none,
@@ -536,12 +531,13 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     if (item.quantity > 1) {
                       context.read<BillingBloc>().add(
-                        UpdateQuantityEvent(item.product.id, item.quantity - 1),
-                      );
+                            UpdateQuantityEvent(
+                                item.product.id, item.quantity - 1),
+                          );
                     } else {
                       context.read<BillingBloc>().add(
-                        RemoveProductFromCartEvent(item.product.id),
-                      );
+                            RemoveProductFromCartEvent(item.product.id),
+                          );
                     }
                   },
                 ),
@@ -557,8 +553,9 @@ class _HomePageState extends State<HomePage> {
                   icon: Icons.add,
                   onPressed: () {
                     context.read<BillingBloc>().add(
-                      UpdateQuantityEvent(item.product.id, item.quantity + 1),
-                    );
+                          UpdateQuantityEvent(
+                              item.product.id, item.quantity + 1),
+                        );
                   },
                 ),
               ],

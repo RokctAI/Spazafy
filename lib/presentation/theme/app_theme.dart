@@ -8,14 +8,14 @@ class AppTheme {
   static const Color surfaceColor = Colors.white;
   static const Color errorColor = Color(0xFFB00020);
 
-  static final TextTheme textTheme = GoogleFonts.ibmPlexSansTextTheme()
-      .copyWith(
-        bodyLarge: GoogleFonts.ibmPlexSans(
-          fontSize: 15,
-          fontWeight: FontWeight.w500,
-          color: Colors.black,
-        ),
-      );
+  static final TextTheme textTheme =
+      GoogleFonts.ibmPlexSansTextTheme().copyWith(
+    bodyLarge: GoogleFonts.ibmPlexSans(
+      fontSize: 15,
+      fontWeight: FontWeight.w500,
+      color: Colors.black,
+    ),
+  );
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
@@ -36,7 +36,6 @@ class AppTheme {
         bodyColor: Colors.black87,
         displayColor: Colors.black,
       ),
-
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -62,7 +61,6 @@ class AppTheme {
           fontWeight: FontWeight.normal,
           fontSize: 13,
         ),
-
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: Colors.grey[300]!),

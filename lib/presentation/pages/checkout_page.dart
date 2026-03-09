@@ -245,14 +245,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             onPressed: () {
                               if (shopState is ShopLoaded) {
                                 context.read<BillingBloc>().add(
-                                  PrintReceiptEvent(
-                                    shopName: shopState.shop.name,
-                                    address1: shopState.shop.addressLine1,
-                                    address2: shopState.shop.addressLine2,
-                                    phone: shopState.shop.phoneNumber,
-                                    footer: shopState.shop.footerText,
-                                  ),
-                                );
+                                      PrintReceiptEvent(
+                                        shopName: shopState.shop.name,
+                                        address1: shopState.shop.addressLine1,
+                                        address2: shopState.shop.addressLine2,
+                                        phone: shopState.shop.phoneNumber,
+                                        footer: shopState.shop.footerText,
+                                      ),
+                                    );
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
