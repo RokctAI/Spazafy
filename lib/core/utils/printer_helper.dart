@@ -50,8 +50,9 @@ class PrinterHelper {
 
   Future<bool> connect(String macAddress) async {
     try {
-      final bool result =
-          await PrintBluetoothThermal.connect(macPrinterAddress: macAddress);
+      final bool result = await PrintBluetoothThermal.connect(
+        macPrinterAddress: macAddress,
+      );
       _isConnected = result;
       return result;
     } catch (e) {
@@ -142,8 +143,9 @@ class PrinterHelper {
     bytes += EscPos.lineFeed;
 
     // Date and Time
-    String formattedDate =
-        DateFormat('dd-MM-yyyy hh:mm a').format(DateTime.now());
+    String formattedDate = DateFormat(
+      'dd-MM-yyyy hh:mm a',
+    ).format(DateTime.now());
     bytes += _textToBytes(formattedDate);
     bytes += EscPos.lineFeed;
 

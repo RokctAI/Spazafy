@@ -53,10 +53,7 @@ class PrimaryButton extends StatelessWidget {
                   ),
                 )
               : Icon(icon),
-          label: Text(
-            label,
-            style: textStyle,
-          ),
+          label: Text(label, style: textStyle),
           style: style,
         ),
       );
@@ -76,10 +73,7 @@ class PrimaryButton extends StatelessWidget {
                   strokeWidth: 2,
                 ),
               )
-            : Text(
-                label,
-                style: textStyle,
-              ),
+            : Text(label, style: textStyle),
       ),
     );
   }
