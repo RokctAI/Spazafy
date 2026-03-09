@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../../domain/entities/product.dart';
-import '../../domain/usecases/product_usecases.dart';
-import '../../../../core/usecase/usecase.dart';
+import 'package:billing_app/infrastructure/models/data/product.dart';
+import 'package:billing_app/infrastructure/models/usecases/product_usecases.dart';
+import 'package:billing_app/presentation/components/usecase/usecase.dart';
 
 part 'product_event.dart';
 part 'product_state.dart';

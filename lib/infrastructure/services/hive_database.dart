@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import '../../features/product/data/models/product_model.dart';
-import '../../features/shop/data/models/shop_model.dart';
+import 'package:billing_app/infrastructure/models/product_model.dart';
+import 'package:billing_app/infrastructure/models/shop_model.dart';
 
 class HiveDatabase {
   static const String productBoxName = 'products';
