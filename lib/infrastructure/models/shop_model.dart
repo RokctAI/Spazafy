@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import '../../domain/entities/shop.dart';
+import 'package:billing_app/infrastructure/models/data/shop.dart';
 
 part 'shop_model.g.dart';
 

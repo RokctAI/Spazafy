@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../domain/repositories/printer_repository.dart';
-import 'printer_event.dart';
-import 'printer_state.dart';
+import 'package:billing_app/infrastructure/repository/printer_repository.dart';
+import 'package:billing_app/application/settings/printer_event.dart';
+import 'package:billing_app/application/settings/printer_state.dart';
 
 class PrinterBloc extends Bloc<PrinterEvent, PrinterState> {
   final PrinterRepository repository;

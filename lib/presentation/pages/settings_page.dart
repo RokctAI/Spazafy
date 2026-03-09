@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:app_settings/app_settings.dart';
 
-import '../../../../core/theme/app_theme.dart';
-import '../../../shop/presentation/bloc/shop_bloc.dart';
-import '../bloc/printer_bloc.dart';
-import '../bloc/printer_event.dart';
-import '../bloc/printer_state.dart';
+import 'package:billing_app/presentation/theme/app_theme.dart';
+import 'package:billing_app/application/shop/shop_bloc.dart';
+import 'package:billing_app/application/settings/printer_bloc.dart';
+import 'package:billing_app/application/settings/printer_event.dart';
+import 'package:billing_app/application/settings/printer_state.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
