@@ -27,13 +27,7 @@ class ProductModel extends Product {
     required this.barcode,
     required this.price,
     required this.stock,
-  }) : super(
-          id: id,
-          name: name,
-          barcode: barcode,
-          price: price,
-          stock: stock,
-        );
+  }) : super(id: id, name: name, barcode: barcode, price: price, stock: stock);
 
   factory ProductModel.fromEntity(Product product) {
     return ProductModel(

@@ -48,12 +48,19 @@ class _ScannerPageState extends State<ScannerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         leading: IconButton(
-          icon: Icon(Icons.chevron_left,
-              size: 28, color: Theme.of(context).primaryColor),
+        leading: IconButton(
+          icon: Icon(
+            Icons.chevron_left,
+            size: 28,
+            color: Theme.of(context).primaryColor,
+          ),
           onPressed: () => context.pop(),
         ),
-        title: const Text('Scan Barcode',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18))),
+        title: const Text(
+          'Scan Barcode',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+      ),
       body: Stack(
         children: [
           MobileScanner(
@@ -81,17 +88,11 @@ class _ScannerPageState extends State<ScannerPage> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _corner(0),
-                          _corner(1),
-                        ],
+                        children: [_corner(0), _corner(1)],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _corner(3),
-                          _corner(2),
-                        ],
+                        children: [_corner(3), _corner(2)],
                       ),
                     ],
                   ),

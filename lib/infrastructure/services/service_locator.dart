@@ -26,17 +26,10 @@ Future<void> init() async {
   );
 
   sl.registerFactory(
-    () => ShopBloc(
-      getShopUseCase: sl(),
-      updateShopUseCase: sl(),
-    ),
+    () => ShopBloc(getShopUseCase: sl(), updateShopUseCase: sl()),
   );
 
-  sl.registerFactory(
-    () => PrinterBloc(
-      repository: sl(),
-    ),
-  );
+  sl.registerFactory(() => PrinterBloc(repository: sl()));
 
   // Use cases
   sl.registerLazySingleton(() => GetProductsUseCase(sl()));
@@ -46,9 +39,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetProductByBarcodeUseCase(sl()));
 
   // Repository
-  sl.registerLazySingleton<ProductRepository>(
-    () => ProductRepositoryImpl(),
-  );
+  sl.registerLazySingleton<ProductRepository>(() => ProductRepositoryImpl());
 
   // Features - Shop
   // Use cases
@@ -56,12 +47,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => UpdateShopUseCase(sl()));
 
   // Repository
-  sl.registerLazySingleton<ShopRepository>(
-    () => ShopRepositoryImpl(),
-  );
+  sl.registerLazySingleton<ShopRepository>(() => ShopRepositoryImpl());
 
   // Features - Settings / Printer
-  sl.registerLazySingleton<PrinterRepository>(
-    () => PrinterRepositoryImpl(),
-  );
+  sl.registerLazySingleton<PrinterRepository>(() => PrinterRepositoryImpl());
 }
