@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../../domain/entities/cart_item.dart';
-import 'package:billing_app/features/product/domain/entities/product.dart';
-import 'package:billing_app/features/product/domain/usecases/product_usecases.dart';
-import '../../../../core/utils/printer_helper.dart';
-import '../../../../core/data/hive_database.dart';
+import 'package:billing_app/infrastructure/models/data/cart_item.dart';
+import 'package:billing_app/infrastructure/models/data/product.dart';
+import 'package:billing_app/infrastructure/models/usecases/product_usecases.dart';
+import '../../../infrastructure/services/printer_helper.dart';
+import '../../../infrastructure/services/hive_database.dart';
 
 part 'billing_event.dart';
 part 'billing_state.dart';

@@ -1,11 +1,11 @@
-import 'package:billing_app/core/widgets/primary_button.dart';
+import 'package:billing_app/presentation/components/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 
-import '../../../shop/presentation/bloc/shop_bloc.dart';
-import '../bloc/billing_bloc.dart';
+import 'package:billing_app/application/shop/shop_bloc.dart';
+import 'package:billing_app/application/billing/billing_bloc.dart';
 
 class CheckoutPage extends StatefulWidget {
   const CheckoutPage({super.key});

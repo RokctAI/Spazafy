@@ -1,6 +1,6 @@
 import 'package:fpdart/fpdart.dart';
-import '../../../../core/error/failure.dart';
-import '../../domain/entities/shop.dart';
+import '../../../presentation/components/error/failure.dart';
+import 'package:billing_app/infrastructure/models/data/shop.dart';
 
 abstract class ShopRepository {
   Future<Either<Failure, Shop>> getShop();

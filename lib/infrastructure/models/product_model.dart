@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import '../../domain/entities/product.dart';
+import 'package:billing_app/infrastructure/models/data/product.dart';
 
 part 'product_model.g.dart'; // Hive generator
 
