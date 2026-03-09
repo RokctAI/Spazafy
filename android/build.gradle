@@ -20,13 +20,9 @@ subprojects {
 // Force all plugins to use a minimum compileSdk to avoid resource linking errors
 // (e.g. flutter_vibrate missing android:attr/lStar introduced in API 31)
 subprojects {
-    afterEvaluate { project ->
-        if (project.hasProperty("android")) {
-            project.android {
-                if (compileSdkVersion < 34) {
-                    compileSdkVersion 34
-                }
-            }
+    plugins.withId("com.android.library") {
+        android {
+            compileSdkVersion 34
         }
     }
 }
