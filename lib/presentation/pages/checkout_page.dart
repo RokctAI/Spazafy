@@ -20,41 +20,49 @@ class _CheckoutPageState extends State<CheckoutPage> {
     const borderColor = Color(0xFFE5E5EA);
 
     return PopScope(
-        canPop: false,
-        onPopInvokedWithResult: (bool didPop, dynamic result) {
-          if (didPop) return;
-          context.read<BillingBloc>().add(ClearCartEvent());
-          context.go('/');
-        },
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Checkout',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
-            centerTitle: true,
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            leading: IconButton(
-              icon: Icon(Icons.chevron_left,
-                  size: 28, color: Theme.of(context).primaryColor),
-              onPressed: () {
-                context.read<BillingBloc>().add(ClearCartEvent());
-                context.go('/');
-              },
-            ),
+      canPop: false,
+      onPopInvokedWithResult: (bool didPop, dynamic result) {
+        if (didPop) return;
+        context.read<BillingBloc>().add(ClearCartEvent());
+        context.go('/');
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Checkout',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
-          body: BlocConsumer<BillingBloc, BillingState>(
-            listener: (context, state) {
-              if (state.printSuccess) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('Printed successfully'),
-                    backgroundColor: Colors.green));
-                // context.read<BillingBloc>().add(ClearCartEvent());
-                // context.go('/');
-              }
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: Icon(
+              Icons.chevron_left,
+              size: 28,
+              color: Theme.of(context).primaryColor,
+            ),
+            onPressed: () {
+              context.read<BillingBloc>().add(ClearCartEvent());
+              context.go('/');
             },
-            builder: (context, billingState) {
-              return BlocBuilder<ShopBloc, ShopState>(
-                  builder: (context, shopState) {
+          ),
+        ),
+        body: BlocConsumer<BillingBloc, BillingState>(
+          listener: (context, state) {
+            if (state.printSuccess) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Printed successfully'),
+                  backgroundColor: Colors.green,
+                ),
+              );
+              // context.read<BillingBloc>().add(ClearCartEvent());
+              // context.go('/');
+            }
+          },
+          builder: (context, billingState) {
+            return BlocBuilder<ShopBloc, ShopState>(
+              builder: (context, shopState) {
                 String upiId = '';
                 String shopName = 'Shop';
 
@@ -68,7 +76,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     Expanded(
                       child: SingleChildScrollView(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 16),
+                          horizontal: 16,
+                          vertical: 16,
+                        ),
                         child: Column(
                           children: [
                             // Table
@@ -82,15 +92,16 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                     color: Colors.black.withValues(alpha: 0.05),
                                     blurRadius: 12,
                                     offset: const Offset(0, 4),
-                                  )
+                                  ),
                                 ],
                               ),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(12),
                                 child: Table(
                                   border: const TableBorder(
-                                    horizontalInside:
-                                        BorderSide(color: borderColor),
+                                    horizontalInside: BorderSide(
+                                      color: borderColor,
+                                    ),
                                     bottom: BorderSide(color: borderColor),
                                   ),
                                   children: [
@@ -99,16 +110,24 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                       decoration: const BoxDecoration(
                                         color: Color(0xFFF8FAFC),
                                         border: Border(
-                                            bottom:
-                                                BorderSide(color: borderColor)),
+                                          bottom: BorderSide(
+                                            color: borderColor,
+                                          ),
+                                        ),
                                       ),
                                       children: [
                                         _buildHeaderCell(
-                                            'Product Name', TextAlign.left),
+                                          'Product Name',
+                                          TextAlign.left,
+                                        ),
                                         _buildHeaderCell(
-                                            'Price', TextAlign.right),
+                                          'Price',
+                                          TextAlign.right,
+                                        ),
                                         _buildHeaderCell(
-                                            'Total', TextAlign.right),
+                                          'Total',
+                                          TextAlign.right,
+                                        ),
                                       ],
                                     ),
                                     // Items rows
@@ -120,13 +139,15 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                             TextAlign.left,
                                           ),
                                           _buildDataCell(
-                                              '₹${item.product.price.toStringAsFixed(2)}',
-                                              TextAlign.right,
-                                              isSubtitle: true),
+                                            '₹${item.product.price.toStringAsFixed(2)}',
+                                            TextAlign.right,
+                                            isSubtitle: true,
+                                          ),
                                           _buildDataCell(
-                                              '₹${item.total.toStringAsFixed(2)}',
-                                              TextAlign.right,
-                                              isBold: true),
+                                            '₹${item.total.toStringAsFixed(2)}',
+                                            TextAlign.right,
+                                            isBold: true,
+                                          ),
                                         ],
                                       );
                                     }),
@@ -137,7 +158,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             const SizedBox(height: 24),
 
                             const SizedBox(
-                                height: 120), // padding for bottom fixed bar
+                              height: 120,
+                            ), // padding for bottom fixed bar
                           ],
                         ),
                       ),
@@ -148,8 +170,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       decoration: BoxDecoration(
                         color: Colors.white.withValues(alpha: 0.9),
                         borderRadius: const BorderRadius.horizontal(
-                            left: Radius.circular(24),
-                            right: Radius.circular(24)),
+                          left: Radius.circular(24),
+                          right: Radius.circular(24),
+                        ),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withValues(alpha: 0.05),
@@ -162,14 +185,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                            ),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Column(
                               children: [
-                                const SizedBox(
-                                  height: 8,
-                                ),
+                                const SizedBox(height: 8),
                                 upiId.isNotEmpty
                                     ? Column(
                                         children: [
@@ -226,18 +245,21 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             onPressed: () {
                               if (shopState is ShopLoaded) {
                                 context.read<BillingBloc>().add(
-                                    PrintReceiptEvent(
-                                        shopName: shopState.shop.name,
-                                        address1: shopState.shop.addressLine1,
-                                        address2: shopState.shop.addressLine2,
-                                        phone: shopState.shop.phoneNumber,
-                                        footer: shopState.shop.footerText));
+                                  PrintReceiptEvent(
+                                    shopName: shopState.shop.name,
+                                    address1: shopState.shop.addressLine1,
+                                    address2: shopState.shop.addressLine2,
+                                    phone: shopState.shop.phoneNumber,
+                                    footer: shopState.shop.footerText,
+                                  ),
+                                );
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content:
-                                            Text('Shop details not loaded'),
-                                        backgroundColor: Colors.red));
+                                  const SnackBar(
+                                    content: Text('Shop details not loaded'),
+                                    backgroundColor: Colors.red,
+                                  ),
+                                );
                               }
                             },
                             label: 'Print Receipt',
@@ -249,10 +271,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     ),
                   ],
                 );
-              });
-            },
-          ),
-        ));
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 
   Widget _buildHeaderCell(String text, TextAlign align) {
@@ -271,8 +295,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
     );
   }
 
-  Widget _buildDataCell(String text, TextAlign align,
-      {bool isBold = false, bool isSubtitle = false}) {
+  Widget _buildDataCell(
+    String text,
+    TextAlign align, {
+    bool isBold = false,
+    bool isSubtitle = false,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       child: Text(

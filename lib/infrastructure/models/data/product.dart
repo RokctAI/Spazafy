@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class Product extends Equatable {
   final String
-      id; // Using barcode as ID usually, but keeping separate ID is safer
+  id; // Using barcode as ID usually, but keeping separate ID is safer
   final String name;
   final String barcode;
   final double price;
