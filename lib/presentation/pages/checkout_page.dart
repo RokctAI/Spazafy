@@ -207,7 +207,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                             height: 180,
                                             child: PrettyQrView.data(
                                               data:
-                                                  'upi://pay?pa=$upiId&pn=$shopName&am=${billingState.totalAmount.toStringAsFixed(2)}&cu=INR',
+                                                  'upi://pay?pa=${Uri.encodeComponent(upiId)}&pn=${Uri.encodeComponent(shopName)}&am=${billingState.totalAmount.toStringAsFixed(2)}&cu=INR',
                                             ),
                                           ),
                                         ],
