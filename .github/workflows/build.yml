@@ -105,6 +105,6 @@ jobs:
       flutter-version: ${{ inputs.flutter-version || '3.38.5' }}
       java-version: ${{ inputs.java-version || '17' }}
       version_format: ${{ inputs.version_format || '##.##.##' }}
-      app-type: 'customer'
+      app-type: 'manager'
     secrets: inherit
 
