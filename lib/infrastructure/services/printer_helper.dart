@@ -143,8 +143,9 @@ class PrinterHelper {
     bytes.addAll(EscPos.lineFeed);
 
     // Date and Time
-    final String formattedDate =
-        DateFormat('dd-MM-yyyy hh:mm a').format(DateTime.now());
+    final String formattedDate = DateFormat(
+      'dd-MM-yyyy hh:mm a',
+    ).format(DateTime.now());
     bytes.addAll(formattedDate.codeUnits);
     bytes.addAll(EscPos.lineFeed);
 
@@ -166,8 +167,9 @@ class PrinterHelper {
       final String totalItem = item['total'].toString();
 
       final String prefix = '${qty}x $name';
-      final String truncatedPrefix =
-          prefix.length > 16 ? prefix.substring(0, 16) : prefix;
+      final String truncatedPrefix = prefix.length > 16
+          ? prefix.substring(0, 16)
+          : prefix;
 
       final String line =
           truncatedPrefix.padRight(16) + price.padRight(8) + totalItem;
