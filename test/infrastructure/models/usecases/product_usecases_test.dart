@@ -15,7 +15,8 @@ void main() {
   provideDummy<Either<Failure, List<Product>>>(const Right([]));
   // provideDummy for void is tricky, try Right<Failure, void>(null)
   provideDummy<Either<Failure, void>>(Right<Failure, void>(null));
-  provideDummy<Either<Failure, Product>>(const Right(Product(id: 'dummy', name: 'dummy', barcode: 'dummy', price: 0.0)));
+  provideDummy<Either<Failure, Product>>(const Right(
+      Product(id: 'dummy', name: 'dummy', barcode: 'dummy', price: 0.0)));
 
   late MockProductRepository mockRepository;
 
@@ -31,8 +32,10 @@ void main() {
     });
 
     final tProductList = [
-      const Product(id: '1', name: 'Test Product 1', barcode: '123456', price: 10.0),
-      const Product(id: '2', name: 'Test Product 2', barcode: '654321', price: 20.0),
+      const Product(
+          id: '1', name: 'Test Product 1', barcode: '123456', price: 10.0),
+      const Product(
+          id: '2', name: 'Test Product 2', barcode: '654321', price: 20.0),
     ];
 
     test('should get list of products from the repository', () async {
@@ -68,7 +71,8 @@ void main() {
       useCase = AddProductUseCase(mockRepository);
     });
 
-    final tProduct = const Product(id: '1', name: 'Test Product', barcode: '123456', price: 10.0);
+    final tProduct = const Product(
+        id: '1', name: 'Test Product', barcode: '123456', price: 10.0);
 
     test('should add product to the repository', () async {
       // arrange
@@ -103,7 +107,8 @@ void main() {
       useCase = UpdateProductUseCase(mockRepository);
     });
 
-    final tProduct = const Product(id: '1', name: 'Test Product Updated', barcode: '123456', price: 15.0);
+    final tProduct = const Product(
+        id: '1', name: 'Test Product Updated', barcode: '123456', price: 15.0);
 
     test('should update product in the repository', () async {
       // arrange
@@ -117,7 +122,8 @@ void main() {
       verifyNoMoreInteractions(mockRepository);
     });
 
-    test('should return failure when updating product in repository fails', () async {
+    test('should return failure when updating product in repository fails',
+        () async {
       // arrange
       const failure = CacheFailure('Failed to update product');
       when(mockRepository.updateProduct(any))
@@ -152,7 +158,8 @@ void main() {
       verifyNoMoreInteractions(mockRepository);
     });
 
-    test('should return failure when deleting product from repository fails', () async {
+    test('should return failure when deleting product from repository fails',
+        () async {
       // arrange
       const failure = CacheFailure('Failed to delete product');
       when(mockRepository.deleteProduct(any))
@@ -174,7 +181,8 @@ void main() {
     });
 
     const tBarcode = '123456';
-    final tProduct = const Product(id: '1', name: 'Test Product', barcode: '123456', price: 10.0);
+    final tProduct = const Product(
+        id: '1', name: 'Test Product', barcode: '123456', price: 10.0);
 
     test('should get product by barcode from the repository', () async {
       // arrange
@@ -188,7 +196,8 @@ void main() {
       verifyNoMoreInteractions(mockRepository);
     });
 
-    test('should return failure when getting product by barcode fails', () async {
+    test('should return failure when getting product by barcode fails',
+        () async {
       // arrange
       const failure = CacheFailure('Product not found');
       when(mockRepository.getProductByBarcode(any))
