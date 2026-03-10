@@ -7,6 +7,7 @@ import 'package:billing_app/infrastructure/models/data/product.dart';
 import 'package:billing_app/infrastructure/models/product_model.dart';
 
 class MockBox extends Mock implements Box<ProductModel> {}
+
 class FakeProductModel extends Fake implements ProductModel {}
 
 void main() {
@@ -44,7 +45,8 @@ void main() {
       verify(() => mockBox.values).called(1);
     });
 
-    test('getProductByBarcode returns CacheFailure on database error', () async {
+    test('getProductByBarcode returns CacheFailure on database error',
+        () async {
       when(() => mockBox.values).thenThrow(Exception('Database error'));
 
       final result = await repository.getProductByBarcode('123456789');
@@ -58,7 +60,8 @@ void main() {
     });
 
     test('addProduct returns CacheFailure on database error', () async {
-      when(() => mockBox.put(any(), any())).thenThrow(Exception('Database error'));
+      when(() => mockBox.put(any(), any()))
+          .thenThrow(Exception('Database error'));
 
       final result = await repository.addProduct(testProduct);
 
@@ -71,7 +74,8 @@ void main() {
     });
 
     test('updateProduct returns CacheFailure on database error', () async {
-      when(() => mockBox.put(any(), any())).thenThrow(Exception('Database error'));
+      when(() => mockBox.put(any(), any()))
+          .thenThrow(Exception('Database error'));
 
       final result = await repository.updateProduct(testProduct);
 

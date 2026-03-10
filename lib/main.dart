@@ -9,6 +9,7 @@ import 'package:billing_app/application/product/product_bloc.dart';
 import 'package:billing_app/application/shop/shop_bloc.dart';
 import 'package:billing_app/application/settings/printer_bloc.dart';
 import 'package:billing_app/application/settings/printer_event.dart';
+import 'package:billing_app/presentation/pages/app_lock_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,6 +43,11 @@ class MyApp extends StatelessWidget {
         theme: AppTheme.lightTheme,
         routerConfig: router,
         debugShowCheckedModeBanner: false,
+        builder: (context, child) {
+          return AppLockPage(
+            child: child ?? const SizedBox(),
+          );
+        },
       ),
     );
   }
