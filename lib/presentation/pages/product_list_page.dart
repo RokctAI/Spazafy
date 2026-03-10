@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:billing_app/application/product/product_bloc.dart';
 import 'package:billing_app/infrastructure/models/data/product.dart';
 import 'package:billing_app/presentation/theme/app_theme.dart';
-import '../../../infrastructure/services/app_validators.dart';
+import 'package:billing_app/infrastructure/services/app_validators.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage({super.key});

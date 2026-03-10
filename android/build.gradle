@@ -17,6 +17,16 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
+// Force all plugins to use a minimum compileSdk to avoid resource linking errors
+// (e.g. flutter_vibrate missing android:attr/lStar introduced in API 31)
+subprojects {
+    plugins.withId("com.android.library") {
+        android {
+            compileSdkVersion 34
+        }
+    }
+}
+
 tasks.register("clean", Delete) {
     delete rootProject.layout.buildDirectory
 }

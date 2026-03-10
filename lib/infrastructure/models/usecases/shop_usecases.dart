@@ -1,5 +1,5 @@
 import 'package:fpdart/fpdart.dart';
-import '../../../presentation/components/error/failure.dart';
+import 'package:billing_app/presentation/components/error/failure.dart';
 import 'package:billing_app/presentation/components/usecase/usecase.dart';
 import 'package:billing_app/infrastructure/models/data/shop.dart';
 import 'package:billing_app/infrastructure/repository/shop_repository.dart';
