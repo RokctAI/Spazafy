@@ -30,7 +30,7 @@ class NotificationResponse {
 }
 
 class NotificationModel {
-  int? id;
+  String? id;
   String? type;
   String? title;
   String? body;
@@ -59,7 +59,7 @@ class NotificationModel {
   });
 
   NotificationModel copyWith({
-    int? id,
+    String? id,
     String? type,
     String? title,
     String? body,
@@ -89,12 +89,12 @@ class NotificationModel {
 
   factory NotificationModel.fromJson(Map<String, dynamic> json) =>
       NotificationModel(
-        id: json["id"],
+        id: json["id"]?.toString(),
         type: json["type"],
         title: json["title"],
         body: json["body"],
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
-        userId: json["user_id"],
+        userId: json["user_id"]?.toString(),
         createdAt: json["created_at"] == null
             ? null
             : DateTime.tryParse(json["created_at"])?.toLocal(),
@@ -124,7 +124,7 @@ class NotificationModel {
 }
 
 class Client {
-  int? id;
+  String? id;
   String? firstname;
   String? lastname;
   bool? emptyP;
@@ -143,7 +143,7 @@ class Client {
   });
 
   Client copyWith({
-    int? id,
+    String? id,
     String? firstname,
     String? lastname,
     bool? emptyP,
@@ -162,7 +162,7 @@ class Client {
       );
 
   factory Client.fromJson(Map<String, dynamic> json) => Client(
-        id: json["id"],
+        id: json["id"]?.toString(),
         firstname: json["firstname"],
         lastname: json["lastname"],
         emptyP: json["empty_p"],
@@ -183,7 +183,7 @@ class Client {
 }
 
 class Data {
-  int? id;
+  String? id;
   String? type;
   String? status;
 
@@ -194,7 +194,7 @@ class Data {
   });
 
   Data copyWith({
-    int? id,
+    String? id,
     String? type,
     String? status,
   }) =>
@@ -205,7 +205,7 @@ class Data {
       );
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        id: json["id"],
+        id: json["id"]?.toString(),
         type: json["type"],
         status: json["status"],
       );
@@ -216,3 +216,4 @@ class Data {
         "status": status,
       };
 }
+

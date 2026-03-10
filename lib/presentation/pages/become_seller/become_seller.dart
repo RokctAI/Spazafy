@@ -135,7 +135,7 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
 
   Widget _buildShopForm(
     ProfileState state, {
-    required int categoryId,
+    required String? categoryId,
     bool isRetry = false,
   }) {
     return Form(
@@ -263,7 +263,7 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
     );
   }
 
-  void _handleSave(ProfileState state, int categoryId) {
+  void _handleSave(ProfileState state, String? categoryId) {
     if (!(form.currentState?.validate() ?? false)) {
       return;
     }

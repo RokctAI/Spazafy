@@ -52,7 +52,7 @@ class WalletHistoriesResponse {
 
 class WalletData {
   WalletData({
-    int? id,
+    String? id,
     String? uuid,
     String? walletUuid,
     String? transactionId,
@@ -80,10 +80,10 @@ class WalletData {
   }
 
   WalletData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _uuid = json['uuid'];
     _walletUuid = json['wallet_uuid'];
-    _transactionId = json['transaction_id'];
+    _transactionId = json['transaction_id']?.toString();
     _type = json['type'];
     _price = json['price'];
     _note = json['note'];
@@ -94,7 +94,7 @@ class WalletData {
     _user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
   String? _walletUuid;
   String? _transactionId;
@@ -108,7 +108,7 @@ class WalletData {
   UserModel? _user;
 
   WalletData copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? walletUuid,
     String? transactionId,
@@ -136,13 +136,13 @@ class WalletData {
         user: user ?? _user,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get uuid => _uuid;
 
   String? get walletUuid => _walletUuid;
 
-  int? get transactionId => _transactionId;
+  String? get transactionId => _transactionId;
 
   String? get type => _type;
 
@@ -181,3 +181,4 @@ class WalletData {
     return map;
   }
 }
+

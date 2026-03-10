@@ -52,7 +52,7 @@ class CloseDayData {
 }
 
 class BookingShopClosedDate {
-  int? id;
+  String? id;
   DateTime? day;
 
   BookingShopClosedDate({
@@ -61,7 +61,7 @@ class BookingShopClosedDate {
   });
 
   BookingShopClosedDate copyWith({
-    int? id,
+    String? id,
     DateTime? day,
   }) =>
       BookingShopClosedDate(
@@ -71,7 +71,7 @@ class BookingShopClosedDate {
 
   factory BookingShopClosedDate.fromJson(Map<String, dynamic> json) =>
       BookingShopClosedDate(
-        id: json["id"],
+        id: json["id"]?.toString(),
         day: json["day"] == null ? null : DateTime.tryParse(json["day"])?.toLocal(),
       );
 
@@ -81,4 +81,5 @@ class BookingShopClosedDate {
             "${day!.year.toString().padLeft(4, '0')}-${day!.month.toString().padLeft(2, '0')}-${day!.day.toString().padLeft(2, '0')}",
       };
 }
+
 

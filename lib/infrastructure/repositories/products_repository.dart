@@ -107,7 +107,7 @@ class ProductsRepository implements ProductsInterface {
 
   @override
   Future<ApiResult<CreateGroupExtrasResponse>> createExtrasItem({
-    required int groupId,
+    required String? groupId,
     required String title,
   }) async {
     final data = {'value': title, 'extra_group_id': groupId};

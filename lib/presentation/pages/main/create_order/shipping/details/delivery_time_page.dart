@@ -366,7 +366,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                               entrance: addressState.entrance,
                               floor: addressState.floor,
                               house: addressState.house,
-                              orderSuccess: (int orderId) {
+                              orderSuccess: (String? orderId) {
                                 context.router.popUntilRoot();
                                 ref.read(orderCartProvider.notifier).clearAll();
                                 ref

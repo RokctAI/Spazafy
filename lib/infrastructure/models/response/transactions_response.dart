@@ -58,7 +58,7 @@ class TransactionsResponse {
 
 class TransactionData {
   TransactionData({
-    int? id,
+    String? id,
     String? userId,
     num? price,
     num? currencyPrice,
@@ -78,8 +78,8 @@ class TransactionData {
   }
 
   TransactionData.fromJson(dynamic json) {
-    _id = json['id'];
-    _userId = json['user_id'];
+    _id = json['id']?.toString();
+    _userId = json['user_id']?.toString();
     _price = json['price'];
     _currencyPrice = json['currency_price'];
     _rate = json['rate'];
@@ -93,7 +93,7 @@ class TransactionData {
     }
   }
 
-  int? _id;
+  String? _id;
   String? _userId;
   num? _price;
   num? _currencyPrice;
@@ -103,7 +103,7 @@ class TransactionData {
   List<TransactionDetails>? _details;
 
   TransactionData copyWith({
-    int? id,
+    String? id,
     String? userId,
     num? price,
     num? currencyPrice,
@@ -123,9 +123,9 @@ class TransactionData {
         details: details ?? _details,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get userId => _userId;
+  String? get userId => _userId;
 
   num? get price => _price;
 
@@ -157,7 +157,7 @@ class TransactionData {
 
 class TransactionDetails {
   TransactionDetails({
-    int? id,
+    String? id,
     String? shopId,
     num? deliveryFee,
     num? price,
@@ -181,8 +181,8 @@ class TransactionDetails {
   }
 
   TransactionDetails.fromJson(dynamic json) {
-    _id = json['id'];
-    _shopId = json['shop_id'];
+    _id = json['id']?.toString();
+    _shopId = json['shop_id']?.toString();
     _deliveryFee = json['delivery_fee'];
     _price = json['price'];
     _tax = json['tax'];
@@ -193,7 +193,7 @@ class TransactionDetails {
     _updatedAt = json['updated_at'];
   }
 
-  int? _id;
+  String? _id;
   String? _shopId;
   num? _deliveryFee;
   num? _price;
@@ -205,7 +205,7 @@ class TransactionDetails {
   String? _updatedAt;
 
   TransactionDetails copyWith({
-    int? id,
+    String? id,
     String? shopId,
     num? deliveryFee,
     num? price,
@@ -229,9 +229,9 @@ class TransactionDetails {
         updatedAt: updatedAt ?? _updatedAt,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   num? get deliveryFee => _deliveryFee;
 
@@ -264,3 +264,4 @@ class TransactionDetails {
     return map;
   }
 }
+

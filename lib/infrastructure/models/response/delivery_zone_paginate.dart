@@ -32,7 +32,7 @@ class DeliveryZonePaginate {
 
 class DeliveryZoneData {
   DeliveryZoneData({
-    int? id,
+    String? id,
     List<List<double>>? address,
     ShopData? shop,
   }) {
@@ -54,17 +54,17 @@ class DeliveryZoneData {
         parsedAddresses.add(items);
       }
     }
-    _id = json['id'];
+    _id = json['id']?.toString();
     _address = parsedAddresses;
     _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
   }
 
-  int? _id;
+  String? _id;
   List<List<double>>? _address;
   ShopData? _shop;
 
   DeliveryZoneData copyWith({
-    int? id,
+    String? id,
     List<List<double>>? address,
     ShopData? shop,
   }) =>
@@ -74,7 +74,7 @@ class DeliveryZoneData {
         shop: shop ?? _shop,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   List<List<double>>? get address => _address;
 
@@ -90,3 +90,4 @@ class DeliveryZoneData {
     return map;
   }
 }
+

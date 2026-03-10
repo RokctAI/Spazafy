@@ -47,7 +47,7 @@ class OrderStatusData {
 
   OrderStatusData.fromJson(dynamic json) {
     _id = json['id']?.toString();
-    _shopId = json['shop_id']?.toString();
+    _shopId = json['shop_id']?.toString()?.toString();
     _deliveryFee = json['delivery_fee'];
     _price = json['price'];
     _tax = json['tax'];
@@ -88,7 +88,7 @@ class OrderStatusData {
 
   String? get id => _id;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   num? get deliveryFee => _deliveryFee;
 

@@ -50,7 +50,7 @@ class StatisticsOrderResponse {
 }
 
 class StatisticsOrder {
-  int? id;
+  String? id;
   String? status;
   String? firstname;
   String? lastname;
@@ -71,7 +71,7 @@ class StatisticsOrder {
   });
 
   StatisticsOrder copyWith({
-    int? id,
+    String? id,
     String? status,
     String? firstname,
     String? lastname,
@@ -92,7 +92,7 @@ class StatisticsOrder {
       );
 
   factory StatisticsOrder.fromJson(Map<String, dynamic> json) => StatisticsOrder(
-    id: json["id"],
+    id: json["id"]?.toString(),
     status: json["status"],
     firstname: json["firstname"],
     lastname: json["lastname"],
@@ -113,3 +113,4 @@ class StatisticsOrder {
     "products": products == null ? [] : List<dynamic>.from(products!.map((x) => x)),
   };
 }
+
