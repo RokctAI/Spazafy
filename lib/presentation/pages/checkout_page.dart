@@ -207,7 +207,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                             height: 180,
                                             child: PrettyQrView.data(
                                               data:
-                                                  'upi://pay?pa=$upiId&pn=$shopName&am=${billingState.totalAmount.toStringAsFixed(2)}&cu=INR',
+                                                  'upi://pay?pa=${Uri.encodeComponent(upiId)}&pn=${Uri.encodeComponent(shopName)}&am=${billingState.totalAmount.toStringAsFixed(2)}&cu=INR',
                                             ),
                                           ),
                                         ],
@@ -245,21 +245,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             onPressed: () {
                               if (shopState is ShopLoaded) {
                                 context.read<BillingBloc>().add(
-                                  PrintReceiptEvent(
-                                    shopName: shopState.shop.name,
-                                    address1: shopState.shop.addressLine1,
-                                    address2: shopState.shop.addressLine2,
-                                    phone: shopState.shop.phoneNumber,
-                                    footer: shopState.shop.footerText,
-                                  ),
-                                );
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('Shop details not loaded'),
-                                    backgroundColor: Colors.red,
-                                  ),
-                                );
+                                      PrintReceiptEvent(
+                                        shopName: shopState.shop.name,
+                                        address1: shopState.shop.addressLine1,
+                                        address2: shopState.shop.addressLine2,
+                                        phone: shopState.shop.phoneNumber,
+                                        footer: shopState.shop.footerText,
+                                      ),
+                                    );
                               }
                             },
                             label: 'Print Receipt',

@@ -12,7 +12,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
   final UpdateShopUseCase updateShopUseCase;
 
   ShopBloc({required this.getShopUseCase, required this.updateShopUseCase})
-    : super(ShopInitial()) {
+      : super(ShopInitial()) {
     on<LoadShopEvent>(_onLoadShop);
     on<UpdateShopEvent>(_onUpdateShop);
   }

@@ -208,8 +208,8 @@ class _SettingsPageState extends State<SettingsPage> {
                             IconButton(
                               icon: const Icon(Icons.refresh),
                               onPressed: () => context.read<PrinterBloc>().add(
-                                RefreshPrinterEvent(),
-                              ),
+                                    RefreshPrinterEvent(),
+                                  ),
                               color: AppTheme.primaryColor,
                             ),
                           IconButton(
