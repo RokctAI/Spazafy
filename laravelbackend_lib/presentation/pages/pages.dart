@@ -20,3 +20,5 @@ export 'main/create_order/shipping/select_section/select_section_page.dart';
 export 'main/create_order/shipping/select_table/select_table_page.dart';
 export 'restaurant/subscriptions/subscriptions_page.dart';
 export 'package:venderfoodyman/presentation/component/web_view_page.dart';
+export 'main/billing_home_page.dart';
+export 'main/billing_checkout_page.dart';

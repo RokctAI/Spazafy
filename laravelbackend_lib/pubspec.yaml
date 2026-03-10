@@ -47,6 +47,7 @@ dependencies:
   webview_flutter: ^4.13.0
   ftoast: ^2.0.0
   collection: ^1.19.1
+  permission_handler: ^11.3.1
   # Database
   hive: ^2.2.3
   hive_flutter: ^1.1.0

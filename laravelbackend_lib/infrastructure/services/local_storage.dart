@@ -294,4 +294,32 @@ class LocalStorage {
     _deleteWallet();
     _deleteShop();
   }
+
+  static Future<void> setPrinterMac(String? mac) async {
+    if (_preferences != null) {
+      await _preferences!.setString(StorageKeys.keyPrinterMac, mac ?? '');
+    }
+  }
+
+  static String? getPrinterMac() => _preferences?.getString(StorageKeys.keyPrinterMac);
+
+  static Future<void> removePrinterMac() async {
+    if (_preferences != null) {
+      await _preferences!.remove(StorageKeys.keyPrinterMac);
+    }
+  }
+
+  static Future<void> setPrinterName(String? name) async {
+    if (_preferences != null) {
+      await _preferences!.setString(StorageKeys.keyPrinterName, name ?? '');
+    }
+  }
+
+  static String? getPrinterName() => _preferences?.getString(StorageKeys.keyPrinterName);
+
+  static Future<void> removePrinterName() async {
+    if (_preferences != null) {
+      await _preferences!.remove(StorageKeys.keyPrinterName);
+    }
+  }
 }

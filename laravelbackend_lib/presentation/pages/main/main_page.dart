@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:proste_indexed_stack/proste_indexed_stack.dart';
 
 import 'foods/foods_page.dart';
+import 'billing_home_page.dart';
 import 'package:venderfoodyman/presentation/styles/style.dart';
 import 'orders/orders_home_page.dart';
 import '../../component/components.dart';
@@ -33,7 +34,8 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List<IndexedStackChild> list = [
-    IndexedStackChild(child: const OrdersHomePage(), preload: true),
+    IndexedStackChild(child: const BillingHomePage(), preload: true),
+    IndexedStackChild(child: const OrdersHomePage(), preload: false),
     IndexedStackChild(child: const FoodsPage(), preload: false),
     IndexedStackChild(child: const RestaurantPage(), preload: false),
   ];
@@ -139,19 +141,27 @@ class _MainPageState extends State<MainPage> {
                               selectItem: () => event.selectIndex(0),
                               currentIndex: state.selectedIndex,
                               index: 0,
+                              selectIcon: FlutterRemix.money_dollar_circle_fill,
+                              unSelectIcon: FlutterRemix.money_dollar_circle_line,
+                            ),
+                            BottomNavigatorItem(
+                              isScrolling: state.isScrolling,
+                              selectItem: () => event.selectIndex(1),
+                              currentIndex: state.selectedIndex,
+                              index: 1,
                               selectIcon: FlutterRemix.file_list_2_fill,
                               unSelectIcon: FlutterRemix.file_list_2_line,
                             ),
                             BottomNavigatorItem(
                               isScrolling: state.isScrolling,
-                              selectItem: () => event.selectIndex(1),
-                              index: 1,
+                              selectItem: () => event.selectIndex(2),
+                              index: 2,
                               currentIndex: state.selectedIndex,
                               selectIcon: FlutterRemix.restaurant_fill,
                               unSelectIcon: FlutterRemix.restaurant_line,
                             ),
                             _profileItem(() {
-                              event.selectIndex(2);
+                              event.selectIndex(3);
                               ref
                                   .read(mainProvider.notifier)
                                   .changeScrolling(false);
@@ -161,7 +171,7 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ),
                   ),
-                  state.selectedIndex != 2
+                  (state.selectedIndex == 1 || state.selectedIndex == 2)
                       ? ButtonsBouncingEffect(
                           child: Hero(
                             tag: AppConstants.heroTagAddOrderButton,
@@ -172,7 +182,7 @@ class _MainPageState extends State<MainPage> {
                                 );
                                 return GestureDetector(
                                   onTap: () {
-                                    state.selectedIndex == 0
+                                    state.selectedIndex == 1
                                         ? context.pushRoute(
                                             const CreateOrderRoute(),
                                           )
@@ -252,7 +262,7 @@ class _MainPageState extends State<MainPage> {
         margin: EdgeInsets.only(left: 12.r),
         decoration: BoxDecoration(
           border: Border.all(
-            color: index == 2 ? AppStyle.primary : AppStyle.transparent,
+            color: index == 3 ? AppStyle.primary : AppStyle.transparent,
             width: 2.w,
           ),
           shape: BoxShape.circle,

@@ -17,4 +17,6 @@ abstract class StorageKeys {
   static const String keyShop = 'keyShop';
   static const String keySystemLanguage = 'keySystemLanguage';
   static const String keyWalletData = 'keyWalletData';
+  static const String keyPrinterMac = 'keyPrinterMac';
+  static const String keyPrinterName = 'keyPrinterName';
 }

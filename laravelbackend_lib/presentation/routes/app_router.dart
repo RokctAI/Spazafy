@@ -32,5 +32,7 @@ class AppRouter extends RootStackRouter {
     MaterialRoute(path: '/select-table', page: SelectTableRoute.page),
     MaterialRoute(path: '/webview', page: WebViewRoute.page),
     MaterialRoute(path: '/subscription', page: SubscriptionsRoute.page),
+    CupertinoRoute(path: '/billing', page: BillingHomeRoute.page),
+    CupertinoRoute(path: '/billing-checkout', page: BillingCheckoutRoute.page),
   ];
 }
