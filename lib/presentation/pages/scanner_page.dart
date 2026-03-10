@@ -30,11 +30,12 @@ class _ScannerPageState extends State<ScannerPage> {
     for (final barcode in barcodes) {
       if (barcode.rawValue != null) {
         _isScanned = true;
-        // Vibrate
-        final canVibrate = await Vibration.hasVibrator() == true;
-        if (canVibrate) {
-          Vibration.vibrate();
-        }
+        // Vibrate asynchronously so it doesn't block
+        Vibration.hasVibrator().then((canVibrate) {
+          if (canVibrate == true) {
+            Vibration.vibrate();
+          }
+        });
 
         if (mounted) {
           context.pop(barcode.rawValue);

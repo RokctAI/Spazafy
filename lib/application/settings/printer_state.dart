@@ -47,10 +47,10 @@ class PrinterState extends Equatable {
 
   @override
   List<Object?> get props => [
-    status,
-    connectedMac,
-    connectedName,
-    devices,
-    errorMessage,
-  ];
+        status,
+        connectedMac,
+        connectedName,
+        devices,
+        errorMessage,
+      ];
 }

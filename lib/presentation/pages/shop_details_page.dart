@@ -83,7 +83,8 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
         listener: (context, state) {
           if (state is ShopLoaded) {
             _updateControllers(state.shop);
-          } else if (state is ShopOperationSuccess) {
+          }
+          if (state is ShopOperationSuccess) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('Shop details saved!'),

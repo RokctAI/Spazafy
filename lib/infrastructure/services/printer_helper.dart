@@ -160,18 +160,33 @@ class PrinterHelper {
     bytes += EscPos.lineFeed;
 
     // Items
-    for (var item in items) {
-      String name = item['name'].toString();
-      String qty = item['qty'].toString();
-      String price = item['price'].toString();
-      String totalItem = item['total'].toString();
+    for (final item in items) {
+      final String name = item['name'].toString();
+      final String qty = item['qty'].toString();
+      final String price = item['price'].toString();
+      final String totalItem = item['total'].toString();
 
-      String prefix = '${qty}x $name';
-      if (prefix.length > 16) prefix = prefix.substring(0, 16);
+      final String prefix = '${qty}x $name';
+      final int prefixLen = prefix.length;
+      final int truncLen = prefixLen > 16 ? 16 : prefixLen;
 
-      String line = prefix.padRight(16) + price.padRight(8) + totalItem;
-      bytes += _textToBytes(line);
-      bytes += EscPos.lineFeed;
+      for (int i = 0; i < truncLen; i++) {
+        bytes.add(prefix.codeUnitAt(i));
+      }
+      for (int i = truncLen; i < 16; i++) {
+        bytes.add(32); // Space
+      }
+
+      final int priceLen = price.length;
+      for (int i = 0; i < priceLen; i++) {
+        bytes.add(price.codeUnitAt(i));
+      }
+      for (int i = priceLen; i < 8; i++) {
+        bytes.add(32); // Space
+      }
+
+      bytes.addAll(totalItem.codeUnits);
+      bytes.addAll(EscPos.lineFeed);
     }
 
     bytes += _textToBytes('--------------------------------');

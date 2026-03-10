@@ -13,7 +13,7 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
   final GetProductByBarcodeUseCase getProductByBarcodeUseCase;
 
   BillingBloc({required this.getProductByBarcodeUseCase})
-    : super(const BillingState()) {
+      : super(const BillingState()) {
     on<ScanBarcodeEvent>(_onScanBarcode);
     on<AddProductToCartEvent>(_onAddProductToCart);
     on<RemoveProductFromCartEvent>(_onRemoveProductFromCart);
