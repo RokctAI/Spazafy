@@ -24,9 +24,22 @@ class _HomePageState extends State<HomePage> {
 
   bool _isCameraOn = true;
   bool _isFlashOn = false;
+  bool _canVibrate = false;
 
   // Cooldown mapping to prevent rapid firing of the same barcode
   final Map<String, DateTime> _lastScanTimes = {};
+
+  @override
+  void initState() {
+    super.initState();
+    Vibration.hasVibrator().then((canVibrate) {
+      if (mounted) {
+        setState(() {
+          _canVibrate = canVibrate == true;
+        });
+      }
+    });
+  }
 
   @override
   void dispose() {
@@ -34,12 +47,9 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  void _onDetect(BarcodeCapture capture) async {
+  void _onDetect(BarcodeCapture capture) {
     final List<Barcode> barcodes = capture.barcodes;
     final now = DateTime.now();
-
-    // Vibrate check
-    final canVibrate = await Vibration.hasVibrator() == true;
 
     for (final barcode in barcodes) {
       if (barcode.rawValue != null) {
@@ -55,7 +65,8 @@ class _HomePageState extends State<HomePage> {
 
         _lastScanTimes[rawValue] = now;
 
-        if (canVibrate) {
+        // Check vibration capability synchronously based on cached state
+        if (_canVibrate) {
           Vibration.vibrate();
         }
 
