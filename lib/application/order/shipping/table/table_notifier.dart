@@ -29,7 +29,7 @@ class TableNotifier extends StateNotifier<TableState> {
 
   Future<void> _search({
     RefreshController? refreshController,
-    required int? sectionId,
+    required String? sectionId,
   }) async {
     refreshController?.resetNoData();
     _page = 0;
@@ -56,7 +56,7 @@ class TableNotifier extends StateNotifier<TableState> {
   void setQuery({
     RefreshController? refreshController,
     required String text,
-    required int? sectionId,
+    required String? sectionId,
   }) {
     if (text.trim() == _query) {
       return;
@@ -73,7 +73,7 @@ class TableNotifier extends StateNotifier<TableState> {
 
   Future<void> fetchMoreTables({
     RefreshController? refreshController,
-    required int? sectionId,
+    required String? sectionId,
   }) async {
     if (!_hasMore) {
       refreshController?.loadNoData();
@@ -101,7 +101,7 @@ class TableNotifier extends StateNotifier<TableState> {
 
   Future<void> refreshTables({
     RefreshController? refreshController,
-    required int? sectionId,
+    required String? sectionId,
   }) async {
     debugPrint('===> refresh tables function called');
     _page = 0;
@@ -127,7 +127,7 @@ class TableNotifier extends StateNotifier<TableState> {
 
   Future<void> initialFetchTables({
     RefreshController? refreshController,
-    int? sectionId,
+    String? sectionId,
   }) async {
     _query = '';
     if (state.tables.isNotEmpty) {

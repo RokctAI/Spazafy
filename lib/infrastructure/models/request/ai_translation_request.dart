@@ -3,7 +3,7 @@ import '../data/language.dart';
 
 class AiTranslationRequest {
   final AiTranslationModel model;
-  final int? modelId;
+  final String? modelId;
   final LanguageData? lang;
   final String? content;
 

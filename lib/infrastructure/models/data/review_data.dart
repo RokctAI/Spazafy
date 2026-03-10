@@ -3,8 +3,8 @@ import 'user_data.dart';
 
 class ReviewData {
   ReviewData({
-    int? id,
-    int? reviewableId,
+    String? id,
+    String? reviewableId,
     String? rating,
     String? comment,
     String? img,
@@ -23,8 +23,8 @@ class ReviewData {
   }
 
   ReviewData.fromJson(dynamic json) {
-    _id = json['id'];
-    _reviewableId = json['reviewable_id'];
+    _id = json['id']?.toString();
+    _reviewableId = json['reviewable_id']?.toString();
     _rating = json['rating'];
     _comment = json['comment'];
     _img = json['img'];
@@ -38,8 +38,8 @@ class ReviewData {
     _user = json['user'] != null ? UserData.fromJson(json['user']) : null;
   }
 
-  int? _id;
-  int? _reviewableId;
+  String? _id;
+  String? _reviewableId;
   String? _rating;
   String? _comment;
   String? _img;
@@ -48,8 +48,8 @@ class ReviewData {
   UserData? _user;
 
   ReviewData copyWith({
-    int? id,
-    int? reviewableId,
+    String? id,
+    String? reviewableId,
     String? rating,
     String? comment,
     String? img,
@@ -69,9 +69,9 @@ class ReviewData {
         user: user ?? _user,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get reviewableId => _reviewableId;
+  String? get reviewableId => _reviewableId;
 
   String? get rating => _rating;
 

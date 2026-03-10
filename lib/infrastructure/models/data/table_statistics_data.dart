@@ -44,7 +44,7 @@ class TableStatisticData {
 
 
 class AllStatisticStatusData {
-  int? tableId;
+  String? tableId;
   String? tableName;
   DateTime? tableStartDate;
   String? username;
@@ -57,7 +57,7 @@ class AllStatisticStatusData {
   });
 
   AllStatisticStatusData copyWith({
-    int? tableId,
+    String? tableId,
     String? tableName,
     DateTime? tableStartDate,
     String? username,
@@ -70,7 +70,7 @@ class AllStatisticStatusData {
       );
 
   factory AllStatisticStatusData.fromJson(Map<String, dynamic> json) => AllStatisticStatusData(
-    tableId: json["table_id"],
+    tableId: json["table_id"]?.toString(),
     tableName: json["table_name"],
     tableStartDate: DateTime.parse(json["table_start_date"]),
     username: json["username"],

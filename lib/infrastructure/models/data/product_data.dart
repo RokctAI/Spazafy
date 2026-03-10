@@ -7,11 +7,11 @@ import 'category_data.dart';
 
 class ProductData {
   ProductData({
-    int? id,
+    String? id,
     int? cartCount,
     String? uuid,
-    int? shopId,
-    int? categoryId,
+    String? shopId,
+    String? categoryId,
     num? tax,
     num? interval,
     String? barCode,
@@ -31,7 +31,7 @@ class ProductData {
     List<Galleries>? galleries,
     Stock? stock,
     KitchenModel? kitchen,
-    int? unitId,
+    String? unitId,
     List<ProductDiscounts>? discounts,
     bool? isSelectedAddon,
   }) {
@@ -65,11 +65,11 @@ class ProductData {
   }
 
   ProductData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _cartCount = 0;
     _uuid = json['uuid'];
-    _shopId = json['shop_id'];
-    _categoryId = int.tryParse(json['category_id'].toString());
+    _shopId = json['shop_id']?.toString();
+    _categoryId = json['category_id']?.toString();
     _tax = num.tryParse(json['tax'].toString());
     _interval = json['interval'];
     _barCode = json['bar_code'];
@@ -103,7 +103,7 @@ class ProductData {
         _stocks?.add(Stock.fromJson(v));
       });
     }
-    _unitId = json['unit_id'];
+    _unitId = json['unit_id']?.toString();
     if (json['discounts'] != null) {
       _discounts = [];
       json['discounts'].forEach((v) {
@@ -118,12 +118,12 @@ class ProductData {
     _isSelectedAddon = false;
   }
 
-  int? _id;
+  String? _id;
   List<Galleries>? _galleries;
   int? _cartCount;
   String? _uuid;
-  int? _shopId;
-  int? _categoryId;
+  String? _shopId;
+  String? _categoryId;
   num? _tax;
   num? _interval;
   String? _barCode;
@@ -142,17 +142,17 @@ class ProductData {
   List<Stock>? _stocks;
   Stock? _stock;
   KitchenModel? _kitchen;
-  int? _unitId;
+  String? _unitId;
   List<ProductDiscounts>? _discounts;
   bool? _isSelectedAddon;
 
   ProductData copyWith({
-    int? id,
+    String? id,
     int? cartCount,
     List<Galleries>? galleries,
     String? uuid,
-    int? shopId,
-    int? categoryId,
+    String? shopId,
+    String? categoryId,
     num? tax,
     num? interval,
     String? barCode,
@@ -170,7 +170,7 @@ class ProductData {
     List<Stock>? stocks,
     List<Translation>? translations,
     Stock? stock,
-    int? unitId,
+    String? unitId,
     List<ProductDiscounts>? discounts,
     bool? isSelectedAddon,
   }) =>
@@ -203,19 +203,19 @@ class ProductData {
         isSelectedAddon: isSelectedAddon ?? _isSelectedAddon,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   int? get cartCount => _cartCount;
 
   String? get uuid => _uuid;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   List<Galleries>? get galleries => _galleries;
 
   List<Translation>? get translations => _translations;
 
-  int? get categoryId => _categoryId;
+  String? get categoryId => _categoryId;
 
   num? get tax => _tax;
 
@@ -251,7 +251,7 @@ class ProductData {
 
   Stock? get stock => _stock;
 
-  int? get unitId => _unitId;
+  String? get unitId => _unitId;
 
   List<ProductDiscounts>? get discounts => _discounts;
 
@@ -285,8 +285,8 @@ class ProductData {
 
 class ProductDiscounts {
   ProductDiscounts({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? type,
     num? price,
     String? start,
@@ -307,20 +307,20 @@ class ProductDiscounts {
   }
 
   ProductDiscounts.fromJson(dynamic json) {
-    _id = json['id'];
-    _shopId = json['shop_id'];
-    _type = json['type'];
+    _id = json['id']?.toString();
+    _shopId = json['shop_id']?.toString();
+    _type = json['type']?.toString();
     _price = json['price'];
-    _start = json['start'];
-    _end = json['end'];
-    _img = json['img'];
+    _start = json['start']?.toString();
+    _end = json['end']?.toString();
+    _img = json['img']?.toString();
     _active = json['active'];
     _pivot =
         json['pivot'] != null ? ProductPivot.fromJson(json['pivot']) : null;
   }
 
-  int? _id;
-  int? _shopId;
+  String? _id;
+  String? _shopId;
   String? _type;
   num? _price;
   String? _start;
@@ -330,8 +330,8 @@ class ProductDiscounts {
   ProductPivot? _pivot;
 
   ProductDiscounts copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? type,
     num? price,
     String? start,
@@ -352,9 +352,9 @@ class ProductDiscounts {
         pivot: pivot ?? _pivot,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   String? get type => _type;
 
@@ -388,27 +388,27 @@ class ProductDiscounts {
 }
 
 class ProductPivot {
-  ProductPivot({int? productId, int? discountId}) {
+  ProductPivot({String? productId, String? discountId}) {
     _productId = productId;
     _discountId = discountId;
   }
 
   ProductPivot.fromJson(dynamic json) {
-    _productId = json['product_id'];
-    _discountId = json['discount_id'];
+    _productId = json['product_id']?.toString();
+    _discountId = json['discount_id']?.toString();
   }
 
-  int? _productId;
-  int? _discountId;
+  String? _productId;
+  String? _discountId;
 
-  ProductPivot copyWith({int? productId, int? discountId}) => ProductPivot(
+  ProductPivot copyWith({String? productId, String? discountId}) => ProductPivot(
         productId: productId ?? _productId,
         discountId: discountId ?? _discountId,
       );
 
-  int? get productId => _productId;
+  String? get productId => _productId;
 
-  int? get discountId => _discountId;
+  String? get discountId => _discountId;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

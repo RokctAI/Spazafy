@@ -15,7 +15,7 @@ class ShopsRepository implements ShopsInterface {
     required String deliveryType,
     required String phone,
     required String name,
-    required num category,
+    required String? category,
     required String description,
     required double startPrice,
     required double perKm,

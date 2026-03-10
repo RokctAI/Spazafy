@@ -11,7 +11,7 @@ class DeleteExtrasGroupNotifier extends StateNotifier<DeleteExtrasGroupState> {
   DeleteExtrasGroupNotifier(this._productsRepository)
       : super(const DeleteExtrasGroupState());
 
-  Future<void> deleteExtrasGroup(BuildContext context,{VoidCallback? success, int? groupId}) async {
+  Future<void> deleteExtrasGroup(BuildContext context,{VoidCallback? success, String? groupId}) async {
     state = state.copyWith(isLoading: true);
     final response =
         await _productsRepository.deleteExtrasGroup(groupId: groupId);

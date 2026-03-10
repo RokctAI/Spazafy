@@ -11,8 +11,8 @@ import 'location_data.dart';
 
 class OrderData {
   OrderData({
-    int? id,
-    int? userId,
+    String? id,
+    String? userId,
     num? totalPrice,
     num? rate,
     num? tax,
@@ -76,9 +76,9 @@ class OrderData {
   }
 
   OrderData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _afterDeliveredImage = json['image_after_delivered'];
-    _userId = json['user_id'];
+    _userId = json['user_id']?.toString();
     _serviceFee = json['service_fee'];
     _totalDiscount = json['total_discount'];
     _originPrice = json['origin_price'];
@@ -122,8 +122,8 @@ class OrderData {
     _seen = false;
   }
 
-  int? _id;
-  int? _userId;
+  String? _id;
+  String? _userId;
   num? _totalPrice;
   num? _rate;
   num? _tax;
@@ -156,8 +156,8 @@ class OrderData {
   bool? _seen;
 
   OrderData copyWith({
-    int? id,
-    int? userId,
+    String? id,
+    String? userId,
     num? totalPrice,
     num? rate,
     num? tax,
@@ -213,9 +213,9 @@ class OrderData {
         seen: seen ?? _seen,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get userId => _userId;
+  String? get userId => _userId;
 
   num? get totalPrice => _totalPrice;
 
@@ -325,9 +325,9 @@ class OrderData {
 class OrderDetail {
   OrderDetail({
     String? note,
-    int? id,
-    int? orderId,
-    int? stockId,
+    String? id,
+    String? orderId,
+    String? stockId,
     num? originPrice,
     num? totalPrice,
     num? tax,
@@ -364,10 +364,10 @@ class OrderDetail {
   }
 
   OrderDetail.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _status = json['status'];
-    _orderId = json['order_id'];
-    _stockId = json['stock_id'];
+    _orderId = json['order_id']?.toString();
+    _stockId = json['stock_id']?.toString();
     _originPrice = json['origin_price'];
     _totalPrice = json['total_price'];
     _tax = json['tax'];
@@ -391,9 +391,9 @@ class OrderDetail {
   }
 
   String? _note;
-  int? _id;
-  int? _orderId;
-  int? _stockId;
+  String? _id;
+  String? _orderId;
+  String? _stockId;
   num? _originPrice;
   num? _totalPrice;
   num? _tax;
@@ -411,9 +411,9 @@ class OrderDetail {
 
   OrderDetail copyWith({
     String? note,
-    int? id,
-    int? orderId,
-    int? stockId,
+    String? id,
+    String? orderId,
+    String? stockId,
     num? originPrice,
     num? totalPrice,
     num? tax,
@@ -450,11 +450,11 @@ class OrderDetail {
         shopBonus: shopBonus ?? _shopBonus,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get orderId => _orderId;
+  String? get orderId => _orderId;
 
-  int? get stockId => _stockId;
+  String? get stockId => _stockId;
 
   num? get originPrice => _originPrice;
 
@@ -511,8 +511,8 @@ class OrderDetail {
 
 class Transaction {
   Transaction({
-    int? id,
-    int? payableId,
+    String? id,
+    String? payableId,
     num? price,
     String? paymentTrxId,
     String? note,
@@ -537,8 +537,8 @@ class Transaction {
   }
 
   Transaction.fromJson(dynamic json) {
-    _id = json['id'];
-    _payableId = json['payable_id'];
+    _id = json['id']?.toString();
+    _payableId = json['payable_id']?.toString();
     _price = json['price'];
     _paymentTrxId = json['payment_trx_id'];
     _note = json['note'];
@@ -552,8 +552,8 @@ class Transaction {
         : null;
   }
 
-  int? _id;
-  int? _payableId;
+  String? _id;
+  String? _payableId;
   num? _price;
   String? _paymentTrxId;
   String? _note;
@@ -565,8 +565,8 @@ class Transaction {
   PaymentData? _paymentSystem;
 
   Transaction copyWith({
-    int? id,
-    int? payableId,
+    String? id,
+    String? payableId,
     num? price,
     String? paymentTrxId,
     String? note,
@@ -591,9 +591,9 @@ class Transaction {
         paymentSystem: paymentSystem ?? _paymentSystem,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get payableId => _payableId;
+  String? get payableId => _payableId;
 
   num? get price => _price;
 

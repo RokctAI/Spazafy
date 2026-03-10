@@ -7,10 +7,10 @@ import 'category_data.dart';
 
 class ShopData {
   ShopData({
-    int? id,
+    String? id,
     String? uuid,
     int? discountsCount,
-    int? userId,
+    String? userId,
     num? price,
     num? pricePerKm,
     num? tax,
@@ -82,10 +82,10 @@ class ShopData {
   }
 
   ShopData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _orderPayment = json['order_payment'];
     _uuid = json['uuid'];
-    _userId = json['user_id'];
+    _userId = json['user_id']?.toString();
     _price = json['price'];
     _pricePerKm = json['price_per_km'];
     _tax = json['tax'];
@@ -155,10 +155,10 @@ class ShopData {
     }
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
   String? _orderPayment;
-  int? _userId;
+  String? _userId;
   num? _price;
   num? _pricePerKm;
   num? _tax;
@@ -192,11 +192,11 @@ class ShopData {
   List<ShopTag>? _tags;
 
   ShopData copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? orderPayment,
     int? discountsCount,
-    int? userId,
+    String? userId,
     num? price,
     num? pricePerKm,
     num? tax,
@@ -267,14 +267,14 @@ class ShopData {
         tags: tags ?? _tags,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get uuid => _uuid;
 
   String? get orderPayment => _orderPayment;
 
 
-  int? get userId => _userId;
+  String? get userId => _userId;
 
   num? get price => _price;
 
@@ -450,8 +450,8 @@ class DeliveryTime {
 
 class Discount {
   Discount({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? type,
     num? price,
     String? start,
@@ -470,8 +470,8 @@ class Discount {
   }
 
   Discount.fromJson(dynamic json) {
-    _id = json['id'];
-    _shopId = json['shop_id'];
+    _id = json['id']?.toString();
+    _shopId = json['shop_id']?.toString();
     _type = json['type'];
     _price = json['price'];
     _start = json['start'];
@@ -480,8 +480,8 @@ class Discount {
     _img = json['img'];
   }
 
-  int? _id;
-  int? _shopId;
+  String? _id;
+  String? _shopId;
   String? _type;
   num? _price;
   String? _start;
@@ -490,8 +490,8 @@ class Discount {
   String? _img;
 
   Discount copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? type,
     num? price,
     String? start,
@@ -510,9 +510,9 @@ class Discount {
         img: img ?? _img,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   String? get type => _type;
 
@@ -543,9 +543,9 @@ class Discount {
 class Bonus {
   Bonus({
     String? bonusableType,
-    int? bonusableId,
+    String? bonusableId,
     int? bonusQuantity,
-    int? bonusStockId,
+    String? bonusStockId,
     int? value,
     String? type,
     bool? status,
@@ -565,9 +565,9 @@ class Bonus {
 
   Bonus.fromJson(dynamic json) {
     _bonusableType = json['bonusable_type'];
-    _bonusableId = json['bonusable_id'];
+    _bonusableId = json['bonusable_id']?.toString();
     _bonusQuantity = json['bonus_quantity'];
-    _bonusStockId = json['bonus_stock_id'];
+    _bonusStockId = json['bonus_stock_id']?.toString();
     _value = json['value'];
     _type = json['type'];
     _status = json['status'];
@@ -578,9 +578,9 @@ class Bonus {
   }
 
   String? _bonusableType;
-  int? _bonusableId;
+  String? _bonusableId;
   int? _bonusQuantity;
-  int? _bonusStockId;
+  String? _bonusStockId;
   int? _value;
   String? _type;
   bool? _status;
@@ -589,9 +589,9 @@ class Bonus {
 
   Bonus copyWith({
     String? bonusableType,
-    int? bonusableId,
+    String? bonusableId,
     int? bonusQuantity,
-    int? bonusStockId,
+    String? bonusStockId,
     int? value,
     String? type,
     bool? status,
@@ -612,11 +612,11 @@ class Bonus {
 
   String? get bonusableType => _bonusableType;
 
-  int? get bonusableId => _bonusableId;
+  String? get bonusableId => _bonusableId;
 
   int? get bonusQuantity => _bonusQuantity;
 
-  int? get bonusStockId => _bonusStockId;
+  String? get bonusStockId => _bonusStockId;
 
   int? get value => _value;
 
@@ -647,8 +647,8 @@ class Bonus {
 
 class BonusStock {
   BonusStock({
-    int? id,
-    int? countableId,
+    String? id,
+    String? countableId,
     num? price,
     int? quantity,
     num? tax,
@@ -665,8 +665,8 @@ class BonusStock {
   }
 
   BonusStock.fromJson(dynamic json) {
-    _id = json['id'];
-    _countableId = json['countable_id'];
+    _id = json['id']?.toString();
+    _countableId = json['countable_id']?.toString();
     _price = json['price'];
     _quantity = json['quantity'];
     _tax = json['tax'];
@@ -675,8 +675,8 @@ class BonusStock {
         json['product'] != null ? ProductData.fromJson(json['product']) : null;
   }
 
-  int? _id;
-  int? _countableId;
+  String? _id;
+  String? _countableId;
   num? _price;
   int? _quantity;
   num? _tax;
@@ -684,8 +684,8 @@ class BonusStock {
   ProductData? _product;
 
   BonusStock copyWith({
-    int? id,
-    int? countableId,
+    String? id,
+    String? countableId,
     num? price,
     int? quantity,
     num? tax,
@@ -702,9 +702,9 @@ class BonusStock {
         product: product ?? _product,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get countableId => _countableId;
+  String? get countableId => _countableId;
 
   num? get price => _price;
 
@@ -733,8 +733,8 @@ class BonusStock {
 
 class ShopPayments {
   ShopPayments({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     int? status,
     dynamic clientId,
     dynamic secretId,
@@ -749,8 +749,8 @@ class ShopPayments {
   }
 
   ShopPayments.fromJson(dynamic json) {
-    _id = json['id'];
-    _shopId = json['shop_id'];
+    _id = json['id']?.toString();
+    _shopId = json['shop_id']?.toString();
     _status = json['status'];
     _clientId = json['client_id'];
     _secretId = json['secret_id'];
@@ -758,16 +758,16 @@ class ShopPayments {
         json['payment'] != null ? PaymentData.fromJson(json['payment']) : null;
   }
 
-  int? _id;
-  int? _shopId;
+  String? _id;
+  String? _shopId;
   int? _status;
   dynamic _clientId;
   dynamic _secretId;
   PaymentData? _payment;
 
   ShopPayments copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     int? status,
     dynamic clientId,
     dynamic secretId,
@@ -782,9 +782,9 @@ class ShopPayments {
         payment: payment ?? _payment,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   int? get status => _status;
 
@@ -810,7 +810,7 @@ class ShopPayments {
 
 class ShopWorkingDays {
   ShopWorkingDays({
-    int? id,
+    String? id,
     String? day,
     String? from,
     String? to,
@@ -824,21 +824,21 @@ class ShopWorkingDays {
   }
 
   ShopWorkingDays.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _day = json['day'];
     _from = json['from'];
     _to = json['to'];
     _disabled = json['disabled'];
   }
 
-  int? _id;
+  String? _id;
   String? _day;
   String? _from;
   String? _to;
   bool? _disabled;
 
   ShopWorkingDays copyWith({
-    int? id,
+    String? id,
     String? day,
     String? from,
     String? to,
@@ -852,7 +852,7 @@ class ShopWorkingDays {
         disabled: disabled ?? _disabled,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get day => _day;
 
@@ -875,7 +875,7 @@ class ShopWorkingDays {
 
 class ShopTag {
   ShopTag({
-    int? id,
+    String? id,
     String? img,
     Translation? translation,
     List<String>? locales,
@@ -887,7 +887,7 @@ class ShopTag {
   }
 
   ShopTag.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _img = json['img'];
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
@@ -895,13 +895,13 @@ class ShopTag {
     _locales = json['locales'] != null ? json['locales'].cast<String>() : [];
   }
 
-  int? _id;
+  String? _id;
   String? _img;
   Translation? _translation;
   List<String>? _locales;
 
   ShopTag copyWith({
-    int? id,
+    String? id,
     String? img,
     Translation? translation,
     List<String>? locales,
@@ -913,7 +913,7 @@ class ShopTag {
         locales: locales ?? _locales,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get img => _img;
 

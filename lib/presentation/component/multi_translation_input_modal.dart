@@ -15,7 +15,7 @@ import 'text_fields/underlined_text_field.dart';
 
 class MultiTranslationInputModal extends ConsumerStatefulWidget {
   final AiTranslationModel model;
-  final int? modelId;
+  final String? modelId;
   final String label;
   final Map<String, String> inputs;
   final ValueChanged<Map<String, String>> save;

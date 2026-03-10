@@ -22,18 +22,13 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       ref
           .read(splashProvider.notifier)
           .fetchTranslations(
-            noConnection: () => context.replaceRoute(const NoConnectionRoute()),
-            goMain: () {
-              ref
-                  .read(restaurantProvider.notifier)
-                  .fetchMyShop(
-                    afterFetched: () {
-                      context.replaceRoute(const MainRoute());
-                    },
-                  );
+            noConnection: () {
+              // Even if no connection, we allow offline usage with PIN
+              context.replaceRoute(const PinLoginRoute());
             },
-            goLogin: () => context.replaceRoute(const AuthRoute()),
-            goBecome: () => context.replaceRoute(const CreateShopRoute()),
+            goMain: () => context.replaceRoute(const PinLoginRoute()),
+            goLogin: () => context.replaceRoute(const PinLoginRoute()),
+            goBecome: () => context.replaceRoute(const PinLoginRoute()),
           );
     });
   }

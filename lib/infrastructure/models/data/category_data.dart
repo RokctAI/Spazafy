@@ -4,11 +4,11 @@ import 'translation.dart';
 
 class CategoryData {
   CategoryData({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? uuid,
     String? keywords,
-    int? parentId,
+    String? parentId,
     String? type,
     String? img,
     bool? active,
@@ -32,11 +32,11 @@ class CategoryData {
   }
 
   CategoryData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _uuid = json['uuid'];
-    _shopId = json['shop_id'];
+    _shopId = json['shop_id']?.toString();
     _keywords = json['keywords'];
-    _parentId = json['parent_id'];
+    _parentId = json['parent_id']?.toString();
     _type = json['type'];
     _img = json['img'];
     _active = json['active'];
@@ -53,11 +53,11 @@ class CategoryData {
     }
   }
 
-  int? _id;
-  int? _shopId;
+  String? _id;
+  String? _shopId;
   String? _uuid;
   String? _keywords;
-  int? _parentId;
+  String? _parentId;
   String? _type;
   String? _img;
   bool? _active;
@@ -67,11 +67,11 @@ class CategoryData {
   List<CategoryData>? _children;
 
   CategoryData copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? uuid,
     String? keywords,
-    int? parentId,
+    String? parentId,
     String? type,
     String? img,
     bool? active,
@@ -95,14 +95,14 @@ class CategoryData {
         children: children ?? _children,
       );
 
-  int? get id => _id;
-  int? get shopId => _shopId;
+  String? get id => _id;
+  String? get shopId => _shopId;
 
   String? get uuid => _uuid;
 
   String? get keywords => _keywords;
 
-  int? get parentId => _parentId;
+  String? get parentId => _parentId;
 
   String? get type => _type;
 

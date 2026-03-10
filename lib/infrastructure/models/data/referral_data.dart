@@ -2,7 +2,7 @@
 import 'translation.dart';
 
 class ReferralModel {
-  int? id;
+  String? id;
   bool? active;
   int? priceFrom;
   int? priceTo;
@@ -25,7 +25,7 @@ class ReferralModel {
       });
 
   ReferralModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     active = json['active'];
     priceFrom = json['price_from'];
     priceTo = json['price_to'];

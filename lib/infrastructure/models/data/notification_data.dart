@@ -10,7 +10,7 @@ class NotificationsModel {
     this.type,
   });
 
-  int? id;
+  String? id;
   List<String?>? payload;
   bool? active;
   DateTime? createdAt;
@@ -20,7 +20,7 @@ class NotificationsModel {
 
   factory NotificationsModel.fromJson(Map<String, dynamic> json) {
     return NotificationsModel(
-    id: json["id"],
+    id: json["id"]?.toString(),
     payload: json["payload"] == null ? [] : json["payload"] == null ? [] : List<String?>.from(json["payload"]!.map((x) => x)),
     active: (json["notification"] != null ? json["notification"]["active"] ?? 0 : 0) == 0 ? false : true,
     createdAt: DateTime.tryParse(json["created_at"])?.toLocal(),

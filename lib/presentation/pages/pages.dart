@@ -22,3 +22,4 @@ export 'restaurant/subscriptions/subscriptions_page.dart';
 export 'package:venderfoodyman/presentation/component/web_view_page.dart';
 export 'main/billing_home_page.dart';
 export 'main/billing_checkout_page.dart';
+export 'auth/pin/pin_login_page.dart';

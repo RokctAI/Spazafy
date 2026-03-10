@@ -212,16 +212,16 @@ class UsersRepository implements UsersInterface {
     Translation? translation,
     List<ShopTag>? tags,
   }) async {
-    List<int> categoryIds = [];
-    List<int> tagIds = [];
+    List<String?> categoryIds = [];
+    List<String?> tagIds = [];
     if (categories != null && categories.isNotEmpty) {
       for (int i = 0; i < categories.length; i++) {
-        categoryIds.add(categories[i].id ?? 0);
+        categoryIds.add(categories[i].id ?? '');
       }
     }
     if (tags != null && tags.isNotEmpty) {
       for (int i = 0; i < tags.length; i++) {
-        tagIds.add(tags[i].id ?? 0);
+        tagIds.add(tags[i].id ?? '');
       }
     }
     categoryIds = categoryIds.toSet().toList();

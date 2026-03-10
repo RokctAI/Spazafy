@@ -1,19 +1,19 @@
 class MaksekeskusData {
   List<Method>? methods;
-  int? paymentId;
+  String? paymentId;
   String? modelType;
-  int? modelId;
+  String? modelId;
   int? totalPrice;
   String? currency;
-  int? cartId;
-  int? userId;
+  String? cartId;
+  String? userId;
   String? status;
-  int? currencyId;
+  String? currencyId;
   int? rate;
   String? deliveryType;
   String? deliveryDate;
-  int? addressId;
-  int? deliveryPointId;
+  String? addressId;
+  String? deliveryPointId;
 
   MaksekeskusData({
     this.methods,
@@ -35,20 +35,20 @@ class MaksekeskusData {
 
   MaksekeskusData copyWith({
     List<Method>? methods,
-    int? paymentId,
+    String? paymentId,
     String? modelType,
-    int? modelId,
+    String? modelId,
     int? totalPrice,
     String? currency,
-    int? cartId,
-    int? userId,
+    String? cartId,
+    String? userId,
     String? status,
-    int? currencyId,
+    String? currencyId,
     int? rate,
     String? deliveryType,
     String? deliveryDate,
-    int? addressId,
-    int? deliveryPointId,
+    String? addressId,
+    String? deliveryPointId,
   }) =>
       MaksekeskusData(
         methods: methods ?? this.methods,
@@ -73,20 +73,20 @@ class MaksekeskusData {
         ? []
         : List<Method>.from(
         json["methods"]!.map((x) => Method.fromJson(x))),
-    paymentId: json["payment_id"],
+    paymentId: json["payment_id"]?.toString(),
     modelType: json["model_type"],
-    modelId: json["model_id"],
+    modelId: json["model_id"]?.toString(),
     totalPrice: json["total_price"],
     currency: json["currency"],
-    cartId: json["cart_id"],
-    userId: json["user_id"],
+    cartId: json["cart_id"]?.toString(),
+    userId: json["user_id"]?.toString(),
     status: json["status"],
-    currencyId: json["currency_id"],
+    currencyId: json["currency_id"]?.toString(),
     rate: json["rate"],
     deliveryType: json["delivery_type"],
     deliveryDate: json["delivery_date"],
-    addressId: json["address_id"],
-    deliveryPointId: json["delivery_point_id"],
+    addressId: json["address_id"]?.toString(),
+    deliveryPointId: json["delivery_point_id"]?.toString(),
   );
 
   Map<String, dynamic> toJson() => {

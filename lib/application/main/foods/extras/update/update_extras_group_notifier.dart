@@ -14,7 +14,7 @@ class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
 
   Future<void> updateExtrasGroup(BuildContext context,{
     VoidCallback? success,
-    int? groupId,
+    String? groupId,
   }) async {
     state = state.copyWith(isLoading: true);
     final response = await _productsRepository.updateExtrasGroup(

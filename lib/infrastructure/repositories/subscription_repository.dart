@@ -33,8 +33,8 @@ class SubscriptionsRepository implements SubscriptionsFacade {
 
   @override
   Future<ApiResult> purchaseSubscription({
-    required int id,
-    required int paymentId,
+    required String? id,
+    required String? paymentId,
   }) async {
     final data = {'payment_sys_id': paymentId};
     try {
@@ -55,8 +55,8 @@ class SubscriptionsRepository implements SubscriptionsFacade {
 
   @override
   Future<ApiResult<TransactionsResponse>> createTransaction({
-    required int id,
-    required int paymentId,
+    required String? id,
+    required String? paymentId,
   }) async {
     final data = {'payment_sys_id': paymentId};
     debugPrint('===> create transaction body: ${jsonEncode(data)}');

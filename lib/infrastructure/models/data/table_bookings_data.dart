@@ -1,9 +1,9 @@
 
 class TableBookingData {
-  int? id;
-  int? bookingId;
-  int? userId;
-  int? tableId;
+  String? id;
+  String? bookingId;
+  String? userId;
+  String? tableId;
   DateTime? startDate;
   DateTime? endDate;
   String? status;
@@ -25,10 +25,10 @@ class TableBookingData {
   });
 
   TableBookingData copyWith({
-    int? id,
-    int? bookingId,
-    int? userId,
-    int? tableId,
+    String? id,
+    String? bookingId,
+    String? userId,
+    String? tableId,
     DateTime? startDate,
     DateTime? endDate,
     String? status,
@@ -49,10 +49,10 @@ class TableBookingData {
         table: table ?? this.table,
       );
   factory TableBookingData.fromJson(Map<String, dynamic> json) => TableBookingData(
-    id: json["id"],
-    bookingId: json["booking_id"],
-    userId: json["user_id"],
-    tableId: json["table_id"],
+    id: json["id"]?.toString(),
+    bookingId: json["booking_id"]?.toString(),
+    userId: json["user_id"]?.toString(),
+    tableId: json["table_id"]?.toString(),
     startDate: DateTime.tryParse(json["start_date"] ?? '')?? DateTime.now(),
     endDate: DateTime.tryParse(json["end_date"] ?? '') ?? DateTime.now(),
     status: json["status"],
@@ -76,7 +76,7 @@ class TableBookingData {
 }
 
 class Booking {
-  int? id;
+  String? id;
   int? maxTime;
 
   Booking({
@@ -85,7 +85,7 @@ class Booking {
   });
 
   factory Booking.fromJson(Map<String, dynamic> json) => Booking(
-    id: json["id"],
+    id: json["id"]?.toString(),
     maxTime: json["max_time"],
   );
 
@@ -96,9 +96,9 @@ class Booking {
 }
 
 class Table {
-  int id;
+  String? id;
   String name;
-  int shopSectionId;
+  String? shopSectionId;
   int chairCount;
   bool active;
 
@@ -111,9 +111,9 @@ class Table {
   });
 
   factory Table.fromJson(Map<String, dynamic> json) => Table(
-    id: json["id"],
+    id: json["id"]?.toString(),
     name: json["name"],
-    shopSectionId: json["shop_section_id"],
+    shopSectionId: json["shop_section_id"]?.toString(),
     chairCount: json["chair_count"],
     active: json["active"],
   );
@@ -128,7 +128,7 @@ class Table {
 }
 
 class User {
-  int id;
+  String? id;
   String uuid;
   String firstname;
   String lastname;
@@ -149,7 +149,7 @@ class User {
   });
 
   User copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? firstname,
     String? lastname,
@@ -170,7 +170,7 @@ class User {
       );
 
   factory User.fromJson(Map json) => User(
-    id: json["id"],
+    id: json["id"]?.toString(),
     uuid: json["uuid"],
     firstname: json["firstname"],
     lastname: json["lastname"],

@@ -17,12 +17,12 @@ class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
     required List<Stock> stocks,
     required String deliveryDate,
     required String address,
-    required int? tableId,
+    required String? tableId,
     LocationData? location,
     required String entrance,
     required String floor,
     required String house,
-    ValueChanged<int>? orderSuccess,
+    ValueChanged<String?>? orderSuccess,
     Function(String)? failed,
   }) async {
 
@@ -42,7 +42,7 @@ class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
     response.when(
       success: (data) async {
         state = state.copyWith(isCreating: false);
-        orderSuccess?.call(data.data?.id ?? 0);
+        orderSuccess?.call(data.data?.id);
       },
       failure: (failure,status) {
         debugPrint('===> create order fail $failure');

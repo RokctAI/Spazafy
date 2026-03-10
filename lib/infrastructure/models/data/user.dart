@@ -1,6 +1,6 @@
 class UserModel {
   UserModel({
-    int? id,
+    String? id,
     String? uuid,
     String? firstname,
     String? lastname,
@@ -36,7 +36,7 @@ class UserModel {
   }
 
   UserModel.fromJson(dynamic json) {
-    _id = json['id']  ?? 0;
+    _id = json['id']?.toString() ?? "0";
     _uuid = json['uuid'];
     _firstname = json['firstname'];
     _lastname = json['lastname'];
@@ -51,7 +51,7 @@ class UserModel {
     _role = json['role'];
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
   String? _firstname;
   String? _lastname;
@@ -70,7 +70,7 @@ class UserModel {
 
 
   UserModel copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? firstname,
     String? lastname,
@@ -106,7 +106,7 @@ class UserModel {
         password:  password ?? _password
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get uuid => _uuid;
 

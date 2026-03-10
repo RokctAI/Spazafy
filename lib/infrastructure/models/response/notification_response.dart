@@ -35,7 +35,7 @@ class NotificationModel {
   String? title;
   String? body;
   Data? data;
-  int? userId;
+  String? userId;
   DateTime? createdAt;
   DateTime? updatedAt;
   DateTime? readAt;
@@ -64,7 +64,7 @@ class NotificationModel {
     String? title,
     String? body,
     Data? data,
-    int? userId,
+    String? userId,
     DateTime? createdAt,
     DateTime? updatedAt,
     DateTime? readAt,

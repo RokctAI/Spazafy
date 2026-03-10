@@ -10,7 +10,7 @@ class OfflineProductsRepository implements ProductsInterface {
   @override
   Future<ApiResult<ProductsPaginateResponse>> getProducts({
     int? page,
-    int? categoryId,
+    String? categoryId,
     String? query,
     ProductStatus? status,
     bool needAddons = false,
@@ -89,9 +89,9 @@ class OfflineProductsRepository implements ProductsInterface {
     required String maxQty,
     required String qrcode,
     required bool active,
-    int? categoryId,
-    int? kitchenId,
-    int? unitId,
+    String? categoryId,
+    String? kitchenId,
+    String? unitId,
     List<String>? images,
     bool isAddon = false,
     String type = 'single',
@@ -153,9 +153,9 @@ class OfflineProductsRepository implements ProductsInterface {
     required String maxQty,
     required bool active,
     String? qrcode,
-    int? categoryId,
-    int? kitchenId,
-    int? unitId,
+    String? categoryId,
+    String? kitchenId,
+    String? unitId,
     List<String>? images,
     String? uuid,
     bool needAddons = false,
@@ -214,7 +214,7 @@ class OfflineProductsRepository implements ProductsInterface {
   @override
   Future<ApiResult<SingleProductResponse>> updateStocks({
     required List<Stock> stocks,
-    required List<int> deletedStocks,
+    required List<String?> deletedStocks,
     String? uuid,
     bool isAddon = false,
   }) async {
@@ -242,7 +242,7 @@ class OfflineProductsRepository implements ProductsInterface {
 
   @override
   Future<ApiResult<SingleProductResponse>> updateExtras({
-    required List<int> extrasIds,
+    required List<String?> extrasIds,
     String? productUuid,
   }) async {
     // Offline: extras not fully supported yet
@@ -261,7 +261,7 @@ class OfflineProductsRepository implements ProductsInterface {
   }
 
   @override
-  Future<ApiResult<GroupExtrasResponse>> getExtras({int? groupId}) async {
+  Future<ApiResult<GroupExtrasResponse>> getExtras({String? groupId}) async {
     return const ApiResult.failure(error: 'Not available offline');
   }
 
@@ -282,19 +282,19 @@ class OfflineProductsRepository implements ProductsInterface {
   @override
   Future<ApiResult<SingleExtrasGroupResponse>> updateExtrasGroup({
     required String title,
-    int? groupId,
+    String? groupId,
   }) async {
     return const ApiResult.failure(error: 'Not available offline');
   }
 
   @override
-  Future<ApiResult<void>> deleteExtrasGroup({int? groupId}) async {
+  Future<ApiResult<void>> deleteExtrasGroup({String? groupId}) async {
     return const ApiResult.failure(error: 'Not available offline');
   }
 
   @override
   Future<ApiResult<CreateGroupExtrasResponse>> createExtrasItem({
-    required int groupId,
+    required String? groupId,
     required String title,
   }) async {
     return const ApiResult.failure(error: 'Not available offline');
@@ -302,15 +302,15 @@ class OfflineProductsRepository implements ProductsInterface {
 
   @override
   Future<ApiResult<CreateGroupExtrasResponse>> updateExtrasItem({
-    required int extrasId,
-    required int groupId,
+    required String? extrasId,
+    required String? groupId,
     required String title,
   }) async {
     return const ApiResult.failure(error: 'Not available offline');
   }
 
   @override
-  Future<ApiResult<void>> deleteExtrasItem({required int extrasId}) async {
+  Future<ApiResult<void>> deleteExtrasItem({required String? extrasId}) async {
     return const ApiResult.failure(error: 'Not available offline');
   }
 }

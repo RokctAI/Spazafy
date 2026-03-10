@@ -52,7 +52,7 @@ class PaymentRepository implements PaymentsFacade {
   }) async {
     try {
       final data = {
-        'wallet_id': LocalStorage.getUser()?.wallet?.uuid ?? 0,
+        'wallet_id': LocalStorage.getUser()?.wallet?.uuid ?? '',
         'total_price': price,
         "currency_id": LocalStorage.getSelectedCurrency()?.id,
       };
@@ -105,7 +105,7 @@ class PaymentRepository implements PaymentsFacade {
   @override
   Future<ApiResult<String>> paymentSubscriptionWebView({
     required String name,
-    required int subscriptionId,
+    required String? subscriptionId,
   }) async {
     try {
       final data = {

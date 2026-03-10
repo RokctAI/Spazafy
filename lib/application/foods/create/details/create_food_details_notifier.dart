@@ -48,9 +48,9 @@ class CreateFoodDetailsNotifier
   }
 
   Future<void> createProduct(BuildContext context,{
-    int? categoryId,
-    int? unitId,
-    int? kitchenId,
+    String? categoryId,
+    String? unitId,
+    String? kitchenId,
     VoidCallback? created,
     VoidCallback? onError
   }) async {

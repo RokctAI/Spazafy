@@ -59,7 +59,7 @@ class TransactionsResponse {
 class TransactionData {
   TransactionData({
     int? id,
-    int? userId,
+    String? userId,
     num? price,
     num? currencyPrice,
     num? rate,
@@ -94,7 +94,7 @@ class TransactionData {
   }
 
   int? _id;
-  int? _userId;
+  String? _userId;
   num? _price;
   num? _currencyPrice;
   num? _rate;
@@ -104,7 +104,7 @@ class TransactionData {
 
   TransactionData copyWith({
     int? id,
-    int? userId,
+    String? userId,
     num? price,
     num? currencyPrice,
     num? rate,
@@ -158,7 +158,7 @@ class TransactionData {
 class TransactionDetails {
   TransactionDetails({
     int? id,
-    int? shopId,
+    String? shopId,
     num? deliveryFee,
     num? price,
     num? tax,
@@ -194,7 +194,7 @@ class TransactionDetails {
   }
 
   int? _id;
-  int? _shopId;
+  String? _shopId;
   num? _deliveryFee;
   num? _price;
   num? _tax;
@@ -206,7 +206,7 @@ class TransactionDetails {
 
   TransactionDetails copyWith({
     int? id,
-    int? shopId,
+    String? shopId,
     num? deliveryFee,
     num? price,
     num? tax,

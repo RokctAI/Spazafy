@@ -2,7 +2,7 @@
 import 'package:venderfoodyman/infrastructure/services/extension.dart';
 
 class SubscriptionData {
-  int? id;
+  String? id;
   String? type;
   num? price;
   int? month;
@@ -13,8 +13,8 @@ class SubscriptionData {
   DateTime? createdAt;
   DateTime? updatedAt;
   bool? withReport;
-  int? shopId;
-  int? subscriptionId;
+  String? shopId;
+  String? subscriptionId;
   DateTime? expiredAt;
   SubscriptionData? subscription;
 
@@ -37,7 +37,7 @@ class SubscriptionData {
   });
 
   SubscriptionData copyWith({
-    int? id,
+    String? id,
     String? type,
     num? price,
     int? month,
@@ -48,8 +48,8 @@ class SubscriptionData {
     DateTime? createdAt,
     DateTime? updatedAt,
     bool? withReport,
-    int? shopId,
-    int? subscriptionId,
+    String? shopId,
+    String? subscriptionId,
     DateTime? expiredAt,
     SubscriptionData? subscription,
   }) =>
@@ -73,7 +73,7 @@ class SubscriptionData {
 
   factory SubscriptionData.fromJson(Map<String, dynamic> json) =>
       SubscriptionData(
-        id: json["id"],
+        id: json["id"]?.toString(),
         type: json["type"],
         price: json["price"],
         month: json["month"],
@@ -91,11 +91,11 @@ class SubscriptionData {
             ? null
             : DateTime.tryParse(json["expired_at"]),
         withReport: json["with_report"].toString().toBool(),
-        shopId: json["shop_id"],
+        shopId: json["shop_id"]?.toString(),
         subscription: json["subscription"] == null
             ? null
             : SubscriptionData.fromJson(json["subscription"]),
-        subscriptionId: json["subscription_id"],
+        subscriptionId: json["subscription_id"]?.toString(),
       );
 
   Map<String, dynamic> toJson() => {

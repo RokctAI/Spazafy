@@ -15,7 +15,7 @@ class OfflineOrdersRepository implements OrdersInterface {
     required String deliveryTime,
     required String address,
     String? entrance,
-    int? tableId,
+    String? tableId,
     String? floor,
     String? house,
     LocationData? location,
@@ -23,7 +23,7 @@ class OfflineOrdersRepository implements OrdersInterface {
     try {
       final orderId = DateTime.now().millisecondsSinceEpoch;
       final orderJson = <String, dynamic>{
-        'id': orderId,
+        'id': orderId.toString(),
         'user_id': user?.id,
         'delivery_type': deliveryType,
         'delivery_time': deliveryTime,
@@ -50,7 +50,7 @@ class OfflineOrdersRepository implements OrdersInterface {
       return ApiResult.success(
         data: CreateOrderResponse(
           data: CreatedOrder(
-            id: orderId,
+            id: orderId.toString(),
             userId: user?.id,
             price: orderJson['price'] as num?,
           ),
@@ -110,7 +110,7 @@ class OfflineOrdersRepository implements OrdersInterface {
 
   @override
   Future<ApiResult<SingleOrderResponse>> getOrderDetails({
-    int? orderId,
+    String? orderId,
   }) async {
     try {
       if (orderId == null) {
@@ -134,7 +134,7 @@ class OfflineOrdersRepository implements OrdersInterface {
   @override
   Future<ApiResult<OrderStatusResponse>> updateOrderStatus({
     required OrderStatus status,
-    int? orderId,
+    String? orderId,
   }) async {
     try {
       if (orderId == null) {
@@ -142,7 +142,7 @@ class OfflineOrdersRepository implements OrdersInterface {
       }
       final existing = HiveDatabase.getItem(
         HiveDatabase.orderBox,
-        orderId.toString(),
+        orderId ?? '',
       );
       if (existing == null) {
         return const ApiResult.failure(error: 'Order not found');
@@ -151,7 +151,7 @@ class OfflineOrdersRepository implements OrdersInterface {
       existing['status'] = status.name;
       await HiveDatabase.putItem(
         HiveDatabase.orderBox,
-        orderId.toString(),
+        orderId ?? '',
         existing,
       );
 
@@ -193,8 +193,8 @@ class OfflineOrdersRepository implements OrdersInterface {
 
   @override
   Future<ApiResult<TransactionsResponse>> createTransaction({
-    required int orderId,
-    required int paymentId,
+    required String? orderId,
+    required String? paymentId,
   }) async {
     return const ApiResult.failure(error: 'Not available offline');
   }

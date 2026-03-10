@@ -25,8 +25,8 @@ class CreateOrderResponse {
 
 class CreatedOrder {
   CreatedOrder({
-    int? id,
-    int? userId,
+    String? id,
+    String? userId,
     num? price,
     num? currencyPrice,
     num? rate,
@@ -39,22 +39,22 @@ class CreatedOrder {
   }
 
   CreatedOrder.fromJson(dynamic json) {
-    _id = json['id'];
-    _userId = json['user_id'];
+    _id = json['id']?.toString();
+    _userId = json['user_id']?.toString();
     _price = json['price'];
     _currencyPrice = json['currency_price'];
     _rate = json['rate'];
   }
 
-  int? _id;
-  int? _userId;
+  String? _id;
+  String? _userId;
   num? _price;
   num? _currencyPrice;
   num? _rate;
 
   CreatedOrder copyWith({
-    int? id,
-    int? userId,
+    String? id,
+    String? userId,
     num? price,
     num? currencyPrice,
     num? rate,
@@ -67,9 +67,9 @@ class CreatedOrder {
         rate: rate ?? _rate,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get userId => _userId;
+  String? get userId => _userId;
 
   num? get price => _price;
 

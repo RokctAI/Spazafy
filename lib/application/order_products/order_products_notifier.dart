@@ -59,7 +59,7 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
   void setQuery({
     required String query,
     required List<Stock> cartStocks,
-    int? categoryId,
+    String? categoryId,
   }) {
     if (_query == query) {
       return;
@@ -100,7 +100,7 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
     RefreshController? refreshController,
     bool isRefresh = false,
     bool isOpeningPage = false,
-    int? categoryId,
+    String? categoryId,
     required List<Stock> cartStocks,
   }) async {
     if (isRefresh) {

@@ -3,8 +3,8 @@ import 'translation.dart';
 
 class Group {
   Group({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? type,
     bool? isChecked,
     Translation? translation,
@@ -21,9 +21,9 @@ class Group {
   }
 
   Group.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _type = json['type'];
-    _shopId = json['shop_id'];
+    _shopId = json['shop_id']?.toString();
     _isChecked = false;
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
@@ -37,8 +37,8 @@ class Group {
     }
   }
 
-  int? _id;
-  int? _shopId;
+  String? _id;
+  String? _shopId;
   String? _type;
   bool? _isChecked;
   Translation? _translation;
@@ -46,8 +46,8 @@ class Group {
   List<Extras>? _extraValues;
 
   Group copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? type,
     bool? isChecked,
     Translation? translation,
@@ -64,9 +64,9 @@ class Group {
         extraValues: extraValues ?? _extraValues,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   String? get type => _type;
 

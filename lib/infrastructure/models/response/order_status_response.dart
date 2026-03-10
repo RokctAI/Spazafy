@@ -26,8 +26,8 @@ class OrderStatusResponse {
 
 class OrderStatusData {
   OrderStatusData({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     num? deliveryFee,
     num? price,
     num? tax,
@@ -46,8 +46,8 @@ class OrderStatusData {
   }
 
   OrderStatusData.fromJson(dynamic json) {
-    _id = json['id'];
-    _shopId = json['shop_id'];
+    _id = json['id']?.toString();
+    _shopId = json['shop_id']?.toString();
     _deliveryFee = json['delivery_fee'];
     _price = json['price'];
     _tax = json['tax'];
@@ -56,8 +56,8 @@ class OrderStatusData {
     _deliveryTime = json['delivery_time'];
   }
 
-  int? _id;
-  int? _shopId;
+  String? _id;
+  String? _shopId;
   num? _deliveryFee;
   num? _price;
   num? _tax;
@@ -66,8 +66,8 @@ class OrderStatusData {
   String? _deliveryTime;
 
   OrderStatusData copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     num? deliveryFee,
     num? price,
     num? tax,
@@ -86,7 +86,7 @@ class OrderStatusData {
         deliveryTime: deliveryTime ?? _deliveryTime,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   int? get shopId => _shopId;
 

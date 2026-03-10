@@ -8,7 +8,7 @@ import 'package:venderfoodyman/domain/interface/interfaces.dart';
 
 class ProductsRepository implements ProductsInterface {
   @override
-  Future<ApiResult<void>> deleteExtrasGroup({int? groupId}) async {
+  Future<ApiResult<void>> deleteExtrasGroup({String? groupId}) async {
     final data = {
       'ids': [groupId],
     };
@@ -32,7 +32,7 @@ class ProductsRepository implements ProductsInterface {
   @override
   Future<ApiResult<SingleExtrasGroupResponse>> updateExtrasGroup({
     required String title,
-    int? groupId,
+    String? groupId,
   }) async {
     final data = {
       'title': {LocalStorage.getSystemLanguage()?.locale ?? 'en': title},
@@ -58,7 +58,7 @@ class ProductsRepository implements ProductsInterface {
   }
 
   @override
-  Future<ApiResult<void>> deleteExtrasItem({required int extrasId}) async {
+  Future<ApiResult<void>> deleteExtrasItem({required String? extrasId}) async {
     final data = {
       'ids': [extrasId],
     };
@@ -81,8 +81,8 @@ class ProductsRepository implements ProductsInterface {
 
   @override
   Future<ApiResult<CreateGroupExtrasResponse>> updateExtrasItem({
-    required int extrasId,
-    required int groupId,
+    required String? extrasId,
+    required String? groupId,
     required String title,
   }) async {
     final data = {'value': title, 'extra_group_id': groupId};
@@ -185,7 +185,7 @@ class ProductsRepository implements ProductsInterface {
   }
 
   @override
-  Future<ApiResult<GroupExtrasResponse>> getExtras({int? groupId}) async {
+  Future<ApiResult<GroupExtrasResponse>> getExtras({String? groupId}) async {
     final data = {'lang': LocalStorage.getLanguage()?.locale};
     try {
       final client = dioHttp.client(requireAuth: true);
@@ -208,24 +208,24 @@ class ProductsRepository implements ProductsInterface {
   @override
   Future<ApiResult<SingleProductResponse>> updateStocks({
     required List<Stock> stocks,
-    required List<int> deletedStocks,
+    required List<String?> deletedStocks,
     String? uuid,
     bool isAddon = false,
   }) async {
     final List<Map<String, dynamic>> extras = [];
     for (final stock in stocks) {
-      List<int> ids = [];
-      List<int> addonsIds = [];
+      List<String?> ids = [];
+      List<String?> addonsIds = [];
       if (stock.extras != null && (stock.extras?.isNotEmpty ?? false)) {
         for (final item in stock.extras!) {
-          ids.add(item.id ?? 0);
+          ids.add(item.id ?? '');
         }
       }
       ids = ids.toSet().toList();
       if (stock.localAddons != null &&
           (stock.localAddons?.isNotEmpty ?? false)) {
         for (final item in stock.localAddons!) {
-          addonsIds.add(item.product?.id ?? 0);
+          addonsIds.add(item.product?.id ?? '');
         }
       }
       addonsIds = addonsIds.toSet().toList();
@@ -233,7 +233,7 @@ class ProductsRepository implements ProductsInterface {
         'price': stock.price,
         if (stock.sku?.isNotEmpty ?? false) 'sku': stock.sku,
         'quantity': stock.quantity,
-        if (stock.id != -1 && stock.id != null) "stock_id": stock.id,
+        if (stock.id != '-1' && stock.id != null) "stock_id": stock.id,
         'ids': ids,
         if (addonsIds.isNotEmpty) 'addons': addonsIds,
       });
@@ -271,9 +271,9 @@ class ProductsRepository implements ProductsInterface {
     required String maxQty,
     required bool active,
     String? qrcode,
-    int? categoryId,
-    int? unitId,
-    int? kitchenId,
+    String? categoryId,
+    String? unitId,
+    String? kitchenId,
     List<String>? images,
     String? uuid,
     bool needAddons = false,
@@ -323,7 +323,7 @@ class ProductsRepository implements ProductsInterface {
 
   @override
   Future<ApiResult<SingleProductResponse>> updateExtras({
-    required List<int> extrasIds,
+    required List<String?> extrasIds,
     String? productUuid,
   }) async {
     final data = {'extras': extrasIds};
@@ -383,9 +383,9 @@ class ProductsRepository implements ProductsInterface {
     required String maxQty,
     required String qrcode,
     required bool active,
-    int? categoryId,
-    int? kitchenId,
-    int? unitId,
+    String? categoryId,
+    String? kitchenId,
+    String? unitId,
     List<String>? images,
     bool isAddon = false,
     String type = 'single',
@@ -458,7 +458,7 @@ class ProductsRepository implements ProductsInterface {
   @override
   Future<ApiResult<ProductsPaginateResponse>> getProducts({
     int? page,
-    int? categoryId,
+    String? categoryId,
     String? query,
     ProductStatus? status,
     bool needAddons = false,

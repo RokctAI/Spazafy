@@ -10,8 +10,8 @@ import 'package:venderfoodyman/domain/interface/interfaces.dart';
 class OrdersRepository implements OrdersInterface {
   @override
   Future<ApiResult<TransactionsResponse>> createTransaction({
-    required int orderId,
-    required int paymentId,
+    required String? orderId,
+    required String? paymentId,
   }) async {
     final data = {'payment_sys_id': paymentId};
     debugPrint('===> create transaction body: ${jsonEncode(data)}');
@@ -60,7 +60,7 @@ class OrdersRepository implements OrdersInterface {
     UserData? user,
     LocationData? location,
     String? entrance,
-    int? tableId,
+    String? tableId,
     String? floor,
     String? house,
   }) async {
@@ -128,7 +128,7 @@ class OrdersRepository implements OrdersInterface {
   @override
   Future<ApiResult<OrderStatusResponse>> updateOrderStatus({
     required OrderStatus status,
-    int? orderId,
+    String? orderId,
   }) async {
     String? statusText;
     switch (status) {
@@ -175,7 +175,7 @@ class OrdersRepository implements OrdersInterface {
   }
 
   @override
-  Future<ApiResult<SingleOrderResponse>> getOrderDetails({int? orderId}) async {
+  Future<ApiResult<SingleOrderResponse>> getOrderDetails({String? orderId}) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final data = {'lang': LocalStorage.getLanguage()?.locale};

@@ -4,7 +4,7 @@ import 'currency_data.dart';
 
 class UserData {
   UserData({
-    int? id,
+    String? id,
     String? uuid,
     String? firstname,
     String? lastname,
@@ -36,7 +36,7 @@ class UserData {
   }
 
   UserData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _uuid = json['uuid'];
     _firstname = json['firstname'];
     _lastname = json['lastname'];
@@ -59,7 +59,7 @@ class UserData {
     _wallet = json['wallet'] != null ? Wallet.fromJson(json['wallet']) : null;
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
   String? _firstname;
   String? _lastname;
@@ -75,7 +75,7 @@ class UserData {
   Wallet? _wallet;
 
   UserData copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? firstname,
     String? lastname,
@@ -107,7 +107,7 @@ class UserData {
         wallet: wallet ?? _wallet,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get uuid => _uuid;
 
@@ -164,9 +164,9 @@ class UserData {
 class Wallet {
   Wallet({
     String? uuid,
-    int? userId,
-    int? currencyId,
-      num? price,
+    String? userId,
+    String? currencyId,
+    num? price,
     String? symbol,
     String? createdAt,
     String? updatedAt,
@@ -184,8 +184,8 @@ class Wallet {
 
   Wallet.fromJson(dynamic json) {
     _uuid = json['uuid'];
-    _userId = json['user_id'];
-    _currencyId = json['currency_id'];
+    _userId = json['user_id']?.toString();
+    _currencyId = json['currency_id']?.toString();
     _price = json['price'];
     _symbol = json['symbol'];
     _createdAt = json['created_at'];
@@ -196,8 +196,8 @@ class Wallet {
   }
 
   String? _uuid;
-  int? _userId;
-  int? _currencyId;
+  String? _userId;
+  String? _currencyId;
   num? _price;
   String? _symbol;
   String? _createdAt;
@@ -206,8 +206,8 @@ class Wallet {
 
   Wallet copyWith({
     String? uuid,
-    int? userId,
-    int? currencyId,
+    String? userId,
+    String? currencyId,
     num? price,
     String? symbol,
     String? createdAt,
@@ -227,9 +227,9 @@ class Wallet {
 
   String? get uuid => _uuid;
 
-  int? get userId => _userId;
+  String? get userId => _userId;
 
-  int? get currencyId => _currencyId;
+  String? get currencyId => _currencyId;
 
   num? get price => _price;
 

@@ -88,7 +88,7 @@ class TableRepository extends TableInterface {
   Future<ApiResult<TableResponse>> getTables({
     int? page,
     String? query,
-    int? shopSectionId,
+    String? shopSectionId,
     String? type,
     DateTime? from,
     DateTime? to,
@@ -125,7 +125,7 @@ class TableRepository extends TableInterface {
   @override
   Future<ApiResult<TableBookingResponse>> getTableOrders({
     int? page,
-    int? id,
+    String? id,
     String? type,
     DateTime? from,
     DateTime? to,
@@ -164,7 +164,7 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<TableResponse>> deleteSection(int id) async {
+  Future<ApiResult<TableResponse>> deleteSection(String? id) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.delete(
@@ -182,7 +182,7 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<TableResponse>> deleteTable(int id) async {
+  Future<ApiResult<TableResponse>> deleteTable(String? id) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.delete(
@@ -202,7 +202,7 @@ class TableRepository extends TableInterface {
   @override
   Future<ApiResult<List<DisableDates>>> disableDates({
     required DateTime dateTime,
-    required int? id,
+    required String? id,
   }) async {
     try {
       final client = dioHttp.client(requireAuth: true);
@@ -247,8 +247,8 @@ class TableRepository extends TableInterface {
 
   @override
   Future<ApiResult<dynamic>> setBookings({
-    int? bookingId,
-    int? tableId,
+    String? bookingId,
+    String? tableId,
     DateTime? startDate,
     DateTime? endDate,
   }) async {
@@ -314,7 +314,7 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<TableInfoResponse>> getTableInfo(int id) async {
+  Future<ApiResult<TableInfoResponse>> getTableInfo(String? id) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
@@ -334,7 +334,7 @@ class TableRepository extends TableInterface {
   @override
   Future<ApiResult> changeOrderStatus({
     required String status,
-    required int id,
+    required String? id,
   }) async {
     try {
       final client = dioHttp.client(requireAuth: true);

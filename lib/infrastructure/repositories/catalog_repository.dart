@@ -83,7 +83,7 @@ class CatalogRepository implements CatalogInterface {
     String? type,
     bool hasProducts = false,
   }) async {
-    final shopId = LocalStorage.getUser()?.shop?.id ?? 0;
+    final shopId = LocalStorage.getUser()?.shop?.id;
     final data = {
       if (page != null) 'page': page,
       if (query != null) 'search': query,
@@ -126,7 +126,7 @@ class CatalogRepository implements CatalogInterface {
       'lang': LocalStorage.getLanguage()?.locale,
       'type': 'main',
       "has_products": 1,
-      "p_shop_id": LocalStorage.getUser()?.shop?.id ?? 0,
+      "p_shop_id": LocalStorage.getUser()?.shop?.id,
     };
     try {
       final client = dioHttp.client(requireAuth: true);
@@ -178,7 +178,7 @@ class CatalogRepository implements CatalogInterface {
   }
 
   @override
-  Future<ApiResult> deleteCategory({required int? id}) async {
+  Future<ApiResult> deleteCategory({required String? id}) async {
     final data = {'ids[0]': id};
     try {
       final client = dioHttp.client(requireAuth: true);

@@ -1,9 +1,9 @@
 class ImageData {
   ImageData({
-    int? id,
+    String? id,
     String? title,
     String? type,
-    int? loadableId,
+    String? loadableId,
     String? path,
     String? basePath,
   }) {
@@ -16,26 +16,26 @@ class ImageData {
   }
 
   ImageData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _title = json['title'];
     _type = json['type'];
-    _loadableId = json['loadable_id'];
+    _loadableId = json['loadable_id']?.toString();
     _path = json['path'];
     _basePath = json['base_path'];
   }
 
-  int? _id;
+  String? _id;
   String? _title;
   String? _type;
-  int? _loadableId;
+  String? _loadableId;
   String? _path;
   String? _basePath;
 
   ImageData copyWith({
-    int? id,
+    String? id,
     String? title,
     String? type,
-    int? loadableId,
+    String? loadableId,
     String? path,
     String? basePath,
   }) =>
@@ -48,13 +48,13 @@ class ImageData {
         basePath: basePath ?? _basePath,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get title => _title;
 
   String? get type => _type;
 
-  int? get loadableId => _loadableId;
+  String? get loadableId => _loadableId;
 
   String? get path => _path;
 

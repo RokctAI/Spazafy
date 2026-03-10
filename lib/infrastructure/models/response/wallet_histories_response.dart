@@ -55,7 +55,7 @@ class WalletData {
     int? id,
     String? uuid,
     String? walletUuid,
-    int? transactionId,
+    String? transactionId,
     String? type,
     num? price,
     String? note,
@@ -97,7 +97,7 @@ class WalletData {
   int? _id;
   String? _uuid;
   String? _walletUuid;
-  int? _transactionId;
+  String? _transactionId;
   String? _type;
   num? _price;
   String? _note;
@@ -111,7 +111,7 @@ class WalletData {
     int? id,
     String? uuid,
     String? walletUuid,
-    int? transactionId,
+    String? transactionId,
     String? type,
     num? price,
     String? note,

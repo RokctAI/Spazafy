@@ -53,7 +53,7 @@ class NotificationRepository extends NotificationInterface {
   }
 
   @override
-  Future<ApiResult<dynamic>> readOne({int? id}) async {
+  Future<ApiResult<dynamic>> readOne({String? id}) async {
     final data = {
       if (id != null) '$id': id,
       'lang': LocalStorage.getLanguage()?.locale,

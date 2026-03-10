@@ -1,5 +1,5 @@
 class BookingsData {
-  int id;
+  String? id;
   int? maxTime;
   DateTime? createdAt;
   DateTime? updatedAt;
@@ -12,7 +12,7 @@ class BookingsData {
   });
 
   factory BookingsData.fromJson(Map<String, dynamic> json) => BookingsData(
-    id: json["id"],
+    id: json["id"]?.toString(),
     maxTime: json["max_time"] ?? 23,
     createdAt: DateTime.parse(json["created_at"]),
     updatedAt: DateTime.parse(json["updated_at"]),

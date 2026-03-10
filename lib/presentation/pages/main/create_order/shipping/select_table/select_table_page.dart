@@ -12,7 +12,7 @@ import '../../../../../component/components.dart';
 
 @RoutePage()
 class SelectTablePage extends ConsumerStatefulWidget {
-  final int? sectionId;
+  final String? sectionId;
 
   const SelectTablePage({super.key, required this.sectionId});
 

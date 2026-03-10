@@ -25,5 +25,5 @@ abstract class CatalogInterface {
     String? query,
   });
 
-  Future<ApiResult> deleteCategory({required int? id});
+  Future<ApiResult> deleteCategory({required String? id});
 }

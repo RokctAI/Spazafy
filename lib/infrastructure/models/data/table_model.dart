@@ -2,7 +2,7 @@ class TableModel {
   final String name;
   final int chairCount;
   final int tax;
-  final int shopSectionId;
+  final String? shopSectionId;
 
   TableModel({
     required this.name,
@@ -11,7 +11,7 @@ class TableModel {
     required this.shopSectionId,
   });
 
-  Map<String, Object> toJson() => {
+  Map<String, Object?> toJson() => {
         "name": name,
         "chair_count": chairCount,
         "tax": tax,

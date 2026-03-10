@@ -19,7 +19,7 @@ class WorkingDayData {
 }
 
 class Date {
-  int id;
+  String? id;
   String day;
   String from;
   String to;
@@ -34,7 +34,7 @@ class Date {
   });
 
   factory Date.fromJson(Map<String, dynamic> json) => Date(
-    id: json["id"],
+    id: json["id"]?.toString(),
     day: json["day"],
     from: json["from"],
     to: json["to"],
@@ -51,7 +51,7 @@ class Date {
 }
 
 class Shop {
-  int id;
+  String? id;
   DateTime createdAt;
   DateTime updatedAt;
 
@@ -62,7 +62,7 @@ class Shop {
   });
 
   factory Shop.fromJson(Map<String, dynamic> json) => Shop(
-    id: json["id"],
+    id: json["id"]?.toString(),
     createdAt: DateTime.parse(json["created_at"]),
     updatedAt: DateTime.parse(json["updated_at"]),
   );

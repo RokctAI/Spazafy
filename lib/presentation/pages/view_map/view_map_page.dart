@@ -21,7 +21,7 @@ import 'package:venderfoodyman/presentation/styles/style.dart';
 @RoutePage()
 class ViewMapPage extends ConsumerStatefulWidget {
   final bool isShopLocation;
-  final int? shopId;
+  final String? shopId;
   final VoidCallback onChanged;
 
   const ViewMapPage(
