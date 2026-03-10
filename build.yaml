@@ -5,11 +5,14 @@ targets:
         generate_for:
           exclude:
             - test/**
+            - lib_old/**
       freezed:
         generate_for:
           exclude:
             - test/**
+            - lib_old/**
       auto_route_generator:
         generate_for:
           exclude:
             - test/**
+            - lib_old/**
