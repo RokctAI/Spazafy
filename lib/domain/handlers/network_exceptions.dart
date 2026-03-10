@@ -56,7 +56,8 @@ class NetworkExceptions with _$NetworkExceptions {
               networkExceptions = const NetworkExceptions.requestTimeout();
               break;
             case DioExceptionType.unknown:
-              networkExceptions = const NetworkExceptions.noInternetConnection();
+              networkExceptions =
+                  const NetworkExceptions.noInternetConnection();
               break;
             case DioExceptionType.receiveTimeout:
               networkExceptions = const NetworkExceptions.sendTimeout();
@@ -67,14 +68,17 @@ class NetworkExceptions with _$NetworkExceptions {
                   networkExceptions = const NetworkExceptions.badRequest();
                   break;
                 case 401:
-                  networkExceptions = const NetworkExceptions.unauthorisedRequest();
+                  networkExceptions =
+                      const NetworkExceptions.unauthorisedRequest();
                   break;
                 case 403:
-                  networkExceptions = const NetworkExceptions.unauthorisedRequest();
+                  networkExceptions =
+                      const NetworkExceptions.unauthorisedRequest();
                   break;
                 case 404:
-                  networkExceptions =
-                      const NetworkExceptions.notFound("Not found");
+                  networkExceptions = const NetworkExceptions.notFound(
+                    "Not found",
+                  );
                   break;
                 case 409:
                   networkExceptions = const NetworkExceptions.conflict();
@@ -83,10 +87,12 @@ class NetworkExceptions with _$NetworkExceptions {
                   networkExceptions = const NetworkExceptions.requestTimeout();
                   break;
                 case 500:
-                  networkExceptions = const NetworkExceptions.internalServerError();
+                  networkExceptions =
+                      const NetworkExceptions.internalServerError();
                   break;
                 case 503:
-                  networkExceptions = const NetworkExceptions.serviceUnavailable();
+                  networkExceptions =
+                      const NetworkExceptions.serviceUnavailable();
                   break;
                 default:
                   var responseCode = error.response!.statusCode;
@@ -102,7 +108,8 @@ class NetworkExceptions with _$NetworkExceptions {
               networkExceptions = const NetworkExceptions.internalServerError();
               break;
             case DioExceptionType.connectionError:
-              networkExceptions = const NetworkExceptions.noInternetConnection();
+              networkExceptions =
+                  const NetworkExceptions.noInternetConnection();
               break;
           }
         } else if (error is SocketException) {
