@@ -36,7 +36,10 @@ final router = GoRouter(
       routes: [
         GoRoute(
           path: 'add',
-          builder: (context, state) => const AddProductPage(),
+          builder: (context, state) {
+            final barcode = state.extra as String?;
+            return AddProductPage(initialBarcode: barcode);
+          },
         ),
         GoRoute(
           path: 'edit/:id',

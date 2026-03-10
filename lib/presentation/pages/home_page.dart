@@ -84,7 +84,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: BlocListener<BillingBloc, BillingState>(
         listenWhen: (previous, current) =>
-            previous.error != current.error && current.error != null,
+            (previous.error != current.error && current.error != null) ||
+            (previous.unknownBarcode != current.unknownBarcode && current.unknownBarcode != null),
         listener: (context, state) {
           if (state.error != null) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -94,6 +95,9 @@ class _HomePageState extends State<HomePage> {
                 behavior: SnackBarBehavior.floating,
               ),
             );
+          }
+          if (state.unknownBarcode != null) {
+            _showUnknownProductDialog(state.unknownBarcode!);
           }
         },
         child: Stack(
@@ -327,6 +331,37 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+    );
+  }
+
+  void _showUnknownProductDialog(String barcode) {
+    _scannerController.stop();
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (innerContext) {
+        return AlertDialog(
+          title: const Text('Unknown Product'),
+          content: Text('Product with barcode "$barcode" was not found. Would you like to add it?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(innerContext);
+                if (_isCameraOn && mounted) _scannerController.start();
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () async {
+                Navigator.pop(innerContext);
+                await context.push('/products/add', extra: barcode);
+                if (_isCameraOn && mounted) _scannerController.start();
+              },
+              child: const Text('Add Product'),
+            ),
+          ],
+        );
+      },
     );
   }
 

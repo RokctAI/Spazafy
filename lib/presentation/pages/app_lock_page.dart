@@ -95,65 +95,68 @@ class _AppLockPageState extends State<AppLockPage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    if (_isLoading) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
-    }
+    return Stack(
+      children: [
+        // Always render the child to preserve its state (router, navigation stack, etc.)
+        widget.child,
 
-    if (!_isLockEnabled || _isAuthenticated) {
-      return widget.child;
-    }
-
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(
-                Icons.lock_outline,
-                size: 80,
-                color: AppTheme.primaryColor,
-              ),
-              const SizedBox(height: 24),
-              const Text(
-                'App Locked',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                'Unlock to continue',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                ),
-              ),
-              const SizedBox(height: 48),
-              ElevatedButton.icon(
-                onPressed: _authenticate,
-                icon: const Icon(Icons.fingerprint),
-                label: const Text('Unlock'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.primaryColor,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 16,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-              ),
-            ],
+        // Overlay the lock screen on top if needed
+        if (_isLoading || (_isLockEnabled && !_isAuthenticated))
+          Positioned.fill(
+            child: Scaffold(
+              backgroundColor: Colors.white,
+              body: _isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : SafeArea(
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.lock_outline,
+                              size: 80,
+                              color: AppTheme.primaryColor,
+                            ),
+                            const SizedBox(height: 24),
+                            const Text(
+                              'App Locked',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            const Text(
+                              'Unlock to continue',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 16,
+                              ),
+                            ),
+                            const SizedBox(height: 48),
+                            ElevatedButton.icon(
+                              onPressed: _authenticate,
+                              icon: const Icon(Icons.fingerprint),
+                              label: const Text('Unlock'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppTheme.primaryColor,
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 32,
+                                  vertical: 16,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+            ),
           ),
-        ),
-      ),
+      ],
     );
   }
 }
