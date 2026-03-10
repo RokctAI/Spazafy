@@ -167,12 +167,25 @@ class PrinterHelper {
       final String totalItem = item['total'].toString();
 
       final String prefix = '${qty}x $name';
-      final String truncatedPrefix =
-          prefix.length > 16 ? prefix.substring(0, 16) : prefix;
+      final int prefixLen = prefix.length;
+      final int truncLen = prefixLen > 16 ? 16 : prefixLen;
 
-      final String line =
-          truncatedPrefix.padRight(16) + price.padRight(8) + totalItem;
-      bytes.addAll(line.codeUnits);
+      for (int i = 0; i < truncLen; i++) {
+        bytes.add(prefix.codeUnitAt(i));
+      }
+      for (int i = truncLen; i < 16; i++) {
+        bytes.add(32); // Space
+      }
+
+      final int priceLen = price.length;
+      for (int i = 0; i < priceLen; i++) {
+        bytes.add(price.codeUnitAt(i));
+      }
+      for (int i = priceLen; i < 8; i++) {
+        bytes.add(32); // Space
+      }
+
+      bytes.addAll(totalItem.codeUnits);
       bytes.addAll(EscPos.lineFeed);
     }
 
