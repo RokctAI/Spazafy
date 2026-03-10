@@ -1,4 +1,3 @@
-
 class TableInfoData {
   String? id;
   String? bookingId;

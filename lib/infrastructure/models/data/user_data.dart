@@ -89,23 +89,22 @@ class UserData {
     List<AddressData>? addresses,
     ShopData? shop,
     Wallet? wallet,
-  }) =>
-      UserData(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        firstname: firstname ?? _firstname,
-        lastname: lastname ?? _lastname,
-        email: email ?? _email,
-        phone: phone ?? _phone,
-        birthday: birthday ?? _birthday,
-        gender: gender ?? _gender,
-        active: active ?? _active,
-        img: img ?? _img,
-        role: role ?? _role,
-        addresses: addresses ?? _addresses,
-        shop: shop ?? _shop,
-        wallet: wallet ?? _wallet,
-      );
+  }) => UserData(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    firstname: firstname ?? _firstname,
+    lastname: lastname ?? _lastname,
+    email: email ?? _email,
+    phone: phone ?? _phone,
+    birthday: birthday ?? _birthday,
+    gender: gender ?? _gender,
+    active: active ?? _active,
+    img: img ?? _img,
+    role: role ?? _role,
+    addresses: addresses ?? _addresses,
+    shop: shop ?? _shop,
+    wallet: wallet ?? _wallet,
+  );
 
   String? get id => _id;
 
@@ -213,17 +212,16 @@ class Wallet {
     String? createdAt,
     String? updatedAt,
     CurrencyData? currency,
-  }) =>
-      Wallet(
-        uuid: uuid ?? _uuid,
-        userId: userId ?? _userId,
-        currencyId: currencyId ?? _currencyId,
-        price: price ?? _price,
-        symbol: symbol ?? _symbol,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        currency: currency ?? _currency,
-      );
+  }) => Wallet(
+    uuid: uuid ?? _uuid,
+    userId: userId ?? _userId,
+    currencyId: currencyId ?? _currencyId,
+    price: price ?? _price,
+    symbol: symbol ?? _symbol,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    currency: currency ?? _currency,
+  );
 
   String? get uuid => _uuid;
 

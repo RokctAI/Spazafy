@@ -175,7 +175,9 @@ class OrdersRepository implements OrdersInterface {
   }
 
   @override
-  Future<ApiResult<SingleOrderResponse>> getOrderDetails({String? orderId}) async {
+  Future<ApiResult<SingleOrderResponse>> getOrderDetails({
+    String? orderId,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final data = {'lang': LocalStorage.getLanguage()?.locale};

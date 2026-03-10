@@ -111,7 +111,9 @@ class PrinterHelper {
     bytes += EscPos.lineFeed;
 
     // Date
-    String formattedDate = DateFormat('dd-MM-yyyy hh:mm a').format(DateTime.now());
+    String formattedDate = DateFormat(
+      'dd-MM-yyyy hh:mm a',
+    ).format(DateTime.now());
     bytes += _textToBytes(formattedDate);
     bytes += EscPos.lineFeed;
 
@@ -140,7 +142,7 @@ class PrinterHelper {
         bytes.add(prefix.codeUnitAt(i));
       }
       for (int i = truncLen; i < 16; i++) {
-        bytes.add(32); 
+        bytes.add(32);
       }
 
       final int priceLen = price.length;

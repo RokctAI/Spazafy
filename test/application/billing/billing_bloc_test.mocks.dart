@@ -30,13 +30,8 @@ import 'package:mockito/src/dummies.dart' as _i8;
 
 class _FakeProductRepository_0 extends _i1.SmartFake
     implements _i2.ProductRepository {
-  _FakeProductRepository_0(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeProductRepository_0(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 /// A class which mocks [GetProductByBarcodeUseCase].
@@ -49,28 +44,26 @@ class MockGetProductByBarcodeUseCase extends _i1.Mock
   }
 
   @override
-  _i2.ProductRepository get repository => (super.noSuchMethod(
-        Invocation.getter(#repository),
-        returnValue: _FakeProductRepository_0(
-          this,
-          Invocation.getter(#repository),
-        ),
-      ) as _i2.ProductRepository);
+  _i2.ProductRepository get repository =>
+      (super.noSuchMethod(
+            Invocation.getter(#repository),
+            returnValue: _FakeProductRepository_0(
+              this,
+              Invocation.getter(#repository),
+            ),
+          )
+          as _i2.ProductRepository);
 
   @override
   _i4.Future<_i5.Either<_i6.Failure, _i7.Product>> call(String? params) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #call,
-          [params],
-        ),
-        returnValue: _i4.Future<_i5.Either<_i6.Failure, _i7.Product>>.value(
-            _i8.dummyValue<_i5.Either<_i6.Failure, _i7.Product>>(
-          this,
-          Invocation.method(
-            #call,
-            [params],
-          ),
-        )),
-      ) as _i4.Future<_i5.Either<_i6.Failure, _i7.Product>>);
+            Invocation.method(#call, [params]),
+            returnValue: _i4.Future<_i5.Either<_i6.Failure, _i7.Product>>.value(
+              _i8.dummyValue<_i5.Either<_i6.Failure, _i7.Product>>(
+                this,
+                Invocation.method(#call, [params]),
+              ),
+            ),
+          )
+          as _i4.Future<_i5.Either<_i6.Failure, _i7.Product>>);
 }

@@ -10,8 +10,7 @@ class CartItem {
 
   /// Total price for this line item (unit price × quantity).
   double get total {
-    final unitPrice =
-        product.stock?.totalPrice?.toDouble() ?? 0.0;
+    final unitPrice = product.stock?.totalPrice?.toDouble() ?? 0.0;
     return unitPrice * quantity;
   }
 

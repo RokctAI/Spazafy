@@ -28,12 +28,16 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
     _categoryController = RefreshController();
     _productController = RefreshController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(orderProductsProvider.notifier).fetchProducts(
+      ref
+          .read(orderProductsProvider.notifier)
+          .fetchProducts(
             categoryId: null,
             isRefresh: true,
             isOpeningPage: true,
           );
-      ref.read(categoriesProvider.notifier).fetchCategories(context, isRefresh: true);
+      ref
+          .read(categoriesProvider.notifier)
+          .fetchCategories(context, isRefresh: true);
     });
   }
 
@@ -67,9 +71,7 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
           _buildSearch(),
           16.verticalSpace,
           _buildCategories(),
-          Expanded(
-            child: _buildProducts(),
-          ),
+          Expanded(child: _buildProducts()),
         ],
       ),
     );
@@ -79,11 +81,15 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
     return SearchTextField(
       onChanged: (value) {
         final categoriesState = ref.read(categoriesProvider);
-        ref.read(orderProductsProvider.notifier).setQuery(
+        ref
+            .read(orderProductsProvider.notifier)
+            .setQuery(
               query: value,
               categoryId: categoriesState.activeIndex == 1
                   ? null
-                  : categoriesState.categories[categoriesState.activeIndex - 2].id,
+                  : categoriesState
+                        .categories[categoriesState.activeIndex - 2]
+                        .id,
             );
       },
     );
@@ -104,11 +110,16 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
           categoriesEvent.setActiveIndex(index);
           productsEvent.fetchProducts(
             refreshController: _productController,
-            categoryId: index == 1 ? null : categoriesState.categories[index - 2].id,
+            categoryId: index == 1
+                ? null
+                : categoriesState.categories[index - 2].id,
             isRefresh: true,
           );
         },
-        onLoading: () => categoriesEvent.fetchCategories(context, controller: _categoryController),
+        onLoading: () => categoriesEvent.fetchCategories(
+          context,
+          controller: _categoryController,
+        ),
       ),
     );
   }

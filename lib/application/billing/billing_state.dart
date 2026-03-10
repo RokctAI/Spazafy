@@ -4,14 +4,7 @@ import '../../infrastructure/models/data/product_data.dart';
 
 part 'billing_state.freezed.dart';
 
-enum ScanPromptType {
-  none,
-  found,
-  repeat,
-  extras,
-  unknown,
-  lowStock,
-}
+enum ScanPromptType { none, found, repeat, extras, unknown, lowStock }
 
 @freezed
 class BillingState with _$BillingState {

@@ -38,7 +38,7 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
   void _toggleCamera() {
     final notifier = ref.read(billingProvider.notifier);
     final isScanning = ref.read(billingProvider).isScanning;
-    
+
     if (isScanning) {
       _scannerController.stop();
       notifier.setScanning(false);
@@ -82,7 +82,8 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
 
           // ─── Scan Prompt (Floating) ───
           Positioned(
-            bottom: 0.6.sh - 80.h, // Positioned just above the cart panel handle
+            bottom:
+                0.6.sh - 80.h, // Positioned just above the cart panel handle
             left: 0,
             right: 0,
             child: const ScanPrompt(),
@@ -97,7 +98,9 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
               return Container(
                 decoration: BoxDecoration(
                   color: AppStyle.white,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(24.r)),
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(24.r),
+                  ),
                   boxShadow: [
                     BoxShadow(
                       color: AppStyle.blackColor.withOpacity(0.05),
@@ -120,26 +123,30 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
                         ),
                       ),
                     ),
-                    
+
                     // Cart Summary Header
                     _buildCartHeader(state),
-                    
+
                     // Cart Items List
                     Expanded(
                       child: state.cartItems.isEmpty
                           ? _buildEmptyCart()
                           : ListView.separated(
                               controller: scrollController,
-                              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 16.w,
+                                vertical: 8.h,
+                              ),
                               itemCount: state.cartItems.length,
-                              separatorBuilder: (context, index) => Divider(height: 24.h),
+                              separatorBuilder: (context, index) =>
+                                  Divider(height: 24.h),
                               itemBuilder: (context, index) {
                                 final item = state.cartItems[index];
                                 return _buildCartItem(item, notifier);
                               },
                             ),
                     ),
-                    
+
                     // Contextual Bottom Button
                     _buildBottomButton(state),
                   ],
@@ -160,7 +167,11 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(FlutterRemix.shopping_cart_2_line, size: 64.r, color: AppStyle.greyColor),
+              Icon(
+                FlutterRemix.shopping_cart_2_line,
+                size: 64.r,
+                color: AppStyle.greyColor,
+              ),
               16.verticalSpace,
               Text(
                 'Start a Sale',
@@ -171,7 +182,11 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
                 title: 'Turn on Camera',
                 onTap: _toggleCamera,
                 width: 180,
-                icon: Icon(FlutterRemix.camera_line, color: AppStyle.white, size: 20.r),
+                icon: Icon(
+                  FlutterRemix.camera_line,
+                  color: AppStyle.white,
+                  size: 20.r,
+                ),
               ),
             ],
           ),
@@ -186,7 +201,9 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
         for (final barcode in barcodes) {
           if (barcode.rawValue != null) {
             Vibration.vibrate(duration: 100);
-            ref.read(billingProvider.notifier).onBarcodeScanned(barcode.rawValue!);
+            ref
+                .read(billingProvider.notifier)
+                .onBarcodeScanned(barcode.rawValue!);
           }
         }
       },
@@ -197,13 +214,17 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
     return Column(
       children: [
         _buildCircleIcon(
-          icon: _isTorchOn ? FlutterRemix.flashlight_fill : FlutterRemix.flashlight_line,
+          icon: _isTorchOn
+              ? FlutterRemix.flashlight_fill
+              : FlutterRemix.flashlight_line,
           onTap: _toggleTorch,
           enabled: state.isScanning,
         ),
         8.verticalSpace,
         _buildCircleIcon(
-          icon: state.isScanning ? FlutterRemix.camera_off_line : FlutterRemix.camera_line,
+          icon: state.isScanning
+              ? FlutterRemix.camera_off_line
+              : FlutterRemix.camera_line,
           onTap: _toggleCamera,
         ),
         8.verticalSpace,
@@ -222,7 +243,11 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
     );
   }
 
-  Widget _buildCircleIcon({required IconData icon, required VoidCallback onTap, bool enabled = true}) {
+  Widget _buildCircleIcon({
+    required IconData icon,
+    required VoidCallback onTap,
+    bool enabled = true,
+  }) {
     return ButtonsBouncingEffect(
       child: GestureDetector(
         onTap: enabled ? onTap : null,
@@ -254,13 +279,13 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Scanned Items',
-                style: AppStyle.interBold(size: 16),
-              ),
+              Text('Scanned Items', style: AppStyle.interBold(size: 16)),
               Text(
                 '${state.cartItems.length} items total',
-                style: AppStyle.interNormal(size: 12, color: AppStyle.greyColor),
+                style: AppStyle.interNormal(
+                  size: 12,
+                  color: AppStyle.greyColor,
+                ),
               ),
             ],
           ),
@@ -269,7 +294,10 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
             children: [
               Text(
                 'TOTAL PRICE',
-                style: AppStyle.interNormal(size: 10, color: AppStyle.greyColor),
+                style: AppStyle.interNormal(
+                  size: 10,
+                  color: AppStyle.greyColor,
+                ),
               ),
               Text(
                 '₹${state.totalAmount.toStringAsFixed(2)}',
@@ -287,9 +315,16 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(FlutterRemix.inbox_line, size: 48.r, color: AppStyle.greyColor.withOpacity(0.5)),
+          Icon(
+            FlutterRemix.inbox_line,
+            size: 48.r,
+            color: AppStyle.greyColor.withOpacity(0.5),
+          ),
           8.verticalSpace,
-          Text('Cart is empty', style: AppStyle.interNormal(color: AppStyle.greyColor)),
+          Text(
+            'Cart is empty',
+            style: AppStyle.interNormal(color: AppStyle.greyColor),
+          ),
         ],
       ),
     );
@@ -305,19 +340,32 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(item.name, style: AppStyle.interBold(size: 14)),
-              Text('₹${item.product.stock?.totalPrice?.toStringAsFixed(1)} / ${item.uom ?? 'unit'}', 
-                   style: AppStyle.interNormal(size: 12, color: AppStyle.greyColor)),
+              Text(
+                '₹${item.product.stock?.totalPrice?.toStringAsFixed(1)} / ${item.uom ?? 'unit'}',
+                style: AppStyle.interNormal(
+                  size: 12,
+                  color: AppStyle.greyColor,
+                ),
+              ),
             ],
           ),
         ),
         Row(
           children: [
-            _qtyBtn(FlutterRemix.subtract_line, () => notifier.updateQuantity(item.product, item.quantity - 1)),
+            _qtyBtn(
+              FlutterRemix.subtract_line,
+              () => notifier.updateQuantity(item.product, item.quantity - 1),
+            ),
             SizedBox(
               width: 30.w,
-              child: Center(child: Text('${item.quantity}', style: AppStyle.interBold())),
+              child: Center(
+                child: Text('${item.quantity}', style: AppStyle.interBold()),
+              ),
             ),
-            _qtyBtn(FlutterRemix.add_line, () => notifier.updateQuantity(item.product, item.quantity + 1)),
+            _qtyBtn(
+              FlutterRemix.add_line,
+              () => notifier.updateQuantity(item.product, item.quantity + 1),
+            ),
           ],
         ),
       ],
@@ -344,8 +392,11 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
       padding: EdgeInsets.fromLTRB(16.w, 8.h, 16.w, 24.h),
       child: CustomButton(
         title: isEmpty ? 'Manage Stock' : 'Review Order',
-        icon: Icon(isEmpty ? FlutterRemix.archive_line : FlutterRemix.check_line, 
-                  color: AppStyle.white, size: 20.r),
+        icon: Icon(
+          isEmpty ? FlutterRemix.archive_line : FlutterRemix.check_line,
+          color: AppStyle.white,
+          size: 20.r,
+        ),
         isLoading: false,
         onTap: () {
           if (isEmpty) {

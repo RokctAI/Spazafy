@@ -31,11 +31,7 @@ class DeliveryZonePaginate {
 }
 
 class DeliveryZoneData {
-  DeliveryZoneData({
-    String? id,
-    List<List<double>>? address,
-    ShopData? shop,
-  }) {
+  DeliveryZoneData({String? id, List<List<double>>? address, ShopData? shop}) {
     _id = id;
     _address = address;
     _shop = shop;
@@ -67,12 +63,11 @@ class DeliveryZoneData {
     String? id,
     List<List<double>>? address,
     ShopData? shop,
-  }) =>
-      DeliveryZoneData(
-        id: id ?? _id,
-        address: address ?? _address,
-        shop: shop ?? _shop,
-      );
+  }) => DeliveryZoneData(
+    id: id ?? _id,
+    address: address ?? _address,
+    shop: shop ?? _shop,
+  );
 
   String? get id => _id;
 
@@ -90,4 +85,3 @@ class DeliveryZoneData {
     return map;
   }
 }
-

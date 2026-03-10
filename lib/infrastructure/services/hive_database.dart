@@ -24,8 +24,9 @@ class HiveDatabase {
 
     // Generate or retrieve encryption key
     const secureStorage = FlutterSecureStorage();
-    final encryptionKeyString =
-        await secureStorage.read(key: 'hive_encryption_key');
+    final encryptionKeyString = await secureStorage.read(
+      key: 'hive_encryption_key',
+    );
     if (encryptionKeyString == null) {
       final key = Hive.generateSecureKey();
       await secureStorage.write(

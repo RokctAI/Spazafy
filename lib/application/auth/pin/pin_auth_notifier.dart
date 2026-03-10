@@ -22,7 +22,10 @@ class PinAuthNotifier extends StateNotifier<PinAuthState> {
 
   Future<void> setPin() async {
     if (state.pin.length != 4) {
-      state = state.copyWith(isError: true, errorMessage: 'PIN must be 4 digits');
+      state = state.copyWith(
+        isError: true,
+        errorMessage: 'PIN must be 4 digits',
+      );
       return;
     }
     if (state.pin != state.confirmPin) {
@@ -49,7 +52,7 @@ class PinAuthNotifier extends StateNotifier<PinAuthState> {
   void clearError() {
     state = state.copyWith(isError: false, errorMessage: '');
   }
-  
+
   void resetSuccess() {
     state = state.copyWith(isSuccess: false);
   }
