@@ -19,13 +19,13 @@ class OfflineProductsRepository implements ProductsInterface {
   }) async {
     try {
       final allJson = HiveDatabase.getAll(HiveDatabase.productBox);
-      List<ProductData> products =
-          allJson.map((json) => ProductData.fromJson(json)).toList();
+      List<ProductData> products = allJson
+          .map((json) => ProductData.fromJson(json))
+          .toList();
 
       // Filter by category if requested
       if (categoryId != null) {
-        products =
-            products.where((p) => p.categoryId == categoryId).toList();
+        products = products.where((p) => p.categoryId == categoryId).toList();
       }
 
       // Filter by search query
@@ -40,8 +40,7 @@ class OfflineProductsRepository implements ProductsInterface {
 
       // Filter by status
       if (status != null) {
-        products =
-            products.where((p) => p.status == status.name).toList();
+        products = products.where((p) => p.status == status.name).toList();
       }
 
       // Filter by type
@@ -54,9 +53,7 @@ class OfflineProductsRepository implements ProductsInterface {
         products = products.where((p) => p.active == true).toList();
       }
 
-      return ApiResult.success(
-        data: ProductsPaginateResponse(data: products),
-      );
+      return ApiResult.success(data: ProductsPaginateResponse(data: products));
     } catch (e) {
       return ApiResult.failure(error: e.toString());
     }
@@ -120,24 +117,14 @@ class OfflineProductsRepository implements ProductsInterface {
           'locale': 'en',
         },
         'translations': [
-          {
-            'title': title,
-            'description': description,
-            'locale': 'en',
-          },
+          {'title': title, 'description': description, 'locale': 'en'},
         ],
       };
 
-      await HiveDatabase.putItem(
-        HiveDatabase.productBox,
-        uuid,
-        productJson,
-      );
+      await HiveDatabase.putItem(HiveDatabase.productBox, uuid, productJson);
 
       return ApiResult.success(
-        data: SingleProductResponse(
-          data: ProductData.fromJson(productJson),
-        ),
+        data: SingleProductResponse(data: ProductData.fromJson(productJson)),
       );
     } catch (e) {
       return ApiResult.failure(error: e.toString());
@@ -202,9 +189,7 @@ class OfflineProductsRepository implements ProductsInterface {
       await HiveDatabase.putItem(HiveDatabase.productBox, uuid, existing);
 
       return ApiResult.success(
-        data: SingleProductResponse(
-          data: ProductData.fromJson(existing),
-        ),
+        data: SingleProductResponse(data: ProductData.fromJson(existing)),
       );
     } catch (e) {
       return ApiResult.failure(error: e.toString());
@@ -231,9 +216,7 @@ class OfflineProductsRepository implements ProductsInterface {
       await HiveDatabase.putItem(HiveDatabase.productBox, uuid, existing);
 
       return ApiResult.success(
-        data: SingleProductResponse(
-          data: ProductData.fromJson(existing),
-        ),
+        data: SingleProductResponse(data: ProductData.fromJson(existing)),
       );
     } catch (e) {
       return ApiResult.failure(error: e.toString());
@@ -255,9 +238,7 @@ class OfflineProductsRepository implements ProductsInterface {
   Future<ApiResult<ExtrasGroupsResponse>> getExtrasGroups({
     bool needOnlyValid = true,
   }) async {
-    return const ApiResult.failure(
-      error: 'Not available offline',
-    );
+    return const ApiResult.failure(error: 'Not available offline');
   }
 
   @override

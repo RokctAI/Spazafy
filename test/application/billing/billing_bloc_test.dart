@@ -26,17 +26,30 @@ void main() {
   });
 
   group('BillingBloc - RemoveProductFromCartEvent', () {
-    const product1 =
-        Product(id: '1', name: 'Product 1', barcode: '111', price: 10.0);
-    const product2 =
-        Product(id: '2', name: 'Product 2', barcode: '222', price: 20.0);
-    const product3 =
-        Product(id: '3', name: 'Product 3', barcode: '333', price: 30.0);
+    const product1 = Product(
+      id: '1',
+      name: 'Product 1',
+      barcode: '111',
+      price: 10.0,
+    );
+    const product2 = Product(
+      id: '2',
+      name: 'Product 2',
+      barcode: '222',
+      price: 20.0,
+    );
+    const product3 = Product(
+      id: '3',
+      name: 'Product 3',
+      barcode: '333',
+      price: 30.0,
+    );
 
     blocTest<BillingBloc, BillingState>(
       'should remove the product from cart when it exists',
       build: () => BillingBloc(
-          getProductByBarcodeUseCase: mockGetProductByBarcodeUseCase),
+        getProductByBarcodeUseCase: mockGetProductByBarcodeUseCase,
+      ),
       seed: () => const BillingState(
         cartItems: [
           CartItem(product: product1),
@@ -58,12 +71,9 @@ void main() {
     blocTest<BillingBloc, BillingState>(
       'should not emit a new state if product does not exist in the cart (or emit identical state)',
       build: () => BillingBloc(
-          getProductByBarcodeUseCase: mockGetProductByBarcodeUseCase),
-      seed: () => const BillingState(
-        cartItems: [
-          CartItem(product: product1),
-        ],
+        getProductByBarcodeUseCase: mockGetProductByBarcodeUseCase,
       ),
+      seed: () => const BillingState(cartItems: [CartItem(product: product1)]),
       act: (bloc) => bloc.add(const RemoveProductFromCartEvent('4')),
       expect: () => [], // BLoC will skip identical states by default
     );
@@ -71,18 +81,11 @@ void main() {
     blocTest<BillingBloc, BillingState>(
       'should handle removing the last item from the cart',
       build: () => BillingBloc(
-          getProductByBarcodeUseCase: mockGetProductByBarcodeUseCase),
-      seed: () => const BillingState(
-        cartItems: [
-          CartItem(product: product1),
-        ],
+        getProductByBarcodeUseCase: mockGetProductByBarcodeUseCase,
       ),
+      seed: () => const BillingState(cartItems: [CartItem(product: product1)]),
       act: (bloc) => bloc.add(const RemoveProductFromCartEvent('1')),
-      expect: () => [
-        const BillingState(
-          cartItems: [],
-        ),
-      ],
+      expect: () => [const BillingState(cartItems: [])],
     );
   });
 }

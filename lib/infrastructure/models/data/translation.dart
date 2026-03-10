@@ -38,15 +38,14 @@ class Translation {
     String? description,
     String? shortDesc,
     String? address,
-  }) =>
-      Translation(
-        id: id ?? _id,
-        locale: locale ?? _locale,
-        title: title ?? _title,
-        description: description ?? _description,
-        shortDesc: shortDesc ?? _shortDesc,
-        address: address ?? _address,
-      );
+  }) => Translation(
+    id: id ?? _id,
+    locale: locale ?? _locale,
+    title: title ?? _title,
+    description: description ?? _description,
+    shortDesc: shortDesc ?? _shortDesc,
+    address: address ?? _address,
+  );
 
   String? get id => _id;
 

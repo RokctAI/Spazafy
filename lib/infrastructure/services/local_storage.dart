@@ -107,7 +107,8 @@ class LocalStorage {
   static Map<String, dynamic> getTranslations({String? locale}) {
     final currentLocale = locale ?? getLanguage()?.locale ?? 'en';
     // Avval shu til uchun cache'dan olish
-    String encoded = _preferences?.getString(
+    String encoded =
+        _preferences?.getString(
           '${StorageKeys.keyTranslations}_$currentLocale',
         ) ??
         '';
@@ -151,10 +152,13 @@ class LocalStorage {
 
   static Future<void> setActiveLanguages(List<LanguageData> languages) async {
     if (_preferences != null) {
-      final List<String> strings =
-      languages.map((language) => jsonEncode(language.toJson())).toList();
-      await _preferences!
-          .setStringList(StorageKeys.keyActiveLanguages, strings);
+      final List<String> strings = languages
+          .map((language) => jsonEncode(language.toJson()))
+          .toList();
+      await _preferences!.setStringList(
+        StorageKeys.keyActiveLanguages,
+        strings,
+      );
     }
   }
 
@@ -162,9 +166,7 @@ class LocalStorage {
     final List<String> languages =
         _preferences?.getStringList(StorageKeys.keyActiveLanguages) ?? [];
     final List<LanguageData> localLanguages = languages
-        .map(
-          (language) => LanguageData.fromJson(jsonDecode(language)),
-    )
+        .map((language) => LanguageData.fromJson(jsonDecode(language)))
         .toList(growable: true);
     return localLanguages.isEmpty
         ? [LanguageData().copyWith(title: 'English', locale: 'en')]
@@ -301,7 +303,8 @@ class LocalStorage {
     }
   }
 
-  static String? getPrinterMac() => _preferences?.getString(StorageKeys.keyPrinterMac);
+  static String? getPrinterMac() =>
+      _preferences?.getString(StorageKeys.keyPrinterMac);
 
   static Future<void> removePrinterMac() async {
     if (_preferences != null) {
@@ -315,7 +318,8 @@ class LocalStorage {
     }
   }
 
-  static String? getPrinterName() => _preferences?.getString(StorageKeys.keyPrinterName);
+  static String? getPrinterName() =>
+      _preferences?.getString(StorageKeys.keyPrinterName);
 
   static Future<void> removePrinterName() async {
     if (_preferences != null) {
@@ -329,7 +333,8 @@ class LocalStorage {
     }
   }
 
-  static String getAppPin() => _preferences?.getString(StorageKeys.keyAppPin) ?? '';
+  static String getAppPin() =>
+      _preferences?.getString(StorageKeys.keyAppPin) ?? '';
 
   static Future<void> removeAppPin() async {
     if (_preferences != null) {

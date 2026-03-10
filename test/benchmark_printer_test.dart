@@ -54,8 +54,9 @@ void main() {
     final start = DateTime.now();
     bloc.add(RefreshPrinterEvent());
 
-    await bloc.stream
-        .firstWhere((state) => state.status == PrinterStatus.connected);
+    await bloc.stream.firstWhere(
+      (state) => state.status == PrinterStatus.connected,
+    );
     final end = DateTime.now();
 
     print('Time taken: ${end.difference(start).inMilliseconds} ms');

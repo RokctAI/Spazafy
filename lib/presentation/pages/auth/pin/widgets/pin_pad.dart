@@ -7,17 +7,17 @@ class PinPad extends StatelessWidget {
   final Function(String) onTap;
   final VoidCallback onDelete;
 
-  const PinPad({
-    super.key,
-    required this.onTap,
-    required this.onDelete,
-  });
+  const PinPad({super.key, required this.onTap, required this.onDelete});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        for (var row in [[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+        for (var row in [
+          [1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9],
+        ])
           Padding(
             padding: EdgeInsets.only(bottom: 16.h),
             child: Row(
@@ -35,10 +35,7 @@ class PinPad extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const SizedBox(width: 80, height: 80),
-            _PinButton(
-              text: '0',
-              onTap: () => onTap('0'),
-            ),
+            _PinButton(text: '0', onTap: () => onTap('0')),
             _PinButton(
               icon: Icons.backspace_outlined,
               onTap: onDelete,
@@ -79,10 +76,7 @@ class _PinButton extends StatelessWidget {
           ),
           child: Center(
             child: text != null
-                ? Text(
-                    text!,
-                    style: AppStyle.interBold(size: 24),
-                  )
+                ? Text(text!, style: AppStyle.interBold(size: 24))
                 : Icon(icon, size: 24.r, color: AppStyle.black),
           ),
         ),

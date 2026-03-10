@@ -70,8 +70,9 @@ class OfflineOrdersRepository implements OrdersInterface {
   }) async {
     try {
       final allJson = HiveDatabase.getAll(HiveDatabase.orderBox);
-      List<OrderData> orders =
-          allJson.map((json) => OrderData.fromJson(json)).toList();
+      List<OrderData> orders = allJson
+          .map((json) => OrderData.fromJson(json))
+          .toList();
 
       // Sort by creation date, newest first
       orders.sort((a, b) {
@@ -86,8 +87,7 @@ class OfflineOrdersRepository implements OrdersInterface {
             orders: orders,
             statistic: OrdersStatistic(
               ordersCount: orders.length,
-              newOrdersCount:
-                  orders.where((o) => o.status == 'new').length,
+              newOrdersCount: orders.where((o) => o.status == 'new').length,
             ),
           ),
         ),

@@ -142,7 +142,8 @@ class _MainPageState extends State<MainPage> {
                               currentIndex: state.selectedIndex,
                               index: 0,
                               selectIcon: FlutterRemix.money_dollar_circle_fill,
-                              unSelectIcon: FlutterRemix.money_dollar_circle_line,
+                              unSelectIcon:
+                                  FlutterRemix.money_dollar_circle_line,
                             ),
                             BottomNavigatorItem(
                               isScrolling: state.isScrolling,

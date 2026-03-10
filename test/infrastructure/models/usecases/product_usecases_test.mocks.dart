@@ -33,133 +33,105 @@ class MockProductRepository extends _i1.Mock implements _i2.ProductRepository {
   @override
   _i3.Future<_i4.Either<_i5.Failure, List<_i6.Product>>> getProducts() =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getProducts,
-          [],
-        ),
-        returnValue:
-            _i3.Future<_i4.Either<_i5.Failure, List<_i6.Product>>>.value(
-                _i7.dummyValue<_i4.Either<_i5.Failure, List<_i6.Product>>>(
-          this,
-          Invocation.method(
-            #getProducts,
-            [],
-          ),
-        )),
-        returnValueForMissingStub:
-            _i3.Future<_i4.Either<_i5.Failure, List<_i6.Product>>>.value(
-                _i7.dummyValue<_i4.Either<_i5.Failure, List<_i6.Product>>>(
-          this,
-          Invocation.method(
-            #getProducts,
-            [],
-          ),
-        )),
-      ) as _i3.Future<_i4.Either<_i5.Failure, List<_i6.Product>>>);
+            Invocation.method(#getProducts, []),
+            returnValue:
+                _i3.Future<_i4.Either<_i5.Failure, List<_i6.Product>>>.value(
+                  _i7.dummyValue<_i4.Either<_i5.Failure, List<_i6.Product>>>(
+                    this,
+                    Invocation.method(#getProducts, []),
+                  ),
+                ),
+            returnValueForMissingStub:
+                _i3.Future<_i4.Either<_i5.Failure, List<_i6.Product>>>.value(
+                  _i7.dummyValue<_i4.Either<_i5.Failure, List<_i6.Product>>>(
+                    this,
+                    Invocation.method(#getProducts, []),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.Either<_i5.Failure, List<_i6.Product>>>);
 
   @override
   _i3.Future<_i4.Either<_i5.Failure, _i6.Product>> getProductByBarcode(
-          String? barcode) =>
+    String? barcode,
+  ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getProductByBarcode,
-          [barcode],
-        ),
-        returnValue: _i3.Future<_i4.Either<_i5.Failure, _i6.Product>>.value(
-            _i7.dummyValue<_i4.Either<_i5.Failure, _i6.Product>>(
-          this,
-          Invocation.method(
-            #getProductByBarcode,
-            [barcode],
-          ),
-        )),
-        returnValueForMissingStub:
-            _i3.Future<_i4.Either<_i5.Failure, _i6.Product>>.value(
-                _i7.dummyValue<_i4.Either<_i5.Failure, _i6.Product>>(
-          this,
-          Invocation.method(
-            #getProductByBarcode,
-            [barcode],
-          ),
-        )),
-      ) as _i3.Future<_i4.Either<_i5.Failure, _i6.Product>>);
+            Invocation.method(#getProductByBarcode, [barcode]),
+            returnValue: _i3.Future<_i4.Either<_i5.Failure, _i6.Product>>.value(
+              _i7.dummyValue<_i4.Either<_i5.Failure, _i6.Product>>(
+                this,
+                Invocation.method(#getProductByBarcode, [barcode]),
+              ),
+            ),
+            returnValueForMissingStub:
+                _i3.Future<_i4.Either<_i5.Failure, _i6.Product>>.value(
+                  _i7.dummyValue<_i4.Either<_i5.Failure, _i6.Product>>(
+                    this,
+                    Invocation.method(#getProductByBarcode, [barcode]),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.Either<_i5.Failure, _i6.Product>>);
 
   @override
   _i3.Future<_i4.Either<_i5.Failure, void>> addProduct(_i6.Product? product) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #addProduct,
-          [product],
-        ),
-        returnValue: _i3.Future<_i4.Either<_i5.Failure, void>>.value(
-            _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
-          this,
-          Invocation.method(
-            #addProduct,
-            [product],
-          ),
-        )),
-        returnValueForMissingStub:
-            _i3.Future<_i4.Either<_i5.Failure, void>>.value(
-                _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
-          this,
-          Invocation.method(
-            #addProduct,
-            [product],
-          ),
-        )),
-      ) as _i3.Future<_i4.Either<_i5.Failure, void>>);
+            Invocation.method(#addProduct, [product]),
+            returnValue: _i3.Future<_i4.Either<_i5.Failure, void>>.value(
+              _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
+                this,
+                Invocation.method(#addProduct, [product]),
+              ),
+            ),
+            returnValueForMissingStub:
+                _i3.Future<_i4.Either<_i5.Failure, void>>.value(
+                  _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
+                    this,
+                    Invocation.method(#addProduct, [product]),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.Either<_i5.Failure, void>>);
 
   @override
   _i3.Future<_i4.Either<_i5.Failure, void>> updateProduct(
-          _i6.Product? product) =>
+    _i6.Product? product,
+  ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #updateProduct,
-          [product],
-        ),
-        returnValue: _i3.Future<_i4.Either<_i5.Failure, void>>.value(
-            _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
-          this,
-          Invocation.method(
-            #updateProduct,
-            [product],
-          ),
-        )),
-        returnValueForMissingStub:
-            _i3.Future<_i4.Either<_i5.Failure, void>>.value(
-                _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
-          this,
-          Invocation.method(
-            #updateProduct,
-            [product],
-          ),
-        )),
-      ) as _i3.Future<_i4.Either<_i5.Failure, void>>);
+            Invocation.method(#updateProduct, [product]),
+            returnValue: _i3.Future<_i4.Either<_i5.Failure, void>>.value(
+              _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
+                this,
+                Invocation.method(#updateProduct, [product]),
+              ),
+            ),
+            returnValueForMissingStub:
+                _i3.Future<_i4.Either<_i5.Failure, void>>.value(
+                  _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
+                    this,
+                    Invocation.method(#updateProduct, [product]),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.Either<_i5.Failure, void>>);
 
   @override
   _i3.Future<_i4.Either<_i5.Failure, void>> deleteProduct(String? id) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #deleteProduct,
-          [id],
-        ),
-        returnValue: _i3.Future<_i4.Either<_i5.Failure, void>>.value(
-            _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
-          this,
-          Invocation.method(
-            #deleteProduct,
-            [id],
-          ),
-        )),
-        returnValueForMissingStub:
-            _i3.Future<_i4.Either<_i5.Failure, void>>.value(
-                _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
-          this,
-          Invocation.method(
-            #deleteProduct,
-            [id],
-          ),
-        )),
-      ) as _i3.Future<_i4.Either<_i5.Failure, void>>);
+            Invocation.method(#deleteProduct, [id]),
+            returnValue: _i3.Future<_i4.Either<_i5.Failure, void>>.value(
+              _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
+                this,
+                Invocation.method(#deleteProduct, [id]),
+              ),
+            ),
+            returnValueForMissingStub:
+                _i3.Future<_i4.Either<_i5.Failure, void>>.value(
+                  _i7.dummyValue<_i4.Either<_i5.Failure, void>>(
+                    this,
+                    Invocation.method(#deleteProduct, [id]),
+                  ),
+                ),
+          )
+          as _i3.Future<_i4.Either<_i5.Failure, void>>);
 }

@@ -45,7 +45,10 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
   }
 
   Future<void> connect(String mac, String name) async {
-    state = state.copyWith(status: PrinterStatus.connecting, errorMessage: null);
+    state = state.copyWith(
+      status: PrinterStatus.connecting,
+      errorMessage: null,
+    );
     final success = await _printerHelper.connect(mac);
     if (success) {
       LocalStorage.setPrinterMac(mac);
@@ -99,7 +102,7 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
     required String footer,
   }) async {
     if (!_printerHelper.isConnected) return;
-    
+
     await _printerHelper.printReceipt(
       shopName: shopName,
       address1: address1,
@@ -114,5 +117,5 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
 
 final billingPrinterProvider =
     StateNotifierProvider<BillingPrinterNotifier, BillingPrinterState>((ref) {
-  return BillingPrinterNotifier();
-});
+      return BillingPrinterNotifier();
+    });

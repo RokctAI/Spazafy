@@ -28,10 +28,7 @@ class BillingCheckoutPage extends ConsumerWidget {
         backgroundColor: AppStyle.white,
         elevation: 0,
         leading: const PopButton(),
-        title: Text(
-          'Checkout',
-          style: AppStyle.interBold(size: 18),
-        ),
+        title: Text('Checkout', style: AppStyle.interBold(size: 18)),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -40,11 +37,11 @@ class BillingCheckoutPage extends ConsumerWidget {
             24.verticalSpace,
             // ─── Order Summary Card ───
             _buildSummary(state),
-            
+
             24.verticalSpace,
             // ─── Payment QR Code ───
             _buildQRCode(state),
-            
+
             24.verticalSpace,
             Text(
               'Show this QR to the customer for UPI payment.',
@@ -54,7 +51,13 @@ class BillingCheckoutPage extends ConsumerWidget {
           ],
         ),
       ),
-      bottomNavigationBar: _buildBottom(context, state, printerState, notifier, printerNotifier),
+      bottomNavigationBar: _buildBottom(
+        context,
+        state,
+        printerState,
+        notifier,
+        printerNotifier,
+      ),
     );
   }
 
@@ -70,8 +73,17 @@ class BillingCheckoutPage extends ConsumerWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Subtotal', style: AppStyle.interNormal(size: 14, color: AppStyle.greyColor)),
-              Text('₹${state.totalAmount.toStringAsFixed(2)}', style: AppStyle.interNormal(size: 14)),
+              Text(
+                'Subtotal',
+                style: AppStyle.interNormal(
+                  size: 14,
+                  color: AppStyle.greyColor,
+                ),
+              ),
+              Text(
+                '₹${state.totalAmount.toStringAsFixed(2)}',
+                style: AppStyle.interNormal(size: 14),
+              ),
             ],
           ),
           Divider(height: 24.h),
@@ -79,7 +91,10 @@ class BillingCheckoutPage extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Total', style: AppStyle.interBold(size: 18)),
-              Text('₹${state.totalAmount.toStringAsFixed(2)}', style: AppStyle.interBold(size: 24, color: AppStyle.primary)),
+              Text(
+                '₹${state.totalAmount.toStringAsFixed(2)}',
+                style: AppStyle.interBold(size: 24, color: AppStyle.primary),
+              ),
             ],
           ),
         ],
@@ -89,7 +104,8 @@ class BillingCheckoutPage extends ConsumerWidget {
 
   Widget _buildQRCode(BillingState state) {
     // UPI Address logic would go here, for now it's a demo QR or a specific shop UPI
-    final String upiUrl = "upi://pay?pa=shop@upi&pn=ShopName&am=${state.totalAmount}&cu=INR";
+    final String upiUrl =
+        "upi://pay?pa=shop@upi&pn=ShopName&am=${state.totalAmount}&cu=INR";
 
     return Container(
       padding: EdgeInsets.all(24.r),
@@ -102,7 +118,9 @@ class BillingCheckoutPage extends ConsumerWidget {
           data: upiUrl,
           decoration: const PrettyQrDecoration(
             image: PrettyQrDecorationImage(
-              image: AssetImage('assets/image/manager.png'), // Using logo from pubspec
+              image: AssetImage(
+                'assets/image/manager.png',
+              ), // Using logo from pubspec
             ),
           ),
         ),
@@ -110,7 +128,13 @@ class BillingCheckoutPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildBottom(BuildContext context, BillingState state, dynamic printerState, dynamic notifier, dynamic printerNotifier) {
+  Widget _buildBottom(
+    BuildContext context,
+    BillingState state,
+    dynamic printerState,
+    dynamic notifier,
+    dynamic printerNotifier,
+  ) {
     final bool isPrinterConnected = printerState.connectedMac != null;
 
     return Container(
@@ -126,7 +150,7 @@ class BillingCheckoutPage extends ConsumerWidget {
               title: isPrinterConnected ? 'Print & Done' : 'Complete Only',
               onTap: () async {
                 if (isPrinterConnected) {
-                   await _handlePrint(state, printerNotifier);
+                  await _handlePrint(state, printerNotifier);
                 }
                 notifier.clearCart();
                 context.popRoute();
@@ -166,12 +190,16 @@ class BillingCheckoutPage extends ConsumerWidget {
       phone: shop?.phone ?? '',
       total: state.totalAmount,
       footer: 'Thank you for shopping!',
-      items: state.cartItems.map((item) => {
-        'name': item.name,
-        'qty': item.quantity,
-        'price': item.product.stock?.totalPrice ?? 0.0,
-        'total': item.total,
-      }).toList(),
+      items: state.cartItems
+          .map(
+            (item) => {
+              'name': item.name,
+              'qty': item.quantity,
+              'price': item.product.stock?.totalPrice ?? 0.0,
+              'total': item.total,
+            },
+          )
+          .toList(),
     );
   }
 }

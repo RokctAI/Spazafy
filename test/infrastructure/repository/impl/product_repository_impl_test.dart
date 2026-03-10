@@ -45,23 +45,26 @@ void main() {
       verify(() => mockBox.values).called(1);
     });
 
-    test('getProductByBarcode returns CacheFailure on database error',
-        () async {
-      when(() => mockBox.values).thenThrow(Exception('Database error'));
+    test(
+      'getProductByBarcode returns CacheFailure on database error',
+      () async {
+        when(() => mockBox.values).thenThrow(Exception('Database error'));
 
-      final result = await repository.getProductByBarcode('123456789');
+        final result = await repository.getProductByBarcode('123456789');
 
-      expect(result.isLeft(), true);
-      result.fold(
-        (failure) => expect(failure, isA<CacheFailure>()),
-        (_) => fail('Should not return Right'),
-      );
-      verify(() => mockBox.values).called(1);
-    });
+        expect(result.isLeft(), true);
+        result.fold(
+          (failure) => expect(failure, isA<CacheFailure>()),
+          (_) => fail('Should not return Right'),
+        );
+        verify(() => mockBox.values).called(1);
+      },
+    );
 
     test('addProduct returns CacheFailure on database error', () async {
-      when(() => mockBox.put(any(), any()))
-          .thenThrow(Exception('Database error'));
+      when(
+        () => mockBox.put(any(), any()),
+      ).thenThrow(Exception('Database error'));
 
       final result = await repository.addProduct(testProduct);
 
@@ -74,8 +77,9 @@ void main() {
     });
 
     test('updateProduct returns CacheFailure on database error', () async {
-      when(() => mockBox.put(any(), any()))
-          .thenThrow(Exception('Database error'));
+      when(
+        () => mockBox.put(any(), any()),
+      ).thenThrow(Exception('Database error'));
 
       final result = await repository.updateProduct(testProduct);
 

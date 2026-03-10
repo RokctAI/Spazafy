@@ -15,8 +15,11 @@ void main() {
   provideDummy<Either<Failure, List<Product>>>(const Right([]));
   // provideDummy for void is tricky, try Right<Failure, void>(null)
   provideDummy<Either<Failure, void>>(Right<Failure, void>(null));
-  provideDummy<Either<Failure, Product>>(const Right(
-      Product(id: 'dummy', name: 'dummy', barcode: 'dummy', price: 0.0)));
+  provideDummy<Either<Failure, Product>>(
+    const Right(
+      Product(id: 'dummy', name: 'dummy', barcode: 'dummy', price: 0.0),
+    ),
+  );
 
   late MockProductRepository mockRepository;
 
@@ -33,15 +36,24 @@ void main() {
 
     final tProductList = [
       const Product(
-          id: '1', name: 'Test Product 1', barcode: '123456', price: 10.0),
+        id: '1',
+        name: 'Test Product 1',
+        barcode: '123456',
+        price: 10.0,
+      ),
       const Product(
-          id: '2', name: 'Test Product 2', barcode: '654321', price: 20.0),
+        id: '2',
+        name: 'Test Product 2',
+        barcode: '654321',
+        price: 20.0,
+      ),
     ];
 
     test('should get list of products from the repository', () async {
       // arrange
-      when(mockRepository.getProducts())
-          .thenAnswer((_) async => Right(tProductList));
+      when(
+        mockRepository.getProducts(),
+      ).thenAnswer((_) async => Right(tProductList));
       // act
       final result = await useCase(NoParams());
       // assert
@@ -53,8 +65,9 @@ void main() {
     test('should return failure when repository fails', () async {
       // arrange
       const failure = CacheFailure('Failed to fetch products');
-      when(mockRepository.getProducts())
-          .thenAnswer((_) async => const Left(failure));
+      when(
+        mockRepository.getProducts(),
+      ).thenAnswer((_) async => const Left(failure));
       // act
       final result = await useCase(NoParams());
       // assert
@@ -72,12 +85,17 @@ void main() {
     });
 
     final tProduct = const Product(
-        id: '1', name: 'Test Product', barcode: '123456', price: 10.0);
+      id: '1',
+      name: 'Test Product',
+      barcode: '123456',
+      price: 10.0,
+    );
 
     test('should add product to the repository', () async {
       // arrange
-      when(mockRepository.addProduct(any))
-          .thenAnswer((_) async => Right<Failure, void>(null));
+      when(
+        mockRepository.addProduct(any),
+      ).thenAnswer((_) async => Right<Failure, void>(null));
       // act
       final result = await useCase(tProduct);
       // assert
@@ -89,8 +107,9 @@ void main() {
     test('should return failure when adding to repository fails', () async {
       // arrange
       const failure = CacheFailure('Failed to add product');
-      when(mockRepository.addProduct(any))
-          .thenAnswer((_) async => const Left(failure));
+      when(
+        mockRepository.addProduct(any),
+      ).thenAnswer((_) async => const Left(failure));
       // act
       final result = await useCase(tProduct);
       // assert
@@ -108,12 +127,17 @@ void main() {
     });
 
     final tProduct = const Product(
-        id: '1', name: 'Test Product Updated', barcode: '123456', price: 15.0);
+      id: '1',
+      name: 'Test Product Updated',
+      barcode: '123456',
+      price: 15.0,
+    );
 
     test('should update product in the repository', () async {
       // arrange
-      when(mockRepository.updateProduct(any))
-          .thenAnswer((_) async => Right<Failure, void>(null));
+      when(
+        mockRepository.updateProduct(any),
+      ).thenAnswer((_) async => Right<Failure, void>(null));
       // act
       final result = await useCase(tProduct);
       // assert
@@ -122,19 +146,22 @@ void main() {
       verifyNoMoreInteractions(mockRepository);
     });
 
-    test('should return failure when updating product in repository fails',
-        () async {
-      // arrange
-      const failure = CacheFailure('Failed to update product');
-      when(mockRepository.updateProduct(any))
-          .thenAnswer((_) async => const Left(failure));
-      // act
-      final result = await useCase(tProduct);
-      // assert
-      expect(result, const Left(failure));
-      verify(mockRepository.updateProduct(tProduct));
-      verifyNoMoreInteractions(mockRepository);
-    });
+    test(
+      'should return failure when updating product in repository fails',
+      () async {
+        // arrange
+        const failure = CacheFailure('Failed to update product');
+        when(
+          mockRepository.updateProduct(any),
+        ).thenAnswer((_) async => const Left(failure));
+        // act
+        final result = await useCase(tProduct);
+        // assert
+        expect(result, const Left(failure));
+        verify(mockRepository.updateProduct(tProduct));
+        verifyNoMoreInteractions(mockRepository);
+      },
+    );
   });
 
   group('DeleteProductUseCase', () {
@@ -148,8 +175,9 @@ void main() {
 
     test('should delete product from the repository', () async {
       // arrange
-      when(mockRepository.deleteProduct(any))
-          .thenAnswer((_) async => Right<Failure, void>(null));
+      when(
+        mockRepository.deleteProduct(any),
+      ).thenAnswer((_) async => Right<Failure, void>(null));
       // act
       final result = await useCase(tProductId);
       // assert
@@ -158,19 +186,22 @@ void main() {
       verifyNoMoreInteractions(mockRepository);
     });
 
-    test('should return failure when deleting product from repository fails',
-        () async {
-      // arrange
-      const failure = CacheFailure('Failed to delete product');
-      when(mockRepository.deleteProduct(any))
-          .thenAnswer((_) async => const Left(failure));
-      // act
-      final result = await useCase(tProductId);
-      // assert
-      expect(result, const Left(failure));
-      verify(mockRepository.deleteProduct(tProductId));
-      verifyNoMoreInteractions(mockRepository);
-    });
+    test(
+      'should return failure when deleting product from repository fails',
+      () async {
+        // arrange
+        const failure = CacheFailure('Failed to delete product');
+        when(
+          mockRepository.deleteProduct(any),
+        ).thenAnswer((_) async => const Left(failure));
+        // act
+        final result = await useCase(tProductId);
+        // assert
+        expect(result, const Left(failure));
+        verify(mockRepository.deleteProduct(tProductId));
+        verifyNoMoreInteractions(mockRepository);
+      },
+    );
   });
 
   group('GetProductByBarcodeUseCase', () {
@@ -182,12 +213,17 @@ void main() {
 
     const tBarcode = '123456';
     final tProduct = const Product(
-        id: '1', name: 'Test Product', barcode: '123456', price: 10.0);
+      id: '1',
+      name: 'Test Product',
+      barcode: '123456',
+      price: 10.0,
+    );
 
     test('should get product by barcode from the repository', () async {
       // arrange
-      when(mockRepository.getProductByBarcode(any))
-          .thenAnswer((_) async => Right(tProduct));
+      when(
+        mockRepository.getProductByBarcode(any),
+      ).thenAnswer((_) async => Right(tProduct));
       // act
       final result = await useCase(tBarcode);
       // assert
@@ -196,18 +232,21 @@ void main() {
       verifyNoMoreInteractions(mockRepository);
     });
 
-    test('should return failure when getting product by barcode fails',
-        () async {
-      // arrange
-      const failure = CacheFailure('Product not found');
-      when(mockRepository.getProductByBarcode(any))
-          .thenAnswer((_) async => const Left(failure));
-      // act
-      final result = await useCase(tBarcode);
-      // assert
-      expect(result, const Left(failure));
-      verify(mockRepository.getProductByBarcode(tBarcode));
-      verifyNoMoreInteractions(mockRepository);
-    });
+    test(
+      'should return failure when getting product by barcode fails',
+      () async {
+        // arrange
+        const failure = CacheFailure('Product not found');
+        when(
+          mockRepository.getProductByBarcode(any),
+        ).thenAnswer((_) async => const Left(failure));
+        // act
+        final result = await useCase(tBarcode);
+        // assert
+        expect(result, const Left(failure));
+        verify(mockRepository.getProductByBarcode(tBarcode));
+        verifyNoMoreInteractions(mockRepository);
+      },
+    );
   });
 }

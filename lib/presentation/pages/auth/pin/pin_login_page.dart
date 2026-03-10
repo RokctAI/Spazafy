@@ -108,10 +108,7 @@ class _PinLoginPageState extends ConsumerState<PinLoginPage> {
                 ),
               ),
             const Spacer(),
-            PinPad(
-              onTap: _handlePinTap,
-              onDelete: _handleDelete,
-            ),
+            PinPad(onTap: _handlePinTap, onDelete: _handleDelete),
             40.verticalSpace,
           ],
         ),

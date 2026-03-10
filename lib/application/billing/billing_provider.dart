@@ -28,7 +28,7 @@ class BillingNotifier extends StateNotifier<BillingState> {
 
     // Lookup product in Hive
     final result = await productRepository.getProducts(query: barcode);
-    
+
     result.when(
       success: (response) {
         final products = response.data ?? [];
@@ -47,8 +47,9 @@ class BillingNotifier extends StateNotifier<BillingState> {
 
   void _handleProductFound(ProductData product, String barcode) {
     // Check for extras/options
-    final hasExtras = product.stocks?.any((s) => s.extras?.isNotEmpty ?? false) ?? false;
-    
+    final hasExtras =
+        product.stocks?.any((s) => s.extras?.isNotEmpty ?? false) ?? false;
+
     if (hasExtras) {
       state = state.copyWith(
         promptType: ScanPromptType.extras,
@@ -108,15 +109,22 @@ class BillingNotifier extends StateNotifier<BillingState> {
   // ─── Cart Operations ───
 
   void addToCart(ProductData product, {int quantity = 1}) {
-    final existingIndex = state.cartItems.indexWhere((item) => item.product.id == product.id);
-    
+    final existingIndex = state.cartItems.indexWhere(
+      (item) => item.product.id == product.id,
+    );
+
     List<CartItem> newItems;
     if (existingIndex != -1) {
       final item = state.cartItems[existingIndex];
       newItems = List<CartItem>.from(state.cartItems);
-      newItems[existingIndex] = item.copyWith(quantity: item.quantity + quantity);
+      newItems[existingIndex] = item.copyWith(
+        quantity: item.quantity + quantity,
+      );
     } else {
-      newItems = [...state.cartItems, CartItem(product: product, quantity: quantity)];
+      newItems = [
+        ...state.cartItems,
+        CartItem(product: product, quantity: quantity),
+      ];
     }
 
     state = state.copyWith(cartItems: newItems);
@@ -141,7 +149,9 @@ class BillingNotifier extends StateNotifier<BillingState> {
   }
 
   void removeFromCart(ProductData product) {
-    final newItems = state.cartItems.where((item) => item.product.id != product.id).toList();
+    final newItems = state.cartItems
+        .where((item) => item.product.id != product.id)
+        .toList();
     state = state.copyWith(cartItems: newItems);
     _updateTotal();
   }
@@ -157,7 +167,10 @@ class BillingNotifier extends StateNotifier<BillingState> {
   }
 
   void dismissPrompt() {
-    state = state.copyWith(promptType: ScanPromptType.none, selectedProduct: null);
+    state = state.copyWith(
+      promptType: ScanPromptType.none,
+      selectedProduct: null,
+    );
     _cancelTimer();
   }
 
@@ -174,7 +187,10 @@ class BillingNotifier extends StateNotifier<BillingState> {
   }
 
   void _updateTotal() {
-    final total = state.cartItems.fold<double>(0, (sum, item) => sum + item.total);
+    final total = state.cartItems.fold<double>(
+      0,
+      (sum, item) => sum + item.total,
+    );
     state = state.copyWith(totalAmount: total);
   }
 
@@ -185,6 +201,8 @@ class BillingNotifier extends StateNotifier<BillingState> {
   }
 }
 
-final billingProvider = StateNotifierProvider<BillingNotifier, BillingState>((ref) {
+final billingProvider = StateNotifierProvider<BillingNotifier, BillingState>((
+  ref,
+) {
   return BillingNotifier();
 });

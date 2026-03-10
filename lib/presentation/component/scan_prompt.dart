@@ -36,7 +36,11 @@ class ScanPrompt extends ConsumerWidget {
     );
   }
 
-  Widget _buildContent(BuildContext context, BillingState state, BillingNotifier notifier) {
+  Widget _buildContent(
+    BuildContext context,
+    BillingState state,
+    BillingNotifier notifier,
+  ) {
     switch (state.promptType) {
       case ScanPromptType.found:
       case ScanPromptType.repeat:
@@ -56,12 +60,7 @@ class ScanPrompt extends ConsumerWidget {
     final product = state.selectedProduct!;
     return Row(
       children: [
-        CommonImage(
-          url: product.img,
-          width: 50,
-          height: 50,
-          radius: 8,
-        ),
+        CommonImage(url: product.img, width: 50, height: 50, radius: 8),
         12.horizontalSpace,
         Expanded(
           child: Column(
@@ -70,14 +69,20 @@ class ScanPrompt extends ConsumerWidget {
             children: [
               Text(
                 product.translation?.title ?? 'Product',
-                style: AppStyle.interNormal(size: 14, color: AppStyle.blackColor),
+                style: AppStyle.interNormal(
+                  size: 14,
+                  color: AppStyle.blackColor,
+                ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
               4.verticalSpace,
               Text(
                 '₹${product.stock?.totalPrice?.toStringAsFixed(2) ?? '0.00'} / ${product.unit?.translation?.title ?? 'unit'}',
-                style: AppStyle.interNormal(size: 12, color: AppStyle.greyColor),
+                style: AppStyle.interNormal(
+                  size: 12,
+                  color: AppStyle.greyColor,
+                ),
               ),
             ],
           ),
@@ -157,7 +162,10 @@ class ScanPrompt extends ConsumerWidget {
           ],
         ),
         4.verticalSpace,
-        Text('Product not found in database.', style: AppStyle.interNormal(size: 12)),
+        Text(
+          'Product not found in database.',
+          style: AppStyle.interNormal(size: 12),
+        ),
         12.verticalSpace,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -200,7 +208,10 @@ class ScanPrompt extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(product.translation?.title ?? '', style: AppStyle.interBold(size: 14)),
+                  Text(
+                    product.translation?.title ?? '',
+                    style: AppStyle.interBold(size: 14),
+                  ),
                   Text(
                     '⚠️ Low stock: ${product.stock?.quantity ?? 0} remaining',
                     style: AppStyle.interNormal(size: 12, color: Colors.red),

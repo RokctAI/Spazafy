@@ -11,8 +11,9 @@ class OfflineSettingsRepository implements SettingsInterface {
   Future<ApiResult<SettingsResponse>> getGlobalSettings() async {
     try {
       final allJson = HiveDatabase.getAll(HiveDatabase.settingsBox);
-      final settings =
-          allJson.map((json) => SettingsData.fromJson(json)).toList();
+      final settings = allJson
+          .map((json) => SettingsData.fromJson(json))
+          .toList();
       return ApiResult.success(data: SettingsResponse(data: settings));
     } catch (e) {
       return ApiResult.failure(error: e.toString());
@@ -25,9 +26,7 @@ class OfflineSettingsRepository implements SettingsInterface {
       // Return cached translations from LocalStorage
       final translations = LocalStorage.getTranslations();
       return ApiResult.success(
-        data: TranslationsResponse.fromJson({
-          'data': translations,
-        }),
+        data: TranslationsResponse.fromJson({'data': translations}),
       );
     } catch (e) {
       return ApiResult.failure(error: e.toString());
