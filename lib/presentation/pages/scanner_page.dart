@@ -16,6 +16,19 @@ class _ScannerPageState extends State<ScannerPage> {
     returnImage: false,
   );
   bool _isScanned = false;
+  bool _canVibrate = false;
+
+  @override
+  void initState() {
+    super.initState();
+    Vibration.hasVibrator().then((canVibrate) {
+      if (mounted) {
+        setState(() {
+          _canVibrate = canVibrate == true;
+        });
+      }
+    });
+  }
 
   @override
   void dispose() {
@@ -30,12 +43,10 @@ class _ScannerPageState extends State<ScannerPage> {
     for (final barcode in barcodes) {
       if (barcode.rawValue != null) {
         _isScanned = true;
-        // Vibrate asynchronously so it doesn't block
-        Vibration.hasVibrator().then((canVibrate) {
-          if (canVibrate == true) {
-            Vibration.vibrate();
-          }
-        });
+        // Check vibration capability synchronously based on cached state
+        if (_canVibrate) {
+          Vibration.vibrate();
+        }
 
         if (mounted) {
           context.pop(barcode.rawValue);
