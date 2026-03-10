@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      hive_generator:
+        generate_for:
+          exclude:
+            - test/**
+      freezed:
+        generate_for:
+          exclude:
+            - test/**
+      auto_route_generator:
+        generate_for:
+          exclude:
+            - test/**
