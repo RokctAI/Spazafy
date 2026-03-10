@@ -19,4 +19,5 @@ abstract class StorageKeys {
   static const String keyWalletData = 'keyWalletData';
   static const String keyPrinterMac = 'keyPrinterMac';
   static const String keyPrinterName = 'keyPrinterName';
+  static const String keyAppPin = 'keyAppPin';
 }

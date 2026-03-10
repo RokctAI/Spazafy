@@ -322,4 +322,18 @@ class LocalStorage {
       await _preferences!.remove(StorageKeys.keyPrinterName);
     }
   }
+
+  static Future<void> setAppPin(String? pin) async {
+    if (_preferences != null) {
+      await _preferences!.setString(StorageKeys.keyAppPin, pin ?? '');
+    }
+  }
+
+  static String getAppPin() => _preferences?.getString(StorageKeys.keyAppPin) ?? '';
+
+  static Future<void> removeAppPin() async {
+    if (_preferences != null) {
+      await _preferences!.remove(StorageKeys.keyAppPin);
+    }
+  }
 }
