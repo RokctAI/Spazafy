@@ -6,7 +6,7 @@ import 'package:pretty_qr_code/pretty_qr_code.dart';
 
 import 'package:billing_app/application/shop/shop_bloc.dart';
 import 'package:billing_app/application/billing/billing_bloc.dart';
-import 'package:billing_app/infrastructure/constants/app_constants.dart';
+import 'package:billing_app/app_constants.dart';
 
 class CheckoutPage extends StatefulWidget {
   const CheckoutPage({super.key});

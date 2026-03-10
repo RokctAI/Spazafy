@@ -53,5 +53,7 @@
 	<string>We need bluetooth to connect to thermal printers.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need location access to find nearby printers.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>We need Face ID to authenticate and unlock the app.</string>
 </dict>
 </plist>

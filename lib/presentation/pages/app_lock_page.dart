@@ -35,9 +35,7 @@ class _AppLockPageState extends State<AppLockPage> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      if (_isLockEnabled && !_isAuthenticated) {
-        _authenticate();
-      }
+      _checkLockStatus();
     } else if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.inactive) {
       if (_isLockEnabled) {

@@ -8,7 +8,7 @@ import 'package:billing_app/application/billing/billing_bloc.dart';
 import 'package:billing_app/presentation/theme/app_theme.dart';
 import 'package:billing_app/presentation/components/primary_button.dart';
 import 'package:billing_app/infrastructure/models/data/cart_item.dart';
-import 'package:billing_app/infrastructure/constants/app_constants.dart';
+import 'package:billing_app/app_constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
