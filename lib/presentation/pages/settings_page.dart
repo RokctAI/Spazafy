@@ -8,6 +8,7 @@ import 'package:billing_app/application/shop/shop_bloc.dart';
 import 'package:billing_app/application/settings/printer_bloc.dart';
 import 'package:billing_app/application/settings/printer_event.dart';
 import 'package:billing_app/application/settings/printer_state.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -17,11 +18,29 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  bool _isAppLockEnabled = false;
+
   @override
   void initState() {
     super.initState();
     // Re-initialize printer state whenever settings page opens
     context.read<PrinterBloc>().add(InitPrinterEvent());
+    _loadSettings();
+  }
+
+  Future<void> _loadSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _isAppLockEnabled = prefs.getBool('app_lock_enabled') ?? false;
+    });
+  }
+
+  Future<void> _toggleAppLock(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('app_lock_enabled', value);
+    setState(() {
+      _isAppLockEnabled = value;
+    });
   }
 
   @override
@@ -107,6 +126,27 @@ class _SettingsPageState extends State<SettingsPage> {
                   );
                 },
               ),
+            ),
+
+            const SizedBox(height: 24),
+
+            // Security Section
+            _buildSectionHeader('Security'),
+            _buildListGroup(
+              children: [
+                _buildListItem(
+                  icon: Icons.lock,
+                  title: 'App Lock',
+                  subtitle: 'Require authentication to open app',
+                  trailingWidget: Switch(
+                    value: _isAppLockEnabled,
+                    onChanged: _toggleAppLock,
+                    activeColor: AppTheme.primaryColor,
+                  ),
+                  onTap: () => _toggleAppLock(!_isAppLockEnabled),
+                  trailingIcon: null,
+                ),
+              ],
             ),
 
             const SizedBox(height: 24),

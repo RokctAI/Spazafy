@@ -6,6 +6,7 @@ import 'package:pretty_qr_code/pretty_qr_code.dart';
 
 import 'package:billing_app/application/shop/shop_bloc.dart';
 import 'package:billing_app/application/billing/billing_bloc.dart';
+import 'package:billing_app/infrastructure/constants/app_constants.dart';
 
 class CheckoutPage extends StatefulWidget {
   const CheckoutPage({super.key});
@@ -139,12 +140,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                             TextAlign.left,
                                           ),
                                           _buildDataCell(
-                                            '₹${item.product.price.toStringAsFixed(2)}',
+                                            '${AppConstants.appCurrency}${item.product.price.toStringAsFixed(2)}',
                                             TextAlign.right,
                                             isSubtitle: true,
                                           ),
                                           _buildDataCell(
-                                            '₹${item.total.toStringAsFixed(2)}',
+                                            '${AppConstants.appCurrency}${item.total.toStringAsFixed(2)}',
                                             TextAlign.right,
                                             isBold: true,
                                           ),
@@ -228,7 +229,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                       ),
                                     ),
                                     Text(
-                                      '₹${billingState.totalAmount.toStringAsFixed(2)}',
+                                      '${AppConstants.appCurrency}${billingState.totalAmount.toStringAsFixed(2)}',
                                       style: const TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,

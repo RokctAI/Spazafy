@@ -8,6 +8,7 @@ import 'package:billing_app/application/billing/billing_bloc.dart';
 import 'package:billing_app/presentation/theme/app_theme.dart';
 import 'package:billing_app/presentation/components/primary_button.dart';
 import 'package:billing_app/infrastructure/models/data/cart_item.dart';
+import 'package:billing_app/infrastructure/constants/app_constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -280,6 +281,7 @@ class _HomePageState extends State<HomePage> {
     required IconData icon,
     required VoidCallback onPressed,
     Color? color,
+    String? tooltip,
   }) {
     return Container(
       width: 44,
@@ -291,8 +293,9 @@ class _HomePageState extends State<HomePage> {
         border: Border.all(color: Colors.white24),
       ),
       child: IconButton(
-        icon: Icon(icon, color: Colors.white),
+        icon: Icon(icon, color: Colors.white, semanticLabel: tooltip),
         onPressed: onPressed,
+        tooltip: tooltip,
       ),
     );
   }
@@ -400,7 +403,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          '₹${state.totalAmount.toStringAsFixed(2)}',
+                          '${AppConstants.appCurrency}${state.totalAmount.toStringAsFixed(2)}',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w900,
@@ -519,7 +522,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '₹${item.product.price.toStringAsFixed(2)}',
+                  '${AppConstants.appCurrency}${item.product.price.toStringAsFixed(2)}',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,

@@ -8,6 +8,7 @@ import 'package:billing_app/application/product/product_bloc.dart';
 import 'package:billing_app/infrastructure/models/data/product.dart';
 import 'package:billing_app/presentation/theme/app_theme.dart';
 import 'package:billing_app/infrastructure/services/app_validators.dart';
+import 'package:billing_app/infrastructure/constants/app_constants.dart';
 
 class EditProductPage extends StatefulWidget {
   final Product product;
@@ -137,7 +138,7 @@ class _EditProductPageState extends State<EditProductPage> {
                     decimal: true,
                   ),
                   decoration: const InputDecoration(
-                    prefixText: '₹ ',
+                    prefixText: '${AppConstants.appCurrency} ',
                     prefixStyle: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,

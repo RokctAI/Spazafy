@@ -5,6 +5,7 @@ import 'package:billing_app/application/product/product_bloc.dart';
 import 'package:billing_app/infrastructure/models/data/product.dart';
 import 'package:billing_app/presentation/theme/app_theme.dart';
 import 'package:billing_app/infrastructure/services/app_validators.dart';
+import 'package:billing_app/infrastructure/constants/app_constants.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage({super.key});
@@ -219,7 +220,7 @@ class _ProductListPageState extends State<ProductListPage> {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  '₹${product.price.toStringAsFixed(2)}',
+                                  '${AppConstants.appCurrency}${product.price.toStringAsFixed(2)}',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     color: Colors.grey[600],
