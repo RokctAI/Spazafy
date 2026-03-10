@@ -41,7 +41,7 @@ if (envFile.exists()) {
         if (trimmed && !trimmed.startsWith('#')) {
             def parts = trimmed.split('=', 2)
             if (parts.length == 2) {
-                dartDefines[parts[0].trim()] = parts[1].trim()
+                dartDefines[parts[0].trim()] = parts[1].trim().replaceAll(/^["']|["']$/, "")
             }
         }
     }
