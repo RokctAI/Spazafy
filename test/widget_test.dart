@@ -1,10 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('App compiles and runs successfully', (
-    WidgetTester tester,
-  ) async {
-    // Basic test that simply completes to ensure the project tests don't fail initially
-    expect(true, isTrue);
+  testWidgets('Test placeholder', (WidgetTester tester) async {
+    await tester.pumpWidget(MaterialApp(home: Container()));
+    expect(find.byType(Container), findsOneWidget);
   });
 }

@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:billing_app/infrastructure/models/data/cart_item.dart';
 import 'package:billing_app/infrastructure/models/data/product.dart';
 import 'package:billing_app/infrastructure/models/usecases/product_usecases.dart';
-import '../../../infrastructure/services/printer_helper.dart';
-import '../../../infrastructure/services/hive_database.dart';
+import 'package:billing_app/infrastructure/services/printer_helper.dart';
+import 'package:billing_app/infrastructure/services/hive_database.dart';
 
 part 'billing_event.dart';
 part 'billing_state.dart';

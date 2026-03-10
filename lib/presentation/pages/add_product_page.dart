@@ -8,7 +8,7 @@ import 'package:uuid/uuid.dart';
 import 'package:billing_app/application/product/product_bloc.dart';
 import 'package:billing_app/infrastructure/models/data/product.dart';
 import 'package:billing_app/presentation/theme/app_theme.dart';
-import '../../../infrastructure/services/app_validators.dart';
+import 'package:billing_app/infrastructure/services/app_validators.dart';
 
 class AddProductPage extends StatefulWidget {
   const AddProductPage({super.key});
