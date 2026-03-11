@@ -9,11 +9,13 @@ import 'package:venderfoodyman/infrastructure/repositories/subscription_reposito
 import 'package:venderfoodyman/infrastructure/repositories/offline/offline_products_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/offline/offline_orders_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/offline/offline_settings_repository.dart';
+import 'package:venderfoodyman/infrastructure/services/background_sync_service.dart';
 import 'package:venderfoodyman/infrastructure/services/local_storage.dart';
 import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import '../interface/interfaces.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/infrastructure/repositories/repositories.dart';
+import 'package:venderfoodyman/main.dart' as main;
 
 final GetIt getIt = GetIt.instance;
 
@@ -32,6 +34,13 @@ Future setUpDependencies() async {
   getIt.registerSingleton<NotificationInterface>(NotificationRepository());
   getIt.registerSingleton<PaymentsFacade>(PaymentRepository());
   getIt.registerSingleton<SubscriptionsFacade>(SubscriptionsRepository());
+
+  getIt.registerSingleton<BackgroundSyncService>(
+    BackgroundSyncService(
+      database: main.appDatabase,
+      httpService: getIt.get<HttpService>(),
+    ),
+  );
 }
 
 final translation = getIt.get<Map>();
@@ -49,3 +58,4 @@ final settingsRepository = getIt.get<SettingsInterface>();
 final notificationRepository = getIt.get<NotificationInterface>();
 final subscriptionRepository = getIt.get<SubscriptionsFacade>();
 final paymentRepositoryNew = getIt.get<PaymentsFacade>();
+final backgroundSyncService = getIt.get<BackgroundSyncService>();

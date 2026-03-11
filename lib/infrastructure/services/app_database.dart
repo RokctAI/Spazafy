@@ -19,12 +19,27 @@ part 'app_database.g.dart';
   CategoriesTable,
   SettingsTable,
   BillingCartTable,
+  SyncQueueTable,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
+
+  @override
+  MigrationStrategy get migration {
+    return MigrationStrategy(
+      onCreate: (Migrator m) async {
+        await m.createAll();
+      },
+      onUpgrade: (Migrator m, int from, int to) async {
+        if (from < 2) {
+          await m.createTable(syncQueueTable);
+        }
+      },
+    );
+  }
 
   // Generic getter to abstract out Drift Tables
   TableInfo<Table, dynamic> getTable(String boxName) {
@@ -96,6 +111,23 @@ class AppDatabase extends _$AppDatabase {
   Future<int> clearBox(String boxName) async {
     final table = getTable(boxName);
     return delete(table).go();
+  }
+
+  // ─── Sync Queue Helpers ───
+  Future<int> insertSyncRequest(SyncQueueTableCompanion request) {
+    return into(syncQueueTable).insert(request);
+  }
+
+  Future<List<SyncQueueEntity>> getPendingSyncRequests() {
+    return (select(syncQueueTable)
+          ..orderBy([
+            (t) => OrderingTerm(expression: t.createdAt, mode: OrderingMode.asc)
+          ]))
+        .get();
+  }
+
+  Future<void> removeSyncRequest(String id) {
+    return (delete(syncQueueTable)..where((t) => t.id.equals(id))).go();
   }
 
   // Helper methods to dynamically extract fields and create companions
