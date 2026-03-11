@@ -67,6 +67,8 @@ class StatisticsOrder {
   int? active;
   int? quantity;
   double? price;
+  double? cost;
+  double? profit;
   List<String>? products;
 
   StatisticsOrder({
@@ -77,6 +79,8 @@ class StatisticsOrder {
     this.active,
     this.quantity,
     this.price,
+    this.cost,
+    this.profit,
     this.products,
   });
 
@@ -109,6 +113,8 @@ class StatisticsOrder {
         active: json["active"],
         quantity: json["quantity"],
         price: json["price"]?.toDouble(),
+        cost: json["cost"]?.toDouble(),
+        profit: json["profit"]?.toDouble(),
         products: json["products"] == null
             ? []
             : List<String>.from(json["products"]!.map((x) => x)),
@@ -122,6 +128,8 @@ class StatisticsOrder {
     "active": active,
     "quantity": quantity,
     "price": price,
+    "cost": cost,
+    "profit": profit,
     "products": products == null
         ? []
         : List<dynamic>.from(products!.map((x) => x)),
