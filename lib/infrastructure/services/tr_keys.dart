@@ -295,4 +295,6 @@ abstract class TrKeys {
   static const String enterTitle = 'enter.title';
   static const String enterDescription = 'enter.description';
   static const String costPrice = 'cost.price';
+  static const String profit = 'profit';
+  static const String totalCost = 'total.cost';
 }
