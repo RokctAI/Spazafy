@@ -19,7 +19,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EditExtrasItemState {
   bool get isLoading => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditExtrasItemState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EditExtrasItemStateCopyWith<EditExtrasItemState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,6 +46,8 @@ class _$EditExtrasItemStateCopyWithImpl<$Res, $Val extends EditExtrasItemState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EditExtrasItemState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null}) {
@@ -80,6 +84,8 @@ class __$$EditExtrasItemStateImplCopyWithImpl<$Res>
     $Res Function(_$EditExtrasItemStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of EditExtrasItemState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null}) {
@@ -120,7 +126,9 @@ class _$EditExtrasItemStateImpl extends _EditExtrasItemState {
   @override
   int get hashCode => Object.hash(runtimeType, isLoading);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditExtrasItemState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditExtrasItemStateImplCopyWith<_$EditExtrasItemStateImpl> get copyWith =>
@@ -137,8 +145,11 @@ abstract class _EditExtrasItemState extends EditExtrasItemState {
 
   @override
   bool get isLoading;
+
+  /// Create a copy of EditExtrasItemState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditExtrasItemStateImplCopyWith<_$EditExtrasItemStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

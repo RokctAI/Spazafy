@@ -21,7 +21,9 @@ mixin _$CookingOrdersState {
   List<OrderData> get orders => throw _privateConstructorUsedError;
   int get totalCount => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CookingOrdersState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CookingOrdersStateCopyWith<CookingOrdersState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,6 +48,8 @@ class _$CookingOrdersStateCopyWithImpl<$Res, $Val extends CookingOrdersState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CookingOrdersState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -94,6 +98,8 @@ class __$$CookingOrdersStateImplCopyWithImpl<$Res>
     $Res Function(_$CookingOrdersStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of CookingOrdersState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -171,7 +177,9 @@ class _$CookingOrdersStateImpl extends _CookingOrdersState {
     totalCount,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CookingOrdersState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CookingOrdersStateImplCopyWith<_$CookingOrdersStateImpl> get copyWith =>
@@ -195,8 +203,11 @@ abstract class _CookingOrdersState extends CookingOrdersState {
   List<OrderData> get orders;
   @override
   int get totalCount;
+
+  /// Create a copy of CookingOrdersState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CookingOrdersStateImplCopyWith<_$CookingOrdersStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

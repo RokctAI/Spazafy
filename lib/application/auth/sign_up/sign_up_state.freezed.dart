@@ -39,7 +39,9 @@ mixin _$SignUpState {
   String get password => throw _privateConstructorUsedError;
   String get confirmPassword => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SignUpStateCopyWith<SignUpState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -86,6 +88,8 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -246,6 +250,8 @@ class __$$SignUpStateImplCopyWithImpl<$Res>
     $Res Function(_$SignUpStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -534,7 +540,9 @@ class _$SignUpStateImpl extends _SignUpState {
     confirmPassword,
   ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SignUpStateImplCopyWith<_$SignUpStateImpl> get copyWith =>
@@ -609,8 +617,11 @@ abstract class _SignUpState extends SignUpState {
   String get password;
   @override
   String get confirmPassword;
+
+  /// Create a copy of SignUpState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SignUpStateImplCopyWith<_$SignUpStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

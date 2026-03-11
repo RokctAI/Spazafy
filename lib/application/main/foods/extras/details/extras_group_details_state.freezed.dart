@@ -20,7 +20,9 @@ mixin _$ExtrasGroupDetailsState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<Extras> get extras => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExtrasGroupDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ExtrasGroupDetailsStateCopyWith<ExtrasGroupDetailsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +50,8 @@ class _$ExtrasGroupDetailsStateCopyWithImpl<
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ExtrasGroupDetailsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null, Object? extras = null}) {
@@ -92,6 +96,8 @@ class __$$ExtrasGroupDetailsStateImplCopyWithImpl<$Res>
     $Res Function(_$ExtrasGroupDetailsStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of ExtrasGroupDetailsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null, Object? extras = null}) {
@@ -153,7 +159,9 @@ class _$ExtrasGroupDetailsStateImpl extends _ExtrasGroupDetailsState {
     const DeepCollectionEquality().hash(_extras),
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExtrasGroupDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ExtrasGroupDetailsStateImplCopyWith<_$ExtrasGroupDetailsStateImpl>
@@ -174,8 +182,11 @@ abstract class _ExtrasGroupDetailsState extends ExtrasGroupDetailsState {
   bool get isLoading;
   @override
   List<Extras> get extras;
+
+  /// Create a copy of ExtrasGroupDetailsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ExtrasGroupDetailsStateImplCopyWith<_$ExtrasGroupDetailsStateImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

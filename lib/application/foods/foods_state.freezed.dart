@@ -21,7 +21,9 @@ mixin _$FoodsState {
   List<ProductData> get foods => throw _privateConstructorUsedError;
   String get productType => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FoodsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FoodsStateCopyWith<FoodsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,6 +48,8 @@ class _$FoodsStateCopyWithImpl<$Res, $Val extends FoodsState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FoodsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -94,6 +98,8 @@ class __$$FoodsStateImplCopyWithImpl<$Res>
     $Res Function(_$FoodsStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of FoodsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -171,7 +177,9 @@ class _$FoodsStateImpl extends _FoodsState {
     productType,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FoodsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FoodsStateImplCopyWith<_$FoodsStateImpl> get copyWith =>
@@ -192,8 +200,11 @@ abstract class _FoodsState extends FoodsState {
   List<ProductData> get foods;
   @override
   String get productType;
+
+  /// Create a copy of FoodsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FoodsStateImplCopyWith<_$FoodsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

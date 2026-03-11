@@ -20,7 +20,9 @@ mixin _$CreateFoodAddonsState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<ProductData> get addons => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateFoodAddonsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreateFoodAddonsStateCopyWith<CreateFoodAddonsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +50,8 @@ class _$CreateFoodAddonsStateCopyWithImpl<
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreateFoodAddonsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null, Object? addons = null}) {
@@ -89,6 +93,8 @@ class __$$CreateFoodAddonsStateImplCopyWithImpl<$Res>
     $Res Function(_$CreateFoodAddonsStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of CreateFoodAddonsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null, Object? addons = null}) {
@@ -150,7 +156,9 @@ class _$CreateFoodAddonsStateImpl extends _CreateFoodAddonsState {
     const DeepCollectionEquality().hash(_addons),
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateFoodAddonsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateFoodAddonsStateImplCopyWith<_$CreateFoodAddonsStateImpl>
@@ -172,8 +180,11 @@ abstract class _CreateFoodAddonsState extends CreateFoodAddonsState {
   bool get isLoading;
   @override
   List<ProductData> get addons;
+
+  /// Create a copy of CreateFoodAddonsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateFoodAddonsStateImplCopyWith<_$CreateFoodAddonsStateImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

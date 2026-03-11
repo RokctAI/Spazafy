@@ -28,7 +28,9 @@ mixin _$OrderState {
   int get totalDeliveredOrderCount => throw _privateConstructorUsedError;
   int get totalCanceledOrderCount => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OrderStateCopyWith<OrderState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -64,6 +66,8 @@ class _$OrderStateCopyWithImpl<$Res, $Val extends OrderState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -158,6 +162,8 @@ class __$$OrdrStateImplCopyWithImpl<$Res>
     $Res Function(_$OrdrStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -343,7 +349,9 @@ class _$OrdrStateImpl extends _OrdrState {
     totalCanceledOrderCount,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OrdrStateImplCopyWith<_$OrdrStateImpl> get copyWith =>
@@ -385,8 +393,11 @@ abstract class _OrdrState extends OrderState {
   int get totalDeliveredOrderCount;
   @override
   int get totalCanceledOrderCount;
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OrdrStateImplCopyWith<_$OrdrStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

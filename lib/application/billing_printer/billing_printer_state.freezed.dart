@@ -23,7 +23,9 @@ mixin _$BillingPrinterState {
   String? get connectedName => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BillingPrinterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BillingPrinterStateCopyWith<BillingPrinterState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +56,8 @@ class _$BillingPrinterStateCopyWithImpl<$Res, $Val extends BillingPrinterState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BillingPrinterState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,6 +122,8 @@ class __$$BillingPrinterStateImplCopyWithImpl<$Res>
     $Res Function(_$BillingPrinterStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of BillingPrinterState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -215,7 +221,9 @@ class _$BillingPrinterStateImpl extends _BillingPrinterState {
     errorMessage,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BillingPrinterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BillingPrinterStateImplCopyWith<_$BillingPrinterStateImpl> get copyWith =>
@@ -245,8 +253,11 @@ abstract class _BillingPrinterState extends BillingPrinterState {
   String? get connectedName;
   @override
   String? get errorMessage;
+
+  /// Create a copy of BillingPrinterState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BillingPrinterStateImplCopyWith<_$BillingPrinterStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

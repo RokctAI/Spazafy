@@ -23,7 +23,9 @@ mixin _$RestaurantState {
   String? get orderPayment => throw _privateConstructorUsedError;
   ShopData? get shop => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RestaurantState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RestaurantStateCopyWith<RestaurantState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +56,8 @@ class _$RestaurantStateCopyWithImpl<$Res, $Val extends RestaurantState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RestaurantState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,6 +122,8 @@ class __$$RestaurantStateImplCopyWithImpl<$Res>
     $Res Function(_$RestaurantStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of RestaurantState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -208,7 +214,9 @@ class _$RestaurantStateImpl extends _RestaurantState {
     shop,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RestaurantState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RestaurantStateImplCopyWith<_$RestaurantStateImpl> get copyWith =>
@@ -238,8 +246,11 @@ abstract class _RestaurantState extends RestaurantState {
   String? get orderPayment;
   @override
   ShopData? get shop;
+
+  /// Create a copy of RestaurantState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RestaurantStateImplCopyWith<_$RestaurantStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

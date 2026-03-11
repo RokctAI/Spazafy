@@ -25,7 +25,9 @@ mixin _$PinAuthState {
   bool get isPinSet => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PinAuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PinAuthStateCopyWith<PinAuthState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +60,8 @@ class _$PinAuthStateCopyWithImpl<$Res, $Val extends PinAuthState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PinAuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,6 +138,8 @@ class __$$PinAuthStateImplCopyWithImpl<$Res>
     $Res Function(_$PinAuthStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of PinAuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -251,7 +257,9 @@ class _$PinAuthStateImpl implements _PinAuthState {
     errorMessage,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PinAuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PinAuthStateImplCopyWith<_$PinAuthStateImpl> get copyWith =>
@@ -283,8 +291,11 @@ abstract class _PinAuthState implements PinAuthState {
   bool get isPinSet;
   @override
   String get errorMessage;
+
+  /// Create a copy of PinAuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PinAuthStateImplCopyWith<_$PinAuthStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

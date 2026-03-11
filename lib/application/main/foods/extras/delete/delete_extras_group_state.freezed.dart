@@ -19,7 +19,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DeleteExtrasGroupState {
   bool get isLoading => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DeleteExtrasGroupState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DeleteExtrasGroupStateCopyWith<DeleteExtrasGroupState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +49,8 @@ class _$DeleteExtrasGroupStateCopyWithImpl<
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DeleteExtrasGroupState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null}) {
@@ -84,6 +88,8 @@ class __$$DeleteExtrasGroupStateImplCopyWithImpl<$Res>
     $Res Function(_$DeleteExtrasGroupStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of DeleteExtrasGroupState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null}) {
@@ -124,7 +130,9 @@ class _$DeleteExtrasGroupStateImpl extends _DeleteExtrasGroupState {
   @override
   int get hashCode => Object.hash(runtimeType, isLoading);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DeleteExtrasGroupState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteExtrasGroupStateImplCopyWith<_$DeleteExtrasGroupStateImpl>
@@ -142,8 +150,11 @@ abstract class _DeleteExtrasGroupState extends DeleteExtrasGroupState {
 
   @override
   bool get isLoading;
+
+  /// Create a copy of DeleteExtrasGroupState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteExtrasGroupStateImplCopyWith<_$DeleteExtrasGroupStateImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

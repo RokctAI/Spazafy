@@ -24,7 +24,9 @@ mixin _$OrderUserState {
   TextEditingController? get userTextController =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderUserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OrderUserStateCopyWith<OrderUserState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +57,8 @@ class _$OrderUserStateCopyWithImpl<$Res, $Val extends OrderUserState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OrderUserState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +123,8 @@ class __$$OrderUserStateImplCopyWithImpl<$Res>
     $Res Function(_$OrderUserStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of OrderUserState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -218,7 +224,9 @@ class _$OrderUserStateImpl extends _OrderUserState {
     userTextController,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderUserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OrderUserStateImplCopyWith<_$OrderUserStateImpl> get copyWith =>
@@ -248,8 +256,11 @@ abstract class _OrderUserState extends OrderUserState {
   UserData? get selectedUser;
   @override
   TextEditingController? get userTextController;
+
+  /// Create a copy of OrderUserState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OrderUserStateImplCopyWith<_$OrderUserStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

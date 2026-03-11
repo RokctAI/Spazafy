@@ -30,7 +30,9 @@ mixin _$FoodsFilterState {
   List<String> get tags => throw _privateConstructorUsedError;
   List<int> get prices => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FoodsFilterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FoodsFilterStateCopyWith<FoodsFilterState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -66,6 +68,8 @@ class _$FoodsFilterStateCopyWithImpl<$Res, $Val extends FoodsFilterState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FoodsFilterState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -160,6 +164,8 @@ class __$$FoodsFilterStateImplCopyWithImpl<$Res>
     $Res Function(_$FoodsFilterStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of FoodsFilterState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -328,7 +334,9 @@ class _$FoodsFilterStateImpl extends _FoodsFilterState {
     const DeepCollectionEquality().hash(_prices),
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FoodsFilterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FoodsFilterStateImplCopyWith<_$FoodsFilterStateImpl> get copyWith =>
@@ -353,7 +361,8 @@ abstract class _FoodsFilterState extends FoodsFilterState {
   }) = _$FoodsFilterStateImpl;
   const _FoodsFilterState._() : super._();
 
-  @override // @Default(null) FilterModel? filterModel,
+  // @Default(null) FilterModel? filterModel,
+  @override
   bool get checked;
   @override
   int get shopCount;
@@ -368,13 +377,16 @@ abstract class _FoodsFilterState extends FoodsFilterState {
   @override
   bool get isRestaurantLoading;
   @override
-  RangeValues get rangeValues;
-  @override // @Default([]) List<ShopData> shops,
+  RangeValues get rangeValues; // @Default([]) List<ShopData> shops,
+  @override
   List<String> get tags;
   @override
   List<int> get prices;
+
+  /// Create a copy of FoodsFilterState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FoodsFilterStateImplCopyWith<_$FoodsFilterStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

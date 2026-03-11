@@ -20,7 +20,9 @@ mixin _$EditAddonState {
   bool get isLoading => throw _privateConstructorUsedError;
   Map<String, List<String>> get mapOfDesc => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditAddonState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EditAddonStateCopyWith<EditAddonState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$EditAddonStateCopyWithImpl<$Res, $Val extends EditAddonState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EditAddonState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null, Object? mapOfDesc = null}) {
@@ -85,6 +89,8 @@ class __$$EditAddonStateImplCopyWithImpl<$Res>
     $Res Function(_$EditAddonStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of EditAddonState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null, Object? mapOfDesc = null}) {
@@ -149,7 +155,9 @@ class _$EditAddonStateImpl extends _EditAddonState {
     const DeepCollectionEquality().hash(_mapOfDesc),
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditAddonState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditAddonStateImplCopyWith<_$EditAddonStateImpl> get copyWith =>
@@ -170,8 +178,11 @@ abstract class _EditAddonState extends EditAddonState {
   bool get isLoading;
   @override
   Map<String, List<String>> get mapOfDesc;
+
+  /// Create a copy of EditAddonState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditAddonStateImplCopyWith<_$EditAddonStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

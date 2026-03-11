@@ -19,7 +19,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DeliveryTimeState {
   String get deliveryDate => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DeliveryTimeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DeliveryTimeStateCopyWith<DeliveryTimeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,6 +46,8 @@ class _$DeliveryTimeStateCopyWithImpl<$Res, $Val extends DeliveryTimeState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DeliveryTimeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? deliveryDate = null}) {
@@ -80,6 +84,8 @@ class __$$DeliveryTimeStateImplCopyWithImpl<$Res>
     $Res Function(_$DeliveryTimeStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of DeliveryTimeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? deliveryDate = null}) {
@@ -120,7 +126,9 @@ class _$DeliveryTimeStateImpl extends _DeliveryTimeState {
   @override
   int get hashCode => Object.hash(runtimeType, deliveryDate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DeliveryTimeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeliveryTimeStateImplCopyWith<_$DeliveryTimeStateImpl> get copyWith =>
@@ -137,8 +145,11 @@ abstract class _DeliveryTimeState extends DeliveryTimeState {
 
   @override
   String get deliveryDate;
+
+  /// Create a copy of DeliveryTimeState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeliveryTimeStateImplCopyWith<_$DeliveryTimeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'infrastructure/services/hive_database.dart';
+import 'infrastructure/services/app_database.dart';
 import 'presentation/app_widget.dart';
 import 'presentation/phoenix_widget.dart';
 import 'presentation/styles/style.dart';
+
+late final AppDatabase appDatabase;
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -18,8 +20,8 @@ void main() async {
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // Hive must init before anything else
-  await HiveDatabase.init();
+  // Initialize Drift database
+  appDatabase = AppDatabase();
 
   // Firebase — graceful offline boot
   try {

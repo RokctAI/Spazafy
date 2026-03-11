@@ -24,7 +24,9 @@ mixin _$EditAddonUnitsState {
       throw _privateConstructorUsedError;
   UnitData? get foodUnit => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditAddonUnitsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EditAddonUnitsStateCopyWith<EditAddonUnitsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +57,8 @@ class _$EditAddonUnitsStateCopyWithImpl<$Res, $Val extends EditAddonUnitsState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EditAddonUnitsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +123,8 @@ class __$$EditAddonUnitsStateImplCopyWithImpl<$Res>
     $Res Function(_$EditAddonUnitsStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of EditAddonUnitsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -218,7 +224,9 @@ class _$EditAddonUnitsStateImpl extends _EditAddonUnitsState {
     foodUnit,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditAddonUnitsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditAddonUnitsStateImplCopyWith<_$EditAddonUnitsStateImpl> get copyWith =>
@@ -248,8 +256,11 @@ abstract class _EditAddonUnitsState extends EditAddonUnitsState {
   TextEditingController? get unitController;
   @override
   UnitData? get foodUnit;
+
+  /// Create a copy of EditAddonUnitsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditAddonUnitsStateImplCopyWith<_$EditAddonUnitsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

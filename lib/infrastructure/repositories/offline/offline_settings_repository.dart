@@ -1,16 +1,18 @@
 import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/domain/interface/settings.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/hive_database.dart';
+import 'package:venderfoodyman/infrastructure/services/app_database.dart';
 import 'package:venderfoodyman/infrastructure/services/services.dart';
 
+import '../../../main.dart'; // To access appDatabase
+
 /// Offline-first implementation of [SettingsInterface].
-/// Settings and translations stored in Hive.
+/// Settings and translations stored in Drift.
 class OfflineSettingsRepository implements SettingsInterface {
   @override
   Future<ApiResult<SettingsResponse>> getGlobalSettings() async {
     try {
-      final allJson = HiveDatabase.getAll(HiveDatabase.settingsBox);
+      final allJson = await appDatabase.getAll('settings');
       final settings = allJson
           .map((json) => SettingsData.fromJson(json))
           .toList();

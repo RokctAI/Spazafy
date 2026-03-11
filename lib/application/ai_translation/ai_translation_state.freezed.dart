@@ -21,7 +21,9 @@ mixin _$AiTranslationState {
   bool get translatedUsingAi => throw _privateConstructorUsedError;
   LanguageData? get selectedLanguage => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AiTranslationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AiTranslationStateCopyWith<AiTranslationState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +52,8 @@ class _$AiTranslationStateCopyWithImpl<$Res, $Val extends AiTranslationState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AiTranslationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -102,6 +106,8 @@ class __$$AiTranslationStateImplCopyWithImpl<$Res>
     $Res Function(_$AiTranslationStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of AiTranslationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -168,7 +174,9 @@ class _$AiTranslationStateImpl extends _AiTranslationState {
   int get hashCode =>
       Object.hash(runtimeType, isLoading, translatedUsingAi, selectedLanguage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AiTranslationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AiTranslationStateImplCopyWith<_$AiTranslationStateImpl> get copyWith =>
@@ -192,8 +200,11 @@ abstract class _AiTranslationState extends AiTranslationState {
   bool get translatedUsingAi;
   @override
   LanguageData? get selectedLanguage;
+
+  /// Create a copy of AiTranslationState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AiTranslationStateImplCopyWith<_$AiTranslationStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
