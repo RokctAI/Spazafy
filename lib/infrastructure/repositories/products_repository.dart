@@ -231,6 +231,7 @@ class ProductsRepository implements ProductsInterface {
       addonsIds = addonsIds.toSet().toList();
       extras.add({
         'price': stock.price,
+        if (stock.costPrice != null) 'cost_price': stock.costPrice,
         if (stock.sku?.isNotEmpty ?? false) 'sku': stock.sku,
         'quantity': stock.quantity,
         if (stock.id != '-1' && stock.id != null) "stock_id": stock.id,
