@@ -21,7 +21,9 @@ mixin _$ExtrasState {
   bool get isSaving => throw _privateConstructorUsedError;
   List<Group> get groups => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExtrasState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ExtrasStateCopyWith<ExtrasState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,6 +48,8 @@ class _$ExtrasStateCopyWithImpl<$Res, $Val extends ExtrasState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ExtrasState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -94,6 +98,8 @@ class __$$ExtrasStateImplCopyWithImpl<$Res>
     $Res Function(_$ExtrasStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of ExtrasState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -170,7 +176,9 @@ class _$ExtrasStateImpl extends _ExtrasState {
     const DeepCollectionEquality().hash(_groups),
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExtrasState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ExtrasStateImplCopyWith<_$ExtrasStateImpl> get copyWith =>
@@ -191,8 +199,11 @@ abstract class _ExtrasState extends ExtrasState {
   bool get isSaving;
   @override
   List<Group> get groups;
+
+  /// Create a copy of ExtrasState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ExtrasStateImplCopyWith<_$ExtrasStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

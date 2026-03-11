@@ -20,14 +20,16 @@ mixin _$EditFoodStocksState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   bool get isFetchingGroups => throw _privateConstructorUsedError;
-  List<int> get deleteStocks => throw _privateConstructorUsedError;
+  List<String> get deleteStocks => throw _privateConstructorUsedError;
   List<Group> get groups => throw _privateConstructorUsedError;
   List<Stock> get stocks => throw _privateConstructorUsedError;
   List<Extras> get activeGroupExtras => throw _privateConstructorUsedError;
   Map<String, List<Extras?>> get selectGroups =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditFoodStocksState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EditFoodStocksStateCopyWith<EditFoodStocksState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,7 +45,7 @@ abstract class $EditFoodStocksStateCopyWith<$Res> {
     bool isLoading,
     bool isSaving,
     bool isFetchingGroups,
-    List<int> deleteStocks,
+    List<String> deleteStocks,
     List<Group> groups,
     List<Stock> stocks,
     List<Extras> activeGroupExtras,
@@ -61,6 +63,8 @@ class _$EditFoodStocksStateCopyWithImpl<$Res, $Val extends EditFoodStocksState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EditFoodStocksState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -90,7 +94,7 @@ class _$EditFoodStocksStateCopyWithImpl<$Res, $Val extends EditFoodStocksState>
             deleteStocks: null == deleteStocks
                 ? _value.deleteStocks
                 : deleteStocks // ignore: cast_nullable_to_non_nullable
-                      as List<int>,
+                      as List<String>,
             groups: null == groups
                 ? _value.groups
                 : groups // ignore: cast_nullable_to_non_nullable
@@ -126,7 +130,7 @@ abstract class _$$EditFoodStocksStateImplCopyWith<$Res>
     bool isLoading,
     bool isSaving,
     bool isFetchingGroups,
-    List<int> deleteStocks,
+    List<String> deleteStocks,
     List<Group> groups,
     List<Stock> stocks,
     List<Extras> activeGroupExtras,
@@ -143,6 +147,8 @@ class __$$EditFoodStocksStateImplCopyWithImpl<$Res>
     $Res Function(_$EditFoodStocksStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of EditFoodStocksState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -172,7 +178,7 @@ class __$$EditFoodStocksStateImplCopyWithImpl<$Res>
         deleteStocks: null == deleteStocks
             ? _value._deleteStocks
             : deleteStocks // ignore: cast_nullable_to_non_nullable
-                  as List<int>,
+                  as List<String>,
         groups: null == groups
             ? _value._groups
             : groups // ignore: cast_nullable_to_non_nullable
@@ -201,7 +207,7 @@ class _$EditFoodStocksStateImpl extends _EditFoodStocksState {
     this.isLoading = false,
     this.isSaving = false,
     this.isFetchingGroups = false,
-    final List<int> deleteStocks = const [],
+    final List<String> deleteStocks = const [],
     final List<Group> groups = const [],
     final List<Stock> stocks = const [],
     final List<Extras> activeGroupExtras = const [],
@@ -222,10 +228,10 @@ class _$EditFoodStocksStateImpl extends _EditFoodStocksState {
   @override
   @JsonKey()
   final bool isFetchingGroups;
-  final List<int> _deleteStocks;
+  final List<String> _deleteStocks;
   @override
   @JsonKey()
-  List<int> get deleteStocks {
+  List<String> get deleteStocks {
     if (_deleteStocks is EqualUnmodifiableListView) return _deleteStocks;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_deleteStocks);
@@ -313,7 +319,9 @@ class _$EditFoodStocksStateImpl extends _EditFoodStocksState {
     const DeepCollectionEquality().hash(_selectGroups),
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditFoodStocksState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditFoodStocksStateImplCopyWith<_$EditFoodStocksStateImpl> get copyWith =>
@@ -328,7 +336,7 @@ abstract class _EditFoodStocksState extends EditFoodStocksState {
     final bool isLoading,
     final bool isSaving,
     final bool isFetchingGroups,
-    final List<int> deleteStocks,
+    final List<String> deleteStocks,
     final List<Group> groups,
     final List<Stock> stocks,
     final List<Extras> activeGroupExtras,
@@ -343,7 +351,7 @@ abstract class _EditFoodStocksState extends EditFoodStocksState {
   @override
   bool get isFetchingGroups;
   @override
-  List<int> get deleteStocks;
+  List<String> get deleteStocks;
   @override
   List<Group> get groups;
   @override
@@ -352,8 +360,11 @@ abstract class _EditFoodStocksState extends EditFoodStocksState {
   List<Extras> get activeGroupExtras;
   @override
   Map<String, List<Extras?>> get selectGroups;
+
+  /// Create a copy of EditFoodStocksState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditFoodStocksStateImplCopyWith<_$EditFoodStocksStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

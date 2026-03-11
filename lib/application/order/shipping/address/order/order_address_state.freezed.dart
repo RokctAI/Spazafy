@@ -24,7 +24,9 @@ mixin _$OrderAddressState {
   String get floor => throw _privateConstructorUsedError;
   String get house => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderAddressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OrderAddressStateCopyWith<OrderAddressState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +57,8 @@ class _$OrderAddressStateCopyWithImpl<$Res, $Val extends OrderAddressState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OrderAddressState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +123,8 @@ class __$$OrderAddressStateImplCopyWithImpl<$Res>
     $Res Function(_$OrderAddressStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of OrderAddressState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -210,7 +216,9 @@ class _$OrderAddressStateImpl extends _OrderAddressState {
     house,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderAddressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OrderAddressStateImplCopyWith<_$OrderAddressStateImpl> get copyWith =>
@@ -240,8 +248,11 @@ abstract class _OrderAddressState extends OrderAddressState {
   String get floor;
   @override
   String get house;
+
+  /// Create a copy of OrderAddressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OrderAddressStateImplCopyWith<_$OrderAddressStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

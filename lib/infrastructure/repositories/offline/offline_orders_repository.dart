@@ -1,11 +1,14 @@
 import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/domain/interface/orders.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/hive_database.dart';
+import 'package:venderfoodyman/infrastructure/services/app_database.dart';
 import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:uuid/uuid.dart';
+
+import '../../../main.dart'; // To access appDatabase
 
 /// Offline-first implementation of [OrdersInterface].
-/// All orders stored in Hive. No API calls.
+/// All orders stored in Drift. No API calls.
 class OfflineOrdersRepository implements OrdersInterface {
   @override
   Future<ApiResult<CreateOrderResponse>> createOrder({
@@ -21,9 +24,9 @@ class OfflineOrdersRepository implements OrdersInterface {
     LocationData? location,
   }) async {
     try {
-      final orderId = DateTime.now().millisecondsSinceEpoch;
+      final orderId = const Uuid().v4();
       final orderJson = <String, dynamic>{
-        'id': orderId.toString(),
+        'id': orderId,
         'user_id': user?.id,
         'delivery_type': deliveryType,
         'delivery_time': deliveryTime,
@@ -41,16 +44,16 @@ class OfflineOrdersRepository implements OrdersInterface {
         ),
       };
 
-      await HiveDatabase.putItem(
-        HiveDatabase.orderBox,
-        orderId.toString(),
+      await appDatabase.putItem(
+        'orders',
+        orderId,
         orderJson,
       );
 
       return ApiResult.success(
         data: CreateOrderResponse(
           data: CreatedOrder(
-            id: orderId.toString(),
+            id: orderId,
             userId: user?.id,
             price: orderJson['price'] as num?,
           ),
@@ -69,7 +72,7 @@ class OfflineOrdersRepository implements OrdersInterface {
     String? to,
   }) async {
     try {
-      final allJson = HiveDatabase.getAll(HiveDatabase.orderBox);
+      final allJson = await appDatabase.getAll('orders');
       List<OrderData> orders = allJson
           .map((json) => OrderData.fromJson(json))
           .toList();
@@ -116,8 +119,8 @@ class OfflineOrdersRepository implements OrdersInterface {
       if (orderId == null) {
         return const ApiResult.failure(error: 'Order ID required');
       }
-      final json = HiveDatabase.getItem(
-        HiveDatabase.orderBox,
+      final json = await appDatabase.getItem(
+        'orders',
         orderId.toString(),
       );
       if (json == null) {
@@ -140,8 +143,8 @@ class OfflineOrdersRepository implements OrdersInterface {
       if (orderId == null) {
         return const ApiResult.failure(error: 'Order ID required');
       }
-      final existing = HiveDatabase.getItem(
-        HiveDatabase.orderBox,
+      final existing = await appDatabase.getItem(
+        'orders',
         orderId ?? '',
       );
       if (existing == null) {
@@ -149,8 +152,8 @@ class OfflineOrdersRepository implements OrdersInterface {
       }
 
       existing['status'] = status.name;
-      await HiveDatabase.putItem(
-        HiveDatabase.orderBox,
+      await appDatabase.putItem(
+        'orders',
         orderId ?? '',
         existing,
       );

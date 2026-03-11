@@ -1,11 +1,13 @@
 import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/domain/interface/products.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/hive_database.dart';
+import 'package:venderfoodyman/infrastructure/services/app_database.dart';
 import 'package:venderfoodyman/infrastructure/services/services.dart';
 
+import '../../../main.dart'; // To access appDatabase
+
 /// Offline-first implementation of [ProductsInterface].
-/// All data reads/writes go through Hive.
+/// All data reads/writes go through Drift.
 class OfflineProductsRepository implements ProductsInterface {
   @override
   Future<ApiResult<ProductsPaginateResponse>> getProducts({
@@ -18,7 +20,7 @@ class OfflineProductsRepository implements ProductsInterface {
     String? type,
   }) async {
     try {
-      final allJson = HiveDatabase.getAll(HiveDatabase.productBox);
+      final allJson = await appDatabase.getAll('products');
       List<ProductData> products = allJson
           .map((json) => ProductData.fromJson(json))
           .toList();
@@ -64,7 +66,7 @@ class OfflineProductsRepository implements ProductsInterface {
     String uuid,
   ) async {
     try {
-      final json = HiveDatabase.getItem(HiveDatabase.productBox, uuid);
+      final json = await appDatabase.getItem('products', uuid);
       if (json == null) {
         return const ApiResult.failure(error: 'Product not found');
       }
@@ -121,7 +123,7 @@ class OfflineProductsRepository implements ProductsInterface {
         ],
       };
 
-      await HiveDatabase.putItem(HiveDatabase.productBox, uuid, productJson);
+      await appDatabase.putItem('products', uuid, productJson);
 
       return ApiResult.success(
         data: SingleProductResponse(data: ProductData.fromJson(productJson)),
@@ -152,7 +154,7 @@ class OfflineProductsRepository implements ProductsInterface {
         return const ApiResult.failure(error: 'UUID required for update');
       }
 
-      final existing = HiveDatabase.getItem(HiveDatabase.productBox, uuid);
+      final existing = await appDatabase.getItem('products', uuid);
       if (existing == null) {
         return const ApiResult.failure(error: 'Product not found');
       }
@@ -186,7 +188,7 @@ class OfflineProductsRepository implements ProductsInterface {
         }
       }
 
-      await HiveDatabase.putItem(HiveDatabase.productBox, uuid, existing);
+      await appDatabase.putItem('products', uuid, existing);
 
       return ApiResult.success(
         data: SingleProductResponse(data: ProductData.fromJson(existing)),
@@ -207,13 +209,13 @@ class OfflineProductsRepository implements ProductsInterface {
       if (uuid == null) {
         return const ApiResult.failure(error: 'UUID required');
       }
-      final existing = HiveDatabase.getItem(HiveDatabase.productBox, uuid);
+      final existing = await appDatabase.getItem('products', uuid);
       if (existing == null) {
         return const ApiResult.failure(error: 'Product not found');
       }
 
       existing['stocks'] = stocks.map((s) => s.toJson()).toList();
-      await HiveDatabase.putItem(HiveDatabase.productBox, uuid, existing);
+      await appDatabase.putItem('products', uuid, existing);
 
       return ApiResult.success(
         data: SingleProductResponse(data: ProductData.fromJson(existing)),

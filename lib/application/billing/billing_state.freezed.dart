@@ -27,7 +27,9 @@ mixin _$BillingState {
   bool get printSuccess => throw _privateConstructorUsedError;
   double get totalAmount => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BillingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BillingStateCopyWith<BillingState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -62,6 +64,8 @@ class _$BillingStateCopyWithImpl<$Res, $Val extends BillingState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BillingState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -150,6 +154,8 @@ class __$$BillingStateImplCopyWithImpl<$Res>
     $Res Function(_$BillingStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of BillingState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -300,7 +306,9 @@ class _$BillingStateImpl extends _BillingState {
     totalAmount,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BillingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BillingStateImplCopyWith<_$BillingStateImpl> get copyWith =>
@@ -339,8 +347,11 @@ abstract class _BillingState extends BillingState {
   bool get printSuccess;
   @override
   double get totalAmount;
+
+  /// Create a copy of BillingState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BillingStateImplCopyWith<_$BillingStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

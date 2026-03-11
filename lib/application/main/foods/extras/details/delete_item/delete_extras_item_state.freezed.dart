@@ -19,7 +19,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DeleteExtrasItemState {
   bool get isLoading => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DeleteExtrasItemState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DeleteExtrasItemStateCopyWith<DeleteExtrasItemState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +49,8 @@ class _$DeleteExtrasItemStateCopyWithImpl<
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DeleteExtrasItemState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null}) {
@@ -84,6 +88,8 @@ class __$$DeleteExtrasItemStateImplCopyWithImpl<$Res>
     $Res Function(_$DeleteExtrasItemStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of DeleteExtrasItemState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null}) {
@@ -124,7 +130,9 @@ class _$DeleteExtrasItemStateImpl extends _DeleteExtrasItemState {
   @override
   int get hashCode => Object.hash(runtimeType, isLoading);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DeleteExtrasItemState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteExtrasItemStateImplCopyWith<_$DeleteExtrasItemStateImpl>
@@ -142,8 +150,11 @@ abstract class _DeleteExtrasItemState extends DeleteExtrasItemState {
 
   @override
   bool get isLoading;
+
+  /// Create a copy of DeleteExtrasItemState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteExtrasItemStateImplCopyWith<_$DeleteExtrasItemStateImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

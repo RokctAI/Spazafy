@@ -20,7 +20,9 @@ mixin _$EditFoodAddonsState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<ProductData> get addons => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditFoodAddonsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EditFoodAddonsStateCopyWith<EditFoodAddonsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$EditFoodAddonsStateCopyWithImpl<$Res, $Val extends EditFoodAddonsState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EditFoodAddonsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null, Object? addons = null}) {
@@ -85,6 +89,8 @@ class __$$EditFoodAddonsStateImplCopyWithImpl<$Res>
     $Res Function(_$EditFoodAddonsStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of EditFoodAddonsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null, Object? addons = null}) {
@@ -146,7 +152,9 @@ class _$EditFoodAddonsStateImpl extends _EditFoodAddonsState {
     const DeepCollectionEquality().hash(_addons),
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditFoodAddonsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditFoodAddonsStateImplCopyWith<_$EditFoodAddonsStateImpl> get copyWith =>
@@ -167,8 +175,11 @@ abstract class _EditFoodAddonsState extends EditFoodAddonsState {
   bool get isLoading;
   @override
   List<ProductData> get addons;
+
+  /// Create a copy of EditFoodAddonsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditFoodAddonsStateImplCopyWith<_$EditFoodAddonsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

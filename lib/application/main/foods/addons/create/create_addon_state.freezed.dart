@@ -19,7 +19,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreateAddonState {
   bool get isLoading => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateAddonState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreateAddonStateCopyWith<CreateAddonState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,6 +46,8 @@ class _$CreateAddonStateCopyWithImpl<$Res, $Val extends CreateAddonState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreateAddonState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null}) {
@@ -80,6 +84,8 @@ class __$$CreateAddonStateImplCopyWithImpl<$Res>
     $Res Function(_$CreateAddonStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of CreateAddonState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isLoading = null}) {
@@ -120,7 +126,9 @@ class _$CreateAddonStateImpl extends _CreateAddonState {
   @override
   int get hashCode => Object.hash(runtimeType, isLoading);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateAddonState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateAddonStateImplCopyWith<_$CreateAddonStateImpl> get copyWith =>
@@ -137,8 +145,11 @@ abstract class _CreateAddonState extends CreateAddonState {
 
   @override
   bool get isLoading;
+
+  /// Create a copy of CreateAddonState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateAddonStateImplCopyWith<_$CreateAddonStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

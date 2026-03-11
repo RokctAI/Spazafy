@@ -23,7 +23,9 @@ mixin _$CreateFoodUnitsState {
   TextEditingController? get unitController =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateFoodUnitsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreateFoodUnitsStateCopyWith<CreateFoodUnitsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +58,8 @@ class _$CreateFoodUnitsStateCopyWithImpl<
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreateFoodUnitsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +118,8 @@ class __$$CreateFoodUnitsStateImplCopyWithImpl<$Res>
     $Res Function(_$CreateFoodUnitsStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of CreateFoodUnitsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -202,7 +208,9 @@ class _$CreateFoodUnitsStateImpl extends _CreateFoodUnitsState {
     unitController,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateFoodUnitsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateFoodUnitsStateImplCopyWith<_$CreateFoodUnitsStateImpl>
@@ -230,8 +238,11 @@ abstract class _CreateFoodUnitsState extends CreateFoodUnitsState {
   int get activeIndex;
   @override
   TextEditingController? get unitController;
+
+  /// Create a copy of CreateFoodUnitsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateFoodUnitsStateImplCopyWith<_$CreateFoodUnitsStateImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

@@ -23,7 +23,9 @@ mixin _$NewOrdersState {
   RefreshController? get refreshController =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NewOrdersState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $NewOrdersStateCopyWith<NewOrdersState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +55,8 @@ class _$NewOrdersStateCopyWithImpl<$Res, $Val extends NewOrdersState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of NewOrdersState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -111,6 +115,8 @@ class __$$NewOrdersStateImplCopyWithImpl<$Res>
     $Res Function(_$NewOrdersStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of NewOrdersState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -199,7 +205,9 @@ class _$NewOrdersStateImpl extends _NewOrdersState {
     refreshController,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of NewOrdersState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NewOrdersStateImplCopyWith<_$NewOrdersStateImpl> get copyWith =>
@@ -226,8 +234,11 @@ abstract class _NewOrdersState extends NewOrdersState {
   int get totalCount;
   @override
   RefreshController? get refreshController;
+
+  /// Create a copy of NewOrdersState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NewOrdersStateImplCopyWith<_$NewOrdersStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

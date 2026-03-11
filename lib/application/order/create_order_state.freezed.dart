@@ -19,7 +19,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreateOrderState {
   bool get isCreating => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateOrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreateOrderStateCopyWith<CreateOrderState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,6 +46,8 @@ class _$CreateOrderStateCopyWithImpl<$Res, $Val extends CreateOrderState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreateOrderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isCreating = null}) {
@@ -80,6 +84,8 @@ class __$$CreateOrderStateImplCopyWithImpl<$Res>
     $Res Function(_$CreateOrderStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of CreateOrderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? isCreating = null}) {
@@ -120,7 +126,9 @@ class _$CreateOrderStateImpl extends _CreateOrderState {
   @override
   int get hashCode => Object.hash(runtimeType, isCreating);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateOrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateOrderStateImplCopyWith<_$CreateOrderStateImpl> get copyWith =>
@@ -137,8 +145,11 @@ abstract class _CreateOrderState extends CreateOrderState {
 
   @override
   bool get isCreating;
+
+  /// Create a copy of CreateOrderState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateOrderStateImplCopyWith<_$CreateOrderStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

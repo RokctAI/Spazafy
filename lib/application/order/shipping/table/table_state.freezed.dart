@@ -24,7 +24,9 @@ mixin _$TableState {
   TextEditingController? get textController =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TableState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TableStateCopyWith<TableState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +57,8 @@ class _$TableStateCopyWithImpl<$Res, $Val extends TableState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TableState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +123,8 @@ class __$$TableStateImplCopyWithImpl<$Res>
     $Res Function(_$TableStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of TableState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -218,7 +224,9 @@ class _$TableStateImpl extends _TableState {
     textController,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TableState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TableStateImplCopyWith<_$TableStateImpl> get copyWith =>
@@ -245,8 +253,11 @@ abstract class _TableState extends TableState {
   TableData? get selectTable;
   @override
   TextEditingController? get textController;
+
+  /// Create a copy of TableState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TableStateImplCopyWith<_$TableStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -23,7 +23,9 @@ mixin _$CreateFoodKitchensState {
   TextEditingController? get kitchenController =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateFoodKitchensState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreateFoodKitchensStateCopyWith<CreateFoodKitchensState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +58,8 @@ class _$CreateFoodKitchensStateCopyWithImpl<
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreateFoodKitchensState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,6 +122,8 @@ class __$$CreateFoodKitchensStateImplCopyWithImpl<$Res>
     $Res Function(_$CreateFoodKitchensStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of CreateFoodKitchensState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -206,7 +212,9 @@ class _$CreateFoodKitchensStateImpl extends _CreateFoodKitchensState {
     kitchenController,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateFoodKitchensState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateFoodKitchensStateImplCopyWith<_$CreateFoodKitchensStateImpl>
@@ -233,8 +241,11 @@ abstract class _CreateFoodKitchensState extends CreateFoodKitchensState {
   int get activeIndex;
   @override
   TextEditingController? get kitchenController;
+
+  /// Create a copy of CreateFoodKitchensState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateFoodKitchensStateImplCopyWith<_$CreateFoodKitchensStateImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

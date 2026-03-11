@@ -68,6 +68,9 @@ class _$ApiResultCopyWithImpl<T, $Res, $Val extends ApiResult<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ApiResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -89,6 +92,8 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
     $Res Function(_$SuccessImpl<T>) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of ApiResult
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? data = freezed}) {
@@ -128,7 +133,9 @@ class _$SuccessImpl<T> extends Success<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ApiResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
@@ -202,7 +209,10 @@ abstract class Success<T> extends ApiResult<T> {
   const Success._() : super._();
 
   T get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ApiResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -226,6 +236,8 @@ class __$$FailureImplCopyWithImpl<T, $Res>
     $Res Function(_$FailureImpl<T>) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of ApiResult
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? error = null, Object? statusCode = freezed}) {
@@ -272,7 +284,9 @@ class _$FailureImpl<T> extends Failure<T> {
   @override
   int get hashCode => Object.hash(runtimeType, error, statusCode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ApiResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
@@ -348,7 +362,10 @@ abstract class Failure<T> extends ApiResult<T> {
 
   String get error;
   int? get statusCode;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ApiResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

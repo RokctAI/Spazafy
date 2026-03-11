@@ -24,7 +24,9 @@ mixin _$SubscriptionState {
   List<SubscriptionData> get list => throw _privateConstructorUsedError;
   List<PaymentData>? get payments => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SubscriptionStateCopyWith<SubscriptionState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +58,8 @@ class _$SubscriptionStateCopyWithImpl<$Res, $Val extends SubscriptionState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -126,6 +130,8 @@ class __$$SubscriptionStateImplCopyWithImpl<$Res>
     $Res Function(_$SubscriptionStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -246,7 +252,9 @@ class _$SubscriptionStateImpl extends _SubscriptionState {
     const DeepCollectionEquality().hash(_payments),
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SubscriptionStateImplCopyWith<_$SubscriptionStateImpl> get copyWith =>
@@ -279,8 +287,11 @@ abstract class _SubscriptionState extends SubscriptionState {
   List<SubscriptionData> get list;
   @override
   List<PaymentData>? get payments;
+
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubscriptionStateImplCopyWith<_$SubscriptionStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

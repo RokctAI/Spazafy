@@ -19,7 +19,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FoodTabsState {
   int get selectedIndex => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FoodTabsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FoodTabsStateCopyWith<FoodTabsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,6 +46,8 @@ class _$FoodTabsStateCopyWithImpl<$Res, $Val extends FoodTabsState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FoodTabsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? selectedIndex = null}) {
@@ -80,6 +84,8 @@ class __$$FoodTabsStateImplCopyWithImpl<$Res>
     $Res Function(_$FoodTabsStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of FoodTabsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({Object? selectedIndex = null}) {
@@ -120,7 +126,9 @@ class _$FoodTabsStateImpl extends _FoodTabsState {
   @override
   int get hashCode => Object.hash(runtimeType, selectedIndex);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FoodTabsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FoodTabsStateImplCopyWith<_$FoodTabsStateImpl> get copyWith =>
@@ -133,8 +141,11 @@ abstract class _FoodTabsState extends FoodTabsState {
 
   @override
   int get selectedIndex;
+
+  /// Create a copy of FoodTabsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FoodTabsStateImplCopyWith<_$FoodTabsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

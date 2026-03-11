@@ -36,7 +36,9 @@ mixin _$CreateFoodDetailsState {
   List<Galleries> get listOfUrls => throw _privateConstructorUsedError;
   ProductData? get createdProduct => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateFoodDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreateFoodDetailsStateCopyWith<CreateFoodDetailsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -81,6 +83,8 @@ class _$CreateFoodDetailsStateCopyWithImpl<
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreateFoodDetailsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -212,6 +216,8 @@ class __$$CreateFoodDetailsStateImplCopyWithImpl<$Res>
     $Res Function(_$CreateFoodDetailsStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of CreateFoodDetailsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -466,7 +472,9 @@ class _$CreateFoodDetailsStateImpl extends _CreateFoodDetailsState {
     createdProduct,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateFoodDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateFoodDetailsStateImplCopyWith<_$CreateFoodDetailsStateImpl>
@@ -530,8 +538,11 @@ abstract class _CreateFoodDetailsState extends CreateFoodDetailsState {
   List<Galleries> get listOfUrls;
   @override
   ProductData? get createdProduct;
+
+  /// Create a copy of CreateFoodDetailsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateFoodDetailsStateImplCopyWith<_$CreateFoodDetailsStateImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

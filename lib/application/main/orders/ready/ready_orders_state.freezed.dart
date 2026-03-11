@@ -21,7 +21,9 @@ mixin _$ReadyOrdersState {
   List<OrderData> get orders => throw _privateConstructorUsedError;
   int get totalCount => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReadyOrdersState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ReadyOrdersStateCopyWith<ReadyOrdersState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,6 +48,8 @@ class _$ReadyOrdersStateCopyWithImpl<$Res, $Val extends ReadyOrdersState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ReadyOrdersState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -94,6 +98,8 @@ class __$$ReadyOrdersStateImplCopyWithImpl<$Res>
     $Res Function(_$ReadyOrdersStateImpl) _then,
   ) : super(_value, _then);
 
+  /// Create a copy of ReadyOrdersState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -171,7 +177,9 @@ class _$ReadyOrdersStateImpl extends _ReadyOrdersState {
     totalCount,
   );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReadyOrdersState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ReadyOrdersStateImplCopyWith<_$ReadyOrdersStateImpl> get copyWith =>
@@ -195,8 +203,11 @@ abstract class _ReadyOrdersState extends ReadyOrdersState {
   List<OrderData> get orders;
   @override
   int get totalCount;
+
+  /// Create a copy of ReadyOrdersState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ReadyOrdersStateImplCopyWith<_$ReadyOrdersStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
