@@ -12,7 +12,8 @@ part of 'table_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$TableState {
@@ -31,15 +32,17 @@ mixin _$TableState {
 /// @nodoc
 abstract class $TableStateCopyWith<$Res> {
   factory $TableStateCopyWith(
-          TableState value, $Res Function(TableState) then) =
-      _$TableStateCopyWithImpl<$Res, TableState>;
+    TableState value,
+    $Res Function(TableState) then,
+  ) = _$TableStateCopyWithImpl<$Res, TableState>;
   @useResult
-  $Res call(
-      {List<TableData> tables,
-      int selectedIndex,
-      bool isLoading,
-      TableData? selectTable,
-      TextEditingController? textController});
+  $Res call({
+    List<TableData> tables,
+    int selectedIndex,
+    bool isLoading,
+    TableData? selectTable,
+    TextEditingController? textController,
+  });
 }
 
 /// @nodoc
@@ -61,28 +64,31 @@ class _$TableStateCopyWithImpl<$Res, $Val extends TableState>
     Object? selectTable = freezed,
     Object? textController = freezed,
   }) {
-    return _then(_value.copyWith(
-      tables: null == tables
-          ? _value.tables
-          : tables // ignore: cast_nullable_to_non_nullable
-              as List<TableData>,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      selectTable: freezed == selectTable
-          ? _value.selectTable
-          : selectTable // ignore: cast_nullable_to_non_nullable
-              as TableData?,
-      textController: freezed == textController
-          ? _value.textController
-          : textController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            tables: null == tables
+                ? _value.tables
+                : tables // ignore: cast_nullable_to_non_nullable
+                      as List<TableData>,
+            selectedIndex: null == selectedIndex
+                ? _value.selectedIndex
+                : selectedIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            selectTable: freezed == selectTable
+                ? _value.selectTable
+                : selectTable // ignore: cast_nullable_to_non_nullable
+                      as TableData?,
+            textController: freezed == textController
+                ? _value.textController
+                : textController // ignore: cast_nullable_to_non_nullable
+                      as TextEditingController?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -90,16 +96,18 @@ class _$TableStateCopyWithImpl<$Res, $Val extends TableState>
 abstract class _$$TableStateImplCopyWith<$Res>
     implements $TableStateCopyWith<$Res> {
   factory _$$TableStateImplCopyWith(
-          _$TableStateImpl value, $Res Function(_$TableStateImpl) then) =
-      __$$TableStateImplCopyWithImpl<$Res>;
+    _$TableStateImpl value,
+    $Res Function(_$TableStateImpl) then,
+  ) = __$$TableStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<TableData> tables,
-      int selectedIndex,
-      bool isLoading,
-      TableData? selectTable,
-      TextEditingController? textController});
+  $Res call({
+    List<TableData> tables,
+    int selectedIndex,
+    bool isLoading,
+    TableData? selectTable,
+    TextEditingController? textController,
+  });
 }
 
 /// @nodoc
@@ -107,8 +115,9 @@ class __$$TableStateImplCopyWithImpl<$Res>
     extends _$TableStateCopyWithImpl<$Res, _$TableStateImpl>
     implements _$$TableStateImplCopyWith<$Res> {
   __$$TableStateImplCopyWithImpl(
-      _$TableStateImpl _value, $Res Function(_$TableStateImpl) _then)
-      : super(_value, _then);
+    _$TableStateImpl _value,
+    $Res Function(_$TableStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -119,42 +128,44 @@ class __$$TableStateImplCopyWithImpl<$Res>
     Object? selectTable = freezed,
     Object? textController = freezed,
   }) {
-    return _then(_$TableStateImpl(
-      tables: null == tables
-          ? _value._tables
-          : tables // ignore: cast_nullable_to_non_nullable
-              as List<TableData>,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      selectTable: freezed == selectTable
-          ? _value.selectTable
-          : selectTable // ignore: cast_nullable_to_non_nullable
-              as TableData?,
-      textController: freezed == textController
-          ? _value.textController
-          : textController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-    ));
+    return _then(
+      _$TableStateImpl(
+        tables: null == tables
+            ? _value._tables
+            : tables // ignore: cast_nullable_to_non_nullable
+                  as List<TableData>,
+        selectedIndex: null == selectedIndex
+            ? _value.selectedIndex
+            : selectedIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        selectTable: freezed == selectTable
+            ? _value.selectTable
+            : selectTable // ignore: cast_nullable_to_non_nullable
+                  as TableData?,
+        textController: freezed == textController
+            ? _value.textController
+            : textController // ignore: cast_nullable_to_non_nullable
+                  as TextEditingController?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$TableStateImpl extends _TableState {
-  const _$TableStateImpl(
-      {final List<TableData> tables = const [],
-      this.selectedIndex = 0,
-      this.isLoading = false,
-      this.selectTable,
-      this.textController})
-      : _tables = tables,
-        super._();
+  const _$TableStateImpl({
+    final List<TableData> tables = const [],
+    this.selectedIndex = 0,
+    this.isLoading = false,
+    this.selectTable,
+    this.textController,
+  }) : _tables = tables,
+       super._();
 
   final List<TableData> _tables;
   @override
@@ -199,12 +210,13 @@ class _$TableStateImpl extends _TableState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_tables),
-      selectedIndex,
-      isLoading,
-      selectTable,
-      textController);
+    runtimeType,
+    const DeepCollectionEquality().hash(_tables),
+    selectedIndex,
+    isLoading,
+    selectTable,
+    textController,
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -214,12 +226,13 @@ class _$TableStateImpl extends _TableState {
 }
 
 abstract class _TableState extends TableState {
-  const factory _TableState(
-      {final List<TableData> tables,
-      final int selectedIndex,
-      final bool isLoading,
-      final TableData? selectTable,
-      final TextEditingController? textController}) = _$TableStateImpl;
+  const factory _TableState({
+    final List<TableData> tables,
+    final int selectedIndex,
+    final bool isLoading,
+    final TableData? selectTable,
+    final TextEditingController? textController,
+  }) = _$TableStateImpl;
   const _TableState._() : super._();
 
   @override

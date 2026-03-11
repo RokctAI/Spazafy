@@ -12,7 +12,8 @@ part of 'profile_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$ProfileState {
@@ -37,22 +38,24 @@ mixin _$ProfileState {
 /// @nodoc
 abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
-          ProfileState value, $Res Function(ProfileState) then) =
-      _$ProfileStateCopyWithImpl<$Res, ProfileState>;
+    ProfileState value,
+    $Res Function(ProfileState) then,
+  ) = _$ProfileStateCopyWithImpl<$Res, ProfileState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isReferralLoading,
-      bool isSaveLoading,
-      bool isLoadingHistory,
-      int typeIndex,
-      String bgImage,
-      String logoImage,
-      AddressData? addressModel,
-      UserData? userData,
-      ReferralModel? referralData,
-      List<WalletData>? walletHistory,
-      List<String> filepath});
+  $Res call({
+    bool isLoading,
+    bool isReferralLoading,
+    bool isSaveLoading,
+    bool isLoadingHistory,
+    int typeIndex,
+    String bgImage,
+    String logoImage,
+    AddressData? addressModel,
+    UserData? userData,
+    ReferralModel? referralData,
+    List<WalletData>? walletHistory,
+    List<String> filepath,
+  });
 }
 
 /// @nodoc
@@ -81,56 +84,59 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? walletHistory = freezed,
     Object? filepath = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isReferralLoading: null == isReferralLoading
-          ? _value.isReferralLoading
-          : isReferralLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSaveLoading: null == isSaveLoading
-          ? _value.isSaveLoading
-          : isSaveLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLoadingHistory: null == isLoadingHistory
-          ? _value.isLoadingHistory
-          : isLoadingHistory // ignore: cast_nullable_to_non_nullable
-              as bool,
-      typeIndex: null == typeIndex
-          ? _value.typeIndex
-          : typeIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      bgImage: null == bgImage
-          ? _value.bgImage
-          : bgImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      logoImage: null == logoImage
-          ? _value.logoImage
-          : logoImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      addressModel: freezed == addressModel
-          ? _value.addressModel
-          : addressModel // ignore: cast_nullable_to_non_nullable
-              as AddressData?,
-      userData: freezed == userData
-          ? _value.userData
-          : userData // ignore: cast_nullable_to_non_nullable
-              as UserData?,
-      referralData: freezed == referralData
-          ? _value.referralData
-          : referralData // ignore: cast_nullable_to_non_nullable
-              as ReferralModel?,
-      walletHistory: freezed == walletHistory
-          ? _value.walletHistory
-          : walletHistory // ignore: cast_nullable_to_non_nullable
-              as List<WalletData>?,
-      filepath: null == filepath
-          ? _value.filepath
-          : filepath // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isReferralLoading: null == isReferralLoading
+                ? _value.isReferralLoading
+                : isReferralLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isSaveLoading: null == isSaveLoading
+                ? _value.isSaveLoading
+                : isSaveLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isLoadingHistory: null == isLoadingHistory
+                ? _value.isLoadingHistory
+                : isLoadingHistory // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            typeIndex: null == typeIndex
+                ? _value.typeIndex
+                : typeIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            bgImage: null == bgImage
+                ? _value.bgImage
+                : bgImage // ignore: cast_nullable_to_non_nullable
+                      as String,
+            logoImage: null == logoImage
+                ? _value.logoImage
+                : logoImage // ignore: cast_nullable_to_non_nullable
+                      as String,
+            addressModel: freezed == addressModel
+                ? _value.addressModel
+                : addressModel // ignore: cast_nullable_to_non_nullable
+                      as AddressData?,
+            userData: freezed == userData
+                ? _value.userData
+                : userData // ignore: cast_nullable_to_non_nullable
+                      as UserData?,
+            referralData: freezed == referralData
+                ? _value.referralData
+                : referralData // ignore: cast_nullable_to_non_nullable
+                      as ReferralModel?,
+            walletHistory: freezed == walletHistory
+                ? _value.walletHistory
+                : walletHistory // ignore: cast_nullable_to_non_nullable
+                      as List<WalletData>?,
+            filepath: null == filepath
+                ? _value.filepath
+                : filepath // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -138,23 +144,25 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
 abstract class _$$ProfileStateImplCopyWith<$Res>
     implements $ProfileStateCopyWith<$Res> {
   factory _$$ProfileStateImplCopyWith(
-          _$ProfileStateImpl value, $Res Function(_$ProfileStateImpl) then) =
-      __$$ProfileStateImplCopyWithImpl<$Res>;
+    _$ProfileStateImpl value,
+    $Res Function(_$ProfileStateImpl) then,
+  ) = __$$ProfileStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isReferralLoading,
-      bool isSaveLoading,
-      bool isLoadingHistory,
-      int typeIndex,
-      String bgImage,
-      String logoImage,
-      AddressData? addressModel,
-      UserData? userData,
-      ReferralModel? referralData,
-      List<WalletData>? walletHistory,
-      List<String> filepath});
+  $Res call({
+    bool isLoading,
+    bool isReferralLoading,
+    bool isSaveLoading,
+    bool isLoadingHistory,
+    int typeIndex,
+    String bgImage,
+    String logoImage,
+    AddressData? addressModel,
+    UserData? userData,
+    ReferralModel? referralData,
+    List<WalletData>? walletHistory,
+    List<String> filepath,
+  });
 }
 
 /// @nodoc
@@ -162,8 +170,9 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
     extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateImpl>
     implements _$$ProfileStateImplCopyWith<$Res> {
   __$$ProfileStateImplCopyWithImpl(
-      _$ProfileStateImpl _value, $Res Function(_$ProfileStateImpl) _then)
-      : super(_value, _then);
+    _$ProfileStateImpl _value,
+    $Res Function(_$ProfileStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -181,78 +190,80 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
     Object? walletHistory = freezed,
     Object? filepath = null,
   }) {
-    return _then(_$ProfileStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isReferralLoading: null == isReferralLoading
-          ? _value.isReferralLoading
-          : isReferralLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSaveLoading: null == isSaveLoading
-          ? _value.isSaveLoading
-          : isSaveLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLoadingHistory: null == isLoadingHistory
-          ? _value.isLoadingHistory
-          : isLoadingHistory // ignore: cast_nullable_to_non_nullable
-              as bool,
-      typeIndex: null == typeIndex
-          ? _value.typeIndex
-          : typeIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      bgImage: null == bgImage
-          ? _value.bgImage
-          : bgImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      logoImage: null == logoImage
-          ? _value.logoImage
-          : logoImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      addressModel: freezed == addressModel
-          ? _value.addressModel
-          : addressModel // ignore: cast_nullable_to_non_nullable
-              as AddressData?,
-      userData: freezed == userData
-          ? _value.userData
-          : userData // ignore: cast_nullable_to_non_nullable
-              as UserData?,
-      referralData: freezed == referralData
-          ? _value.referralData
-          : referralData // ignore: cast_nullable_to_non_nullable
-              as ReferralModel?,
-      walletHistory: freezed == walletHistory
-          ? _value._walletHistory
-          : walletHistory // ignore: cast_nullable_to_non_nullable
-              as List<WalletData>?,
-      filepath: null == filepath
-          ? _value._filepath
-          : filepath // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
+    return _then(
+      _$ProfileStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isReferralLoading: null == isReferralLoading
+            ? _value.isReferralLoading
+            : isReferralLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isSaveLoading: null == isSaveLoading
+            ? _value.isSaveLoading
+            : isSaveLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isLoadingHistory: null == isLoadingHistory
+            ? _value.isLoadingHistory
+            : isLoadingHistory // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        typeIndex: null == typeIndex
+            ? _value.typeIndex
+            : typeIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        bgImage: null == bgImage
+            ? _value.bgImage
+            : bgImage // ignore: cast_nullable_to_non_nullable
+                  as String,
+        logoImage: null == logoImage
+            ? _value.logoImage
+            : logoImage // ignore: cast_nullable_to_non_nullable
+                  as String,
+        addressModel: freezed == addressModel
+            ? _value.addressModel
+            : addressModel // ignore: cast_nullable_to_non_nullable
+                  as AddressData?,
+        userData: freezed == userData
+            ? _value.userData
+            : userData // ignore: cast_nullable_to_non_nullable
+                  as UserData?,
+        referralData: freezed == referralData
+            ? _value.referralData
+            : referralData // ignore: cast_nullable_to_non_nullable
+                  as ReferralModel?,
+        walletHistory: freezed == walletHistory
+            ? _value._walletHistory
+            : walletHistory // ignore: cast_nullable_to_non_nullable
+                  as List<WalletData>?,
+        filepath: null == filepath
+            ? _value._filepath
+            : filepath // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ProfileStateImpl extends _ProfileState {
-  const _$ProfileStateImpl(
-      {this.isLoading = true,
-      this.isReferralLoading = true,
-      this.isSaveLoading = false,
-      this.isLoadingHistory = true,
-      this.typeIndex = 0,
-      this.bgImage = "",
-      this.logoImage = "",
-      this.addressModel = null,
-      this.userData = null,
-      this.referralData = null,
-      final List<WalletData>? walletHistory = const [],
-      final List<String> filepath = const []})
-      : _walletHistory = walletHistory,
-        _filepath = filepath,
-        super._();
+  const _$ProfileStateImpl({
+    this.isLoading = true,
+    this.isReferralLoading = true,
+    this.isSaveLoading = false,
+    this.isLoadingHistory = true,
+    this.typeIndex = 0,
+    this.bgImage = "",
+    this.logoImage = "",
+    this.addressModel = null,
+    this.userData = null,
+    this.referralData = null,
+    final List<WalletData>? walletHistory = const [],
+    final List<String> filepath = const [],
+  }) : _walletHistory = walletHistory,
+       _filepath = filepath,
+       super._();
 
   @override
   @JsonKey()
@@ -333,26 +344,29 @@ class _$ProfileStateImpl extends _ProfileState {
                 other.userData == userData) &&
             (identical(other.referralData, referralData) ||
                 other.referralData == referralData) &&
-            const DeepCollectionEquality()
-                .equals(other._walletHistory, _walletHistory) &&
+            const DeepCollectionEquality().equals(
+              other._walletHistory,
+              _walletHistory,
+            ) &&
             const DeepCollectionEquality().equals(other._filepath, _filepath));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isReferralLoading,
-      isSaveLoading,
-      isLoadingHistory,
-      typeIndex,
-      bgImage,
-      logoImage,
-      addressModel,
-      userData,
-      referralData,
-      const DeepCollectionEquality().hash(_walletHistory),
-      const DeepCollectionEquality().hash(_filepath));
+    runtimeType,
+    isLoading,
+    isReferralLoading,
+    isSaveLoading,
+    isLoadingHistory,
+    typeIndex,
+    bgImage,
+    logoImage,
+    addressModel,
+    userData,
+    referralData,
+    const DeepCollectionEquality().hash(_walletHistory),
+    const DeepCollectionEquality().hash(_filepath),
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -362,19 +376,20 @@ class _$ProfileStateImpl extends _ProfileState {
 }
 
 abstract class _ProfileState extends ProfileState {
-  const factory _ProfileState(
-      {final bool isLoading,
-      final bool isReferralLoading,
-      final bool isSaveLoading,
-      final bool isLoadingHistory,
-      final int typeIndex,
-      final String bgImage,
-      final String logoImage,
-      final AddressData? addressModel,
-      final UserData? userData,
-      final ReferralModel? referralData,
-      final List<WalletData>? walletHistory,
-      final List<String> filepath}) = _$ProfileStateImpl;
+  const factory _ProfileState({
+    final bool isLoading,
+    final bool isReferralLoading,
+    final bool isSaveLoading,
+    final bool isLoadingHistory,
+    final int typeIndex,
+    final String bgImage,
+    final String logoImage,
+    final AddressData? addressModel,
+    final UserData? userData,
+    final ReferralModel? referralData,
+    final List<WalletData>? walletHistory,
+    final List<String> filepath,
+  }) = _$ProfileStateImpl;
   const _ProfileState._() : super._();
 
   @override

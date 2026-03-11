@@ -12,7 +12,8 @@ part of 'create_addon_units_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CreateAddonUnitsState {
@@ -29,20 +30,24 @@ mixin _$CreateAddonUnitsState {
 
 /// @nodoc
 abstract class $CreateAddonUnitsStateCopyWith<$Res> {
-  factory $CreateAddonUnitsStateCopyWith(CreateAddonUnitsState value,
-          $Res Function(CreateAddonUnitsState) then) =
-      _$CreateAddonUnitsStateCopyWithImpl<$Res, CreateAddonUnitsState>;
+  factory $CreateAddonUnitsStateCopyWith(
+    CreateAddonUnitsState value,
+    $Res Function(CreateAddonUnitsState) then,
+  ) = _$CreateAddonUnitsStateCopyWithImpl<$Res, CreateAddonUnitsState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      List<UnitData> units,
-      int activeIndex,
-      TextEditingController? unitController});
+  $Res call({
+    bool isLoading,
+    List<UnitData> units,
+    int activeIndex,
+    TextEditingController? unitController,
+  });
 }
 
 /// @nodoc
-class _$CreateAddonUnitsStateCopyWithImpl<$Res,
-        $Val extends CreateAddonUnitsState>
+class _$CreateAddonUnitsStateCopyWithImpl<
+  $Res,
+  $Val extends CreateAddonUnitsState
+>
     implements $CreateAddonUnitsStateCopyWith<$Res> {
   _$CreateAddonUnitsStateCopyWithImpl(this._value, this._then);
 
@@ -59,24 +64,27 @@ class _$CreateAddonUnitsStateCopyWithImpl<$Res,
     Object? activeIndex = null,
     Object? unitController = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      units: null == units
-          ? _value.units
-          : units // ignore: cast_nullable_to_non_nullable
-              as List<UnitData>,
-      activeIndex: null == activeIndex
-          ? _value.activeIndex
-          : activeIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      unitController: freezed == unitController
-          ? _value.unitController
-          : unitController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            units: null == units
+                ? _value.units
+                : units // ignore: cast_nullable_to_non_nullable
+                      as List<UnitData>,
+            activeIndex: null == activeIndex
+                ? _value.activeIndex
+                : activeIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            unitController: freezed == unitController
+                ? _value.unitController
+                : unitController // ignore: cast_nullable_to_non_nullable
+                      as TextEditingController?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -84,26 +92,28 @@ class _$CreateAddonUnitsStateCopyWithImpl<$Res,
 abstract class _$$CreateAddonUnitsStateImplCopyWith<$Res>
     implements $CreateAddonUnitsStateCopyWith<$Res> {
   factory _$$CreateAddonUnitsStateImplCopyWith(
-          _$CreateAddonUnitsStateImpl value,
-          $Res Function(_$CreateAddonUnitsStateImpl) then) =
-      __$$CreateAddonUnitsStateImplCopyWithImpl<$Res>;
+    _$CreateAddonUnitsStateImpl value,
+    $Res Function(_$CreateAddonUnitsStateImpl) then,
+  ) = __$$CreateAddonUnitsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      List<UnitData> units,
-      int activeIndex,
-      TextEditingController? unitController});
+  $Res call({
+    bool isLoading,
+    List<UnitData> units,
+    int activeIndex,
+    TextEditingController? unitController,
+  });
 }
 
 /// @nodoc
 class __$$CreateAddonUnitsStateImplCopyWithImpl<$Res>
-    extends _$CreateAddonUnitsStateCopyWithImpl<$Res,
-        _$CreateAddonUnitsStateImpl>
+    extends
+        _$CreateAddonUnitsStateCopyWithImpl<$Res, _$CreateAddonUnitsStateImpl>
     implements _$$CreateAddonUnitsStateImplCopyWith<$Res> {
-  __$$CreateAddonUnitsStateImplCopyWithImpl(_$CreateAddonUnitsStateImpl _value,
-      $Res Function(_$CreateAddonUnitsStateImpl) _then)
-      : super(_value, _then);
+  __$$CreateAddonUnitsStateImplCopyWithImpl(
+    _$CreateAddonUnitsStateImpl _value,
+    $Res Function(_$CreateAddonUnitsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -113,37 +123,39 @@ class __$$CreateAddonUnitsStateImplCopyWithImpl<$Res>
     Object? activeIndex = null,
     Object? unitController = freezed,
   }) {
-    return _then(_$CreateAddonUnitsStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      units: null == units
-          ? _value._units
-          : units // ignore: cast_nullable_to_non_nullable
-              as List<UnitData>,
-      activeIndex: null == activeIndex
-          ? _value.activeIndex
-          : activeIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      unitController: freezed == unitController
-          ? _value.unitController
-          : unitController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-    ));
+    return _then(
+      _$CreateAddonUnitsStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        units: null == units
+            ? _value._units
+            : units // ignore: cast_nullable_to_non_nullable
+                  as List<UnitData>,
+        activeIndex: null == activeIndex
+            ? _value.activeIndex
+            : activeIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        unitController: freezed == unitController
+            ? _value.unitController
+            : unitController // ignore: cast_nullable_to_non_nullable
+                  as TextEditingController?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CreateAddonUnitsStateImpl extends _CreateAddonUnitsState {
-  const _$CreateAddonUnitsStateImpl(
-      {this.isLoading = false,
-      final List<UnitData> units = const [],
-      this.activeIndex = 0,
-      this.unitController})
-      : _units = units,
-        super._();
+  const _$CreateAddonUnitsStateImpl({
+    this.isLoading = false,
+    final List<UnitData> units = const [],
+    this.activeIndex = 0,
+    this.unitController,
+  }) : _units = units,
+       super._();
 
   @override
   @JsonKey()
@@ -183,24 +195,32 @@ class _$CreateAddonUnitsStateImpl extends _CreateAddonUnitsState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading,
-      const DeepCollectionEquality().hash(_units), activeIndex, unitController);
+  int get hashCode => Object.hash(
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_units),
+    activeIndex,
+    unitController,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateAddonUnitsStateImplCopyWith<_$CreateAddonUnitsStateImpl>
-      get copyWith => __$$CreateAddonUnitsStateImplCopyWithImpl<
-          _$CreateAddonUnitsStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$CreateAddonUnitsStateImplCopyWithImpl<_$CreateAddonUnitsStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CreateAddonUnitsState extends CreateAddonUnitsState {
-  const factory _CreateAddonUnitsState(
-          {final bool isLoading,
-          final List<UnitData> units,
-          final int activeIndex,
-          final TextEditingController? unitController}) =
-      _$CreateAddonUnitsStateImpl;
+  const factory _CreateAddonUnitsState({
+    final bool isLoading,
+    final List<UnitData> units,
+    final int activeIndex,
+    final TextEditingController? unitController,
+  }) = _$CreateAddonUnitsStateImpl;
   const _CreateAddonUnitsState._() : super._();
 
   @override
@@ -214,5 +234,5 @@ abstract class _CreateAddonUnitsState extends CreateAddonUnitsState {
   @override
   @JsonKey(ignore: true)
   _$$CreateAddonUnitsStateImplCopyWith<_$CreateAddonUnitsStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

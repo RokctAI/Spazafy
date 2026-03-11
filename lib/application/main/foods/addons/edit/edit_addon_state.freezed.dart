@@ -12,7 +12,8 @@ part of 'edit_addon_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$EditAddonState {
@@ -27,8 +28,9 @@ mixin _$EditAddonState {
 /// @nodoc
 abstract class $EditAddonStateCopyWith<$Res> {
   factory $EditAddonStateCopyWith(
-          EditAddonState value, $Res Function(EditAddonState) then) =
-      _$EditAddonStateCopyWithImpl<$Res, EditAddonState>;
+    EditAddonState value,
+    $Res Function(EditAddonState) then,
+  ) = _$EditAddonStateCopyWithImpl<$Res, EditAddonState>;
   @useResult
   $Res call({bool isLoading, Map<String, List<String>> mapOfDesc});
 }
@@ -45,29 +47,30 @@ class _$EditAddonStateCopyWithImpl<$Res, $Val extends EditAddonState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? mapOfDesc = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      mapOfDesc: null == mapOfDesc
-          ? _value.mapOfDesc
-          : mapOfDesc // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<String>>,
-    ) as $Val);
+  $Res call({Object? isLoading = null, Object? mapOfDesc = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            mapOfDesc: null == mapOfDesc
+                ? _value.mapOfDesc
+                : mapOfDesc // ignore: cast_nullable_to_non_nullable
+                      as Map<String, List<String>>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$EditAddonStateImplCopyWith<$Res>
     implements $EditAddonStateCopyWith<$Res> {
-  factory _$$EditAddonStateImplCopyWith(_$EditAddonStateImpl value,
-          $Res Function(_$EditAddonStateImpl) then) =
-      __$$EditAddonStateImplCopyWithImpl<$Res>;
+  factory _$$EditAddonStateImplCopyWith(
+    _$EditAddonStateImpl value,
+    $Res Function(_$EditAddonStateImpl) then,
+  ) = __$$EditAddonStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, Map<String, List<String>> mapOfDesc});
@@ -78,36 +81,36 @@ class __$$EditAddonStateImplCopyWithImpl<$Res>
     extends _$EditAddonStateCopyWithImpl<$Res, _$EditAddonStateImpl>
     implements _$$EditAddonStateImplCopyWith<$Res> {
   __$$EditAddonStateImplCopyWithImpl(
-      _$EditAddonStateImpl _value, $Res Function(_$EditAddonStateImpl) _then)
-      : super(_value, _then);
+    _$EditAddonStateImpl _value,
+    $Res Function(_$EditAddonStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? mapOfDesc = null,
-  }) {
-    return _then(_$EditAddonStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      mapOfDesc: null == mapOfDesc
-          ? _value._mapOfDesc
-          : mapOfDesc // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<String>>,
-    ));
+  $Res call({Object? isLoading = null, Object? mapOfDesc = null}) {
+    return _then(
+      _$EditAddonStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        mapOfDesc: null == mapOfDesc
+            ? _value._mapOfDesc
+            : mapOfDesc // ignore: cast_nullable_to_non_nullable
+                  as Map<String, List<String>>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$EditAddonStateImpl extends _EditAddonState {
-  const _$EditAddonStateImpl(
-      {this.isLoading = false,
-      final Map<String, List<String>> mapOfDesc = const {}})
-      : _mapOfDesc = mapOfDesc,
-        super._();
+  const _$EditAddonStateImpl({
+    this.isLoading = false,
+    final Map<String, List<String>> mapOfDesc = const {},
+  }) : _mapOfDesc = mapOfDesc,
+       super._();
 
   @override
   @JsonKey()
@@ -133,26 +136,34 @@ class _$EditAddonStateImpl extends _EditAddonState {
             other is _$EditAddonStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other._mapOfDesc, _mapOfDesc));
+            const DeepCollectionEquality().equals(
+              other._mapOfDesc,
+              _mapOfDesc,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, isLoading, const DeepCollectionEquality().hash(_mapOfDesc));
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_mapOfDesc),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$EditAddonStateImplCopyWith<_$EditAddonStateImpl> get copyWith =>
       __$$EditAddonStateImplCopyWithImpl<_$EditAddonStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _EditAddonState extends EditAddonState {
-  const factory _EditAddonState(
-      {final bool isLoading,
-      final Map<String, List<String>> mapOfDesc}) = _$EditAddonStateImpl;
+  const factory _EditAddonState({
+    final bool isLoading,
+    final Map<String, List<String>> mapOfDesc,
+  }) = _$EditAddonStateImpl;
   const _EditAddonState._() : super._();
 
   @override

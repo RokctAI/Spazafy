@@ -12,7 +12,8 @@ part of 'order_details_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OrderDetailsState {
@@ -28,8 +29,9 @@ mixin _$OrderDetailsState {
 /// @nodoc
 abstract class $OrderDetailsStateCopyWith<$Res> {
   factory $OrderDetailsStateCopyWith(
-          OrderDetailsState value, $Res Function(OrderDetailsState) then) =
-      _$OrderDetailsStateCopyWithImpl<$Res, OrderDetailsState>;
+    OrderDetailsState value,
+    $Res Function(OrderDetailsState) then,
+  ) = _$OrderDetailsStateCopyWithImpl<$Res, OrderDetailsState>;
   @useResult
   $Res call({bool isLoading, bool isUpdating, OrderData? order});
 }
@@ -51,29 +53,33 @@ class _$OrderDetailsStateCopyWithImpl<$Res, $Val extends OrderDetailsState>
     Object? isUpdating = null,
     Object? order = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdating: null == isUpdating
-          ? _value.isUpdating
-          : isUpdating // ignore: cast_nullable_to_non_nullable
-              as bool,
-      order: freezed == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as OrderData?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isUpdating: null == isUpdating
+                ? _value.isUpdating
+                : isUpdating // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            order: freezed == order
+                ? _value.order
+                : order // ignore: cast_nullable_to_non_nullable
+                      as OrderData?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$OrderDetailsStateImplCopyWith<$Res>
     implements $OrderDetailsStateCopyWith<$Res> {
-  factory _$$OrderDetailsStateImplCopyWith(_$OrderDetailsStateImpl value,
-          $Res Function(_$OrderDetailsStateImpl) then) =
-      __$$OrderDetailsStateImplCopyWithImpl<$Res>;
+  factory _$$OrderDetailsStateImplCopyWith(
+    _$OrderDetailsStateImpl value,
+    $Res Function(_$OrderDetailsStateImpl) then,
+  ) = __$$OrderDetailsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, bool isUpdating, OrderData? order});
@@ -83,9 +89,10 @@ abstract class _$$OrderDetailsStateImplCopyWith<$Res>
 class __$$OrderDetailsStateImplCopyWithImpl<$Res>
     extends _$OrderDetailsStateCopyWithImpl<$Res, _$OrderDetailsStateImpl>
     implements _$$OrderDetailsStateImplCopyWith<$Res> {
-  __$$OrderDetailsStateImplCopyWithImpl(_$OrderDetailsStateImpl _value,
-      $Res Function(_$OrderDetailsStateImpl) _then)
-      : super(_value, _then);
+  __$$OrderDetailsStateImplCopyWithImpl(
+    _$OrderDetailsStateImpl _value,
+    $Res Function(_$OrderDetailsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -94,29 +101,33 @@ class __$$OrderDetailsStateImplCopyWithImpl<$Res>
     Object? isUpdating = null,
     Object? order = freezed,
   }) {
-    return _then(_$OrderDetailsStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isUpdating: null == isUpdating
-          ? _value.isUpdating
-          : isUpdating // ignore: cast_nullable_to_non_nullable
-              as bool,
-      order: freezed == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as OrderData?,
-    ));
+    return _then(
+      _$OrderDetailsStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isUpdating: null == isUpdating
+            ? _value.isUpdating
+            : isUpdating // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        order: freezed == order
+            ? _value.order
+            : order // ignore: cast_nullable_to_non_nullable
+                  as OrderData?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$OrderDetailsStateImpl extends _OrderDetailsState {
-  const _$OrderDetailsStateImpl(
-      {this.isLoading = false, this.isUpdating = false, this.order})
-      : super._();
+  const _$OrderDetailsStateImpl({
+    this.isLoading = false,
+    this.isUpdating = false,
+    this.order,
+  }) : super._();
 
   @override
   @JsonKey()
@@ -152,14 +163,17 @@ class _$OrderDetailsStateImpl extends _OrderDetailsState {
   @pragma('vm:prefer-inline')
   _$$OrderDetailsStateImplCopyWith<_$OrderDetailsStateImpl> get copyWith =>
       __$$OrderDetailsStateImplCopyWithImpl<_$OrderDetailsStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _OrderDetailsState extends OrderDetailsState {
-  const factory _OrderDetailsState(
-      {final bool isLoading,
-      final bool isUpdating,
-      final OrderData? order}) = _$OrderDetailsStateImpl;
+  const factory _OrderDetailsState({
+    final bool isLoading,
+    final bool isUpdating,
+    final OrderData? order,
+  }) = _$OrderDetailsStateImpl;
   const _OrderDetailsState._() : super._();
 
   @override

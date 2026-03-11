@@ -12,7 +12,8 @@ part of 'edit_extras_item_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$EditExtrasItemState {
@@ -26,8 +27,9 @@ mixin _$EditExtrasItemState {
 /// @nodoc
 abstract class $EditExtrasItemStateCopyWith<$Res> {
   factory $EditExtrasItemStateCopyWith(
-          EditExtrasItemState value, $Res Function(EditExtrasItemState) then) =
-      _$EditExtrasItemStateCopyWithImpl<$Res, EditExtrasItemState>;
+    EditExtrasItemState value,
+    $Res Function(EditExtrasItemState) then,
+  ) = _$EditExtrasItemStateCopyWithImpl<$Res, EditExtrasItemState>;
   @useResult
   $Res call({bool isLoading});
 }
@@ -44,24 +46,26 @@ class _$EditExtrasItemStateCopyWithImpl<$Res, $Val extends EditExtrasItemState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$EditExtrasItemStateImplCopyWith<$Res>
     implements $EditExtrasItemStateCopyWith<$Res> {
-  factory _$$EditExtrasItemStateImplCopyWith(_$EditExtrasItemStateImpl value,
-          $Res Function(_$EditExtrasItemStateImpl) then) =
-      __$$EditExtrasItemStateImplCopyWithImpl<$Res>;
+  factory _$$EditExtrasItemStateImplCopyWith(
+    _$EditExtrasItemStateImpl value,
+    $Res Function(_$EditExtrasItemStateImpl) then,
+  ) = __$$EditExtrasItemStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
@@ -71,21 +75,22 @@ abstract class _$$EditExtrasItemStateImplCopyWith<$Res>
 class __$$EditExtrasItemStateImplCopyWithImpl<$Res>
     extends _$EditExtrasItemStateCopyWithImpl<$Res, _$EditExtrasItemStateImpl>
     implements _$$EditExtrasItemStateImplCopyWith<$Res> {
-  __$$EditExtrasItemStateImplCopyWithImpl(_$EditExtrasItemStateImpl _value,
-      $Res Function(_$EditExtrasItemStateImpl) _then)
-      : super(_value, _then);
+  __$$EditExtrasItemStateImplCopyWithImpl(
+    _$EditExtrasItemStateImpl _value,
+    $Res Function(_$EditExtrasItemStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_$EditExtrasItemStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _$EditExtrasItemStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
@@ -120,7 +125,9 @@ class _$EditExtrasItemStateImpl extends _EditExtrasItemState {
   @pragma('vm:prefer-inline')
   _$$EditExtrasItemStateImplCopyWith<_$EditExtrasItemStateImpl> get copyWith =>
       __$$EditExtrasItemStateImplCopyWithImpl<_$EditExtrasItemStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _EditExtrasItemState extends EditExtrasItemState {

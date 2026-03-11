@@ -12,7 +12,8 @@ part of 'accepted_orders_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AcceptedOrdersState {
@@ -28,8 +29,9 @@ mixin _$AcceptedOrdersState {
 /// @nodoc
 abstract class $AcceptedOrdersStateCopyWith<$Res> {
   factory $AcceptedOrdersStateCopyWith(
-          AcceptedOrdersState value, $Res Function(AcceptedOrdersState) then) =
-      _$AcceptedOrdersStateCopyWithImpl<$Res, AcceptedOrdersState>;
+    AcceptedOrdersState value,
+    $Res Function(AcceptedOrdersState) then,
+  ) = _$AcceptedOrdersStateCopyWithImpl<$Res, AcceptedOrdersState>;
   @useResult
   $Res call({bool isLoading, List<OrderData> orders, int totalCount});
 }
@@ -51,29 +53,33 @@ class _$AcceptedOrdersStateCopyWithImpl<$Res, $Val extends AcceptedOrdersState>
     Object? orders = null,
     Object? totalCount = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      orders: null == orders
-          ? _value.orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      totalCount: null == totalCount
-          ? _value.totalCount
-          : totalCount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            orders: null == orders
+                ? _value.orders
+                : orders // ignore: cast_nullable_to_non_nullable
+                      as List<OrderData>,
+            totalCount: null == totalCount
+                ? _value.totalCount
+                : totalCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$AcceptedOrdersStateImplCopyWith<$Res>
     implements $AcceptedOrdersStateCopyWith<$Res> {
-  factory _$$AcceptedOrdersStateImplCopyWith(_$AcceptedOrdersStateImpl value,
-          $Res Function(_$AcceptedOrdersStateImpl) then) =
-      __$$AcceptedOrdersStateImplCopyWithImpl<$Res>;
+  factory _$$AcceptedOrdersStateImplCopyWith(
+    _$AcceptedOrdersStateImpl value,
+    $Res Function(_$AcceptedOrdersStateImpl) then,
+  ) = __$$AcceptedOrdersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, List<OrderData> orders, int totalCount});
@@ -83,9 +89,10 @@ abstract class _$$AcceptedOrdersStateImplCopyWith<$Res>
 class __$$AcceptedOrdersStateImplCopyWithImpl<$Res>
     extends _$AcceptedOrdersStateCopyWithImpl<$Res, _$AcceptedOrdersStateImpl>
     implements _$$AcceptedOrdersStateImplCopyWith<$Res> {
-  __$$AcceptedOrdersStateImplCopyWithImpl(_$AcceptedOrdersStateImpl _value,
-      $Res Function(_$AcceptedOrdersStateImpl) _then)
-      : super(_value, _then);
+  __$$AcceptedOrdersStateImplCopyWithImpl(
+    _$AcceptedOrdersStateImpl _value,
+    $Res Function(_$AcceptedOrdersStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -94,32 +101,34 @@ class __$$AcceptedOrdersStateImplCopyWithImpl<$Res>
     Object? orders = null,
     Object? totalCount = null,
   }) {
-    return _then(_$AcceptedOrdersStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      orders: null == orders
-          ? _value._orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      totalCount: null == totalCount
-          ? _value.totalCount
-          : totalCount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+    return _then(
+      _$AcceptedOrdersStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        orders: null == orders
+            ? _value._orders
+            : orders // ignore: cast_nullable_to_non_nullable
+                  as List<OrderData>,
+        totalCount: null == totalCount
+            ? _value.totalCount
+            : totalCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$AcceptedOrdersStateImpl extends _AcceptedOrdersState {
-  const _$AcceptedOrdersStateImpl(
-      {this.isLoading = false,
-      final List<OrderData> orders = const [],
-      this.totalCount = 0})
-      : _orders = orders,
-        super._();
+  const _$AcceptedOrdersStateImpl({
+    this.isLoading = false,
+    final List<OrderData> orders = const [],
+    this.totalCount = 0,
+  }) : _orders = orders,
+       super._();
 
   @override
   @JsonKey()
@@ -155,22 +164,29 @@ class _$AcceptedOrdersStateImpl extends _AcceptedOrdersState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading,
-      const DeepCollectionEquality().hash(_orders), totalCount);
+  int get hashCode => Object.hash(
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_orders),
+    totalCount,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AcceptedOrdersStateImplCopyWith<_$AcceptedOrdersStateImpl> get copyWith =>
       __$$AcceptedOrdersStateImplCopyWithImpl<_$AcceptedOrdersStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _AcceptedOrdersState extends AcceptedOrdersState {
-  const factory _AcceptedOrdersState(
-      {final bool isLoading,
-      final List<OrderData> orders,
-      final int totalCount}) = _$AcceptedOrdersStateImpl;
+  const factory _AcceptedOrdersState({
+    final bool isLoading,
+    final List<OrderData> orders,
+    final int totalCount,
+  }) = _$AcceptedOrdersStateImpl;
   const _AcceptedOrdersState._() : super._();
 
   @override

@@ -12,7 +12,8 @@ part of 'categories_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CategoriesState {
@@ -31,16 +32,18 @@ mixin _$CategoriesState {
 /// @nodoc
 abstract class $CategoriesStateCopyWith<$Res> {
   factory $CategoriesStateCopyWith(
-          CategoriesState value, $Res Function(CategoriesState) then) =
-      _$CategoriesStateCopyWithImpl<$Res, CategoriesState>;
+    CategoriesState value,
+    $Res Function(CategoriesState) then,
+  ) = _$CategoriesStateCopyWithImpl<$Res, CategoriesState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isComboLoading,
-      List<CategoryData> categories,
-      List<CategoryData> comboCategories,
-      int activeIndex,
-      int activeComboIndex});
+  $Res call({
+    bool isLoading,
+    bool isComboLoading,
+    List<CategoryData> categories,
+    List<CategoryData> comboCategories,
+    int activeIndex,
+    int activeComboIndex,
+  });
 }
 
 /// @nodoc
@@ -63,50 +66,55 @@ class _$CategoriesStateCopyWithImpl<$Res, $Val extends CategoriesState>
     Object? activeIndex = null,
     Object? activeComboIndex = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isComboLoading: null == isComboLoading
-          ? _value.isComboLoading
-          : isComboLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      categories: null == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryData>,
-      comboCategories: null == comboCategories
-          ? _value.comboCategories
-          : comboCategories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryData>,
-      activeIndex: null == activeIndex
-          ? _value.activeIndex
-          : activeIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      activeComboIndex: null == activeComboIndex
-          ? _value.activeComboIndex
-          : activeComboIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isComboLoading: null == isComboLoading
+                ? _value.isComboLoading
+                : isComboLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            categories: null == categories
+                ? _value.categories
+                : categories // ignore: cast_nullable_to_non_nullable
+                      as List<CategoryData>,
+            comboCategories: null == comboCategories
+                ? _value.comboCategories
+                : comboCategories // ignore: cast_nullable_to_non_nullable
+                      as List<CategoryData>,
+            activeIndex: null == activeIndex
+                ? _value.activeIndex
+                : activeIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            activeComboIndex: null == activeComboIndex
+                ? _value.activeComboIndex
+                : activeComboIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CategoriesStateImplCopyWith<$Res>
     implements $CategoriesStateCopyWith<$Res> {
-  factory _$$CategoriesStateImplCopyWith(_$CategoriesStateImpl value,
-          $Res Function(_$CategoriesStateImpl) then) =
-      __$$CategoriesStateImplCopyWithImpl<$Res>;
+  factory _$$CategoriesStateImplCopyWith(
+    _$CategoriesStateImpl value,
+    $Res Function(_$CategoriesStateImpl) then,
+  ) = __$$CategoriesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isComboLoading,
-      List<CategoryData> categories,
-      List<CategoryData> comboCategories,
-      int activeIndex,
-      int activeComboIndex});
+  $Res call({
+    bool isLoading,
+    bool isComboLoading,
+    List<CategoryData> categories,
+    List<CategoryData> comboCategories,
+    int activeIndex,
+    int activeComboIndex,
+  });
 }
 
 /// @nodoc
@@ -114,8 +122,9 @@ class __$$CategoriesStateImplCopyWithImpl<$Res>
     extends _$CategoriesStateCopyWithImpl<$Res, _$CategoriesStateImpl>
     implements _$$CategoriesStateImplCopyWith<$Res> {
   __$$CategoriesStateImplCopyWithImpl(
-      _$CategoriesStateImpl _value, $Res Function(_$CategoriesStateImpl) _then)
-      : super(_value, _then);
+    _$CategoriesStateImpl _value,
+    $Res Function(_$CategoriesStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -127,48 +136,50 @@ class __$$CategoriesStateImplCopyWithImpl<$Res>
     Object? activeIndex = null,
     Object? activeComboIndex = null,
   }) {
-    return _then(_$CategoriesStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isComboLoading: null == isComboLoading
-          ? _value.isComboLoading
-          : isComboLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      categories: null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryData>,
-      comboCategories: null == comboCategories
-          ? _value._comboCategories
-          : comboCategories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryData>,
-      activeIndex: null == activeIndex
-          ? _value.activeIndex
-          : activeIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      activeComboIndex: null == activeComboIndex
-          ? _value.activeComboIndex
-          : activeComboIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+    return _then(
+      _$CategoriesStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isComboLoading: null == isComboLoading
+            ? _value.isComboLoading
+            : isComboLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        categories: null == categories
+            ? _value._categories
+            : categories // ignore: cast_nullable_to_non_nullable
+                  as List<CategoryData>,
+        comboCategories: null == comboCategories
+            ? _value._comboCategories
+            : comboCategories // ignore: cast_nullable_to_non_nullable
+                  as List<CategoryData>,
+        activeIndex: null == activeIndex
+            ? _value.activeIndex
+            : activeIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        activeComboIndex: null == activeComboIndex
+            ? _value.activeComboIndex
+            : activeComboIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CategoriesStateImpl extends _CategoriesState {
-  const _$CategoriesStateImpl(
-      {this.isLoading = false,
-      this.isComboLoading = false,
-      final List<CategoryData> categories = const [],
-      final List<CategoryData> comboCategories = const [],
-      this.activeIndex = 1,
-      this.activeComboIndex = 1})
-      : _categories = categories,
-        _comboCategories = comboCategories,
-        super._();
+  const _$CategoriesStateImpl({
+    this.isLoading = false,
+    this.isComboLoading = false,
+    final List<CategoryData> categories = const [],
+    final List<CategoryData> comboCategories = const [],
+    this.activeIndex = 1,
+    this.activeComboIndex = 1,
+  }) : _categories = categories,
+       _comboCategories = comboCategories,
+       super._();
 
   @override
   @JsonKey()
@@ -215,10 +226,14 @@ class _$CategoriesStateImpl extends _CategoriesState {
                 other.isLoading == isLoading) &&
             (identical(other.isComboLoading, isComboLoading) ||
                 other.isComboLoading == isComboLoading) &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories) &&
-            const DeepCollectionEquality()
-                .equals(other._comboCategories, _comboCategories) &&
+            const DeepCollectionEquality().equals(
+              other._categories,
+              _categories,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._comboCategories,
+              _comboCategories,
+            ) &&
             (identical(other.activeIndex, activeIndex) ||
                 other.activeIndex == activeIndex) &&
             (identical(other.activeComboIndex, activeComboIndex) ||
@@ -227,30 +242,34 @@ class _$CategoriesStateImpl extends _CategoriesState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isComboLoading,
-      const DeepCollectionEquality().hash(_categories),
-      const DeepCollectionEquality().hash(_comboCategories),
-      activeIndex,
-      activeComboIndex);
+    runtimeType,
+    isLoading,
+    isComboLoading,
+    const DeepCollectionEquality().hash(_categories),
+    const DeepCollectionEquality().hash(_comboCategories),
+    activeIndex,
+    activeComboIndex,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CategoriesStateImplCopyWith<_$CategoriesStateImpl> get copyWith =>
       __$$CategoriesStateImplCopyWithImpl<_$CategoriesStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CategoriesState extends CategoriesState {
-  const factory _CategoriesState(
-      {final bool isLoading,
-      final bool isComboLoading,
-      final List<CategoryData> categories,
-      final List<CategoryData> comboCategories,
-      final int activeIndex,
-      final int activeComboIndex}) = _$CategoriesStateImpl;
+  const factory _CategoriesState({
+    final bool isLoading,
+    final bool isComboLoading,
+    final List<CategoryData> categories,
+    final List<CategoryData> comboCategories,
+    final int activeIndex,
+    final int activeComboIndex,
+  }) = _$CategoriesStateImpl;
   const _CategoriesState._() : super._();
 
   @override

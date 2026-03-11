@@ -12,7 +12,8 @@ part of 'view_map_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$ViewMapState {
@@ -29,11 +30,16 @@ mixin _$ViewMapState {
 /// @nodoc
 abstract class $ViewMapStateCopyWith<$Res> {
   factory $ViewMapStateCopyWith(
-          ViewMapState value, $Res Function(ViewMapState) then) =
-      _$ViewMapStateCopyWithImpl<$Res, ViewMapState>;
+    ViewMapState value,
+    $Res Function(ViewMapState) then,
+  ) = _$ViewMapStateCopyWithImpl<$Res, ViewMapState>;
   @useResult
-  $Res call(
-      {bool isLoading, bool isActive, AddressData? place, bool isSetAddress});
+  $Res call({
+    bool isLoading,
+    bool isActive,
+    AddressData? place,
+    bool isSetAddress,
+  });
 }
 
 /// @nodoc
@@ -54,24 +60,27 @@ class _$ViewMapStateCopyWithImpl<$Res, $Val extends ViewMapState>
     Object? place = freezed,
     Object? isSetAddress = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isActive: null == isActive
-          ? _value.isActive
-          : isActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      place: freezed == place
-          ? _value.place
-          : place // ignore: cast_nullable_to_non_nullable
-              as AddressData?,
-      isSetAddress: null == isSetAddress
-          ? _value.isSetAddress
-          : isSetAddress // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isActive: null == isActive
+                ? _value.isActive
+                : isActive // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            place: freezed == place
+                ? _value.place
+                : place // ignore: cast_nullable_to_non_nullable
+                      as AddressData?,
+            isSetAddress: null == isSetAddress
+                ? _value.isSetAddress
+                : isSetAddress // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -79,12 +88,17 @@ class _$ViewMapStateCopyWithImpl<$Res, $Val extends ViewMapState>
 abstract class _$$ViewMapStateImplCopyWith<$Res>
     implements $ViewMapStateCopyWith<$Res> {
   factory _$$ViewMapStateImplCopyWith(
-          _$ViewMapStateImpl value, $Res Function(_$ViewMapStateImpl) then) =
-      __$$ViewMapStateImplCopyWithImpl<$Res>;
+    _$ViewMapStateImpl value,
+    $Res Function(_$ViewMapStateImpl) then,
+  ) = __$$ViewMapStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading, bool isActive, AddressData? place, bool isSetAddress});
+  $Res call({
+    bool isLoading,
+    bool isActive,
+    AddressData? place,
+    bool isSetAddress,
+  });
 }
 
 /// @nodoc
@@ -92,8 +106,9 @@ class __$$ViewMapStateImplCopyWithImpl<$Res>
     extends _$ViewMapStateCopyWithImpl<$Res, _$ViewMapStateImpl>
     implements _$$ViewMapStateImplCopyWith<$Res> {
   __$$ViewMapStateImplCopyWithImpl(
-      _$ViewMapStateImpl _value, $Res Function(_$ViewMapStateImpl) _then)
-      : super(_value, _then);
+    _$ViewMapStateImpl _value,
+    $Res Function(_$ViewMapStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -103,36 +118,38 @@ class __$$ViewMapStateImplCopyWithImpl<$Res>
     Object? place = freezed,
     Object? isSetAddress = null,
   }) {
-    return _then(_$ViewMapStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isActive: null == isActive
-          ? _value.isActive
-          : isActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      place: freezed == place
-          ? _value.place
-          : place // ignore: cast_nullable_to_non_nullable
-              as AddressData?,
-      isSetAddress: null == isSetAddress
-          ? _value.isSetAddress
-          : isSetAddress // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+    return _then(
+      _$ViewMapStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isActive: null == isActive
+            ? _value.isActive
+            : isActive // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        place: freezed == place
+            ? _value.place
+            : place // ignore: cast_nullable_to_non_nullable
+                  as AddressData?,
+        isSetAddress: null == isSetAddress
+            ? _value.isSetAddress
+            : isSetAddress // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ViewMapStateImpl extends _ViewMapState {
-  const _$ViewMapStateImpl(
-      {this.isLoading = false,
-      this.isActive = false,
-      this.place = null,
-      this.isSetAddress = false})
-      : super._();
+  const _$ViewMapStateImpl({
+    this.isLoading = false,
+    this.isActive = false,
+    this.place = null,
+    this.isSetAddress = false,
+  }) : super._();
 
   @override
   @JsonKey()
@@ -178,11 +195,12 @@ class _$ViewMapStateImpl extends _ViewMapState {
 }
 
 abstract class _ViewMapState extends ViewMapState {
-  const factory _ViewMapState(
-      {final bool isLoading,
-      final bool isActive,
-      final AddressData? place,
-      final bool isSetAddress}) = _$ViewMapStateImpl;
+  const factory _ViewMapState({
+    final bool isLoading,
+    final bool isActive,
+    final AddressData? place,
+    final bool isSetAddress,
+  }) = _$ViewMapStateImpl;
   const _ViewMapState._() : super._();
 
   @override

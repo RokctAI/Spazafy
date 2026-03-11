@@ -12,7 +12,8 @@ part of 'delivery_time_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$DeliveryTimeState {
@@ -26,8 +27,9 @@ mixin _$DeliveryTimeState {
 /// @nodoc
 abstract class $DeliveryTimeStateCopyWith<$Res> {
   factory $DeliveryTimeStateCopyWith(
-          DeliveryTimeState value, $Res Function(DeliveryTimeState) then) =
-      _$DeliveryTimeStateCopyWithImpl<$Res, DeliveryTimeState>;
+    DeliveryTimeState value,
+    $Res Function(DeliveryTimeState) then,
+  ) = _$DeliveryTimeStateCopyWithImpl<$Res, DeliveryTimeState>;
   @useResult
   $Res call({String deliveryDate});
 }
@@ -44,24 +46,26 @@ class _$DeliveryTimeStateCopyWithImpl<$Res, $Val extends DeliveryTimeState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? deliveryDate = null,
-  }) {
-    return _then(_value.copyWith(
-      deliveryDate: null == deliveryDate
-          ? _value.deliveryDate
-          : deliveryDate // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? deliveryDate = null}) {
+    return _then(
+      _value.copyWith(
+            deliveryDate: null == deliveryDate
+                ? _value.deliveryDate
+                : deliveryDate // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$DeliveryTimeStateImplCopyWith<$Res>
     implements $DeliveryTimeStateCopyWith<$Res> {
-  factory _$$DeliveryTimeStateImplCopyWith(_$DeliveryTimeStateImpl value,
-          $Res Function(_$DeliveryTimeStateImpl) then) =
-      __$$DeliveryTimeStateImplCopyWithImpl<$Res>;
+  factory _$$DeliveryTimeStateImplCopyWith(
+    _$DeliveryTimeStateImpl value,
+    $Res Function(_$DeliveryTimeStateImpl) then,
+  ) = __$$DeliveryTimeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String deliveryDate});
@@ -71,21 +75,22 @@ abstract class _$$DeliveryTimeStateImplCopyWith<$Res>
 class __$$DeliveryTimeStateImplCopyWithImpl<$Res>
     extends _$DeliveryTimeStateCopyWithImpl<$Res, _$DeliveryTimeStateImpl>
     implements _$$DeliveryTimeStateImplCopyWith<$Res> {
-  __$$DeliveryTimeStateImplCopyWithImpl(_$DeliveryTimeStateImpl _value,
-      $Res Function(_$DeliveryTimeStateImpl) _then)
-      : super(_value, _then);
+  __$$DeliveryTimeStateImplCopyWithImpl(
+    _$DeliveryTimeStateImpl _value,
+    $Res Function(_$DeliveryTimeStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? deliveryDate = null,
-  }) {
-    return _then(_$DeliveryTimeStateImpl(
-      deliveryDate: null == deliveryDate
-          ? _value.deliveryDate
-          : deliveryDate // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? deliveryDate = null}) {
+    return _then(
+      _$DeliveryTimeStateImpl(
+        deliveryDate: null == deliveryDate
+            ? _value.deliveryDate
+            : deliveryDate // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -120,7 +125,9 @@ class _$DeliveryTimeStateImpl extends _DeliveryTimeState {
   @pragma('vm:prefer-inline')
   _$$DeliveryTimeStateImplCopyWith<_$DeliveryTimeStateImpl> get copyWith =>
       __$$DeliveryTimeStateImplCopyWithImpl<_$DeliveryTimeStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _DeliveryTimeState extends DeliveryTimeState {
