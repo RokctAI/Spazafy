@@ -252,7 +252,7 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
       return;
     }
 
-    if (categoryId == 0) {
+    if (categoryId == '0') {
       if (state.logoImage.isEmpty) {
         AppHelpers.showCheckTopSnackBar(
           context,

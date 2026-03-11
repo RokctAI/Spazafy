@@ -13,6 +13,7 @@ class EditableFoodStockItem extends StatelessWidget {
   final Function(String) onPriceChange;
   final Function(String) onQuantityChange;
   final Function(String) onSkuChange;
+  final Function(String) onCostPriceChange;
   final Function() onDeleteStock;
   final bool isDeletable;
   final Function(BuildContext) onAddonTap;
@@ -26,6 +27,7 @@ class EditableFoodStockItem extends StatelessWidget {
     required this.isDeletable,
     required this.onAddonTap,
     required this.onSkuChange,
+    required this.onCostPriceChange,
   });
 
   @override
@@ -90,8 +92,18 @@ class EditableFoodStockItem extends StatelessWidget {
           UnderlinedTextField(
             label: AppHelpers.getTranslation(TrKeys.sku),
             textInputAction: TextInputAction.next,
-            initialText: stock.sku == null ? '' : stock.sku.toString(),
+            initialText: stock.sku ?? '',
             onChanged: onSkuChange,
+          ),
+          4.verticalSpace,
+          UnderlinedTextField(
+            label: AppHelpers.getTranslation(TrKeys.costPrice),
+            inputType: TextInputType.number,
+            textInputAction: TextInputAction.next,
+            initialText: stock.costPrice == null
+                ? ''
+                : stock.costPrice.toString(),
+            onChanged: onCostPriceChange,
           ),
           if (stock.extras != null && (stock.extras?.isNotEmpty ?? false))
             ListView.builder(

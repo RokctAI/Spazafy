@@ -153,7 +153,7 @@ class BillingCheckoutPage extends ConsumerWidget {
                   await _handlePrint(state, printerNotifier);
                 }
                 notifier.clearCart();
-                context.router.pop();
+                context.maybePop();
               },
             ),
           ),

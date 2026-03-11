@@ -165,7 +165,7 @@ class ProductsRepository implements ProductsInterface {
     final data = {'currency_id': LocalStorage.getSelectedCurrency()?.id};
     for (int i = 0; i < stocks.length; i++) {
       data['products[$i][stock_id]'] = stocks[i].id;
-      data['products[$i][quantity]'] = stocks[i].cartCount?.toString();
+      data['products[$i][quantity]'] = stocks[i].cartCount?.toString() ?? '0';
     }
     debugPrint('===> get calculation ${jsonEncode(data)}');
     try {
@@ -231,6 +231,7 @@ class ProductsRepository implements ProductsInterface {
       addonsIds = addonsIds.toSet().toList();
       extras.add({
         'price': stock.price,
+        if (stock.costPrice != null) 'cost_price': stock.costPrice,
         if (stock.sku?.isNotEmpty ?? false) 'sku': stock.sku,
         'quantity': stock.quantity,
         if (stock.id != '-1' && stock.id != null) "stock_id": stock.id,

@@ -12,6 +12,7 @@ class Stock {
     num? discount,
     int? quantity,
     int? cartCount,
+    num? costPrice,
     num? tax,
     bool? bonus,
     bool? shopBonus,
@@ -44,6 +45,7 @@ class Stock {
     _sku = sku;
     _addons = addons;
     _localAddons = localAddons;
+    _costPrice = costPrice;
     _shopBonus = shopBonus;
   }
 
@@ -56,6 +58,7 @@ class Stock {
     _quantity = json['quantity'];
     _sku = json['sku'];
     _cartCount = json['cart_count'] ?? 0;
+    _costPrice = json['cost_price'];
     _tax = json['tax'];
     _totalPrice = json['total_price'];
     _shopBonus = json['bonus_shop']?.toString().toBool();
@@ -114,6 +117,7 @@ class Stock {
   Stock? _stock;
   ProductData? _countable;
   List<AddonData>? _addons;
+  num? _costPrice;
   List<AddonData>? _localAddons;
 
   Stock copyWith({
@@ -123,6 +127,7 @@ class Stock {
     num? discount,
     int? quantity,
     int? cartCount,
+    num? costPrice,
     num? tax,
     bool? bonus,
     bool? shopBonus,
@@ -156,6 +161,7 @@ class Stock {
     addons: addons ?? _addons,
     localAddons: localAddons ?? _localAddons,
     shopBonus: shopBonus ?? _shopBonus,
+    costPrice: costPrice ?? _costPrice,
     sku: sku ?? _sku,
   );
 
@@ -176,6 +182,8 @@ class Stock {
   bool? get shopBonus => _shopBonus;
 
   num? get tax => _tax;
+
+  num? get costPrice => _costPrice;
 
   num? get totalPrice => _totalPrice;
 
@@ -208,6 +216,7 @@ class Stock {
     map['cart_count'] = _cartCount;
     map['quantity'] = _quantity;
     map['tax'] = _tax;
+    map['cost_price'] = _costPrice;
     map['total_price'] = _totalPrice;
     if (_product != null) {
       map['product'] = _product?.toJson();

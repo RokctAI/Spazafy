@@ -47,6 +47,8 @@ class StatisticsModel {
   num? lastOrderIncome;
   num? totalPrice;
   num? fmTotalPrice;
+  num? totalCost;
+  num? totalProfit;
   int? totalCount;
   int? totalNewCount;
   int? totalReadyCount;
@@ -91,6 +93,8 @@ class StatisticsModel {
         lastOrderIncome: json["last_order_income"],
         totalPrice: json["total_price"],
         fmTotalPrice: json["fm_total_price"],
+        totalCost: json["total_cost"],
+        totalProfit: json["total_profit"],
         totalCount: json["total_count"],
         totalNewCount: json["total_new_count"],
         totalReadyCount: json["total_ready_count"],
@@ -109,6 +113,8 @@ class StatisticsModel {
     "last_order_income": lastOrderIncome,
     "total_price": totalPrice,
     "fm_total_price": fmTotalPrice,
+    "total_cost": totalCost,
+    "total_profit": totalProfit,
     "total_count": totalCount,
     "total_new_count": totalNewCount,
     "total_ready_count": totalReadyCount,

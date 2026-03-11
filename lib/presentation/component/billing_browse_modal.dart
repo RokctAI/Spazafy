@@ -34,6 +34,7 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
             categoryId: null,
             isRefresh: true,
             isOpeningPage: true,
+            cartStocks: [],
           );
       ref
           .read(categoriesProvider.notifier)

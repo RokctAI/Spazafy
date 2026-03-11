@@ -122,21 +122,19 @@ class ScanPrompt extends ConsumerWidget {
           children: [
             CustomButton(
               title: 'Cancel',
-              onTap: notifier.dismissPrompt,
+              onPressed: notifier.dismissPrompt,
               background: AppStyle.transparent,
               textColor: AppStyle.blackColor,
-              width: 80,
-              height: 36,
+              weight: 80,
             ),
             8.horizontalSpace,
             CustomButton(
               title: 'Confirm',
-              onTap: () {
+              onPressed: () {
                 notifier.addToCart(state.selectedProduct!);
                 notifier.dismissPrompt();
               },
-              width: 100,
-              height: 36,
+              weight: 100,
             ),
           ],
         ),
@@ -172,21 +170,19 @@ class ScanPrompt extends ConsumerWidget {
           children: [
             CustomButton(
               title: 'Dismiss',
-              onTap: notifier.dismissPrompt,
+              onPressed: notifier.dismissPrompt,
               background: AppStyle.transparent,
               textColor: AppStyle.blackColor,
-              width: 80,
-              height: 36,
+              weight: 80,
             ),
             8.horizontalSpace,
             CustomButton(
               title: 'Receive Stock',
-              onTap: () {
+              onPressed: () {
                 // Navigate to add product with barcode
                 notifier.dismissPrompt();
               },
-              width: 130,
-              height: 36,
+              weight: 130,
             ),
           ],
         ),
@@ -227,25 +223,23 @@ class ScanPrompt extends ConsumerWidget {
           children: [
             CustomButton(
               title: 'Continue Selling',
-              onTap: () {
+              onPressed: () {
                 notifier.addToCart(product);
                 notifier.dismissPrompt();
               },
               background: AppStyle.transparent,
               textColor: AppStyle.blackColor,
-              width: 140,
-              height: 36,
+              weight: 140,
             ),
             8.horizontalSpace,
             CustomButton(
               title: 'Order More',
-              onTap: () {
+              onPressed: () {
                 // Feature TBD
                 notifier.addToCart(product);
                 notifier.dismissPrompt();
               },
-              width: 110,
-              height: 36,
+              weight: 110,
             ),
           ],
         ),
