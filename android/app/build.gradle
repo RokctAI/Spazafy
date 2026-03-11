@@ -133,5 +133,5 @@ dependencies {
 
     // Release-only dependencies
     releaseImplementation platform('com.google.firebase:firebase-bom:32.7.2')
-    releaseImplementation 'com.google.firebase:firebase-analytics-ktx'
+    releaseImplementation 'com.google.firebase:firebase-analytics'
 }
