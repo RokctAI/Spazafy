@@ -12,7 +12,8 @@ part of 'delete_extras_group_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$DeleteExtrasGroupState {
@@ -25,16 +26,19 @@ mixin _$DeleteExtrasGroupState {
 
 /// @nodoc
 abstract class $DeleteExtrasGroupStateCopyWith<$Res> {
-  factory $DeleteExtrasGroupStateCopyWith(DeleteExtrasGroupState value,
-          $Res Function(DeleteExtrasGroupState) then) =
-      _$DeleteExtrasGroupStateCopyWithImpl<$Res, DeleteExtrasGroupState>;
+  factory $DeleteExtrasGroupStateCopyWith(
+    DeleteExtrasGroupState value,
+    $Res Function(DeleteExtrasGroupState) then,
+  ) = _$DeleteExtrasGroupStateCopyWithImpl<$Res, DeleteExtrasGroupState>;
   @useResult
   $Res call({bool isLoading});
 }
 
 /// @nodoc
-class _$DeleteExtrasGroupStateCopyWithImpl<$Res,
-        $Val extends DeleteExtrasGroupState>
+class _$DeleteExtrasGroupStateCopyWithImpl<
+  $Res,
+  $Val extends DeleteExtrasGroupState
+>
     implements $DeleteExtrasGroupStateCopyWith<$Res> {
   _$DeleteExtrasGroupStateCopyWithImpl(this._value, this._then);
 
@@ -45,15 +49,16 @@ class _$DeleteExtrasGroupStateCopyWithImpl<$Res,
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -61,9 +66,9 @@ class _$DeleteExtrasGroupStateCopyWithImpl<$Res,
 abstract class _$$DeleteExtrasGroupStateImplCopyWith<$Res>
     implements $DeleteExtrasGroupStateCopyWith<$Res> {
   factory _$$DeleteExtrasGroupStateImplCopyWith(
-          _$DeleteExtrasGroupStateImpl value,
-          $Res Function(_$DeleteExtrasGroupStateImpl) then) =
-      __$$DeleteExtrasGroupStateImplCopyWithImpl<$Res>;
+    _$DeleteExtrasGroupStateImpl value,
+    $Res Function(_$DeleteExtrasGroupStateImpl) then,
+  ) = __$$DeleteExtrasGroupStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
@@ -71,25 +76,25 @@ abstract class _$$DeleteExtrasGroupStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DeleteExtrasGroupStateImplCopyWithImpl<$Res>
-    extends _$DeleteExtrasGroupStateCopyWithImpl<$Res,
-        _$DeleteExtrasGroupStateImpl>
+    extends
+        _$DeleteExtrasGroupStateCopyWithImpl<$Res, _$DeleteExtrasGroupStateImpl>
     implements _$$DeleteExtrasGroupStateImplCopyWith<$Res> {
   __$$DeleteExtrasGroupStateImplCopyWithImpl(
-      _$DeleteExtrasGroupStateImpl _value,
-      $Res Function(_$DeleteExtrasGroupStateImpl) _then)
-      : super(_value, _then);
+    _$DeleteExtrasGroupStateImpl _value,
+    $Res Function(_$DeleteExtrasGroupStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_$DeleteExtrasGroupStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _$DeleteExtrasGroupStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
@@ -123,8 +128,11 @@ class _$DeleteExtrasGroupStateImpl extends _DeleteExtrasGroupState {
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteExtrasGroupStateImplCopyWith<_$DeleteExtrasGroupStateImpl>
-      get copyWith => __$$DeleteExtrasGroupStateImplCopyWithImpl<
-          _$DeleteExtrasGroupStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$DeleteExtrasGroupStateImplCopyWithImpl<_$DeleteExtrasGroupStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _DeleteExtrasGroupState extends DeleteExtrasGroupState {
@@ -137,5 +145,5 @@ abstract class _DeleteExtrasGroupState extends DeleteExtrasGroupState {
   @override
   @JsonKey(ignore: true)
   _$$DeleteExtrasGroupStateImplCopyWith<_$DeleteExtrasGroupStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

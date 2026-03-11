@@ -12,7 +12,8 @@ part of 'on_a_way_orders_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OnAWayOrdersState {
@@ -28,8 +29,9 @@ mixin _$OnAWayOrdersState {
 /// @nodoc
 abstract class $OnAWayOrdersStateCopyWith<$Res> {
   factory $OnAWayOrdersStateCopyWith(
-          OnAWayOrdersState value, $Res Function(OnAWayOrdersState) then) =
-      _$OnAWayOrdersStateCopyWithImpl<$Res, OnAWayOrdersState>;
+    OnAWayOrdersState value,
+    $Res Function(OnAWayOrdersState) then,
+  ) = _$OnAWayOrdersStateCopyWithImpl<$Res, OnAWayOrdersState>;
   @useResult
   $Res call({bool isLoading, List<OrderData> orders, int totalCount});
 }
@@ -51,29 +53,33 @@ class _$OnAWayOrdersStateCopyWithImpl<$Res, $Val extends OnAWayOrdersState>
     Object? orders = null,
     Object? totalCount = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      orders: null == orders
-          ? _value.orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      totalCount: null == totalCount
-          ? _value.totalCount
-          : totalCount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            orders: null == orders
+                ? _value.orders
+                : orders // ignore: cast_nullable_to_non_nullable
+                      as List<OrderData>,
+            totalCount: null == totalCount
+                ? _value.totalCount
+                : totalCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$OnAWayOrdersStateImplCopyWith<$Res>
     implements $OnAWayOrdersStateCopyWith<$Res> {
-  factory _$$OnAWayOrdersStateImplCopyWith(_$OnAWayOrdersStateImpl value,
-          $Res Function(_$OnAWayOrdersStateImpl) then) =
-      __$$OnAWayOrdersStateImplCopyWithImpl<$Res>;
+  factory _$$OnAWayOrdersStateImplCopyWith(
+    _$OnAWayOrdersStateImpl value,
+    $Res Function(_$OnAWayOrdersStateImpl) then,
+  ) = __$$OnAWayOrdersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, List<OrderData> orders, int totalCount});
@@ -83,9 +89,10 @@ abstract class _$$OnAWayOrdersStateImplCopyWith<$Res>
 class __$$OnAWayOrdersStateImplCopyWithImpl<$Res>
     extends _$OnAWayOrdersStateCopyWithImpl<$Res, _$OnAWayOrdersStateImpl>
     implements _$$OnAWayOrdersStateImplCopyWith<$Res> {
-  __$$OnAWayOrdersStateImplCopyWithImpl(_$OnAWayOrdersStateImpl _value,
-      $Res Function(_$OnAWayOrdersStateImpl) _then)
-      : super(_value, _then);
+  __$$OnAWayOrdersStateImplCopyWithImpl(
+    _$OnAWayOrdersStateImpl _value,
+    $Res Function(_$OnAWayOrdersStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -94,32 +101,34 @@ class __$$OnAWayOrdersStateImplCopyWithImpl<$Res>
     Object? orders = null,
     Object? totalCount = null,
   }) {
-    return _then(_$OnAWayOrdersStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      orders: null == orders
-          ? _value._orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      totalCount: null == totalCount
-          ? _value.totalCount
-          : totalCount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+    return _then(
+      _$OnAWayOrdersStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        orders: null == orders
+            ? _value._orders
+            : orders // ignore: cast_nullable_to_non_nullable
+                  as List<OrderData>,
+        totalCount: null == totalCount
+            ? _value.totalCount
+            : totalCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$OnAWayOrdersStateImpl extends _OnAWayOrdersState {
-  const _$OnAWayOrdersStateImpl(
-      {this.isLoading = false,
-      final List<OrderData> orders = const [],
-      this.totalCount = 0})
-      : _orders = orders,
-        super._();
+  const _$OnAWayOrdersStateImpl({
+    this.isLoading = false,
+    final List<OrderData> orders = const [],
+    this.totalCount = 0,
+  }) : _orders = orders,
+       super._();
 
   @override
   @JsonKey()
@@ -155,22 +164,29 @@ class _$OnAWayOrdersStateImpl extends _OnAWayOrdersState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading,
-      const DeepCollectionEquality().hash(_orders), totalCount);
+  int get hashCode => Object.hash(
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_orders),
+    totalCount,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$OnAWayOrdersStateImplCopyWith<_$OnAWayOrdersStateImpl> get copyWith =>
       __$$OnAWayOrdersStateImplCopyWithImpl<_$OnAWayOrdersStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _OnAWayOrdersState extends OnAWayOrdersState {
-  const factory _OnAWayOrdersState(
-      {final bool isLoading,
-      final List<OrderData> orders,
-      final int totalCount}) = _$OnAWayOrdersStateImpl;
+  const factory _OnAWayOrdersState({
+    final bool isLoading,
+    final List<OrderData> orders,
+    final int totalCount,
+  }) = _$OnAWayOrdersStateImpl;
   const _OnAWayOrdersState._() : super._();
 
   @override

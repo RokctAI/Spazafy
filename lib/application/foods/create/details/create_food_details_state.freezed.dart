@@ -12,7 +12,8 @@ part of 'create_food_details_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CreateFoodDetailsState {
@@ -42,32 +43,36 @@ mixin _$CreateFoodDetailsState {
 
 /// @nodoc
 abstract class $CreateFoodDetailsStateCopyWith<$Res> {
-  factory $CreateFoodDetailsStateCopyWith(CreateFoodDetailsState value,
-          $Res Function(CreateFoodDetailsState) then) =
-      _$CreateFoodDetailsStateCopyWithImpl<$Res, CreateFoodDetailsState>;
+  factory $CreateFoodDetailsStateCopyWith(
+    CreateFoodDetailsState value,
+    $Res Function(CreateFoodDetailsState) then,
+  ) = _$CreateFoodDetailsStateCopyWithImpl<$Res, CreateFoodDetailsState>;
   @useResult
-  $Res call(
-      {String title,
-      String description,
-      Map<String, String> titleTranslations,
-      Map<String, String> descriptionTranslations,
-      String tax,
-      String minQty,
-      String maxQty,
-      String qrcode,
-      String interval,
-      String uid,
-      String productType,
-      bool active,
-      bool isCreating,
-      List<String> images,
-      List<Galleries> listOfUrls,
-      ProductData? createdProduct});
+  $Res call({
+    String title,
+    String description,
+    Map<String, String> titleTranslations,
+    Map<String, String> descriptionTranslations,
+    String tax,
+    String minQty,
+    String maxQty,
+    String qrcode,
+    String interval,
+    String uid,
+    String productType,
+    bool active,
+    bool isCreating,
+    List<String> images,
+    List<Galleries> listOfUrls,
+    ProductData? createdProduct,
+  });
 }
 
 /// @nodoc
-class _$CreateFoodDetailsStateCopyWithImpl<$Res,
-        $Val extends CreateFoodDetailsState>
+class _$CreateFoodDetailsStateCopyWithImpl<
+  $Res,
+  $Val extends CreateFoodDetailsState
+>
     implements $CreateFoodDetailsStateCopyWith<$Res> {
   _$CreateFoodDetailsStateCopyWithImpl(this._value, this._then);
 
@@ -96,72 +101,75 @@ class _$CreateFoodDetailsStateCopyWithImpl<$Res,
     Object? listOfUrls = null,
     Object? createdProduct = freezed,
   }) {
-    return _then(_value.copyWith(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      titleTranslations: null == titleTranslations
-          ? _value.titleTranslations
-          : titleTranslations // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      descriptionTranslations: null == descriptionTranslations
-          ? _value.descriptionTranslations
-          : descriptionTranslations // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      tax: null == tax
-          ? _value.tax
-          : tax // ignore: cast_nullable_to_non_nullable
-              as String,
-      minQty: null == minQty
-          ? _value.minQty
-          : minQty // ignore: cast_nullable_to_non_nullable
-              as String,
-      maxQty: null == maxQty
-          ? _value.maxQty
-          : maxQty // ignore: cast_nullable_to_non_nullable
-              as String,
-      qrcode: null == qrcode
-          ? _value.qrcode
-          : qrcode // ignore: cast_nullable_to_non_nullable
-              as String,
-      interval: null == interval
-          ? _value.interval
-          : interval // ignore: cast_nullable_to_non_nullable
-              as String,
-      uid: null == uid
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String,
-      productType: null == productType
-          ? _value.productType
-          : productType // ignore: cast_nullable_to_non_nullable
-              as String,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCreating: null == isCreating
-          ? _value.isCreating
-          : isCreating // ignore: cast_nullable_to_non_nullable
-              as bool,
-      images: null == images
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      listOfUrls: null == listOfUrls
-          ? _value.listOfUrls
-          : listOfUrls // ignore: cast_nullable_to_non_nullable
-              as List<Galleries>,
-      createdProduct: freezed == createdProduct
-          ? _value.createdProduct
-          : createdProduct // ignore: cast_nullable_to_non_nullable
-              as ProductData?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            title: null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: null == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String,
+            titleTranslations: null == titleTranslations
+                ? _value.titleTranslations
+                : titleTranslations // ignore: cast_nullable_to_non_nullable
+                      as Map<String, String>,
+            descriptionTranslations: null == descriptionTranslations
+                ? _value.descriptionTranslations
+                : descriptionTranslations // ignore: cast_nullable_to_non_nullable
+                      as Map<String, String>,
+            tax: null == tax
+                ? _value.tax
+                : tax // ignore: cast_nullable_to_non_nullable
+                      as String,
+            minQty: null == minQty
+                ? _value.minQty
+                : minQty // ignore: cast_nullable_to_non_nullable
+                      as String,
+            maxQty: null == maxQty
+                ? _value.maxQty
+                : maxQty // ignore: cast_nullable_to_non_nullable
+                      as String,
+            qrcode: null == qrcode
+                ? _value.qrcode
+                : qrcode // ignore: cast_nullable_to_non_nullable
+                      as String,
+            interval: null == interval
+                ? _value.interval
+                : interval // ignore: cast_nullable_to_non_nullable
+                      as String,
+            uid: null == uid
+                ? _value.uid
+                : uid // ignore: cast_nullable_to_non_nullable
+                      as String,
+            productType: null == productType
+                ? _value.productType
+                : productType // ignore: cast_nullable_to_non_nullable
+                      as String,
+            active: null == active
+                ? _value.active
+                : active // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isCreating: null == isCreating
+                ? _value.isCreating
+                : isCreating // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            images: null == images
+                ? _value.images
+                : images // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            listOfUrls: null == listOfUrls
+                ? _value.listOfUrls
+                : listOfUrls // ignore: cast_nullable_to_non_nullable
+                      as List<Galleries>,
+            createdProduct: freezed == createdProduct
+                ? _value.createdProduct
+                : createdProduct // ignore: cast_nullable_to_non_nullable
+                      as ProductData?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -169,39 +177,40 @@ class _$CreateFoodDetailsStateCopyWithImpl<$Res,
 abstract class _$$CreateFoodDetailsStateImplCopyWith<$Res>
     implements $CreateFoodDetailsStateCopyWith<$Res> {
   factory _$$CreateFoodDetailsStateImplCopyWith(
-          _$CreateFoodDetailsStateImpl value,
-          $Res Function(_$CreateFoodDetailsStateImpl) then) =
-      __$$CreateFoodDetailsStateImplCopyWithImpl<$Res>;
+    _$CreateFoodDetailsStateImpl value,
+    $Res Function(_$CreateFoodDetailsStateImpl) then,
+  ) = __$$CreateFoodDetailsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String title,
-      String description,
-      Map<String, String> titleTranslations,
-      Map<String, String> descriptionTranslations,
-      String tax,
-      String minQty,
-      String maxQty,
-      String qrcode,
-      String interval,
-      String uid,
-      String productType,
-      bool active,
-      bool isCreating,
-      List<String> images,
-      List<Galleries> listOfUrls,
-      ProductData? createdProduct});
+  $Res call({
+    String title,
+    String description,
+    Map<String, String> titleTranslations,
+    Map<String, String> descriptionTranslations,
+    String tax,
+    String minQty,
+    String maxQty,
+    String qrcode,
+    String interval,
+    String uid,
+    String productType,
+    bool active,
+    bool isCreating,
+    List<String> images,
+    List<Galleries> listOfUrls,
+    ProductData? createdProduct,
+  });
 }
 
 /// @nodoc
 class __$$CreateFoodDetailsStateImplCopyWithImpl<$Res>
-    extends _$CreateFoodDetailsStateCopyWithImpl<$Res,
-        _$CreateFoodDetailsStateImpl>
+    extends
+        _$CreateFoodDetailsStateCopyWithImpl<$Res, _$CreateFoodDetailsStateImpl>
     implements _$$CreateFoodDetailsStateImplCopyWith<$Res> {
   __$$CreateFoodDetailsStateImplCopyWithImpl(
-      _$CreateFoodDetailsStateImpl _value,
-      $Res Function(_$CreateFoodDetailsStateImpl) _then)
-      : super(_value, _then);
+    _$CreateFoodDetailsStateImpl _value,
+    $Res Function(_$CreateFoodDetailsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -223,100 +232,102 @@ class __$$CreateFoodDetailsStateImplCopyWithImpl<$Res>
     Object? listOfUrls = null,
     Object? createdProduct = freezed,
   }) {
-    return _then(_$CreateFoodDetailsStateImpl(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      titleTranslations: null == titleTranslations
-          ? _value._titleTranslations
-          : titleTranslations // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      descriptionTranslations: null == descriptionTranslations
-          ? _value._descriptionTranslations
-          : descriptionTranslations // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      tax: null == tax
-          ? _value.tax
-          : tax // ignore: cast_nullable_to_non_nullable
-              as String,
-      minQty: null == minQty
-          ? _value.minQty
-          : minQty // ignore: cast_nullable_to_non_nullable
-              as String,
-      maxQty: null == maxQty
-          ? _value.maxQty
-          : maxQty // ignore: cast_nullable_to_non_nullable
-              as String,
-      qrcode: null == qrcode
-          ? _value.qrcode
-          : qrcode // ignore: cast_nullable_to_non_nullable
-              as String,
-      interval: null == interval
-          ? _value.interval
-          : interval // ignore: cast_nullable_to_non_nullable
-              as String,
-      uid: null == uid
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String,
-      productType: null == productType
-          ? _value.productType
-          : productType // ignore: cast_nullable_to_non_nullable
-              as String,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCreating: null == isCreating
-          ? _value.isCreating
-          : isCreating // ignore: cast_nullable_to_non_nullable
-              as bool,
-      images: null == images
-          ? _value._images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      listOfUrls: null == listOfUrls
-          ? _value._listOfUrls
-          : listOfUrls // ignore: cast_nullable_to_non_nullable
-              as List<Galleries>,
-      createdProduct: freezed == createdProduct
-          ? _value.createdProduct
-          : createdProduct // ignore: cast_nullable_to_non_nullable
-              as ProductData?,
-    ));
+    return _then(
+      _$CreateFoodDetailsStateImpl(
+        title: null == title
+            ? _value.title
+            : title // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String,
+        titleTranslations: null == titleTranslations
+            ? _value._titleTranslations
+            : titleTranslations // ignore: cast_nullable_to_non_nullable
+                  as Map<String, String>,
+        descriptionTranslations: null == descriptionTranslations
+            ? _value._descriptionTranslations
+            : descriptionTranslations // ignore: cast_nullable_to_non_nullable
+                  as Map<String, String>,
+        tax: null == tax
+            ? _value.tax
+            : tax // ignore: cast_nullable_to_non_nullable
+                  as String,
+        minQty: null == minQty
+            ? _value.minQty
+            : minQty // ignore: cast_nullable_to_non_nullable
+                  as String,
+        maxQty: null == maxQty
+            ? _value.maxQty
+            : maxQty // ignore: cast_nullable_to_non_nullable
+                  as String,
+        qrcode: null == qrcode
+            ? _value.qrcode
+            : qrcode // ignore: cast_nullable_to_non_nullable
+                  as String,
+        interval: null == interval
+            ? _value.interval
+            : interval // ignore: cast_nullable_to_non_nullable
+                  as String,
+        uid: null == uid
+            ? _value.uid
+            : uid // ignore: cast_nullable_to_non_nullable
+                  as String,
+        productType: null == productType
+            ? _value.productType
+            : productType // ignore: cast_nullable_to_non_nullable
+                  as String,
+        active: null == active
+            ? _value.active
+            : active // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isCreating: null == isCreating
+            ? _value.isCreating
+            : isCreating // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        images: null == images
+            ? _value._images
+            : images // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        listOfUrls: null == listOfUrls
+            ? _value._listOfUrls
+            : listOfUrls // ignore: cast_nullable_to_non_nullable
+                  as List<Galleries>,
+        createdProduct: freezed == createdProduct
+            ? _value.createdProduct
+            : createdProduct // ignore: cast_nullable_to_non_nullable
+                  as ProductData?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CreateFoodDetailsStateImpl extends _CreateFoodDetailsState {
-  const _$CreateFoodDetailsStateImpl(
-      {this.title = '',
-      this.description = '',
-      final Map<String, String> titleTranslations = const {},
-      final Map<String, String> descriptionTranslations = const {},
-      this.tax = '',
-      this.minQty = '',
-      this.maxQty = '',
-      this.qrcode = '',
-      this.interval = '',
-      this.uid = '',
-      this.productType = 'single',
-      this.active = true,
-      this.isCreating = false,
-      final List<String> images = const [],
-      final List<Galleries> listOfUrls = const [],
-      this.createdProduct})
-      : _titleTranslations = titleTranslations,
-        _descriptionTranslations = descriptionTranslations,
-        _images = images,
-        _listOfUrls = listOfUrls,
-        super._();
+  const _$CreateFoodDetailsStateImpl({
+    this.title = '',
+    this.description = '',
+    final Map<String, String> titleTranslations = const {},
+    final Map<String, String> descriptionTranslations = const {},
+    this.tax = '',
+    this.minQty = '',
+    this.maxQty = '',
+    this.qrcode = '',
+    this.interval = '',
+    this.uid = '',
+    this.productType = 'single',
+    this.active = true,
+    this.isCreating = false,
+    final List<String> images = const [],
+    final List<Galleries> listOfUrls = const [],
+    this.createdProduct,
+  }) : _titleTranslations = titleTranslations,
+       _descriptionTranslations = descriptionTranslations,
+       _images = images,
+       _listOfUrls = listOfUrls,
+       super._();
 
   @override
   @JsonKey()
@@ -405,10 +416,14 @@ class _$CreateFoodDetailsStateImpl extends _CreateFoodDetailsState {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            const DeepCollectionEquality()
-                .equals(other._titleTranslations, _titleTranslations) &&
             const DeepCollectionEquality().equals(
-                other._descriptionTranslations, _descriptionTranslations) &&
+              other._titleTranslations,
+              _titleTranslations,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._descriptionTranslations,
+              _descriptionTranslations,
+            ) &&
             (identical(other.tax, tax) || other.tax == tax) &&
             (identical(other.minQty, minQty) || other.minQty == minQty) &&
             (identical(other.maxQty, maxQty) || other.maxQty == maxQty) &&
@@ -422,58 +437,65 @@ class _$CreateFoodDetailsStateImpl extends _CreateFoodDetailsState {
             (identical(other.isCreating, isCreating) ||
                 other.isCreating == isCreating) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
-            const DeepCollectionEquality()
-                .equals(other._listOfUrls, _listOfUrls) &&
+            const DeepCollectionEquality().equals(
+              other._listOfUrls,
+              _listOfUrls,
+            ) &&
             (identical(other.createdProduct, createdProduct) ||
                 other.createdProduct == createdProduct));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      title,
-      description,
-      const DeepCollectionEquality().hash(_titleTranslations),
-      const DeepCollectionEquality().hash(_descriptionTranslations),
-      tax,
-      minQty,
-      maxQty,
-      qrcode,
-      interval,
-      uid,
-      productType,
-      active,
-      isCreating,
-      const DeepCollectionEquality().hash(_images),
-      const DeepCollectionEquality().hash(_listOfUrls),
-      createdProduct);
+    runtimeType,
+    title,
+    description,
+    const DeepCollectionEquality().hash(_titleTranslations),
+    const DeepCollectionEquality().hash(_descriptionTranslations),
+    tax,
+    minQty,
+    maxQty,
+    qrcode,
+    interval,
+    uid,
+    productType,
+    active,
+    isCreating,
+    const DeepCollectionEquality().hash(_images),
+    const DeepCollectionEquality().hash(_listOfUrls),
+    createdProduct,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateFoodDetailsStateImplCopyWith<_$CreateFoodDetailsStateImpl>
-      get copyWith => __$$CreateFoodDetailsStateImplCopyWithImpl<
-          _$CreateFoodDetailsStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$CreateFoodDetailsStateImplCopyWithImpl<_$CreateFoodDetailsStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CreateFoodDetailsState extends CreateFoodDetailsState {
-  const factory _CreateFoodDetailsState(
-      {final String title,
-      final String description,
-      final Map<String, String> titleTranslations,
-      final Map<String, String> descriptionTranslations,
-      final String tax,
-      final String minQty,
-      final String maxQty,
-      final String qrcode,
-      final String interval,
-      final String uid,
-      final String productType,
-      final bool active,
-      final bool isCreating,
-      final List<String> images,
-      final List<Galleries> listOfUrls,
-      final ProductData? createdProduct}) = _$CreateFoodDetailsStateImpl;
+  const factory _CreateFoodDetailsState({
+    final String title,
+    final String description,
+    final Map<String, String> titleTranslations,
+    final Map<String, String> descriptionTranslations,
+    final String tax,
+    final String minQty,
+    final String maxQty,
+    final String qrcode,
+    final String interval,
+    final String uid,
+    final String productType,
+    final bool active,
+    final bool isCreating,
+    final List<String> images,
+    final List<Galleries> listOfUrls,
+    final ProductData? createdProduct,
+  }) = _$CreateFoodDetailsStateImpl;
   const _CreateFoodDetailsState._() : super._();
 
   @override
@@ -511,5 +533,5 @@ abstract class _CreateFoodDetailsState extends CreateFoodDetailsState {
   @override
   @JsonKey(ignore: true)
   _$$CreateFoodDetailsStateImplCopyWith<_$CreateFoodDetailsStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

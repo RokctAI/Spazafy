@@ -12,7 +12,8 @@ part of 'create_food_addons_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CreateFoodAddonsState {
@@ -26,16 +27,19 @@ mixin _$CreateFoodAddonsState {
 
 /// @nodoc
 abstract class $CreateFoodAddonsStateCopyWith<$Res> {
-  factory $CreateFoodAddonsStateCopyWith(CreateFoodAddonsState value,
-          $Res Function(CreateFoodAddonsState) then) =
-      _$CreateFoodAddonsStateCopyWithImpl<$Res, CreateFoodAddonsState>;
+  factory $CreateFoodAddonsStateCopyWith(
+    CreateFoodAddonsState value,
+    $Res Function(CreateFoodAddonsState) then,
+  ) = _$CreateFoodAddonsStateCopyWithImpl<$Res, CreateFoodAddonsState>;
   @useResult
   $Res call({bool isLoading, List<ProductData> addons});
 }
 
 /// @nodoc
-class _$CreateFoodAddonsStateCopyWithImpl<$Res,
-        $Val extends CreateFoodAddonsState>
+class _$CreateFoodAddonsStateCopyWithImpl<
+  $Res,
+  $Val extends CreateFoodAddonsState
+>
     implements $CreateFoodAddonsStateCopyWith<$Res> {
   _$CreateFoodAddonsStateCopyWithImpl(this._value, this._then);
 
@@ -46,20 +50,20 @@ class _$CreateFoodAddonsStateCopyWithImpl<$Res,
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? addons = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      addons: null == addons
-          ? _value.addons
-          : addons // ignore: cast_nullable_to_non_nullable
-              as List<ProductData>,
-    ) as $Val);
+  $Res call({Object? isLoading = null, Object? addons = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            addons: null == addons
+                ? _value.addons
+                : addons // ignore: cast_nullable_to_non_nullable
+                      as List<ProductData>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -67,9 +71,9 @@ class _$CreateFoodAddonsStateCopyWithImpl<$Res,
 abstract class _$$CreateFoodAddonsStateImplCopyWith<$Res>
     implements $CreateFoodAddonsStateCopyWith<$Res> {
   factory _$$CreateFoodAddonsStateImplCopyWith(
-          _$CreateFoodAddonsStateImpl value,
-          $Res Function(_$CreateFoodAddonsStateImpl) then) =
-      __$$CreateFoodAddonsStateImplCopyWithImpl<$Res>;
+    _$CreateFoodAddonsStateImpl value,
+    $Res Function(_$CreateFoodAddonsStateImpl) then,
+  ) = __$$CreateFoodAddonsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, List<ProductData> addons});
@@ -77,39 +81,40 @@ abstract class _$$CreateFoodAddonsStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$CreateFoodAddonsStateImplCopyWithImpl<$Res>
-    extends _$CreateFoodAddonsStateCopyWithImpl<$Res,
-        _$CreateFoodAddonsStateImpl>
+    extends
+        _$CreateFoodAddonsStateCopyWithImpl<$Res, _$CreateFoodAddonsStateImpl>
     implements _$$CreateFoodAddonsStateImplCopyWith<$Res> {
-  __$$CreateFoodAddonsStateImplCopyWithImpl(_$CreateFoodAddonsStateImpl _value,
-      $Res Function(_$CreateFoodAddonsStateImpl) _then)
-      : super(_value, _then);
+  __$$CreateFoodAddonsStateImplCopyWithImpl(
+    _$CreateFoodAddonsStateImpl _value,
+    $Res Function(_$CreateFoodAddonsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? addons = null,
-  }) {
-    return _then(_$CreateFoodAddonsStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      addons: null == addons
-          ? _value._addons
-          : addons // ignore: cast_nullable_to_non_nullable
-              as List<ProductData>,
-    ));
+  $Res call({Object? isLoading = null, Object? addons = null}) {
+    return _then(
+      _$CreateFoodAddonsStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        addons: null == addons
+            ? _value._addons
+            : addons // ignore: cast_nullable_to_non_nullable
+                  as List<ProductData>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CreateFoodAddonsStateImpl extends _CreateFoodAddonsState {
-  const _$CreateFoodAddonsStateImpl(
-      {this.isLoading = false, final List<ProductData> addons = const []})
-      : _addons = addons,
-        super._();
+  const _$CreateFoodAddonsStateImpl({
+    this.isLoading = false,
+    final List<ProductData> addons = const [],
+  }) : _addons = addons,
+       super._();
 
   @override
   @JsonKey()
@@ -140,20 +145,27 @@ class _$CreateFoodAddonsStateImpl extends _CreateFoodAddonsState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, isLoading, const DeepCollectionEquality().hash(_addons));
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_addons),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateFoodAddonsStateImplCopyWith<_$CreateFoodAddonsStateImpl>
-      get copyWith => __$$CreateFoodAddonsStateImplCopyWithImpl<
-          _$CreateFoodAddonsStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$CreateFoodAddonsStateImplCopyWithImpl<_$CreateFoodAddonsStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CreateFoodAddonsState extends CreateFoodAddonsState {
-  const factory _CreateFoodAddonsState(
-      {final bool isLoading,
-      final List<ProductData> addons}) = _$CreateFoodAddonsStateImpl;
+  const factory _CreateFoodAddonsState({
+    final bool isLoading,
+    final List<ProductData> addons,
+  }) = _$CreateFoodAddonsStateImpl;
   const _CreateFoodAddonsState._() : super._();
 
   @override
@@ -163,5 +175,5 @@ abstract class _CreateFoodAddonsState extends CreateFoodAddonsState {
   @override
   @JsonKey(ignore: true)
   _$$CreateFoodAddonsStateImplCopyWith<_$CreateFoodAddonsStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,8 @@ part of 'order_user_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OrderUserState {
@@ -31,15 +32,17 @@ mixin _$OrderUserState {
 /// @nodoc
 abstract class $OrderUserStateCopyWith<$Res> {
   factory $OrderUserStateCopyWith(
-          OrderUserState value, $Res Function(OrderUserState) then) =
-      _$OrderUserStateCopyWithImpl<$Res, OrderUserState>;
+    OrderUserState value,
+    $Res Function(OrderUserState) then,
+  ) = _$OrderUserStateCopyWithImpl<$Res, OrderUserState>;
   @useResult
-  $Res call(
-      {List<UserData> users,
-      int selectedIndex,
-      bool isLoading,
-      UserData? selectedUser,
-      TextEditingController? userTextController});
+  $Res call({
+    List<UserData> users,
+    int selectedIndex,
+    bool isLoading,
+    UserData? selectedUser,
+    TextEditingController? userTextController,
+  });
 }
 
 /// @nodoc
@@ -61,45 +64,50 @@ class _$OrderUserStateCopyWithImpl<$Res, $Val extends OrderUserState>
     Object? selectedUser = freezed,
     Object? userTextController = freezed,
   }) {
-    return _then(_value.copyWith(
-      users: null == users
-          ? _value.users
-          : users // ignore: cast_nullable_to_non_nullable
-              as List<UserData>,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      selectedUser: freezed == selectedUser
-          ? _value.selectedUser
-          : selectedUser // ignore: cast_nullable_to_non_nullable
-              as UserData?,
-      userTextController: freezed == userTextController
-          ? _value.userTextController
-          : userTextController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            users: null == users
+                ? _value.users
+                : users // ignore: cast_nullable_to_non_nullable
+                      as List<UserData>,
+            selectedIndex: null == selectedIndex
+                ? _value.selectedIndex
+                : selectedIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            selectedUser: freezed == selectedUser
+                ? _value.selectedUser
+                : selectedUser // ignore: cast_nullable_to_non_nullable
+                      as UserData?,
+            userTextController: freezed == userTextController
+                ? _value.userTextController
+                : userTextController // ignore: cast_nullable_to_non_nullable
+                      as TextEditingController?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$OrderUserStateImplCopyWith<$Res>
     implements $OrderUserStateCopyWith<$Res> {
-  factory _$$OrderUserStateImplCopyWith(_$OrderUserStateImpl value,
-          $Res Function(_$OrderUserStateImpl) then) =
-      __$$OrderUserStateImplCopyWithImpl<$Res>;
+  factory _$$OrderUserStateImplCopyWith(
+    _$OrderUserStateImpl value,
+    $Res Function(_$OrderUserStateImpl) then,
+  ) = __$$OrderUserStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<UserData> users,
-      int selectedIndex,
-      bool isLoading,
-      UserData? selectedUser,
-      TextEditingController? userTextController});
+  $Res call({
+    List<UserData> users,
+    int selectedIndex,
+    bool isLoading,
+    UserData? selectedUser,
+    TextEditingController? userTextController,
+  });
 }
 
 /// @nodoc
@@ -107,8 +115,9 @@ class __$$OrderUserStateImplCopyWithImpl<$Res>
     extends _$OrderUserStateCopyWithImpl<$Res, _$OrderUserStateImpl>
     implements _$$OrderUserStateImplCopyWith<$Res> {
   __$$OrderUserStateImplCopyWithImpl(
-      _$OrderUserStateImpl _value, $Res Function(_$OrderUserStateImpl) _then)
-      : super(_value, _then);
+    _$OrderUserStateImpl _value,
+    $Res Function(_$OrderUserStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -119,42 +128,44 @@ class __$$OrderUserStateImplCopyWithImpl<$Res>
     Object? selectedUser = freezed,
     Object? userTextController = freezed,
   }) {
-    return _then(_$OrderUserStateImpl(
-      users: null == users
-          ? _value._users
-          : users // ignore: cast_nullable_to_non_nullable
-              as List<UserData>,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      selectedUser: freezed == selectedUser
-          ? _value.selectedUser
-          : selectedUser // ignore: cast_nullable_to_non_nullable
-              as UserData?,
-      userTextController: freezed == userTextController
-          ? _value.userTextController
-          : userTextController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-    ));
+    return _then(
+      _$OrderUserStateImpl(
+        users: null == users
+            ? _value._users
+            : users // ignore: cast_nullable_to_non_nullable
+                  as List<UserData>,
+        selectedIndex: null == selectedIndex
+            ? _value.selectedIndex
+            : selectedIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        selectedUser: freezed == selectedUser
+            ? _value.selectedUser
+            : selectedUser // ignore: cast_nullable_to_non_nullable
+                  as UserData?,
+        userTextController: freezed == userTextController
+            ? _value.userTextController
+            : userTextController // ignore: cast_nullable_to_non_nullable
+                  as TextEditingController?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$OrderUserStateImpl extends _OrderUserState {
-  const _$OrderUserStateImpl(
-      {final List<UserData> users = const [],
-      this.selectedIndex = 0,
-      this.isLoading = false,
-      this.selectedUser,
-      this.userTextController})
-      : _users = users,
-        super._();
+  const _$OrderUserStateImpl({
+    final List<UserData> users = const [],
+    this.selectedIndex = 0,
+    this.isLoading = false,
+    this.selectedUser,
+    this.userTextController,
+  }) : _users = users,
+       super._();
 
   final List<UserData> _users;
   @override
@@ -199,28 +210,32 @@ class _$OrderUserStateImpl extends _OrderUserState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_users),
-      selectedIndex,
-      isLoading,
-      selectedUser,
-      userTextController);
+    runtimeType,
+    const DeepCollectionEquality().hash(_users),
+    selectedIndex,
+    isLoading,
+    selectedUser,
+    userTextController,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$OrderUserStateImplCopyWith<_$OrderUserStateImpl> get copyWith =>
       __$$OrderUserStateImplCopyWithImpl<_$OrderUserStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _OrderUserState extends OrderUserState {
-  const factory _OrderUserState(
-      {final List<UserData> users,
-      final int selectedIndex,
-      final bool isLoading,
-      final UserData? selectedUser,
-      final TextEditingController? userTextController}) = _$OrderUserStateImpl;
+  const factory _OrderUserState({
+    final List<UserData> users,
+    final int selectedIndex,
+    final bool isLoading,
+    final UserData? selectedUser,
+    final TextEditingController? userTextController,
+  }) = _$OrderUserStateImpl;
   const _OrderUserState._() : super._();
 
   @override

@@ -12,7 +12,8 @@ part of 'main_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$MainState {
@@ -50,20 +51,23 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
     Object? selectedIndex = null,
     Object? isScrolling = null,
   }) {
-    return _then(_value.copyWith(
-      listOfWidget: null == listOfWidget
-          ? _value.listOfWidget
-          : listOfWidget // ignore: cast_nullable_to_non_nullable
-              as List<Widget>,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      isScrolling: null == isScrolling
-          ? _value.isScrolling
-          : isScrolling // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            listOfWidget: null == listOfWidget
+                ? _value.listOfWidget
+                : listOfWidget // ignore: cast_nullable_to_non_nullable
+                      as List<Widget>,
+            selectedIndex: null == selectedIndex
+                ? _value.selectedIndex
+                : selectedIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isScrolling: null == isScrolling
+                ? _value.isScrolling
+                : isScrolling // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -71,8 +75,9 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
 abstract class _$$MainStateImplCopyWith<$Res>
     implements $MainStateCopyWith<$Res> {
   factory _$$MainStateImplCopyWith(
-          _$MainStateImpl value, $Res Function(_$MainStateImpl) then) =
-      __$$MainStateImplCopyWithImpl<$Res>;
+    _$MainStateImpl value,
+    $Res Function(_$MainStateImpl) then,
+  ) = __$$MainStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Widget> listOfWidget, int selectedIndex, bool isScrolling});
@@ -83,8 +88,9 @@ class __$$MainStateImplCopyWithImpl<$Res>
     extends _$MainStateCopyWithImpl<$Res, _$MainStateImpl>
     implements _$$MainStateImplCopyWith<$Res> {
   __$$MainStateImplCopyWithImpl(
-      _$MainStateImpl _value, $Res Function(_$MainStateImpl) _then)
-      : super(_value, _then);
+    _$MainStateImpl _value,
+    $Res Function(_$MainStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -93,32 +99,34 @@ class __$$MainStateImplCopyWithImpl<$Res>
     Object? selectedIndex = null,
     Object? isScrolling = null,
   }) {
-    return _then(_$MainStateImpl(
-      listOfWidget: null == listOfWidget
-          ? _value._listOfWidget
-          : listOfWidget // ignore: cast_nullable_to_non_nullable
-              as List<Widget>,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      isScrolling: null == isScrolling
-          ? _value.isScrolling
-          : isScrolling // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+    return _then(
+      _$MainStateImpl(
+        listOfWidget: null == listOfWidget
+            ? _value._listOfWidget
+            : listOfWidget // ignore: cast_nullable_to_non_nullable
+                  as List<Widget>,
+        selectedIndex: null == selectedIndex
+            ? _value.selectedIndex
+            : selectedIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isScrolling: null == isScrolling
+            ? _value.isScrolling
+            : isScrolling // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$MainStateImpl extends _MainState {
-  const _$MainStateImpl(
-      {final List<Widget> listOfWidget = const [],
-      this.selectedIndex = 0,
-      this.isScrolling = false})
-      : _listOfWidget = listOfWidget,
-        super._();
+  const _$MainStateImpl({
+    final List<Widget> listOfWidget = const [],
+    this.selectedIndex = 0,
+    this.isScrolling = false,
+  }) : _listOfWidget = listOfWidget,
+       super._();
 
   final List<Widget> _listOfWidget;
   @override
@@ -146,8 +154,10 @@ class _$MainStateImpl extends _MainState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MainStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._listOfWidget, _listOfWidget) &&
+            const DeepCollectionEquality().equals(
+              other._listOfWidget,
+              _listOfWidget,
+            ) &&
             (identical(other.selectedIndex, selectedIndex) ||
                 other.selectedIndex == selectedIndex) &&
             (identical(other.isScrolling, isScrolling) ||
@@ -156,10 +166,11 @@ class _$MainStateImpl extends _MainState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_listOfWidget),
-      selectedIndex,
-      isScrolling);
+    runtimeType,
+    const DeepCollectionEquality().hash(_listOfWidget),
+    selectedIndex,
+    isScrolling,
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -169,10 +180,11 @@ class _$MainStateImpl extends _MainState {
 }
 
 abstract class _MainState extends MainState {
-  const factory _MainState(
-      {final List<Widget> listOfWidget,
-      final int selectedIndex,
-      final bool isScrolling}) = _$MainStateImpl;
+  const factory _MainState({
+    final List<Widget> listOfWidget,
+    final int selectedIndex,
+    final bool isScrolling,
+  }) = _$MainStateImpl;
   const _MainState._() : super._();
 
   @override

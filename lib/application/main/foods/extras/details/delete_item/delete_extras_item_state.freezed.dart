@@ -12,7 +12,8 @@ part of 'delete_extras_item_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$DeleteExtrasItemState {
@@ -25,16 +26,19 @@ mixin _$DeleteExtrasItemState {
 
 /// @nodoc
 abstract class $DeleteExtrasItemStateCopyWith<$Res> {
-  factory $DeleteExtrasItemStateCopyWith(DeleteExtrasItemState value,
-          $Res Function(DeleteExtrasItemState) then) =
-      _$DeleteExtrasItemStateCopyWithImpl<$Res, DeleteExtrasItemState>;
+  factory $DeleteExtrasItemStateCopyWith(
+    DeleteExtrasItemState value,
+    $Res Function(DeleteExtrasItemState) then,
+  ) = _$DeleteExtrasItemStateCopyWithImpl<$Res, DeleteExtrasItemState>;
   @useResult
   $Res call({bool isLoading});
 }
 
 /// @nodoc
-class _$DeleteExtrasItemStateCopyWithImpl<$Res,
-        $Val extends DeleteExtrasItemState>
+class _$DeleteExtrasItemStateCopyWithImpl<
+  $Res,
+  $Val extends DeleteExtrasItemState
+>
     implements $DeleteExtrasItemStateCopyWith<$Res> {
   _$DeleteExtrasItemStateCopyWithImpl(this._value, this._then);
 
@@ -45,15 +49,16 @@ class _$DeleteExtrasItemStateCopyWithImpl<$Res,
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -61,9 +66,9 @@ class _$DeleteExtrasItemStateCopyWithImpl<$Res,
 abstract class _$$DeleteExtrasItemStateImplCopyWith<$Res>
     implements $DeleteExtrasItemStateCopyWith<$Res> {
   factory _$$DeleteExtrasItemStateImplCopyWith(
-          _$DeleteExtrasItemStateImpl value,
-          $Res Function(_$DeleteExtrasItemStateImpl) then) =
-      __$$DeleteExtrasItemStateImplCopyWithImpl<$Res>;
+    _$DeleteExtrasItemStateImpl value,
+    $Res Function(_$DeleteExtrasItemStateImpl) then,
+  ) = __$$DeleteExtrasItemStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
@@ -71,24 +76,25 @@ abstract class _$$DeleteExtrasItemStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DeleteExtrasItemStateImplCopyWithImpl<$Res>
-    extends _$DeleteExtrasItemStateCopyWithImpl<$Res,
-        _$DeleteExtrasItemStateImpl>
+    extends
+        _$DeleteExtrasItemStateCopyWithImpl<$Res, _$DeleteExtrasItemStateImpl>
     implements _$$DeleteExtrasItemStateImplCopyWith<$Res> {
-  __$$DeleteExtrasItemStateImplCopyWithImpl(_$DeleteExtrasItemStateImpl _value,
-      $Res Function(_$DeleteExtrasItemStateImpl) _then)
-      : super(_value, _then);
+  __$$DeleteExtrasItemStateImplCopyWithImpl(
+    _$DeleteExtrasItemStateImpl _value,
+    $Res Function(_$DeleteExtrasItemStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_$DeleteExtrasItemStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _$DeleteExtrasItemStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
@@ -122,8 +128,11 @@ class _$DeleteExtrasItemStateImpl extends _DeleteExtrasItemState {
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteExtrasItemStateImplCopyWith<_$DeleteExtrasItemStateImpl>
-      get copyWith => __$$DeleteExtrasItemStateImplCopyWithImpl<
-          _$DeleteExtrasItemStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$DeleteExtrasItemStateImplCopyWithImpl<_$DeleteExtrasItemStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _DeleteExtrasItemState extends DeleteExtrasItemState {
@@ -136,5 +145,5 @@ abstract class _DeleteExtrasItemState extends DeleteExtrasItemState {
   @override
   @JsonKey(ignore: true)
   _$$DeleteExtrasItemStateImplCopyWith<_$DeleteExtrasItemStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,8 @@ part of 'reset_password_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$ResetPasswordState {
@@ -37,22 +38,24 @@ mixin _$ResetPasswordState {
 /// @nodoc
 abstract class $ResetPasswordStateCopyWith<$Res> {
   factory $ResetPasswordStateCopyWith(
-          ResetPasswordState value, $Res Function(ResetPasswordState) then) =
-      _$ResetPasswordStateCopyWithImpl<$Res, ResetPasswordState>;
+    ResetPasswordState value,
+    $Res Function(ResetPasswordState) then,
+  ) = _$ResetPasswordStateCopyWithImpl<$Res, ResetPasswordState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isSuccess,
-      bool isEmailError,
-      bool isPasswordInvalid,
-      bool isConfirmPasswordInvalid,
-      bool showPassword,
-      bool showConfirmPassword,
-      String email,
-      String phone,
-      String verifyId,
-      String password,
-      String confirmPassword});
+  $Res call({
+    bool isLoading,
+    bool isSuccess,
+    bool isEmailError,
+    bool isPasswordInvalid,
+    bool isConfirmPasswordInvalid,
+    bool showPassword,
+    bool showConfirmPassword,
+    String email,
+    String phone,
+    String verifyId,
+    String password,
+    String confirmPassword,
+  });
 }
 
 /// @nodoc
@@ -81,89 +84,95 @@ class _$ResetPasswordStateCopyWithImpl<$Res, $Val extends ResetPasswordState>
     Object? password = null,
     Object? confirmPassword = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSuccess: null == isSuccess
-          ? _value.isSuccess
-          : isSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isEmailError: null == isEmailError
-          ? _value.isEmailError
-          : isEmailError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPasswordInvalid: null == isPasswordInvalid
-          ? _value.isPasswordInvalid
-          : isPasswordInvalid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isConfirmPasswordInvalid: null == isConfirmPasswordInvalid
-          ? _value.isConfirmPasswordInvalid
-          : isConfirmPasswordInvalid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      showPassword: null == showPassword
-          ? _value.showPassword
-          : showPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
-      showConfirmPassword: null == showConfirmPassword
-          ? _value.showConfirmPassword
-          : showConfirmPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      verifyId: null == verifyId
-          ? _value.verifyId
-          : verifyId // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      confirmPassword: null == confirmPassword
-          ? _value.confirmPassword
-          : confirmPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isSuccess: null == isSuccess
+                ? _value.isSuccess
+                : isSuccess // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isEmailError: null == isEmailError
+                ? _value.isEmailError
+                : isEmailError // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isPasswordInvalid: null == isPasswordInvalid
+                ? _value.isPasswordInvalid
+                : isPasswordInvalid // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isConfirmPasswordInvalid: null == isConfirmPasswordInvalid
+                ? _value.isConfirmPasswordInvalid
+                : isConfirmPasswordInvalid // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            showPassword: null == showPassword
+                ? _value.showPassword
+                : showPassword // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            showConfirmPassword: null == showConfirmPassword
+                ? _value.showConfirmPassword
+                : showConfirmPassword // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            email: null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                      as String,
+            phone: null == phone
+                ? _value.phone
+                : phone // ignore: cast_nullable_to_non_nullable
+                      as String,
+            verifyId: null == verifyId
+                ? _value.verifyId
+                : verifyId // ignore: cast_nullable_to_non_nullable
+                      as String,
+            password: null == password
+                ? _value.password
+                : password // ignore: cast_nullable_to_non_nullable
+                      as String,
+            confirmPassword: null == confirmPassword
+                ? _value.confirmPassword
+                : confirmPassword // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$ResetPasswordStateImplCopyWith<$Res>
     implements $ResetPasswordStateCopyWith<$Res> {
-  factory _$$ResetPasswordStateImplCopyWith(_$ResetPasswordStateImpl value,
-          $Res Function(_$ResetPasswordStateImpl) then) =
-      __$$ResetPasswordStateImplCopyWithImpl<$Res>;
+  factory _$$ResetPasswordStateImplCopyWith(
+    _$ResetPasswordStateImpl value,
+    $Res Function(_$ResetPasswordStateImpl) then,
+  ) = __$$ResetPasswordStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isSuccess,
-      bool isEmailError,
-      bool isPasswordInvalid,
-      bool isConfirmPasswordInvalid,
-      bool showPassword,
-      bool showConfirmPassword,
-      String email,
-      String phone,
-      String verifyId,
-      String password,
-      String confirmPassword});
+  $Res call({
+    bool isLoading,
+    bool isSuccess,
+    bool isEmailError,
+    bool isPasswordInvalid,
+    bool isConfirmPasswordInvalid,
+    bool showPassword,
+    bool showConfirmPassword,
+    String email,
+    String phone,
+    String verifyId,
+    String password,
+    String confirmPassword,
+  });
 }
 
 /// @nodoc
 class __$$ResetPasswordStateImplCopyWithImpl<$Res>
     extends _$ResetPasswordStateCopyWithImpl<$Res, _$ResetPasswordStateImpl>
     implements _$$ResetPasswordStateImplCopyWith<$Res> {
-  __$$ResetPasswordStateImplCopyWithImpl(_$ResetPasswordStateImpl _value,
-      $Res Function(_$ResetPasswordStateImpl) _then)
-      : super(_value, _then);
+  __$$ResetPasswordStateImplCopyWithImpl(
+    _$ResetPasswordStateImpl _value,
+    $Res Function(_$ResetPasswordStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -181,76 +190,78 @@ class __$$ResetPasswordStateImplCopyWithImpl<$Res>
     Object? password = null,
     Object? confirmPassword = null,
   }) {
-    return _then(_$ResetPasswordStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSuccess: null == isSuccess
-          ? _value.isSuccess
-          : isSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isEmailError: null == isEmailError
-          ? _value.isEmailError
-          : isEmailError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPasswordInvalid: null == isPasswordInvalid
-          ? _value.isPasswordInvalid
-          : isPasswordInvalid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isConfirmPasswordInvalid: null == isConfirmPasswordInvalid
-          ? _value.isConfirmPasswordInvalid
-          : isConfirmPasswordInvalid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      showPassword: null == showPassword
-          ? _value.showPassword
-          : showPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
-      showConfirmPassword: null == showConfirmPassword
-          ? _value.showConfirmPassword
-          : showConfirmPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      verifyId: null == verifyId
-          ? _value.verifyId
-          : verifyId // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      confirmPassword: null == confirmPassword
-          ? _value.confirmPassword
-          : confirmPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$ResetPasswordStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isSuccess: null == isSuccess
+            ? _value.isSuccess
+            : isSuccess // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isEmailError: null == isEmailError
+            ? _value.isEmailError
+            : isEmailError // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isPasswordInvalid: null == isPasswordInvalid
+            ? _value.isPasswordInvalid
+            : isPasswordInvalid // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isConfirmPasswordInvalid: null == isConfirmPasswordInvalid
+            ? _value.isConfirmPasswordInvalid
+            : isConfirmPasswordInvalid // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        showPassword: null == showPassword
+            ? _value.showPassword
+            : showPassword // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        showConfirmPassword: null == showConfirmPassword
+            ? _value.showConfirmPassword
+            : showConfirmPassword // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+        phone: null == phone
+            ? _value.phone
+            : phone // ignore: cast_nullable_to_non_nullable
+                  as String,
+        verifyId: null == verifyId
+            ? _value.verifyId
+            : verifyId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        password: null == password
+            ? _value.password
+            : password // ignore: cast_nullable_to_non_nullable
+                  as String,
+        confirmPassword: null == confirmPassword
+            ? _value.confirmPassword
+            : confirmPassword // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ResetPasswordStateImpl extends _ResetPasswordState {
-  const _$ResetPasswordStateImpl(
-      {this.isLoading = false,
-      this.isSuccess = false,
-      this.isEmailError = false,
-      this.isPasswordInvalid = false,
-      this.isConfirmPasswordInvalid = false,
-      this.showPassword = false,
-      this.showConfirmPassword = false,
-      this.email = '',
-      this.phone = '',
-      this.verifyId = '',
-      this.password = '',
-      this.confirmPassword = ''})
-      : super._();
+  const _$ResetPasswordStateImpl({
+    this.isLoading = false,
+    this.isSuccess = false,
+    this.isEmailError = false,
+    this.isPasswordInvalid = false,
+    this.isConfirmPasswordInvalid = false,
+    this.showPassword = false,
+    this.showConfirmPassword = false,
+    this.email = '',
+    this.phone = '',
+    this.verifyId = '',
+    this.password = '',
+    this.confirmPassword = '',
+  }) : super._();
 
   @override
   @JsonKey()
@@ -308,7 +319,9 @@ class _$ResetPasswordStateImpl extends _ResetPasswordState {
             (identical(other.isPasswordInvalid, isPasswordInvalid) ||
                 other.isPasswordInvalid == isPasswordInvalid) &&
             (identical(
-                    other.isConfirmPasswordInvalid, isConfirmPasswordInvalid) ||
+                  other.isConfirmPasswordInvalid,
+                  isConfirmPasswordInvalid,
+                ) ||
                 other.isConfirmPasswordInvalid == isConfirmPasswordInvalid) &&
             (identical(other.showPassword, showPassword) ||
                 other.showPassword == showPassword) &&
@@ -326,42 +339,46 @@ class _$ResetPasswordStateImpl extends _ResetPasswordState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isSuccess,
-      isEmailError,
-      isPasswordInvalid,
-      isConfirmPasswordInvalid,
-      showPassword,
-      showConfirmPassword,
-      email,
-      phone,
-      verifyId,
-      password,
-      confirmPassword);
+    runtimeType,
+    isLoading,
+    isSuccess,
+    isEmailError,
+    isPasswordInvalid,
+    isConfirmPasswordInvalid,
+    showPassword,
+    showConfirmPassword,
+    email,
+    phone,
+    verifyId,
+    password,
+    confirmPassword,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ResetPasswordStateImplCopyWith<_$ResetPasswordStateImpl> get copyWith =>
       __$$ResetPasswordStateImplCopyWithImpl<_$ResetPasswordStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _ResetPasswordState extends ResetPasswordState {
-  const factory _ResetPasswordState(
-      {final bool isLoading,
-      final bool isSuccess,
-      final bool isEmailError,
-      final bool isPasswordInvalid,
-      final bool isConfirmPasswordInvalid,
-      final bool showPassword,
-      final bool showConfirmPassword,
-      final String email,
-      final String phone,
-      final String verifyId,
-      final String password,
-      final String confirmPassword}) = _$ResetPasswordStateImpl;
+  const factory _ResetPasswordState({
+    final bool isLoading,
+    final bool isSuccess,
+    final bool isEmailError,
+    final bool isPasswordInvalid,
+    final bool isConfirmPasswordInvalid,
+    final bool showPassword,
+    final bool showConfirmPassword,
+    final String email,
+    final String phone,
+    final String verifyId,
+    final String password,
+    final String confirmPassword,
+  }) = _$ResetPasswordStateImpl;
   const _ResetPasswordState._() : super._();
 
   @override

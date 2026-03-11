@@ -12,7 +12,8 @@ part of 'home_appbar_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$HomeAppbarState {
@@ -28,8 +29,9 @@ mixin _$HomeAppbarState {
 /// @nodoc
 abstract class $HomeAppbarStateCopyWith<$Res> {
   factory $HomeAppbarStateCopyWith(
-          HomeAppbarState value, $Res Function(HomeAppbarState) then) =
-      _$HomeAppbarStateCopyWithImpl<$Res, HomeAppbarState>;
+    HomeAppbarState value,
+    $Res Function(HomeAppbarState) then,
+  ) = _$HomeAppbarStateCopyWithImpl<$Res, HomeAppbarState>;
   @useResult
   $Res call({String title, int totalCount, int index});
 }
@@ -51,29 +53,33 @@ class _$HomeAppbarStateCopyWithImpl<$Res, $Val extends HomeAppbarState>
     Object? totalCount = null,
     Object? index = null,
   }) {
-    return _then(_value.copyWith(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      totalCount: null == totalCount
-          ? _value.totalCount
-          : totalCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            title: null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                      as String,
+            totalCount: null == totalCount
+                ? _value.totalCount
+                : totalCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+            index: null == index
+                ? _value.index
+                : index // ignore: cast_nullable_to_non_nullable
+                      as int,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$HomeAppbarStateImplCopyWith<$Res>
     implements $HomeAppbarStateCopyWith<$Res> {
-  factory _$$HomeAppbarStateImplCopyWith(_$HomeAppbarStateImpl value,
-          $Res Function(_$HomeAppbarStateImpl) then) =
-      __$$HomeAppbarStateImplCopyWithImpl<$Res>;
+  factory _$$HomeAppbarStateImplCopyWith(
+    _$HomeAppbarStateImpl value,
+    $Res Function(_$HomeAppbarStateImpl) then,
+  ) = __$$HomeAppbarStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String title, int totalCount, int index});
@@ -84,8 +90,9 @@ class __$$HomeAppbarStateImplCopyWithImpl<$Res>
     extends _$HomeAppbarStateCopyWithImpl<$Res, _$HomeAppbarStateImpl>
     implements _$$HomeAppbarStateImplCopyWith<$Res> {
   __$$HomeAppbarStateImplCopyWithImpl(
-      _$HomeAppbarStateImpl _value, $Res Function(_$HomeAppbarStateImpl) _then)
-      : super(_value, _then);
+    _$HomeAppbarStateImpl _value,
+    $Res Function(_$HomeAppbarStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -94,29 +101,33 @@ class __$$HomeAppbarStateImplCopyWithImpl<$Res>
     Object? totalCount = null,
     Object? index = null,
   }) {
-    return _then(_$HomeAppbarStateImpl(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      totalCount: null == totalCount
-          ? _value.totalCount
-          : totalCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+    return _then(
+      _$HomeAppbarStateImpl(
+        title: null == title
+            ? _value.title
+            : title // ignore: cast_nullable_to_non_nullable
+                  as String,
+        totalCount: null == totalCount
+            ? _value.totalCount
+            : totalCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        index: null == index
+            ? _value.index
+            : index // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$HomeAppbarStateImpl extends _HomeAppbarState {
-  const _$HomeAppbarStateImpl(
-      {this.title = '', this.totalCount = 0, this.index = 0})
-      : super._();
+  const _$HomeAppbarStateImpl({
+    this.title = '',
+    this.totalCount = 0,
+    this.index = 0,
+  }) : super._();
 
   @override
   @JsonKey()
@@ -152,14 +163,17 @@ class _$HomeAppbarStateImpl extends _HomeAppbarState {
   @pragma('vm:prefer-inline')
   _$$HomeAppbarStateImplCopyWith<_$HomeAppbarStateImpl> get copyWith =>
       __$$HomeAppbarStateImplCopyWithImpl<_$HomeAppbarStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _HomeAppbarState extends HomeAppbarState {
-  const factory _HomeAppbarState(
-      {final String title,
-      final int totalCount,
-      final int index}) = _$HomeAppbarStateImpl;
+  const factory _HomeAppbarState({
+    final String title,
+    final int totalCount,
+    final int index,
+  }) = _$HomeAppbarStateImpl;
   const _HomeAppbarState._() : super._();
 
   @override

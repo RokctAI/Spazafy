@@ -135,7 +135,8 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                           CustomToggle(
                             key: UniqueKey(),
                             controller: ValueNotifier<bool>(
-                              !(state.workingDays[state.currentIndex]
+                              !(state
+                                      .workingDays[state.currentIndex]
                                       .disabled ??
                                   false),
                             ),
