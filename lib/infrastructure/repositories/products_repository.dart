@@ -165,7 +165,7 @@ class ProductsRepository implements ProductsInterface {
     final data = {'currency_id': LocalStorage.getSelectedCurrency()?.id};
     for (int i = 0; i < stocks.length; i++) {
       data['products[$i][stock_id]'] = stocks[i].id;
-      data['products[$i][quantity]'] = stocks[i].cartCount?.toString();
+      data['products[$i][quantity]'] = stocks[i].cartCount?.toString() ?? '0';
     }
     debugPrint('===> get calculation ${jsonEncode(data)}');
     try {
