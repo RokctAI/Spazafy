@@ -1,5 +1,5 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,269 +9,173 @@ part of 'ai_translation_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
 /// @nodoc
 mixin _$AiTranslationState {
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get translatedUsingAi => throw _privateConstructorUsedError;
+  LanguageData? get selectedLanguage => throw _privateConstructorUsedError;
 
- bool get isLoading; bool get translatedUsingAi; LanguageData? get selectedLanguage;
-/// Create a copy of AiTranslationState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$AiTranslationStateCopyWith<AiTranslationState> get copyWith => _$AiTranslationStateCopyWithImpl<AiTranslationState>(this as AiTranslationState, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiTranslationState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.translatedUsingAi, translatedUsingAi) || other.translatedUsingAi == translatedUsingAi)&&(identical(other.selectedLanguage, selectedLanguage) || other.selectedLanguage == selectedLanguage));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,isLoading,translatedUsingAi,selectedLanguage);
-
-@override
-String toString() {
-  return 'AiTranslationState(isLoading: $isLoading, translatedUsingAi: $translatedUsingAi, selectedLanguage: $selectedLanguage)';
-}
-
-
+  @JsonKey(ignore: true)
+  $AiTranslationStateCopyWith<AiTranslationState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $AiTranslationStateCopyWith<$Res>  {
-  factory $AiTranslationStateCopyWith(AiTranslationState value, $Res Function(AiTranslationState) _then) = _$AiTranslationStateCopyWithImpl;
-@useResult
-$Res call({
- bool isLoading, bool translatedUsingAi, LanguageData? selectedLanguage
-});
-
-
-
-
+abstract class $AiTranslationStateCopyWith<$Res> {
+  factory $AiTranslationStateCopyWith(
+          AiTranslationState value, $Res Function(AiTranslationState) then) =
+      _$AiTranslationStateCopyWithImpl<$Res, AiTranslationState>;
+  @useResult
+  $Res call(
+      {bool isLoading, bool translatedUsingAi, LanguageData? selectedLanguage});
 }
+
 /// @nodoc
-class _$AiTranslationStateCopyWithImpl<$Res>
+class _$AiTranslationStateCopyWithImpl<$Res, $Val extends AiTranslationState>
     implements $AiTranslationStateCopyWith<$Res> {
-  _$AiTranslationStateCopyWithImpl(this._self, this._then);
+  _$AiTranslationStateCopyWithImpl(this._value, this._then);
 
-  final AiTranslationState _self;
-  final $Res Function(AiTranslationState) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of AiTranslationState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? translatedUsingAi = null,Object? selectedLanguage = freezed,}) {
-  return _then(_self.copyWith(
-isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
-as bool,translatedUsingAi: null == translatedUsingAi ? _self.translatedUsingAi : translatedUsingAi // ignore: cast_nullable_to_non_nullable
-as bool,selectedLanguage: freezed == selectedLanguage ? _self.selectedLanguage : selectedLanguage // ignore: cast_nullable_to_non_nullable
-as LanguageData?,
-  ));
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+    Object? translatedUsingAi = null,
+    Object? selectedLanguage = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      translatedUsingAi: null == translatedUsingAi
+          ? _value.translatedUsingAi
+          : translatedUsingAi // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedLanguage: freezed == selectedLanguage
+          ? _value.selectedLanguage
+          : selectedLanguage // ignore: cast_nullable_to_non_nullable
+              as LanguageData?,
+    ) as $Val);
+  }
 }
 
+/// @nodoc
+abstract class _$$AiTranslationStateImplCopyWith<$Res>
+    implements $AiTranslationStateCopyWith<$Res> {
+  factory _$$AiTranslationStateImplCopyWith(_$AiTranslationStateImpl value,
+          $Res Function(_$AiTranslationStateImpl) then) =
+      __$$AiTranslationStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {bool isLoading, bool translatedUsingAi, LanguageData? selectedLanguage});
 }
 
+/// @nodoc
+class __$$AiTranslationStateImplCopyWithImpl<$Res>
+    extends _$AiTranslationStateCopyWithImpl<$Res, _$AiTranslationStateImpl>
+    implements _$$AiTranslationStateImplCopyWith<$Res> {
+  __$$AiTranslationStateImplCopyWithImpl(_$AiTranslationStateImpl _value,
+      $Res Function(_$AiTranslationStateImpl) _then)
+      : super(_value, _then);
 
-/// Adds pattern-matching-related methods to [AiTranslationState].
-extension AiTranslationStatePatterns on AiTranslationState {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AiTranslationState value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _AiTranslationState() when $default != null:
-return $default(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AiTranslationState value)  $default,){
-final _that = this;
-switch (_that) {
-case _AiTranslationState():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AiTranslationState value)?  $default,){
-final _that = this;
-switch (_that) {
-case _AiTranslationState() when $default != null:
-return $default(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoading,  bool translatedUsingAi,  LanguageData? selectedLanguage)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _AiTranslationState() when $default != null:
-return $default(_that.isLoading,_that.translatedUsingAi,_that.selectedLanguage);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoading,  bool translatedUsingAi,  LanguageData? selectedLanguage)  $default,) {final _that = this;
-switch (_that) {
-case _AiTranslationState():
-return $default(_that.isLoading,_that.translatedUsingAi,_that.selectedLanguage);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoading,  bool translatedUsingAi,  LanguageData? selectedLanguage)?  $default,) {final _that = this;
-switch (_that) {
-case _AiTranslationState() when $default != null:
-return $default(_that.isLoading,_that.translatedUsingAi,_that.selectedLanguage);case _:
-  return null;
-
-}
-}
-
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+    Object? translatedUsingAi = null,
+    Object? selectedLanguage = freezed,
+  }) {
+    return _then(_$AiTranslationStateImpl(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      translatedUsingAi: null == translatedUsingAi
+          ? _value.translatedUsingAi
+          : translatedUsingAi // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedLanguage: freezed == selectedLanguage
+          ? _value.selectedLanguage
+          : selectedLanguage // ignore: cast_nullable_to_non_nullable
+              as LanguageData?,
+    ));
+  }
 }
 
 /// @nodoc
 
+class _$AiTranslationStateImpl extends _AiTranslationState {
+  const _$AiTranslationStateImpl(
+      {this.isLoading = false,
+      this.translatedUsingAi = false,
+      this.selectedLanguage})
+      : super._();
 
-class _AiTranslationState extends AiTranslationState {
-  const _AiTranslationState({this.isLoading = false, this.translatedUsingAi = false, this.selectedLanguage}): super._();
-  
+  @override
+  @JsonKey()
+  final bool isLoading;
+  @override
+  @JsonKey()
+  final bool translatedUsingAi;
+  @override
+  final LanguageData? selectedLanguage;
 
-@override@JsonKey() final  bool isLoading;
-@override@JsonKey() final  bool translatedUsingAi;
-@override final  LanguageData? selectedLanguage;
+  @override
+  String toString() {
+    return 'AiTranslationState(isLoading: $isLoading, translatedUsingAi: $translatedUsingAi, selectedLanguage: $selectedLanguage)';
+  }
 
-/// Create a copy of AiTranslationState
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$AiTranslationStateCopyWith<_AiTranslationState> get copyWith => __$AiTranslationStateCopyWithImpl<_AiTranslationState>(this, _$identity);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AiTranslationStateImpl &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.translatedUsingAi, translatedUsingAi) ||
+                other.translatedUsingAi == translatedUsingAi) &&
+            (identical(other.selectedLanguage, selectedLanguage) ||
+                other.selectedLanguage == selectedLanguage));
+  }
 
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, translatedUsingAi, selectedLanguage);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiTranslationState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.translatedUsingAi, translatedUsingAi) || other.translatedUsingAi == translatedUsingAi)&&(identical(other.selectedLanguage, selectedLanguage) || other.selectedLanguage == selectedLanguage));
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AiTranslationStateImplCopyWith<_$AiTranslationStateImpl> get copyWith =>
+      __$$AiTranslationStateImplCopyWithImpl<_$AiTranslationStateImpl>(
+          this, _$identity);
 }
 
+abstract class _AiTranslationState extends AiTranslationState {
+  const factory _AiTranslationState(
+      {final bool isLoading,
+      final bool translatedUsingAi,
+      final LanguageData? selectedLanguage}) = _$AiTranslationStateImpl;
+  const _AiTranslationState._() : super._();
 
-@override
-int get hashCode => Object.hash(runtimeType,isLoading,translatedUsingAi,selectedLanguage);
-
-@override
-String toString() {
-  return 'AiTranslationState(isLoading: $isLoading, translatedUsingAi: $translatedUsingAi, selectedLanguage: $selectedLanguage)';
+  @override
+  bool get isLoading;
+  @override
+  bool get translatedUsingAi;
+  @override
+  LanguageData? get selectedLanguage;
+  @override
+  @JsonKey(ignore: true)
+  _$$AiTranslationStateImplCopyWith<_$AiTranslationStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-
-}
-
-/// @nodoc
-abstract mixin class _$AiTranslationStateCopyWith<$Res> implements $AiTranslationStateCopyWith<$Res> {
-  factory _$AiTranslationStateCopyWith(_AiTranslationState value, $Res Function(_AiTranslationState) _then) = __$AiTranslationStateCopyWithImpl;
-@override @useResult
-$Res call({
- bool isLoading, bool translatedUsingAi, LanguageData? selectedLanguage
-});
-
-
-
-
-}
-/// @nodoc
-class __$AiTranslationStateCopyWithImpl<$Res>
-    implements _$AiTranslationStateCopyWith<$Res> {
-  __$AiTranslationStateCopyWithImpl(this._self, this._then);
-
-  final _AiTranslationState _self;
-  final $Res Function(_AiTranslationState) _then;
-
-/// Create a copy of AiTranslationState
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? translatedUsingAi = null,Object? selectedLanguage = freezed,}) {
-  return _then(_AiTranslationState(
-isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
-as bool,translatedUsingAi: null == translatedUsingAi ? _self.translatedUsingAi : translatedUsingAi // ignore: cast_nullable_to_non_nullable
-as bool,selectedLanguage: freezed == selectedLanguage ? _self.selectedLanguage : selectedLanguage // ignore: cast_nullable_to_non_nullable
-as LanguageData?,
-  ));
-}
-
-
-}
-
-// dart format on
