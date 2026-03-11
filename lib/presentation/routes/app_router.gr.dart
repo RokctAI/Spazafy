@@ -1,4 +1,3 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -14,7 +13,10 @@ part of 'app_router.dart';
 /// [AuthPage]
 class AuthRoute extends PageRouteInfo<void> {
   const AuthRoute({List<PageRouteInfo>? children})
-    : super(AuthRoute.name, initialChildren: children);
+      : super(
+          AuthRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'AuthRoute';
 
@@ -27,10 +29,51 @@ class AuthRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [BillingCheckoutPage]
+class BillingCheckoutRoute extends PageRouteInfo<void> {
+  const BillingCheckoutRoute({List<PageRouteInfo>? children})
+      : super(
+          BillingCheckoutRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BillingCheckoutRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const BillingCheckoutPage();
+    },
+  );
+}
+
+/// generated route for
+/// [BillingHomePage]
+class BillingHomeRoute extends PageRouteInfo<void> {
+  const BillingHomeRoute({List<PageRouteInfo>? children})
+      : super(
+          BillingHomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BillingHomeRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const BillingHomePage();
+    },
+  );
+}
+
+/// generated route for
 /// [CreateOrderPage]
 class CreateOrderRoute extends PageRouteInfo<void> {
   const CreateOrderRoute({List<PageRouteInfo>? children})
-    : super(CreateOrderRoute.name, initialChildren: children);
+      : super(
+          CreateOrderRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'CreateOrderRoute';
 
@@ -46,7 +89,10 @@ class CreateOrderRoute extends PageRouteInfo<void> {
 /// [CreateShopPage]
 class CreateShopRoute extends PageRouteInfo<void> {
   const CreateShopRoute({List<PageRouteInfo>? children})
-    : super(CreateShopRoute.name, initialChildren: children);
+      : super(
+          CreateShopRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'CreateShopRoute';
 
@@ -62,7 +108,10 @@ class CreateShopRoute extends PageRouteInfo<void> {
 /// [DeliveryTimePage]
 class DeliveryTimeRoute extends PageRouteInfo<void> {
   const DeliveryTimeRoute({List<PageRouteInfo>? children})
-    : super(DeliveryTimeRoute.name, initialChildren: children);
+      : super(
+          DeliveryTimeRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'DeliveryTimeRoute';
 
@@ -78,7 +127,10 @@ class DeliveryTimeRoute extends PageRouteInfo<void> {
 /// [DeliveryZonePage]
 class DeliveryZoneRoute extends PageRouteInfo<void> {
   const DeliveryZoneRoute({List<PageRouteInfo>? children})
-    : super(DeliveryZoneRoute.name, initialChildren: children);
+      : super(
+          DeliveryZoneRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'DeliveryZoneRoute';
 
@@ -94,7 +146,10 @@ class DeliveryZoneRoute extends PageRouteInfo<void> {
 /// [IncomePage]
 class IncomeRoute extends PageRouteInfo<void> {
   const IncomeRoute({List<PageRouteInfo>? children})
-    : super(IncomeRoute.name, initialChildren: children);
+      : super(
+          IncomeRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'IncomeRoute';
 
@@ -110,7 +165,10 @@ class IncomeRoute extends PageRouteInfo<void> {
 /// [MainPage]
 class MainRoute extends PageRouteInfo<void> {
   const MainRoute({List<PageRouteInfo>? children})
-    : super(MainRoute.name, initialChildren: children);
+      : super(
+          MainRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'MainRoute';
 
@@ -126,7 +184,10 @@ class MainRoute extends PageRouteInfo<void> {
 /// [MapSearchPage]
 class MapSearchRoute extends PageRouteInfo<void> {
   const MapSearchRoute({List<PageRouteInfo>? children})
-    : super(MapSearchRoute.name, initialChildren: children);
+      : super(
+          MapSearchRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'MapSearchRoute';
 
@@ -142,7 +203,10 @@ class MapSearchRoute extends PageRouteInfo<void> {
 /// [NoConnectionPage]
 class NoConnectionRoute extends PageRouteInfo<void> {
   const NoConnectionRoute({List<PageRouteInfo>? children})
-    : super(NoConnectionRoute.name, initialChildren: children);
+      : super(
+          NoConnectionRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'NoConnectionRoute';
 
@@ -158,7 +222,10 @@ class NoConnectionRoute extends PageRouteInfo<void> {
 /// [NotificationListPage]
 class NotificationListRoute extends PageRouteInfo<void> {
   const NotificationListRoute({List<PageRouteInfo>? children})
-    : super(NotificationListRoute.name, initialChildren: children);
+      : super(
+          NotificationListRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'NotificationListRoute';
 
@@ -174,7 +241,10 @@ class NotificationListRoute extends PageRouteInfo<void> {
 /// [OrderHistoryPage]
 class OrderHistoryRoute extends PageRouteInfo<void> {
   const OrderHistoryRoute({List<PageRouteInfo>? children})
-    : super(OrderHistoryRoute.name, initialChildren: children);
+      : super(
+          OrderHistoryRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'OrderHistoryRoute';
 
@@ -190,7 +260,10 @@ class OrderHistoryRoute extends PageRouteInfo<void> {
 /// [OrderPage]
 class OrderRoute extends PageRouteInfo<void> {
   const OrderRoute({List<PageRouteInfo>? children})
-    : super(OrderRoute.name, initialChildren: children);
+      : super(
+          OrderRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'OrderRoute';
 
@@ -203,10 +276,32 @@ class OrderRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PinLoginPage]
+class PinLoginRoute extends PageRouteInfo<void> {
+  const PinLoginRoute({List<PageRouteInfo>? children})
+      : super(
+          PinLoginRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PinLoginRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const PinLoginPage();
+    },
+  );
+}
+
+/// generated route for
 /// [SelectAddressPage]
 class SelectAddressRoute extends PageRouteInfo<void> {
   const SelectAddressRoute({List<PageRouteInfo>? children})
-    : super(SelectAddressRoute.name, initialChildren: children);
+      : super(
+          SelectAddressRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'SelectAddressRoute';
 
@@ -222,7 +317,10 @@ class SelectAddressRoute extends PageRouteInfo<void> {
 /// [SelectSectionPage]
 class SelectSectionRoute extends PageRouteInfo<void> {
   const SelectSectionRoute({List<PageRouteInfo>? children})
-    : super(SelectSectionRoute.name, initialChildren: children);
+      : super(
+          SelectSectionRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'SelectSectionRoute';
 
@@ -239,13 +337,16 @@ class SelectSectionRoute extends PageRouteInfo<void> {
 class SelectTableRoute extends PageRouteInfo<SelectTableRouteArgs> {
   SelectTableRoute({
     Key? key,
-    required int? sectionId,
+    required String? sectionId,
     List<PageRouteInfo>? children,
   }) : super(
-         SelectTableRoute.name,
-         args: SelectTableRouteArgs(key: key, sectionId: sectionId),
-         initialChildren: children,
-       );
+          SelectTableRoute.name,
+          args: SelectTableRouteArgs(
+            key: key,
+            sectionId: sectionId,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'SelectTableRoute';
 
@@ -253,39 +354,38 @@ class SelectTableRoute extends PageRouteInfo<SelectTableRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<SelectTableRouteArgs>();
-      return SelectTablePage(key: args.key, sectionId: args.sectionId);
+      return SelectTablePage(
+        key: args.key,
+        sectionId: args.sectionId,
+      );
     },
   );
 }
 
 class SelectTableRouteArgs {
-  const SelectTableRouteArgs({this.key, required this.sectionId});
+  const SelectTableRouteArgs({
+    this.key,
+    required this.sectionId,
+  });
 
   final Key? key;
 
-  final int? sectionId;
+  final String? sectionId;
 
   @override
   String toString() {
     return 'SelectTableRouteArgs{key: $key, sectionId: $sectionId}';
   }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! SelectTableRouteArgs) return false;
-    return key == other.key && sectionId == other.sectionId;
-  }
-
-  @override
-  int get hashCode => key.hashCode ^ sectionId.hashCode;
 }
 
 /// generated route for
 /// [SelectUserPage]
 class SelectUserRoute extends PageRouteInfo<void> {
   const SelectUserRoute({List<PageRouteInfo>? children})
-    : super(SelectUserRoute.name, initialChildren: children);
+      : super(
+          SelectUserRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'SelectUserRoute';
 
@@ -301,7 +401,10 @@ class SelectUserRoute extends PageRouteInfo<void> {
 /// [ShippingAddressPage]
 class ShippingAddressRoute extends PageRouteInfo<void> {
   const ShippingAddressRoute({List<PageRouteInfo>? children})
-    : super(ShippingAddressRoute.name, initialChildren: children);
+      : super(
+          ShippingAddressRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'ShippingAddressRoute';
 
@@ -317,7 +420,10 @@ class ShippingAddressRoute extends PageRouteInfo<void> {
 /// [SplashPage]
 class SplashRoute extends PageRouteInfo<void> {
   const SplashRoute({List<PageRouteInfo>? children})
-    : super(SplashRoute.name, initialChildren: children);
+      : super(
+          SplashRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'SplashRoute';
 
@@ -333,7 +439,10 @@ class SplashRoute extends PageRouteInfo<void> {
 /// [SubscriptionsPage]
 class SubscriptionsRoute extends PageRouteInfo<void> {
   const SubscriptionsRoute({List<PageRouteInfo>? children})
-    : super(SubscriptionsRoute.name, initialChildren: children);
+      : super(
+          SubscriptionsRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'SubscriptionsRoute';
 
@@ -352,18 +461,18 @@ class ViewMapRoute extends PageRouteInfo<ViewMapRouteArgs> {
     required VoidCallback onChanged,
     Key? key,
     bool isShopLocation = false,
-    int? shopId,
+    String? shopId,
     List<PageRouteInfo>? children,
   }) : super(
-         ViewMapRoute.name,
-         args: ViewMapRouteArgs(
-           onChanged: onChanged,
-           key: key,
-           isShopLocation: isShopLocation,
-           shopId: shopId,
-         ),
-         initialChildren: children,
-       );
+          ViewMapRoute.name,
+          args: ViewMapRouteArgs(
+            onChanged: onChanged,
+            key: key,
+            isShopLocation: isShopLocation,
+            shopId: shopId,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'ViewMapRoute';
 
@@ -395,40 +504,29 @@ class ViewMapRouteArgs {
 
   final bool isShopLocation;
 
-  final int? shopId;
+  final String? shopId;
 
   @override
   String toString() {
     return 'ViewMapRouteArgs{onChanged: $onChanged, key: $key, isShopLocation: $isShopLocation, shopId: $shopId}';
   }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ViewMapRouteArgs) return false;
-    return onChanged == other.onChanged &&
-        key == other.key &&
-        isShopLocation == other.isShopLocation &&
-        shopId == other.shopId;
-  }
-
-  @override
-  int get hashCode =>
-      onChanged.hashCode ^
-      key.hashCode ^
-      isShopLocation.hashCode ^
-      shopId.hashCode;
 }
 
 /// generated route for
 /// [WebViewPage]
 class WebViewRoute extends PageRouteInfo<WebViewRouteArgs> {
-  WebViewRoute({Key? key, required String url, List<PageRouteInfo>? children})
-    : super(
-        WebViewRoute.name,
-        args: WebViewRouteArgs(key: key, url: url),
-        initialChildren: children,
-      );
+  WebViewRoute({
+    Key? key,
+    required String url,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WebViewRoute.name,
+          args: WebViewRouteArgs(
+            key: key,
+            url: url,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'WebViewRoute';
 
@@ -436,13 +534,19 @@ class WebViewRoute extends PageRouteInfo<WebViewRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<WebViewRouteArgs>();
-      return WebViewPage(key: args.key, url: args.url);
+      return WebViewPage(
+        key: args.key,
+        url: args.url,
+      );
     },
   );
 }
 
 class WebViewRouteArgs {
-  const WebViewRouteArgs({this.key, required this.url});
+  const WebViewRouteArgs({
+    this.key,
+    required this.url,
+  });
 
   final Key? key;
 
@@ -452,14 +556,4 @@ class WebViewRouteArgs {
   String toString() {
     return 'WebViewRouteArgs{key: $key, url: $url}';
   }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! WebViewRouteArgs) return false;
-    return key == other.key && url == other.url;
-  }
-
-  @override
-  int get hashCode => key.hashCode ^ url.hashCode;
 }
