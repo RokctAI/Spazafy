@@ -12,7 +12,8 @@ part of 'addons_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AddonsState {
@@ -27,8 +28,9 @@ mixin _$AddonsState {
 /// @nodoc
 abstract class $AddonsStateCopyWith<$Res> {
   factory $AddonsStateCopyWith(
-          AddonsState value, $Res Function(AddonsState) then) =
-      _$AddonsStateCopyWithImpl<$Res, AddonsState>;
+    AddonsState value,
+    $Res Function(AddonsState) then,
+  ) = _$AddonsStateCopyWithImpl<$Res, AddonsState>;
   @useResult
   $Res call({bool isLoading, List<ProductData> addons});
 }
@@ -45,20 +47,20 @@ class _$AddonsStateCopyWithImpl<$Res, $Val extends AddonsState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? addons = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      addons: null == addons
-          ? _value.addons
-          : addons // ignore: cast_nullable_to_non_nullable
-              as List<ProductData>,
-    ) as $Val);
+  $Res call({Object? isLoading = null, Object? addons = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            addons: null == addons
+                ? _value.addons
+                : addons // ignore: cast_nullable_to_non_nullable
+                      as List<ProductData>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -66,8 +68,9 @@ class _$AddonsStateCopyWithImpl<$Res, $Val extends AddonsState>
 abstract class _$$AddonsStateImplCopyWith<$Res>
     implements $AddonsStateCopyWith<$Res> {
   factory _$$AddonsStateImplCopyWith(
-          _$AddonsStateImpl value, $Res Function(_$AddonsStateImpl) then) =
-      __$$AddonsStateImplCopyWithImpl<$Res>;
+    _$AddonsStateImpl value,
+    $Res Function(_$AddonsStateImpl) then,
+  ) = __$$AddonsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, List<ProductData> addons});
@@ -78,35 +81,36 @@ class __$$AddonsStateImplCopyWithImpl<$Res>
     extends _$AddonsStateCopyWithImpl<$Res, _$AddonsStateImpl>
     implements _$$AddonsStateImplCopyWith<$Res> {
   __$$AddonsStateImplCopyWithImpl(
-      _$AddonsStateImpl _value, $Res Function(_$AddonsStateImpl) _then)
-      : super(_value, _then);
+    _$AddonsStateImpl _value,
+    $Res Function(_$AddonsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? addons = null,
-  }) {
-    return _then(_$AddonsStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      addons: null == addons
-          ? _value._addons
-          : addons // ignore: cast_nullable_to_non_nullable
-              as List<ProductData>,
-    ));
+  $Res call({Object? isLoading = null, Object? addons = null}) {
+    return _then(
+      _$AddonsStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        addons: null == addons
+            ? _value._addons
+            : addons // ignore: cast_nullable_to_non_nullable
+                  as List<ProductData>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$AddonsStateImpl extends _AddonsState {
-  const _$AddonsStateImpl(
-      {this.isLoading = false, final List<ProductData> addons = const []})
-      : _addons = addons,
-        super._();
+  const _$AddonsStateImpl({
+    this.isLoading = false,
+    final List<ProductData> addons = const [],
+  }) : _addons = addons,
+       super._();
 
   @override
   @JsonKey()
@@ -137,7 +141,10 @@ class _$AddonsStateImpl extends _AddonsState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, isLoading, const DeepCollectionEquality().hash(_addons));
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_addons),
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -147,9 +154,10 @@ class _$AddonsStateImpl extends _AddonsState {
 }
 
 abstract class _AddonsState extends AddonsState {
-  const factory _AddonsState(
-      {final bool isLoading,
-      final List<ProductData> addons}) = _$AddonsStateImpl;
+  const factory _AddonsState({
+    final bool isLoading,
+    final List<ProductData> addons,
+  }) = _$AddonsStateImpl;
   const _AddonsState._() : super._();
 
   @override

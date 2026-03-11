@@ -12,7 +12,8 @@ part of 'login_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$LoginState {
@@ -33,18 +34,20 @@ mixin _$LoginState {
 /// @nodoc
 abstract class $LoginStateCopyWith<$Res> {
   factory $LoginStateCopyWith(
-          LoginState value, $Res Function(LoginState) then) =
-      _$LoginStateCopyWithImpl<$Res, LoginState>;
+    LoginState value,
+    $Res Function(LoginState) then,
+  ) = _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool showPassword,
-      bool isKeepLogin,
-      bool isLoginError,
-      bool isGoogleLoading,
-      bool isEmailNotValid,
-      bool isPhoneNotValid,
-      bool isPasswordNotValid});
+  $Res call({
+    bool isLoading,
+    bool showPassword,
+    bool isKeepLogin,
+    bool isLoginError,
+    bool isGoogleLoading,
+    bool isEmailNotValid,
+    bool isPhoneNotValid,
+    bool isPasswordNotValid,
+  });
 }
 
 /// @nodoc
@@ -69,40 +72,43 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? isPhoneNotValid = null,
     Object? isPasswordNotValid = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      showPassword: null == showPassword
-          ? _value.showPassword
-          : showPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isKeepLogin: null == isKeepLogin
-          ? _value.isKeepLogin
-          : isKeepLogin // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLoginError: null == isLoginError
-          ? _value.isLoginError
-          : isLoginError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGoogleLoading: null == isGoogleLoading
-          ? _value.isGoogleLoading
-          : isGoogleLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isEmailNotValid: null == isEmailNotValid
-          ? _value.isEmailNotValid
-          : isEmailNotValid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPhoneNotValid: null == isPhoneNotValid
-          ? _value.isPhoneNotValid
-          : isPhoneNotValid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPasswordNotValid: null == isPasswordNotValid
-          ? _value.isPasswordNotValid
-          : isPasswordNotValid // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            showPassword: null == showPassword
+                ? _value.showPassword
+                : showPassword // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isKeepLogin: null == isKeepLogin
+                ? _value.isKeepLogin
+                : isKeepLogin // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isLoginError: null == isLoginError
+                ? _value.isLoginError
+                : isLoginError // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isGoogleLoading: null == isGoogleLoading
+                ? _value.isGoogleLoading
+                : isGoogleLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isEmailNotValid: null == isEmailNotValid
+                ? _value.isEmailNotValid
+                : isEmailNotValid // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isPhoneNotValid: null == isPhoneNotValid
+                ? _value.isPhoneNotValid
+                : isPhoneNotValid // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isPasswordNotValid: null == isPasswordNotValid
+                ? _value.isPasswordNotValid
+                : isPasswordNotValid // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -110,19 +116,21 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
 abstract class _$$LoginStateImplCopyWith<$Res>
     implements $LoginStateCopyWith<$Res> {
   factory _$$LoginStateImplCopyWith(
-          _$LoginStateImpl value, $Res Function(_$LoginStateImpl) then) =
-      __$$LoginStateImplCopyWithImpl<$Res>;
+    _$LoginStateImpl value,
+    $Res Function(_$LoginStateImpl) then,
+  ) = __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool showPassword,
-      bool isKeepLogin,
-      bool isLoginError,
-      bool isGoogleLoading,
-      bool isEmailNotValid,
-      bool isPhoneNotValid,
-      bool isPasswordNotValid});
+  $Res call({
+    bool isLoading,
+    bool showPassword,
+    bool isKeepLogin,
+    bool isLoginError,
+    bool isGoogleLoading,
+    bool isEmailNotValid,
+    bool isPhoneNotValid,
+    bool isPasswordNotValid,
+  });
 }
 
 /// @nodoc
@@ -130,8 +138,9 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     extends _$LoginStateCopyWithImpl<$Res, _$LoginStateImpl>
     implements _$$LoginStateImplCopyWith<$Res> {
   __$$LoginStateImplCopyWithImpl(
-      _$LoginStateImpl _value, $Res Function(_$LoginStateImpl) _then)
-      : super(_value, _then);
+    _$LoginStateImpl _value,
+    $Res Function(_$LoginStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -145,56 +154,58 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     Object? isPhoneNotValid = null,
     Object? isPasswordNotValid = null,
   }) {
-    return _then(_$LoginStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      showPassword: null == showPassword
-          ? _value.showPassword
-          : showPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isKeepLogin: null == isKeepLogin
-          ? _value.isKeepLogin
-          : isKeepLogin // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLoginError: null == isLoginError
-          ? _value.isLoginError
-          : isLoginError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isGoogleLoading: null == isGoogleLoading
-          ? _value.isGoogleLoading
-          : isGoogleLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isEmailNotValid: null == isEmailNotValid
-          ? _value.isEmailNotValid
-          : isEmailNotValid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPhoneNotValid: null == isPhoneNotValid
-          ? _value.isPhoneNotValid
-          : isPhoneNotValid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPasswordNotValid: null == isPasswordNotValid
-          ? _value.isPasswordNotValid
-          : isPasswordNotValid // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+    return _then(
+      _$LoginStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        showPassword: null == showPassword
+            ? _value.showPassword
+            : showPassword // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isKeepLogin: null == isKeepLogin
+            ? _value.isKeepLogin
+            : isKeepLogin // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isLoginError: null == isLoginError
+            ? _value.isLoginError
+            : isLoginError // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isGoogleLoading: null == isGoogleLoading
+            ? _value.isGoogleLoading
+            : isGoogleLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isEmailNotValid: null == isEmailNotValid
+            ? _value.isEmailNotValid
+            : isEmailNotValid // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isPhoneNotValid: null == isPhoneNotValid
+            ? _value.isPhoneNotValid
+            : isPhoneNotValid // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isPasswordNotValid: null == isPasswordNotValid
+            ? _value.isPasswordNotValid
+            : isPasswordNotValid // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$LoginStateImpl extends _LoginState {
-  const _$LoginStateImpl(
-      {this.isLoading = false,
-      this.showPassword = false,
-      this.isKeepLogin = true,
-      this.isLoginError = false,
-      this.isGoogleLoading = false,
-      this.isEmailNotValid = false,
-      this.isPhoneNotValid = false,
-      this.isPasswordNotValid = false})
-      : super._();
+  const _$LoginStateImpl({
+    this.isLoading = false,
+    this.showPassword = false,
+    this.isKeepLogin = true,
+    this.isLoginError = false,
+    this.isGoogleLoading = false,
+    this.isEmailNotValid = false,
+    this.isPhoneNotValid = false,
+    this.isPasswordNotValid = false,
+  }) : super._();
 
   @override
   @JsonKey()
@@ -251,15 +262,16 @@ class _$LoginStateImpl extends _LoginState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      showPassword,
-      isKeepLogin,
-      isLoginError,
-      isGoogleLoading,
-      isEmailNotValid,
-      isPhoneNotValid,
-      isPasswordNotValid);
+    runtimeType,
+    isLoading,
+    showPassword,
+    isKeepLogin,
+    isLoginError,
+    isGoogleLoading,
+    isEmailNotValid,
+    isPhoneNotValid,
+    isPasswordNotValid,
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -269,15 +281,16 @@ class _$LoginStateImpl extends _LoginState {
 }
 
 abstract class _LoginState extends LoginState {
-  const factory _LoginState(
-      {final bool isLoading,
-      final bool showPassword,
-      final bool isKeepLogin,
-      final bool isLoginError,
-      final bool isGoogleLoading,
-      final bool isEmailNotValid,
-      final bool isPhoneNotValid,
-      final bool isPasswordNotValid}) = _$LoginStateImpl;
+  const factory _LoginState({
+    final bool isLoading,
+    final bool showPassword,
+    final bool isKeepLogin,
+    final bool isLoginError,
+    final bool isGoogleLoading,
+    final bool isEmailNotValid,
+    final bool isPhoneNotValid,
+    final bool isPasswordNotValid,
+  }) = _$LoginStateImpl;
   const _LoginState._() : super._();
 
   @override

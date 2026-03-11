@@ -12,7 +12,8 @@ part of 'register_confirmation_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$RegisterConfirmationState {
@@ -34,26 +35,30 @@ mixin _$RegisterConfirmationState {
 
 /// @nodoc
 abstract class $RegisterConfirmationStateCopyWith<$Res> {
-  factory $RegisterConfirmationStateCopyWith(RegisterConfirmationState value,
-          $Res Function(RegisterConfirmationState) then) =
-      _$RegisterConfirmationStateCopyWithImpl<$Res, RegisterConfirmationState>;
+  factory $RegisterConfirmationStateCopyWith(
+    RegisterConfirmationState value,
+    $Res Function(RegisterConfirmationState) then,
+  ) = _$RegisterConfirmationStateCopyWithImpl<$Res, RegisterConfirmationState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isSuccess,
-      bool isResetPasswordSuccess,
-      bool isResending,
-      bool isTimeExpired,
-      bool isCodeError,
-      bool isConfirm,
-      String confirmCode,
-      String verificationCode,
-      String timerText});
+  $Res call({
+    bool isLoading,
+    bool isSuccess,
+    bool isResetPasswordSuccess,
+    bool isResending,
+    bool isTimeExpired,
+    bool isCodeError,
+    bool isConfirm,
+    String confirmCode,
+    String verificationCode,
+    String timerText,
+  });
 }
 
 /// @nodoc
-class _$RegisterConfirmationStateCopyWithImpl<$Res,
-        $Val extends RegisterConfirmationState>
+class _$RegisterConfirmationStateCopyWithImpl<
+  $Res,
+  $Val extends RegisterConfirmationState
+>
     implements $RegisterConfirmationStateCopyWith<$Res> {
   _$RegisterConfirmationStateCopyWithImpl(this._value, this._then);
 
@@ -76,48 +81,51 @@ class _$RegisterConfirmationStateCopyWithImpl<$Res,
     Object? verificationCode = null,
     Object? timerText = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSuccess: null == isSuccess
-          ? _value.isSuccess
-          : isSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isResetPasswordSuccess: null == isResetPasswordSuccess
-          ? _value.isResetPasswordSuccess
-          : isResetPasswordSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isResending: null == isResending
-          ? _value.isResending
-          : isResending // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isTimeExpired: null == isTimeExpired
-          ? _value.isTimeExpired
-          : isTimeExpired // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCodeError: null == isCodeError
-          ? _value.isCodeError
-          : isCodeError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isConfirm: null == isConfirm
-          ? _value.isConfirm
-          : isConfirm // ignore: cast_nullable_to_non_nullable
-              as bool,
-      confirmCode: null == confirmCode
-          ? _value.confirmCode
-          : confirmCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      verificationCode: null == verificationCode
-          ? _value.verificationCode
-          : verificationCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      timerText: null == timerText
-          ? _value.timerText
-          : timerText // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isSuccess: null == isSuccess
+                ? _value.isSuccess
+                : isSuccess // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isResetPasswordSuccess: null == isResetPasswordSuccess
+                ? _value.isResetPasswordSuccess
+                : isResetPasswordSuccess // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isResending: null == isResending
+                ? _value.isResending
+                : isResending // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isTimeExpired: null == isTimeExpired
+                ? _value.isTimeExpired
+                : isTimeExpired // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isCodeError: null == isCodeError
+                ? _value.isCodeError
+                : isCodeError // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isConfirm: null == isConfirm
+                ? _value.isConfirm
+                : isConfirm // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            confirmCode: null == confirmCode
+                ? _value.confirmCode
+                : confirmCode // ignore: cast_nullable_to_non_nullable
+                      as String,
+            verificationCode: null == verificationCode
+                ? _value.verificationCode
+                : verificationCode // ignore: cast_nullable_to_non_nullable
+                      as String,
+            timerText: null == timerText
+                ? _value.timerText
+                : timerText // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -125,33 +133,37 @@ class _$RegisterConfirmationStateCopyWithImpl<$Res,
 abstract class _$$RegisterConfirmationStateImplCopyWith<$Res>
     implements $RegisterConfirmationStateCopyWith<$Res> {
   factory _$$RegisterConfirmationStateImplCopyWith(
-          _$RegisterConfirmationStateImpl value,
-          $Res Function(_$RegisterConfirmationStateImpl) then) =
-      __$$RegisterConfirmationStateImplCopyWithImpl<$Res>;
+    _$RegisterConfirmationStateImpl value,
+    $Res Function(_$RegisterConfirmationStateImpl) then,
+  ) = __$$RegisterConfirmationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isSuccess,
-      bool isResetPasswordSuccess,
-      bool isResending,
-      bool isTimeExpired,
-      bool isCodeError,
-      bool isConfirm,
-      String confirmCode,
-      String verificationCode,
-      String timerText});
+  $Res call({
+    bool isLoading,
+    bool isSuccess,
+    bool isResetPasswordSuccess,
+    bool isResending,
+    bool isTimeExpired,
+    bool isCodeError,
+    bool isConfirm,
+    String confirmCode,
+    String verificationCode,
+    String timerText,
+  });
 }
 
 /// @nodoc
 class __$$RegisterConfirmationStateImplCopyWithImpl<$Res>
-    extends _$RegisterConfirmationStateCopyWithImpl<$Res,
-        _$RegisterConfirmationStateImpl>
+    extends
+        _$RegisterConfirmationStateCopyWithImpl<
+          $Res,
+          _$RegisterConfirmationStateImpl
+        >
     implements _$$RegisterConfirmationStateImplCopyWith<$Res> {
   __$$RegisterConfirmationStateImplCopyWithImpl(
-      _$RegisterConfirmationStateImpl _value,
-      $Res Function(_$RegisterConfirmationStateImpl) _then)
-      : super(_value, _then);
+    _$RegisterConfirmationStateImpl _value,
+    $Res Function(_$RegisterConfirmationStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -167,66 +179,68 @@ class __$$RegisterConfirmationStateImplCopyWithImpl<$Res>
     Object? verificationCode = null,
     Object? timerText = null,
   }) {
-    return _then(_$RegisterConfirmationStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSuccess: null == isSuccess
-          ? _value.isSuccess
-          : isSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isResetPasswordSuccess: null == isResetPasswordSuccess
-          ? _value.isResetPasswordSuccess
-          : isResetPasswordSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isResending: null == isResending
-          ? _value.isResending
-          : isResending // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isTimeExpired: null == isTimeExpired
-          ? _value.isTimeExpired
-          : isTimeExpired // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCodeError: null == isCodeError
-          ? _value.isCodeError
-          : isCodeError // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isConfirm: null == isConfirm
-          ? _value.isConfirm
-          : isConfirm // ignore: cast_nullable_to_non_nullable
-              as bool,
-      confirmCode: null == confirmCode
-          ? _value.confirmCode
-          : confirmCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      verificationCode: null == verificationCode
-          ? _value.verificationCode
-          : verificationCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      timerText: null == timerText
-          ? _value.timerText
-          : timerText // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$RegisterConfirmationStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isSuccess: null == isSuccess
+            ? _value.isSuccess
+            : isSuccess // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isResetPasswordSuccess: null == isResetPasswordSuccess
+            ? _value.isResetPasswordSuccess
+            : isResetPasswordSuccess // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isResending: null == isResending
+            ? _value.isResending
+            : isResending // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isTimeExpired: null == isTimeExpired
+            ? _value.isTimeExpired
+            : isTimeExpired // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isCodeError: null == isCodeError
+            ? _value.isCodeError
+            : isCodeError // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isConfirm: null == isConfirm
+            ? _value.isConfirm
+            : isConfirm // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        confirmCode: null == confirmCode
+            ? _value.confirmCode
+            : confirmCode // ignore: cast_nullable_to_non_nullable
+                  as String,
+        verificationCode: null == verificationCode
+            ? _value.verificationCode
+            : verificationCode // ignore: cast_nullable_to_non_nullable
+                  as String,
+        timerText: null == timerText
+            ? _value.timerText
+            : timerText // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$RegisterConfirmationStateImpl extends _RegisterConfirmationState {
-  const _$RegisterConfirmationStateImpl(
-      {this.isLoading = false,
-      this.isSuccess = false,
-      this.isResetPasswordSuccess = false,
-      this.isResending = false,
-      this.isTimeExpired = false,
-      this.isCodeError = false,
-      this.isConfirm = false,
-      this.confirmCode = '',
-      this.verificationCode = '',
-      this.timerText = '05:00'})
-      : super._();
+  const _$RegisterConfirmationStateImpl({
+    this.isLoading = false,
+    this.isSuccess = false,
+    this.isResetPasswordSuccess = false,
+    this.isResending = false,
+    this.isTimeExpired = false,
+    this.isCodeError = false,
+    this.isConfirm = false,
+    this.confirmCode = '',
+    this.verificationCode = '',
+    this.timerText = '05:00',
+  }) : super._();
 
   @override
   @JsonKey()
@@ -293,38 +307,42 @@ class _$RegisterConfirmationStateImpl extends _RegisterConfirmationState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isSuccess,
-      isResetPasswordSuccess,
-      isResending,
-      isTimeExpired,
-      isCodeError,
-      isConfirm,
-      confirmCode,
-      verificationCode,
-      timerText);
+    runtimeType,
+    isLoading,
+    isSuccess,
+    isResetPasswordSuccess,
+    isResending,
+    isTimeExpired,
+    isCodeError,
+    isConfirm,
+    confirmCode,
+    verificationCode,
+    timerText,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$RegisterConfirmationStateImplCopyWith<_$RegisterConfirmationStateImpl>
-      get copyWith => __$$RegisterConfirmationStateImplCopyWithImpl<
-          _$RegisterConfirmationStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$RegisterConfirmationStateImplCopyWithImpl<
+        _$RegisterConfirmationStateImpl
+      >(this, _$identity);
 }
 
 abstract class _RegisterConfirmationState extends RegisterConfirmationState {
-  const factory _RegisterConfirmationState(
-      {final bool isLoading,
-      final bool isSuccess,
-      final bool isResetPasswordSuccess,
-      final bool isResending,
-      final bool isTimeExpired,
-      final bool isCodeError,
-      final bool isConfirm,
-      final String confirmCode,
-      final String verificationCode,
-      final String timerText}) = _$RegisterConfirmationStateImpl;
+  const factory _RegisterConfirmationState({
+    final bool isLoading,
+    final bool isSuccess,
+    final bool isResetPasswordSuccess,
+    final bool isResending,
+    final bool isTimeExpired,
+    final bool isCodeError,
+    final bool isConfirm,
+    final String confirmCode,
+    final String verificationCode,
+    final String timerText,
+  }) = _$RegisterConfirmationStateImpl;
   const _RegisterConfirmationState._() : super._();
 
   @override
@@ -350,5 +368,5 @@ abstract class _RegisterConfirmationState extends RegisterConfirmationState {
   @override
   @JsonKey(ignore: true)
   _$$RegisterConfirmationStateImplCopyWith<_$RegisterConfirmationStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,8 @@ part of 'create_food_units_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CreateFoodUnitsState {
@@ -29,20 +30,24 @@ mixin _$CreateFoodUnitsState {
 
 /// @nodoc
 abstract class $CreateFoodUnitsStateCopyWith<$Res> {
-  factory $CreateFoodUnitsStateCopyWith(CreateFoodUnitsState value,
-          $Res Function(CreateFoodUnitsState) then) =
-      _$CreateFoodUnitsStateCopyWithImpl<$Res, CreateFoodUnitsState>;
+  factory $CreateFoodUnitsStateCopyWith(
+    CreateFoodUnitsState value,
+    $Res Function(CreateFoodUnitsState) then,
+  ) = _$CreateFoodUnitsStateCopyWithImpl<$Res, CreateFoodUnitsState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      List<UnitData> units,
-      int activeIndex,
-      TextEditingController? unitController});
+  $Res call({
+    bool isLoading,
+    List<UnitData> units,
+    int activeIndex,
+    TextEditingController? unitController,
+  });
 }
 
 /// @nodoc
-class _$CreateFoodUnitsStateCopyWithImpl<$Res,
-        $Val extends CreateFoodUnitsState>
+class _$CreateFoodUnitsStateCopyWithImpl<
+  $Res,
+  $Val extends CreateFoodUnitsState
+>
     implements $CreateFoodUnitsStateCopyWith<$Res> {
   _$CreateFoodUnitsStateCopyWithImpl(this._value, this._then);
 
@@ -59,49 +64,55 @@ class _$CreateFoodUnitsStateCopyWithImpl<$Res,
     Object? activeIndex = null,
     Object? unitController = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      units: null == units
-          ? _value.units
-          : units // ignore: cast_nullable_to_non_nullable
-              as List<UnitData>,
-      activeIndex: null == activeIndex
-          ? _value.activeIndex
-          : activeIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      unitController: freezed == unitController
-          ? _value.unitController
-          : unitController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            units: null == units
+                ? _value.units
+                : units // ignore: cast_nullable_to_non_nullable
+                      as List<UnitData>,
+            activeIndex: null == activeIndex
+                ? _value.activeIndex
+                : activeIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            unitController: freezed == unitController
+                ? _value.unitController
+                : unitController // ignore: cast_nullable_to_non_nullable
+                      as TextEditingController?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CreateFoodUnitsStateImplCopyWith<$Res>
     implements $CreateFoodUnitsStateCopyWith<$Res> {
-  factory _$$CreateFoodUnitsStateImplCopyWith(_$CreateFoodUnitsStateImpl value,
-          $Res Function(_$CreateFoodUnitsStateImpl) then) =
-      __$$CreateFoodUnitsStateImplCopyWithImpl<$Res>;
+  factory _$$CreateFoodUnitsStateImplCopyWith(
+    _$CreateFoodUnitsStateImpl value,
+    $Res Function(_$CreateFoodUnitsStateImpl) then,
+  ) = __$$CreateFoodUnitsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      List<UnitData> units,
-      int activeIndex,
-      TextEditingController? unitController});
+  $Res call({
+    bool isLoading,
+    List<UnitData> units,
+    int activeIndex,
+    TextEditingController? unitController,
+  });
 }
 
 /// @nodoc
 class __$$CreateFoodUnitsStateImplCopyWithImpl<$Res>
     extends _$CreateFoodUnitsStateCopyWithImpl<$Res, _$CreateFoodUnitsStateImpl>
     implements _$$CreateFoodUnitsStateImplCopyWith<$Res> {
-  __$$CreateFoodUnitsStateImplCopyWithImpl(_$CreateFoodUnitsStateImpl _value,
-      $Res Function(_$CreateFoodUnitsStateImpl) _then)
-      : super(_value, _then);
+  __$$CreateFoodUnitsStateImplCopyWithImpl(
+    _$CreateFoodUnitsStateImpl _value,
+    $Res Function(_$CreateFoodUnitsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -111,37 +122,39 @@ class __$$CreateFoodUnitsStateImplCopyWithImpl<$Res>
     Object? activeIndex = null,
     Object? unitController = freezed,
   }) {
-    return _then(_$CreateFoodUnitsStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      units: null == units
-          ? _value._units
-          : units // ignore: cast_nullable_to_non_nullable
-              as List<UnitData>,
-      activeIndex: null == activeIndex
-          ? _value.activeIndex
-          : activeIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      unitController: freezed == unitController
-          ? _value.unitController
-          : unitController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-    ));
+    return _then(
+      _$CreateFoodUnitsStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        units: null == units
+            ? _value._units
+            : units // ignore: cast_nullable_to_non_nullable
+                  as List<UnitData>,
+        activeIndex: null == activeIndex
+            ? _value.activeIndex
+            : activeIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        unitController: freezed == unitController
+            ? _value.unitController
+            : unitController // ignore: cast_nullable_to_non_nullable
+                  as TextEditingController?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CreateFoodUnitsStateImpl extends _CreateFoodUnitsState {
-  const _$CreateFoodUnitsStateImpl(
-      {this.isLoading = false,
-      final List<UnitData> units = const [],
-      this.activeIndex = 0,
-      this.unitController})
-      : _units = units,
-        super._();
+  const _$CreateFoodUnitsStateImpl({
+    this.isLoading = false,
+    final List<UnitData> units = const [],
+    this.activeIndex = 0,
+    this.unitController,
+  }) : _units = units,
+       super._();
 
   @override
   @JsonKey()
@@ -181,25 +194,32 @@ class _$CreateFoodUnitsStateImpl extends _CreateFoodUnitsState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading,
-      const DeepCollectionEquality().hash(_units), activeIndex, unitController);
+  int get hashCode => Object.hash(
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_units),
+    activeIndex,
+    unitController,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateFoodUnitsStateImplCopyWith<_$CreateFoodUnitsStateImpl>
-      get copyWith =>
-          __$$CreateFoodUnitsStateImplCopyWithImpl<_$CreateFoodUnitsStateImpl>(
-              this, _$identity);
+  get copyWith =>
+      __$$CreateFoodUnitsStateImplCopyWithImpl<_$CreateFoodUnitsStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CreateFoodUnitsState extends CreateFoodUnitsState {
-  const factory _CreateFoodUnitsState(
-          {final bool isLoading,
-          final List<UnitData> units,
-          final int activeIndex,
-          final TextEditingController? unitController}) =
-      _$CreateFoodUnitsStateImpl;
+  const factory _CreateFoodUnitsState({
+    final bool isLoading,
+    final List<UnitData> units,
+    final int activeIndex,
+    final TextEditingController? unitController,
+  }) = _$CreateFoodUnitsStateImpl;
   const _CreateFoodUnitsState._() : super._();
 
   @override
@@ -213,5 +233,5 @@ abstract class _CreateFoodUnitsState extends CreateFoodUnitsState {
   @override
   @JsonKey(ignore: true)
   _$$CreateFoodUnitsStateImplCopyWith<_$CreateFoodUnitsStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

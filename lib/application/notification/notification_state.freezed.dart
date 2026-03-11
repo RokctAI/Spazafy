@@ -12,7 +12,8 @@ part of 'notification_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$NotificationState {
@@ -31,14 +32,16 @@ mixin _$NotificationState {
 /// @nodoc
 abstract class $NotificationStateCopyWith<$Res> {
   factory $NotificationStateCopyWith(
-          NotificationState value, $Res Function(NotificationState) then) =
-      _$NotificationStateCopyWithImpl<$Res, NotificationState>;
+    NotificationState value,
+    $Res Function(NotificationState) then,
+  ) = _$NotificationStateCopyWithImpl<$Res, NotificationState>;
   @useResult
-  $Res call(
-      {List<NotificationModel> notifications,
-      CountNotificationModel? countOfNotifications,
-      bool isReadAllLoading,
-      bool isAllNotificationsLoading});
+  $Res call({
+    List<NotificationModel> notifications,
+    CountNotificationModel? countOfNotifications,
+    bool isReadAllLoading,
+    bool isAllNotificationsLoading,
+  });
 }
 
 /// @nodoc
@@ -59,49 +62,55 @@ class _$NotificationStateCopyWithImpl<$Res, $Val extends NotificationState>
     Object? isReadAllLoading = null,
     Object? isAllNotificationsLoading = null,
   }) {
-    return _then(_value.copyWith(
-      notifications: null == notifications
-          ? _value.notifications
-          : notifications // ignore: cast_nullable_to_non_nullable
-              as List<NotificationModel>,
-      countOfNotifications: freezed == countOfNotifications
-          ? _value.countOfNotifications
-          : countOfNotifications // ignore: cast_nullable_to_non_nullable
-              as CountNotificationModel?,
-      isReadAllLoading: null == isReadAllLoading
-          ? _value.isReadAllLoading
-          : isReadAllLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAllNotificationsLoading: null == isAllNotificationsLoading
-          ? _value.isAllNotificationsLoading
-          : isAllNotificationsLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            notifications: null == notifications
+                ? _value.notifications
+                : notifications // ignore: cast_nullable_to_non_nullable
+                      as List<NotificationModel>,
+            countOfNotifications: freezed == countOfNotifications
+                ? _value.countOfNotifications
+                : countOfNotifications // ignore: cast_nullable_to_non_nullable
+                      as CountNotificationModel?,
+            isReadAllLoading: null == isReadAllLoading
+                ? _value.isReadAllLoading
+                : isReadAllLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isAllNotificationsLoading: null == isAllNotificationsLoading
+                ? _value.isAllNotificationsLoading
+                : isAllNotificationsLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$NotificationStateImplCopyWith<$Res>
     implements $NotificationStateCopyWith<$Res> {
-  factory _$$NotificationStateImplCopyWith(_$NotificationStateImpl value,
-          $Res Function(_$NotificationStateImpl) then) =
-      __$$NotificationStateImplCopyWithImpl<$Res>;
+  factory _$$NotificationStateImplCopyWith(
+    _$NotificationStateImpl value,
+    $Res Function(_$NotificationStateImpl) then,
+  ) = __$$NotificationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<NotificationModel> notifications,
-      CountNotificationModel? countOfNotifications,
-      bool isReadAllLoading,
-      bool isAllNotificationsLoading});
+  $Res call({
+    List<NotificationModel> notifications,
+    CountNotificationModel? countOfNotifications,
+    bool isReadAllLoading,
+    bool isAllNotificationsLoading,
+  });
 }
 
 /// @nodoc
 class __$$NotificationStateImplCopyWithImpl<$Res>
     extends _$NotificationStateCopyWithImpl<$Res, _$NotificationStateImpl>
     implements _$$NotificationStateImplCopyWith<$Res> {
-  __$$NotificationStateImplCopyWithImpl(_$NotificationStateImpl _value,
-      $Res Function(_$NotificationStateImpl) _then)
-      : super(_value, _then);
+  __$$NotificationStateImplCopyWithImpl(
+    _$NotificationStateImpl _value,
+    $Res Function(_$NotificationStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -111,37 +120,39 @@ class __$$NotificationStateImplCopyWithImpl<$Res>
     Object? isReadAllLoading = null,
     Object? isAllNotificationsLoading = null,
   }) {
-    return _then(_$NotificationStateImpl(
-      notifications: null == notifications
-          ? _value._notifications
-          : notifications // ignore: cast_nullable_to_non_nullable
-              as List<NotificationModel>,
-      countOfNotifications: freezed == countOfNotifications
-          ? _value.countOfNotifications
-          : countOfNotifications // ignore: cast_nullable_to_non_nullable
-              as CountNotificationModel?,
-      isReadAllLoading: null == isReadAllLoading
-          ? _value.isReadAllLoading
-          : isReadAllLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAllNotificationsLoading: null == isAllNotificationsLoading
-          ? _value.isAllNotificationsLoading
-          : isAllNotificationsLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+    return _then(
+      _$NotificationStateImpl(
+        notifications: null == notifications
+            ? _value._notifications
+            : notifications // ignore: cast_nullable_to_non_nullable
+                  as List<NotificationModel>,
+        countOfNotifications: freezed == countOfNotifications
+            ? _value.countOfNotifications
+            : countOfNotifications // ignore: cast_nullable_to_non_nullable
+                  as CountNotificationModel?,
+        isReadAllLoading: null == isReadAllLoading
+            ? _value.isReadAllLoading
+            : isReadAllLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isAllNotificationsLoading: null == isAllNotificationsLoading
+            ? _value.isAllNotificationsLoading
+            : isAllNotificationsLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$NotificationStateImpl extends _NotificationState {
-  const _$NotificationStateImpl(
-      {final List<NotificationModel> notifications = const [],
-      this.countOfNotifications = null,
-      this.isReadAllLoading = false,
-      this.isAllNotificationsLoading = false})
-      : _notifications = notifications,
-        super._();
+  const _$NotificationStateImpl({
+    final List<NotificationModel> notifications = const [],
+    this.countOfNotifications = null,
+    this.isReadAllLoading = false,
+    this.isAllNotificationsLoading = false,
+  }) : _notifications = notifications,
+       super._();
 
   final List<NotificationModel> _notifications;
   @override
@@ -172,39 +183,47 @@ class _$NotificationStateImpl extends _NotificationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NotificationStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._notifications, _notifications) &&
+            const DeepCollectionEquality().equals(
+              other._notifications,
+              _notifications,
+            ) &&
             (identical(other.countOfNotifications, countOfNotifications) ||
                 other.countOfNotifications == countOfNotifications) &&
             (identical(other.isReadAllLoading, isReadAllLoading) ||
                 other.isReadAllLoading == isReadAllLoading) &&
-            (identical(other.isAllNotificationsLoading,
-                    isAllNotificationsLoading) ||
+            (identical(
+                  other.isAllNotificationsLoading,
+                  isAllNotificationsLoading,
+                ) ||
                 other.isAllNotificationsLoading == isAllNotificationsLoading));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_notifications),
-      countOfNotifications,
-      isReadAllLoading,
-      isAllNotificationsLoading);
+    runtimeType,
+    const DeepCollectionEquality().hash(_notifications),
+    countOfNotifications,
+    isReadAllLoading,
+    isAllNotificationsLoading,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$NotificationStateImplCopyWith<_$NotificationStateImpl> get copyWith =>
       __$$NotificationStateImplCopyWithImpl<_$NotificationStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _NotificationState extends NotificationState {
-  const factory _NotificationState(
-      {final List<NotificationModel> notifications,
-      final CountNotificationModel? countOfNotifications,
-      final bool isReadAllLoading,
-      final bool isAllNotificationsLoading}) = _$NotificationStateImpl;
+  const factory _NotificationState({
+    final List<NotificationModel> notifications,
+    final CountNotificationModel? countOfNotifications,
+    final bool isReadAllLoading,
+    final bool isAllNotificationsLoading,
+  }) = _$NotificationStateImpl;
   const _NotificationState._() : super._();
 
   @override

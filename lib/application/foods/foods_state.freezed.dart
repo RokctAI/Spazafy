@@ -12,7 +12,8 @@ part of 'foods_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$FoodsState {
@@ -28,8 +29,9 @@ mixin _$FoodsState {
 /// @nodoc
 abstract class $FoodsStateCopyWith<$Res> {
   factory $FoodsStateCopyWith(
-          FoodsState value, $Res Function(FoodsState) then) =
-      _$FoodsStateCopyWithImpl<$Res, FoodsState>;
+    FoodsState value,
+    $Res Function(FoodsState) then,
+  ) = _$FoodsStateCopyWithImpl<$Res, FoodsState>;
   @useResult
   $Res call({bool isLoading, List<ProductData> foods, String productType});
 }
@@ -51,20 +53,23 @@ class _$FoodsStateCopyWithImpl<$Res, $Val extends FoodsState>
     Object? foods = null,
     Object? productType = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      foods: null == foods
-          ? _value.foods
-          : foods // ignore: cast_nullable_to_non_nullable
-              as List<ProductData>,
-      productType: null == productType
-          ? _value.productType
-          : productType // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            foods: null == foods
+                ? _value.foods
+                : foods // ignore: cast_nullable_to_non_nullable
+                      as List<ProductData>,
+            productType: null == productType
+                ? _value.productType
+                : productType // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -72,8 +77,9 @@ class _$FoodsStateCopyWithImpl<$Res, $Val extends FoodsState>
 abstract class _$$FoodsStateImplCopyWith<$Res>
     implements $FoodsStateCopyWith<$Res> {
   factory _$$FoodsStateImplCopyWith(
-          _$FoodsStateImpl value, $Res Function(_$FoodsStateImpl) then) =
-      __$$FoodsStateImplCopyWithImpl<$Res>;
+    _$FoodsStateImpl value,
+    $Res Function(_$FoodsStateImpl) then,
+  ) = __$$FoodsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, List<ProductData> foods, String productType});
@@ -84,8 +90,9 @@ class __$$FoodsStateImplCopyWithImpl<$Res>
     extends _$FoodsStateCopyWithImpl<$Res, _$FoodsStateImpl>
     implements _$$FoodsStateImplCopyWith<$Res> {
   __$$FoodsStateImplCopyWithImpl(
-      _$FoodsStateImpl _value, $Res Function(_$FoodsStateImpl) _then)
-      : super(_value, _then);
+    _$FoodsStateImpl _value,
+    $Res Function(_$FoodsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -94,32 +101,34 @@ class __$$FoodsStateImplCopyWithImpl<$Res>
     Object? foods = null,
     Object? productType = null,
   }) {
-    return _then(_$FoodsStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      foods: null == foods
-          ? _value._foods
-          : foods // ignore: cast_nullable_to_non_nullable
-              as List<ProductData>,
-      productType: null == productType
-          ? _value.productType
-          : productType // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$FoodsStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        foods: null == foods
+            ? _value._foods
+            : foods // ignore: cast_nullable_to_non_nullable
+                  as List<ProductData>,
+        productType: null == productType
+            ? _value.productType
+            : productType // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$FoodsStateImpl extends _FoodsState {
-  const _$FoodsStateImpl(
-      {this.isLoading = false,
-      final List<ProductData> foods = const [],
-      this.productType = 'single'})
-      : _foods = foods,
-        super._();
+  const _$FoodsStateImpl({
+    this.isLoading = false,
+    final List<ProductData> foods = const [],
+    this.productType = 'single',
+  }) : _foods = foods,
+       super._();
 
   @override
   @JsonKey()
@@ -155,8 +164,12 @@ class _$FoodsStateImpl extends _FoodsState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading,
-      const DeepCollectionEquality().hash(_foods), productType);
+  int get hashCode => Object.hash(
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_foods),
+    productType,
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -166,10 +179,11 @@ class _$FoodsStateImpl extends _FoodsState {
 }
 
 abstract class _FoodsState extends FoodsState {
-  const factory _FoodsState(
-      {final bool isLoading,
-      final List<ProductData> foods,
-      final String productType}) = _$FoodsStateImpl;
+  const factory _FoodsState({
+    final bool isLoading,
+    final List<ProductData> foods,
+    final String productType,
+  }) = _$FoodsStateImpl;
   const _FoodsState._() : super._();
 
   @override

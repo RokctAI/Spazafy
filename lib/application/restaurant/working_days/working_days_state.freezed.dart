@@ -12,7 +12,8 @@ part of 'working_days_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$WorkingDaysState {
@@ -28,11 +29,15 @@ mixin _$WorkingDaysState {
 /// @nodoc
 abstract class $WorkingDaysStateCopyWith<$Res> {
   factory $WorkingDaysStateCopyWith(
-          WorkingDaysState value, $Res Function(WorkingDaysState) then) =
-      _$WorkingDaysStateCopyWithImpl<$Res, WorkingDaysState>;
+    WorkingDaysState value,
+    $Res Function(WorkingDaysState) then,
+  ) = _$WorkingDaysStateCopyWithImpl<$Res, WorkingDaysState>;
   @useResult
-  $Res call(
-      {bool isLoading, int currentIndex, List<ShopWorkingDays> workingDays});
+  $Res call({
+    bool isLoading,
+    int currentIndex,
+    List<ShopWorkingDays> workingDays,
+  });
 }
 
 /// @nodoc
@@ -52,42 +57,50 @@ class _$WorkingDaysStateCopyWithImpl<$Res, $Val extends WorkingDaysState>
     Object? currentIndex = null,
     Object? workingDays = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      currentIndex: null == currentIndex
-          ? _value.currentIndex
-          : currentIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      workingDays: null == workingDays
-          ? _value.workingDays
-          : workingDays // ignore: cast_nullable_to_non_nullable
-              as List<ShopWorkingDays>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            currentIndex: null == currentIndex
+                ? _value.currentIndex
+                : currentIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            workingDays: null == workingDays
+                ? _value.workingDays
+                : workingDays // ignore: cast_nullable_to_non_nullable
+                      as List<ShopWorkingDays>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$WorkingDaysStateImplCopyWith<$Res>
     implements $WorkingDaysStateCopyWith<$Res> {
-  factory _$$WorkingDaysStateImplCopyWith(_$WorkingDaysStateImpl value,
-          $Res Function(_$WorkingDaysStateImpl) then) =
-      __$$WorkingDaysStateImplCopyWithImpl<$Res>;
+  factory _$$WorkingDaysStateImplCopyWith(
+    _$WorkingDaysStateImpl value,
+    $Res Function(_$WorkingDaysStateImpl) then,
+  ) = __$$WorkingDaysStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading, int currentIndex, List<ShopWorkingDays> workingDays});
+  $Res call({
+    bool isLoading,
+    int currentIndex,
+    List<ShopWorkingDays> workingDays,
+  });
 }
 
 /// @nodoc
 class __$$WorkingDaysStateImplCopyWithImpl<$Res>
     extends _$WorkingDaysStateCopyWithImpl<$Res, _$WorkingDaysStateImpl>
     implements _$$WorkingDaysStateImplCopyWith<$Res> {
-  __$$WorkingDaysStateImplCopyWithImpl(_$WorkingDaysStateImpl _value,
-      $Res Function(_$WorkingDaysStateImpl) _then)
-      : super(_value, _then);
+  __$$WorkingDaysStateImplCopyWithImpl(
+    _$WorkingDaysStateImpl _value,
+    $Res Function(_$WorkingDaysStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -96,32 +109,34 @@ class __$$WorkingDaysStateImplCopyWithImpl<$Res>
     Object? currentIndex = null,
     Object? workingDays = null,
   }) {
-    return _then(_$WorkingDaysStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      currentIndex: null == currentIndex
-          ? _value.currentIndex
-          : currentIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      workingDays: null == workingDays
-          ? _value._workingDays
-          : workingDays // ignore: cast_nullable_to_non_nullable
-              as List<ShopWorkingDays>,
-    ));
+    return _then(
+      _$WorkingDaysStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        currentIndex: null == currentIndex
+            ? _value.currentIndex
+            : currentIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        workingDays: null == workingDays
+            ? _value._workingDays
+            : workingDays // ignore: cast_nullable_to_non_nullable
+                  as List<ShopWorkingDays>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$WorkingDaysStateImpl extends _WorkingDaysState {
-  const _$WorkingDaysStateImpl(
-      {this.isLoading = false,
-      this.currentIndex = 0,
-      final List<ShopWorkingDays> workingDays = const []})
-      : _workingDays = workingDays,
-        super._();
+  const _$WorkingDaysStateImpl({
+    this.isLoading = false,
+    this.currentIndex = 0,
+    final List<ShopWorkingDays> workingDays = const [],
+  }) : _workingDays = workingDays,
+       super._();
 
   @override
   @JsonKey()
@@ -152,27 +167,36 @@ class _$WorkingDaysStateImpl extends _WorkingDaysState {
                 other.isLoading == isLoading) &&
             (identical(other.currentIndex, currentIndex) ||
                 other.currentIndex == currentIndex) &&
-            const DeepCollectionEquality()
-                .equals(other._workingDays, _workingDays));
+            const DeepCollectionEquality().equals(
+              other._workingDays,
+              _workingDays,
+            ));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, currentIndex,
-      const DeepCollectionEquality().hash(_workingDays));
+  int get hashCode => Object.hash(
+    runtimeType,
+    isLoading,
+    currentIndex,
+    const DeepCollectionEquality().hash(_workingDays),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$WorkingDaysStateImplCopyWith<_$WorkingDaysStateImpl> get copyWith =>
       __$$WorkingDaysStateImplCopyWithImpl<_$WorkingDaysStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _WorkingDaysState extends WorkingDaysState {
-  const factory _WorkingDaysState(
-      {final bool isLoading,
-      final int currentIndex,
-      final List<ShopWorkingDays> workingDays}) = _$WorkingDaysStateImpl;
+  const factory _WorkingDaysState({
+    final bool isLoading,
+    final int currentIndex,
+    final List<ShopWorkingDays> workingDays,
+  }) = _$WorkingDaysStateImpl;
   const _WorkingDaysState._() : super._();
 
   @override

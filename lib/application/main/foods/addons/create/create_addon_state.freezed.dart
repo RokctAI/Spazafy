@@ -12,7 +12,8 @@ part of 'create_addon_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CreateAddonState {
@@ -26,8 +27,9 @@ mixin _$CreateAddonState {
 /// @nodoc
 abstract class $CreateAddonStateCopyWith<$Res> {
   factory $CreateAddonStateCopyWith(
-          CreateAddonState value, $Res Function(CreateAddonState) then) =
-      _$CreateAddonStateCopyWithImpl<$Res, CreateAddonState>;
+    CreateAddonState value,
+    $Res Function(CreateAddonState) then,
+  ) = _$CreateAddonStateCopyWithImpl<$Res, CreateAddonState>;
   @useResult
   $Res call({bool isLoading});
 }
@@ -44,24 +46,26 @@ class _$CreateAddonStateCopyWithImpl<$Res, $Val extends CreateAddonState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CreateAddonStateImplCopyWith<$Res>
     implements $CreateAddonStateCopyWith<$Res> {
-  factory _$$CreateAddonStateImplCopyWith(_$CreateAddonStateImpl value,
-          $Res Function(_$CreateAddonStateImpl) then) =
-      __$$CreateAddonStateImplCopyWithImpl<$Res>;
+  factory _$$CreateAddonStateImplCopyWith(
+    _$CreateAddonStateImpl value,
+    $Res Function(_$CreateAddonStateImpl) then,
+  ) = __$$CreateAddonStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
@@ -71,21 +75,22 @@ abstract class _$$CreateAddonStateImplCopyWith<$Res>
 class __$$CreateAddonStateImplCopyWithImpl<$Res>
     extends _$CreateAddonStateCopyWithImpl<$Res, _$CreateAddonStateImpl>
     implements _$$CreateAddonStateImplCopyWith<$Res> {
-  __$$CreateAddonStateImplCopyWithImpl(_$CreateAddonStateImpl _value,
-      $Res Function(_$CreateAddonStateImpl) _then)
-      : super(_value, _then);
+  __$$CreateAddonStateImplCopyWithImpl(
+    _$CreateAddonStateImpl _value,
+    $Res Function(_$CreateAddonStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_$CreateAddonStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _$CreateAddonStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
@@ -120,7 +125,9 @@ class _$CreateAddonStateImpl extends _CreateAddonState {
   @pragma('vm:prefer-inline')
   _$$CreateAddonStateImplCopyWith<_$CreateAddonStateImpl> get copyWith =>
       __$$CreateAddonStateImplCopyWithImpl<_$CreateAddonStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CreateAddonState extends CreateAddonState {

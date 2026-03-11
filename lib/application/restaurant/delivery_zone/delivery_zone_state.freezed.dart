@@ -12,7 +12,8 @@ part of 'delivery_zone_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$DeliveryZoneState {
@@ -30,15 +31,17 @@ mixin _$DeliveryZoneState {
 /// @nodoc
 abstract class $DeliveryZoneStateCopyWith<$Res> {
   factory $DeliveryZoneStateCopyWith(
-          DeliveryZoneState value, $Res Function(DeliveryZoneState) then) =
-      _$DeliveryZoneStateCopyWithImpl<$Res, DeliveryZoneState>;
+    DeliveryZoneState value,
+    $Res Function(DeliveryZoneState) then,
+  ) = _$DeliveryZoneStateCopyWithImpl<$Res, DeliveryZoneState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isSaving,
-      List<List<double>> deliveryZones,
-      List<LatLng> tappedPoints,
-      Set<Polygon> polygon});
+  $Res call({
+    bool isLoading,
+    bool isSaving,
+    List<List<double>> deliveryZones,
+    List<LatLng> tappedPoints,
+    Set<Polygon> polygon,
+  });
 }
 
 /// @nodoc
@@ -60,54 +63,60 @@ class _$DeliveryZoneStateCopyWithImpl<$Res, $Val extends DeliveryZoneState>
     Object? tappedPoints = null,
     Object? polygon = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSaving: null == isSaving
-          ? _value.isSaving
-          : isSaving // ignore: cast_nullable_to_non_nullable
-              as bool,
-      deliveryZones: null == deliveryZones
-          ? _value.deliveryZones
-          : deliveryZones // ignore: cast_nullable_to_non_nullable
-              as List<List<double>>,
-      tappedPoints: null == tappedPoints
-          ? _value.tappedPoints
-          : tappedPoints // ignore: cast_nullable_to_non_nullable
-              as List<LatLng>,
-      polygon: null == polygon
-          ? _value.polygon
-          : polygon // ignore: cast_nullable_to_non_nullable
-              as Set<Polygon>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isSaving: null == isSaving
+                ? _value.isSaving
+                : isSaving // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            deliveryZones: null == deliveryZones
+                ? _value.deliveryZones
+                : deliveryZones // ignore: cast_nullable_to_non_nullable
+                      as List<List<double>>,
+            tappedPoints: null == tappedPoints
+                ? _value.tappedPoints
+                : tappedPoints // ignore: cast_nullable_to_non_nullable
+                      as List<LatLng>,
+            polygon: null == polygon
+                ? _value.polygon
+                : polygon // ignore: cast_nullable_to_non_nullable
+                      as Set<Polygon>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$DeliveryZoneStateImplCopyWith<$Res>
     implements $DeliveryZoneStateCopyWith<$Res> {
-  factory _$$DeliveryZoneStateImplCopyWith(_$DeliveryZoneStateImpl value,
-          $Res Function(_$DeliveryZoneStateImpl) then) =
-      __$$DeliveryZoneStateImplCopyWithImpl<$Res>;
+  factory _$$DeliveryZoneStateImplCopyWith(
+    _$DeliveryZoneStateImpl value,
+    $Res Function(_$DeliveryZoneStateImpl) then,
+  ) = __$$DeliveryZoneStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isSaving,
-      List<List<double>> deliveryZones,
-      List<LatLng> tappedPoints,
-      Set<Polygon> polygon});
+  $Res call({
+    bool isLoading,
+    bool isSaving,
+    List<List<double>> deliveryZones,
+    List<LatLng> tappedPoints,
+    Set<Polygon> polygon,
+  });
 }
 
 /// @nodoc
 class __$$DeliveryZoneStateImplCopyWithImpl<$Res>
     extends _$DeliveryZoneStateCopyWithImpl<$Res, _$DeliveryZoneStateImpl>
     implements _$$DeliveryZoneStateImplCopyWith<$Res> {
-  __$$DeliveryZoneStateImplCopyWithImpl(_$DeliveryZoneStateImpl _value,
-      $Res Function(_$DeliveryZoneStateImpl) _then)
-      : super(_value, _then);
+  __$$DeliveryZoneStateImplCopyWithImpl(
+    _$DeliveryZoneStateImpl _value,
+    $Res Function(_$DeliveryZoneStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -118,44 +127,46 @@ class __$$DeliveryZoneStateImplCopyWithImpl<$Res>
     Object? tappedPoints = null,
     Object? polygon = null,
   }) {
-    return _then(_$DeliveryZoneStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSaving: null == isSaving
-          ? _value.isSaving
-          : isSaving // ignore: cast_nullable_to_non_nullable
-              as bool,
-      deliveryZones: null == deliveryZones
-          ? _value._deliveryZones
-          : deliveryZones // ignore: cast_nullable_to_non_nullable
-              as List<List<double>>,
-      tappedPoints: null == tappedPoints
-          ? _value._tappedPoints
-          : tappedPoints // ignore: cast_nullable_to_non_nullable
-              as List<LatLng>,
-      polygon: null == polygon
-          ? _value._polygon
-          : polygon // ignore: cast_nullable_to_non_nullable
-              as Set<Polygon>,
-    ));
+    return _then(
+      _$DeliveryZoneStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isSaving: null == isSaving
+            ? _value.isSaving
+            : isSaving // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        deliveryZones: null == deliveryZones
+            ? _value._deliveryZones
+            : deliveryZones // ignore: cast_nullable_to_non_nullable
+                  as List<List<double>>,
+        tappedPoints: null == tappedPoints
+            ? _value._tappedPoints
+            : tappedPoints // ignore: cast_nullable_to_non_nullable
+                  as List<LatLng>,
+        polygon: null == polygon
+            ? _value._polygon
+            : polygon // ignore: cast_nullable_to_non_nullable
+                  as Set<Polygon>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$DeliveryZoneStateImpl extends _DeliveryZoneState {
-  const _$DeliveryZoneStateImpl(
-      {this.isLoading = false,
-      this.isSaving = false,
-      final List<List<double>> deliveryZones = const [],
-      final List<LatLng> tappedPoints = const [],
-      final Set<Polygon> polygon = const {}})
-      : _deliveryZones = deliveryZones,
-        _tappedPoints = tappedPoints,
-        _polygon = polygon,
-        super._();
+  const _$DeliveryZoneStateImpl({
+    this.isLoading = false,
+    this.isSaving = false,
+    final List<List<double>> deliveryZones = const [],
+    final List<LatLng> tappedPoints = const [],
+    final Set<Polygon> polygon = const {},
+  }) : _deliveryZones = deliveryZones,
+       _tappedPoints = tappedPoints,
+       _polygon = polygon,
+       super._();
 
   @override
   @JsonKey()
@@ -204,37 +215,45 @@ class _$DeliveryZoneStateImpl extends _DeliveryZoneState {
                 other.isLoading == isLoading) &&
             (identical(other.isSaving, isSaving) ||
                 other.isSaving == isSaving) &&
-            const DeepCollectionEquality()
-                .equals(other._deliveryZones, _deliveryZones) &&
-            const DeepCollectionEquality()
-                .equals(other._tappedPoints, _tappedPoints) &&
+            const DeepCollectionEquality().equals(
+              other._deliveryZones,
+              _deliveryZones,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._tappedPoints,
+              _tappedPoints,
+            ) &&
             const DeepCollectionEquality().equals(other._polygon, _polygon));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isSaving,
-      const DeepCollectionEquality().hash(_deliveryZones),
-      const DeepCollectionEquality().hash(_tappedPoints),
-      const DeepCollectionEquality().hash(_polygon));
+    runtimeType,
+    isLoading,
+    isSaving,
+    const DeepCollectionEquality().hash(_deliveryZones),
+    const DeepCollectionEquality().hash(_tappedPoints),
+    const DeepCollectionEquality().hash(_polygon),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$DeliveryZoneStateImplCopyWith<_$DeliveryZoneStateImpl> get copyWith =>
       __$$DeliveryZoneStateImplCopyWithImpl<_$DeliveryZoneStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _DeliveryZoneState extends DeliveryZoneState {
-  const factory _DeliveryZoneState(
-      {final bool isLoading,
-      final bool isSaving,
-      final List<List<double>> deliveryZones,
-      final List<LatLng> tappedPoints,
-      final Set<Polygon> polygon}) = _$DeliveryZoneStateImpl;
+  const factory _DeliveryZoneState({
+    final bool isLoading,
+    final bool isSaving,
+    final List<List<double>> deliveryZones,
+    final List<LatLng> tappedPoints,
+    final Set<Polygon> polygon,
+  }) = _$DeliveryZoneStateImpl;
   const _DeliveryZoneState._() : super._();
 
   @override

@@ -12,7 +12,8 @@ part of 'edit_food_categories_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$EditFoodCategoriesState {
@@ -30,21 +31,25 @@ mixin _$EditFoodCategoriesState {
 
 /// @nodoc
 abstract class $EditFoodCategoriesStateCopyWith<$Res> {
-  factory $EditFoodCategoriesStateCopyWith(EditFoodCategoriesState value,
-          $Res Function(EditFoodCategoriesState) then) =
-      _$EditFoodCategoriesStateCopyWithImpl<$Res, EditFoodCategoriesState>;
+  factory $EditFoodCategoriesStateCopyWith(
+    EditFoodCategoriesState value,
+    $Res Function(EditFoodCategoriesState) then,
+  ) = _$EditFoodCategoriesStateCopyWithImpl<$Res, EditFoodCategoriesState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      List<CategoryData> categories,
-      int activeIndex,
-      TextEditingController? categoriesController,
-      CategoryData? foodCategory});
+  $Res call({
+    bool isLoading,
+    List<CategoryData> categories,
+    int activeIndex,
+    TextEditingController? categoriesController,
+    CategoryData? foodCategory,
+  });
 }
 
 /// @nodoc
-class _$EditFoodCategoriesStateCopyWithImpl<$Res,
-        $Val extends EditFoodCategoriesState>
+class _$EditFoodCategoriesStateCopyWithImpl<
+  $Res,
+  $Val extends EditFoodCategoriesState
+>
     implements $EditFoodCategoriesStateCopyWith<$Res> {
   _$EditFoodCategoriesStateCopyWithImpl(this._value, this._then);
 
@@ -62,28 +67,31 @@ class _$EditFoodCategoriesStateCopyWithImpl<$Res,
     Object? categoriesController = freezed,
     Object? foodCategory = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      categories: null == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryData>,
-      activeIndex: null == activeIndex
-          ? _value.activeIndex
-          : activeIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      categoriesController: freezed == categoriesController
-          ? _value.categoriesController
-          : categoriesController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-      foodCategory: freezed == foodCategory
-          ? _value.foodCategory
-          : foodCategory // ignore: cast_nullable_to_non_nullable
-              as CategoryData?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            categories: null == categories
+                ? _value.categories
+                : categories // ignore: cast_nullable_to_non_nullable
+                      as List<CategoryData>,
+            activeIndex: null == activeIndex
+                ? _value.activeIndex
+                : activeIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            categoriesController: freezed == categoriesController
+                ? _value.categoriesController
+                : categoriesController // ignore: cast_nullable_to_non_nullable
+                      as TextEditingController?,
+            foodCategory: freezed == foodCategory
+                ? _value.foodCategory
+                : foodCategory // ignore: cast_nullable_to_non_nullable
+                      as CategoryData?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -91,28 +99,32 @@ class _$EditFoodCategoriesStateCopyWithImpl<$Res,
 abstract class _$$EditFoodCategoriesStateImplCopyWith<$Res>
     implements $EditFoodCategoriesStateCopyWith<$Res> {
   factory _$$EditFoodCategoriesStateImplCopyWith(
-          _$EditFoodCategoriesStateImpl value,
-          $Res Function(_$EditFoodCategoriesStateImpl) then) =
-      __$$EditFoodCategoriesStateImplCopyWithImpl<$Res>;
+    _$EditFoodCategoriesStateImpl value,
+    $Res Function(_$EditFoodCategoriesStateImpl) then,
+  ) = __$$EditFoodCategoriesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      List<CategoryData> categories,
-      int activeIndex,
-      TextEditingController? categoriesController,
-      CategoryData? foodCategory});
+  $Res call({
+    bool isLoading,
+    List<CategoryData> categories,
+    int activeIndex,
+    TextEditingController? categoriesController,
+    CategoryData? foodCategory,
+  });
 }
 
 /// @nodoc
 class __$$EditFoodCategoriesStateImplCopyWithImpl<$Res>
-    extends _$EditFoodCategoriesStateCopyWithImpl<$Res,
-        _$EditFoodCategoriesStateImpl>
+    extends
+        _$EditFoodCategoriesStateCopyWithImpl<
+          $Res,
+          _$EditFoodCategoriesStateImpl
+        >
     implements _$$EditFoodCategoriesStateImplCopyWith<$Res> {
   __$$EditFoodCategoriesStateImplCopyWithImpl(
-      _$EditFoodCategoriesStateImpl _value,
-      $Res Function(_$EditFoodCategoriesStateImpl) _then)
-      : super(_value, _then);
+    _$EditFoodCategoriesStateImpl _value,
+    $Res Function(_$EditFoodCategoriesStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -123,42 +135,44 @@ class __$$EditFoodCategoriesStateImplCopyWithImpl<$Res>
     Object? categoriesController = freezed,
     Object? foodCategory = freezed,
   }) {
-    return _then(_$EditFoodCategoriesStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      categories: null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryData>,
-      activeIndex: null == activeIndex
-          ? _value.activeIndex
-          : activeIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      categoriesController: freezed == categoriesController
-          ? _value.categoriesController
-          : categoriesController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-      foodCategory: freezed == foodCategory
-          ? _value.foodCategory
-          : foodCategory // ignore: cast_nullable_to_non_nullable
-              as CategoryData?,
-    ));
+    return _then(
+      _$EditFoodCategoriesStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        categories: null == categories
+            ? _value._categories
+            : categories // ignore: cast_nullable_to_non_nullable
+                  as List<CategoryData>,
+        activeIndex: null == activeIndex
+            ? _value.activeIndex
+            : activeIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        categoriesController: freezed == categoriesController
+            ? _value.categoriesController
+            : categoriesController // ignore: cast_nullable_to_non_nullable
+                  as TextEditingController?,
+        foodCategory: freezed == foodCategory
+            ? _value.foodCategory
+            : foodCategory // ignore: cast_nullable_to_non_nullable
+                  as CategoryData?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$EditFoodCategoriesStateImpl extends _EditFoodCategoriesState {
-  const _$EditFoodCategoriesStateImpl(
-      {this.isLoading = false,
-      final List<CategoryData> categories = const [],
-      this.activeIndex = 0,
-      this.categoriesController,
-      this.foodCategory})
-      : _categories = categories,
-        super._();
+  const _$EditFoodCategoriesStateImpl({
+    this.isLoading = false,
+    final List<CategoryData> categories = const [],
+    this.activeIndex = 0,
+    this.categoriesController,
+    this.foodCategory,
+  }) : _categories = categories,
+       super._();
 
   @override
   @JsonKey()
@@ -192,8 +206,10 @@ class _$EditFoodCategoriesStateImpl extends _EditFoodCategoriesState {
             other is _$EditFoodCategoriesStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories) &&
+            const DeepCollectionEquality().equals(
+              other._categories,
+              _categories,
+            ) &&
             (identical(other.activeIndex, activeIndex) ||
                 other.activeIndex == activeIndex) &&
             (identical(other.categoriesController, categoriesController) ||
@@ -204,28 +220,32 @@ class _$EditFoodCategoriesStateImpl extends _EditFoodCategoriesState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      const DeepCollectionEquality().hash(_categories),
-      activeIndex,
-      categoriesController,
-      foodCategory);
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_categories),
+    activeIndex,
+    categoriesController,
+    foodCategory,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$EditFoodCategoriesStateImplCopyWith<_$EditFoodCategoriesStateImpl>
-      get copyWith => __$$EditFoodCategoriesStateImplCopyWithImpl<
-          _$EditFoodCategoriesStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$EditFoodCategoriesStateImplCopyWithImpl<
+        _$EditFoodCategoriesStateImpl
+      >(this, _$identity);
 }
 
 abstract class _EditFoodCategoriesState extends EditFoodCategoriesState {
-  const factory _EditFoodCategoriesState(
-      {final bool isLoading,
-      final List<CategoryData> categories,
-      final int activeIndex,
-      final TextEditingController? categoriesController,
-      final CategoryData? foodCategory}) = _$EditFoodCategoriesStateImpl;
+  const factory _EditFoodCategoriesState({
+    final bool isLoading,
+    final List<CategoryData> categories,
+    final int activeIndex,
+    final TextEditingController? categoriesController,
+    final CategoryData? foodCategory,
+  }) = _$EditFoodCategoriesStateImpl;
   const _EditFoodCategoriesState._() : super._();
 
   @override
@@ -241,5 +261,5 @@ abstract class _EditFoodCategoriesState extends EditFoodCategoriesState {
   @override
   @JsonKey(ignore: true)
   _$$EditFoodCategoriesStateImplCopyWith<_$EditFoodCategoriesStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,8 @@ part of 'create_order_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CreateOrderState {
@@ -26,8 +27,9 @@ mixin _$CreateOrderState {
 /// @nodoc
 abstract class $CreateOrderStateCopyWith<$Res> {
   factory $CreateOrderStateCopyWith(
-          CreateOrderState value, $Res Function(CreateOrderState) then) =
-      _$CreateOrderStateCopyWithImpl<$Res, CreateOrderState>;
+    CreateOrderState value,
+    $Res Function(CreateOrderState) then,
+  ) = _$CreateOrderStateCopyWithImpl<$Res, CreateOrderState>;
   @useResult
   $Res call({bool isCreating});
 }
@@ -44,24 +46,26 @@ class _$CreateOrderStateCopyWithImpl<$Res, $Val extends CreateOrderState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isCreating = null,
-  }) {
-    return _then(_value.copyWith(
-      isCreating: null == isCreating
-          ? _value.isCreating
-          : isCreating // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? isCreating = null}) {
+    return _then(
+      _value.copyWith(
+            isCreating: null == isCreating
+                ? _value.isCreating
+                : isCreating // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CreateOrderStateImplCopyWith<$Res>
     implements $CreateOrderStateCopyWith<$Res> {
-  factory _$$CreateOrderStateImplCopyWith(_$CreateOrderStateImpl value,
-          $Res Function(_$CreateOrderStateImpl) then) =
-      __$$CreateOrderStateImplCopyWithImpl<$Res>;
+  factory _$$CreateOrderStateImplCopyWith(
+    _$CreateOrderStateImpl value,
+    $Res Function(_$CreateOrderStateImpl) then,
+  ) = __$$CreateOrderStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isCreating});
@@ -71,21 +75,22 @@ abstract class _$$CreateOrderStateImplCopyWith<$Res>
 class __$$CreateOrderStateImplCopyWithImpl<$Res>
     extends _$CreateOrderStateCopyWithImpl<$Res, _$CreateOrderStateImpl>
     implements _$$CreateOrderStateImplCopyWith<$Res> {
-  __$$CreateOrderStateImplCopyWithImpl(_$CreateOrderStateImpl _value,
-      $Res Function(_$CreateOrderStateImpl) _then)
-      : super(_value, _then);
+  __$$CreateOrderStateImplCopyWithImpl(
+    _$CreateOrderStateImpl _value,
+    $Res Function(_$CreateOrderStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isCreating = null,
-  }) {
-    return _then(_$CreateOrderStateImpl(
-      isCreating: null == isCreating
-          ? _value.isCreating
-          : isCreating // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? isCreating = null}) {
+    return _then(
+      _$CreateOrderStateImpl(
+        isCreating: null == isCreating
+            ? _value.isCreating
+            : isCreating // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
@@ -120,7 +125,9 @@ class _$CreateOrderStateImpl extends _CreateOrderState {
   @pragma('vm:prefer-inline')
   _$$CreateOrderStateImplCopyWith<_$CreateOrderStateImpl> get copyWith =>
       __$$CreateOrderStateImplCopyWithImpl<_$CreateOrderStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CreateOrderState extends CreateOrderState {
