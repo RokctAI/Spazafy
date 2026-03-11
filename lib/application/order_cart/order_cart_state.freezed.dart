@@ -12,7 +12,8 @@ part of 'order_cart_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OrderCartState {
@@ -27,8 +28,9 @@ mixin _$OrderCartState {
 /// @nodoc
 abstract class $OrderCartStateCopyWith<$Res> {
   factory $OrderCartStateCopyWith(
-          OrderCartState value, $Res Function(OrderCartState) then) =
-      _$OrderCartStateCopyWithImpl<$Res, OrderCartState>;
+    OrderCartState value,
+    $Res Function(OrderCartState) then,
+  ) = _$OrderCartStateCopyWithImpl<$Res, OrderCartState>;
   @useResult
   $Res call({List<Stock> stocks, num totalPrice});
 }
@@ -45,29 +47,30 @@ class _$OrderCartStateCopyWithImpl<$Res, $Val extends OrderCartState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? stocks = null,
-    Object? totalPrice = null,
-  }) {
-    return _then(_value.copyWith(
-      stocks: null == stocks
-          ? _value.stocks
-          : stocks // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
-      totalPrice: null == totalPrice
-          ? _value.totalPrice
-          : totalPrice // ignore: cast_nullable_to_non_nullable
-              as num,
-    ) as $Val);
+  $Res call({Object? stocks = null, Object? totalPrice = null}) {
+    return _then(
+      _value.copyWith(
+            stocks: null == stocks
+                ? _value.stocks
+                : stocks // ignore: cast_nullable_to_non_nullable
+                      as List<Stock>,
+            totalPrice: null == totalPrice
+                ? _value.totalPrice
+                : totalPrice // ignore: cast_nullable_to_non_nullable
+                      as num,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$OrderCartStateImplCopyWith<$Res>
     implements $OrderCartStateCopyWith<$Res> {
-  factory _$$OrderCartStateImplCopyWith(_$OrderCartStateImpl value,
-          $Res Function(_$OrderCartStateImpl) then) =
-      __$$OrderCartStateImplCopyWithImpl<$Res>;
+  factory _$$OrderCartStateImplCopyWith(
+    _$OrderCartStateImpl value,
+    $Res Function(_$OrderCartStateImpl) then,
+  ) = __$$OrderCartStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Stock> stocks, num totalPrice});
@@ -78,35 +81,36 @@ class __$$OrderCartStateImplCopyWithImpl<$Res>
     extends _$OrderCartStateCopyWithImpl<$Res, _$OrderCartStateImpl>
     implements _$$OrderCartStateImplCopyWith<$Res> {
   __$$OrderCartStateImplCopyWithImpl(
-      _$OrderCartStateImpl _value, $Res Function(_$OrderCartStateImpl) _then)
-      : super(_value, _then);
+    _$OrderCartStateImpl _value,
+    $Res Function(_$OrderCartStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? stocks = null,
-    Object? totalPrice = null,
-  }) {
-    return _then(_$OrderCartStateImpl(
-      stocks: null == stocks
-          ? _value._stocks
-          : stocks // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
-      totalPrice: null == totalPrice
-          ? _value.totalPrice
-          : totalPrice // ignore: cast_nullable_to_non_nullable
-              as num,
-    ));
+  $Res call({Object? stocks = null, Object? totalPrice = null}) {
+    return _then(
+      _$OrderCartStateImpl(
+        stocks: null == stocks
+            ? _value._stocks
+            : stocks // ignore: cast_nullable_to_non_nullable
+                  as List<Stock>,
+        totalPrice: null == totalPrice
+            ? _value.totalPrice
+            : totalPrice // ignore: cast_nullable_to_non_nullable
+                  as num,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$OrderCartStateImpl extends _OrderCartState {
-  const _$OrderCartStateImpl(
-      {final List<Stock> stocks = const [], this.totalPrice = 0})
-      : _stocks = stocks,
-        super._();
+  const _$OrderCartStateImpl({
+    final List<Stock> stocks = const [],
+    this.totalPrice = 0,
+  }) : _stocks = stocks,
+       super._();
 
   final List<Stock> _stocks;
   @override
@@ -138,19 +142,26 @@ class _$OrderCartStateImpl extends _OrderCartState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_stocks), totalPrice);
+    runtimeType,
+    const DeepCollectionEquality().hash(_stocks),
+    totalPrice,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$OrderCartStateImplCopyWith<_$OrderCartStateImpl> get copyWith =>
       __$$OrderCartStateImplCopyWithImpl<_$OrderCartStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _OrderCartState extends OrderCartState {
-  const factory _OrderCartState(
-      {final List<Stock> stocks, final num totalPrice}) = _$OrderCartStateImpl;
+  const factory _OrderCartState({
+    final List<Stock> stocks,
+    final num totalPrice,
+  }) = _$OrderCartStateImpl;
   const _OrderCartState._() : super._();
 
   @override

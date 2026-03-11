@@ -12,7 +12,8 @@ part of 'extras_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$ExtrasState {
@@ -28,8 +29,9 @@ mixin _$ExtrasState {
 /// @nodoc
 abstract class $ExtrasStateCopyWith<$Res> {
   factory $ExtrasStateCopyWith(
-          ExtrasState value, $Res Function(ExtrasState) then) =
-      _$ExtrasStateCopyWithImpl<$Res, ExtrasState>;
+    ExtrasState value,
+    $Res Function(ExtrasState) then,
+  ) = _$ExtrasStateCopyWithImpl<$Res, ExtrasState>;
   @useResult
   $Res call({bool isLoading, bool isSaving, List<Group> groups});
 }
@@ -51,20 +53,23 @@ class _$ExtrasStateCopyWithImpl<$Res, $Val extends ExtrasState>
     Object? isSaving = null,
     Object? groups = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSaving: null == isSaving
-          ? _value.isSaving
-          : isSaving // ignore: cast_nullable_to_non_nullable
-              as bool,
-      groups: null == groups
-          ? _value.groups
-          : groups // ignore: cast_nullable_to_non_nullable
-              as List<Group>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isSaving: null == isSaving
+                ? _value.isSaving
+                : isSaving // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            groups: null == groups
+                ? _value.groups
+                : groups // ignore: cast_nullable_to_non_nullable
+                      as List<Group>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -72,8 +77,9 @@ class _$ExtrasStateCopyWithImpl<$Res, $Val extends ExtrasState>
 abstract class _$$ExtrasStateImplCopyWith<$Res>
     implements $ExtrasStateCopyWith<$Res> {
   factory _$$ExtrasStateImplCopyWith(
-          _$ExtrasStateImpl value, $Res Function(_$ExtrasStateImpl) then) =
-      __$$ExtrasStateImplCopyWithImpl<$Res>;
+    _$ExtrasStateImpl value,
+    $Res Function(_$ExtrasStateImpl) then,
+  ) = __$$ExtrasStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, bool isSaving, List<Group> groups});
@@ -84,8 +90,9 @@ class __$$ExtrasStateImplCopyWithImpl<$Res>
     extends _$ExtrasStateCopyWithImpl<$Res, _$ExtrasStateImpl>
     implements _$$ExtrasStateImplCopyWith<$Res> {
   __$$ExtrasStateImplCopyWithImpl(
-      _$ExtrasStateImpl _value, $Res Function(_$ExtrasStateImpl) _then)
-      : super(_value, _then);
+    _$ExtrasStateImpl _value,
+    $Res Function(_$ExtrasStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -94,32 +101,34 @@ class __$$ExtrasStateImplCopyWithImpl<$Res>
     Object? isSaving = null,
     Object? groups = null,
   }) {
-    return _then(_$ExtrasStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSaving: null == isSaving
-          ? _value.isSaving
-          : isSaving // ignore: cast_nullable_to_non_nullable
-              as bool,
-      groups: null == groups
-          ? _value._groups
-          : groups // ignore: cast_nullable_to_non_nullable
-              as List<Group>,
-    ));
+    return _then(
+      _$ExtrasStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isSaving: null == isSaving
+            ? _value.isSaving
+            : isSaving // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        groups: null == groups
+            ? _value._groups
+            : groups // ignore: cast_nullable_to_non_nullable
+                  as List<Group>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ExtrasStateImpl extends _ExtrasState {
-  const _$ExtrasStateImpl(
-      {this.isLoading = false,
-      this.isSaving = false,
-      final List<Group> groups = const []})
-      : _groups = groups,
-        super._();
+  const _$ExtrasStateImpl({
+    this.isLoading = false,
+    this.isSaving = false,
+    final List<Group> groups = const [],
+  }) : _groups = groups,
+       super._();
 
   @override
   @JsonKey()
@@ -154,8 +163,12 @@ class _$ExtrasStateImpl extends _ExtrasState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, isSaving,
-      const DeepCollectionEquality().hash(_groups));
+  int get hashCode => Object.hash(
+    runtimeType,
+    isLoading,
+    isSaving,
+    const DeepCollectionEquality().hash(_groups),
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -165,10 +178,11 @@ class _$ExtrasStateImpl extends _ExtrasState {
 }
 
 abstract class _ExtrasState extends ExtrasState {
-  const factory _ExtrasState(
-      {final bool isLoading,
-      final bool isSaving,
-      final List<Group> groups}) = _$ExtrasStateImpl;
+  const factory _ExtrasState({
+    final bool isLoading,
+    final bool isSaving,
+    final List<Group> groups,
+  }) = _$ExtrasStateImpl;
   const _ExtrasState._() : super._();
 
   @override

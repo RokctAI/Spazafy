@@ -12,7 +12,8 @@ part of 'extras_group_details_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$ExtrasGroupDetailsState {
@@ -26,16 +27,19 @@ mixin _$ExtrasGroupDetailsState {
 
 /// @nodoc
 abstract class $ExtrasGroupDetailsStateCopyWith<$Res> {
-  factory $ExtrasGroupDetailsStateCopyWith(ExtrasGroupDetailsState value,
-          $Res Function(ExtrasGroupDetailsState) then) =
-      _$ExtrasGroupDetailsStateCopyWithImpl<$Res, ExtrasGroupDetailsState>;
+  factory $ExtrasGroupDetailsStateCopyWith(
+    ExtrasGroupDetailsState value,
+    $Res Function(ExtrasGroupDetailsState) then,
+  ) = _$ExtrasGroupDetailsStateCopyWithImpl<$Res, ExtrasGroupDetailsState>;
   @useResult
   $Res call({bool isLoading, List<Extras> extras});
 }
 
 /// @nodoc
-class _$ExtrasGroupDetailsStateCopyWithImpl<$Res,
-        $Val extends ExtrasGroupDetailsState>
+class _$ExtrasGroupDetailsStateCopyWithImpl<
+  $Res,
+  $Val extends ExtrasGroupDetailsState
+>
     implements $ExtrasGroupDetailsStateCopyWith<$Res> {
   _$ExtrasGroupDetailsStateCopyWithImpl(this._value, this._then);
 
@@ -46,20 +50,20 @@ class _$ExtrasGroupDetailsStateCopyWithImpl<$Res,
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? extras = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      extras: null == extras
-          ? _value.extras
-          : extras // ignore: cast_nullable_to_non_nullable
-              as List<Extras>,
-    ) as $Val);
+  $Res call({Object? isLoading = null, Object? extras = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            extras: null == extras
+                ? _value.extras
+                : extras // ignore: cast_nullable_to_non_nullable
+                      as List<Extras>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -67,9 +71,9 @@ class _$ExtrasGroupDetailsStateCopyWithImpl<$Res,
 abstract class _$$ExtrasGroupDetailsStateImplCopyWith<$Res>
     implements $ExtrasGroupDetailsStateCopyWith<$Res> {
   factory _$$ExtrasGroupDetailsStateImplCopyWith(
-          _$ExtrasGroupDetailsStateImpl value,
-          $Res Function(_$ExtrasGroupDetailsStateImpl) then) =
-      __$$ExtrasGroupDetailsStateImplCopyWithImpl<$Res>;
+    _$ExtrasGroupDetailsStateImpl value,
+    $Res Function(_$ExtrasGroupDetailsStateImpl) then,
+  ) = __$$ExtrasGroupDetailsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, List<Extras> extras});
@@ -77,40 +81,43 @@ abstract class _$$ExtrasGroupDetailsStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$ExtrasGroupDetailsStateImplCopyWithImpl<$Res>
-    extends _$ExtrasGroupDetailsStateCopyWithImpl<$Res,
-        _$ExtrasGroupDetailsStateImpl>
+    extends
+        _$ExtrasGroupDetailsStateCopyWithImpl<
+          $Res,
+          _$ExtrasGroupDetailsStateImpl
+        >
     implements _$$ExtrasGroupDetailsStateImplCopyWith<$Res> {
   __$$ExtrasGroupDetailsStateImplCopyWithImpl(
-      _$ExtrasGroupDetailsStateImpl _value,
-      $Res Function(_$ExtrasGroupDetailsStateImpl) _then)
-      : super(_value, _then);
+    _$ExtrasGroupDetailsStateImpl _value,
+    $Res Function(_$ExtrasGroupDetailsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? extras = null,
-  }) {
-    return _then(_$ExtrasGroupDetailsStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      extras: null == extras
-          ? _value._extras
-          : extras // ignore: cast_nullable_to_non_nullable
-              as List<Extras>,
-    ));
+  $Res call({Object? isLoading = null, Object? extras = null}) {
+    return _then(
+      _$ExtrasGroupDetailsStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        extras: null == extras
+            ? _value._extras
+            : extras // ignore: cast_nullable_to_non_nullable
+                  as List<Extras>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ExtrasGroupDetailsStateImpl extends _ExtrasGroupDetailsState {
-  const _$ExtrasGroupDetailsStateImpl(
-      {this.isLoading = false, final List<Extras> extras = const []})
-      : _extras = extras,
-        super._();
+  const _$ExtrasGroupDetailsStateImpl({
+    this.isLoading = false,
+    final List<Extras> extras = const [],
+  }) : _extras = extras,
+       super._();
 
   @override
   @JsonKey()
@@ -141,20 +148,26 @@ class _$ExtrasGroupDetailsStateImpl extends _ExtrasGroupDetailsState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, isLoading, const DeepCollectionEquality().hash(_extras));
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_extras),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ExtrasGroupDetailsStateImplCopyWith<_$ExtrasGroupDetailsStateImpl>
-      get copyWith => __$$ExtrasGroupDetailsStateImplCopyWithImpl<
-          _$ExtrasGroupDetailsStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$ExtrasGroupDetailsStateImplCopyWithImpl<
+        _$ExtrasGroupDetailsStateImpl
+      >(this, _$identity);
 }
 
 abstract class _ExtrasGroupDetailsState extends ExtrasGroupDetailsState {
-  const factory _ExtrasGroupDetailsState(
-      {final bool isLoading,
-      final List<Extras> extras}) = _$ExtrasGroupDetailsStateImpl;
+  const factory _ExtrasGroupDetailsState({
+    final bool isLoading,
+    final List<Extras> extras,
+  }) = _$ExtrasGroupDetailsStateImpl;
   const _ExtrasGroupDetailsState._() : super._();
 
   @override
@@ -164,5 +177,5 @@ abstract class _ExtrasGroupDetailsState extends ExtrasGroupDetailsState {
   @override
   @JsonKey(ignore: true)
   _$$ExtrasGroupDetailsStateImplCopyWith<_$ExtrasGroupDetailsStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

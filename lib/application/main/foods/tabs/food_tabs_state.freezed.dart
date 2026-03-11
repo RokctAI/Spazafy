@@ -12,7 +12,8 @@ part of 'food_tabs_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$FoodTabsState {
@@ -26,8 +27,9 @@ mixin _$FoodTabsState {
 /// @nodoc
 abstract class $FoodTabsStateCopyWith<$Res> {
   factory $FoodTabsStateCopyWith(
-          FoodTabsState value, $Res Function(FoodTabsState) then) =
-      _$FoodTabsStateCopyWithImpl<$Res, FoodTabsState>;
+    FoodTabsState value,
+    $Res Function(FoodTabsState) then,
+  ) = _$FoodTabsStateCopyWithImpl<$Res, FoodTabsState>;
   @useResult
   $Res call({int selectedIndex});
 }
@@ -44,15 +46,16 @@ class _$FoodTabsStateCopyWithImpl<$Res, $Val extends FoodTabsState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? selectedIndex = null,
-  }) {
-    return _then(_value.copyWith(
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+  $Res call({Object? selectedIndex = null}) {
+    return _then(
+      _value.copyWith(
+            selectedIndex: null == selectedIndex
+                ? _value.selectedIndex
+                : selectedIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -60,8 +63,9 @@ class _$FoodTabsStateCopyWithImpl<$Res, $Val extends FoodTabsState>
 abstract class _$$FoodTabsStateImplCopyWith<$Res>
     implements $FoodTabsStateCopyWith<$Res> {
   factory _$$FoodTabsStateImplCopyWith(
-          _$FoodTabsStateImpl value, $Res Function(_$FoodTabsStateImpl) then) =
-      __$$FoodTabsStateImplCopyWithImpl<$Res>;
+    _$FoodTabsStateImpl value,
+    $Res Function(_$FoodTabsStateImpl) then,
+  ) = __$$FoodTabsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int selectedIndex});
@@ -72,20 +76,21 @@ class __$$FoodTabsStateImplCopyWithImpl<$Res>
     extends _$FoodTabsStateCopyWithImpl<$Res, _$FoodTabsStateImpl>
     implements _$$FoodTabsStateImplCopyWith<$Res> {
   __$$FoodTabsStateImplCopyWithImpl(
-      _$FoodTabsStateImpl _value, $Res Function(_$FoodTabsStateImpl) _then)
-      : super(_value, _then);
+    _$FoodTabsStateImpl _value,
+    $Res Function(_$FoodTabsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? selectedIndex = null,
-  }) {
-    return _then(_$FoodTabsStateImpl(
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? selectedIndex = null}) {
+    return _then(
+      _$FoodTabsStateImpl(
+        selectedIndex: null == selectedIndex
+            ? _value.selectedIndex
+            : selectedIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
   }
 }
 

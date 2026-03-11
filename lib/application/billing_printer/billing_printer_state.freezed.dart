@@ -12,7 +12,8 @@ part of 'billing_printer_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$BillingPrinterState {
@@ -30,15 +31,17 @@ mixin _$BillingPrinterState {
 /// @nodoc
 abstract class $BillingPrinterStateCopyWith<$Res> {
   factory $BillingPrinterStateCopyWith(
-          BillingPrinterState value, $Res Function(BillingPrinterState) then) =
-      _$BillingPrinterStateCopyWithImpl<$Res, BillingPrinterState>;
+    BillingPrinterState value,
+    $Res Function(BillingPrinterState) then,
+  ) = _$BillingPrinterStateCopyWithImpl<$Res, BillingPrinterState>;
   @useResult
-  $Res call(
-      {PrinterStatus status,
-      List<BluetoothInfo> devices,
-      String? connectedMac,
-      String? connectedName,
-      String? errorMessage});
+  $Res call({
+    PrinterStatus status,
+    List<BluetoothInfo> devices,
+    String? connectedMac,
+    String? connectedName,
+    String? errorMessage,
+  });
 }
 
 /// @nodoc
@@ -60,54 +63,60 @@ class _$BillingPrinterStateCopyWithImpl<$Res, $Val extends BillingPrinterState>
     Object? connectedName = freezed,
     Object? errorMessage = freezed,
   }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as PrinterStatus,
-      devices: null == devices
-          ? _value.devices
-          : devices // ignore: cast_nullable_to_non_nullable
-              as List<BluetoothInfo>,
-      connectedMac: freezed == connectedMac
-          ? _value.connectedMac
-          : connectedMac // ignore: cast_nullable_to_non_nullable
-              as String?,
-      connectedName: freezed == connectedName
-          ? _value.connectedName
-          : connectedName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as PrinterStatus,
+            devices: null == devices
+                ? _value.devices
+                : devices // ignore: cast_nullable_to_non_nullable
+                      as List<BluetoothInfo>,
+            connectedMac: freezed == connectedMac
+                ? _value.connectedMac
+                : connectedMac // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            connectedName: freezed == connectedName
+                ? _value.connectedName
+                : connectedName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            errorMessage: freezed == errorMessage
+                ? _value.errorMessage
+                : errorMessage // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$BillingPrinterStateImplCopyWith<$Res>
     implements $BillingPrinterStateCopyWith<$Res> {
-  factory _$$BillingPrinterStateImplCopyWith(_$BillingPrinterStateImpl value,
-          $Res Function(_$BillingPrinterStateImpl) then) =
-      __$$BillingPrinterStateImplCopyWithImpl<$Res>;
+  factory _$$BillingPrinterStateImplCopyWith(
+    _$BillingPrinterStateImpl value,
+    $Res Function(_$BillingPrinterStateImpl) then,
+  ) = __$$BillingPrinterStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {PrinterStatus status,
-      List<BluetoothInfo> devices,
-      String? connectedMac,
-      String? connectedName,
-      String? errorMessage});
+  $Res call({
+    PrinterStatus status,
+    List<BluetoothInfo> devices,
+    String? connectedMac,
+    String? connectedName,
+    String? errorMessage,
+  });
 }
 
 /// @nodoc
 class __$$BillingPrinterStateImplCopyWithImpl<$Res>
     extends _$BillingPrinterStateCopyWithImpl<$Res, _$BillingPrinterStateImpl>
     implements _$$BillingPrinterStateImplCopyWith<$Res> {
-  __$$BillingPrinterStateImplCopyWithImpl(_$BillingPrinterStateImpl _value,
-      $Res Function(_$BillingPrinterStateImpl) _then)
-      : super(_value, _then);
+  __$$BillingPrinterStateImplCopyWithImpl(
+    _$BillingPrinterStateImpl _value,
+    $Res Function(_$BillingPrinterStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -118,42 +127,44 @@ class __$$BillingPrinterStateImplCopyWithImpl<$Res>
     Object? connectedName = freezed,
     Object? errorMessage = freezed,
   }) {
-    return _then(_$BillingPrinterStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as PrinterStatus,
-      devices: null == devices
-          ? _value._devices
-          : devices // ignore: cast_nullable_to_non_nullable
-              as List<BluetoothInfo>,
-      connectedMac: freezed == connectedMac
-          ? _value.connectedMac
-          : connectedMac // ignore: cast_nullable_to_non_nullable
-              as String?,
-      connectedName: freezed == connectedName
-          ? _value.connectedName
-          : connectedName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$BillingPrinterStateImpl(
+        status: null == status
+            ? _value.status
+            : status // ignore: cast_nullable_to_non_nullable
+                  as PrinterStatus,
+        devices: null == devices
+            ? _value._devices
+            : devices // ignore: cast_nullable_to_non_nullable
+                  as List<BluetoothInfo>,
+        connectedMac: freezed == connectedMac
+            ? _value.connectedMac
+            : connectedMac // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        connectedName: freezed == connectedName
+            ? _value.connectedName
+            : connectedName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        errorMessage: freezed == errorMessage
+            ? _value.errorMessage
+            : errorMessage // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$BillingPrinterStateImpl extends _BillingPrinterState {
-  const _$BillingPrinterStateImpl(
-      {this.status = PrinterStatus.initial,
-      final List<BluetoothInfo> devices = const [],
-      this.connectedMac,
-      this.connectedName,
-      this.errorMessage})
-      : _devices = devices,
-        super._();
+  const _$BillingPrinterStateImpl({
+    this.status = PrinterStatus.initial,
+    final List<BluetoothInfo> devices = const [],
+    this.connectedMac,
+    this.connectedName,
+    this.errorMessage,
+  }) : _devices = devices,
+       super._();
 
   @override
   @JsonKey()
@@ -196,28 +207,32 @@ class _$BillingPrinterStateImpl extends _BillingPrinterState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      status,
-      const DeepCollectionEquality().hash(_devices),
-      connectedMac,
-      connectedName,
-      errorMessage);
+    runtimeType,
+    status,
+    const DeepCollectionEquality().hash(_devices),
+    connectedMac,
+    connectedName,
+    errorMessage,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$BillingPrinterStateImplCopyWith<_$BillingPrinterStateImpl> get copyWith =>
       __$$BillingPrinterStateImplCopyWithImpl<_$BillingPrinterStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _BillingPrinterState extends BillingPrinterState {
-  const factory _BillingPrinterState(
-      {final PrinterStatus status,
-      final List<BluetoothInfo> devices,
-      final String? connectedMac,
-      final String? connectedName,
-      final String? errorMessage}) = _$BillingPrinterStateImpl;
+  const factory _BillingPrinterState({
+    final PrinterStatus status,
+    final List<BluetoothInfo> devices,
+    final String? connectedMac,
+    final String? connectedName,
+    final String? errorMessage,
+  }) = _$BillingPrinterStateImpl;
   const _BillingPrinterState._() : super._();
 
   @override

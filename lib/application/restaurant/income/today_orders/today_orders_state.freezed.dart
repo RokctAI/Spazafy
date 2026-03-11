@@ -12,7 +12,8 @@ part of 'today_orders_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$TodayOrdersState {
@@ -29,14 +30,16 @@ mixin _$TodayOrdersState {
 /// @nodoc
 abstract class $TodayOrdersStateCopyWith<$Res> {
   factory $TodayOrdersStateCopyWith(
-          TodayOrdersState value, $Res Function(TodayOrdersState) then) =
-      _$TodayOrdersStateCopyWithImpl<$Res, TodayOrdersState>;
+    TodayOrdersState value,
+    $Res Function(TodayOrdersState) then,
+  ) = _$TodayOrdersStateCopyWithImpl<$Res, TodayOrdersState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      List<OrderData> todayOrders,
-      OrdersStatistic? ordersStatistic,
-      OrderData? lastOrder});
+  $Res call({
+    bool isLoading,
+    List<OrderData> todayOrders,
+    OrdersStatistic? ordersStatistic,
+    OrderData? lastOrder,
+  });
 }
 
 /// @nodoc
@@ -57,49 +60,55 @@ class _$TodayOrdersStateCopyWithImpl<$Res, $Val extends TodayOrdersState>
     Object? ordersStatistic = freezed,
     Object? lastOrder = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      todayOrders: null == todayOrders
-          ? _value.todayOrders
-          : todayOrders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      ordersStatistic: freezed == ordersStatistic
-          ? _value.ordersStatistic
-          : ordersStatistic // ignore: cast_nullable_to_non_nullable
-              as OrdersStatistic?,
-      lastOrder: freezed == lastOrder
-          ? _value.lastOrder
-          : lastOrder // ignore: cast_nullable_to_non_nullable
-              as OrderData?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            todayOrders: null == todayOrders
+                ? _value.todayOrders
+                : todayOrders // ignore: cast_nullable_to_non_nullable
+                      as List<OrderData>,
+            ordersStatistic: freezed == ordersStatistic
+                ? _value.ordersStatistic
+                : ordersStatistic // ignore: cast_nullable_to_non_nullable
+                      as OrdersStatistic?,
+            lastOrder: freezed == lastOrder
+                ? _value.lastOrder
+                : lastOrder // ignore: cast_nullable_to_non_nullable
+                      as OrderData?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$TodayOrdersStateImplCopyWith<$Res>
     implements $TodayOrdersStateCopyWith<$Res> {
-  factory _$$TodayOrdersStateImplCopyWith(_$TodayOrdersStateImpl value,
-          $Res Function(_$TodayOrdersStateImpl) then) =
-      __$$TodayOrdersStateImplCopyWithImpl<$Res>;
+  factory _$$TodayOrdersStateImplCopyWith(
+    _$TodayOrdersStateImpl value,
+    $Res Function(_$TodayOrdersStateImpl) then,
+  ) = __$$TodayOrdersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      List<OrderData> todayOrders,
-      OrdersStatistic? ordersStatistic,
-      OrderData? lastOrder});
+  $Res call({
+    bool isLoading,
+    List<OrderData> todayOrders,
+    OrdersStatistic? ordersStatistic,
+    OrderData? lastOrder,
+  });
 }
 
 /// @nodoc
 class __$$TodayOrdersStateImplCopyWithImpl<$Res>
     extends _$TodayOrdersStateCopyWithImpl<$Res, _$TodayOrdersStateImpl>
     implements _$$TodayOrdersStateImplCopyWith<$Res> {
-  __$$TodayOrdersStateImplCopyWithImpl(_$TodayOrdersStateImpl _value,
-      $Res Function(_$TodayOrdersStateImpl) _then)
-      : super(_value, _then);
+  __$$TodayOrdersStateImplCopyWithImpl(
+    _$TodayOrdersStateImpl _value,
+    $Res Function(_$TodayOrdersStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -109,37 +118,39 @@ class __$$TodayOrdersStateImplCopyWithImpl<$Res>
     Object? ordersStatistic = freezed,
     Object? lastOrder = freezed,
   }) {
-    return _then(_$TodayOrdersStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      todayOrders: null == todayOrders
-          ? _value._todayOrders
-          : todayOrders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      ordersStatistic: freezed == ordersStatistic
-          ? _value.ordersStatistic
-          : ordersStatistic // ignore: cast_nullable_to_non_nullable
-              as OrdersStatistic?,
-      lastOrder: freezed == lastOrder
-          ? _value.lastOrder
-          : lastOrder // ignore: cast_nullable_to_non_nullable
-              as OrderData?,
-    ));
+    return _then(
+      _$TodayOrdersStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        todayOrders: null == todayOrders
+            ? _value._todayOrders
+            : todayOrders // ignore: cast_nullable_to_non_nullable
+                  as List<OrderData>,
+        ordersStatistic: freezed == ordersStatistic
+            ? _value.ordersStatistic
+            : ordersStatistic // ignore: cast_nullable_to_non_nullable
+                  as OrdersStatistic?,
+        lastOrder: freezed == lastOrder
+            ? _value.lastOrder
+            : lastOrder // ignore: cast_nullable_to_non_nullable
+                  as OrderData?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$TodayOrdersStateImpl extends _TodayOrdersState {
-  const _$TodayOrdersStateImpl(
-      {this.isLoading = false,
-      final List<OrderData> todayOrders = const [],
-      this.ordersStatistic,
-      this.lastOrder})
-      : _todayOrders = todayOrders,
-        super._();
+  const _$TodayOrdersStateImpl({
+    this.isLoading = false,
+    final List<OrderData> todayOrders = const [],
+    this.ordersStatistic,
+    this.lastOrder,
+  }) : _todayOrders = todayOrders,
+       super._();
 
   @override
   @JsonKey()
@@ -170,8 +181,10 @@ class _$TodayOrdersStateImpl extends _TodayOrdersState {
             other is _$TodayOrdersStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other._todayOrders, _todayOrders) &&
+            const DeepCollectionEquality().equals(
+              other._todayOrders,
+              _todayOrders,
+            ) &&
             (identical(other.ordersStatistic, ordersStatistic) ||
                 other.ordersStatistic == ordersStatistic) &&
             (identical(other.lastOrder, lastOrder) ||
@@ -180,26 +193,30 @@ class _$TodayOrdersStateImpl extends _TodayOrdersState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      const DeepCollectionEquality().hash(_todayOrders),
-      ordersStatistic,
-      lastOrder);
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_todayOrders),
+    ordersStatistic,
+    lastOrder,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TodayOrdersStateImplCopyWith<_$TodayOrdersStateImpl> get copyWith =>
       __$$TodayOrdersStateImplCopyWithImpl<_$TodayOrdersStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _TodayOrdersState extends TodayOrdersState {
-  const factory _TodayOrdersState(
-      {final bool isLoading,
-      final List<OrderData> todayOrders,
-      final OrdersStatistic? ordersStatistic,
-      final OrderData? lastOrder}) = _$TodayOrdersStateImpl;
+  const factory _TodayOrdersState({
+    final bool isLoading,
+    final List<OrderData> todayOrders,
+    final OrdersStatistic? ordersStatistic,
+    final OrderData? lastOrder,
+  }) = _$TodayOrdersStateImpl;
   const _TodayOrdersState._() : super._();
 
   @override

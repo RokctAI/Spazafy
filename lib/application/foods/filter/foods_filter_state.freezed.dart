@@ -12,11 +12,12 @@ part of 'foods_filter_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$FoodsFilterState {
-// @Default(null) FilterModel? filterModel,
+  // @Default(null) FilterModel? filterModel,
   bool get checked => throw _privateConstructorUsedError;
   int get shopCount => throw _privateConstructorUsedError;
   double get endPrice => throw _privateConstructorUsedError;
@@ -37,20 +38,22 @@ mixin _$FoodsFilterState {
 /// @nodoc
 abstract class $FoodsFilterStateCopyWith<$Res> {
   factory $FoodsFilterStateCopyWith(
-          FoodsFilterState value, $Res Function(FoodsFilterState) then) =
-      _$FoodsFilterStateCopyWithImpl<$Res, FoodsFilterState>;
+    FoodsFilterState value,
+    $Res Function(FoodsFilterState) then,
+  ) = _$FoodsFilterStateCopyWithImpl<$Res, FoodsFilterState>;
   @useResult
-  $Res call(
-      {bool checked,
-      int shopCount,
-      double endPrice,
-      bool isLoading,
-      bool isTagLoading,
-      bool isShopLoading,
-      bool isRestaurantLoading,
-      RangeValues rangeValues,
-      List<String> tags,
-      List<int> prices});
+  $Res call({
+    bool checked,
+    int shopCount,
+    double endPrice,
+    bool isLoading,
+    bool isTagLoading,
+    bool isShopLoading,
+    bool isRestaurantLoading,
+    RangeValues rangeValues,
+    List<String> tags,
+    List<int> prices,
+  });
 }
 
 /// @nodoc
@@ -77,79 +80,85 @@ class _$FoodsFilterStateCopyWithImpl<$Res, $Val extends FoodsFilterState>
     Object? tags = null,
     Object? prices = null,
   }) {
-    return _then(_value.copyWith(
-      checked: null == checked
-          ? _value.checked
-          : checked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      shopCount: null == shopCount
-          ? _value.shopCount
-          : shopCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      endPrice: null == endPrice
-          ? _value.endPrice
-          : endPrice // ignore: cast_nullable_to_non_nullable
-              as double,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isTagLoading: null == isTagLoading
-          ? _value.isTagLoading
-          : isTagLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isShopLoading: null == isShopLoading
-          ? _value.isShopLoading
-          : isShopLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isRestaurantLoading: null == isRestaurantLoading
-          ? _value.isRestaurantLoading
-          : isRestaurantLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rangeValues: null == rangeValues
-          ? _value.rangeValues
-          : rangeValues // ignore: cast_nullable_to_non_nullable
-              as RangeValues,
-      tags: null == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      prices: null == prices
-          ? _value.prices
-          : prices // ignore: cast_nullable_to_non_nullable
-              as List<int>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            checked: null == checked
+                ? _value.checked
+                : checked // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            shopCount: null == shopCount
+                ? _value.shopCount
+                : shopCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+            endPrice: null == endPrice
+                ? _value.endPrice
+                : endPrice // ignore: cast_nullable_to_non_nullable
+                      as double,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isTagLoading: null == isTagLoading
+                ? _value.isTagLoading
+                : isTagLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isShopLoading: null == isShopLoading
+                ? _value.isShopLoading
+                : isShopLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isRestaurantLoading: null == isRestaurantLoading
+                ? _value.isRestaurantLoading
+                : isRestaurantLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            rangeValues: null == rangeValues
+                ? _value.rangeValues
+                : rangeValues // ignore: cast_nullable_to_non_nullable
+                      as RangeValues,
+            tags: null == tags
+                ? _value.tags
+                : tags // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            prices: null == prices
+                ? _value.prices
+                : prices // ignore: cast_nullable_to_non_nullable
+                      as List<int>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$FoodsFilterStateImplCopyWith<$Res>
     implements $FoodsFilterStateCopyWith<$Res> {
-  factory _$$FoodsFilterStateImplCopyWith(_$FoodsFilterStateImpl value,
-          $Res Function(_$FoodsFilterStateImpl) then) =
-      __$$FoodsFilterStateImplCopyWithImpl<$Res>;
+  factory _$$FoodsFilterStateImplCopyWith(
+    _$FoodsFilterStateImpl value,
+    $Res Function(_$FoodsFilterStateImpl) then,
+  ) = __$$FoodsFilterStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool checked,
-      int shopCount,
-      double endPrice,
-      bool isLoading,
-      bool isTagLoading,
-      bool isShopLoading,
-      bool isRestaurantLoading,
-      RangeValues rangeValues,
-      List<String> tags,
-      List<int> prices});
+  $Res call({
+    bool checked,
+    int shopCount,
+    double endPrice,
+    bool isLoading,
+    bool isTagLoading,
+    bool isShopLoading,
+    bool isRestaurantLoading,
+    RangeValues rangeValues,
+    List<String> tags,
+    List<int> prices,
+  });
 }
 
 /// @nodoc
 class __$$FoodsFilterStateImplCopyWithImpl<$Res>
     extends _$FoodsFilterStateCopyWithImpl<$Res, _$FoodsFilterStateImpl>
     implements _$$FoodsFilterStateImplCopyWith<$Res> {
-  __$$FoodsFilterStateImplCopyWithImpl(_$FoodsFilterStateImpl _value,
-      $Res Function(_$FoodsFilterStateImpl) _then)
-      : super(_value, _then);
+  __$$FoodsFilterStateImplCopyWithImpl(
+    _$FoodsFilterStateImpl _value,
+    $Res Function(_$FoodsFilterStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -165,70 +174,72 @@ class __$$FoodsFilterStateImplCopyWithImpl<$Res>
     Object? tags = null,
     Object? prices = null,
   }) {
-    return _then(_$FoodsFilterStateImpl(
-      checked: null == checked
-          ? _value.checked
-          : checked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      shopCount: null == shopCount
-          ? _value.shopCount
-          : shopCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      endPrice: null == endPrice
-          ? _value.endPrice
-          : endPrice // ignore: cast_nullable_to_non_nullable
-              as double,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isTagLoading: null == isTagLoading
-          ? _value.isTagLoading
-          : isTagLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isShopLoading: null == isShopLoading
-          ? _value.isShopLoading
-          : isShopLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isRestaurantLoading: null == isRestaurantLoading
-          ? _value.isRestaurantLoading
-          : isRestaurantLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rangeValues: null == rangeValues
-          ? _value.rangeValues
-          : rangeValues // ignore: cast_nullable_to_non_nullable
-              as RangeValues,
-      tags: null == tags
-          ? _value._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      prices: null == prices
-          ? _value._prices
-          : prices // ignore: cast_nullable_to_non_nullable
-              as List<int>,
-    ));
+    return _then(
+      _$FoodsFilterStateImpl(
+        checked: null == checked
+            ? _value.checked
+            : checked // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        shopCount: null == shopCount
+            ? _value.shopCount
+            : shopCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        endPrice: null == endPrice
+            ? _value.endPrice
+            : endPrice // ignore: cast_nullable_to_non_nullable
+                  as double,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isTagLoading: null == isTagLoading
+            ? _value.isTagLoading
+            : isTagLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isShopLoading: null == isShopLoading
+            ? _value.isShopLoading
+            : isShopLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isRestaurantLoading: null == isRestaurantLoading
+            ? _value.isRestaurantLoading
+            : isRestaurantLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        rangeValues: null == rangeValues
+            ? _value.rangeValues
+            : rangeValues // ignore: cast_nullable_to_non_nullable
+                  as RangeValues,
+        tags: null == tags
+            ? _value._tags
+            : tags // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        prices: null == prices
+            ? _value._prices
+            : prices // ignore: cast_nullable_to_non_nullable
+                  as List<int>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$FoodsFilterStateImpl extends _FoodsFilterState {
-  const _$FoodsFilterStateImpl(
-      {this.checked = false,
-      this.shopCount = 0,
-      this.endPrice = 100,
-      this.isLoading = false,
-      this.isTagLoading = false,
-      this.isShopLoading = true,
-      this.isRestaurantLoading = true,
-      this.rangeValues = const RangeValues(1, 100),
-      final List<String> tags = const [],
-      final List<int> prices = const []})
-      : _tags = tags,
-        _prices = prices,
-        super._();
+  const _$FoodsFilterStateImpl({
+    this.checked = false,
+    this.shopCount = 0,
+    this.endPrice = 100,
+    this.isLoading = false,
+    this.isTagLoading = false,
+    this.isShopLoading = true,
+    this.isRestaurantLoading = true,
+    this.rangeValues = const RangeValues(1, 100),
+    final List<String> tags = const [],
+    final List<int> prices = const [],
+  }) : _tags = tags,
+       _prices = prices,
+       super._();
 
-// @Default(null) FilterModel? filterModel,
+  // @Default(null) FilterModel? filterModel,
   @override
   @JsonKey()
   final bool checked;
@@ -253,9 +264,9 @@ class _$FoodsFilterStateImpl extends _FoodsFilterState {
   @override
   @JsonKey()
   final RangeValues rangeValues;
-// @Default([]) List<ShopData> shops,
+  // @Default([]) List<ShopData> shops,
   final List<String> _tags;
-// @Default([]) List<ShopData> shops,
+  // @Default([]) List<ShopData> shops,
   @override
   @JsonKey()
   List<String> get tags {
@@ -304,38 +315,42 @@ class _$FoodsFilterStateImpl extends _FoodsFilterState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      checked,
-      shopCount,
-      endPrice,
-      isLoading,
-      isTagLoading,
-      isShopLoading,
-      isRestaurantLoading,
-      rangeValues,
-      const DeepCollectionEquality().hash(_tags),
-      const DeepCollectionEquality().hash(_prices));
+    runtimeType,
+    checked,
+    shopCount,
+    endPrice,
+    isLoading,
+    isTagLoading,
+    isShopLoading,
+    isRestaurantLoading,
+    rangeValues,
+    const DeepCollectionEquality().hash(_tags),
+    const DeepCollectionEquality().hash(_prices),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$FoodsFilterStateImplCopyWith<_$FoodsFilterStateImpl> get copyWith =>
       __$$FoodsFilterStateImplCopyWithImpl<_$FoodsFilterStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _FoodsFilterState extends FoodsFilterState {
-  const factory _FoodsFilterState(
-      {final bool checked,
-      final int shopCount,
-      final double endPrice,
-      final bool isLoading,
-      final bool isTagLoading,
-      final bool isShopLoading,
-      final bool isRestaurantLoading,
-      final RangeValues rangeValues,
-      final List<String> tags,
-      final List<int> prices}) = _$FoodsFilterStateImpl;
+  const factory _FoodsFilterState({
+    final bool checked,
+    final int shopCount,
+    final double endPrice,
+    final bool isLoading,
+    final bool isTagLoading,
+    final bool isShopLoading,
+    final bool isRestaurantLoading,
+    final RangeValues rangeValues,
+    final List<String> tags,
+    final List<int> prices,
+  }) = _$FoodsFilterStateImpl;
   const _FoodsFilterState._() : super._();
 
   @override // @Default(null) FilterModel? filterModel,

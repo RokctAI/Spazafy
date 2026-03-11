@@ -12,7 +12,8 @@ part of 'delivery_type_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$DeliveryTypeState {
@@ -26,8 +27,9 @@ mixin _$DeliveryTypeState {
 /// @nodoc
 abstract class $DeliveryTypeStateCopyWith<$Res> {
   factory $DeliveryTypeStateCopyWith(
-          DeliveryTypeState value, $Res Function(DeliveryTypeState) then) =
-      _$DeliveryTypeStateCopyWithImpl<$Res, DeliveryTypeState>;
+    DeliveryTypeState value,
+    $Res Function(DeliveryTypeState) then,
+  ) = _$DeliveryTypeStateCopyWithImpl<$Res, DeliveryTypeState>;
   @useResult
   $Res call({String type});
 }
@@ -44,24 +46,26 @@ class _$DeliveryTypeStateCopyWithImpl<$Res, $Val extends DeliveryTypeState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? type = null}) {
+    return _then(
+      _value.copyWith(
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$DeliveryTypeStateImplCopyWith<$Res>
     implements $DeliveryTypeStateCopyWith<$Res> {
-  factory _$$DeliveryTypeStateImplCopyWith(_$DeliveryTypeStateImpl value,
-          $Res Function(_$DeliveryTypeStateImpl) then) =
-      __$$DeliveryTypeStateImplCopyWithImpl<$Res>;
+  factory _$$DeliveryTypeStateImplCopyWith(
+    _$DeliveryTypeStateImpl value,
+    $Res Function(_$DeliveryTypeStateImpl) then,
+  ) = __$$DeliveryTypeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String type});
@@ -71,21 +75,22 @@ abstract class _$$DeliveryTypeStateImplCopyWith<$Res>
 class __$$DeliveryTypeStateImplCopyWithImpl<$Res>
     extends _$DeliveryTypeStateCopyWithImpl<$Res, _$DeliveryTypeStateImpl>
     implements _$$DeliveryTypeStateImplCopyWith<$Res> {
-  __$$DeliveryTypeStateImplCopyWithImpl(_$DeliveryTypeStateImpl _value,
-      $Res Function(_$DeliveryTypeStateImpl) _then)
-      : super(_value, _then);
+  __$$DeliveryTypeStateImplCopyWithImpl(
+    _$DeliveryTypeStateImpl _value,
+    $Res Function(_$DeliveryTypeStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_$DeliveryTypeStateImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? type = null}) {
+    return _then(
+      _$DeliveryTypeStateImpl(
+        type: null == type
+            ? _value.type
+            : type // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -119,7 +124,9 @@ class _$DeliveryTypeStateImpl extends _DeliveryTypeState {
   @pragma('vm:prefer-inline')
   _$$DeliveryTypeStateImplCopyWith<_$DeliveryTypeStateImpl> get copyWith =>
       __$$DeliveryTypeStateImplCopyWithImpl<_$DeliveryTypeStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _DeliveryTypeState extends DeliveryTypeState {

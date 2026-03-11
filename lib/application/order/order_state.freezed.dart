@@ -12,7 +12,8 @@ part of 'order_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OrderState {
@@ -35,20 +36,22 @@ mixin _$OrderState {
 /// @nodoc
 abstract class $OrderStateCopyWith<$Res> {
   factory $OrderStateCopyWith(
-          OrderState value, $Res Function(OrderState) then) =
-      _$OrderStateCopyWithImpl<$Res, OrderState>;
+    OrderState value,
+    $Res Function(OrderState) then,
+  ) = _$OrderStateCopyWithImpl<$Res, OrderState>;
   @useResult
-  $Res call(
-      {bool paymentType,
-      bool isLoading,
-      List<OrderData> orders,
-      int totalCount,
-      int deliveryTime,
-      int deliveryType,
-      List<OrderData> deliveredOrders,
-      List<OrderData> canceledOrders,
-      int totalDeliveredOrderCount,
-      int totalCanceledOrderCount});
+  $Res call({
+    bool paymentType,
+    bool isLoading,
+    List<OrderData> orders,
+    int totalCount,
+    int deliveryTime,
+    int deliveryType,
+    List<OrderData> deliveredOrders,
+    List<OrderData> canceledOrders,
+    int totalDeliveredOrderCount,
+    int totalCanceledOrderCount,
+  });
 }
 
 /// @nodoc
@@ -75,48 +78,51 @@ class _$OrderStateCopyWithImpl<$Res, $Val extends OrderState>
     Object? totalDeliveredOrderCount = null,
     Object? totalCanceledOrderCount = null,
   }) {
-    return _then(_value.copyWith(
-      paymentType: null == paymentType
-          ? _value.paymentType
-          : paymentType // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      orders: null == orders
-          ? _value.orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      totalCount: null == totalCount
-          ? _value.totalCount
-          : totalCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      deliveryTime: null == deliveryTime
-          ? _value.deliveryTime
-          : deliveryTime // ignore: cast_nullable_to_non_nullable
-              as int,
-      deliveryType: null == deliveryType
-          ? _value.deliveryType
-          : deliveryType // ignore: cast_nullable_to_non_nullable
-              as int,
-      deliveredOrders: null == deliveredOrders
-          ? _value.deliveredOrders
-          : deliveredOrders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      canceledOrders: null == canceledOrders
-          ? _value.canceledOrders
-          : canceledOrders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      totalDeliveredOrderCount: null == totalDeliveredOrderCount
-          ? _value.totalDeliveredOrderCount
-          : totalDeliveredOrderCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      totalCanceledOrderCount: null == totalCanceledOrderCount
-          ? _value.totalCanceledOrderCount
-          : totalCanceledOrderCount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            paymentType: null == paymentType
+                ? _value.paymentType
+                : paymentType // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            orders: null == orders
+                ? _value.orders
+                : orders // ignore: cast_nullable_to_non_nullable
+                      as List<OrderData>,
+            totalCount: null == totalCount
+                ? _value.totalCount
+                : totalCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+            deliveryTime: null == deliveryTime
+                ? _value.deliveryTime
+                : deliveryTime // ignore: cast_nullable_to_non_nullable
+                      as int,
+            deliveryType: null == deliveryType
+                ? _value.deliveryType
+                : deliveryType // ignore: cast_nullable_to_non_nullable
+                      as int,
+            deliveredOrders: null == deliveredOrders
+                ? _value.deliveredOrders
+                : deliveredOrders // ignore: cast_nullable_to_non_nullable
+                      as List<OrderData>,
+            canceledOrders: null == canceledOrders
+                ? _value.canceledOrders
+                : canceledOrders // ignore: cast_nullable_to_non_nullable
+                      as List<OrderData>,
+            totalDeliveredOrderCount: null == totalDeliveredOrderCount
+                ? _value.totalDeliveredOrderCount
+                : totalDeliveredOrderCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+            totalCanceledOrderCount: null == totalCanceledOrderCount
+                ? _value.totalCanceledOrderCount
+                : totalCanceledOrderCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -124,21 +130,23 @@ class _$OrderStateCopyWithImpl<$Res, $Val extends OrderState>
 abstract class _$$OrdrStateImplCopyWith<$Res>
     implements $OrderStateCopyWith<$Res> {
   factory _$$OrdrStateImplCopyWith(
-          _$OrdrStateImpl value, $Res Function(_$OrdrStateImpl) then) =
-      __$$OrdrStateImplCopyWithImpl<$Res>;
+    _$OrdrStateImpl value,
+    $Res Function(_$OrdrStateImpl) then,
+  ) = __$$OrdrStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool paymentType,
-      bool isLoading,
-      List<OrderData> orders,
-      int totalCount,
-      int deliveryTime,
-      int deliveryType,
-      List<OrderData> deliveredOrders,
-      List<OrderData> canceledOrders,
-      int totalDeliveredOrderCount,
-      int totalCanceledOrderCount});
+  $Res call({
+    bool paymentType,
+    bool isLoading,
+    List<OrderData> orders,
+    int totalCount,
+    int deliveryTime,
+    int deliveryType,
+    List<OrderData> deliveredOrders,
+    List<OrderData> canceledOrders,
+    int totalDeliveredOrderCount,
+    int totalCanceledOrderCount,
+  });
 }
 
 /// @nodoc
@@ -146,8 +154,9 @@ class __$$OrdrStateImplCopyWithImpl<$Res>
     extends _$OrderStateCopyWithImpl<$Res, _$OrdrStateImpl>
     implements _$$OrdrStateImplCopyWith<$Res> {
   __$$OrdrStateImplCopyWithImpl(
-      _$OrdrStateImpl _value, $Res Function(_$OrdrStateImpl) _then)
-      : super(_value, _then);
+    _$OrdrStateImpl _value,
+    $Res Function(_$OrdrStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -163,69 +172,71 @@ class __$$OrdrStateImplCopyWithImpl<$Res>
     Object? totalDeliveredOrderCount = null,
     Object? totalCanceledOrderCount = null,
   }) {
-    return _then(_$OrdrStateImpl(
-      paymentType: null == paymentType
-          ? _value.paymentType
-          : paymentType // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      orders: null == orders
-          ? _value._orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      totalCount: null == totalCount
-          ? _value.totalCount
-          : totalCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      deliveryTime: null == deliveryTime
-          ? _value.deliveryTime
-          : deliveryTime // ignore: cast_nullable_to_non_nullable
-              as int,
-      deliveryType: null == deliveryType
-          ? _value.deliveryType
-          : deliveryType // ignore: cast_nullable_to_non_nullable
-              as int,
-      deliveredOrders: null == deliveredOrders
-          ? _value._deliveredOrders
-          : deliveredOrders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      canceledOrders: null == canceledOrders
-          ? _value._canceledOrders
-          : canceledOrders // ignore: cast_nullable_to_non_nullable
-              as List<OrderData>,
-      totalDeliveredOrderCount: null == totalDeliveredOrderCount
-          ? _value.totalDeliveredOrderCount
-          : totalDeliveredOrderCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      totalCanceledOrderCount: null == totalCanceledOrderCount
-          ? _value.totalCanceledOrderCount
-          : totalCanceledOrderCount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+    return _then(
+      _$OrdrStateImpl(
+        paymentType: null == paymentType
+            ? _value.paymentType
+            : paymentType // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        orders: null == orders
+            ? _value._orders
+            : orders // ignore: cast_nullable_to_non_nullable
+                  as List<OrderData>,
+        totalCount: null == totalCount
+            ? _value.totalCount
+            : totalCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        deliveryTime: null == deliveryTime
+            ? _value.deliveryTime
+            : deliveryTime // ignore: cast_nullable_to_non_nullable
+                  as int,
+        deliveryType: null == deliveryType
+            ? _value.deliveryType
+            : deliveryType // ignore: cast_nullable_to_non_nullable
+                  as int,
+        deliveredOrders: null == deliveredOrders
+            ? _value._deliveredOrders
+            : deliveredOrders // ignore: cast_nullable_to_non_nullable
+                  as List<OrderData>,
+        canceledOrders: null == canceledOrders
+            ? _value._canceledOrders
+            : canceledOrders // ignore: cast_nullable_to_non_nullable
+                  as List<OrderData>,
+        totalDeliveredOrderCount: null == totalDeliveredOrderCount
+            ? _value.totalDeliveredOrderCount
+            : totalDeliveredOrderCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+        totalCanceledOrderCount: null == totalCanceledOrderCount
+            ? _value.totalCanceledOrderCount
+            : totalCanceledOrderCount // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$OrdrStateImpl extends _OrdrState {
-  const _$OrdrStateImpl(
-      {this.paymentType = false,
-      this.isLoading = false,
-      final List<OrderData> orders = const [],
-      this.totalCount = 0,
-      this.deliveryTime = 0,
-      this.deliveryType = 0,
-      final List<OrderData> deliveredOrders = const [],
-      final List<OrderData> canceledOrders = const [],
-      this.totalDeliveredOrderCount = 0,
-      this.totalCanceledOrderCount = 0})
-      : _orders = orders,
-        _deliveredOrders = deliveredOrders,
-        _canceledOrders = canceledOrders,
-        super._();
+  const _$OrdrStateImpl({
+    this.paymentType = false,
+    this.isLoading = false,
+    final List<OrderData> orders = const [],
+    this.totalCount = 0,
+    this.deliveryTime = 0,
+    this.deliveryType = 0,
+    final List<OrderData> deliveredOrders = const [],
+    final List<OrderData> canceledOrders = const [],
+    this.totalDeliveredOrderCount = 0,
+    this.totalCanceledOrderCount = 0,
+  }) : _orders = orders,
+       _deliveredOrders = deliveredOrders,
+       _canceledOrders = canceledOrders,
+       super._();
 
   @override
   @JsonKey()
@@ -297,31 +308,40 @@ class _$OrdrStateImpl extends _OrdrState {
                 other.deliveryTime == deliveryTime) &&
             (identical(other.deliveryType, deliveryType) ||
                 other.deliveryType == deliveryType) &&
-            const DeepCollectionEquality()
-                .equals(other._deliveredOrders, _deliveredOrders) &&
-            const DeepCollectionEquality()
-                .equals(other._canceledOrders, _canceledOrders) &&
+            const DeepCollectionEquality().equals(
+              other._deliveredOrders,
+              _deliveredOrders,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._canceledOrders,
+              _canceledOrders,
+            ) &&
             (identical(
-                    other.totalDeliveredOrderCount, totalDeliveredOrderCount) ||
+                  other.totalDeliveredOrderCount,
+                  totalDeliveredOrderCount,
+                ) ||
                 other.totalDeliveredOrderCount == totalDeliveredOrderCount) &&
             (identical(
-                    other.totalCanceledOrderCount, totalCanceledOrderCount) ||
+                  other.totalCanceledOrderCount,
+                  totalCanceledOrderCount,
+                ) ||
                 other.totalCanceledOrderCount == totalCanceledOrderCount));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      paymentType,
-      isLoading,
-      const DeepCollectionEquality().hash(_orders),
-      totalCount,
-      deliveryTime,
-      deliveryType,
-      const DeepCollectionEquality().hash(_deliveredOrders),
-      const DeepCollectionEquality().hash(_canceledOrders),
-      totalDeliveredOrderCount,
-      totalCanceledOrderCount);
+    runtimeType,
+    paymentType,
+    isLoading,
+    const DeepCollectionEquality().hash(_orders),
+    totalCount,
+    deliveryTime,
+    deliveryType,
+    const DeepCollectionEquality().hash(_deliveredOrders),
+    const DeepCollectionEquality().hash(_canceledOrders),
+    totalDeliveredOrderCount,
+    totalCanceledOrderCount,
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -331,17 +351,18 @@ class _$OrdrStateImpl extends _OrdrState {
 }
 
 abstract class _OrdrState extends OrderState {
-  const factory _OrdrState(
-      {final bool paymentType,
-      final bool isLoading,
-      final List<OrderData> orders,
-      final int totalCount,
-      final int deliveryTime,
-      final int deliveryType,
-      final List<OrderData> deliveredOrders,
-      final List<OrderData> canceledOrders,
-      final int totalDeliveredOrderCount,
-      final int totalCanceledOrderCount}) = _$OrdrStateImpl;
+  const factory _OrdrState({
+    final bool paymentType,
+    final bool isLoading,
+    final List<OrderData> orders,
+    final int totalCount,
+    final int deliveryTime,
+    final int deliveryType,
+    final List<OrderData> deliveredOrders,
+    final List<OrderData> canceledOrders,
+    final int totalDeliveredOrderCount,
+    final int totalCanceledOrderCount,
+  }) = _$OrdrStateImpl;
   const _OrdrState._() : super._();
 
   @override

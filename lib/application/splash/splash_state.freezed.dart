@@ -12,7 +12,8 @@ part of 'splash_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$SplashState {
@@ -26,8 +27,9 @@ mixin _$SplashState {
 /// @nodoc
 abstract class $SplashStateCopyWith<$Res> {
   factory $SplashStateCopyWith(
-          SplashState value, $Res Function(SplashState) then) =
-      _$SplashStateCopyWithImpl<$Res, SplashState>;
+    SplashState value,
+    $Res Function(SplashState) then,
+  ) = _$SplashStateCopyWithImpl<$Res, SplashState>;
   @useResult
   $Res call({bool isLoading});
 }
@@ -44,15 +46,16 @@ class _$SplashStateCopyWithImpl<$Res, $Val extends SplashState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -60,8 +63,9 @@ class _$SplashStateCopyWithImpl<$Res, $Val extends SplashState>
 abstract class _$$SplashStateImplCopyWith<$Res>
     implements $SplashStateCopyWith<$Res> {
   factory _$$SplashStateImplCopyWith(
-          _$SplashStateImpl value, $Res Function(_$SplashStateImpl) then) =
-      __$$SplashStateImplCopyWithImpl<$Res>;
+    _$SplashStateImpl value,
+    $Res Function(_$SplashStateImpl) then,
+  ) = __$$SplashStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
@@ -72,20 +76,21 @@ class __$$SplashStateImplCopyWithImpl<$Res>
     extends _$SplashStateCopyWithImpl<$Res, _$SplashStateImpl>
     implements _$$SplashStateImplCopyWith<$Res> {
   __$$SplashStateImplCopyWithImpl(
-      _$SplashStateImpl _value, $Res Function(_$SplashStateImpl) _then)
-      : super(_value, _then);
+    _$SplashStateImpl _value,
+    $Res Function(_$SplashStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_$SplashStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _$SplashStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 

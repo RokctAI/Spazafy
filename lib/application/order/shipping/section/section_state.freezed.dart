@@ -12,7 +12,8 @@ part of 'section_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$SectionState {
@@ -31,15 +32,17 @@ mixin _$SectionState {
 /// @nodoc
 abstract class $SectionStateCopyWith<$Res> {
   factory $SectionStateCopyWith(
-          SectionState value, $Res Function(SectionState) then) =
-      _$SectionStateCopyWithImpl<$Res, SectionState>;
+    SectionState value,
+    $Res Function(SectionState) then,
+  ) = _$SectionStateCopyWithImpl<$Res, SectionState>;
   @useResult
-  $Res call(
-      {List<ShopSection> sections,
-      int selectedIndex,
-      bool isLoading,
-      ShopSection? selectSection,
-      TextEditingController? textController});
+  $Res call({
+    List<ShopSection> sections,
+    int selectedIndex,
+    bool isLoading,
+    ShopSection? selectSection,
+    TextEditingController? textController,
+  });
 }
 
 /// @nodoc
@@ -61,28 +64,31 @@ class _$SectionStateCopyWithImpl<$Res, $Val extends SectionState>
     Object? selectSection = freezed,
     Object? textController = freezed,
   }) {
-    return _then(_value.copyWith(
-      sections: null == sections
-          ? _value.sections
-          : sections // ignore: cast_nullable_to_non_nullable
-              as List<ShopSection>,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      selectSection: freezed == selectSection
-          ? _value.selectSection
-          : selectSection // ignore: cast_nullable_to_non_nullable
-              as ShopSection?,
-      textController: freezed == textController
-          ? _value.textController
-          : textController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            sections: null == sections
+                ? _value.sections
+                : sections // ignore: cast_nullable_to_non_nullable
+                      as List<ShopSection>,
+            selectedIndex: null == selectedIndex
+                ? _value.selectedIndex
+                : selectedIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            selectSection: freezed == selectSection
+                ? _value.selectSection
+                : selectSection // ignore: cast_nullable_to_non_nullable
+                      as ShopSection?,
+            textController: freezed == textController
+                ? _value.textController
+                : textController // ignore: cast_nullable_to_non_nullable
+                      as TextEditingController?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -90,16 +96,18 @@ class _$SectionStateCopyWithImpl<$Res, $Val extends SectionState>
 abstract class _$$SectionStateImplCopyWith<$Res>
     implements $SectionStateCopyWith<$Res> {
   factory _$$SectionStateImplCopyWith(
-          _$SectionStateImpl value, $Res Function(_$SectionStateImpl) then) =
-      __$$SectionStateImplCopyWithImpl<$Res>;
+    _$SectionStateImpl value,
+    $Res Function(_$SectionStateImpl) then,
+  ) = __$$SectionStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<ShopSection> sections,
-      int selectedIndex,
-      bool isLoading,
-      ShopSection? selectSection,
-      TextEditingController? textController});
+  $Res call({
+    List<ShopSection> sections,
+    int selectedIndex,
+    bool isLoading,
+    ShopSection? selectSection,
+    TextEditingController? textController,
+  });
 }
 
 /// @nodoc
@@ -107,8 +115,9 @@ class __$$SectionStateImplCopyWithImpl<$Res>
     extends _$SectionStateCopyWithImpl<$Res, _$SectionStateImpl>
     implements _$$SectionStateImplCopyWith<$Res> {
   __$$SectionStateImplCopyWithImpl(
-      _$SectionStateImpl _value, $Res Function(_$SectionStateImpl) _then)
-      : super(_value, _then);
+    _$SectionStateImpl _value,
+    $Res Function(_$SectionStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -119,42 +128,44 @@ class __$$SectionStateImplCopyWithImpl<$Res>
     Object? selectSection = freezed,
     Object? textController = freezed,
   }) {
-    return _then(_$SectionStateImpl(
-      sections: null == sections
-          ? _value._sections
-          : sections // ignore: cast_nullable_to_non_nullable
-              as List<ShopSection>,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      selectSection: freezed == selectSection
-          ? _value.selectSection
-          : selectSection // ignore: cast_nullable_to_non_nullable
-              as ShopSection?,
-      textController: freezed == textController
-          ? _value.textController
-          : textController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-    ));
+    return _then(
+      _$SectionStateImpl(
+        sections: null == sections
+            ? _value._sections
+            : sections // ignore: cast_nullable_to_non_nullable
+                  as List<ShopSection>,
+        selectedIndex: null == selectedIndex
+            ? _value.selectedIndex
+            : selectedIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        selectSection: freezed == selectSection
+            ? _value.selectSection
+            : selectSection // ignore: cast_nullable_to_non_nullable
+                  as ShopSection?,
+        textController: freezed == textController
+            ? _value.textController
+            : textController // ignore: cast_nullable_to_non_nullable
+                  as TextEditingController?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$SectionStateImpl extends _SectionState {
-  const _$SectionStateImpl(
-      {final List<ShopSection> sections = const [],
-      this.selectedIndex = 0,
-      this.isLoading = false,
-      this.selectSection,
-      this.textController})
-      : _sections = sections,
-        super._();
+  const _$SectionStateImpl({
+    final List<ShopSection> sections = const [],
+    this.selectedIndex = 0,
+    this.isLoading = false,
+    this.selectSection,
+    this.textController,
+  }) : _sections = sections,
+       super._();
 
   final List<ShopSection> _sections;
   @override
@@ -199,12 +210,13 @@ class _$SectionStateImpl extends _SectionState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_sections),
-      selectedIndex,
-      isLoading,
-      selectSection,
-      textController);
+    runtimeType,
+    const DeepCollectionEquality().hash(_sections),
+    selectedIndex,
+    isLoading,
+    selectSection,
+    textController,
+  );
 
   @JsonKey(ignore: true)
   @override
@@ -214,12 +226,13 @@ class _$SectionStateImpl extends _SectionState {
 }
 
 abstract class _SectionState extends SectionState {
-  const factory _SectionState(
-      {final List<ShopSection> sections,
-      final int selectedIndex,
-      final bool isLoading,
-      final ShopSection? selectSection,
-      final TextEditingController? textController}) = _$SectionStateImpl;
+  const factory _SectionState({
+    final List<ShopSection> sections,
+    final int selectedIndex,
+    final bool isLoading,
+    final ShopSection? selectSection,
+    final TextEditingController? textController,
+  }) = _$SectionStateImpl;
   const _SectionState._() : super._();
 
   @override

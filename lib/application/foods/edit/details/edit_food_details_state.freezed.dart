@@ -12,7 +12,8 @@ part of 'edit_food_details_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$EditFoodDetailsState {
@@ -42,32 +43,36 @@ mixin _$EditFoodDetailsState {
 
 /// @nodoc
 abstract class $EditFoodDetailsStateCopyWith<$Res> {
-  factory $EditFoodDetailsStateCopyWith(EditFoodDetailsState value,
-          $Res Function(EditFoodDetailsState) then) =
-      _$EditFoodDetailsStateCopyWithImpl<$Res, EditFoodDetailsState>;
+  factory $EditFoodDetailsStateCopyWith(
+    EditFoodDetailsState value,
+    $Res Function(EditFoodDetailsState) then,
+  ) = _$EditFoodDetailsStateCopyWithImpl<$Res, EditFoodDetailsState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool active,
-      String title,
-      String interval,
-      String description,
-      Map<String, String> titleTranslations,
-      Map<String, String> descriptionTranslations,
-      String minQty,
-      String maxQty,
-      String tax,
-      String barcode,
-      ProductData? product,
-      List<String> images,
-      List<Galleries> listOfUrls,
-      Map<String, List<String>> mapOfDesc,
-      LanguageData? language});
+  $Res call({
+    bool isLoading,
+    bool active,
+    String title,
+    String interval,
+    String description,
+    Map<String, String> titleTranslations,
+    Map<String, String> descriptionTranslations,
+    String minQty,
+    String maxQty,
+    String tax,
+    String barcode,
+    ProductData? product,
+    List<String> images,
+    List<Galleries> listOfUrls,
+    Map<String, List<String>> mapOfDesc,
+    LanguageData? language,
+  });
 }
 
 /// @nodoc
-class _$EditFoodDetailsStateCopyWithImpl<$Res,
-        $Val extends EditFoodDetailsState>
+class _$EditFoodDetailsStateCopyWithImpl<
+  $Res,
+  $Val extends EditFoodDetailsState
+>
     implements $EditFoodDetailsStateCopyWith<$Res> {
   _$EditFoodDetailsStateCopyWithImpl(this._value, this._then);
 
@@ -96,109 +101,115 @@ class _$EditFoodDetailsStateCopyWithImpl<$Res,
     Object? mapOfDesc = null,
     Object? language = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as bool,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      interval: null == interval
-          ? _value.interval
-          : interval // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      titleTranslations: null == titleTranslations
-          ? _value.titleTranslations
-          : titleTranslations // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      descriptionTranslations: null == descriptionTranslations
-          ? _value.descriptionTranslations
-          : descriptionTranslations // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      minQty: null == minQty
-          ? _value.minQty
-          : minQty // ignore: cast_nullable_to_non_nullable
-              as String,
-      maxQty: null == maxQty
-          ? _value.maxQty
-          : maxQty // ignore: cast_nullable_to_non_nullable
-              as String,
-      tax: null == tax
-          ? _value.tax
-          : tax // ignore: cast_nullable_to_non_nullable
-              as String,
-      barcode: null == barcode
-          ? _value.barcode
-          : barcode // ignore: cast_nullable_to_non_nullable
-              as String,
-      product: freezed == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as ProductData?,
-      images: null == images
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      listOfUrls: null == listOfUrls
-          ? _value.listOfUrls
-          : listOfUrls // ignore: cast_nullable_to_non_nullable
-              as List<Galleries>,
-      mapOfDesc: null == mapOfDesc
-          ? _value.mapOfDesc
-          : mapOfDesc // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<String>>,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as LanguageData?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            active: null == active
+                ? _value.active
+                : active // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            title: null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                      as String,
+            interval: null == interval
+                ? _value.interval
+                : interval // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: null == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String,
+            titleTranslations: null == titleTranslations
+                ? _value.titleTranslations
+                : titleTranslations // ignore: cast_nullable_to_non_nullable
+                      as Map<String, String>,
+            descriptionTranslations: null == descriptionTranslations
+                ? _value.descriptionTranslations
+                : descriptionTranslations // ignore: cast_nullable_to_non_nullable
+                      as Map<String, String>,
+            minQty: null == minQty
+                ? _value.minQty
+                : minQty // ignore: cast_nullable_to_non_nullable
+                      as String,
+            maxQty: null == maxQty
+                ? _value.maxQty
+                : maxQty // ignore: cast_nullable_to_non_nullable
+                      as String,
+            tax: null == tax
+                ? _value.tax
+                : tax // ignore: cast_nullable_to_non_nullable
+                      as String,
+            barcode: null == barcode
+                ? _value.barcode
+                : barcode // ignore: cast_nullable_to_non_nullable
+                      as String,
+            product: freezed == product
+                ? _value.product
+                : product // ignore: cast_nullable_to_non_nullable
+                      as ProductData?,
+            images: null == images
+                ? _value.images
+                : images // ignore: cast_nullable_to_non_nullable
+                      as List<String>,
+            listOfUrls: null == listOfUrls
+                ? _value.listOfUrls
+                : listOfUrls // ignore: cast_nullable_to_non_nullable
+                      as List<Galleries>,
+            mapOfDesc: null == mapOfDesc
+                ? _value.mapOfDesc
+                : mapOfDesc // ignore: cast_nullable_to_non_nullable
+                      as Map<String, List<String>>,
+            language: freezed == language
+                ? _value.language
+                : language // ignore: cast_nullable_to_non_nullable
+                      as LanguageData?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$EditFoodDetailsStateImplCopyWith<$Res>
     implements $EditFoodDetailsStateCopyWith<$Res> {
-  factory _$$EditFoodDetailsStateImplCopyWith(_$EditFoodDetailsStateImpl value,
-          $Res Function(_$EditFoodDetailsStateImpl) then) =
-      __$$EditFoodDetailsStateImplCopyWithImpl<$Res>;
+  factory _$$EditFoodDetailsStateImplCopyWith(
+    _$EditFoodDetailsStateImpl value,
+    $Res Function(_$EditFoodDetailsStateImpl) then,
+  ) = __$$EditFoodDetailsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool active,
-      String title,
-      String interval,
-      String description,
-      Map<String, String> titleTranslations,
-      Map<String, String> descriptionTranslations,
-      String minQty,
-      String maxQty,
-      String tax,
-      String barcode,
-      ProductData? product,
-      List<String> images,
-      List<Galleries> listOfUrls,
-      Map<String, List<String>> mapOfDesc,
-      LanguageData? language});
+  $Res call({
+    bool isLoading,
+    bool active,
+    String title,
+    String interval,
+    String description,
+    Map<String, String> titleTranslations,
+    Map<String, String> descriptionTranslations,
+    String minQty,
+    String maxQty,
+    String tax,
+    String barcode,
+    ProductData? product,
+    List<String> images,
+    List<Galleries> listOfUrls,
+    Map<String, List<String>> mapOfDesc,
+    LanguageData? language,
+  });
 }
 
 /// @nodoc
 class __$$EditFoodDetailsStateImplCopyWithImpl<$Res>
     extends _$EditFoodDetailsStateCopyWithImpl<$Res, _$EditFoodDetailsStateImpl>
     implements _$$EditFoodDetailsStateImplCopyWith<$Res> {
-  __$$EditFoodDetailsStateImplCopyWithImpl(_$EditFoodDetailsStateImpl _value,
-      $Res Function(_$EditFoodDetailsStateImpl) _then)
-      : super(_value, _then);
+  __$$EditFoodDetailsStateImplCopyWithImpl(
+    _$EditFoodDetailsStateImpl _value,
+    $Res Function(_$EditFoodDetailsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -220,101 +231,103 @@ class __$$EditFoodDetailsStateImplCopyWithImpl<$Res>
     Object? mapOfDesc = null,
     Object? language = freezed,
   }) {
-    return _then(_$EditFoodDetailsStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as bool,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      interval: null == interval
-          ? _value.interval
-          : interval // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      titleTranslations: null == titleTranslations
-          ? _value._titleTranslations
-          : titleTranslations // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      descriptionTranslations: null == descriptionTranslations
-          ? _value._descriptionTranslations
-          : descriptionTranslations // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      minQty: null == minQty
-          ? _value.minQty
-          : minQty // ignore: cast_nullable_to_non_nullable
-              as String,
-      maxQty: null == maxQty
-          ? _value.maxQty
-          : maxQty // ignore: cast_nullable_to_non_nullable
-              as String,
-      tax: null == tax
-          ? _value.tax
-          : tax // ignore: cast_nullable_to_non_nullable
-              as String,
-      barcode: null == barcode
-          ? _value.barcode
-          : barcode // ignore: cast_nullable_to_non_nullable
-              as String,
-      product: freezed == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as ProductData?,
-      images: null == images
-          ? _value._images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      listOfUrls: null == listOfUrls
-          ? _value._listOfUrls
-          : listOfUrls // ignore: cast_nullable_to_non_nullable
-              as List<Galleries>,
-      mapOfDesc: null == mapOfDesc
-          ? _value._mapOfDesc
-          : mapOfDesc // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<String>>,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as LanguageData?,
-    ));
+    return _then(
+      _$EditFoodDetailsStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        active: null == active
+            ? _value.active
+            : active // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        title: null == title
+            ? _value.title
+            : title // ignore: cast_nullable_to_non_nullable
+                  as String,
+        interval: null == interval
+            ? _value.interval
+            : interval // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String,
+        titleTranslations: null == titleTranslations
+            ? _value._titleTranslations
+            : titleTranslations // ignore: cast_nullable_to_non_nullable
+                  as Map<String, String>,
+        descriptionTranslations: null == descriptionTranslations
+            ? _value._descriptionTranslations
+            : descriptionTranslations // ignore: cast_nullable_to_non_nullable
+                  as Map<String, String>,
+        minQty: null == minQty
+            ? _value.minQty
+            : minQty // ignore: cast_nullable_to_non_nullable
+                  as String,
+        maxQty: null == maxQty
+            ? _value.maxQty
+            : maxQty // ignore: cast_nullable_to_non_nullable
+                  as String,
+        tax: null == tax
+            ? _value.tax
+            : tax // ignore: cast_nullable_to_non_nullable
+                  as String,
+        barcode: null == barcode
+            ? _value.barcode
+            : barcode // ignore: cast_nullable_to_non_nullable
+                  as String,
+        product: freezed == product
+            ? _value.product
+            : product // ignore: cast_nullable_to_non_nullable
+                  as ProductData?,
+        images: null == images
+            ? _value._images
+            : images // ignore: cast_nullable_to_non_nullable
+                  as List<String>,
+        listOfUrls: null == listOfUrls
+            ? _value._listOfUrls
+            : listOfUrls // ignore: cast_nullable_to_non_nullable
+                  as List<Galleries>,
+        mapOfDesc: null == mapOfDesc
+            ? _value._mapOfDesc
+            : mapOfDesc // ignore: cast_nullable_to_non_nullable
+                  as Map<String, List<String>>,
+        language: freezed == language
+            ? _value.language
+            : language // ignore: cast_nullable_to_non_nullable
+                  as LanguageData?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$EditFoodDetailsStateImpl extends _EditFoodDetailsState {
-  const _$EditFoodDetailsStateImpl(
-      {this.isLoading = false,
-      this.active = false,
-      this.title = '',
-      this.interval = '',
-      this.description = '',
-      final Map<String, String> titleTranslations = const {},
-      final Map<String, String> descriptionTranslations = const {},
-      this.minQty = '',
-      this.maxQty = '',
-      this.tax = '',
-      this.barcode = '',
-      this.product,
-      final List<String> images = const [],
-      final List<Galleries> listOfUrls = const [],
-      final Map<String, List<String>> mapOfDesc = const {},
-      this.language})
-      : _titleTranslations = titleTranslations,
-        _descriptionTranslations = descriptionTranslations,
-        _images = images,
-        _listOfUrls = listOfUrls,
-        _mapOfDesc = mapOfDesc,
-        super._();
+  const _$EditFoodDetailsStateImpl({
+    this.isLoading = false,
+    this.active = false,
+    this.title = '',
+    this.interval = '',
+    this.description = '',
+    final Map<String, String> titleTranslations = const {},
+    final Map<String, String> descriptionTranslations = const {},
+    this.minQty = '',
+    this.maxQty = '',
+    this.tax = '',
+    this.barcode = '',
+    this.product,
+    final List<String> images = const [],
+    final List<Galleries> listOfUrls = const [],
+    final Map<String, List<String>> mapOfDesc = const {},
+    this.language,
+  }) : _titleTranslations = titleTranslations,
+       _descriptionTranslations = descriptionTranslations,
+       _images = images,
+       _listOfUrls = listOfUrls,
+       _mapOfDesc = mapOfDesc,
+       super._();
 
   @override
   @JsonKey()
@@ -413,71 +426,83 @@ class _$EditFoodDetailsStateImpl extends _EditFoodDetailsState {
                 other.interval == interval) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            const DeepCollectionEquality()
-                .equals(other._titleTranslations, _titleTranslations) &&
             const DeepCollectionEquality().equals(
-                other._descriptionTranslations, _descriptionTranslations) &&
+              other._titleTranslations,
+              _titleTranslations,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._descriptionTranslations,
+              _descriptionTranslations,
+            ) &&
             (identical(other.minQty, minQty) || other.minQty == minQty) &&
             (identical(other.maxQty, maxQty) || other.maxQty == maxQty) &&
             (identical(other.tax, tax) || other.tax == tax) &&
             (identical(other.barcode, barcode) || other.barcode == barcode) &&
             (identical(other.product, product) || other.product == product) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
-            const DeepCollectionEquality()
-                .equals(other._listOfUrls, _listOfUrls) &&
-            const DeepCollectionEquality()
-                .equals(other._mapOfDesc, _mapOfDesc) &&
+            const DeepCollectionEquality().equals(
+              other._listOfUrls,
+              _listOfUrls,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._mapOfDesc,
+              _mapOfDesc,
+            ) &&
             (identical(other.language, language) ||
                 other.language == language));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      active,
-      title,
-      interval,
-      description,
-      const DeepCollectionEquality().hash(_titleTranslations),
-      const DeepCollectionEquality().hash(_descriptionTranslations),
-      minQty,
-      maxQty,
-      tax,
-      barcode,
-      product,
-      const DeepCollectionEquality().hash(_images),
-      const DeepCollectionEquality().hash(_listOfUrls),
-      const DeepCollectionEquality().hash(_mapOfDesc),
-      language);
+    runtimeType,
+    isLoading,
+    active,
+    title,
+    interval,
+    description,
+    const DeepCollectionEquality().hash(_titleTranslations),
+    const DeepCollectionEquality().hash(_descriptionTranslations),
+    minQty,
+    maxQty,
+    tax,
+    barcode,
+    product,
+    const DeepCollectionEquality().hash(_images),
+    const DeepCollectionEquality().hash(_listOfUrls),
+    const DeepCollectionEquality().hash(_mapOfDesc),
+    language,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$EditFoodDetailsStateImplCopyWith<_$EditFoodDetailsStateImpl>
-      get copyWith =>
-          __$$EditFoodDetailsStateImplCopyWithImpl<_$EditFoodDetailsStateImpl>(
-              this, _$identity);
+  get copyWith =>
+      __$$EditFoodDetailsStateImplCopyWithImpl<_$EditFoodDetailsStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _EditFoodDetailsState extends EditFoodDetailsState {
-  const factory _EditFoodDetailsState(
-      {final bool isLoading,
-      final bool active,
-      final String title,
-      final String interval,
-      final String description,
-      final Map<String, String> titleTranslations,
-      final Map<String, String> descriptionTranslations,
-      final String minQty,
-      final String maxQty,
-      final String tax,
-      final String barcode,
-      final ProductData? product,
-      final List<String> images,
-      final List<Galleries> listOfUrls,
-      final Map<String, List<String>> mapOfDesc,
-      final LanguageData? language}) = _$EditFoodDetailsStateImpl;
+  const factory _EditFoodDetailsState({
+    final bool isLoading,
+    final bool active,
+    final String title,
+    final String interval,
+    final String description,
+    final Map<String, String> titleTranslations,
+    final Map<String, String> descriptionTranslations,
+    final String minQty,
+    final String maxQty,
+    final String tax,
+    final String barcode,
+    final ProductData? product,
+    final List<String> images,
+    final List<Galleries> listOfUrls,
+    final Map<String, List<String>> mapOfDesc,
+    final LanguageData? language,
+  }) = _$EditFoodDetailsStateImpl;
   const _EditFoodDetailsState._() : super._();
 
   @override
@@ -515,5 +540,5 @@ abstract class _EditFoodDetailsState extends EditFoodDetailsState {
   @override
   @JsonKey(ignore: true)
   _$$EditFoodDetailsStateImplCopyWith<_$EditFoodDetailsStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

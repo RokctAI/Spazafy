@@ -12,7 +12,8 @@ part of 'ai_translation_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AiTranslationState {
@@ -28,11 +29,15 @@ mixin _$AiTranslationState {
 /// @nodoc
 abstract class $AiTranslationStateCopyWith<$Res> {
   factory $AiTranslationStateCopyWith(
-          AiTranslationState value, $Res Function(AiTranslationState) then) =
-      _$AiTranslationStateCopyWithImpl<$Res, AiTranslationState>;
+    AiTranslationState value,
+    $Res Function(AiTranslationState) then,
+  ) = _$AiTranslationStateCopyWithImpl<$Res, AiTranslationState>;
   @useResult
-  $Res call(
-      {bool isLoading, bool translatedUsingAi, LanguageData? selectedLanguage});
+  $Res call({
+    bool isLoading,
+    bool translatedUsingAi,
+    LanguageData? selectedLanguage,
+  });
 }
 
 /// @nodoc
@@ -52,42 +57,50 @@ class _$AiTranslationStateCopyWithImpl<$Res, $Val extends AiTranslationState>
     Object? translatedUsingAi = null,
     Object? selectedLanguage = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      translatedUsingAi: null == translatedUsingAi
-          ? _value.translatedUsingAi
-          : translatedUsingAi // ignore: cast_nullable_to_non_nullable
-              as bool,
-      selectedLanguage: freezed == selectedLanguage
-          ? _value.selectedLanguage
-          : selectedLanguage // ignore: cast_nullable_to_non_nullable
-              as LanguageData?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            translatedUsingAi: null == translatedUsingAi
+                ? _value.translatedUsingAi
+                : translatedUsingAi // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            selectedLanguage: freezed == selectedLanguage
+                ? _value.selectedLanguage
+                : selectedLanguage // ignore: cast_nullable_to_non_nullable
+                      as LanguageData?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$AiTranslationStateImplCopyWith<$Res>
     implements $AiTranslationStateCopyWith<$Res> {
-  factory _$$AiTranslationStateImplCopyWith(_$AiTranslationStateImpl value,
-          $Res Function(_$AiTranslationStateImpl) then) =
-      __$$AiTranslationStateImplCopyWithImpl<$Res>;
+  factory _$$AiTranslationStateImplCopyWith(
+    _$AiTranslationStateImpl value,
+    $Res Function(_$AiTranslationStateImpl) then,
+  ) = __$$AiTranslationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading, bool translatedUsingAi, LanguageData? selectedLanguage});
+  $Res call({
+    bool isLoading,
+    bool translatedUsingAi,
+    LanguageData? selectedLanguage,
+  });
 }
 
 /// @nodoc
 class __$$AiTranslationStateImplCopyWithImpl<$Res>
     extends _$AiTranslationStateCopyWithImpl<$Res, _$AiTranslationStateImpl>
     implements _$$AiTranslationStateImplCopyWith<$Res> {
-  __$$AiTranslationStateImplCopyWithImpl(_$AiTranslationStateImpl _value,
-      $Res Function(_$AiTranslationStateImpl) _then)
-      : super(_value, _then);
+  __$$AiTranslationStateImplCopyWithImpl(
+    _$AiTranslationStateImpl _value,
+    $Res Function(_$AiTranslationStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -96,31 +109,33 @@ class __$$AiTranslationStateImplCopyWithImpl<$Res>
     Object? translatedUsingAi = null,
     Object? selectedLanguage = freezed,
   }) {
-    return _then(_$AiTranslationStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      translatedUsingAi: null == translatedUsingAi
-          ? _value.translatedUsingAi
-          : translatedUsingAi // ignore: cast_nullable_to_non_nullable
-              as bool,
-      selectedLanguage: freezed == selectedLanguage
-          ? _value.selectedLanguage
-          : selectedLanguage // ignore: cast_nullable_to_non_nullable
-              as LanguageData?,
-    ));
+    return _then(
+      _$AiTranslationStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        translatedUsingAi: null == translatedUsingAi
+            ? _value.translatedUsingAi
+            : translatedUsingAi // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        selectedLanguage: freezed == selectedLanguage
+            ? _value.selectedLanguage
+            : selectedLanguage // ignore: cast_nullable_to_non_nullable
+                  as LanguageData?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$AiTranslationStateImpl extends _AiTranslationState {
-  const _$AiTranslationStateImpl(
-      {this.isLoading = false,
-      this.translatedUsingAi = false,
-      this.selectedLanguage})
-      : super._();
+  const _$AiTranslationStateImpl({
+    this.isLoading = false,
+    this.translatedUsingAi = false,
+    this.selectedLanguage,
+  }) : super._();
 
   @override
   @JsonKey()
@@ -158,14 +173,17 @@ class _$AiTranslationStateImpl extends _AiTranslationState {
   @pragma('vm:prefer-inline')
   _$$AiTranslationStateImplCopyWith<_$AiTranslationStateImpl> get copyWith =>
       __$$AiTranslationStateImplCopyWithImpl<_$AiTranslationStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _AiTranslationState extends AiTranslationState {
-  const factory _AiTranslationState(
-      {final bool isLoading,
-      final bool translatedUsingAi,
-      final LanguageData? selectedLanguage}) = _$AiTranslationStateImpl;
+  const factory _AiTranslationState({
+    final bool isLoading,
+    final bool translatedUsingAi,
+    final LanguageData? selectedLanguage,
+  }) = _$AiTranslationStateImpl;
   const _AiTranslationState._() : super._();
 
   @override

@@ -12,7 +12,8 @@ part of 'create_food_stocks_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CreateFoodStocksState {
@@ -32,23 +33,27 @@ mixin _$CreateFoodStocksState {
 
 /// @nodoc
 abstract class $CreateFoodStocksStateCopyWith<$Res> {
-  factory $CreateFoodStocksStateCopyWith(CreateFoodStocksState value,
-          $Res Function(CreateFoodStocksState) then) =
-      _$CreateFoodStocksStateCopyWithImpl<$Res, CreateFoodStocksState>;
+  factory $CreateFoodStocksStateCopyWith(
+    CreateFoodStocksState value,
+    $Res Function(CreateFoodStocksState) then,
+  ) = _$CreateFoodStocksStateCopyWithImpl<$Res, CreateFoodStocksState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isSaving,
-      bool isFetchingGroups,
-      List<Group> groups,
-      List<Stock> stocks,
-      List<Extras> activeGroupExtras,
-      Map<String, List<Extras?>> selectGroups});
+  $Res call({
+    bool isLoading,
+    bool isSaving,
+    bool isFetchingGroups,
+    List<Group> groups,
+    List<Stock> stocks,
+    List<Extras> activeGroupExtras,
+    Map<String, List<Extras?>> selectGroups,
+  });
 }
 
 /// @nodoc
-class _$CreateFoodStocksStateCopyWithImpl<$Res,
-        $Val extends CreateFoodStocksState>
+class _$CreateFoodStocksStateCopyWithImpl<
+  $Res,
+  $Val extends CreateFoodStocksState
+>
     implements $CreateFoodStocksStateCopyWith<$Res> {
   _$CreateFoodStocksStateCopyWithImpl(this._value, this._then);
 
@@ -68,36 +73,39 @@ class _$CreateFoodStocksStateCopyWithImpl<$Res,
     Object? activeGroupExtras = null,
     Object? selectGroups = null,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSaving: null == isSaving
-          ? _value.isSaving
-          : isSaving // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isFetchingGroups: null == isFetchingGroups
-          ? _value.isFetchingGroups
-          : isFetchingGroups // ignore: cast_nullable_to_non_nullable
-              as bool,
-      groups: null == groups
-          ? _value.groups
-          : groups // ignore: cast_nullable_to_non_nullable
-              as List<Group>,
-      stocks: null == stocks
-          ? _value.stocks
-          : stocks // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
-      activeGroupExtras: null == activeGroupExtras
-          ? _value.activeGroupExtras
-          : activeGroupExtras // ignore: cast_nullable_to_non_nullable
-              as List<Extras>,
-      selectGroups: null == selectGroups
-          ? _value.selectGroups
-          : selectGroups // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<Extras?>>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isSaving: null == isSaving
+                ? _value.isSaving
+                : isSaving // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isFetchingGroups: null == isFetchingGroups
+                ? _value.isFetchingGroups
+                : isFetchingGroups // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            groups: null == groups
+                ? _value.groups
+                : groups // ignore: cast_nullable_to_non_nullable
+                      as List<Group>,
+            stocks: null == stocks
+                ? _value.stocks
+                : stocks // ignore: cast_nullable_to_non_nullable
+                      as List<Stock>,
+            activeGroupExtras: null == activeGroupExtras
+                ? _value.activeGroupExtras
+                : activeGroupExtras // ignore: cast_nullable_to_non_nullable
+                      as List<Extras>,
+            selectGroups: null == selectGroups
+                ? _value.selectGroups
+                : selectGroups // ignore: cast_nullable_to_non_nullable
+                      as Map<String, List<Extras?>>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -105,29 +113,31 @@ class _$CreateFoodStocksStateCopyWithImpl<$Res,
 abstract class _$$CreateFoodStocksStateImplCopyWith<$Res>
     implements $CreateFoodStocksStateCopyWith<$Res> {
   factory _$$CreateFoodStocksStateImplCopyWith(
-          _$CreateFoodStocksStateImpl value,
-          $Res Function(_$CreateFoodStocksStateImpl) then) =
-      __$$CreateFoodStocksStateImplCopyWithImpl<$Res>;
+    _$CreateFoodStocksStateImpl value,
+    $Res Function(_$CreateFoodStocksStateImpl) then,
+  ) = __$$CreateFoodStocksStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isSaving,
-      bool isFetchingGroups,
-      List<Group> groups,
-      List<Stock> stocks,
-      List<Extras> activeGroupExtras,
-      Map<String, List<Extras?>> selectGroups});
+  $Res call({
+    bool isLoading,
+    bool isSaving,
+    bool isFetchingGroups,
+    List<Group> groups,
+    List<Stock> stocks,
+    List<Extras> activeGroupExtras,
+    Map<String, List<Extras?>> selectGroups,
+  });
 }
 
 /// @nodoc
 class __$$CreateFoodStocksStateImplCopyWithImpl<$Res>
-    extends _$CreateFoodStocksStateCopyWithImpl<$Res,
-        _$CreateFoodStocksStateImpl>
+    extends
+        _$CreateFoodStocksStateCopyWithImpl<$Res, _$CreateFoodStocksStateImpl>
     implements _$$CreateFoodStocksStateImplCopyWith<$Res> {
-  __$$CreateFoodStocksStateImplCopyWithImpl(_$CreateFoodStocksStateImpl _value,
-      $Res Function(_$CreateFoodStocksStateImpl) _then)
-      : super(_value, _then);
+  __$$CreateFoodStocksStateImplCopyWithImpl(
+    _$CreateFoodStocksStateImpl _value,
+    $Res Function(_$CreateFoodStocksStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -140,55 +150,57 @@ class __$$CreateFoodStocksStateImplCopyWithImpl<$Res>
     Object? activeGroupExtras = null,
     Object? selectGroups = null,
   }) {
-    return _then(_$CreateFoodStocksStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSaving: null == isSaving
-          ? _value.isSaving
-          : isSaving // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isFetchingGroups: null == isFetchingGroups
-          ? _value.isFetchingGroups
-          : isFetchingGroups // ignore: cast_nullable_to_non_nullable
-              as bool,
-      groups: null == groups
-          ? _value._groups
-          : groups // ignore: cast_nullable_to_non_nullable
-              as List<Group>,
-      stocks: null == stocks
-          ? _value._stocks
-          : stocks // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
-      activeGroupExtras: null == activeGroupExtras
-          ? _value._activeGroupExtras
-          : activeGroupExtras // ignore: cast_nullable_to_non_nullable
-              as List<Extras>,
-      selectGroups: null == selectGroups
-          ? _value._selectGroups
-          : selectGroups // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<Extras?>>,
-    ));
+    return _then(
+      _$CreateFoodStocksStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isSaving: null == isSaving
+            ? _value.isSaving
+            : isSaving // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isFetchingGroups: null == isFetchingGroups
+            ? _value.isFetchingGroups
+            : isFetchingGroups // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        groups: null == groups
+            ? _value._groups
+            : groups // ignore: cast_nullable_to_non_nullable
+                  as List<Group>,
+        stocks: null == stocks
+            ? _value._stocks
+            : stocks // ignore: cast_nullable_to_non_nullable
+                  as List<Stock>,
+        activeGroupExtras: null == activeGroupExtras
+            ? _value._activeGroupExtras
+            : activeGroupExtras // ignore: cast_nullable_to_non_nullable
+                  as List<Extras>,
+        selectGroups: null == selectGroups
+            ? _value._selectGroups
+            : selectGroups // ignore: cast_nullable_to_non_nullable
+                  as Map<String, List<Extras?>>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CreateFoodStocksStateImpl extends _CreateFoodStocksState {
-  const _$CreateFoodStocksStateImpl(
-      {this.isLoading = false,
-      this.isSaving = false,
-      this.isFetchingGroups = false,
-      final List<Group> groups = const [],
-      final List<Stock> stocks = const [],
-      final List<Extras> activeGroupExtras = const [],
-      final Map<String, List<Extras?>> selectGroups = const {}})
-      : _groups = groups,
-        _stocks = stocks,
-        _activeGroupExtras = activeGroupExtras,
-        _selectGroups = selectGroups,
-        super._();
+  const _$CreateFoodStocksStateImpl({
+    this.isLoading = false,
+    this.isSaving = false,
+    this.isFetchingGroups = false,
+    final List<Group> groups = const [],
+    final List<Stock> stocks = const [],
+    final List<Extras> activeGroupExtras = const [],
+    final Map<String, List<Extras?>> selectGroups = const {},
+  }) : _groups = groups,
+       _stocks = stocks,
+       _activeGroupExtras = activeGroupExtras,
+       _selectGroups = selectGroups,
+       super._();
 
   @override
   @JsonKey()
@@ -254,41 +266,49 @@ class _$CreateFoodStocksStateImpl extends _CreateFoodStocksState {
                 other.isFetchingGroups == isFetchingGroups) &&
             const DeepCollectionEquality().equals(other._groups, _groups) &&
             const DeepCollectionEquality().equals(other._stocks, _stocks) &&
-            const DeepCollectionEquality()
-                .equals(other._activeGroupExtras, _activeGroupExtras) &&
-            const DeepCollectionEquality()
-                .equals(other._selectGroups, _selectGroups));
+            const DeepCollectionEquality().equals(
+              other._activeGroupExtras,
+              _activeGroupExtras,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._selectGroups,
+              _selectGroups,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isSaving,
-      isFetchingGroups,
-      const DeepCollectionEquality().hash(_groups),
-      const DeepCollectionEquality().hash(_stocks),
-      const DeepCollectionEquality().hash(_activeGroupExtras),
-      const DeepCollectionEquality().hash(_selectGroups));
+    runtimeType,
+    isLoading,
+    isSaving,
+    isFetchingGroups,
+    const DeepCollectionEquality().hash(_groups),
+    const DeepCollectionEquality().hash(_stocks),
+    const DeepCollectionEquality().hash(_activeGroupExtras),
+    const DeepCollectionEquality().hash(_selectGroups),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateFoodStocksStateImplCopyWith<_$CreateFoodStocksStateImpl>
-      get copyWith => __$$CreateFoodStocksStateImplCopyWithImpl<
-          _$CreateFoodStocksStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$CreateFoodStocksStateImplCopyWithImpl<_$CreateFoodStocksStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CreateFoodStocksState extends CreateFoodStocksState {
-  const factory _CreateFoodStocksState(
-          {final bool isLoading,
-          final bool isSaving,
-          final bool isFetchingGroups,
-          final List<Group> groups,
-          final List<Stock> stocks,
-          final List<Extras> activeGroupExtras,
-          final Map<String, List<Extras?>> selectGroups}) =
-      _$CreateFoodStocksStateImpl;
+  const factory _CreateFoodStocksState({
+    final bool isLoading,
+    final bool isSaving,
+    final bool isFetchingGroups,
+    final List<Group> groups,
+    final List<Stock> stocks,
+    final List<Extras> activeGroupExtras,
+    final Map<String, List<Extras?>> selectGroups,
+  }) = _$CreateFoodStocksStateImpl;
   const _CreateFoodStocksState._() : super._();
 
   @override
@@ -308,5 +328,5 @@ abstract class _CreateFoodStocksState extends CreateFoodStocksState {
   @override
   @JsonKey(ignore: true)
   _$$CreateFoodStocksStateImplCopyWith<_$CreateFoodStocksStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

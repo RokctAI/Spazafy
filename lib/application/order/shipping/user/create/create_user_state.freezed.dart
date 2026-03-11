@@ -12,7 +12,8 @@ part of 'create_user_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CreateUserState {
@@ -26,8 +27,9 @@ mixin _$CreateUserState {
 /// @nodoc
 abstract class $CreateUserStateCopyWith<$Res> {
   factory $CreateUserStateCopyWith(
-          CreateUserState value, $Res Function(CreateUserState) then) =
-      _$CreateUserStateCopyWithImpl<$Res, CreateUserState>;
+    CreateUserState value,
+    $Res Function(CreateUserState) then,
+  ) = _$CreateUserStateCopyWithImpl<$Res, CreateUserState>;
   @useResult
   $Res call({bool isLoading});
 }
@@ -44,24 +46,26 @@ class _$CreateUserStateCopyWithImpl<$Res, $Val extends CreateUserState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CreateUserStateImplCopyWith<$Res>
     implements $CreateUserStateCopyWith<$Res> {
-  factory _$$CreateUserStateImplCopyWith(_$CreateUserStateImpl value,
-          $Res Function(_$CreateUserStateImpl) then) =
-      __$$CreateUserStateImplCopyWithImpl<$Res>;
+  factory _$$CreateUserStateImplCopyWith(
+    _$CreateUserStateImpl value,
+    $Res Function(_$CreateUserStateImpl) then,
+  ) = __$$CreateUserStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
@@ -72,20 +76,21 @@ class __$$CreateUserStateImplCopyWithImpl<$Res>
     extends _$CreateUserStateCopyWithImpl<$Res, _$CreateUserStateImpl>
     implements _$$CreateUserStateImplCopyWith<$Res> {
   __$$CreateUserStateImplCopyWithImpl(
-      _$CreateUserStateImpl _value, $Res Function(_$CreateUserStateImpl) _then)
-      : super(_value, _then);
+    _$CreateUserStateImpl _value,
+    $Res Function(_$CreateUserStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_$CreateUserStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _$CreateUserStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
@@ -120,7 +125,9 @@ class _$CreateUserStateImpl extends _CreateUserState {
   @pragma('vm:prefer-inline')
   _$$CreateUserStateImplCopyWith<_$CreateUserStateImpl> get copyWith =>
       __$$CreateUserStateImplCopyWithImpl<_$CreateUserStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CreateUserState extends CreateUserState {

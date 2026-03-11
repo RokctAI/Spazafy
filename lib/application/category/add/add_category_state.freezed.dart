@@ -12,7 +12,8 @@ part of 'add_category_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AddCategoryState {
@@ -26,8 +27,9 @@ mixin _$AddCategoryState {
 /// @nodoc
 abstract class $AddCategoryStateCopyWith<$Res> {
   factory $AddCategoryStateCopyWith(
-          AddCategoryState value, $Res Function(AddCategoryState) then) =
-      _$AddCategoryStateCopyWithImpl<$Res, AddCategoryState>;
+    AddCategoryState value,
+    $Res Function(AddCategoryState) then,
+  ) = _$AddCategoryStateCopyWithImpl<$Res, AddCategoryState>;
   @useResult
   $Res call({bool isLoading});
 }
@@ -44,24 +46,26 @@ class _$AddCategoryStateCopyWithImpl<$Res, $Val extends AddCategoryState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$AddCategoryStateImplCopyWith<$Res>
     implements $AddCategoryStateCopyWith<$Res> {
-  factory _$$AddCategoryStateImplCopyWith(_$AddCategoryStateImpl value,
-          $Res Function(_$AddCategoryStateImpl) then) =
-      __$$AddCategoryStateImplCopyWithImpl<$Res>;
+  factory _$$AddCategoryStateImplCopyWith(
+    _$AddCategoryStateImpl value,
+    $Res Function(_$AddCategoryStateImpl) then,
+  ) = __$$AddCategoryStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
@@ -71,21 +75,22 @@ abstract class _$$AddCategoryStateImplCopyWith<$Res>
 class __$$AddCategoryStateImplCopyWithImpl<$Res>
     extends _$AddCategoryStateCopyWithImpl<$Res, _$AddCategoryStateImpl>
     implements _$$AddCategoryStateImplCopyWith<$Res> {
-  __$$AddCategoryStateImplCopyWithImpl(_$AddCategoryStateImpl _value,
-      $Res Function(_$AddCategoryStateImpl) _then)
-      : super(_value, _then);
+  __$$AddCategoryStateImplCopyWithImpl(
+    _$AddCategoryStateImpl _value,
+    $Res Function(_$AddCategoryStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_$AddCategoryStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _$AddCategoryStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
@@ -120,7 +125,9 @@ class _$AddCategoryStateImpl extends _AddCategoryState {
   @pragma('vm:prefer-inline')
   _$$AddCategoryStateImplCopyWith<_$AddCategoryStateImpl> get copyWith =>
       __$$AddCategoryStateImplCopyWithImpl<_$AddCategoryStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _AddCategoryState extends AddCategoryState {
