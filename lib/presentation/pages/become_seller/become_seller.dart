@@ -125,11 +125,11 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
 
   Widget _buildContent(ProfileState state) {
     if (state.userData?.shop == null) {
-      return _buildShopForm(state, categoryId: 0);
+      return _buildShopForm(state, categoryId: '0');
     } else if (state.userData?.shop?.status == "new") {
       return const ProcessingView();
     } else {
-      return _buildShopForm(state, categoryId: 1, isRetry: true);
+      return _buildShopForm(state, categoryId: '1', isRetry: true);
     }
   }
 

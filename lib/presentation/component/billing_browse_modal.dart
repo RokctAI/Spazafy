@@ -50,10 +50,15 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
 
   @override
   Widget build(BuildContext context) {
+    final billingState = ref.watch(billingProvider);
+    final List<Stock> cartStocks = billingState.cartItems
+        .map((e) => e.product.stock?.copyWith(cartCount: e.quantity) ?? Stock())
+        .toList();
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
-        color: AppStyle.bg,
+        color: AppStyle.bgColor,
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
       ),
       child: Column(
@@ -68,34 +73,33 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
             ),
           ),
           16.verticalSpace,
-          _buildSearch(),
+          _buildSearch(cartStocks),
           16.verticalSpace,
-          _buildCategories(),
-          Expanded(child: _buildProducts()),
+          _buildCategories(cartStocks),
+          Expanded(child: _buildProducts(cartStocks)),
         ],
       ),
     );
   }
 
-  Widget _buildSearch() {
+  Widget _buildSearch(List<Stock> cartStocks) {
     return SearchTextField(
       onChanged: (value) {
         final categoriesState = ref.read(categoriesProvider);
-        ref
-            .read(orderProductsProvider.notifier)
-            .setQuery(
+        ref.read(orderProductsProvider.notifier).setQuery(
               query: value,
+              cartStocks: cartStocks,
               categoryId: categoriesState.activeIndex == 1
                   ? null
                   : categoriesState
-                        .categories[categoriesState.activeIndex - 2]
-                        .id,
+                      .categories[categoriesState.activeIndex - 2]
+                      .id,
             );
       },
     );
   }
 
-  Widget _buildCategories() {
+  Widget _buildCategories(List<Stock> cartStocks) {
     final categoriesState = ref.watch(categoriesProvider);
     final categoriesEvent = ref.read(categoriesProvider.notifier);
     final productsEvent = ref.read(orderProductsProvider.notifier);
@@ -110,10 +114,10 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
           categoriesEvent.setActiveIndex(index);
           productsEvent.fetchProducts(
             refreshController: _productController,
-            categoryId: index == 1
-                ? null
-                : categoriesState.categories[index - 2].id,
+            categoryId:
+                index == 1 ? null : categoriesState.categories[index - 2].id,
             isRefresh: true,
+            cartStocks: cartStocks,
           );
         },
         onLoading: () => categoriesEvent.fetchCategories(
@@ -124,7 +128,7 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
     );
   }
 
-  Widget _buildProducts() {
+  Widget _buildProducts(List<Stock> cartStocks) {
     final productsState = ref.watch(orderProductsProvider);
     final categoriesState = ref.watch(categoriesProvider);
     final productsEvent = ref.read(orderProductsProvider.notifier);
@@ -137,12 +141,14 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
       onRefreshing: () => productsEvent.fetchProducts(
         refreshController: _productController,
         isRefresh: true,
+        cartStocks: cartStocks,
         categoryId: categoriesState.activeIndex == 1
             ? null
             : categoriesState.categories[categoriesState.activeIndex - 2].id,
       ),
       onLoading: () => productsEvent.fetchProducts(
         refreshController: _productController,
+        cartStocks: cartStocks,
         categoryId: categoriesState.activeIndex == 1
             ? null
             : categoriesState.categories[categoriesState.activeIndex - 2].id,

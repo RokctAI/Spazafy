@@ -23,11 +23,11 @@ class BillingCheckoutPage extends ConsumerWidget {
     final printerNotifier = ref.read(billingPrinterProvider.notifier);
 
     return Scaffold(
-      backgroundColor: AppStyle.bg,
+      backgroundColor: AppStyle.bgColor,
       appBar: AppBar(
         backgroundColor: AppStyle.white,
         elevation: 0,
-        leading: const PopButton(),
+        leading: const PopButton(heroTag: 'checkout_pop'),
         title: Text('Checkout', style: AppStyle.interBold(size: 18)),
       ),
       body: SingleChildScrollView(
@@ -148,7 +148,7 @@ class BillingCheckoutPage extends ConsumerWidget {
           Expanded(
             child: CustomButton(
               title: isPrinterConnected ? 'Print & Done' : 'Complete Only',
-              onTap: () async {
+              onPressed: () async {
                 if (isPrinterConnected) {
                   await _handlePrint(state, printerNotifier);
                 }
@@ -184,8 +184,8 @@ class BillingCheckoutPage extends ConsumerWidget {
   Future<void> _handlePrint(BillingState state, dynamic printerNotifier) async {
     final shop = LocalStorage.getShop();
     await printerNotifier.printReceipt(
-      shopName: shop?.name ?? 'Spazafy Shop',
-      address1: shop?.address?.address ?? '',
+      shopName: shop?.translation?.title ?? 'Spazafy Shop',
+      address1: shop?.translation?.address ?? '',
       address2: '',
       phone: shop?.phone ?? '',
       total: state.totalAmount,

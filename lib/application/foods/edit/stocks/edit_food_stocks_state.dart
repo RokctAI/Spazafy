@@ -9,7 +9,7 @@ abstract class EditFoodStocksState with _$EditFoodStocksState {
     @Default(false) bool isLoading,
     @Default(false) bool isSaving,
     @Default(false) bool isFetchingGroups,
-    @Default([]) List<int> deleteStocks,
+    @Default([]) List<String> deleteStocks,
     @Default([]) List<Group> groups,
     @Default([]) List<Stock> stocks,
     @Default([]) List<Extras> activeGroupExtras,

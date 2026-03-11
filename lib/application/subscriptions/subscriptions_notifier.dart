@@ -73,14 +73,14 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
       }
 
       final res = await _subscriptionRepository.purchaseSubscription(
-        id: state.list[state.selectSubscribe].id ?? 0,
-        paymentId: state.payments?[state.selectPayment].id ?? 0,
+        id: state.list[state.selectSubscribe].id,
+        paymentId: state.payments?[state.selectPayment].id,
       );
       res.when(
         success: (success) async {
           final response = await _subscriptionRepository.createTransaction(
             id: success,
-            paymentId: state.payments?[state.selectPayment].id ?? 0,
+            paymentId: state.payments?[state.selectPayment].id,
           );
           response.when(
             success: (success) {
@@ -100,7 +100,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
     } else {
       final res = await _paymentsRepo.paymentSubscriptionWebView(
         name: state.payments?[state.selectPayment].tag ?? "",
-        subscriptionId: state.list[state.selectSubscribe].id ?? 0,
+        subscriptionId: state.list[state.selectSubscribe].id,
       );
       res.when(
         success: (data) async {

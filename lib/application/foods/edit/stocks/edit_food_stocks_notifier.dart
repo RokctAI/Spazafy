@@ -186,8 +186,10 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
   }
 
   void deleteStock(int index) {
-    List<int> list = List.from(state.deleteStocks);
-    list.add(_localStocks[index].id ?? 0);
+    List<String> list = List.from(state.deleteStocks);
+    if (_localStocks[index].id != null) {
+      list.add(_localStocks[index].id!);
+    }
     _localStocks.removeAt(index);
     state = state.copyWith(stocks: _localStocks, deleteStocks: list);
   }

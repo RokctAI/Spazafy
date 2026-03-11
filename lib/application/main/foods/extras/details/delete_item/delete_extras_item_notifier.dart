@@ -18,7 +18,7 @@ class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {
   }) async {
     state = state.copyWith(isLoading: true);
     final response = await _productsRepository.deleteExtrasItem(
-      extrasId: extrasId ?? 0,
+      extrasId: extrasId,
     );
     response.when(
       success: (data) {

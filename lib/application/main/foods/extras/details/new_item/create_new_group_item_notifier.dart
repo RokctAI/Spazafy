@@ -21,7 +21,7 @@ class CreateNewGroupItemNotifier
     state = state.copyWith(isLoading: true);
     final response = await _productsRepository.createExtrasItem(
       title: _title,
-      groupId: groupId ?? 0,
+      groupId: groupId,
     );
     response.when(
       success: (data) {

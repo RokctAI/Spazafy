@@ -82,7 +82,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     state = state.copyWith(
       notifications: notif,
       countOfNotifications: state.countOfNotifications?.copyWith(
-        notification: 0,
+        notification: '0',
       ),
     );
 
@@ -103,7 +103,10 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     List<NotificationModel> notif = List.from(state.notifications);
     notif[index] = notif[index].copyWith(readAt: DateTime.now());
     final notification = state.countOfNotifications?.copyWith(
-      notification: (state.countOfNotifications?.notification ?? 0) - 1,
+      notification: (int.tryParse(
+                  state.countOfNotifications?.notification ?? '0') ??
+              0) -
+          1,
     );
     state = state.copyWith(
       notifications: notif,

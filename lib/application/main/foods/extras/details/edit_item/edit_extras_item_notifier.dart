@@ -20,9 +20,9 @@ class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
   }) async {
     state = state.copyWith(isLoading: true);
     final response = await _productsRepository.updateExtrasItem(
-      extrasId: extrasId ?? 0,
+      extrasId: extrasId,
       title: _title,
-      groupId: groupId ?? 0,
+      groupId: groupId,
     );
     response.when(
       success: (data) {

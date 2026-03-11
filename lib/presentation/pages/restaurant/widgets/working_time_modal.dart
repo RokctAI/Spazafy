@@ -37,7 +37,7 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
           } else {
             _workingDays.add(
               ShopWorkingDays(
-                id: i,
+                id: i.toString(),
                 day: WeekDays.values[i].name,
                 from: "00:00",
                 to: "00:00",
@@ -50,7 +50,7 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
         for (int i = 0; i < WeekDays.values.length; i++) {
           _workingDays.add(
             ShopWorkingDays(
-              id: i,
+              id: i.toString(),
               day: WeekDays.values[i].name,
               from: "00:00",
               to: "00:00",

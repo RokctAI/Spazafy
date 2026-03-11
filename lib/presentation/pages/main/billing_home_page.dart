@@ -12,7 +12,7 @@ import 'package:venderfoodyman/presentation/component/billing_browse_modal.dart'
 import 'package:venderfoodyman/presentation/styles/style.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/infrastructure/services/services.dart';
-import '../component/scan_prompt.dart';
+import '../../component/scan_prompt.dart';
 
 @RoutePage()
 class BillingHomePage extends ConsumerStatefulWidget {
@@ -61,7 +61,7 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
     final notifier = ref.read(billingProvider.notifier);
 
     return Scaffold(
-      backgroundColor: AppStyle.bg,
+      backgroundColor: AppStyle.bgColor,
       body: Stack(
         children: [
           // ─── Camera / Camera-Off Area ───
@@ -180,7 +180,7 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
               24.verticalSpace,
               CustomButton(
                 title: 'Turn on Camera',
-                onTap: _toggleCamera,
+                onPressed: _toggleCamera,
                 width: 180,
                 icon: Icon(
                   FlutterRemix.camera_line,
@@ -398,7 +398,7 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
           size: 20.r,
         ),
         isLoading: false,
-        onTap: () {
+        onPressed: () {
           if (isEmpty) {
             // Navigate to products/stock (FoodsPage is index 2 in MainPage)
             ref.read(mainProvider.notifier).selectIndex(2);
