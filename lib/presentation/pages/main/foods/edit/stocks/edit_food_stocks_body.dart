@@ -103,6 +103,8 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                             ),
                         onSkuChange: (value) =>
                             event.setSku(value: value, index: index),
+                        onCostPriceChange: (value) =>
+                            event.setCostPrice(value: value, index: index),
                       );
                     },
                   ),

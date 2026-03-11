@@ -294,4 +294,5 @@ abstract class TrKeys {
   static const String defaultWord = 'default';
   static const String enterTitle = 'enter.title';
   static const String enterDescription = 'enter.description';
+  static const String costPrice = 'cost.price';
 }
