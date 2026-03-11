@@ -12,7 +12,8 @@ part of 'order_address_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OrderAddressState {
@@ -31,15 +32,17 @@ mixin _$OrderAddressState {
 /// @nodoc
 abstract class $OrderAddressStateCopyWith<$Res> {
   factory $OrderAddressStateCopyWith(
-          OrderAddressState value, $Res Function(OrderAddressState) then) =
-      _$OrderAddressStateCopyWithImpl<$Res, OrderAddressState>;
+    OrderAddressState value,
+    $Res Function(OrderAddressState) then,
+  ) = _$OrderAddressStateCopyWithImpl<$Res, OrderAddressState>;
   @useResult
-  $Res call(
-      {TextEditingController? textController,
-      LocationData? location,
-      String entrance,
-      String floor,
-      String house});
+  $Res call({
+    TextEditingController? textController,
+    LocationData? location,
+    String entrance,
+    String floor,
+    String house,
+  });
 }
 
 /// @nodoc
@@ -61,54 +64,60 @@ class _$OrderAddressStateCopyWithImpl<$Res, $Val extends OrderAddressState>
     Object? floor = null,
     Object? house = null,
   }) {
-    return _then(_value.copyWith(
-      textController: freezed == textController
-          ? _value.textController
-          : textController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as LocationData?,
-      entrance: null == entrance
-          ? _value.entrance
-          : entrance // ignore: cast_nullable_to_non_nullable
-              as String,
-      floor: null == floor
-          ? _value.floor
-          : floor // ignore: cast_nullable_to_non_nullable
-              as String,
-      house: null == house
-          ? _value.house
-          : house // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            textController: freezed == textController
+                ? _value.textController
+                : textController // ignore: cast_nullable_to_non_nullable
+                      as TextEditingController?,
+            location: freezed == location
+                ? _value.location
+                : location // ignore: cast_nullable_to_non_nullable
+                      as LocationData?,
+            entrance: null == entrance
+                ? _value.entrance
+                : entrance // ignore: cast_nullable_to_non_nullable
+                      as String,
+            floor: null == floor
+                ? _value.floor
+                : floor // ignore: cast_nullable_to_non_nullable
+                      as String,
+            house: null == house
+                ? _value.house
+                : house // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$OrderAddressStateImplCopyWith<$Res>
     implements $OrderAddressStateCopyWith<$Res> {
-  factory _$$OrderAddressStateImplCopyWith(_$OrderAddressStateImpl value,
-          $Res Function(_$OrderAddressStateImpl) then) =
-      __$$OrderAddressStateImplCopyWithImpl<$Res>;
+  factory _$$OrderAddressStateImplCopyWith(
+    _$OrderAddressStateImpl value,
+    $Res Function(_$OrderAddressStateImpl) then,
+  ) = __$$OrderAddressStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {TextEditingController? textController,
-      LocationData? location,
-      String entrance,
-      String floor,
-      String house});
+  $Res call({
+    TextEditingController? textController,
+    LocationData? location,
+    String entrance,
+    String floor,
+    String house,
+  });
 }
 
 /// @nodoc
 class __$$OrderAddressStateImplCopyWithImpl<$Res>
     extends _$OrderAddressStateCopyWithImpl<$Res, _$OrderAddressStateImpl>
     implements _$$OrderAddressStateImplCopyWith<$Res> {
-  __$$OrderAddressStateImplCopyWithImpl(_$OrderAddressStateImpl _value,
-      $Res Function(_$OrderAddressStateImpl) _then)
-      : super(_value, _then);
+  __$$OrderAddressStateImplCopyWithImpl(
+    _$OrderAddressStateImpl _value,
+    $Res Function(_$OrderAddressStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -119,41 +128,43 @@ class __$$OrderAddressStateImplCopyWithImpl<$Res>
     Object? floor = null,
     Object? house = null,
   }) {
-    return _then(_$OrderAddressStateImpl(
-      textController: freezed == textController
-          ? _value.textController
-          : textController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as LocationData?,
-      entrance: null == entrance
-          ? _value.entrance
-          : entrance // ignore: cast_nullable_to_non_nullable
-              as String,
-      floor: null == floor
-          ? _value.floor
-          : floor // ignore: cast_nullable_to_non_nullable
-              as String,
-      house: null == house
-          ? _value.house
-          : house // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$OrderAddressStateImpl(
+        textController: freezed == textController
+            ? _value.textController
+            : textController // ignore: cast_nullable_to_non_nullable
+                  as TextEditingController?,
+        location: freezed == location
+            ? _value.location
+            : location // ignore: cast_nullable_to_non_nullable
+                  as LocationData?,
+        entrance: null == entrance
+            ? _value.entrance
+            : entrance // ignore: cast_nullable_to_non_nullable
+                  as String,
+        floor: null == floor
+            ? _value.floor
+            : floor // ignore: cast_nullable_to_non_nullable
+                  as String,
+        house: null == house
+            ? _value.house
+            : house // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$OrderAddressStateImpl extends _OrderAddressState {
-  const _$OrderAddressStateImpl(
-      {this.textController,
-      this.location,
-      this.entrance = '',
-      this.floor = '',
-      this.house = ''})
-      : super._();
+  const _$OrderAddressStateImpl({
+    this.textController,
+    this.location,
+    this.entrance = '',
+    this.floor = '',
+    this.house = '',
+  }) : super._();
 
   @override
   final TextEditingController? textController;
@@ -191,23 +202,32 @@ class _$OrderAddressStateImpl extends _OrderAddressState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, textController, location, entrance, floor, house);
+    runtimeType,
+    textController,
+    location,
+    entrance,
+    floor,
+    house,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$OrderAddressStateImplCopyWith<_$OrderAddressStateImpl> get copyWith =>
       __$$OrderAddressStateImplCopyWithImpl<_$OrderAddressStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _OrderAddressState extends OrderAddressState {
-  const factory _OrderAddressState(
-      {final TextEditingController? textController,
-      final LocationData? location,
-      final String entrance,
-      final String floor,
-      final String house}) = _$OrderAddressStateImpl;
+  const factory _OrderAddressState({
+    final TextEditingController? textController,
+    final LocationData? location,
+    final String entrance,
+    final String floor,
+    final String house,
+  }) = _$OrderAddressStateImpl;
   const _OrderAddressState._() : super._();
 
   @override

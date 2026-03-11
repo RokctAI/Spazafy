@@ -12,7 +12,8 @@ part of 'order_payment_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$OrderPaymentState {
@@ -31,15 +32,17 @@ mixin _$OrderPaymentState {
 /// @nodoc
 abstract class $OrderPaymentStateCopyWith<$Res> {
   factory $OrderPaymentStateCopyWith(
-          OrderPaymentState value, $Res Function(OrderPaymentState) then) =
-      _$OrderPaymentStateCopyWithImpl<$Res, OrderPaymentState>;
+    OrderPaymentState value,
+    $Res Function(OrderPaymentState) then,
+  ) = _$OrderPaymentStateCopyWithImpl<$Res, OrderPaymentState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isCalculateLoading,
-      List<PaymentData> payments,
-      int selectedIndex,
-      OrderCalculateDetail? orderCalculate});
+  $Res call({
+    bool isLoading,
+    bool isCalculateLoading,
+    List<PaymentData> payments,
+    int selectedIndex,
+    OrderCalculateDetail? orderCalculate,
+  });
 }
 
 /// @nodoc
@@ -61,54 +64,60 @@ class _$OrderPaymentStateCopyWithImpl<$Res, $Val extends OrderPaymentState>
     Object? selectedIndex = null,
     Object? orderCalculate = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCalculateLoading: null == isCalculateLoading
-          ? _value.isCalculateLoading
-          : isCalculateLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      payments: null == payments
-          ? _value.payments
-          : payments // ignore: cast_nullable_to_non_nullable
-              as List<PaymentData>,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      orderCalculate: freezed == orderCalculate
-          ? _value.orderCalculate
-          : orderCalculate // ignore: cast_nullable_to_non_nullable
-              as OrderCalculateDetail?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isCalculateLoading: null == isCalculateLoading
+                ? _value.isCalculateLoading
+                : isCalculateLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            payments: null == payments
+                ? _value.payments
+                : payments // ignore: cast_nullable_to_non_nullable
+                      as List<PaymentData>,
+            selectedIndex: null == selectedIndex
+                ? _value.selectedIndex
+                : selectedIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            orderCalculate: freezed == orderCalculate
+                ? _value.orderCalculate
+                : orderCalculate // ignore: cast_nullable_to_non_nullable
+                      as OrderCalculateDetail?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$OrderPaymentStateImplCopyWith<$Res>
     implements $OrderPaymentStateCopyWith<$Res> {
-  factory _$$OrderPaymentStateImplCopyWith(_$OrderPaymentStateImpl value,
-          $Res Function(_$OrderPaymentStateImpl) then) =
-      __$$OrderPaymentStateImplCopyWithImpl<$Res>;
+  factory _$$OrderPaymentStateImplCopyWith(
+    _$OrderPaymentStateImpl value,
+    $Res Function(_$OrderPaymentStateImpl) then,
+  ) = __$$OrderPaymentStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isCalculateLoading,
-      List<PaymentData> payments,
-      int selectedIndex,
-      OrderCalculateDetail? orderCalculate});
+  $Res call({
+    bool isLoading,
+    bool isCalculateLoading,
+    List<PaymentData> payments,
+    int selectedIndex,
+    OrderCalculateDetail? orderCalculate,
+  });
 }
 
 /// @nodoc
 class __$$OrderPaymentStateImplCopyWithImpl<$Res>
     extends _$OrderPaymentStateCopyWithImpl<$Res, _$OrderPaymentStateImpl>
     implements _$$OrderPaymentStateImplCopyWith<$Res> {
-  __$$OrderPaymentStateImplCopyWithImpl(_$OrderPaymentStateImpl _value,
-      $Res Function(_$OrderPaymentStateImpl) _then)
-      : super(_value, _then);
+  __$$OrderPaymentStateImplCopyWithImpl(
+    _$OrderPaymentStateImpl _value,
+    $Res Function(_$OrderPaymentStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -119,42 +128,44 @@ class __$$OrderPaymentStateImplCopyWithImpl<$Res>
     Object? selectedIndex = null,
     Object? orderCalculate = freezed,
   }) {
-    return _then(_$OrderPaymentStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isCalculateLoading: null == isCalculateLoading
-          ? _value.isCalculateLoading
-          : isCalculateLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      payments: null == payments
-          ? _value._payments
-          : payments // ignore: cast_nullable_to_non_nullable
-              as List<PaymentData>,
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      orderCalculate: freezed == orderCalculate
-          ? _value.orderCalculate
-          : orderCalculate // ignore: cast_nullable_to_non_nullable
-              as OrderCalculateDetail?,
-    ));
+    return _then(
+      _$OrderPaymentStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isCalculateLoading: null == isCalculateLoading
+            ? _value.isCalculateLoading
+            : isCalculateLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        payments: null == payments
+            ? _value._payments
+            : payments // ignore: cast_nullable_to_non_nullable
+                  as List<PaymentData>,
+        selectedIndex: null == selectedIndex
+            ? _value.selectedIndex
+            : selectedIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        orderCalculate: freezed == orderCalculate
+            ? _value.orderCalculate
+            : orderCalculate // ignore: cast_nullable_to_non_nullable
+                  as OrderCalculateDetail?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$OrderPaymentStateImpl extends _OrderPaymentState {
-  const _$OrderPaymentStateImpl(
-      {this.isLoading = false,
-      this.isCalculateLoading = false,
-      final List<PaymentData> payments = const [],
-      this.selectedIndex = 0,
-      this.orderCalculate})
-      : _payments = payments,
-        super._();
+  const _$OrderPaymentStateImpl({
+    this.isLoading = false,
+    this.isCalculateLoading = false,
+    final List<PaymentData> payments = const [],
+    this.selectedIndex = 0,
+    this.orderCalculate,
+  }) : _payments = payments,
+       super._();
 
   @override
   @JsonKey()
@@ -200,28 +211,32 @@ class _$OrderPaymentStateImpl extends _OrderPaymentState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isCalculateLoading,
-      const DeepCollectionEquality().hash(_payments),
-      selectedIndex,
-      orderCalculate);
+    runtimeType,
+    isLoading,
+    isCalculateLoading,
+    const DeepCollectionEquality().hash(_payments),
+    selectedIndex,
+    orderCalculate,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$OrderPaymentStateImplCopyWith<_$OrderPaymentStateImpl> get copyWith =>
       __$$OrderPaymentStateImplCopyWithImpl<_$OrderPaymentStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _OrderPaymentState extends OrderPaymentState {
-  const factory _OrderPaymentState(
-      {final bool isLoading,
-      final bool isCalculateLoading,
-      final List<PaymentData> payments,
-      final int selectedIndex,
-      final OrderCalculateDetail? orderCalculate}) = _$OrderPaymentStateImpl;
+  const factory _OrderPaymentState({
+    final bool isLoading,
+    final bool isCalculateLoading,
+    final List<PaymentData> payments,
+    final int selectedIndex,
+    final OrderCalculateDetail? orderCalculate,
+  }) = _$OrderPaymentStateImpl;
   const _OrderPaymentState._() : super._();
 
   @override

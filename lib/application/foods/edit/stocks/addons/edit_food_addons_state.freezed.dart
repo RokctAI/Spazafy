@@ -12,7 +12,8 @@ part of 'edit_food_addons_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$EditFoodAddonsState {
@@ -27,8 +28,9 @@ mixin _$EditFoodAddonsState {
 /// @nodoc
 abstract class $EditFoodAddonsStateCopyWith<$Res> {
   factory $EditFoodAddonsStateCopyWith(
-          EditFoodAddonsState value, $Res Function(EditFoodAddonsState) then) =
-      _$EditFoodAddonsStateCopyWithImpl<$Res, EditFoodAddonsState>;
+    EditFoodAddonsState value,
+    $Res Function(EditFoodAddonsState) then,
+  ) = _$EditFoodAddonsStateCopyWithImpl<$Res, EditFoodAddonsState>;
   @useResult
   $Res call({bool isLoading, List<ProductData> addons});
 }
@@ -45,29 +47,30 @@ class _$EditFoodAddonsStateCopyWithImpl<$Res, $Val extends EditFoodAddonsState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? addons = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      addons: null == addons
-          ? _value.addons
-          : addons // ignore: cast_nullable_to_non_nullable
-              as List<ProductData>,
-    ) as $Val);
+  $Res call({Object? isLoading = null, Object? addons = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            addons: null == addons
+                ? _value.addons
+                : addons // ignore: cast_nullable_to_non_nullable
+                      as List<ProductData>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$EditFoodAddonsStateImplCopyWith<$Res>
     implements $EditFoodAddonsStateCopyWith<$Res> {
-  factory _$$EditFoodAddonsStateImplCopyWith(_$EditFoodAddonsStateImpl value,
-          $Res Function(_$EditFoodAddonsStateImpl) then) =
-      __$$EditFoodAddonsStateImplCopyWithImpl<$Res>;
+  factory _$$EditFoodAddonsStateImplCopyWith(
+    _$EditFoodAddonsStateImpl value,
+    $Res Function(_$EditFoodAddonsStateImpl) then,
+  ) = __$$EditFoodAddonsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading, List<ProductData> addons});
@@ -77,36 +80,37 @@ abstract class _$$EditFoodAddonsStateImplCopyWith<$Res>
 class __$$EditFoodAddonsStateImplCopyWithImpl<$Res>
     extends _$EditFoodAddonsStateCopyWithImpl<$Res, _$EditFoodAddonsStateImpl>
     implements _$$EditFoodAddonsStateImplCopyWith<$Res> {
-  __$$EditFoodAddonsStateImplCopyWithImpl(_$EditFoodAddonsStateImpl _value,
-      $Res Function(_$EditFoodAddonsStateImpl) _then)
-      : super(_value, _then);
+  __$$EditFoodAddonsStateImplCopyWithImpl(
+    _$EditFoodAddonsStateImpl _value,
+    $Res Function(_$EditFoodAddonsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-    Object? addons = null,
-  }) {
-    return _then(_$EditFoodAddonsStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      addons: null == addons
-          ? _value._addons
-          : addons // ignore: cast_nullable_to_non_nullable
-              as List<ProductData>,
-    ));
+  $Res call({Object? isLoading = null, Object? addons = null}) {
+    return _then(
+      _$EditFoodAddonsStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        addons: null == addons
+            ? _value._addons
+            : addons // ignore: cast_nullable_to_non_nullable
+                  as List<ProductData>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$EditFoodAddonsStateImpl extends _EditFoodAddonsState {
-  const _$EditFoodAddonsStateImpl(
-      {this.isLoading = false, final List<ProductData> addons = const []})
-      : _addons = addons,
-        super._();
+  const _$EditFoodAddonsStateImpl({
+    this.isLoading = false,
+    final List<ProductData> addons = const [],
+  }) : _addons = addons,
+       super._();
 
   @override
   @JsonKey()
@@ -137,20 +141,26 @@ class _$EditFoodAddonsStateImpl extends _EditFoodAddonsState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, isLoading, const DeepCollectionEquality().hash(_addons));
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_addons),
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$EditFoodAddonsStateImplCopyWith<_$EditFoodAddonsStateImpl> get copyWith =>
       __$$EditFoodAddonsStateImplCopyWithImpl<_$EditFoodAddonsStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _EditFoodAddonsState extends EditFoodAddonsState {
-  const factory _EditFoodAddonsState(
-      {final bool isLoading,
-      final List<ProductData> addons}) = _$EditFoodAddonsStateImpl;
+  const factory _EditFoodAddonsState({
+    final bool isLoading,
+    final List<ProductData> addons,
+  }) = _$EditFoodAddonsStateImpl;
   const _EditFoodAddonsState._() : super._();
 
   @override

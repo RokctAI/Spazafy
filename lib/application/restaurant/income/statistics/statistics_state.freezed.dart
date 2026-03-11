@@ -12,7 +12,8 @@ part of 'statistics_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$StatisticsState {
@@ -32,16 +33,18 @@ mixin _$StatisticsState {
 /// @nodoc
 abstract class $StatisticsStateCopyWith<$Res> {
   factory $StatisticsStateCopyWith(
-          StatisticsState value, $Res Function(StatisticsState) then) =
-      _$StatisticsStateCopyWithImpl<$Res, StatisticsState>;
+    StatisticsState value,
+    $Res Function(StatisticsState) then,
+  ) = _$StatisticsStateCopyWithImpl<$Res, StatisticsState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isRefresh,
-      List<StatisticsOrder> listOfOrder,
-      List<num> prices,
-      List<DateTime> time,
-      StatisticsModel? countData});
+  $Res call({
+    bool isLoading,
+    bool isRefresh,
+    List<StatisticsOrder> listOfOrder,
+    List<num> prices,
+    List<DateTime> time,
+    StatisticsModel? countData,
+  });
 }
 
 /// @nodoc
@@ -64,50 +67,55 @@ class _$StatisticsStateCopyWithImpl<$Res, $Val extends StatisticsState>
     Object? time = null,
     Object? countData = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isRefresh: null == isRefresh
-          ? _value.isRefresh
-          : isRefresh // ignore: cast_nullable_to_non_nullable
-              as bool,
-      listOfOrder: null == listOfOrder
-          ? _value.listOfOrder
-          : listOfOrder // ignore: cast_nullable_to_non_nullable
-              as List<StatisticsOrder>,
-      prices: null == prices
-          ? _value.prices
-          : prices // ignore: cast_nullable_to_non_nullable
-              as List<num>,
-      time: null == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
-              as List<DateTime>,
-      countData: freezed == countData
-          ? _value.countData
-          : countData // ignore: cast_nullable_to_non_nullable
-              as StatisticsModel?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isRefresh: null == isRefresh
+                ? _value.isRefresh
+                : isRefresh // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            listOfOrder: null == listOfOrder
+                ? _value.listOfOrder
+                : listOfOrder // ignore: cast_nullable_to_non_nullable
+                      as List<StatisticsOrder>,
+            prices: null == prices
+                ? _value.prices
+                : prices // ignore: cast_nullable_to_non_nullable
+                      as List<num>,
+            time: null == time
+                ? _value.time
+                : time // ignore: cast_nullable_to_non_nullable
+                      as List<DateTime>,
+            countData: freezed == countData
+                ? _value.countData
+                : countData // ignore: cast_nullable_to_non_nullable
+                      as StatisticsModel?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$StatisticsStateImplCopyWith<$Res>
     implements $StatisticsStateCopyWith<$Res> {
-  factory _$$StatisticsStateImplCopyWith(_$StatisticsStateImpl value,
-          $Res Function(_$StatisticsStateImpl) then) =
-      __$$StatisticsStateImplCopyWithImpl<$Res>;
+  factory _$$StatisticsStateImplCopyWith(
+    _$StatisticsStateImpl value,
+    $Res Function(_$StatisticsStateImpl) then,
+  ) = __$$StatisticsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      bool isRefresh,
-      List<StatisticsOrder> listOfOrder,
-      List<num> prices,
-      List<DateTime> time,
-      StatisticsModel? countData});
+  $Res call({
+    bool isLoading,
+    bool isRefresh,
+    List<StatisticsOrder> listOfOrder,
+    List<num> prices,
+    List<DateTime> time,
+    StatisticsModel? countData,
+  });
 }
 
 /// @nodoc
@@ -115,8 +123,9 @@ class __$$StatisticsStateImplCopyWithImpl<$Res>
     extends _$StatisticsStateCopyWithImpl<$Res, _$StatisticsStateImpl>
     implements _$$StatisticsStateImplCopyWith<$Res> {
   __$$StatisticsStateImplCopyWithImpl(
-      _$StatisticsStateImpl _value, $Res Function(_$StatisticsStateImpl) _then)
-      : super(_value, _then);
+    _$StatisticsStateImpl _value,
+    $Res Function(_$StatisticsStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -128,49 +137,51 @@ class __$$StatisticsStateImplCopyWithImpl<$Res>
     Object? time = null,
     Object? countData = freezed,
   }) {
-    return _then(_$StatisticsStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isRefresh: null == isRefresh
-          ? _value.isRefresh
-          : isRefresh // ignore: cast_nullable_to_non_nullable
-              as bool,
-      listOfOrder: null == listOfOrder
-          ? _value._listOfOrder
-          : listOfOrder // ignore: cast_nullable_to_non_nullable
-              as List<StatisticsOrder>,
-      prices: null == prices
-          ? _value._prices
-          : prices // ignore: cast_nullable_to_non_nullable
-              as List<num>,
-      time: null == time
-          ? _value._time
-          : time // ignore: cast_nullable_to_non_nullable
-              as List<DateTime>,
-      countData: freezed == countData
-          ? _value.countData
-          : countData // ignore: cast_nullable_to_non_nullable
-              as StatisticsModel?,
-    ));
+    return _then(
+      _$StatisticsStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isRefresh: null == isRefresh
+            ? _value.isRefresh
+            : isRefresh // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        listOfOrder: null == listOfOrder
+            ? _value._listOfOrder
+            : listOfOrder // ignore: cast_nullable_to_non_nullable
+                  as List<StatisticsOrder>,
+        prices: null == prices
+            ? _value._prices
+            : prices // ignore: cast_nullable_to_non_nullable
+                  as List<num>,
+        time: null == time
+            ? _value._time
+            : time // ignore: cast_nullable_to_non_nullable
+                  as List<DateTime>,
+        countData: freezed == countData
+            ? _value.countData
+            : countData // ignore: cast_nullable_to_non_nullable
+                  as StatisticsModel?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$StatisticsStateImpl extends _StatisticsState {
-  const _$StatisticsStateImpl(
-      {this.isLoading = false,
-      this.isRefresh = true,
-      final List<StatisticsOrder> listOfOrder = const [],
-      final List<num> prices = const [],
-      final List<DateTime> time = const [],
-      this.countData})
-      : _listOfOrder = listOfOrder,
-        _prices = prices,
-        _time = time,
-        super._();
+  const _$StatisticsStateImpl({
+    this.isLoading = false,
+    this.isRefresh = true,
+    final List<StatisticsOrder> listOfOrder = const [],
+    final List<num> prices = const [],
+    final List<DateTime> time = const [],
+    this.countData,
+  }) : _listOfOrder = listOfOrder,
+       _prices = prices,
+       _time = time,
+       super._();
 
   @override
   @JsonKey()
@@ -178,9 +189,9 @@ class _$StatisticsStateImpl extends _StatisticsState {
   @override
   @JsonKey()
   final bool isRefresh;
-// @Default([]) List<Series<OrdinalSales, String>> list,
+  // @Default([]) List<Series<OrdinalSales, String>> list,
   final List<StatisticsOrder> _listOfOrder;
-// @Default([]) List<Series<OrdinalSales, String>> list,
+  // @Default([]) List<Series<OrdinalSales, String>> list,
   @override
   @JsonKey()
   List<StatisticsOrder> get listOfOrder {
@@ -224,8 +235,10 @@ class _$StatisticsStateImpl extends _StatisticsState {
                 other.isLoading == isLoading) &&
             (identical(other.isRefresh, isRefresh) ||
                 other.isRefresh == isRefresh) &&
-            const DeepCollectionEquality()
-                .equals(other._listOfOrder, _listOfOrder) &&
+            const DeepCollectionEquality().equals(
+              other._listOfOrder,
+              _listOfOrder,
+            ) &&
             const DeepCollectionEquality().equals(other._prices, _prices) &&
             const DeepCollectionEquality().equals(other._time, _time) &&
             (identical(other.countData, countData) ||
@@ -234,30 +247,34 @@ class _$StatisticsStateImpl extends _StatisticsState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      isRefresh,
-      const DeepCollectionEquality().hash(_listOfOrder),
-      const DeepCollectionEquality().hash(_prices),
-      const DeepCollectionEquality().hash(_time),
-      countData);
+    runtimeType,
+    isLoading,
+    isRefresh,
+    const DeepCollectionEquality().hash(_listOfOrder),
+    const DeepCollectionEquality().hash(_prices),
+    const DeepCollectionEquality().hash(_time),
+    countData,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$StatisticsStateImplCopyWith<_$StatisticsStateImpl> get copyWith =>
       __$$StatisticsStateImplCopyWithImpl<_$StatisticsStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _StatisticsState extends StatisticsState {
-  const factory _StatisticsState(
-      {final bool isLoading,
-      final bool isRefresh,
-      final List<StatisticsOrder> listOfOrder,
-      final List<num> prices,
-      final List<DateTime> time,
-      final StatisticsModel? countData}) = _$StatisticsStateImpl;
+  const factory _StatisticsState({
+    final bool isLoading,
+    final bool isRefresh,
+    final List<StatisticsOrder> listOfOrder,
+    final List<num> prices,
+    final List<DateTime> time,
+    final StatisticsModel? countData,
+  }) = _$StatisticsStateImpl;
   const _StatisticsState._() : super._();
 
   @override

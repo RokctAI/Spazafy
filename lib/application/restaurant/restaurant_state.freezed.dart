@@ -12,7 +12,8 @@ part of 'restaurant_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$RestaurantState {
@@ -30,15 +31,17 @@ mixin _$RestaurantState {
 /// @nodoc
 abstract class $RestaurantStateCopyWith<$Res> {
   factory $RestaurantStateCopyWith(
-          RestaurantState value, $Res Function(RestaurantState) then) =
-      _$RestaurantStateCopyWithImpl<$Res, RestaurantState>;
+    RestaurantState value,
+    $Res Function(RestaurantState) then,
+  ) = _$RestaurantStateCopyWithImpl<$Res, RestaurantState>;
   @useResult
-  $Res call(
-      {bool isLoading,
-      String? backgroundImageFile,
-      String? logoImageFile,
-      String? orderPayment,
-      ShopData? shop});
+  $Res call({
+    bool isLoading,
+    String? backgroundImageFile,
+    String? logoImageFile,
+    String? orderPayment,
+    ShopData? shop,
+  });
 }
 
 /// @nodoc
@@ -60,45 +63,50 @@ class _$RestaurantStateCopyWithImpl<$Res, $Val extends RestaurantState>
     Object? orderPayment = freezed,
     Object? shop = freezed,
   }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      backgroundImageFile: freezed == backgroundImageFile
-          ? _value.backgroundImageFile
-          : backgroundImageFile // ignore: cast_nullable_to_non_nullable
-              as String?,
-      logoImageFile: freezed == logoImageFile
-          ? _value.logoImageFile
-          : logoImageFile // ignore: cast_nullable_to_non_nullable
-              as String?,
-      orderPayment: freezed == orderPayment
-          ? _value.orderPayment
-          : orderPayment // ignore: cast_nullable_to_non_nullable
-              as String?,
-      shop: freezed == shop
-          ? _value.shop
-          : shop // ignore: cast_nullable_to_non_nullable
-              as ShopData?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            backgroundImageFile: freezed == backgroundImageFile
+                ? _value.backgroundImageFile
+                : backgroundImageFile // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            logoImageFile: freezed == logoImageFile
+                ? _value.logoImageFile
+                : logoImageFile // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            orderPayment: freezed == orderPayment
+                ? _value.orderPayment
+                : orderPayment // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            shop: freezed == shop
+                ? _value.shop
+                : shop // ignore: cast_nullable_to_non_nullable
+                      as ShopData?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$RestaurantStateImplCopyWith<$Res>
     implements $RestaurantStateCopyWith<$Res> {
-  factory _$$RestaurantStateImplCopyWith(_$RestaurantStateImpl value,
-          $Res Function(_$RestaurantStateImpl) then) =
-      __$$RestaurantStateImplCopyWithImpl<$Res>;
+  factory _$$RestaurantStateImplCopyWith(
+    _$RestaurantStateImpl value,
+    $Res Function(_$RestaurantStateImpl) then,
+  ) = __$$RestaurantStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      String? backgroundImageFile,
-      String? logoImageFile,
-      String? orderPayment,
-      ShopData? shop});
+  $Res call({
+    bool isLoading,
+    String? backgroundImageFile,
+    String? logoImageFile,
+    String? orderPayment,
+    ShopData? shop,
+  });
 }
 
 /// @nodoc
@@ -106,8 +114,9 @@ class __$$RestaurantStateImplCopyWithImpl<$Res>
     extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateImpl>
     implements _$$RestaurantStateImplCopyWith<$Res> {
   __$$RestaurantStateImplCopyWithImpl(
-      _$RestaurantStateImpl _value, $Res Function(_$RestaurantStateImpl) _then)
-      : super(_value, _then);
+    _$RestaurantStateImpl _value,
+    $Res Function(_$RestaurantStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -118,41 +127,43 @@ class __$$RestaurantStateImplCopyWithImpl<$Res>
     Object? orderPayment = freezed,
     Object? shop = freezed,
   }) {
-    return _then(_$RestaurantStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      backgroundImageFile: freezed == backgroundImageFile
-          ? _value.backgroundImageFile
-          : backgroundImageFile // ignore: cast_nullable_to_non_nullable
-              as String?,
-      logoImageFile: freezed == logoImageFile
-          ? _value.logoImageFile
-          : logoImageFile // ignore: cast_nullable_to_non_nullable
-              as String?,
-      orderPayment: freezed == orderPayment
-          ? _value.orderPayment
-          : orderPayment // ignore: cast_nullable_to_non_nullable
-              as String?,
-      shop: freezed == shop
-          ? _value.shop
-          : shop // ignore: cast_nullable_to_non_nullable
-              as ShopData?,
-    ));
+    return _then(
+      _$RestaurantStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        backgroundImageFile: freezed == backgroundImageFile
+            ? _value.backgroundImageFile
+            : backgroundImageFile // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        logoImageFile: freezed == logoImageFile
+            ? _value.logoImageFile
+            : logoImageFile // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        orderPayment: freezed == orderPayment
+            ? _value.orderPayment
+            : orderPayment // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        shop: freezed == shop
+            ? _value.shop
+            : shop // ignore: cast_nullable_to_non_nullable
+                  as ShopData?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$RestaurantStateImpl extends _RestaurantState {
-  const _$RestaurantStateImpl(
-      {this.isLoading = false,
-      this.backgroundImageFile,
-      this.logoImageFile,
-      this.orderPayment,
-      this.shop})
-      : super._();
+  const _$RestaurantStateImpl({
+    this.isLoading = false,
+    this.backgroundImageFile,
+    this.logoImageFile,
+    this.orderPayment,
+    this.shop,
+  }) : super._();
 
   @override
   @JsonKey()
@@ -188,24 +199,33 @@ class _$RestaurantStateImpl extends _RestaurantState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, backgroundImageFile,
-      logoImageFile, orderPayment, shop);
+  int get hashCode => Object.hash(
+    runtimeType,
+    isLoading,
+    backgroundImageFile,
+    logoImageFile,
+    orderPayment,
+    shop,
+  );
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$RestaurantStateImplCopyWith<_$RestaurantStateImpl> get copyWith =>
       __$$RestaurantStateImplCopyWithImpl<_$RestaurantStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _RestaurantState extends RestaurantState {
-  const factory _RestaurantState(
-      {final bool isLoading,
-      final String? backgroundImageFile,
-      final String? logoImageFile,
-      final String? orderPayment,
-      final ShopData? shop}) = _$RestaurantStateImpl;
+  const factory _RestaurantState({
+    final bool isLoading,
+    final String? backgroundImageFile,
+    final String? logoImageFile,
+    final String? orderPayment,
+    final ShopData? shop,
+  }) = _$RestaurantStateImpl;
   const _RestaurantState._() : super._();
 
   @override

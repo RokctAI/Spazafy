@@ -12,7 +12,8 @@ part of 'create_new_group_item_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CreateNewGroupItemState {
@@ -25,16 +26,19 @@ mixin _$CreateNewGroupItemState {
 
 /// @nodoc
 abstract class $CreateNewGroupItemStateCopyWith<$Res> {
-  factory $CreateNewGroupItemStateCopyWith(CreateNewGroupItemState value,
-          $Res Function(CreateNewGroupItemState) then) =
-      _$CreateNewGroupItemStateCopyWithImpl<$Res, CreateNewGroupItemState>;
+  factory $CreateNewGroupItemStateCopyWith(
+    CreateNewGroupItemState value,
+    $Res Function(CreateNewGroupItemState) then,
+  ) = _$CreateNewGroupItemStateCopyWithImpl<$Res, CreateNewGroupItemState>;
   @useResult
   $Res call({bool isLoading});
 }
 
 /// @nodoc
-class _$CreateNewGroupItemStateCopyWithImpl<$Res,
-        $Val extends CreateNewGroupItemState>
+class _$CreateNewGroupItemStateCopyWithImpl<
+  $Res,
+  $Val extends CreateNewGroupItemState
+>
     implements $CreateNewGroupItemStateCopyWith<$Res> {
   _$CreateNewGroupItemStateCopyWithImpl(this._value, this._then);
 
@@ -45,15 +49,16 @@ class _$CreateNewGroupItemStateCopyWithImpl<$Res,
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _value.copyWith(
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -61,9 +66,9 @@ class _$CreateNewGroupItemStateCopyWithImpl<$Res,
 abstract class _$$CreateNewGroupItemStateImplCopyWith<$Res>
     implements $CreateNewGroupItemStateCopyWith<$Res> {
   factory _$$CreateNewGroupItemStateImplCopyWith(
-          _$CreateNewGroupItemStateImpl value,
-          $Res Function(_$CreateNewGroupItemStateImpl) then) =
-      __$$CreateNewGroupItemStateImplCopyWithImpl<$Res>;
+    _$CreateNewGroupItemStateImpl value,
+    $Res Function(_$CreateNewGroupItemStateImpl) then,
+  ) = __$$CreateNewGroupItemStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isLoading});
@@ -71,25 +76,28 @@ abstract class _$$CreateNewGroupItemStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$CreateNewGroupItemStateImplCopyWithImpl<$Res>
-    extends _$CreateNewGroupItemStateCopyWithImpl<$Res,
-        _$CreateNewGroupItemStateImpl>
+    extends
+        _$CreateNewGroupItemStateCopyWithImpl<
+          $Res,
+          _$CreateNewGroupItemStateImpl
+        >
     implements _$$CreateNewGroupItemStateImplCopyWith<$Res> {
   __$$CreateNewGroupItemStateImplCopyWithImpl(
-      _$CreateNewGroupItemStateImpl _value,
-      $Res Function(_$CreateNewGroupItemStateImpl) _then)
-      : super(_value, _then);
+    _$CreateNewGroupItemStateImpl _value,
+    $Res Function(_$CreateNewGroupItemStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_$CreateNewGroupItemStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? isLoading = null}) {
+    return _then(
+      _$CreateNewGroupItemStateImpl(
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
@@ -123,8 +131,10 @@ class _$CreateNewGroupItemStateImpl extends _CreateNewGroupItemState {
   @override
   @pragma('vm:prefer-inline')
   _$$CreateNewGroupItemStateImplCopyWith<_$CreateNewGroupItemStateImpl>
-      get copyWith => __$$CreateNewGroupItemStateImplCopyWithImpl<
-          _$CreateNewGroupItemStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$CreateNewGroupItemStateImplCopyWithImpl<
+        _$CreateNewGroupItemStateImpl
+      >(this, _$identity);
 }
 
 abstract class _CreateNewGroupItemState extends CreateNewGroupItemState {
@@ -137,5 +147,5 @@ abstract class _CreateNewGroupItemState extends CreateNewGroupItemState {
   @override
   @JsonKey(ignore: true)
   _$$CreateNewGroupItemStateImplCopyWith<_$CreateNewGroupItemStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
