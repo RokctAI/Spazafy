@@ -203,6 +203,12 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
     );
   }
 
+  void setCostPrice({required String value, required int index}) {
+    _localStocks[index] = _localStocks[index].copyWith(
+      costPrice: num.tryParse(value.trim()),
+    );
+  }
+
   Future<void> updateStocks(
     BuildContext context, {
     String? uuid,

@@ -32,6 +32,8 @@ class StatisticsModel {
     this.lastOrderIncome,
     this.totalPrice,
     this.fmTotalPrice,
+    this.totalCost,
+    this.totalProfit,
     this.totalCount,
     this.totalNewCount,
     this.totalReadyCount,
