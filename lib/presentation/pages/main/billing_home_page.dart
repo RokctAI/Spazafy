@@ -13,6 +13,7 @@ import 'package:venderfoodyman/presentation/styles/style.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/infrastructure/services/services.dart';
 import '../../component/scan_prompt.dart';
+import 'package:venderfoodyman/application/main/main_provider.dart';
 
 @RoutePage()
 class BillingHomePage extends ConsumerStatefulWidget {
@@ -181,7 +182,7 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
               CustomButton(
                 title: 'Turn on Camera',
                 onPressed: _toggleCamera,
-                width: 180,
+                weight: 180.w,
                 icon: Icon(
                   FlutterRemix.camera_line,
                   color: AppStyle.white,
