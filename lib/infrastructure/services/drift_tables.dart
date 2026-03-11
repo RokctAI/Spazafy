@@ -9,6 +9,18 @@ class ProductsTable extends Table {
   Set<Column> get primaryKey => {id};
 }
 
+@DataClassName('SyncQueueEntity')
+class SyncQueueTable extends Table {
+  TextColumn get id => text().clientDefault(() => '')(); // UUID
+  TextColumn get url => text()();
+  TextColumn get method => text()();
+  TextColumn get payload => text()();
+  DateTimeColumn get createdAt => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
 @DataClassName('OrderEntity')
 class OrdersTable extends Table {
   TextColumn get id => text().clientDefault(() => '')(); // UUID
