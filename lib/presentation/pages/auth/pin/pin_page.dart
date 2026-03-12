@@ -115,10 +115,7 @@ class _PinPageState extends ConsumerState<PinPage> {
                 ),
               ),
               24.verticalSpace,
-              Text(
-                'POS Locked',
-                style: AppStyle.interBold(size: 24),
-              ),
+              Text('POS Locked', style: AppStyle.interBold(size: 24)),
               8.verticalSpace,
               Text(
                 'Enter PIN to resume session',

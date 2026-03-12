@@ -450,7 +450,8 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
               children: [
                 _qtyBtn(
                   FlutterRemix.subtract_line,
-                  () => notifier.updateQuantity(item.product, item.quantity - 1),
+                  () =>
+                      notifier.updateQuantity(item.product, item.quantity - 1),
                 ),
                 SizedBox(
                   width: 36.w,
@@ -463,7 +464,8 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
                 ),
                 _qtyBtn(
                   FlutterRemix.add_line,
-                  () => notifier.updateQuantity(item.product, item.quantity + 1),
+                  () =>
+                      notifier.updateQuantity(item.product, item.quantity + 1),
                 ),
               ],
             ),

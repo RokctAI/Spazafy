@@ -12,15 +12,14 @@ class BackgroundSyncService {
   final HttpService httpService;
   bool _isProcessing = false;
 
-  BackgroundSyncService({
-    required this.database,
-    required this.httpService,
-  }) {
+  BackgroundSyncService({required this.database, required this.httpService}) {
     _initConnectivityListener();
   }
 
   void _initConnectivityListener() {
-    Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> results) {
+    Connectivity().onConnectivityChanged.listen((
+      List<ConnectivityResult> results,
+    ) {
       if (results.contains(ConnectivityResult.mobile) ||
           results.contains(ConnectivityResult.wifi) ||
           results.contains(ConnectivityResult.ethernet)) {
@@ -29,7 +28,11 @@ class BackgroundSyncService {
     });
   }
 
-  Future<void> enqueueRequest(String url, String method, Map<String, dynamic> payload) async {
+  Future<void> enqueueRequest(
+    String url,
+    String method,
+    Map<String, dynamic> payload,
+  ) async {
     final uuid = const Uuid().v4();
     final companion = SyncQueueTableCompanion.insert(
       id: Value(uuid),
@@ -73,15 +76,15 @@ class BackgroundSyncService {
 
   Future<bool> _sendRequest(SyncQueueEntity request) async {
     try {
-      final client = httpService.client(requireAuth: true); // Queue needs auth generally
+      final client = httpService.client(
+        requireAuth: true,
+      ); // Queue needs auth generally
       final data = jsonDecode(request.payload);
 
       // Add idempotency key to headers to prevent duplicate processing on backend
       final options = Options(
         method: request.method,
-        headers: {
-          'X-Idempotency-Key': request.id,
-        },
+        headers: {'X-Idempotency-Key': request.id},
       );
 
       final response = await client.request(
@@ -92,7 +95,8 @@ class BackgroundSyncService {
 
       final statusCode = response.statusCode ?? 0;
       // 2xx indicates success. 4xx indicates client error (e.g. invalid data) which won't succeed on retry
-      if ((statusCode >= 200 && statusCode < 300) || (statusCode >= 400 && statusCode < 500)) {
+      if ((statusCode >= 200 && statusCode < 300) ||
+          (statusCode >= 400 && statusCode < 500)) {
         return true;
       }
       return false; // 5xx or other errors -> retry later
