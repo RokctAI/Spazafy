@@ -214,7 +214,43 @@ class OfflineProductsRepository implements ProductsInterface {
         return const ApiResult.failure(error: 'Product not found');
       }
 
-      existing['stocks'] = stocks.map((s) => s.toJson()).toList();
+      List<Stock> updatedStocks = [];
+      final oldStocksJson = existing['stocks'] as List<dynamic>? ?? [];
+      final oldStocks = oldStocksJson.map((s) => Stock.fromJson(s)).toList();
+
+      for (var stock in stocks) {
+        final oldStock = oldStocks.cast<Stock?>().firstWhere(
+          (s) => s?.id == stock.id,
+          orElse: () => null,
+        );
+
+        if (oldStock != null) {
+          final int currentQty = oldStock.quantity ?? 0;
+          final int newTotalQty = stock.quantity ?? 0;
+          final num currentCost = oldStock.costPrice ?? 0;
+          // Use purchasePrice if available, otherwise fallback to costPrice
+          final num purchasePrice =
+              stock.purchasePrice ?? stock.costPrice ?? currentCost;
+
+          final int addedQty = newTotalQty - currentQty;
+
+          if (addedQty > 0) {
+            final num newCostPrice =
+                (currentQty * currentCost + addedQty * purchasePrice) /
+                newTotalQty;
+            stock = stock.copyWith(costPrice: newCostPrice);
+          } else {
+            stock = stock.copyWith(costPrice: currentCost);
+          }
+        } else {
+          stock = stock.copyWith(
+            costPrice: stock.purchasePrice ?? stock.costPrice,
+          );
+        }
+        updatedStocks.add(stock);
+      }
+
+      existing['stocks'] = updatedStocks.map((s) => s.toJson()).toList();
       await appDatabase.putItem('products', uuid, existing);
 
       return ApiResult.success(
