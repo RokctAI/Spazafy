@@ -187,10 +187,44 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
     state = state.copyWith(stocks: _localStocks);
   }
 
+  void _calculateWAC(int index) {
+    if (index >= _oldStocks.length) {
+      _localStocks[index] = _localStocks[index].copyWith(
+        costPrice:
+            _localStocks[index].purchasePrice ?? _localStocks[index].costPrice,
+      );
+      return;
+    }
+
+    final oldStock = _oldStocks[index];
+    final currentQty = oldStock.quantity ?? 0;
+    final currentCost = oldStock.costPrice ?? 0;
+
+    final newTotalQty = _localStocks[index].quantity ?? 0;
+    // user input goes to purchasePrice
+    final purchasePrice = _localStocks[index].purchasePrice ?? currentCost;
+
+    final addedQty = newTotalQty - currentQty;
+
+    if (addedQty > 0) {
+      final newCostPrice =
+          (currentQty * currentCost + addedQty * purchasePrice) / newTotalQty;
+      _localStocks[index] = _localStocks[index].copyWith(
+        costPrice: newCostPrice,
+      );
+    } else {
+      _localStocks[index] = _localStocks[index].copyWith(
+        costPrice: currentCost,
+      );
+    }
+  }
+
   void setQuantity({required String value, required int index}) {
     _localStocks[index] = _localStocks[index].copyWith(
       quantity: int.tryParse(value.trim()),
     );
+    _calculateWAC(index);
+    state = state.copyWith(stocks: _localStocks);
   }
 
   void setSku({required String value, required int index}) {
@@ -205,8 +239,10 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
 
   void setCostPrice({required String value, required int index}) {
     _localStocks[index] = _localStocks[index].copyWith(
-      costPrice: num.tryParse(value.trim()),
+      purchasePrice: num.tryParse(value.trim()),
     );
+    _calculateWAC(index);
+    state = state.copyWith(stocks: _localStocks);
   }
 
   Future<void> updateStocks(

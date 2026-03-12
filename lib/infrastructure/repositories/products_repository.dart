@@ -5,6 +5,8 @@ import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/services.dart';
 import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/domain/interface/interfaces.dart';
+import 'package:venderfoodyman/infrastructure/services/app_database.dart';
+import 'package:venderfoodyman/main.dart';
 
 class ProductsRepository implements ProductsInterface {
   @override
@@ -212,8 +214,58 @@ class ProductsRepository implements ProductsInterface {
     String? uuid,
     bool isAddon = false,
   }) async {
+    // 1. Fetch from local drift database
+    Map<String, dynamic>? existing;
+    if (uuid != null) {
+      existing = await appDatabase.getItem('products', uuid);
+    }
+
+    List<Stock> processedStocks = [];
+
+    if (existing != null) {
+      final oldStocksJson = existing['stocks'] as List<dynamic>? ?? [];
+      final oldStocks = oldStocksJson.map((s) => Stock.fromJson(s)).toList();
+
+      for (var stock in stocks) {
+        final oldStock = oldStocks.cast<Stock?>().firstWhere(
+          (s) => s?.id == stock.id,
+          orElse: () => null,
+        );
+
+        if (oldStock != null) {
+          final int currentQty = oldStock.quantity ?? 0;
+          final int newTotalQty = stock.quantity ?? 0;
+          final num currentCost = oldStock.costPrice ?? 0;
+          final num purchasePrice =
+              stock.purchasePrice ?? stock.costPrice ?? currentCost;
+
+          final int addedQty = newTotalQty - currentQty;
+
+          if (addedQty > 0) {
+            final num newCostPrice =
+                (currentQty * currentCost + addedQty * purchasePrice) /
+                newTotalQty;
+            stock = stock.copyWith(costPrice: newCostPrice);
+          } else {
+            stock = stock.copyWith(costPrice: currentCost);
+          }
+        } else {
+          stock = stock.copyWith(
+            costPrice: stock.purchasePrice ?? stock.costPrice,
+          );
+        }
+        processedStocks.add(stock);
+      }
+
+      // Update the local database before sending remote request
+      existing['stocks'] = processedStocks.map((s) => s.toJson()).toList();
+      await appDatabase.putItem('products', uuid!, existing);
+    } else {
+      processedStocks = List.from(stocks);
+    }
+
     final List<Map<String, dynamic>> extras = [];
-    for (final stock in stocks) {
+    for (final stock in processedStocks) {
       List<String?> ids = [];
       List<String?> addonsIds = [];
       if (stock.extras != null && (stock.extras?.isNotEmpty ?? false)) {

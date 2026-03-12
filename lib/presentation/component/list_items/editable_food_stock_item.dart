@@ -100,9 +100,9 @@ class EditableFoodStockItem extends StatelessWidget {
             label: AppHelpers.getTranslation(TrKeys.costPrice),
             inputType: TextInputType.number,
             textInputAction: TextInputAction.next,
-            initialText: stock.costPrice == null
-                ? ''
-                : stock.costPrice.toString(),
+            initialText: stock.purchasePrice == null
+                ? (stock.costPrice == null ? '' : stock.costPrice.toString())
+                : stock.purchasePrice.toString(),
             onChanged: onCostPriceChange,
           ),
           if (stock.extras != null && (stock.extras?.isNotEmpty ?? false))
