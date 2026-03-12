@@ -17,7 +17,7 @@ abstract class AppStyle {
   static const red = Color(0xFFFF3D00);
   static const starColor = Color(0xFFFFA100);
   static const textGrey = Color(0xFF898989);
-  static const bgColor = Color(0xFFFFF2EE);
+  static const bgColor = Color(0xFFF8FAFC);
   static const greyColor = Color(0xFFF4F5F8);
   static const iconsColor = Color(0xFF232B2F);
   static const textColor = Color(0xFF898989);
@@ -43,11 +43,12 @@ abstract class AppStyle {
   static const iconButtonBack = Color(0xFFE9E9E6);
   static const deepPurple = Color(0xFF673AB7);
 
-  static Color get primary =>
-      _getColorFromSettings('primary_color', const Color(0xFF83EA00));
+  static Color get primary {
+    return _getColorFromSettings('primary_color', const Color(0xFFF40009));
+  }
 
   static Color get buttonFontColor =>
-      _getColorFromSettings('primary_button_font_color', black);
+      _getColorFromSettings('primary_button_font_color', white);
 
   static Color _getColorFromSettings(String key, Color defaultColor) {
     final settings = LocalStorage.getSettingsList();
@@ -59,7 +60,8 @@ abstract class AppStyle {
     if (setting.value == null) return defaultColor;
 
     try {
-      return Color(int.parse('0xFF${setting.value!.substring(1, 7)}'));
+      String hex = setting.value!.replaceAll('#', '');
+      return Color(int.parse('0xFF$hex'));
     } catch (e) {
       return defaultColor;
     }

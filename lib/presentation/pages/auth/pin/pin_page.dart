@@ -8,15 +8,18 @@ import 'package:venderfoodyman/presentation/styles/style.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'widgets/pin_pad.dart';
 
+enum PinPageType { login, lock }
+
 @RoutePage()
-class PinLoginPage extends ConsumerStatefulWidget {
-  const PinLoginPage({super.key});
+class PinPage extends ConsumerStatefulWidget {
+  final PinPageType type;
+  const PinPage({super.key, this.type = PinPageType.login});
 
   @override
-  ConsumerState<PinLoginPage> createState() => _PinLoginPageState();
+  ConsumerState<PinPage> createState() => _PinPageState();
 }
 
-class _PinLoginPageState extends ConsumerState<PinLoginPage> {
+class _PinPageState extends ConsumerState<PinPage> {
   String _enteredPin = '';
   bool _isConfirming = false;
 
@@ -44,6 +47,18 @@ class _PinLoginPageState extends ConsumerState<PinLoginPage> {
     final state = ref.read(pinAuthProvider);
     final notifier = ref.read(pinAuthProvider.notifier);
 
+    if (widget.type == PinPageType.lock) {
+      if (notifier.verifyPin(_enteredPin)) {
+        context.popRoute();
+      } else {
+        setState(() {
+          _enteredPin = '';
+        });
+      }
+      return;
+    }
+
+    // Login logic
     if (!state.isPinSet) {
       if (!_isConfirming) {
         notifier.updatePin(_enteredPin);
@@ -78,7 +93,7 @@ class _PinLoginPageState extends ConsumerState<PinLoginPage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(pinAuthProvider);
-    final isLtr = true; // LocalStorage.getLangLtr();
+    final isLock = widget.type == PinPageType.lock;
 
     return Scaffold(
       backgroundColor: AppStyle.bgColor,
@@ -86,20 +101,45 @@ class _PinLoginPageState extends ConsumerState<PinLoginPage> {
         child: Column(
           children: [
             40.verticalSpace,
-            Text(
-              !state.isPinSet
-                  ? (_isConfirming ? 'Confirm PIN' : 'Set your PIN')
-                  : 'Enter your PIN',
-              style: AppStyle.interBold(size: 22),
-            ),
-            8.verticalSpace,
-            Text(
-              'To access the POS offline',
-              style: AppStyle.interNormal(size: 14, color: AppStyle.textGrey),
-            ),
+            if (isLock) ...[
+              Container(
+                padding: EdgeInsets.all(20.r),
+                decoration: BoxDecoration(
+                  color: AppStyle.primary.withOpacity(0.08),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.lock_outline_rounded,
+                  size: 44.r,
+                  color: AppStyle.primary,
+                ),
+              ),
+              24.verticalSpace,
+              Text(
+                'POS Locked',
+                style: AppStyle.interBold(size: 24),
+              ),
+              8.verticalSpace,
+              Text(
+                'Enter PIN to resume session',
+                style: AppStyle.interNormal(size: 14, color: AppStyle.textGrey),
+              ),
+            ] else ...[
+              Text(
+                !state.isPinSet
+                    ? (_isConfirming ? 'Confirm PIN' : 'Set your PIN')
+                    : 'Enter your PIN',
+                style: AppStyle.interBold(size: 22),
+              ),
+              8.verticalSpace,
+              Text(
+                'To access the POS offline',
+                style: AppStyle.interNormal(size: 14, color: AppStyle.textGrey),
+              ),
+            ],
             40.verticalSpace,
             _buildPinDots(),
-            if (state.isError)
+            if (!isLock && state.isError)
               Padding(
                 padding: EdgeInsets.only(top: 16.h),
                 child: Text(

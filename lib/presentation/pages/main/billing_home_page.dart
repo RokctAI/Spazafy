@@ -83,10 +83,9 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
 
           // ─── Scan Prompt (Floating) ───
           Positioned(
-            bottom:
-                0.6.sh - 80.h, // Positioned just above the cart panel handle
-            left: 0,
-            right: 0,
+            top: 0.35.sh, // Positioned at the bottom of the camera area
+            left: 16.w,
+            right: 16.w,
             child: const ScanPrompt(),
           ),
 
@@ -134,26 +133,34 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
                           ? _buildEmptyCart()
                           : ListView.separated(
                               controller: scrollController,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 16.w,
-                                vertical: 8.h,
+                              padding: EdgeInsets.fromLTRB(
+                                16.w,
+                                8.h,
+                                16.w,
+                                140.h, // Bottom padding to keep items visible above floating button
                               ),
                               itemCount: state.cartItems.length,
                               separatorBuilder: (context, index) =>
-                                  Divider(height: 24.h),
+                                  12.verticalSpace,
                               itemBuilder: (context, index) {
                                 final item = state.cartItems[index];
                                 return _buildCartItem(item, notifier);
                               },
                             ),
                     ),
-
-                    // Contextual Bottom Button
-                    _buildBottomButton(state),
                   ],
                 ),
               );
             },
+          ),
+
+          Positioned(
+            left: 16.w,
+            right: 16.w,
+            bottom:
+                MediaQuery.of(context).padding.bottom +
+                100.h, // Higher clearance for bottom nav
+            child: _buildBottomButton(state),
           ),
         ],
       ),
@@ -163,31 +170,80 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
   Widget _buildCameraArea(BillingState state) {
     if (!state.isScanning) {
       return Container(
-        color: AppStyle.blackColor.withOpacity(0.05),
+        color: const Color(0xFF1E293B),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                FlutterRemix.shopping_cart_2_line,
-                size: 64.r,
-                color: AppStyle.greyColor,
-              ),
-              16.verticalSpace,
-              Text(
-                'Start a Sale',
-                style: AppStyle.interBold(size: 20, color: AppStyle.blackColor),
+              // Retain the icons/style as requested
+              Container(
+                width: 80.r,
+                height: 80.r,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF334155),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  FlutterRemix.camera_off_line,
+                  size: 40.r,
+                  color: AppStyle.white,
+                ),
               ),
               24.verticalSpace,
-              CustomButton(
-                title: 'Turn on Camera',
-                onPressed: _toggleCamera,
-                weight: 180.w,
-                icon: Icon(
-                  FlutterRemix.camera_line,
-                  color: AppStyle.white,
-                  size: 20.r,
+              Text(
+                'Camera is turned off',
+                style: AppStyle.interBold(size: 20, color: AppStyle.white),
+              ),
+              8.verticalSpace,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40.w),
+                child: Text(
+                  'Turn on your camera to start scanning barcodes and items automatically.',
+                  textAlign: TextAlign.center,
+                  style: AppStyle.interNormal(
+                    size: 13,
+                    color: AppStyle.white.withOpacity(0.7),
+                  ),
                 ),
+              ),
+              24.verticalSpace,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomButton(
+                    title: 'Start a Sale',
+                    onPressed: _toggleCamera,
+                    width: 180.w,
+                    icon: Icon(
+                      FlutterRemix.camera_line,
+                      color: AppStyle.white,
+                      size: 20.r,
+                    ),
+                  ),
+                  12.horizontalSpace,
+                  GestureDetector(
+                    onTap: () {
+                      // Browse items
+                      ref.read(mainProvider.notifier).selectIndex(2);
+                    },
+                    child: Container(
+                      width: 50.r,
+                      height: 50.r,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF334155),
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: AppStyle.white.withOpacity(0.2),
+                        ),
+                      ),
+                      child: Icon(
+                        FlutterRemix.search_line,
+                        color: AppStyle.white,
+                        size: 24.r,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -295,14 +351,15 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
             children: [
               Text(
                 'TOTAL PRICE',
-                style: AppStyle.interNormal(
-                  size: 10,
-                  color: AppStyle.greyColor,
+                style: AppStyle.interBold(
+                  size: 11,
+                  color: AppStyle.greyColor.withOpacity(0.8),
+                  letterSpacing: 1.1,
                 ),
               ),
               Text(
                 '₹${state.totalAmount.toStringAsFixed(2)}',
-                style: AppStyle.interBold(size: 20, color: AppStyle.primary),
+                style: AppStyle.interBold(size: 22, color: AppStyle.primary),
               ),
             ],
           ),
@@ -332,44 +389,80 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
   }
 
   Widget _buildCartItem(dynamic item, BillingNotifier notifier) {
-    return Row(
-      children: [
-        CommonImage(url: item.imageUrl, width: 40, height: 40, radius: 8),
-        12.horizontalSpace,
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(item.name, style: AppStyle.interBold(size: 14)),
-              Text(
-                '₹${item.product.stock?.totalPrice?.toStringAsFixed(1)} / ${item.uom ?? 'unit'}',
-                style: AppStyle.interNormal(
-                  size: 12,
-                  color: AppStyle.greyColor,
-                ),
-              ),
-            ],
+    return Container(
+      padding: EdgeInsets.all(16.r),
+      decoration: BoxDecoration(
+        color: AppStyle.white,
+        borderRadius: BorderRadius.circular(16.r),
+        border: Border.all(color: AppStyle.differBorderColor.withOpacity(0.5)),
+        boxShadow: [
+          BoxShadow(
+            color: AppStyle.blackColor.withOpacity(0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
           ),
-        ),
-        Row(
-          children: [
-            _qtyBtn(
-              FlutterRemix.subtract_line,
-              () => notifier.updateQuantity(item.product, item.quantity - 1),
+        ],
+      ),
+      child: Row(
+        children: [
+          CommonImage(
+            url: item.product.img,
+            width: 50.r,
+            height: 50.r,
+            radius: 12.r,
+          ),
+          16.horizontalSpace,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  item.product.translation?.title ?? '',
+                  style: AppStyle.interBold(size: 15),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                4.verticalSpace,
+                Text(
+                  '₹${item.product.stock?.totalPrice?.toStringAsFixed(1)} / ${item.product.unit?.translation?.title ?? 'unit'}',
+                  style: AppStyle.interNormal(
+                    size: 13,
+                    color: AppStyle.greyColor.withOpacity(0.8),
+                  ),
+                ),
+              ],
             ),
-            SizedBox(
-              width: 30.w,
-              child: Center(
-                child: Text('${item.quantity}', style: AppStyle.interBold()),
-              ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
+            decoration: BoxDecoration(
+              color: AppStyle.greyColor.withOpacity(0.4),
+              borderRadius: BorderRadius.circular(10.r),
             ),
-            _qtyBtn(
-              FlutterRemix.add_line,
-              () => notifier.updateQuantity(item.product, item.quantity + 1),
+            child: Row(
+              children: [
+                _qtyBtn(
+                  FlutterRemix.subtract_line,
+                  () => notifier.updateQuantity(item.product, item.quantity - 1),
+                ),
+                SizedBox(
+                  width: 36.w,
+                  child: Center(
+                    child: Text(
+                      '${item.quantity}',
+                      style: AppStyle.interBold(size: 14),
+                    ),
+                  ),
+                ),
+                _qtyBtn(
+                  FlutterRemix.add_line,
+                  () => notifier.updateQuantity(item.product, item.quantity + 1),
+                ),
+              ],
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -389,25 +482,21 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
 
   Widget _buildBottomButton(BillingState state) {
     final bool isEmpty = state.cartItems.isEmpty;
-    return Padding(
-      padding: EdgeInsets.fromLTRB(16.w, 8.h, 16.w, 24.h),
-      child: CustomButton(
-        title: isEmpty ? 'Manage Stock' : 'Review Order',
-        icon: Icon(
-          isEmpty ? FlutterRemix.archive_line : FlutterRemix.check_line,
-          color: AppStyle.white,
-          size: 20.r,
-        ),
-        isLoading: false,
-        onPressed: () {
-          if (isEmpty) {
-            // Navigate to products/stock (FoodsPage is index 2 in MainPage)
-            ref.read(mainProvider.notifier).selectIndex(2);
-          } else {
-            context.pushRoute(const BillingCheckoutRoute());
-          }
-        },
+    return CustomButton(
+      title: isEmpty ? 'Manage Stock' : 'Review Order',
+      icon: Icon(
+        isEmpty ? FlutterRemix.archive_line : FlutterRemix.check_line,
+        color: AppStyle.white,
+        size: 20.r,
       ),
+      isLoading: false,
+      onPressed: () {
+        if (isEmpty) {
+          ref.read(mainProvider.notifier).selectIndex(2);
+        } else {
+          context.pushRoute(const BillingCheckoutRoute());
+        }
+      },
     );
   }
 }
