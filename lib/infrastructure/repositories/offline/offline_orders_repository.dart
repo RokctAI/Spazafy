@@ -44,11 +44,7 @@ class OfflineOrdersRepository implements OrdersInterface {
         ),
       };
 
-      await appDatabase.putItem(
-        'orders',
-        orderId,
-        orderJson,
-      );
+      await appDatabase.putItem('orders', orderId, orderJson);
 
       return ApiResult.success(
         data: CreateOrderResponse(
@@ -119,10 +115,7 @@ class OfflineOrdersRepository implements OrdersInterface {
       if (orderId == null) {
         return const ApiResult.failure(error: 'Order ID required');
       }
-      final json = await appDatabase.getItem(
-        'orders',
-        orderId.toString(),
-      );
+      final json = await appDatabase.getItem('orders', orderId.toString());
       if (json == null) {
         return const ApiResult.failure(error: 'Order not found');
       }
@@ -143,20 +136,13 @@ class OfflineOrdersRepository implements OrdersInterface {
       if (orderId == null) {
         return const ApiResult.failure(error: 'Order ID required');
       }
-      final existing = await appDatabase.getItem(
-        'orders',
-        orderId ?? '',
-      );
+      final existing = await appDatabase.getItem('orders', orderId ?? '');
       if (existing == null) {
         return const ApiResult.failure(error: 'Order not found');
       }
 
       existing['status'] = status.name;
-      await appDatabase.putItem(
-        'orders',
-        orderId ?? '',
-        existing,
-      );
+      await appDatabase.putItem('orders', orderId ?? '', existing);
 
       return ApiResult.success(
         data: OrderStatusResponse.fromJson({'data': existing}),

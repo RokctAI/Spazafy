@@ -12,15 +12,17 @@ import 'drift_tables.dart';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [
-  ProductsTable,
-  OrdersTable,
-  ShopTable,
-  CategoriesTable,
-  SettingsTable,
-  BillingCartTable,
-  SyncQueueTable,
-])
+@DriftDatabase(
+  tables: [
+    ProductsTable,
+    OrdersTable,
+    ShopTable,
+    CategoriesTable,
+    SettingsTable,
+    BillingCartTable,
+    SyncQueueTable,
+  ],
+)
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -64,22 +66,27 @@ class AppDatabase extends _$AppDatabase {
   // ─── Generic CRUD helpers to replace HiveDatabase ───
 
   /// Save a JSON-serializable item by key.
-  Future<void> putItem(String boxName, String key, Map<String, dynamic> json) async {
+  Future<void> putItem(
+    String boxName,
+    String key,
+    Map<String, dynamic> json,
+  ) async {
     final table = getTable(boxName);
     final dataString = jsonEncode(json);
 
-    await into(table).insertOnConflictUpdate(
-      _createInsertable(boxName, key, dataString),
-    );
+    await into(
+      table,
+    ).insertOnConflictUpdate(_createInsertable(boxName, key, dataString));
   }
 
   /// Get an item as Map by key.
   Future<Map<String, dynamic>?> getItem(String boxName, String key) async {
     final table = getTable(boxName);
 
-    final query = select(table)..where((tbl) {
-      return _idColumn(table).equals(key);
-    });
+    final query = select(table)
+      ..where((tbl) {
+        return _idColumn(table).equals(key);
+      });
     final result = await query.getSingleOrNull();
 
     if (result == null) return null;
@@ -103,8 +110,9 @@ class AppDatabase extends _$AppDatabase {
   Future<void> deleteItem(String boxName, String key) async {
     final table = getTable(boxName);
     await (delete(table)..where((tbl) {
-      return _idColumn(table).equals(key);
-    })).go();
+          return _idColumn(table).equals(key);
+        }))
+        .go();
   }
 
   /// Clear all items in a box.
@@ -119,10 +127,9 @@ class AppDatabase extends _$AppDatabase {
   }
 
   Future<List<SyncQueueEntity>> getPendingSyncRequests() {
-    return (select(syncQueueTable)
-          ..orderBy([
-            (t) => OrderingTerm(expression: t.createdAt, mode: OrderingMode.asc)
-          ]))
+    return (select(syncQueueTable)..orderBy([
+          (t) => OrderingTerm(expression: t.createdAt, mode: OrderingMode.asc),
+        ]))
         .get();
   }
 
@@ -131,7 +138,11 @@ class AppDatabase extends _$AppDatabase {
   }
 
   // Helper methods to dynamically extract fields and create companions
-  Insertable<dynamic> _createInsertable(String boxName, String id, String data) {
+  Insertable<dynamic> _createInsertable(
+    String boxName,
+    String id,
+    String data,
+  ) {
     switch (boxName) {
       case 'products':
         return ProductsTableCompanion.insert(id: Value(id), data: data);

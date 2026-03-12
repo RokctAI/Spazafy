@@ -34,11 +34,7 @@ class AppRouter extends RootStackRouter {
     MaterialRoute(path: '/subscription', page: SubscriptionsRoute.page),
     CupertinoRoute(path: '/billing', page: BillingHomeRoute.page),
     CupertinoRoute(path: '/billing-checkout', page: BillingCheckoutRoute.page),
-    CupertinoRoute(
-      path: '/pin-login',
-      page: PinRoute.page,
-      initial: false,
-    ),
+    CupertinoRoute(path: '/pin-login', page: PinRoute.page, initial: false),
     CupertinoRoute(
       path: '/pin-lock',
       page: PinRoute.page,
