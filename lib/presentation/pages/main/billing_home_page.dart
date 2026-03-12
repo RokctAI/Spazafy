@@ -271,6 +271,13 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
     return Column(
       children: [
         _buildCircleIcon(
+          icon: FlutterRemix.lock_line,
+          onTap: () {
+            context.pushRoute(PinRoute(type: PinPageType.lock));
+          },
+        ),
+        8.verticalSpace,
+        _buildCircleIcon(
           icon: _isTorchOn
               ? FlutterRemix.flashlight_fill
               : FlutterRemix.flashlight_line,

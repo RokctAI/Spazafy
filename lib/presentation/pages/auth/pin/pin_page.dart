@@ -149,6 +149,19 @@ class _PinPageState extends ConsumerState<PinPage> {
               ),
             const Spacer(),
             PinPad(onTap: _handlePinTap, onDelete: _handleDelete),
+            if (!isLock && !state.isPinSet) ...[
+              16.verticalSpace,
+              TextButton(
+                onPressed: () => context.replaceRoute(const MainRoute()),
+                child: Text(
+                  'Maybe Later',
+                  style: AppStyle.interNormal(
+                    size: 16,
+                    color: AppStyle.primary,
+                  ),
+                ),
+              ),
+            ],
             40.verticalSpace,
           ],
         ),
