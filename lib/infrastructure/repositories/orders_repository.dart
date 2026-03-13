@@ -107,17 +107,23 @@ class OrdersRepository implements OrdersInterface {
         },
     };
     debugPrint('===> create order body ${jsonEncode(data)}');
+    // 1. Snapshot and Sync Logic
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
         '/api/v1/dashboard/seller/orders',
         data: data,
       );
-      return ApiResult.success(
-        data: CreateOrderResponse.fromJson(response.data),
-      );
+      
+      final result = CreateOrderResponse.fromJson(response.data);
+      if (result.data != null) {
+        // High-Quality Upsert (includes snapshots of items)
+        await appDatabase.upsertOrder(result.data!.toJson());
+      }
+      return ApiResult.success(data: result);
     } catch (e) {
       debugPrint('==> create order failure: $e');
+      // TODO: Implement SyncQueue saving if API fails (Phase 3)
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -156,6 +162,18 @@ class OrdersRepository implements OrdersInterface {
     }
     final data = {'status': statusText};
     debugPrint('===> update order status request ${jsonEncode(data)}');
+    // 1. Update Local Status
+    try {
+      final local = await appDatabase.getItem('orders', orderId ?? '');
+      if (local != null) {
+        local['status'] = statusText;
+        await appDatabase.upsertOrder(local);
+      }
+    } catch (e) {
+      debugPrint('==> Local status update failed: $e');
+    }
+
+    // 2. Sync to API
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
@@ -179,15 +197,29 @@ class OrdersRepository implements OrdersInterface {
     String? orderId,
   }) async {
     try {
+      final local = await appDatabase.getItem('orders', orderId ?? '');
+      if (local != null) {
+        debugPrint('===> Returning local order details for $orderId');
+        return ApiResult.success(
+          data: SingleOrderResponse.fromJson({'data': local}),
+        );
+      }
+    } catch (e) {
+      debugPrint('==> Local order details fetch failed: $e');
+    }
+
+    try {
       final client = dioHttp.client(requireAuth: true);
       final data = {'lang': LocalStorage.getLanguage()?.locale};
       final response = await client.get(
         '/api/v1/dashboard/seller/orders/$orderId',
         queryParameters: data,
       );
-      return ApiResult.success(
-        data: SingleOrderResponse.fromJson(response.data),
-      );
+      final result = SingleOrderResponse.fromJson(response.data);
+      if (result.data != null) {
+        appDatabase.upsertOrder(result.data!.toJson());
+      }
+      return ApiResult.success(data: result);
     } catch (e) {
       debugPrint('==> get order details failure: $e');
       return ApiResult.failure(
@@ -238,15 +270,40 @@ class OrdersRepository implements OrdersInterface {
       'perPage': 10,
       'lang': LocalStorage.getLanguage()?.locale,
     };
+    // 1. Return Local Results Immediately
+    try {
+      final localResults = await appDatabase.getOrdersLocally(
+        status: statusText,
+      );
+
+      if (localResults.isNotEmpty) {
+        final orders = localResults.map((e) => OrderData.fromJson(jsonDecode(e.data))).toList();
+        debugPrint('===> Returning ${localResults.length} local orders');
+        _backgroundSyncOrders(data); // Refresh in background
+        return ApiResult.success(
+          data: OrdersPaginateResponse(
+            data: orders,
+            meta: Meta(total: orders.length, lastPage: 1),
+          ),
+        );
+      }
+    } catch (e) {
+      debugPrint('==> Local orders fetch failed: $e');
+    }
+
+    // 2. Fallback to API / Background Sync
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
         '/api/v1/dashboard/seller/orders/paginate',
         queryParameters: data,
       );
-      return ApiResult.success(
-        data: OrdersPaginateResponse.fromJson(response.data),
-      );
+      
+      final result = OrdersPaginateResponse.fromJson(response.data);
+      for (final order in result.data ?? []) {
+        appDatabase.upsertOrder(order.toJson());
+      }
+      return ApiResult.success(data: result);
     } catch (e) {
       debugPrint('==> get order $status failure: $e');
       return ApiResult.failure(
@@ -254,6 +311,23 @@ class OrdersRepository implements OrdersInterface {
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
+  }
+
+  void _backgroundSyncOrders(Map<String, dynamic> data) async {
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      final response = await client.get(
+        '/api/v1/dashboard/seller/orders/paginate',
+        queryParameters: data,
+      );
+      final result = OrdersPaginateResponse.fromJson(response.data);
+      for (final order in result.data ?? []) {
+        await appDatabase.upsertOrder(order.toJson());
+      }
+    } catch (e) {
+      debugPrint('==> Background order sync failed: $e');
+    }
+  }
   }
 
   @override

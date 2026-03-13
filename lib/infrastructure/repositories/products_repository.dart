@@ -214,52 +214,9 @@ class ProductsRepository implements ProductsInterface {
     String? uuid,
     bool isAddon = false,
   }) async {
-    // 1. Fetch from local drift database
-    Map<String, dynamic>? existing;
-    if (uuid != null) {
-      existing = await appDatabase.getItem('products', uuid);
-    }
-
-    List<Stock> processedStocks = [];
-
-    if (existing != null) {
-      final oldStocksJson = existing['stocks'] as List<dynamic>? ?? [];
-      final oldStocks = oldStocksJson.map((s) => Stock.fromJson(s)).toList();
-
-      for (var stock in stocks) {
-        final oldStock = oldStocks.cast<Stock?>().firstWhere(
-          (s) => s?.id == stock.id,
-          orElse: () => null,
-        );
-
-        if (oldStock != null) {
-          final int currentQty = oldStock.quantity ?? 0;
-          final int newTotalQty = stock.quantity ?? 0;
-          final num currentCost = oldStock.costPrice ?? 0;
-          final num purchasePrice =
-              stock.purchasePrice ?? stock.costPrice ?? currentCost;
-
-          final int addedQty = newTotalQty - currentQty;
-
-          if (addedQty > 0) {
-            final num newCostPrice =
-                (currentQty * currentCost + addedQty * purchasePrice) /
-                newTotalQty;
-            stock = stock.copyWith(costPrice: newCostPrice);
-          } else {
-            stock = stock.copyWith(costPrice: currentCost);
-          }
-        } else {
-          stock = stock.copyWith(
-            costPrice: stock.purchasePrice ?? stock.costPrice,
-          );
-        }
-        processedStocks.add(stock);
-      }
-
-      // Update the local database before sending remote request
+      // 2. Perform WAC Refactor & Upsert
       existing['stocks'] = processedStocks.map((s) => s.toJson()).toList();
-      await appDatabase.putItem('products', uuid!, existing);
+      await appDatabase.upsertProduct(existing);
     } else {
       processedStocks = List.from(stocks);
     }
@@ -518,43 +475,47 @@ class ProductsRepository implements ProductsInterface {
     bool active = false,
     String? type,
   }) async {
-    String? statusText;
-    if (status != null) {
-      switch (status) {
-        case ProductStatus.pending:
-          statusText = 'pending';
-          break;
-        case ProductStatus.published:
-          statusText = 'published';
-          break;
-        case ProductStatus.unpublished:
-          statusText = 'unpublished';
-          break;
+    // 1. Return Local Results Immediately
+    try {
+      final localResults = await appDatabase.searchProducts(
+        query: query,
+        categoryId: categoryId,
+      );
+
+      if (localResults.isNotEmpty) {
+        final products = localResults.map((e) => ProductData.fromJson(jsonDecode(e.data))).toList();
+        // Return local immediately, background sync will refresh UI via Bloc/Provider
+        debugPrint('===> Returning ${localResults.length} local products');
+        // Note: Future goal is to emit this and then emit again once API returns.
+        // For now, we return local if present and kick off background sync.
+        _backgroundSyncProducts(data); // Kick off sync
+        return ApiResult.success(
+          data: ProductsPaginateResponse(
+            data: products,
+            meta: Meta(total: products.length, lastPage: 1),
+          ),
+        );
       }
+    } catch (e) {
+      debugPrint('==> Local search failed: $e');
     }
-    final data = {
-      'lang': LocalStorage.getLanguage()?.locale ?? 'en',
-      'currency_id': LocalStorage.getSelectedCurrency()?.id,
-      if (page != null) 'page': page,
-      if (categoryId != null) 'category_id': categoryId,
-      if (query != null) 'search': query,
-      if (statusText != null) 'status': statusText,
-      if (needAddons) 'addon': 1,
-      if (type != null) 'type': type,
-      'perPage': 10,
-      'addon_status': "published",
-      if (active) "active": 1,
-      if (active) "status": "published",
-    };
+
+    // 2. Fallback to API / Background Sync
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
         '/api/v1/dashboard/seller/products/paginate',
         queryParameters: data,
       );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      
+      final result = ProductsPaginateResponse.fromJson(response.data);
+      
+      // Background Upsert to Drift
+      for (final product in result.data ?? []) {
+        appDatabase.upsertProduct(product.toJson());
+      }
+
+      return ApiResult.success(data: result);
     } catch (e) {
       debugPrint('==> get products failure: $e');
       return ApiResult.failure(
@@ -562,5 +523,22 @@ class ProductsRepository implements ProductsInterface {
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
+  }
+
+  void _backgroundSyncProducts(Map<String, dynamic> data) async {
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      final response = await client.get(
+        '/api/v1/dashboard/seller/products/paginate',
+        queryParameters: data,
+      );
+      final result = ProductsPaginateResponse.fromJson(response.data);
+      for (final product in result.data ?? []) {
+        await appDatabase.upsertProduct(product.toJson());
+      }
+    } catch (e) {
+      debugPrint('==> Background sync failed: $e');
+    }
+  }
   }
 }
