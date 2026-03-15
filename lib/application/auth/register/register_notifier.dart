@@ -270,7 +270,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           if (role == 'deliveryman') {
             context.replaceRoute(const BecomeDriverRoute());
           } else if (role == 'manager') {
-            context.replaceRoute(const CreateShopRoute());
+            context.replaceRoute(const BecomeSellerRoute());
           } else {
             if (AppConstants.isDemo) {
               context.replaceRoute(UiTypeRoute());

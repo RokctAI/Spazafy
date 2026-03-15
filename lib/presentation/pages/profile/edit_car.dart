@@ -16,6 +16,14 @@ import 'package:driver/infrastructure/services/driver/img_service.dart';
 import 'package:driver/infrastructure/services/driver/services.dart';
 import 'package:driver/presentation/components/driver/components.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/underline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/common_image.dart';
 
 class EditCar extends ConsumerStatefulWidget {
   const EditCar({super.key});
@@ -112,7 +120,7 @@ class _EditCarState extends ConsumerState<EditCar> {
   Widget build(BuildContext context) {
     state = ref.watch(profileEditProvider);
     stateImage = ref.watch(profileImageProvider);
-    return KeyboardDisable(
+    return KeyboardDismisser(
       child: ListView(
         physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.zero,
@@ -144,9 +152,9 @@ class _EditCarState extends ConsumerState<EditCar> {
                       labelText: AppHelpers.getTranslation(
                         TrKeys.typeTechnique,
                       ).toUpperCase(),
-                      labelStyle: Style.interNormal(
+                      labelStyle: AppStyle.interNormal(
                         size: 14.sp,
-                        color: Style.black,
+                        color: AppStyle.black,
                       ),
                       contentPadding: REdgeInsets.symmetric(
                         horizontal: 0,
@@ -154,13 +162,13 @@ class _EditCarState extends ConsumerState<EditCar> {
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       enabledBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(color: Style.shimmerBase),
+                        borderSide: BorderSide(color: AppStyle.shimmerBase),
                       ),
                       errorBorder: InputBorder.none,
                       border: const UnderlineInputBorder(),
                       focusedErrorBorder: const UnderlineInputBorder(),
                       disabledBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(color: Style.shimmerBase),
+                        borderSide: BorderSide(color: AppStyle.shimmerBase),
                       ),
                       focusedBorder: const UnderlineInputBorder(),
                     ),
@@ -284,7 +292,7 @@ class _EditCarState extends ConsumerState<EditCar> {
               margin: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.r),
-                border: Border.all(color: Style.black),
+                border: Border.all(color: AppStyle.black),
               ),
               child: stateImage.carImageUrl == null
                   ? imagePath == null
@@ -294,7 +302,7 @@ class _EditCarState extends ConsumerState<EditCar> {
                               Icon(
                                 FlutterRemix.upload_cloud_2_line,
                                 size: 36.sp,
-                                color: Style.blueColor,
+                                color: AppStyle.blueBonus,
                               ),
                               16.verticalSpace,
                               Text(
@@ -337,8 +345,8 @@ class _EditCarState extends ConsumerState<EditCar> {
                       weight.text.isNotEmpty &&
                       width.text.isNotEmpty &&
                       length.text.isNotEmpty
-                  ? Style.black
-                  : Style.white,
+                  ? AppStyle.black
+                  : AppStyle.white,
               background:
                   (dropdownValue?.isNotEmpty ?? false) &&
                       brand.text.isNotEmpty &&
@@ -349,8 +357,8 @@ class _EditCarState extends ConsumerState<EditCar> {
                       weight.text.isNotEmpty &&
                       width.text.isNotEmpty &&
                       length.text.isNotEmpty
-                  ? Style.primary
-                  : Style.shadowColor,
+                  ? AppStyle.primary
+                  : AppStyle.shadowColor,
               isLoading: state.isLoading,
               title: AppHelpers.getTranslation(TrKeys.save),
               onPressed: () {

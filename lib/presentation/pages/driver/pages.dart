@@ -4,7 +4,7 @@ export 'auth/login/login_page.dart';
 export 'income/income_page.dart';
 export 'home/home_page.dart';
 export 'stores/story_page.dart';
-export 'profile/profile_page.dart';
+
 export 'order_history/order_history.dart';
 export 'orders/orders_page.dart';
 export 'profile/edit_car.dart';

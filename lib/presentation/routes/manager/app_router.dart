@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import '../pages/pages.dart';
+import '../pages/profile/profile_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -11,6 +11,7 @@ class AppRouter extends RootStackRouter {
     CupertinoRoute(path: '/', page: SplashRoute.page),
     CupertinoRoute(path: '/main', page: MainRoute.page),
     CupertinoRoute(path: '/auth', page: AuthRoute.page),
+    CupertinoRoute(path: '/profile', page: ProfileRoute.page),
     CupertinoRoute(path: '/order', page: OrderRoute.page),
     CupertinoRoute(path: '/income', page: IncomeRoute.page),
     CupertinoRoute(path: '/select-user', page: SelectUserRoute.page),
@@ -26,7 +27,7 @@ class AppRouter extends RootStackRouter {
       page: NotificationListRoute.page,
     ),
     CupertinoRoute(path: '/view_map', page: ViewMapRoute.page),
-    CupertinoRoute(path: '/become_seller', page: CreateShopRoute.page),
+    CupertinoRoute(path: '/become_seller', page: BecomeSellerRoute.page),
     CupertinoRoute(path: '/search_map', page: MapSearchRoute.page),
     MaterialRoute(path: '/select-section', page: SelectSectionRoute.page),
     MaterialRoute(path: '/select-table', page: SelectTableRoute.page),

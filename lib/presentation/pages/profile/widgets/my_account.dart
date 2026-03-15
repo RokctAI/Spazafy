@@ -12,13 +12,13 @@ import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 //import '../../../../application/edit_profile/edit_profile_provider.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/button_item.dart';
-import 'package:venderfoodyman/presentation/pages/customer/profile/edit_profile_page.dart';
+import '../edit_profile_page.dart';
 //import 'package:venderfoodyman/application/profile/profile_provider.dart';
 //import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
 //import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
 import 'package:venderfoodyman/presentation/pages/customer/auth/reset/reset_password_page.dart';
-import 'package:venderfoodyman/presentation/pages/customer/profile/currency_page.dart';
-import 'package:venderfoodyman/presentation/pages/customer/profile/language_page.dart';
+import '../currency_page.dart';
+import '../language_page.dart';
 
 //import 'package:venderfoodyman/application/like/like_provider.dart';
 class MyAccount extends StatelessWidget {

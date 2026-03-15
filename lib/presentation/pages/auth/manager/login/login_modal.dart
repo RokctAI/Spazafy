@@ -9,7 +9,7 @@ import 'package:venderfoodyman/application/providers/manager/providers.dart';
 import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 import 'package:venderfoodyman/presentation/pages/auth/login/widgets/demo_credentials.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
 import 'package:venderfoodyman/presentation/components/manager/components.dart';
 
 class LoginModal extends StatefulWidget {
@@ -321,7 +321,7 @@ class _LoginModalState extends State<LoginModal>
                                       Navigator.pop(context);
                                       context.router.popUntilRoot();
                                       context.replaceRoute(
-                                        const CreateShopRoute(),
+                                        const BecomeSellerRoute(),
                                       );
                                     },
                                   );

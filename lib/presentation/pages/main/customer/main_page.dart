@@ -36,7 +36,7 @@ import 'package:venderfoodyman/presentation/pages/customer/home/home_page.dart';
 import '../../../app_constants.dart';
 import 'package:venderfoodyman/presentation/pages/customer/like/like_page.dart';
 import 'package:venderfoodyman/presentation/pages/customer/main/widgets/bottom_navigator_three.dart';
-import 'package:venderfoodyman/presentation/pages/customer/profile/profile_page.dart';
+import '../../profile/profile_page.dart';
 import 'package:venderfoodyman/presentation/pages/customer/search/search_page.dart';
 import 'package:venderfoodyman/presentation/pages/customer/service/service_page.dart';
 import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';

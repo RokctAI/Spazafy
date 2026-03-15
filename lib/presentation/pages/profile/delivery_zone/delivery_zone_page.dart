@@ -5,9 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:driver/application/delivery_zone/delivery_zone_provider.dart';
 
-import '../../../styles/style.dart';
-import '../../../component/components.dart';
+import '../../../../theme/customer/app_style.dart';
+import '../../../../components/customer/buttons/pop_button.dart';
+import '../../../../components/customer/buttons/custom_button.dart';
 import 'package:driver/infrastructure/services/driver/services.dart';
+import '../../../../infrastructure/services/customer/app_helpers.dart';
+import '../../../../infrastructure/services/customer/tr_keys.dart';
 
 @RoutePage()
 class DeliveryZonePage extends ConsumerStatefulWidget {
@@ -29,7 +32,7 @@ class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Style.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       resizeToAvoidBottomInset: false,
       body: Consumer(
         builder: (context, ref, child) {
@@ -41,7 +44,7 @@ class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
                   ? Container(
                       width: double.infinity,
                       height: double.infinity,
-                      color: Style.white,
+                      color: AppStyle.white,
                     )
                   : GoogleMap(
                       tiltGesturesEnabled: false,
