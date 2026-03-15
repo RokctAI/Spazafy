@@ -36,7 +36,7 @@ import 'package:venderfoodyman/infrastructure/repositories/customer/banners_repo
 import 'package:venderfoodyman/infrastructure/repositories/customer/blogs_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/brands_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/cart_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/customer/categories_repository.dart';
+import 'package:venderfoodyman/infrastructure/repositories/customer/catalog_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/currencies_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/draw_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/gallery_repository.dart';
@@ -50,6 +50,8 @@ import 'package:venderfoodyman/infrastructure/repositories/customer/shops_reposi
 import 'package:venderfoodyman/infrastructure/repositories/customer/user_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/loans_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/wallet_repository.dart';
+import 'package:venderfoodyman/infrastructure/repositories/customer/table_repository.dart';
+import 'package:venderfoodyman/infrastructure/repositories/customer/subscription_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/delivery_points_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/mock/mock_repositories.dart' as mock;
 
@@ -86,7 +88,8 @@ Future<void> setUpDependencies() async {
     getIt.registerSingleton<AuthFacade>(AuthRepository());
     getIt.registerSingleton<ShopsFacade>(ShopsRepository());
     getIt.registerSingleton<ProductsFacade>(ProductsRepository());
-    getIt.registerSingleton<CategoriesFacade>(CategoriesRepository());
+    getIt.registerSingleton<CategoriesFacade>(CatalogRepository()); // Unified Catalog
+    getIt.registerSingleton<CatalogInterface>(CatalogRepository()); // Manager Catalog
     getIt.registerSingleton<BannersFacade>(BannersRepository());
     getIt.registerSingleton<CartFacade>(CartRepository());
     getIt.registerSingleton<OrdersFacade>(OrdersRepository());
@@ -106,7 +109,10 @@ Future<void> setUpDependencies() async {
   getIt.registerSingleton<LoansFacade>(LoansRepository());
   getIt.registerSingleton<DeliveryPointsFacade>(DeliveryPointsRepository());
   
-  // Re-registering aliases for other roles to the unified hub
+  // Manager/Driver Specific (Pointing to Unified Hub)
+  getIt.registerSingleton<TableInterface>(TableRepository());
+  getIt.registerSingleton<SubscriptionsFacade>(SubscriptionsRepository());
+  
   getIt.registerSingleton<driver_router.AppRouter>(driver_router.AppRouter());
   getIt.registerSingleton<manager_router.AppRouter>(manager_router.AppRouter());
 }
