@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class CategoryTwoShimmer extends StatelessWidget {
   const CategoryTwoShimmer({super.key});
@@ -49,3 +49,6 @@ class CategoryTwoShimmer extends StatelessWidget {
     );
   }
 }
+
+
+

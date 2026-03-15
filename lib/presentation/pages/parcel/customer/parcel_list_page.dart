@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/parcels_list/parcel_list_notifier.dart';
-import 'package:foodyman/application/parcels_list/parcel_list_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/app_bars/common_app_bar.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-import 'package:foodyman/presentation/components/custom_tab_bar.dart';
-import 'package:foodyman/presentation/components/loading.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/application/parcels_list/parcel_list_notifier.dart';
+import 'package:venderfoodyman/application/parcels_list/parcel_list_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/custom_tab_bar.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 import 'parcel_item.dart';
-import 'package:foodyman/presentation/components/badges/empty_badge.dart';
+import 'package:venderfoodyman/presentation/components/customer/badges/empty_badge.dart';
 
 @RoutePage()
 class ParcelListPage extends ConsumerStatefulWidget {
@@ -185,3 +185,8 @@ Widget _resultEmpty() {
     titleText: "No Parcel Orders",
   );
 }
+
+
+
+
+

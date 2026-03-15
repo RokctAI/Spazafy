@@ -4,12 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/application/restaurant/income/statistics/statistics_provider.dart';
-import 'package:venderfoodyman/presentation/component/filter_screen.dart';
+import 'package:venderfoodyman/presentation/components/manager/filter_screen.dart';
 import '../../component/helper/modal_drag.dart';
 import '../../component/helper/modal_wrap.dart';
 import '../../component/loading/loading.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class MoreOrders extends ConsumerStatefulWidget {
   final DateTime? endTime;
@@ -321,3 +321,7 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
     );
   }
 }
+
+
+
+

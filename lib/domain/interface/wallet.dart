@@ -1,0 +1,22 @@
+import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+
+import '../../infrastructure/models/data/user.dart';
+import '../../infrastructure/models/data/wallet_data.dart';
+
+abstract class WalletFacade {
+  Future<ApiResult<List<UserModel>>> searchSending(Map<String, dynamic> params);
+  Future<ApiResult<WalletHistoryData>> sendWalletBalance(
+    String userUuid,
+    double amount,
+  );
+  Future<ApiResult<dynamic>> walletTopUp({
+    required double amount,
+    String? token,
+  });
+  Future<ApiResult<List<WalletHistoryData>>> getWalletHistory();
+}
+
+
+
+

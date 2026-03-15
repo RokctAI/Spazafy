@@ -4,9 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import '../../../../../../../infrastructure/models/models.dart';
-import '../../../../../../../infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class CreateNewGroupItemModal extends StatefulWidget {
   final Group group;
@@ -77,3 +77,8 @@ class _CreateNewGroupItemModalState extends State<CreateNewGroupItemModal> {
     );
   }
 }
+
+
+
+
+

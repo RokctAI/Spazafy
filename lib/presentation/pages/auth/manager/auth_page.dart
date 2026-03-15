@@ -2,15 +2,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/app_assets.dart';
+import 'package:venderfoodyman/presentation/theme/manager/app_assets.dart';
 import 'package:venderfoodyman/presentation/pages/auth/languages_modal.dart';
 
 import 'register/register_modal.dart';
 import 'login/login_modal.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 @RoutePage()
 class AuthPage extends ConsumerStatefulWidget {
@@ -119,3 +119,7 @@ class _AuthPageState extends ConsumerState<AuthPage> {
     );
   }
 }
+
+
+
+

@@ -3,11 +3,11 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/subscriptions/subscriptions_provider.dart';
-import 'package:venderfoodyman/infrastructure/services/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/tr_keys.dart';
-import 'package:venderfoodyman/presentation/component/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/manager/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class PaymentDialog extends ConsumerWidget {
   const PaymentDialog({super.key});
@@ -87,3 +87,7 @@ class PaymentDialog extends ConsumerWidget {
     );
   }
 }
+
+
+
+

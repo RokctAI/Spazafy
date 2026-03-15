@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'animation_button_effect.dart';
 
 class SocialButton extends StatelessWidget {
@@ -42,3 +42,7 @@ class SocialButton extends StatelessWidget {
     );
   }
 }
+
+
+
+

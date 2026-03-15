@@ -6,14 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/main/orders/cooking/cooking_orders_provider.dart';
 import 'package:venderfoodyman/presentation/pages/main/orders/widgets/cooking_orders_body.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'widgets/new_orders_body.dart';
 import 'widgets/ready_orders_body.dart';
 import 'widgets/accepted_orders_body.dart';
 import 'widgets/on_a_way_orders_body.dart';
 import '../../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class OrdersHomePage extends ConsumerStatefulWidget {
   const OrdersHomePage({super.key});
@@ -225,3 +225,7 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
     );
   }
 }
+
+
+
+

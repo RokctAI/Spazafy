@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-//import 'package:foodyman/infrastructure/services/app_helpers.dart';
-//import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-import 'package:foodyman/presentation/components/loading.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/infrastructure/services/app_assets.dart';
-import 'package:foodyman/presentation/components/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/application/profile/profile_provider.dart';
+//import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+//import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_assets.dart';
+import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
 
 @RoutePage()
 class TermPage extends ConsumerStatefulWidget {
@@ -78,3 +78,8 @@ class _TermPageState extends ConsumerState<TermPage> {
     );
   }
 }
+
+
+
+
+

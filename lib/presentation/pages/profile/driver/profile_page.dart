@@ -1,17 +1,17 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:driver/presentation/app_assets.dart';
+import 'package:driver/presentation/theme/driver/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:driver/presentation/pages/profile/widgets/edit_profile_modal.dart';
-import 'package:driver/application/providers.dart';
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/component/components.dart';
-import 'package:driver/presentation/routes/app_router.gr.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/presentation/pages/driver/profile/widgets/edit_profile_modal.dart';
+import 'package:driver/application/providers/driver/providers.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:driver/presentation/components/driver/components.dart';
+import 'package:driver/presentation/routes/driver/app_router.gr.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../auth/login/widgets/languages_modal.dart';
 import 'widgets/logout_modal.dart';
 import 'widgets/sections_item.dart';
@@ -462,3 +462,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
   //   );
   // }
 }
+
+
+
+
+

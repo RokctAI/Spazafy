@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/component/buttons/animation_button_effect.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/components/manager/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class CircleButton extends StatelessWidget {
   final IconData icon;
@@ -38,3 +38,7 @@ class CircleButton extends StatelessWidget {
     );
   }
 }
+
+
+
+

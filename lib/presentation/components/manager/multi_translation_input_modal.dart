@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:collection/collection.dart';
 import 'package:venderfoodyman/application/ai_translation/ai_translation_provider.dart';
-import '../../infrastructure/models/models.dart';
-import '../../infrastructure/services/services.dart';
+import 'package:venderfoodyman/infrastructure/manager/models/models.dart';
+import 'package:venderfoodyman/infrastructure/manager/services/services.dart';
 import '../styles/style.dart';
 import 'buttons/custom_button.dart';
 import 'helper/modal_drag.dart';
@@ -222,3 +222,6 @@ class _MultiTranslationInputModalState
     );
   }
 }
+
+
+

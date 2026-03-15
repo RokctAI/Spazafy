@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 import '../../../infrastructure/services/app_helpers.dart';
 
@@ -27,3 +27,8 @@ class AdBadge extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

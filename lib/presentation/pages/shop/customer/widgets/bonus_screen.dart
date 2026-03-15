@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/models/data/bonus_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/bonus_data.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
 
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class BonusScreen extends StatelessWidget {
   final BonusModel? bonus;
@@ -78,3 +78,7 @@ class BonusScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+

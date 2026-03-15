@@ -4,21 +4,21 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/application/edit_profile/edit_profile_provider.dart';
-import 'package:foodyman/application/order/order_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/app_validators.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/time_service.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/custom_checkbox.dart';
-import 'package:foodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
-import 'package:foodyman/presentation/pages/profile/phone_verify.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/application/edit_profile/edit_profile_provider.dart';
+import 'package:venderfoodyman/application/order/order_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_validators.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/time_service.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/custom_checkbox.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/pages/customer/profile/phone_verify.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import '../../order_check/widgets/time_delivery.dart';
 import 'order_container.dart';
-import 'package:foodyman/presentation/components/sellect_address_screen.dart';
+import 'package:venderfoodyman/presentation/components/customer/sellect_address_screen.dart';
 
 class OrderDelivery extends StatefulWidget {
   final ValueChanged<bool> onChange;
@@ -303,3 +303,8 @@ class TriangleClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(TriangleClipper oldClipper) => false;
 }
+
+
+
+
+

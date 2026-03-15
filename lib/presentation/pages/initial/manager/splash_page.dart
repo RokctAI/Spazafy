@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:venderfoodyman/presentation/app_assets.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/application/providers.dart';
+import 'package:venderfoodyman/presentation/theme/manager/app_assets.dart';
+import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
 
 @RoutePage()
 class SplashPage extends ConsumerStatefulWidget {
@@ -39,3 +39,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     return Image.asset(Assets.imageSplash, fit: BoxFit.cover);
   }
 }
+
+
+
+

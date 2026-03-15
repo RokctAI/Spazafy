@@ -5,9 +5,9 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'styles/style.dart';
-import 'package:venderfoodyman/domain/di/dependency_manager.dart';
-import '../infrastructure/services/services.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class AppWidget extends ConsumerWidget {
   const AppWidget({super.key});
@@ -68,3 +68,7 @@ class AppWidget extends ConsumerWidget {
     );
   }
 }
+
+
+
+

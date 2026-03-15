@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/profile/profile_notifier.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class DocumentUploadSection extends StatelessWidget {
   final List<String> filePaths;
@@ -144,3 +144,7 @@ class DocumentUploadSection extends StatelessWidget {
     );
   }
 }
+
+
+
+

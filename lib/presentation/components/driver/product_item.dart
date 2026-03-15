@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/infrastructure/models/data/order_detail.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
-import '../../infrastructure/services/app_helpers.dart';
-import '../../infrastructure/services/tr_keys.dart';
+import 'package:driver/infrastructure/driver/services/app_helpers.dart';
+import 'package:driver/infrastructure/driver/services/tr_keys.dart';
 import '../styles/style.dart';
 
 class ProductItem extends StatelessWidget {
@@ -78,3 +78,8 @@ class ProductItem extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

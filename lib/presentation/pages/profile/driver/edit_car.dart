@@ -11,11 +11,11 @@ import 'package:driver/application/profile/provider/profile_edit_provider.dart';
 import 'package:driver/application/profile/provider/profile_image_provider.dart';
 import 'package:driver/application/profile/state/profile_edit_state.dart';
 import 'package:driver/application/profile/state/profile_image_state.dart';
-import 'package:driver/infrastructure/services/img_service.dart';
+import 'package:driver/infrastructure/services/driver/img_service.dart';
 
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/component/components.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class EditCar extends ConsumerStatefulWidget {
   const EditCar({super.key});
@@ -388,3 +388,8 @@ class _EditCarState extends ConsumerState<EditCar> {
     );
   }
 }
+
+
+
+
+

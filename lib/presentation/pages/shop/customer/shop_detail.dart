@@ -5,16 +5,16 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:foodyman/application/shop/shop_provider.dart';
-import 'package:foodyman/infrastructure/models/data/shop_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/pages/order/order_type/widgets/order_map.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/shop/shop_provider.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/pages/customer/order/order_type/widgets/order_map.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
+import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
 
 @RoutePage()
 class ShopDetailPage extends ConsumerStatefulWidget {
@@ -341,3 +341,7 @@ class _ShopDetailPageState extends ConsumerState<ShopDetailPage> {
     );
   }
 }
+
+
+
+

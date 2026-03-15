@@ -10,13 +10,13 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:venderfoodyman/application/map/view_map_notifier.dart';
 import 'package:venderfoodyman/application/map/view_map_provider.dart';
 import 'package:venderfoodyman/application/map/view_map_state.dart';
-import 'package:venderfoodyman/domain/di/dependency_manager.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/app_assets.dart';
-import 'package:venderfoodyman/presentation/component/components.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/presentation/theme/manager/app_assets.dart';
+import 'package:venderfoodyman/presentation/components/manager/components.dart';
+import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
 class ViewMapPage extends ConsumerStatefulWidget {
@@ -432,3 +432,7 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
     );
   }
 }
+
+
+
+

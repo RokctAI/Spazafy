@@ -4,19 +4,19 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/edit_profile/edit_profile_provider.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/app_bars/app_bar_bottom_sheet.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-import 'package:foodyman/presentation/components/keyboard_dismisser.dart';
-import 'package:foodyman/presentation/pages/auth/reset/set_password_page.dart';
+import 'package:venderfoodyman/application/edit_profile/edit_profile_provider.dart';
+import 'package:venderfoodyman/application/profile/profile_provider.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/app_bars/app_bar_bottom_sheet.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/pages/customer/auth/reset/set_password_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/application/auth/auth.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/application/auth/auth.dart';
 import '../register/register_page.dart';
 
 @RoutePage()
@@ -295,3 +295,8 @@ class _RegisterConfirmationPageState
     );
   }
 }
+
+
+
+
+

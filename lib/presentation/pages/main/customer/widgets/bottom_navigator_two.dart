@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class BottomNavigatorTwo extends StatelessWidget {
   final int currentIndex;
@@ -230,3 +230,6 @@ class FloatingNavbarItem {
   FloatingNavbarItem({this.icon, this.title, this.customWidget})
       : assert(icon != null || customWidget != null);
 }
+
+
+

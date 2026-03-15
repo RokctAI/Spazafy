@@ -7,16 +7,16 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:driver/application/home/home_provider.dart';
-import 'package:driver/infrastructure/models/data/parcel_order.dart';
-import 'package:driver/app_constants.dart';
-import 'package:driver/infrastructure/services/app_helpers.dart';
-import 'package:driver/infrastructure/services/local_storage.dart';
-import 'package:driver/infrastructure/services/marker_image_cropper.dart';
-import 'package:driver/presentation/component/maps_list.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:driver/driver/app_constants.dart';
+import 'package:driver/infrastructure/services/driver/app_helpers.dart';
+import 'package:driver/infrastructure/services/driver/local_storage.dart';
+import 'package:driver/infrastructure/services/driver/marker_image_cropper.dart';
+import 'package:driver/presentation/components/driver/maps_list.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:driver/infrastructure/services/tr_keys.dart';
-import 'package:driver/presentation/component/buttons/custom_button.dart';
+import 'package:driver/infrastructure/services/driver/tr_keys.dart';
+import 'package:driver/presentation/components/driver/buttons/custom_button.dart';
 
 class ParcelOrderPage extends StatelessWidget {
   final ParcelOrder? parcel;
@@ -439,3 +439,8 @@ class ParcelOrderPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 class NewTag extends StatelessWidget {
   final double? top, left, right;
@@ -29,3 +29,8 @@ class NewTag extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

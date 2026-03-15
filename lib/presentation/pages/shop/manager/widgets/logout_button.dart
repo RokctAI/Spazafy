@@ -3,9 +3,9 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'logout_modal.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../component/components.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class LogoutButton extends StatelessWidget {
   final bool isOpen;
@@ -70,3 +70,7 @@ class LogoutButton extends StatelessWidget {
     );
   }
 }
+
+
+
+

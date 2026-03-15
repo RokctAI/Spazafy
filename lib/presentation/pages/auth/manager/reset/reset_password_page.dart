@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../confirmation/register_confirmation_page.dart';
 import '../../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class ResetPasswordPage extends ConsumerWidget {
   const ResetPasswordPage({super.key});
@@ -95,3 +95,7 @@ class ResetPasswordPage extends ConsumerWidget {
     );
   }
 }
+
+
+
+

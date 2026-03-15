@@ -3,29 +3,29 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/application/product/product_notifier.dart';
-import 'package:foodyman/application/product/product_provider.dart';
-import 'package:foodyman/application/product/product_state.dart';
-import 'package:foodyman/application/shop/shop_provider.dart';
-import 'package:foodyman/application/shop_order/shop_order_notifier.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/infrastructure/models/data/product_data.dart';
-import 'package:foodyman/infrastructure/models/data/review_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/buttons/animation_button_effect.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-import 'package:foodyman/presentation/components/custom_network_image.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/pages/product/widgets/w_ingredient.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/application/shop/shop_state.dart';
+import 'package:venderfoodyman/application/product/product_notifier.dart';
+import 'package:venderfoodyman/application/product/product_provider.dart';
+import 'package:venderfoodyman/application/product/product_state.dart';
+import 'package:venderfoodyman/application/shop/shop_provider.dart';
+import 'package:venderfoodyman/application/shop_order/shop_order_notifier.dart';
+import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/product_data.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/review_data.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/pages/customer/product/widgets/w_ingredient.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/application/shop/shop_state.dart';
 import '../shop/widgets/bonus_screen.dart';
 import 'widgets/images_list_one.dart';
 import 'widgets/p_main_button.dart';
 import 'widgets/w_product_extras.dart';
-import 'package:foodyman/presentation/components/loading.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 
 class ProductScreen extends ConsumerStatefulWidget {
   final ProductData? data;
@@ -437,3 +437,8 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
     );
   }
 }
+
+
+
+
+

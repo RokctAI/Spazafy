@@ -6,11 +6,11 @@ import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:driver/application/parcel/parcel_notifier.dart';
 import 'package:driver/application/parcel/parcel_provider.dart';
-import 'package:driver/presentation/component/loading.dart';
+import 'package:driver/presentation/components/driver/loading.dart';
 
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/component/components.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'parcel_item.dart';
 
 @RoutePage()
@@ -236,3 +236,8 @@ Widget _resultEmpty() {
     ],
   );
 }
+
+
+
+
+

@@ -12,16 +12,16 @@ import 'package:proste_indexed_stack/proste_indexed_stack.dart';
 
 import 'foods/foods_page.dart';
 import 'billing_home_page.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'orders/orders_home_page.dart';
 import '../../component/components.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
 import 'widgets/bottom_navigator_item.dart';
 import '../restaurant/restaurant_page.dart';
-import 'package:venderfoodyman/application/providers.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
 import 'foods/create/create_product_modal.dart';
 import 'foods/addons/create/create_addon_modal.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 import 'foods/extras/create/create_extras_group_modal.dart';
 
 @RoutePage()
@@ -278,3 +278,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+
+
+
+

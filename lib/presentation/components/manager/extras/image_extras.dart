@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../helper/common_image.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 class ImageExtras extends StatelessWidget {
   final int groupIndex;
@@ -74,3 +74,7 @@ class ImageExtras extends StatelessWidget {
     );
   }
 }
+
+
+
+

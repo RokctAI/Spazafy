@@ -4,9 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class UpdateExtrasGroupModal extends ConsumerStatefulWidget {
   final Group group;
@@ -85,3 +85,7 @@ class _UpdateExtrasGroupModalState
     );
   }
 }
+
+
+
+

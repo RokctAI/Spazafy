@@ -5,12 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:driver/application/home/home_provider.dart';
-import 'package:driver/infrastructure/models/data/parcel_order.dart';
-import 'package:driver/presentation/component/buttons/custom_button.dart';
-import 'package:driver/presentation/component/maps_list.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:driver/presentation/components/driver/buttons/custom_button.dart';
+import 'package:driver/presentation/components/driver/maps_list.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:intl/intl.dart' as intl;
-import '../../../infrastructure/services/services.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
 import 'widgets/approve_dialog.dart';
 import 'widgets/rate_customer.dart';
 
@@ -374,3 +374,8 @@ class ParcelBottomSheetScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/component/components.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:driver/presentation/components/driver/components.dart';
 
 import '../../../styles/style.dart';
 
@@ -49,3 +49,8 @@ class CancelDialog extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

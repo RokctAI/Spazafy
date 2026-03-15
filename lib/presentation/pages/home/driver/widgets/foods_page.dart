@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:driver/application/order/all_order/order_provider.dart';
-import 'package:driver/infrastructure/models/data/order_detail.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
-import '../../../../infrastructure/services/services.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
 import '../../../component/components.dart';
 import '../../../component/loading.dart';
 import '../../../styles/style.dart';
@@ -200,3 +200,8 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
           );
   }
 }
+
+
+
+
+

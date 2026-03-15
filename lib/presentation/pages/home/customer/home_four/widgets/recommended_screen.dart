@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
 
 import '../../../../../application/home/home_notifier.dart';
 import '../../../../../application/home/home_provider.dart';
@@ -12,7 +12,7 @@ import '../../../../../infrastructure/services/app_helpers.dart';
 import '../../../../components/app_bars/common_app_bar.dart';
 import '../../../../components/buttons/pop_button.dart';
 import '../../../../components/market_item.dart';
-import '../../../../theme/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'market_two_item.dart';
 import 'recommended_item.dart';
 
@@ -232,3 +232,7 @@ class _RecommendedPageState extends ConsumerState<RecommendedPage> {
     );
   }
 }
+
+
+
+

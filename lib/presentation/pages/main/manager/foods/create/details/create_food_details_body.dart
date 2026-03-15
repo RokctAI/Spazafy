@@ -3,10 +3,10 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/foods/create/details/kitchens/create_food_kitchens_provider.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/component/components.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/presentation/components/manager/components.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:venderfoodyman/presentation/pages/main/foods/create/details/create_food_kitchens_modal.dart';
 import 'food_categories_modal.dart';
 import 'create_food_units_modal.dart';
@@ -367,3 +367,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
     );
   }
 }
+
+
+
+

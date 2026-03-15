@@ -1,15 +1,15 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/application/delivery_points/delivery_points_provider.dart';
-import 'package:foodyman/application/order/order_provider.dart';
-import 'package:foodyman/infrastructure/models/data/delivery_point_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/location_service.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-import 'package:foodyman/presentation/components/loading.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/delivery_points/delivery_points_provider.dart';
+import 'package:venderfoodyman/application/order/order_provider.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/delivery_point_data.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/location_service.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class OrderPickupPoint extends ConsumerStatefulWidget {
@@ -119,3 +119,7 @@ class _OrderPickupPointState extends ConsumerState<OrderPickupPoint> {
           );
   }
 }
+
+
+
+

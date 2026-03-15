@@ -2,16 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/order/order_provider.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/enums.dart';
-import 'package:foodyman/infrastructure/services/tpying_delay.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
-import 'package:foodyman/presentation/pages/shop/cart/widgets/cart_order_item.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/order/order_provider.dart';
+import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tpying_delay.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/pages/customer/shop/cart/widgets/cart_clear_dialog.dart';
+import 'package:venderfoodyman/presentation/pages/customer/shop/cart/widgets/cart_order_item.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class OrderCarts extends StatefulWidget {
   final double lat;
@@ -268,3 +268,7 @@ class _OrderCartsState extends State<OrderCarts> {
     );
   }
 }
+
+
+
+

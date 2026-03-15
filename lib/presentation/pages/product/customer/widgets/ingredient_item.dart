@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/models/data/addons_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/vibration.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/addons_data.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/vibration.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
-import 'package:foodyman/presentation/components/custom_checkbox.dart';
+import 'package:venderfoodyman/presentation/components/customer/custom_checkbox.dart';
 
 class IngredientItem extends ConsumerWidget {
   final VoidCallback onTap;
@@ -98,3 +98,8 @@ class IngredientItem extends ConsumerWidget {
     );
   }
 }
+
+
+
+
+

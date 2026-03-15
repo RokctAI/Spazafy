@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import 'common_image.dart';
 
@@ -49,3 +49,8 @@ class ImageDialog extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

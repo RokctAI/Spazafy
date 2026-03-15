@@ -5,14 +5,14 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/subscriptions/subscriptions_provider.dart';
-import 'package:venderfoodyman/infrastructure/services/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/tr_keys.dart';
-import 'package:venderfoodyman/presentation/component/custom_app_bar.dart';
-import 'package:venderfoodyman/presentation/component/helper/no_data_info.dart';
-import 'package:venderfoodyman/presentation/component/loading/loading_grid.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/manager/custom_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/manager/helper/no_data_info.dart';
+import 'package:venderfoodyman/presentation/components/manager/loading/loading_grid.dart';
 import 'package:venderfoodyman/presentation/pages/restaurant/subscriptions/widgets/have_subscription.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'widgets/payment_dialog.dart';
 import 'widgets/subscriptions_item.dart';
 
@@ -171,3 +171,7 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
     );
   }
 }
+
+
+
+

@@ -6,11 +6,11 @@ import 'package:venderfoodyman/application/order/shipping/section/section_provid
 import 'package:venderfoodyman/application/order/shipping/table/table_provider.dart';
 
 import 'widgets/payment_item.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../order/widgets/title_price.dart';
 import '../../../../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 @RoutePage()
 class DeliveryTimePage extends ConsumerStatefulWidget {
@@ -417,3 +417,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
     );
   }
 }
+
+
+
+

@@ -4,19 +4,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/infrastructure/services/time_service.dart';
+import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/time_service.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:foodyman/application/auto_order/auto_order_notifier.dart';
-import 'package:foodyman/application/auto_order/auto_order_provider.dart';
-import 'package:foodyman/application/order/order_provider.dart';
-import 'package:foodyman/application/save_card/saved_cards_provider.dart';
-import 'package:foodyman/infrastructure/models/data/repeat_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/application/auto_order/auto_order_notifier.dart';
+import 'package:venderfoodyman/application/auto_order/auto_order_provider.dart';
+import 'package:venderfoodyman/application/order/order_provider.dart';
+import 'package:venderfoodyman/application/save_card/saved_cards_provider.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/repeat_data.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 
 class AutoOrderModal extends ConsumerStatefulWidget {
   final String orderId;
@@ -498,3 +498,7 @@ class _AutoOrderModalState extends ConsumerState<AutoOrderModal> {
     );
   }
 }
+
+
+
+

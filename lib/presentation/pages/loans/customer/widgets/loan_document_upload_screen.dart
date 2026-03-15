@@ -23,7 +23,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:path/path.dart' as path;
 
 import '../../../../infrastructure/models/data/loans/loan_application.dart';
-import '../../../../infrastructure/repository/loans_repository.dart';
+import '../../../../infrastructure/repositories/customer/loans_repository.dart';
 import '../../../../infrastructure/services/app_helpers.dart';
 import '../../../../infrastructure/services/local_storage.dart';
 import '../../../../infrastructure/services/tr_keys.dart';
@@ -568,3 +568,6 @@ class _LoanDocumentUploadScreenState
     }).toList();
   }
 }
+
+
+

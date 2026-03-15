@@ -3,8 +3,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/infrastructure/models/data/order_detail.dart';
-import 'package:driver/infrastructure/services/services.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
 
 import 'helper/shimmer.dart';
 import '../styles/style.dart';
@@ -311,3 +311,8 @@ class OrdersItem extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

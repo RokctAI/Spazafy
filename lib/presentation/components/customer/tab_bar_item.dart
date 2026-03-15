@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 class TabBarItem extends StatelessWidget {
   final bool isShopTabBar;
@@ -50,3 +50,7 @@ class TabBarItem extends StatelessWidget {
     );
   }
 }
+
+
+
+

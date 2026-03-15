@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 class SmallWeekdayItem extends StatelessWidget {
   final bool isSelected;
@@ -38,3 +38,7 @@ class SmallWeekdayItem extends StatelessWidget {
     );
   }
 }
+
+
+
+

@@ -3,24 +3,24 @@ import 'package:flutter/material.dart';
 //import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-//import 'package:foodyman/presentation/pages/auth/reset/set_password_page.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+//import 'package:venderfoodyman/presentation/pages/customer/auth/reset/set_password_page.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 //import '../../../../application/edit_profile/edit_profile_provider.dart';
-import 'package:foodyman/presentation/components/buttons/button_item.dart';
-import 'package:foodyman/presentation/pages/profile/edit_profile_page.dart';
-//import 'package:foodyman/application/profile/profile_provider.dart';
-//import 'package:foodyman/presentation/components/app_bars/common_app_bar.dart';
-//import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/presentation/pages/auth/reset/reset_password_page.dart';
-import 'package:foodyman/presentation/pages/profile/currency_page.dart';
-import 'package:foodyman/presentation/pages/profile/language_page.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/button_item.dart';
+import 'package:venderfoodyman/presentation/pages/customer/profile/edit_profile_page.dart';
+//import 'package:venderfoodyman/application/profile/profile_provider.dart';
+//import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
+//import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/presentation/pages/customer/auth/reset/reset_password_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/profile/currency_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/profile/language_page.dart';
 
-//import 'package:foodyman/application/like/like_provider.dart';
+//import 'package:venderfoodyman/application/like/like_provider.dart';
 class MyAccount extends StatelessWidget {
   final bool isBackButton;
 
@@ -136,3 +136,7 @@ class MyAccount extends StatelessWidget {
     );
   }
 }
+
+
+
+

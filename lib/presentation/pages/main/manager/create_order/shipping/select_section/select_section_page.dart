@@ -4,10 +4,10 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/order/shipping/section/section_provider.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 import 'widgets/section_item.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../../../component/components.dart';
 
 @RoutePage()
@@ -113,3 +113,7 @@ class _SelectSectionPageState extends ConsumerState<SelectSectionPage> {
     );
   }
 }
+
+
+
+

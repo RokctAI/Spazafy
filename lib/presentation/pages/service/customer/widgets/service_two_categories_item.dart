@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/presentation/components/buttons/animation_button_effect.dart';
-import 'package:foodyman/presentation/components/custom_network_image.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class ServiceTwoCategoriesItem extends StatelessWidget {
   final CategoryData category;
@@ -54,3 +54,7 @@ class ServiceTwoCategoriesItem extends StatelessWidget {
     );
   }
 }
+
+
+
+

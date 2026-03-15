@@ -7,7 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../infrastructure/models/data/shop_data.dart';
 import '../../../infrastructure/services/app_helpers.dart';
 //import '../../../infrastructure/services/tr_keys.dart';
-import '../../theme/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class RatingBadge extends StatelessWidget {
   final ShopData shop;
@@ -84,3 +84,6 @@ class RatingBadge extends StatelessWidget {
     );
   }
 }
+
+
+

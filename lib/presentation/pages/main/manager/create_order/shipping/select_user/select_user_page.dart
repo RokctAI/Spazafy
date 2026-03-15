@@ -6,10 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/user_item.dart';
 import 'widgets/create_user_modal.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 @RoutePage()
 class SelectUserPage extends ConsumerStatefulWidget {
@@ -130,3 +130,7 @@ class _SelectUserPageState extends ConsumerState<SelectUserPage> {
     );
   }
 }
+
+
+
+

@@ -4,10 +4,10 @@ import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/app_widget/app_provider.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/app_widget/app_provider.dart';
+import 'package:venderfoodyman/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import 'components/custom_range_slider.dart';
 import 'routes/app_router.dart';
@@ -71,3 +71,7 @@ class AppWidget extends ConsumerWidget {
     );
   }
 }
+
+
+
+

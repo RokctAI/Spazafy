@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class TitleAndIcon extends StatelessWidget {
   final String title;
@@ -60,3 +60,7 @@ class TitleAndIcon extends StatelessWidget {
     );
   }
 }
+
+
+
+

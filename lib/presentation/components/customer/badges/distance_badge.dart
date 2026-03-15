@@ -7,7 +7,7 @@ import '../../../app_constants.dart';
 import '../../../infrastructure/models/data/shop_data.dart';
 import '../../../infrastructure/services/app_helpers.dart';
 import '../../../infrastructure/services/tr_keys.dart';
-import '../../theme/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../infrastructure/services/local_storage.dart';
 
 class DistanceBadge extends StatelessWidget {
@@ -104,3 +104,6 @@ class DistanceBadge extends StatelessWidget {
     return 12742 * asin(sqrt(a)); // 2 * R; R = 6371 km
   }
 }
+
+
+

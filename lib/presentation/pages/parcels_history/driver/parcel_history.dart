@@ -5,12 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:driver/application/parcel/parcel_provider.dart';
-import 'package:driver/presentation/pages/parcel/parcel_item.dart';
+import 'package:driver/presentation/pages/driver/parcel/parcel_item.dart';
 
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/component/components.dart';
-import 'package:driver/presentation/component/loading.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:driver/presentation/components/driver/components.dart';
+import 'package:driver/presentation/components/driver/loading.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
 class ParcelHistoryPage extends ConsumerStatefulWidget {
@@ -145,3 +145,8 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
     );
   }
 }
+
+
+
+
+

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-import 'package:foodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
 
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
 
 class NoteProduct extends StatefulWidget {
   final String? comment;
@@ -62,3 +62,7 @@ class _NoteProductState extends State<NoteProduct> {
     );
   }
 }
+
+
+
+

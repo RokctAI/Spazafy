@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../buttons/buttons_bouncing_effect.dart';
 import '../text_fields/underlined_text_field.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class EditableFoodStockItem extends StatelessWidget {
   final Stock stock;
@@ -137,3 +137,7 @@ class EditableFoodStockItem extends StatelessWidget {
     );
   }
 }
+
+
+
+

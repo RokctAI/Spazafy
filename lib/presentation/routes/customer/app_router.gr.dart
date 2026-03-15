@@ -1575,3 +1575,6 @@ class WalletHistoryRouteArgs {
     return 'WalletHistoryRouteArgs{key: $key, isBackButton: $isBackButton}';
   }
 }
+
+
+

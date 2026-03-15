@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_place/google_place.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-import 'package:foodyman/presentation/components/text_fields/search_text_field.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/search_text_field.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
 class MapSearchPage extends StatefulWidget {
@@ -84,3 +84,6 @@ class _MapSearchPageState extends State<MapSearchPage> {
     );
   }
 }
+
+
+

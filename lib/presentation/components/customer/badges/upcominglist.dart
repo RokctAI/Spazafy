@@ -4,15 +4,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/models/data/order_active_model.dart';
-import 'package:foodyman/application/orders_list/orders_list_provider.dart';
-import 'package:foodyman/application/shop/shop_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/presentation/components/shop_avarat.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/infrastructure/models/data/shop_data.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/order_active_model.dart';
+import 'package:venderfoodyman/application/orders_list/orders_list_provider.dart';
+import 'package:venderfoodyman/application/shop/shop_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/shop_avarat.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 import '../../../infrastructure/services/local_storage.dart';
 import '../../routes/app_router.dart';
@@ -425,3 +425,8 @@ class _ETADisplayState extends State<ETADisplay> {
     }
   }
 }
+
+
+
+
+

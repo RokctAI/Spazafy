@@ -6,8 +6,8 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 import '../buttons/animation_button_effect.dart';
 
 class CommonImage extends StatelessWidget {
@@ -177,3 +177,7 @@ class CommonImage extends StatelessWidget {
     );
   }
 }
+
+
+
+

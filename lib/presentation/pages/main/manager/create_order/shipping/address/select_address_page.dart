@@ -7,11 +7,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/app_assets.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/presentation/theme/manager/app_assets.dart';
 import '../../../../../component/components.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'searched_location_item.dart';
 
 @RoutePage()
@@ -266,3 +266,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
     );
   }
 }
+
+
+
+

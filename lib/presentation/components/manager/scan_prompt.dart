@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/billing/billing_provider.dart';
 import 'package:venderfoodyman/application/billing/billing_state.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/presentation/component/components.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/manager/components.dart';
 
 class ScanPrompt extends ConsumerWidget {
   const ScanPrompt({super.key});
@@ -247,3 +247,7 @@ class ScanPrompt extends ConsumerWidget {
     );
   }
 }
+
+
+
+

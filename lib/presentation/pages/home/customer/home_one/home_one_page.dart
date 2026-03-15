@@ -4,25 +4,25 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/presentation/pages/home/shimmer/news_shop_shimmer.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/shimmer/news_shop_shimmer.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/currency/currency_provider.dart';
-import 'package:foodyman/application/home/home_notifier.dart';
-import 'package:foodyman/application/home/home_provider.dart';
-import 'package:foodyman/application/home/home_state.dart';
-import 'package:foodyman/application/map/view_map_provider.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/pages/home/shimmer/all_shop_shimmer.dart';
-import 'package:foodyman/presentation/pages/home/shimmer/recommend_shop_shimmer.dart';
-import 'package:foodyman/presentation/pages/home/home_one/category_one.dart';
-import 'package:foodyman/presentation/pages/home/home_one/widget/banner_one_item.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/currency/currency_provider.dart';
+import 'package:venderfoodyman/application/home/home_notifier.dart';
+import 'package:venderfoodyman/application/home/home_provider.dart';
+import 'package:venderfoodyman/application/home/home_state.dart';
+import 'package:venderfoodyman/application/map/view_map_provider.dart';
+import 'package:venderfoodyman/application/profile/profile_provider.dart';
+import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/shimmer/all_shop_shimmer.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/shimmer/recommend_shop_shimmer.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/home_one/category_one.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/home_one/widget/banner_one_item.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import 'app_bar_one.dart';
 import 'filter_category_one_shop.dart';
@@ -422,3 +422,7 @@ class _HomeOnePageState extends ConsumerState<HomeOnePage> {
     );
   }
 }
+
+
+
+

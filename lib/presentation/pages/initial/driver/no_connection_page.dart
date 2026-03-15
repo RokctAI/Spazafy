@@ -5,9 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/routes/app_router.gr.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:driver/presentation/routes/driver/app_router.gr.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
 class NoConnectionPage extends ConsumerWidget {
@@ -54,3 +54,8 @@ class NoConnectionPage extends ConsumerWidget {
     );
   }
 }
+
+
+
+
+

@@ -6,26 +6,26 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/order/order_notifier.dart';
-import 'package:foodyman/application/order/order_provider.dart';
-import 'package:foodyman/application/payment_methods/payment_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/enums.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/app_bars/common_app_bar.dart';
-import 'package:foodyman/presentation/components/keyboard_dismisser.dart';
-import 'package:foodyman/presentation/components/loading.dart';
-import 'package:foodyman/presentation/components/shop_avarat.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/pages/order/order_check/order_check.dart';
-import 'package:foodyman/presentation/pages/order/order_check/widgets/rating_page.dart';
-import 'package:foodyman/presentation/pages/order/order_type/widgets/order_map.dart';
-import 'package:foodyman/presentation/pages/shop/cart/widgets/cart_order_item.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/order/order_notifier.dart';
+import 'package:venderfoodyman/application/order/order_provider.dart';
+import 'package:venderfoodyman/application/payment_methods/payment_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/presentation/components/customer/shop_avarat.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/pages/customer/order/order_check/order_check.dart';
+import 'package:venderfoodyman/presentation/pages/customer/order/order_check/widgets/rating_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/order/order_type/widgets/order_map.dart';
+import 'package:venderfoodyman/presentation/pages/customer/shop/cart/widgets/cart_order_item.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
-import 'package:foodyman/application/order/order_state.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
+import 'package:venderfoodyman/application/order/order_state.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
 import '../order_check/widgets/refund_info.dart';
 import 'widgets/order_status.dart';
 
@@ -251,3 +251,7 @@ class _OrderProgressPageState extends ConsumerState<OrderProgressPage> {
     );
   }
 }
+
+
+
+

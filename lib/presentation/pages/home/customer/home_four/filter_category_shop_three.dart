@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/home/home_notifier.dart';
-import 'package:foodyman/application/home/home_state.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/buttons/animation_button_effect.dart';
-import 'package:foodyman/presentation/components/loading.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/pages/home/filter/filter_page.dart';
-import 'package:foodyman/presentation/components/badges.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
+import 'package:venderfoodyman/application/home/home_notifier.dart';
+import 'package:venderfoodyman/application/home/home_state.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/filter/filter_page.dart';
+import 'package:venderfoodyman/presentation/components/customer/badges.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
 import '../../../theme/theme.dart';
 import 'shimmer/news_shop_shimmer.dart';
 import 'widgets/market_three_item.dart';
@@ -186,3 +186,7 @@ class FilterCategoryShopThree extends StatelessWidget {
     );
   }
 }
+
+
+
+

@@ -15,7 +15,7 @@ import 'package:intl/intl.dart' as intl;
 import '../../components/buttons/pop_button.dart';
 import '../../components/buttons/second_button.dart';
 import '../../components/loading.dart';
-import '../../theme/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../loans/loan_screen.dart';
 import 'widgets/wallet_topup_screen.dart';
 import 'widgets/wallet_send_screen.dart';
@@ -341,3 +341,6 @@ class _WalletHistoryState extends ConsumerState<WalletHistoryPage> {
     );
   }
 }
+
+
+

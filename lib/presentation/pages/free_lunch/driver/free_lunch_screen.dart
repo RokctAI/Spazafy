@@ -3,9 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/component/components.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'bar_code_screen.dart';
 
 class FreeLunchScreen extends StatelessWidget {
@@ -152,3 +152,8 @@ class FreeLunchScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

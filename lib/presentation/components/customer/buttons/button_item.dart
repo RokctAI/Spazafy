@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/presentation/components/buttons/animation_button_effect2.dart';
-import 'package:foodyman/presentation/components/custom_toggle2.dart';
-import 'package:foodyman/presentation/theme/theme.dart'; // Import the AppStyle class
+import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect2.dart';
+import 'package:venderfoodyman/presentation/components/customer/custom_toggle2.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart'; // Import the AppStyle class
 
 class ButtonItem extends StatelessWidget {
   final IconData icon;
@@ -90,3 +90,7 @@ class ButtonItem extends StatelessWidget {
     );
   }
 }
+
+
+
+

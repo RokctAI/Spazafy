@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/infrastructure/models/data/order_detail.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
-import 'package:driver/application/providers.dart';
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/component/components.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/application/providers/driver/providers.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'widgets/approve_dialog.dart';
 import 'widgets/foods_page.dart';
 import 'widgets/rate_customer.dart';
@@ -277,3 +277,8 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
     );
   }
 }
+
+
+
+
+

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/order/order_provider.dart';
-import 'package:foodyman/application/payment_methods/payment_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/pages/order/order_check/widgets/promo_code.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/application/order/order_provider.dart';
+import 'package:venderfoodyman/application/payment_methods/payment_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/pages/customer/order/order_check/widgets/promo_code.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 import 'payment_method.dart';
 import 'order_payment_container.dart';
@@ -113,3 +113,8 @@ class CardAndPromo extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

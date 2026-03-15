@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class ButtonEffectAnimation extends StatefulWidget {
   final bool disabled;
@@ -72,3 +72,7 @@ class _ButtonEffectAnimationState extends State<ButtonEffectAnimation>
         : GestureDetector(onTap: widget.onTap, child: widget.child);
   }
 }
+
+
+
+

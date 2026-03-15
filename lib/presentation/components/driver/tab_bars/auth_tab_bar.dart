@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../infrastructure/services/services.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
 import '../../styles/style.dart';
 
 class AuthTabBar extends StatefulWidget {
@@ -88,3 +88,8 @@ class AuthTab {
 
   const AuthTab({required this.text, required this.icon});
 }
+
+
+
+
+

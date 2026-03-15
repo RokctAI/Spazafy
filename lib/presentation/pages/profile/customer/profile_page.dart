@@ -8,29 +8,29 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:http/http.dart' as http;
 import 'package:remixicon/remixicon.dart';
-import 'package:foodyman/application/home/home_provider.dart';
-import 'package:foodyman/application/language/language_provider.dart';
-import 'package:foodyman/application/notification/notification_provider.dart';
-import 'package:foodyman/application/orders_list/orders_list_provider.dart';
-import 'package:foodyman/application/parcels_list/parcel_list_provider.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/app_bars/common_app_bar.dart';
-import 'package:foodyman/presentation/components/badges.dart';
-import 'package:foodyman/presentation/components/badges/alert_dialog.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-import 'package:foodyman/presentation/components/custom_network_image.dart';
-import 'package:foodyman/presentation/components/loading.dart';
-import 'package:foodyman/application/like/like_provider.dart';
-import 'package:foodyman/presentation/pages/profile/delete_screen.dart';
-import 'package:foodyman/presentation/pages/profile/help_page.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/presentation/pages/policy_term/policy_page.dart';
-import 'package:foodyman/presentation/pages/policy_term/term_page.dart';
+import 'package:venderfoodyman/application/home/home_provider.dart';
+import 'package:venderfoodyman/application/language/language_provider.dart';
+import 'package:venderfoodyman/application/notification/notification_provider.dart';
+import 'package:venderfoodyman/application/orders_list/orders_list_provider.dart';
+import 'package:venderfoodyman/application/parcels_list/parcel_list_provider.dart';
+import 'package:venderfoodyman/application/profile/profile_provider.dart';
+import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/customer/badges.dart';
+import 'package:venderfoodyman/presentation/components/customer/badges/alert_dialog.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/application/like/like_provider.dart';
+import 'package:venderfoodyman/presentation/pages/customer/profile/delete_screen.dart';
+import 'package:venderfoodyman/presentation/pages/customer/profile/help_page.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/pages/customer/policy_term/policy_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/policy_term/term_page.dart';
 import '../../../app_constants.dart';
 import '../../components/buttons/second_button.dart';
 import '../cards/payment_screen.dart';
@@ -38,7 +38,7 @@ import 'become_driver/become_driver.dart';
 import 'widgets/about_page.dart';
 import 'widgets/app_usage_badge.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:foodyman/presentation/pages/profile/widgets/my_account.dart';
+import 'package:venderfoodyman/presentation/pages/customer/profile/widgets/my_account.dart';
 import 'reservation_shops.dart';
 import '../loans/loan_screen.dart';
 import 'widgets/wallet_topup_screen.dart';
@@ -1136,3 +1136,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
     );
   }
 }
+
+
+
+
+

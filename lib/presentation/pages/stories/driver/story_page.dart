@@ -5,9 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:driver/application/providers.dart';
-import 'package:driver/presentation/component/components.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/application/providers/driver/providers.dart';
+import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
 class StoryPage extends ConsumerStatefulWidget {
@@ -265,3 +265,8 @@ class _StoryPageState extends ConsumerState<StoryPage>
     );
   }
 }
+
+
+
+
+

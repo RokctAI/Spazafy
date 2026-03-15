@@ -5,20 +5,20 @@
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:foodyman/application/shop/shop_notifier.dart';
-// import 'package:foodyman/application/shop/shop_provider.dart';
-// import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-// import 'package:foodyman/infrastructure/services/app_helpers.dart';
-// import 'package:foodyman/infrastructure/services/local_storage.dart';
-// import 'package:foodyman/infrastructure/services/tr_keys.dart';
-// import 'package:foodyman/presentation/components/buttons/animation_button_effect.dart';
-// import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-// import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-// import 'package:foodyman/presentation/pages/shop/cart/cart_order_page.dart';
-// import 'package:foodyman/presentation/pages/shop/widgets/make_tab_bar.dart';
-// import 'package:foodyman/presentation/theme/app_style.dart';
+// import 'package:venderfoodyman/application/shop/shop_notifier.dart';
+// import 'package:venderfoodyman/application/shop/shop_provider.dart';
+// import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
+// import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+// import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+// import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+// import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
+// import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+// import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+// import 'package:venderfoodyman/presentation/pages/customer/shop/cart/cart_order_page.dart';
+// import 'package:venderfoodyman/presentation/pages/customer/shop/widgets/make_tab_bar.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 //
-// import 'package:foodyman/infrastructure/models/models.dart';
+// import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 // import 'product_filter.dart';
 // import 'widgets/product_list.dart';
 //
@@ -307,3 +307,7 @@
 //         ));
 //   }
 // }
+
+
+
+

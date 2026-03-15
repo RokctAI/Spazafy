@@ -4,19 +4,19 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:foodyman/application/order/order_provider.dart';
-import 'package:foodyman/application/parcel/parcel_provider.dart';
-import 'package:foodyman/application/select/select_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/input_formatter.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-import 'package:foodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/components/web_view.dart';
-import 'package:foodyman/presentation/pages/order/order_check/widgets/payment_method.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/application/order/order_provider.dart';
+import 'package:venderfoodyman/application/parcel/parcel_provider.dart';
+import 'package:venderfoodyman/application/select/select_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/input_formatter.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/components/customer/web_view.dart';
+import 'package:venderfoodyman/presentation/pages/customer/order/order_check/widgets/payment_method.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 class RatingPage extends ConsumerStatefulWidget {
   final bool parcel;
@@ -307,3 +307,8 @@ class _RatingPageState extends ConsumerState<RatingPage> {
     );
   }
 }
+
+
+
+
+

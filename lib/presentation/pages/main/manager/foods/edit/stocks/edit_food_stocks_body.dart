@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'edit_food_addons_modal.dart';
 import 'edit_group_extras_modal.dart';
 import '../../../../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class EditFoodStocksBody extends ConsumerStatefulWidget {
   final ProductData product;
@@ -157,3 +157,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
     );
   }
 }
+
+
+
+

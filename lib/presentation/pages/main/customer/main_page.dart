@@ -21,26 +21,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/main/main_notifier.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/infrastructure/models/data/cart_data.dart';
-import 'package:foodyman/infrastructure/models/data/profile_data.dart';
-import 'package:foodyman/infrastructure/models/data/remote_message_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/buttons/animation_button_effect.dart';
-import 'package:foodyman/presentation/components/custom_network_image.dart';
-import 'package:foodyman/presentation/components/keyboard_dismisser.dart';
-import 'package:foodyman/presentation/pages/home/home_page.dart';
+import 'package:venderfoodyman/application/main/main_notifier.dart';
+import 'package:venderfoodyman/application/profile/profile_provider.dart';
+import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/cart_data.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/profile_data.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/remote_message_data.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/home_page.dart';
 import '../../../app_constants.dart';
-import 'package:foodyman/presentation/pages/like/like_page.dart';
-import 'package:foodyman/presentation/pages/main/widgets/bottom_navigator_three.dart';
-import 'package:foodyman/presentation/pages/profile/profile_page.dart';
-import 'package:foodyman/presentation/pages/search/search_page.dart';
-import 'package:foodyman/presentation/pages/service/service_page.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/presentation/pages/customer/like/like_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/main/widgets/bottom_navigator_three.dart';
+import 'package:venderfoodyman/presentation/pages/customer/profile/profile_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/search/search_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/service/service_page.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../application/home/home_provider.dart';
 import '../../../application/main/main_provider.dart';
@@ -59,8 +59,8 @@ import 'widgets/bottom_navigator_one.dart';
 import 'widgets/bottom_navigator_two.dart';
 
 import 'package:remixicon/remixicon.dart';
-import 'package:foodyman/presentation/pages/parcel/parcel_page.dart';
-import 'package:foodyman/presentation/pages/profile/wallet_history.dart';
+import 'package:venderfoodyman/presentation/pages/customer/parcel/parcel_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/profile/wallet_history.dart';
 
 @RoutePage()
 class MainPage extends StatefulWidget {
@@ -698,3 +698,8 @@ class TriangleClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(TriangleClipper oldClipper) => false;
 }
+
+
+
+
+

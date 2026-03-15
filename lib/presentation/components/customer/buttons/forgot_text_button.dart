@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/application/app_widget/app_provider.dart';
+import 'package:venderfoodyman/application/app_widget/app_provider.dart';
 
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 class ForgotTextButton extends ConsumerWidget {
   final String title;
@@ -43,3 +43,7 @@ class ForgotTextButton extends ConsumerWidget {
     );
   }
 }
+
+
+
+

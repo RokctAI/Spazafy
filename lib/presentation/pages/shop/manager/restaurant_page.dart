@@ -5,7 +5,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'widgets/logout_button.dart';
 import 'widgets/logout_modal.dart';
 import 'widgets/sections_item.dart';
@@ -13,10 +13,10 @@ import 'widgets/shop_page_banner.dart';
 import '../../component/components.dart';
 import '../../phoenix_widget.dart';
 import '../auth/languages_modal.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
 import 'widgets/edit_restaurant_modal.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class RestaurantPage extends ConsumerStatefulWidget {
   const RestaurantPage({super.key});
@@ -420,3 +420,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
   //   );
   // }
 }
+
+
+
+

@@ -6,8 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' as intl;
 
-import '../../../domain/handlers/handlers.dart';
-import '../../../infrastructure/repository/loans_repository.dart';
+import '../../../domain/handlers/customer/handlers.dart';
+import '../../../infrastructure/repositories/customer/loans_repository.dart';
 import '../../../infrastructure/services/app_helpers.dart';
 import '../../../infrastructure/services/local_storage.dart';
 import '../../../infrastructure/services/tr_keys.dart';
@@ -1778,3 +1778,6 @@ class _LoanScreenState extends ConsumerState<LoanScreen> {
     );
   }
 }
+
+
+

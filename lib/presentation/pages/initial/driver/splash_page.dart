@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:driver/presentation/app_assets.dart';
+import 'package:driver/presentation/theme/driver/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:driver/application/providers.dart';
-import 'package:driver/presentation/routes/app_router.gr.dart';
+import 'package:driver/application/providers/driver/providers.dart';
+import 'package:driver/presentation/routes/driver/app_router.gr.dart';
 
 @RoutePage()
 class SplashPage extends ConsumerStatefulWidget {
@@ -38,3 +38,8 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     return Image.asset(Assets.imageSplash, fit: BoxFit.cover);
   }
 }
+
+
+
+
+

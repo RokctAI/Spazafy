@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/component/buttons/buttons_bouncing_effect.dart';
+import 'package:venderfoodyman/presentation/components/manager/buttons/buttons_bouncing_effect.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 class FoodCategoryItem extends StatelessWidget {
   final CategoryData category;
@@ -87,3 +87,7 @@ class FoodCategoryItem extends StatelessWidget {
         : const SizedBox.shrink();
   }
 }
+
+
+
+

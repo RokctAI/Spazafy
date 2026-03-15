@@ -8,12 +8,12 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:venderfoodyman/application/order/shipping/section/section_provider.dart';
 import 'package:venderfoodyman/application/order/shipping/table/table_provider.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'widgets/delivery_type_item.dart';
 import '../../../../component/components.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 @RoutePage()
 class ShippingAddressPage extends StatefulWidget {
@@ -484,3 +484,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
     );
   }
 }
+
+
+
+

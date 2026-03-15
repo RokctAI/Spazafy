@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/application/order/order_provider.dart';
-import 'package:foodyman/application/promo_code/promo_code_state.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/enums.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-import 'package:foodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/application/order/order_provider.dart';
+import 'package:venderfoodyman/application/promo_code/promo_code_state.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
-import 'package:foodyman/application/promo_code/promo_code_notifier.dart';
-import 'package:foodyman/application/promo_code/promo_code_provider.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
+import 'package:venderfoodyman/application/promo_code/promo_code_notifier.dart';
+import 'package:venderfoodyman/application/promo_code/promo_code_provider.dart';
+import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
 import '../../../../../app_constants.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tpying_delay.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tpying_delay.dart';
 
 class PromoCodeScreen extends ConsumerStatefulWidget {
   const PromoCodeScreen({super.key});
@@ -174,3 +174,8 @@ class _PromoCodeState extends ConsumerState<PromoCodeScreen> {
     );
   }
 }
+
+
+
+
+

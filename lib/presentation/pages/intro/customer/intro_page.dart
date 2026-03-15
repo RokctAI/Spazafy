@@ -3,14 +3,14 @@ import 'package:auto_route/auto_route.dart';
 //import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart'; //Changed
-import 'package:foodyman/infrastructure/services/app_helpers.dart'; //changed
-import 'package:foodyman/presentation/components/buttons/second_button.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart'; //Changed
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart'; //changed
+import 'package:venderfoodyman/presentation/components/customer/buttons/second_button.dart';
 //import '../../components/helper/shimmer.dart';
 
 import '../../../application/intro/intro_provider.dart';
 //import '../../component/components.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 //import 'package:shared_preferences/shared_preferences.dart';
 
@@ -317,3 +317,8 @@ class _IntroPageState extends ConsumerState<IntroPage>
     );
   }
 }
+
+
+
+
+

@@ -8,10 +8,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'foods/foods_body.dart';
 import 'extras/extras_body.dart';
 import 'addons/addons_body.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class FoodsPage extends ConsumerStatefulWidget {
   const FoodsPage({super.key});
@@ -202,3 +202,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
     );
   }
 }
+
+
+
+

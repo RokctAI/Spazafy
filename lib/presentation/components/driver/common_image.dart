@@ -4,7 +4,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../infrastructure/services/services.dart';
+import 'package:driver/infrastructure/driver/services/services.dart';
 import '../styles/style.dart';
 
 class CommonImage extends StatelessWidget {
@@ -69,3 +69,7 @@ class CommonImage extends StatelessWidget {
     );
   }
 }
+
+
+
+

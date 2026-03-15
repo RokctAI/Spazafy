@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class CreateExtrasGroupModal extends StatefulWidget {
   const CreateExtrasGroupModal({super.key});
@@ -70,3 +70,7 @@ class _CreateExtrasGroupModalState extends State<CreateExtrasGroupModal> {
     );
   }
 }
+
+
+
+

@@ -7,8 +7,8 @@ import 'package:venderfoodyman/application/foods/edit/details/kitchen/edit_food_
 import '../edit/edit_product_modal.dart';
 import '../../../../component/components.dart';
 import '../../../../styles/style.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class FoodsBody extends StatelessWidget {
   final RefreshController categoryController;
@@ -218,3 +218,7 @@ class FoodsBody extends StatelessWidget {
     );
   }
 }
+
+
+
+

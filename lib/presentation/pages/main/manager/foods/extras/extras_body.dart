@@ -4,11 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/main_group_item.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../../component/components.dart';
 import 'details/extras_group_details_modal.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class ExtrasBody extends StatelessWidget {
   final RefreshController refreshController;
@@ -65,3 +65,7 @@ class ExtrasBody extends StatelessWidget {
     );
   }
 }
+
+
+
+

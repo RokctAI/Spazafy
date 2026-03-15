@@ -3,9 +3,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/component/components.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/presentation/components/manager/components.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class EditFoodKitchensModal extends ConsumerStatefulWidget {
   const EditFoodKitchensModal({super.key});
@@ -75,3 +75,7 @@ class _EditFoodKitchensModalState extends ConsumerState<EditFoodKitchensModal> {
     );
   }
 }
+
+
+
+

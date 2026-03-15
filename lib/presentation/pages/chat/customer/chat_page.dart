@@ -7,13 +7,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:foodyman/application/chat/chat_provider.dart';
-import 'package:foodyman/infrastructure/models/data/chat_message_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/enums.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/chat/chat_provider.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/chat_message_data.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import '../../../components/keyboard_dismisser.dart';
 import 'widgets/chat_item.dart';
@@ -218,3 +218,7 @@ class _ChatPageState extends ConsumerState<ChatPage> {
     );
   }
 }
+
+
+
+

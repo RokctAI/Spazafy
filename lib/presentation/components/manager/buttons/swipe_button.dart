@@ -217,3 +217,6 @@ class _SwipeState extends State<SwipeButton> with TickerProviderStateMixin {
     widget.onSwipeEnd?.call();
   }
 }
+
+
+

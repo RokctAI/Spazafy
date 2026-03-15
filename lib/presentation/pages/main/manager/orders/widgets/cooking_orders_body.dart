@@ -7,7 +7,7 @@ import 'package:venderfoodyman/application/main/orders/cooking/cooking_orders_pr
 import 'no_orders.dart';
 import '../details/order_details_modal.dart';
 import '../../../../component/components.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class CookingOrdersBody extends StatefulWidget {
   final ScrollController? scrollController;
@@ -84,3 +84,7 @@ class _AcceptedOrdersBodyState extends State<CookingOrdersBody> {
     );
   }
 }
+
+
+
+

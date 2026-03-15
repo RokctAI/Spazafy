@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/home/home_notifier.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/presentation/pages/home/home_three/widgets/banner_item_three.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/home/home_notifier.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/home_three/widgets/banner_item_three.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class BannerThree extends StatelessWidget {
@@ -81,3 +81,7 @@ class BannerThree extends StatelessWidget {
     );
   }
 }
+
+
+
+

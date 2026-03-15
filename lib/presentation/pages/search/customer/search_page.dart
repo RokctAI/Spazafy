@@ -6,21 +6,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/home/home_provider.dart';
-import 'package:foodyman/application/search/search_state.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/tpying_delay.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/app_bars/common_app_bar.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-import 'package:foodyman/presentation/components/keyboard_dismisser.dart';
-import 'package:foodyman/presentation/components/tab_bar_item.dart';
-import 'package:foodyman/presentation/components/text_fields/search_text_field.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/application/search/search_notifier.dart';
-import 'package:foodyman/application/search/search_provider.dart';
-import 'package:foodyman/application/main/main_provider.dart';
+import 'package:venderfoodyman/application/home/home_provider.dart';
+import 'package:venderfoodyman/application/search/search_state.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tpying_delay.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/components/customer/tab_bar_item.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/search_text_field.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/application/search/search_notifier.dart';
+import 'package:venderfoodyman/application/search/search_provider.dart';
+import 'package:venderfoodyman/application/main/main_provider.dart';
 import 'shimmer/category_shimmer.dart';
 import 'shimmer/search_product_shimmer.dart';
 import 'shimmer/search_shop_shimmer.dart';
@@ -442,3 +442,8 @@ class _SearchPageState extends ConsumerState<SearchPage> {
     );
   }
 }
+
+
+
+
+

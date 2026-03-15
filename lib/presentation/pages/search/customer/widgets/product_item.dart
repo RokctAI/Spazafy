@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/models/data/product_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/presentation/components/custom_network_image.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/product_data.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import '../../product/product_page.dart';
-import 'package:foodyman/application/shopname/shop_name_provider.dart';
+import 'package:venderfoodyman/application/shopname/shop_name_provider.dart';
 
 class ProductItem extends ConsumerWidget {
   final ProductData product;
@@ -149,3 +149,8 @@ class ProductItem extends ConsumerWidget {
     );
   }
 }
+
+
+
+
+

@@ -7,21 +7,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/parcel/parcel_notifier.dart';
-import 'package:foodyman/application/parcel/parcel_provider.dart';
-import 'package:foodyman/application/parcel/parcel_state.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/app_bars/common_app_bar.dart';
-//import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-import 'package:foodyman/presentation/components/keyboard_dismisser.dart';
-import 'package:foodyman/presentation/components/loading.dart';
-import 'package:foodyman/presentation/pages/order/order_check/widgets/rating_page.dart';
-import 'package:foodyman/presentation/pages/order/order_check/widgets/title_price.dart';
-import 'package:foodyman/presentation/pages/order/order_screen/widgets/order_status.dart';
-import 'package:foodyman/presentation/pages/order/order_type/widgets/order_map.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/parcel/parcel_notifier.dart';
+import 'package:venderfoodyman/application/parcel/parcel_provider.dart';
+import 'package:venderfoodyman/application/parcel/parcel_state.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
+//import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/presentation/pages/customer/order/order_check/widgets/rating_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/order/order_check/widgets/title_price.dart';
+import 'package:venderfoodyman/presentation/pages/customer/order/order_screen/widgets/order_status.dart';
+import 'package:venderfoodyman/presentation/pages/customer/order/order_type/widgets/order_map.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import '../../../infrastructure/services/enums.dart';
 
@@ -345,3 +345,7 @@ class _ParcelProgressPageState extends ConsumerState<ParcelProgressPage> {
     );
   }
 }
+
+
+
+

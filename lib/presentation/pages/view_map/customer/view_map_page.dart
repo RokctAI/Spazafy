@@ -11,25 +11,25 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:foodyman/application/app_widget/app_provider.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/infrastructure/models/data/address_information.dart';
-import 'package:foodyman/infrastructure/models/data/address_new_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tpying_delay.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-import 'package:foodyman/presentation/components/keyboard_dismisser.dart';
-import 'package:foodyman/presentation/pages/view_map/view_map_modal.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
-import 'package:foodyman/application/map/view_map_notifier.dart';
-import 'package:foodyman/application/map/view_map_provider.dart';
-import 'package:foodyman/application/poidata/poi_data_provider.dart';
-import 'package:foodyman/infrastructure/models/data/poi_data.dart';
+import 'package:venderfoodyman/application/app_widget/app_provider.dart';
+import 'package:venderfoodyman/application/profile/profile_provider.dart';
+import 'package:venderfoodyman/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/address_information.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/address_new_data.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tpying_delay.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/pages/customer/view_map/view_map_modal.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/application/map/view_map_notifier.dart';
+import 'package:venderfoodyman/application/map/view_map_provider.dart';
+import 'package:venderfoodyman/application/poidata/poi_data_provider.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/poi_data.dart';
 import 'package:lottie/lottie.dart' as lottie;
 
 import '../../../app_constants.dart';
@@ -752,3 +752,8 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
     );
   }
 }
+
+
+
+
+

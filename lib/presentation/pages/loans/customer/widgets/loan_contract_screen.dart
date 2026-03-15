@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../infrastructure/repository/loans_repository.dart';
+import '../../../../infrastructure/repositories/customer/loans_repository.dart';
 import '../../../../infrastructure/services/app_helpers.dart';
 import '../../../components/buttons/custom_button.dart';
 import '../../../theme/theme.dart';
@@ -396,3 +396,6 @@ class _LoanContractScreenState extends ConsumerState<LoanContractScreen> {
     );
   }
 }
+
+
+

@@ -1,4 +1,4 @@
-import 'package:driver/presentation/app_assets.dart';
+import 'package:driver/presentation/theme/driver/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:driver/application/profile/provider/profile_settings_provider.dart';
 
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'widgets/stores.dart';
 
 class BottomSheetScreen extends StatefulWidget {
@@ -197,3 +197,8 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
     );
   }
 }
+
+
+
+
+

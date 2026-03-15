@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:driver/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class ModalDrag extends StatelessWidget {
   const ModalDrag({super.key});
@@ -27,3 +27,8 @@ class ModalDrag extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

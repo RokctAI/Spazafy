@@ -21,3 +21,7 @@ class Assets {
   static const String svgBalance = 'assets/svg/balance.svg';
   static const String svgMyLocation = 'assets/svg/my_location.svg';
 }
+
+
+
+

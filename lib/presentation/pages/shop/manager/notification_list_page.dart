@@ -8,11 +8,11 @@ import 'package:jiffy/jiffy.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:venderfoodyman/application/notification/notification_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/component/components.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/presentation/components/manager/components.dart';
 import 'package:venderfoodyman/presentation/pages/main/orders/details/order_details_modal.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
 class NotificationListPage extends ConsumerStatefulWidget {
@@ -259,3 +259,7 @@ class _NotificationListPageState extends ConsumerState<NotificationListPage> {
     );
   }
 }
+
+
+
+

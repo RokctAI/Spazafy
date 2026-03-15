@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
 
 import '../theme/theme.dart';
 
@@ -128,3 +128,7 @@ class TitleAndIcon extends StatelessWidget {
     );
   }
 }
+
+
+
+

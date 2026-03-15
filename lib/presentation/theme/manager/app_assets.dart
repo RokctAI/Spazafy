@@ -21,3 +21,6 @@ class Assets {
   static const String svgMenu = 'assets/svg/menu.svg';
   static const String svgNoHome = 'assets/svg/noHome.svg';
 }
+
+
+

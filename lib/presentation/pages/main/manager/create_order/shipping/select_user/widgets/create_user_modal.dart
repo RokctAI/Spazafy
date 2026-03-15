@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../component/components.dart';
-import 'package:venderfoodyman/application/providers.dart';
-import '../../../../../../../infrastructure/services/services.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class CreateUserModal extends StatefulWidget {
   const CreateUserModal({super.key});
@@ -107,3 +107,7 @@ class _CreateUserModalState extends State<CreateUserModal> {
     );
   }
 }
+
+
+
+

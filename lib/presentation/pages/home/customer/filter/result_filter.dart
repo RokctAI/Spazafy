@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/filter/filter_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/presentation/components/app_bars/common_app_bar.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/pages/home/home_one/widget/market_one_item.dart';
-import 'package:foodyman/presentation/pages/home/home_three/widgets/market_three_item.dart';
+import 'package:venderfoodyman/application/filter/filter_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/home_one/widget/market_one_item.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/home_three/widgets/market_three_item.dart';
 
-import 'package:foodyman/application/filter/filter_notifier.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/market_item.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/filter/filter_notifier.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/market_item.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../home_two/widget/market_two_item.dart';
 import '../shimmer/all_shop_shimmer.dart';
 
@@ -147,3 +147,7 @@ class _ResultFilterState extends ConsumerState<ResultFilterPage> {
     );
   }
 }
+
+
+
+

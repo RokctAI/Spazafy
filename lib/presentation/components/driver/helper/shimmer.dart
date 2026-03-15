@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-import 'package:driver/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class ImageShimmer extends StatelessWidget {
   final double size;
@@ -25,3 +25,8 @@ class ImageShimmer extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

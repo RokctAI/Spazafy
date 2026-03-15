@@ -10,26 +10,26 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i15;
-import 'package:driver/presentation/pages/auth/become_driver/become_driver.dart'
+import 'package:driver/presentation/pages/driver/auth/become_driver/become_driver.dart'
     as _i1;
-import 'package:driver/presentation/pages/auth/login/login_page.dart' as _i5;
-import 'package:driver/presentation/pages/home/home_page.dart' as _i3;
-import 'package:driver/presentation/pages/income/income_page.dart' as _i4;
-import 'package:driver/presentation/pages/initial/no_connection_page.dart'
+import 'package:driver/presentation/pages/driver/auth/login/login_page.dart' as _i5;
+import 'package:driver/presentation/pages/driver/home/home_page.dart' as _i3;
+import 'package:driver/presentation/pages/driver/income/income_page.dart' as _i4;
+import 'package:driver/presentation/pages/driver/initial/no_connection_page.dart'
     as _i6;
-import 'package:driver/presentation/pages/initial/splash_page.dart' as _i13;
-import 'package:driver/presentation/pages/order_history/order_history.dart'
+import 'package:driver/presentation/pages/driver/initial/splash_page.dart' as _i13;
+import 'package:driver/presentation/pages/driver/order_history/order_history.dart'
     as _i8;
-import 'package:driver/presentation/pages/orders/orders_page.dart' as _i9;
-import 'package:driver/presentation/pages/parcel/parcels_page.dart' as _i11;
-import 'package:driver/presentation/pages/parcels_history/parcel_history.dart'
+import 'package:driver/presentation/pages/driver/orders/orders_page.dart' as _i9;
+import 'package:driver/presentation/pages/driver/parcel/parcels_page.dart' as _i11;
+import 'package:driver/presentation/pages/driver/parcels_history/parcel_history.dart'
     as _i10;
-import 'package:driver/presentation/pages/profile/delivery_zone/delivery_zone_page.dart'
+import 'package:driver/presentation/pages/driver/profile/delivery_zone/delivery_zone_page.dart'
     as _i2;
-import 'package:driver/presentation/pages/profile/notification_list_page.dart'
+import 'package:driver/presentation/pages/driver/profile/notification_list_page.dart'
     as _i7;
-import 'package:driver/presentation/pages/profile/profile_page.dart' as _i12;
-import 'package:driver/presentation/pages/stores/story_page.dart' as _i14;
+import 'package:driver/presentation/pages/driver/profile/profile_page.dart' as _i12;
+import 'package:driver/presentation/pages/driver/stores/story_page.dart' as _i14;
 
 /// generated route for
 /// [_i1.BecomeDriverPage]
@@ -254,3 +254,7 @@ class StoryRoute extends _i15.PageRouteInfo<void> {
     },
   );
 }
+
+
+
+

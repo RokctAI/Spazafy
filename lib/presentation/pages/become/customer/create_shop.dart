@@ -6,24 +6,24 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:foodyman/application/profile/profile_notifier.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/application/profile/profile_state.dart';
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/img_service.dart';
-import 'package:foodyman/infrastructure/services/input_formatter.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/app_bars/common_app_bar.dart';
-import 'package:foodyman/presentation/components/keyboard_dismisser.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
+import 'package:venderfoodyman/application/profile/profile_notifier.dart';
+import 'package:venderfoodyman/application/profile/profile_provider.dart';
+import 'package:venderfoodyman/application/profile/profile_state.dart';
+import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/img_service.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/input_formatter.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:foodyman/presentation/components/blur_wrap.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-import 'package:foodyman/presentation/components/buttons/pop_button.dart';
-import 'package:foodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/presentation/components/customer/blur_wrap.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
 class CreateShopPage extends ConsumerStatefulWidget {
@@ -596,3 +596,7 @@ class _EditRestaurantState extends ConsumerState<CreateShopPage> {
     );
   }
 }
+
+
+
+

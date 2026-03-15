@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class MarketShimmerThree extends StatelessWidget {
   final bool isSimpleShop;
@@ -38,3 +38,6 @@ class MarketShimmerThree extends StatelessWidget {
           );
   }
 }
+
+
+

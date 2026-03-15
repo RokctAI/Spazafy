@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/presentation/components/buttons/custom_button.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import '../../../../infrastructure/services/app_helpers.dart';
 import '../../../../infrastructure/services/tr_keys.dart';
@@ -116,3 +116,6 @@ class CongratsPage extends StatelessWidget {
     );
   }
 }
+
+
+

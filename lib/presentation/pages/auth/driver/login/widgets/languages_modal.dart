@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:driver/application/providers.dart';
+import 'package:driver/application/providers/driver/providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:driver/infrastructure/models/models.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/presentation/component/loading.dart';
-import 'package:driver/infrastructure/services/services.dart';
+import 'package:driver/presentation/components/driver/loading.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
 import '../../../../component/components.dart';
 
 class LanguageScreen extends ConsumerStatefulWidget {
@@ -86,3 +86,8 @@ class _LanguagePageState extends ConsumerState<LanguageScreen> {
     );
   }
 }
+
+
+
+
+

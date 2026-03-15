@@ -5,23 +5,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:foodyman/application/currency/currency_provider.dart';
-import 'package:foodyman/application/home/home_notifier.dart';
-import 'package:foodyman/application/home/home_provider.dart';
-import 'package:foodyman/application/home/home_state.dart';
-import 'package:foodyman/application/map/view_map_provider.dart';
-import 'package:foodyman/application/profile/profile_provider.dart';
-import 'package:foodyman/application/shop_order/shop_order_provider.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
-import 'package:foodyman/presentation/pages/home/shimmer/recommend_shop_shimmer.dart';
-import 'package:foodyman/presentation/pages/home/shimmer/shop_shimmer.dart';
-import 'package:foodyman/presentation/pages/home/widgets/banner_item.dart';
-import 'package:foodyman/presentation/pages/home/widgets/shop_bar_item.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/currency/currency_provider.dart';
+import 'package:venderfoodyman/application/home/home_notifier.dart';
+import 'package:venderfoodyman/application/home/home_provider.dart';
+import 'package:venderfoodyman/application/home/home_state.dart';
+import 'package:venderfoodyman/application/map/view_map_provider.dart';
+import 'package:venderfoodyman/application/profile/profile_provider.dart';
+import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/shimmer/recommend_shop_shimmer.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/shimmer/shop_shimmer.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/widgets/banner_item.dart';
+import 'package:venderfoodyman/presentation/pages/customer/home/widgets/shop_bar_item.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import '../shimmer/news_shop_shimmer.dart';
 import 'app_bar_two.dart';
@@ -498,3 +498,7 @@ class _HomeTwoPageState extends ConsumerState<HomeTwoPage> {
     );
   }
 }
+
+
+
+

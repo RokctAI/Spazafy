@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:foodyman/presentation/components/title_icon.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
 
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
 import '../../home_three/shimmer/market_shimmer_three.dart';
 
 class NewsShopShimmer extends StatelessWidget {
@@ -46,3 +46,7 @@ class NewsShopShimmer extends StatelessWidget {
     );
   }
 }
+
+
+
+

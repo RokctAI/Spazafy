@@ -7,8 +7,8 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'package:venderfoodyman/application/profile/profile_notifier.dart';
 import 'package:venderfoodyman/application/profile/profile_provider.dart';
 import 'package:venderfoodyman/application/profile/profile_state.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/component/components.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/presentation/components/manager/components.dart';
 import 'package:venderfoodyman/presentation/pages/become_seller/widgets/address_selector.dart';
 import 'package:venderfoodyman/presentation/pages/become_seller/widgets/background_image_picker.dart';
 import 'package:venderfoodyman/presentation/pages/become_seller/widgets/document_upload_section.dart';
@@ -16,7 +16,7 @@ import 'package:venderfoodyman/presentation/pages/become_seller/widgets/logo_and
 import 'package:venderfoodyman/presentation/pages/become_seller/widgets/processing_view.dart';
 import 'package:venderfoodyman/presentation/pages/become_seller/widgets/shop_form_fields.dart';
 import 'package:venderfoodyman/presentation/pages/restaurant/widgets/logout_modal.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
 class CreateShopPage extends ConsumerStatefulWidget {
@@ -292,3 +292,7 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
     );
   }
 }
+
+
+
+

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:remixicon/remixicon.dart';
 
-import '../theme/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class BadgeItem extends StatelessWidget {
   final Color? color;
@@ -18,3 +18,6 @@ class BadgeItem extends StatelessWidget {
     );
   }
 }
+
+
+

@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/presentation/pages/initial/no_connection/no_connection_page.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/presentation/pages/customer/initial/no_connection/no_connection_page.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'keyboard_dismisser.dart';
 
 class CustomScaffold extends ConsumerStatefulWidget {
@@ -109,3 +109,6 @@ class _CustomScaffoldState extends ConsumerState<CustomScaffold>
     );
   }
 }
+
+
+

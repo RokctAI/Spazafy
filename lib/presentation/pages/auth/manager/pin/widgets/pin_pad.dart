@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/presentation/component/components.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/manager/components.dart';
 
 class PinPad extends StatelessWidget {
   final Function(String) onTap;
@@ -84,3 +84,7 @@ class _PinButton extends StatelessWidget {
     );
   }
 }
+
+
+
+

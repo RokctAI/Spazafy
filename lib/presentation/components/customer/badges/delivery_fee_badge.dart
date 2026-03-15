@@ -9,8 +9,8 @@ import '../../../infrastructure/models/data/shop_data.dart';
 import '../../../infrastructure/services/app_helpers.dart';
 //import '../../../infrastructure/services/tr_keys.dart';
 import '../../../infrastructure/services/tr_keys.dart';
-import '../../theme/app_style.dart';
-//import 'package:foodyman/application/shop/shop_provider.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+//import 'package:venderfoodyman/application/shop/shop_provider.dart';
 //import '../../../infrastructure/services/local_storage.dart';
 //import '../../../utils/utils.dart';
 
@@ -135,3 +135,6 @@ class DeliveryFeeBadge extends StatelessWidget {
     );
   }
 }
+
+
+

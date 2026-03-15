@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
-import 'package:driver/presentation/app_assets.dart';
+import 'package:driver/presentation/theme/driver/app_assets.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,17 +10,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:driver/domain/di/dependency_manager.dart';
-import 'package:driver/infrastructure/models/data/order_detail.dart';
-import 'package:driver/presentation/component/loading.dart';
-import 'package:driver/presentation/pages/pages.dart';
+import 'package:driver/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:driver/presentation/components/driver/loading.dart';
+import 'package:driver/presentation/pages/driver/pages.dart';
 import 'package:workmanager/workmanager.dart';
-import 'package:driver/application/providers.dart';
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/main.dart';
-import 'package:driver/presentation/component/components.dart';
-import 'package:driver/presentation/routes/app_router.gr.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/application/providers/driver/providers.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:driver/driver/main.dart';
+import 'package:driver/presentation/components/driver/components.dart';
+import 'package:driver/presentation/routes/driver/app_router.gr.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'bottom_sheet_screen.dart';
 import 'delivery_bottom_sheet.dart';
 import 'parcel_bottom_sheet.dart';
@@ -554,3 +554,8 @@ class _HomePageState extends ConsumerState<HomePage> {
     );
   }
 }
+
+
+
+
+

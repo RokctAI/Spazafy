@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../../../../component/components.dart';
-import '../../../../../../../infrastructure/models/models.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 class SectionItem extends StatelessWidget {
   final ShopSection? section;
@@ -78,3 +78,8 @@ class SectionItem extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

@@ -3,9 +3,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'buttons_bouncing_effect.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 
 class PopButton extends StatelessWidget {
   final String heroTag;
@@ -41,3 +41,7 @@ class PopButton extends StatelessWidget {
     );
   }
 }
+
+
+
+

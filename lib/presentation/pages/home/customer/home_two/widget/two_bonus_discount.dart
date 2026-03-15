@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodyman/infrastructure/models/data/bonus_data.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/bonus_data.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class TwoBonusDiscountPopular extends StatelessWidget {
   final bool isPopular;
@@ -322,3 +322,7 @@ class TwoBonusDiscountPopular extends StatelessWidget {
     );
   }
 }
+
+
+
+

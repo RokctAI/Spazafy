@@ -1,10 +1,10 @@
 import 'package:auto_route/annotations.dart';
 import 'package:driver/application/order/canceled_order/canceled_order_provider.dart';
 import 'package:driver/application/order/delivered_order/delivery_order_provider.dart';
-import 'package:driver/presentation/pages/order_history/widgets/all_orders.dart';
-import 'package:driver/presentation/pages/order_history/widgets/canceled_body.dart';
-import 'package:driver/presentation/pages/order_history/widgets/derliverd_body.dart';
-import 'package:driver/presentation/pages/order_history/widgets/progress_body.dart';
+import 'package:driver/presentation/pages/driver/order_history/widgets/all_orders.dart';
+import 'package:driver/presentation/pages/driver/order_history/widgets/canceled_body.dart';
+import 'package:driver/presentation/pages/driver/order_history/widgets/derliverd_body.dart';
+import 'package:driver/presentation/pages/driver/order_history/widgets/progress_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,10 +12,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:driver/application/order/all_order/order_provider.dart';
 
-import 'package:driver/infrastructure/services/services.dart';
-import 'package:driver/presentation/component/components.dart';
-import 'package:driver/presentation/component/loading.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:driver/presentation/components/driver/components.dart';
+import 'package:driver/presentation/components/driver/loading.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import '../../../application/order/progress_ordedr/progress_order_provider.dart';
 
@@ -172,3 +172,8 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
     );
   }
 }
+
+
+
+
+

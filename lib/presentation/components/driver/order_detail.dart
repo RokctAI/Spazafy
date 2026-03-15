@@ -6,12 +6,12 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:driver/presentation/pages/home/widgets/foods_page.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/presentation/pages/driver/home/widgets/foods_page.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import '../../application/providers.dart';
-import '../../infrastructure/models/data/order_detail.dart';
-import '../../infrastructure/services/services.dart';
+import 'package:driver/infrastructure/driver/models/data/order_detail.dart';
+import 'package:driver/infrastructure/driver/services/services.dart';
 import 'buttons/custom_button.dart';
 import 'image_dialog.dart';
 import 'order_item.dart';
@@ -280,3 +280,8 @@ class OrderDetail extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

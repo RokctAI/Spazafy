@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/infrastructure/models/data/parcel_order.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 import 'package:intl/intl.dart' as intl;
-import 'package:driver/infrastructure/services/app_helpers.dart';
-import 'package:driver/infrastructure/services/tr_keys.dart';
-import 'package:driver/presentation/pages/parcel/parcel_order.dart';
-import 'package:driver/presentation/styles/style.dart';
+import 'package:driver/infrastructure/services/driver/app_helpers.dart';
+import 'package:driver/infrastructure/services/driver/tr_keys.dart';
+import 'package:driver/presentation/pages/driver/parcel/parcel_order.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class ParcelItem extends StatelessWidget {
   final ParcelOrder? parcel;
@@ -94,3 +94,8 @@ class ParcelItem extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

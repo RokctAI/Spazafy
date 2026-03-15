@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class OutlinedBorderTextField extends StatelessWidget {
   final String? label;
@@ -133,3 +133,7 @@ class OutlinedBorderTextField extends StatelessWidget {
     );
   }
 }
+
+
+
+

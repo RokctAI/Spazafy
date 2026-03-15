@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/infrastructure/models/data/user_data.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
-import 'package:driver/presentation/styles/style.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'register_confirmation_page.dart';
-import 'package:driver/presentation/component/components.dart';
-import 'package:driver/application/providers.dart';
-import 'package:driver/infrastructure/services/services.dart';
+import 'package:driver/presentation/components/driver/components.dart';
+import 'package:driver/application/providers/driver/providers.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
 
 class ResetPasswordPage extends ConsumerWidget {
   const ResetPasswordPage({super.key});
@@ -97,3 +97,8 @@ class ResetPasswordPage extends ConsumerWidget {
     );
   }
 }
+
+
+
+
+

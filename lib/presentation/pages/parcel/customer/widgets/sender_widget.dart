@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foodyman/application/parcel/parcel_notifier.dart';
-import 'package:foodyman/application/parcel/parcel_state.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
-import 'package:foodyman/presentation/components/buttons/animation_button_effect.dart';
-import 'package:foodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
-import 'package:foodyman/presentation/routes/app_router.dart';
-import 'package:foodyman/presentation/theme/app_style.dart';
+import 'package:venderfoodyman/application/parcel/parcel_notifier.dart';
+import 'package:venderfoodyman/application/parcel/parcel_state.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
-import 'package:foodyman/infrastructure/models/models.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 import 'custom_expanded.dart';
 
 class SenderWidget extends StatelessWidget {
@@ -154,3 +154,7 @@ class SenderWidget extends StatelessWidget {
     );
   }
 }
+
+
+
+

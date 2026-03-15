@@ -9,7 +9,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
 import '../../../../application/providers.dart';
-import '../../../../infrastructure/services/services.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
 import '../../../component/components.dart';
 import '../../../component/loading.dart';
 import '../../../styles/style.dart';
@@ -397,3 +397,8 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
           );
   }
 }
+
+
+
+
+

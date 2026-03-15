@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/presentation/component/components.dart';
+import 'package:driver/presentation/components/driver/components.dart';
 
 import '../../../../application/providers.dart';
-import '../../../../infrastructure/services/services.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
 import '../../../styles/style.dart';
 
 class SetPasswordPage extends ConsumerWidget {
@@ -123,3 +123,8 @@ class SetPasswordPage extends ConsumerWidget {
     );
   }
 }
+
+
+
+
+

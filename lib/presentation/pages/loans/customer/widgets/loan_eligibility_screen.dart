@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../infrastructure/repository/loans_repository.dart';
+import '../../../../infrastructure/repositories/customer/loans_repository.dart';
 import '../../../../infrastructure/services/app_helpers.dart';
 import '../../../../infrastructure/services/tr_keys.dart';
 import '../../../components/buttons/custom_button.dart';
@@ -950,3 +950,6 @@ class _CurrencyInputFormatter extends TextInputFormatter {
     );
   }
 }
+
+
+

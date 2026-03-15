@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
-import 'package:venderfoodyman/presentation/component/title_icon.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/presentation/components/manager/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import 'ingredient_item.dart';
 
@@ -64,3 +64,7 @@ class WIngredientScreen extends StatelessWidget {
           );
   }
 }
+
+
+
+

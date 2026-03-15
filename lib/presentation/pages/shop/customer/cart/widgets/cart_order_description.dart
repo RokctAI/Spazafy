@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 class ShopOrderDescription extends StatelessWidget {
   final String svgName;
@@ -62,3 +62,8 @@ class ShopOrderDescription extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

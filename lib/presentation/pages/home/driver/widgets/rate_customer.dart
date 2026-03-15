@@ -3,11 +3,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/infrastructure/models/data/parcel_order.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 import '../../../../application/providers.dart';
 import '../../../../infrastructure/models/data/order_detail.dart';
-import '../../../../infrastructure/services/services.dart';
+import 'package:driver/infrastructure/services/driver/services.dart';
 import '../../../component/components.dart';
 import '../../../styles/style.dart';
 import 'add_comment.dart';
@@ -136,3 +136,8 @@ class _RateCustomerState extends State<RateCustomer> {
     );
   }
 }
+
+
+
+
+

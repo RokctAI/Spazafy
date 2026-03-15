@@ -210,3 +210,6 @@ class KeyboardDismisser extends StatelessWidget {
       gestures.contains(GestureType.onPanUpdateRightDirection) ||
       gestures.contains(GestureType.onPanUpdateLeftDirection);
 }
+
+
+

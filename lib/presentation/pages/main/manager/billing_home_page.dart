@@ -7,11 +7,11 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:vibration/vibration.dart';
 import 'package:venderfoodyman/application/billing/billing_provider.dart';
 import 'package:venderfoodyman/application/billing/billing_state.dart';
-import 'package:venderfoodyman/presentation/component/components.dart';
-import 'package:venderfoodyman/presentation/component/billing_browse_modal.dart';
-import 'package:venderfoodyman/presentation/styles/style.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/infrastructure/services/services.dart';
+import 'package:venderfoodyman/presentation/components/manager/components.dart';
+import 'package:venderfoodyman/presentation/components/manager/billing_browse_modal.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 import '../../component/scan_prompt.dart';
 import 'package:venderfoodyman/application/main/main_provider.dart';
 
@@ -509,3 +509,7 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
     );
   }
 }
+
+
+
+

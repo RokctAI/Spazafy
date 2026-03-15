@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
 
 abstract class AppStyle {
   AppStyle._();
 
-  static const Color primary = Color(0xFFFF6600); //changed
+  static Color get primary =>
+      _getColorFromSettings('primary_color', const Color(0xFFF40009));
+
+  static const Color secondary = Color(0xFFFF6600);
+
+  static Color get buttonFontColor =>
+      _getColorFromSettings('primary_button_font_color', white);
+
   static const Color bottomNavigationBarColor = Color(0xFF191919);
   static const Color enterOrderButton = Color(0xFFF4F8F7);
   static const Color tabBarBorderColor = Color(0xFFDEDFE1);
@@ -76,6 +85,16 @@ abstract class AppStyle {
   static const Color orderStatusProgressBack = Color(0xFFE7E7E7);
   static const Color shadow = Color(0x3FD8D8D8);
   static const Color shadowBottom = Color(0x33000000);
+
+  /// Unique role colors
+  static const Color deepPurple = Color(0xFF673AB7);
+  static const Color progressColor = Color(0xffF26110);
+  static const Color orangeColor = Color(0xffF19204);
+  static const Color pending = Color(0xFFFEFAF2);
+  static const Color pendingDark = Color(0xFFF19204);
+  static const Color green = Color(0xFF16AA16);
+  static const Color shadowColor = Color(0xFF7D7D7D);
+  static const Color blackColor = Color(0xFF000000);
 
   /// dark theme based colors
   static const Color mainBackDark = Color(0xFF1E272E);
@@ -229,4 +248,25 @@ abstract class AppStyle {
         letterSpacing: letterSpacing.sp,
         decoration: textDecoration,
       );
+
+  static Color _getColorFromSettings(String key, Color defaultColor) {
+    if (LocalStorage.getSettingsList().isEmpty) return defaultColor;
+    final settings = LocalStorage.getSettingsList();
+    final setting = settings.firstWhere(
+      (s) => s.key == key,
+      orElse: () => SettingsData(),
+    );
+
+    if (setting.value == null) return defaultColor;
+
+    try {
+      String hex = setting.value!.replaceAll('#', '');
+      return Color(int.parse('0xFF$hex'));
+    } catch (e) {
+      return defaultColor;
+    }
+  }
 }
+
+
+
