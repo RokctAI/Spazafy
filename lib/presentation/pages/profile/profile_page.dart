@@ -120,7 +120,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
     
     // Check roles
     final bool isDriver = user?.role == 'deliveryman';
-    final bool isSeller = user?.role == 'seller' || user?.role == 'manager';
+    final bool isSeller = user?.role == 'seller';
     final bool isCustomerOnly = !isDriver && !isSeller;
     
     final bool hasMembership = user?.membership != null;

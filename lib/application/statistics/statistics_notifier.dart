@@ -15,7 +15,7 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
   Future<void> fetchStatistics({
     required DateTime endTime,
     required DateTime startTime,
-    bool isManager = true,
+    bool isSeller = true,
   }) async {
     state = state.copyWith(isLoading: true);
     final response = await _userRepository.getStatistics(
@@ -24,7 +24,7 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
     );
     response.when(
       success: (data) {
-        if (isManager) {
+        if (isSeller) {
           state = state.copyWith(countData: data.data, isLoading: false);
           addChartInfo(
             chart: data.data?.chart ?? [],

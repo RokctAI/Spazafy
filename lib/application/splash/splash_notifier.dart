@@ -63,7 +63,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
            // specific driver data can be fetched in driver-specific screens 
            // if not already in the profile response.
           goMain?.call();
-        } else if (user?.role == 'seller' || user?.role == 'manager') {
+        } else if (user?.role == 'seller') {
           goMain?.call();
         } else if (user?.role == 'user') {
           goMain?.call();

@@ -476,6 +476,7 @@ class TrKeys {
   static const String fillWallet = 'fillWallet';
   static const String mostRecentOrder = 'mostRecentOrder';
   static const String sale = 'sale';
+  static const String sell = 'sell';
 
   ////Review Text
   static const String veryBad = 'veryBad';

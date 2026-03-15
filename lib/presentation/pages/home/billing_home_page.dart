@@ -14,6 +14,7 @@ import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
 import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
 import '../../component/scan_prompt.dart';
 import 'package:venderfoodyman/application/main/main_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 
 @RoutePage()
 class BillingHomePage extends ConsumerStatefulWidget {
@@ -60,9 +61,13 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
   Widget build(BuildContext context) {
     final state = ref.watch(billingProvider);
     final notifier = ref.read(billingProvider.notifier);
+    final bool isDarkMode = LocalStorage.getAppThemeMode();
+    final bool isLtr = LocalStorage.getLangLtr();
 
-    return Scaffold(
-      backgroundColor: AppStyle.bgColor,
+    return Directionality(
+      textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
+      child: Scaffold(
+      backgroundColor: isDarkMode ? AppStyle.mainBackDark : AppStyle.bgGrey,
       body: Stack(
         children: [
           // ─── Camera / Camera-Off Area ───
@@ -164,6 +169,7 @@ class _BillingHomePageState extends ConsumerState<BillingHomePage> {
           ),
         ],
       ),
+    ),
     );
   }
 

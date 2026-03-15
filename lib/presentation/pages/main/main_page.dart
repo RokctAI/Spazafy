@@ -13,6 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import 'dart:async';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -21,40 +23,51 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:proste_indexed_stack/proste_indexed_stack.dart';
+import 'package:remixicon/remixicon.dart';
+
 import 'package:venderfoodyman/application/main/main_notifier.dart';
+import 'package:venderfoodyman/application/main/main_provider.dart';
 import 'package:venderfoodyman/application/profile/profile_provider.dart';
 import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
+import 'package:venderfoodyman/application/home/home_provider.dart';
+import 'package:venderfoodyman/application/providers/manager/providers.dart';
+
 import 'package:venderfoodyman/infrastructure/models/customer/data/cart_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/profile_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/remote_message_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/manager/services.dart' as manager_services;
+
 import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
 import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/components/blur_wrap.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+
 import 'package:venderfoodyman/presentation/pages/home/home_zero/home_page_zero.dart';
-import '../../../app_constants.dart';
-import 'package:venderfoodyman/presentation/pages/customer/like/like_page.dart';
-
-import '../../profile/profile_page.dart';
-import 'package:venderfoodyman/presentation/pages/customer/search/search_page.dart';
-
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
-import 'package:url_launcher/url_launcher.dart';
-import '../../../application/home/home_provider.dart';
-import '../../../application/main/main_provider.dart';
-import '../../../infrastructure/models/data/shop_data.dart';
-import '../../../infrastructure/services/local_storage.dart';
-import '../../../utils/app_usage_service.dart';
-import '../../components/blur_wrap.dart';
 import 'package:venderfoodyman/presentation/pages/home/home_four/home_page_four.dart';
-import 'widgets/bottom_navigator_item.dart';
-import 'package:proste_indexed_stack/proste_indexed_stack.dart';
-
-import 'package:remixicon/remixicon.dart';
+import 'package:venderfoodyman/presentation/pages/home/billing_home_page.dart';
+import 'package:venderfoodyman/presentation/pages/main/orders/orders_home_page.dart';
+import 'package:venderfoodyman/presentation/pages/main/foods/foods_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/like/like_page.dart';
+import 'package:venderfoodyman/presentation/pages/customer/search/search_page.dart';
 import 'package:venderfoodyman/presentation/pages/customer/parcel/parcel_page.dart';
 import 'package:venderfoodyman/presentation/pages/customer/profile/wallet_history.dart';
+import 'package:venderfoodyman/presentation/pages/profile/profile_page.dart';
+import 'package:venderfoodyman/presentation/pages/main/foods/create/create_product_modal.dart';
+import 'package:venderfoodyman/presentation/pages/main/foods/addons/create/create_addon_modal.dart';
+import 'package:venderfoodyman/presentation/pages/main/foods/extras/create/create_extras_group_modal.dart';
+
+import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/manager/app_router.dart' as manager_routes;
+import 'package:venderfoodyman/utils/app_usage_service.dart';
+import '../../../app_constants.dart';
+import 'widgets/bottom_navigator_item.dart';
 
 @RoutePage()
 class MainPage extends StatefulWidget {
@@ -66,7 +79,18 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
-  //static const Color _blackWithOpacity = Color.fromRGBO(0, 0, 0, 0.8);
+  final player = AudioPlayer();
+  Timer? audioTimer;
+  int audioCallCount = 0;
+  bool isCustomerMode = false;
+
+  List<IndexedStackChild> sellerPages = [
+    IndexedStackChild(child: const BillingHomePage(), preload: true),
+    IndexedStackChild(child: const OrdersHomePage(), preload: false),
+    IndexedStackChild(child: const FoodsPage(), preload: false),
+    IndexedStackChild(child: const ProfilePage(isBackButton: false), preload: true),
+  ];
+
   List listPages = [
     [
       IndexedStackChild(child: const HomePageZero(), preload: true),
@@ -99,9 +123,21 @@ class _MainPageState extends State<MainPage> {
     ],
   ];
 
+  Future playMusic() async {
+    audioTimer?.cancel();
+    audioTimer = Timer.periodic(const Duration(seconds: 3), (timer) async {
+      await player.play(AssetSource("audio/notification.wav"));
+    });
+  }
+
   @override
   void initState() {
-    initDynamicLinks();
+    final user = LocalStorage.getUser();
+    final bool isSeller = user?.role == 'seller';
+
+    if (!isSeller || isCustomerMode) {
+      initDynamicLinks();
+    }
 
     // Record app usage if user is logged in
     if (LocalStorage.getToken().isNotEmpty) {
@@ -134,8 +170,24 @@ class _MainPageState extends State<MainPage> {
         context.pushRoute(OrderProgressRoute(orderId: data.id?.toString()));
       }
     });
+
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteMessageData data = RemoteMessageData.fromJson(message.data);
+
+      if (isSeller) {
+        if (data.type == "new_order" || AppConstants.playMusicOnOrderStatusChange) {
+          player.play(AssetSource("audio/notification.wav"));
+        }
+        if (mounted) {
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            type: SnackBarType.success,
+            text: "${AppHelpers.getTranslation(TrKeys.id)} #${message.notification?.title} ${message.notification?.body}",
+          );
+        }
+        return;
+      }
+
       if (data.type == "news_publish") {
         if (!mounted) return;
         AppHelpers.showCheckTopSnackBarInfoCustom(
@@ -234,14 +286,35 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    final user = LocalStorage.getUser();
+    final bool isSeller = user?.role == 'seller';
+
     return KeyboardDismisser(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        // extendBody: true,
         body: Consumer(
           builder: (BuildContext context, WidgetRef ref, Widget? child) {
             final index = ref.watch(mainProvider).selectIndex;
-            // If fixed is true, manually create ProsteIndexedStack with isScrolling always false
+
+            if (isSeller && !isCustomerMode) {
+              if (AppConstants.keepPlayingOnNewOrder) {
+                ref.listen(newOrdersProvider, (previous, next) async {
+                  if (next.orders.isEmpty) {
+                    await player.stop();
+                    audioTimer?.cancel();
+                  }
+                  if (audioCallCount != 0 && next.orders.isNotEmpty) {
+                    await playMusic();
+                  }
+                  audioCallCount++;
+                });
+              }
+              return ProsteIndexedStack(
+                index: index,
+                children: sellerPages,
+              );
+            }
+
             return ProsteIndexedStack(
               index: index,
               children: listPages[AppHelpers.getType()],
@@ -249,17 +322,14 @@ class _MainPageState extends State<MainPage> {
           },
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: (AppHelpers.getType() == 0 || AppHelpers.getType() == 4)
-            ? Consumer(
-                builder: (context, ref, child) {
-                  final index = ref.watch(mainProvider).selectIndex;
-                  final user = ref.watch(profileProvider).userData;
-                  final orders = ref.watch(shopOrderProvider).cart;
-                  final event = ref.read(mainProvider.notifier);
-                  return _bottom(index, ref, event, context, user, orders);
-                },
-              )
-            : const SizedBox(),
+        floatingActionButton: Consumer(
+          builder: (context, ref, child) {
+            final index = ref.watch(mainProvider).selectIndex;
+            final userData = ref.watch(profileProvider).userData;
+            final event = ref.read(mainProvider.notifier);
+            return _bottom(index, ref, event, context, userData);
+          },
+        ),
         bottomNavigationBar: const SizedBox(),
       ),
     );
@@ -271,8 +341,9 @@ class _MainPageState extends State<MainPage> {
     MainNotifier event,
     BuildContext context,
     ProfileData? user,
-    Cart? orders,
   ) {
+    final curUser = LocalStorage.getUser();
+    final bool isSeller = curUser?.role == 'seller';
     final orders = ref.watch(shopOrderProvider).cart;
     final bool isCartEmpty = orders == null ||
         (orders.userCarts?.isEmpty ?? true) ||
@@ -285,14 +356,13 @@ class _MainPageState extends State<MainPage> {
     final bool isFixed = AppConstants.fixed;
 
     // If fixed is true, always pass false for isScrolling
-    final bool isScrollingValue =
-        isFixed ? false : ref.watch(mainProvider).isScrolling;
+    final bool isScrollingValue = isFixed ? false : ref.watch(mainProvider).isScrolling;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         // Cart info bar - only show when fixed is true and cart has items
-        if (isFixed && !isCartEmpty)
+        if (isFixed && !isCartEmpty && (!isSeller || isCustomerMode))
           GestureDetector(
             onTap: () {
               if (LocalStorage.getToken().isEmpty) {
@@ -323,7 +393,7 @@ class _MainPageState extends State<MainPage> {
                       // In the cart info bar
                       Expanded(
                         child: Text(
-                          '${AppHelpers.getTranslation(TrKeys.shopping)} ${_getCartShopName(orders, ref)}',
+                          '${AppHelpers.getTranslation(TrKeys.shopping)} ${AppHelpers.getType() == 0 || AppHelpers.getType() == 4 ? _getCartShopName(orders, ref) : ""}',
                           style: AppStyle.interRegular(
                             size: 14,
                             color: AppStyle.white,
@@ -334,25 +404,14 @@ class _MainPageState extends State<MainPage> {
                       Consumer(
                         builder: (context, ref, child) {
                           // Check if currency is loaded
-                          final isLoading =
-                              ref.watch(shopOrderProvider).isLoading;
-                          final totalPrice =
-                              ref.watch(shopOrderProvider).cart?.totalPrice;
+                          final isLoading = ref.watch(shopOrderProvider).isLoading;
+                          final totalPrice = ref.watch(shopOrderProvider).cart?.totalPrice;
                           final currency = LocalStorage.getSelectedCurrency();
 
                           if (isLoading) {
                             return CupertinoActivityIndicator(
                               color: AppStyle.white,
                               radius: 10.r,
-                            );
-                          } else if (currency == null) {
-                            // If currency is not loaded yet, show a placeholder
-                            return Text(
-                              AppHelpers.numberFormat(number: totalPrice),
-                              style: AppStyle.interSemi(
-                                size: 16,
-                                color: AppStyle.white,
-                              ),
                             );
                           } else {
                             // Currency is loaded, format properly
@@ -414,9 +473,9 @@ class _MainPageState extends State<MainPage> {
                         },
                         index: 0,
                         currentIndex: index,
-                        selectIcon: FlutterRemix.store_fill,
-                        unSelectIcon: FlutterRemix.store_line,
-                        label: AppHelpers.getTranslation(TrKeys.stores),
+                        selectIcon: (isSeller && !isCustomerMode) ? FlutterRemix.money_dollar_circle_fill : FlutterRemix.store_fill,
+                        unSelectIcon: (isSeller && !isCustomerMode) ? FlutterRemix.money_dollar_circle_line : FlutterRemix.store_line,
+                        label: (isSeller && !isCustomerMode) ? AppHelpers.getTranslation(TrKeys.sell) : AppHelpers.getTranslation(TrKeys.stores),
                       ),
                       BottomNavigatorItem(
                         isScrolling: index == 3 ? false : isScrollingValue,
@@ -426,15 +485,21 @@ class _MainPageState extends State<MainPage> {
                         },
                         currentIndex: index,
                         index: 1,
-                        label: (AppHelpers.getParcel())
-                            ? AppHelpers.getTranslation(TrKeys.send)
-                            : AppHelpers.getTranslation(TrKeys.search),
-                        selectIcon: (AppHelpers.getParcel())
-                            ? Remix.instance_fill
-                            : FlutterRemix.search_fill,
-                        unSelectIcon: (AppHelpers.getParcel())
-                            ? Remix.instance_line
-                            : FlutterRemix.search_line,
+                        label: (isSeller && !isCustomerMode)
+                            ? AppHelpers.getTranslation(TrKeys.orders)
+                            : (AppHelpers.getParcel())
+                                ? AppHelpers.getTranslation(TrKeys.send)
+                                : AppHelpers.getTranslation(TrKeys.search),
+                        selectIcon: (isSeller && !isCustomerMode)
+                            ? FlutterRemix.file_list_2_fill
+                            : (AppHelpers.getParcel())
+                                ? Remix.instance_fill
+                                : FlutterRemix.search_fill,
+                        unSelectIcon: (isSeller && !isCustomerMode)
+                            ? FlutterRemix.file_list_2_line
+                            : (AppHelpers.getParcel())
+                                ? Remix.instance_line
+                                : FlutterRemix.search_line,
                       ),
                       BottomNavigatorItem(
                         isScrolling: index == 3 ? false : isScrollingValue,
@@ -444,15 +509,21 @@ class _MainPageState extends State<MainPage> {
                         },
                         currentIndex: index,
                         index: 2,
-                        label: LocalStorage.getToken().isNotEmpty
-                            ? AppHelpers.getTranslation(TrKeys.wallet)
-                            : AppHelpers.getTranslation(TrKeys.liked),
-                        selectIcon: LocalStorage.getToken().isNotEmpty
-                            ? FlutterRemix.wallet_2_fill
-                            : FlutterRemix.heart_fill,
-                        unSelectIcon: LocalStorage.getToken().isNotEmpty
-                            ? FlutterRemix.wallet_2_line
-                            : FlutterRemix.heart_line,
+                        label: (isSeller && !isCustomerMode)
+                            ? AppHelpers.getTranslation(TrKeys.foods)
+                            : LocalStorage.getToken().isNotEmpty
+                                ? AppHelpers.getTranslation(TrKeys.wallet)
+                                : AppHelpers.getTranslation(TrKeys.liked),
+                        selectIcon: (isSeller && !isCustomerMode)
+                            ? FlutterRemix.restaurant_fill
+                            : LocalStorage.getToken().isNotEmpty
+                                ? FlutterRemix.wallet_2_fill
+                                : FlutterRemix.heart_fill,
+                        unSelectIcon: (isSeller && !isCustomerMode)
+                            ? FlutterRemix.restaurant_line
+                            : LocalStorage.getToken().isNotEmpty
+                                ? FlutterRemix.wallet_2_line
+                                : FlutterRemix.heart_line,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -470,20 +541,26 @@ class _MainPageState extends State<MainPage> {
                           height: 40.r,
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: index == 3
-                                  ? AppStyle.primary
-                                  : AppStyle.transparent,
+                              color: index == 3 ? AppStyle.primary : AppStyle.transparent,
                               width: 2.w,
                             ),
                             shape: BoxShape.circle,
                           ),
-                          child: CustomNetworkImage(
-                            profile: true,
-                            url: user?.img ?? LocalStorage.getUser()?.img,
-                            height: 40.r,
-                            width: 40.r,
-                            radius: 20.r,
-                          ),
+                          child: (isSeller && !isCustomerMode)
+                              ? CustomNetworkImage(
+                                  profile: true,
+                                  url: LocalStorage.getShop()?.logoImg,
+                                  height: 40.r,
+                                  width: 40.r,
+                                  radius: 20.r,
+                                )
+                              : CustomNetworkImage(
+                                  profile: true,
+                                  url: user?.img ?? LocalStorage.getUser()?.img,
+                                  height: 40.r,
+                                  width: 40.r,
+                                  radius: 20.r,
+                                ),
                         ),
                       ),
                     ],
@@ -492,61 +569,156 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
 
-            // Cart button - keep the icon when fixed=false to maintain original behavior
-            (AppConstants.fixed == false && isCartEmpty)
-                ? const SizedBox.shrink()
-                : AnimationButtonEffect(
-                    child: GestureDetector(
-                      onTap: () {
-                        if (LocalStorage.getToken().isEmpty) {
-                          context.pushRoute(LoginRoute());
-                          return;
-                        }
-                        context.pushRoute(OrderRoute());
-                      },
-                      child: Container(
-                        margin: EdgeInsets.only(left: 8.w),
-                        width: 56.r,
-                        height: 56.r,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color.fromRGBO(0, 0, 0, 0.8),
+            // Left Floating Add Button (Manager mode only)
+            if (isSeller && !isCustomerMode && (index == 1 || index == 2))
+              ButtonsBouncingEffect(
+                child: Hero(
+                  tag: AppConstants.heroTagAddOrderButton,
+                  child: Consumer(
+                    builder: (context, ref, child) {
+                      final foodTabState = ref.watch(foodTabsProvider);
+                      return GestureDetector(
+                        onTap: () {
+                          index == 1
+                              ? context.pushRoute(const CreateOrderRoute())
+                              : (foodTabState.selectedIndex == 0
+                                  ? AppHelpers.showCustomModalBottomSheet(
+                                      paddingTop: MediaQuery.paddingOf(context).top + 64.h,
+                                      context: context,
+                                      modal: const CreateProductModal(),
+                                      isDarkMode: false,
+                                    )
+                                  : (foodTabState.selectedIndex == 1
+                                      ? AppHelpers.showCustomModalBottomSheet(
+                                          paddingTop: MediaQuery.paddingOf(context).top + 64.h,
+                                          context: context,
+                                          modal: const CreateAddonModal(),
+                                          isDarkMode: false,
+                                        )
+                                      : AppHelpers.showCustomModalBottomSheet(
+                                          paddingTop: MediaQuery.paddingOf(context).top + 64.h,
+                                          context: context,
+                                          modal: const CreateExtrasGroupModal(),
+                                          isDarkMode: false,
+                                        )));
+                        },
+                        child: Container(
+                          margin: EdgeInsetsDirectional.only(start: 8.r),
+                          width: 56.r,
+                          height: 56.r,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppStyle.primary,
+                          ),
+                          child: const Icon(
+                            FlutterRemix.add_line,
+                            color: AppStyle.white,
+                          ),
                         ),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            const Icon(
-                              FlutterRemix.shopping_basket_2_fill,
-                              color: AppStyle.white,
-                            ),
-                            Positioned(
-                              top: 9,
-                              right: 8,
-                              child: Badge(
-                                label: Text(
-                                  isCartEmpty
-                                      ? "0"
-                                      : (ref
-                                                  .watch(shopOrderProvider)
-                                                  .cart
-                                                  ?.userCarts
-                                                  ?.first
-                                                  .cartDetails
-                                                  ?.length ??
-                                              0)
-                                          .toString(),
-                                  style: const TextStyle(color: AppStyle.white),
-                                ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+
+            // Right Floating Button (Mode Toggle / Cart)
+            if (!isSeller)
+              // Standard Customer Cart
+              if (!isCartEmpty)
+                _cartButton(context, ref, isCartEmpty)
+              else
+                const SizedBox.shrink()
+            else
+              // Seller Adaptive Toggle
+              AnimationButtonEffect(
+                child: GestureDetector(
+                  onTap: () {
+                    if (isCustomerMode && !isCartEmpty) {
+                      context.pushRoute(OrderRoute());
+                    } else {
+                      setState(() {
+                        isCustomerMode = !isCustomerMode;
+                        event.selectIndex(0);
+                        event.changeScrolling(false);
+                      });
+                    }
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 8.w),
+                    width: 56.r,
+                    height: 56.r,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(0, 0, 0, 0.8),
+                    ),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Icon(
+                          (isCustomerMode && !isCartEmpty) ? FlutterRemix.shopping_basket_2_fill : (isCustomerMode ? FlutterRemix.arrow_left_line : FlutterRemix.shopping_bag_3_fill),
+                          color: AppStyle.white,
+                        ),
+                        if (isCustomerMode && !isCartEmpty)
+                          Positioned(
+                            top: 9,
+                            right: 8,
+                            child: Badge(
+                              label: Text(
+                                (ref.watch(shopOrderProvider).cart?.userCarts?.first.cartDetails?.length ?? 0).toString(),
+                                style: const TextStyle(color: AppStyle.white),
                               ),
                             ),
-                          ],
-                        ),
-                      ),
+                          ),
+                      ],
                     ),
                   ),
+                ),
+              ),
           ],
         ),
       ],
+    );
+  }
+
+  Widget _cartButton(BuildContext context, WidgetRef ref, bool isCartEmpty) {
+    return AnimationButtonEffect(
+      child: GestureDetector(
+        onTap: () {
+          if (LocalStorage.getToken().isEmpty) {
+            context.pushRoute(LoginRoute());
+            return;
+          }
+          context.pushRoute(OrderRoute());
+        },
+        child: Container(
+          margin: EdgeInsets.only(left: 8.w),
+          width: 56.r,
+          height: 56.r,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Color.fromRGBO(0, 0, 0, 0.8),
+          ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              const Icon(
+                FlutterRemix.shopping_basket_2_fill,
+                color: AppStyle.white,
+              ),
+              Positioned(
+                top: 9,
+                right: 8,
+                child: Badge(
+                  label: Text(
+                    isCartEmpty ? "0" : (ref.watch(shopOrderProvider).cart?.userCarts?.first.cartDetails?.length ?? 0).toString(),
+                    style: const TextStyle(color: AppStyle.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

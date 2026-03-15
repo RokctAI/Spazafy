@@ -58,7 +58,7 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
     state = state.copyWith(isLoading: true, tappedPoints: []);
     final user = LocalStorage.getUser();
     
-    if (user?.role == 'seller' || user?.role == 'manager') {
+    if (user?.role == 'seller') {
        final response = await _usersRepository.getDeliveryZone();
        response.when(
          success: (data) {

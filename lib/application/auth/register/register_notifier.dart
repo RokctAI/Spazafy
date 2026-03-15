@@ -201,7 +201,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           // Role-specific redirection
           if (role == 'deliveryman') {
             context.replaceRoute(const HomeRoute());
-          } else if (role == 'manager') {
+          } else if (role == 'seller') {
             context.replaceRoute(const MainRoute());
           } else {
             if (AppConstants.isDemo) {
@@ -269,7 +269,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           // Role-specific redirection
           if (role == 'deliveryman') {
             context.replaceRoute(const BecomeDriverRoute());
-          } else if (role == 'manager') {
+          } else if (role == 'seller') {
             context.replaceRoute(const BecomeSellerRoute());
           } else {
             if (AppConstants.isDemo) {
@@ -335,7 +335,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           // Role-specific redirection
           if (role == 'deliveryman') {
              context.replaceRoute(const HomeRoute());
-          } else if (role == 'manager') {
+          } else if (role == 'seller') {
              context.replaceRoute(const MainRoute());
           } else {
             if (AppConstants.isDemo) {
