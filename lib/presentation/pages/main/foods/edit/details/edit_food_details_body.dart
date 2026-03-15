@@ -195,8 +195,8 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                             textCapitalization: TextCapitalization.sentences,
                             textInputAction: TextInputAction.next,
                             onChanged: event.setInterval,
-                            initialText:
-                                (state.product?.interval ?? 1).toString(),
+                            initialText: (state.product?.interval ?? 1)
+                                .toString(),
                             validator: AppValidators.emptyCheck,
                           ),
                           24.verticalSpace,
@@ -227,9 +227,9 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                   onChanged: event.setMaxQty,
                                   validator: (value) =>
                                       AppValidators.maxQtyCheck(
-                                    value,
-                                    state.minQty,
-                                  ),
+                                        value,
+                                        state.minQty,
+                                      ),
                                 ),
                               ),
                             ],

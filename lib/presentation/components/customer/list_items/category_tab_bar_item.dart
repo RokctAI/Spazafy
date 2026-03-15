@@ -45,8 +45,9 @@ class CategoryTabBarItem extends StatelessWidget {
                 '$title',
                 style: AppStyle.interNormal(
                   size: 13,
-                  color:
-                      isActive ? AppStyle.buttonFontColor : AppStyle.blackColor,
+                  color: isActive
+                      ? AppStyle.buttonFontColor
+                      : AppStyle.blackColor,
                 ),
               ),
             ],

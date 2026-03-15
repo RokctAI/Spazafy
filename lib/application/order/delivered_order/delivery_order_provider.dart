@@ -4,5 +4,5 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final deliveredOrderProvider =
     StateNotifierProvider<DeliveredOrderNotifier, DeliveredOrderState>(
-  (ref) => DeliveredOrderNotifier(),
-);
+      (ref) => DeliveredOrderNotifier(),
+    );

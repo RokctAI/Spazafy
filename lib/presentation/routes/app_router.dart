@@ -63,93 +63,95 @@ part 'app_router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
-        // ─── Core Routes ─────────────────────────────────────────────────────
-        MaterialRoute(path: '/', page: SplashRoute.page),
-        MaterialRoute(path: '/no-connection', page: NoConnectionRoute.page),
-        MaterialRoute(path: '/login', page: LoginRoute.page),
-        MaterialRoute(path: '/auth', page: AuthRoute.page), // From Manager
-        MaterialRoute(path: '/main', page: MainRoute.page),
-        MaterialRoute(path: '/intro', page: IntroRoute.page),
-        MaterialRoute(path: '/closed', page: ClosedRoute.page),
-        MaterialRoute(path: '/ui-type', page: UiTypeRoute.page),
+    // ─── Core Routes ─────────────────────────────────────────────────────
+    MaterialRoute(path: '/', page: SplashRoute.page),
+    MaterialRoute(path: '/no-connection', page: NoConnectionRoute.page),
+    MaterialRoute(path: '/login', page: LoginRoute.page),
+    MaterialRoute(path: '/auth', page: AuthRoute.page), // From Manager
+    MaterialRoute(path: '/main', page: MainRoute.page),
+    MaterialRoute(path: '/intro', page: IntroRoute.page),
+    MaterialRoute(path: '/closed', page: ClosedRoute.page),
+    MaterialRoute(path: '/ui-type', page: UiTypeRoute.page),
 
-        // ─── Customer Routes ─────────────────────────────────────────────────
-        MaterialRoute(path: '/shop', page: ShopRoute.page),
-        MaterialRoute(path: '/order-list', page: OrdersListRoute.page),
-        MaterialRoute(path: '/setting', page: SettingRoute.page),
-        MaterialRoute(path: '/order-check', page: OrderRoute.page),
-        MaterialRoute(path: '/search', page: SearchRoute.page),
-        MaterialRoute(
-            path: '/profile-customer',
-            page: ProfileRoute.page), // Shared Profile
-        MaterialRoute(path: '/map', page: ViewMapRoute.page),
-        MaterialRoute(path: "/story-list", page: StoryListRoute.page),
-        MaterialRoute(path: '/recommended', page: RecommendedRoute.page),
-        MaterialRoute(path: '/recommended-one', page: RecommendedOneRoute.page),
-        MaterialRoute(path: '/recommended-two', page: RecommendedTwoRoute.page),
-        MaterialRoute(
-            path: '/recommended-three', page: RecommendedThreeRoute.page),
-        MaterialRoute(path: '/map-search', page: MapSearchRoute.page),
-        MaterialRoute(path: '/help', page: HelpRoute.page),
-        MaterialRoute(path: '/order-progress', page: OrderProgressRoute.page),
-        MaterialRoute(path: '/result-filter', page: ResultFilterRoute.page),
-        MaterialRoute(path: '/wallet-history', page: WalletHistoryRoute.page),
-        MaterialRoute(path: '/become-seller', page: BecomeSellerRoute.page),
-        MaterialRoute(path: '/become-driver', page: BecomeDriverRoute.page),
-        MaterialRoute(path: '/shops-banner', page: ShopsBannerRoute.page),
-        MaterialRoute(path: '/shops-detail', page: ShopDetailRoute.page),
-        MaterialRoute(path: '/share-referral', page: ShareReferralRoute.page),
-        MaterialRoute(
-            path: '/share-referral-faq', page: ShareReferralFaqRoute.page),
-        MaterialRoute(path: '/chat', page: ChatRoute.page),
-        MaterialRoute(path: '/notifications', page: NotificationListRoute.page),
-        MaterialRoute(
-            path: '/service-category', page: ServiceTwoCategoryRoute.page),
-        MaterialRoute(path: '/parcel', page: ParcelRoute.page),
-        MaterialRoute(path: '/parcel-list', page: ParcelListRoute.page),
-        MaterialRoute(path: '/parcel-progress', page: ParcelProgressRoute.page),
-        MaterialRoute(path: '/info', page: InfoRoute.page),
-        MaterialRoute(path: '/like', page: LikeRoute.page),
-        MaterialRoute(path: '/address-list', page: AddressListRoute.page),
-        MaterialRoute(path: '/term', page: TermRoute.page),
-        MaterialRoute(path: '/policy', page: PolicyRoute.page),
-        MaterialRoute(path: '/orders-main', page: OrdersMainRoute.page),
+    // ─── Customer Routes ─────────────────────────────────────────────────
+    MaterialRoute(path: '/shop', page: ShopRoute.page),
+    MaterialRoute(path: '/order-list', page: OrdersListRoute.page),
+    MaterialRoute(path: '/setting', page: SettingRoute.page),
+    MaterialRoute(path: '/order-check', page: OrderRoute.page),
+    MaterialRoute(path: '/search', page: SearchRoute.page),
+    MaterialRoute(
+      path: '/profile-customer',
+      page: ProfileRoute.page,
+    ), // Shared Profile
+    MaterialRoute(path: '/map', page: ViewMapRoute.page),
+    MaterialRoute(path: "/story-list", page: StoryListRoute.page),
+    MaterialRoute(path: '/recommended', page: RecommendedRoute.page),
+    MaterialRoute(path: '/recommended-one', page: RecommendedOneRoute.page),
+    MaterialRoute(path: '/recommended-two', page: RecommendedTwoRoute.page),
+    MaterialRoute(path: '/recommended-three', page: RecommendedThreeRoute.page),
+    MaterialRoute(path: '/map-search', page: MapSearchRoute.page),
+    MaterialRoute(path: '/help', page: HelpRoute.page),
+    MaterialRoute(path: '/order-progress', page: OrderProgressRoute.page),
+    MaterialRoute(path: '/result-filter', page: ResultFilterRoute.page),
+    MaterialRoute(path: '/wallet-history', page: WalletHistoryRoute.page),
+    MaterialRoute(path: '/become-seller', page: BecomeSellerRoute.page),
+    MaterialRoute(path: '/become-driver', page: BecomeDriverRoute.page),
+    MaterialRoute(path: '/shops-banner', page: ShopsBannerRoute.page),
+    MaterialRoute(path: '/shops-detail', page: ShopDetailRoute.page),
+    MaterialRoute(path: '/share-referral', page: ShareReferralRoute.page),
+    MaterialRoute(
+      path: '/share-referral-faq',
+      page: ShareReferralFaqRoute.page,
+    ),
+    MaterialRoute(path: '/chat', page: ChatRoute.page),
+    MaterialRoute(path: '/notifications', page: NotificationListRoute.page),
+    MaterialRoute(
+      path: '/service-category',
+      page: ServiceTwoCategoryRoute.page,
+    ),
+    MaterialRoute(path: '/parcel', page: ParcelRoute.page),
+    MaterialRoute(path: '/parcel-list', page: ParcelListRoute.page),
+    MaterialRoute(path: '/parcel-progress', page: ParcelProgressRoute.page),
+    MaterialRoute(path: '/info', page: InfoRoute.page),
+    MaterialRoute(path: '/like', page: LikeRoute.page),
+    MaterialRoute(path: '/address-list', page: AddressListRoute.page),
+    MaterialRoute(path: '/term', page: TermRoute.page),
+    MaterialRoute(path: '/policy', page: PolicyRoute.page),
+    MaterialRoute(path: '/orders-main', page: OrdersMainRoute.page),
 
-        // ─── Financial/Loan Routes ───────────────────────────────────────────
-        MaterialRoute(
-            path: '/loan-eligibility', page: LoanEligibilityRoute.page),
-        MaterialRoute(path: '/loan-upload', page: LoanDocumentUploadRoute.page),
-        MaterialRoute(path: '/loan', page: LoanRoute.page),
+    // ─── Financial/Loan Routes ───────────────────────────────────────────
+    MaterialRoute(path: '/loan-eligibility', page: LoanEligibilityRoute.page),
+    MaterialRoute(path: '/loan-upload', page: LoanDocumentUploadRoute.page),
+    MaterialRoute(path: '/loan', page: LoanRoute.page),
 
-        // ─── Manager/Seller/POS Routes ───────────────────────────────────────
-        CupertinoRoute(path: '/income', page: IncomeRoute.page),
-        CupertinoRoute(path: '/select-user', page: SelectUserRoute.page),
-        CupertinoRoute(path: '/delivery-time', page: DeliveryTimeRoute.page),
-        CupertinoRoute(path: '/order-history', page: OrderHistoryRoute.page),
-        CupertinoRoute(path: '/delivery-zone', page: DeliveryZoneRoute.page),
-        CupertinoRoute(path: '/select-address', page: SelectAddressRoute.page),
-        CupertinoRoute(path: '/order-products', page: CreateOrderRoute.page),
-        CupertinoRoute(
-            path: '/shipping-address', page: ShippingAddressRoute.page),
-        MaterialRoute(path: '/select-section', page: SelectSectionRoute.page),
-        MaterialRoute(path: '/select-table', page: SelectTableRoute.page),
-        MaterialRoute(path: '/webview', page: WebViewRoute.page),
-        MaterialRoute(path: '/subscription', page: SubscriptionsRoute.page),
-        CupertinoRoute(path: '/pos', page: PosRoute.page),
-        CupertinoRoute(path: '/pos-checkout', page: PosCheckoutRoute.page),
-        CupertinoRoute(path: '/pin-login', page: PinRoute.page, initial: false),
-        CupertinoRoute(
-          path: '/pin-lock',
-          page: PinRoute.page,
-          initial: false,
-          args: PinRouteArgs(type: PinPageType.lock),
-        ),
+    // ─── Manager/Seller/POS Routes ───────────────────────────────────────
+    CupertinoRoute(path: '/income', page: IncomeRoute.page),
+    CupertinoRoute(path: '/select-user', page: SelectUserRoute.page),
+    CupertinoRoute(path: '/delivery-time', page: DeliveryTimeRoute.page),
+    CupertinoRoute(path: '/order-history', page: OrderHistoryRoute.page),
+    CupertinoRoute(path: '/delivery-zone', page: DeliveryZoneRoute.page),
+    CupertinoRoute(path: '/select-address', page: SelectAddressRoute.page),
+    CupertinoRoute(path: '/order-products', page: CreateOrderRoute.page),
+    CupertinoRoute(path: '/shipping-address', page: ShippingAddressRoute.page),
+    MaterialRoute(path: '/select-section', page: SelectSectionRoute.page),
+    MaterialRoute(path: '/select-table', page: SelectTableRoute.page),
+    MaterialRoute(path: '/webview', page: WebViewRoute.page),
+    MaterialRoute(path: '/subscription', page: SubscriptionsRoute.page),
+    CupertinoRoute(path: '/pos', page: PosRoute.page),
+    CupertinoRoute(path: '/pos-checkout', page: PosCheckoutRoute.page),
+    CupertinoRoute(path: '/pin-login', page: PinRoute.page, initial: false),
+    CupertinoRoute(
+      path: '/pin-lock',
+      page: PinRoute.page,
+      initial: false,
+      args: PinRouteArgs(type: PinPageType.lock),
+    ),
 
-        // ─── Driver Routes ───────────────────────────────────────────────────
-        CupertinoRoute(path: '/driver-home', page: HomeRoute.page),
-        CupertinoRoute(path: '/driver-story', page: StoryRoute.page),
-        CupertinoRoute(path: '/parcel-history', page: ParcelHistoryRoute.page),
-        CupertinoRoute(path: '/driver-orders', page: OrdersRoute.page),
-        CupertinoRoute(path: '/driver-parcels', page: ParcelsRoute.page),
-      ];
+    // ─── Driver Routes ───────────────────────────────────────────────────
+    CupertinoRoute(path: '/driver-home', page: HomeRoute.page),
+    CupertinoRoute(path: '/driver-story', page: StoryRoute.page),
+    CupertinoRoute(path: '/parcel-history', page: ParcelHistoryRoute.page),
+    CupertinoRoute(path: '/driver-orders', page: OrdersRoute.page),
+    CupertinoRoute(path: '/driver-parcels', page: ParcelsRoute.page),
+  ];
 }

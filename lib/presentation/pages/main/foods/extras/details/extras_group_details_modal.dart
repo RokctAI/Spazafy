@@ -119,25 +119,25 @@ class _ExtrasGroupDetailsModalState
                           itemCount: state.extras.length,
                           itemBuilder: (context, index) =>
                               GroupDetailExtrasItem(
-                            extras: state.extras[index],
-                            onEditTap: () =>
-                                AppHelpers.showCustomModalBottomSheet(
-                              context: context,
-                              modal: EditExtrasItemModal(
-                                group: widget.group,
                                 extras: state.extras[index],
+                                onEditTap: () =>
+                                    AppHelpers.showCustomModalBottomSheet(
+                                      context: context,
+                                      modal: EditExtrasItemModal(
+                                        group: widget.group,
+                                        extras: state.extras[index],
+                                      ),
+                                      isDarkMode: false,
+                                    ),
+                                onDeleteTap: () =>
+                                    AppHelpers.showCustomModalBottomSheet(
+                                      context: context,
+                                      modal: DeleteExtrasItemModal(
+                                        extras: state.extras[index],
+                                      ),
+                                      isDarkMode: false,
+                                    ),
                               ),
-                              isDarkMode: false,
-                            ),
-                            onDeleteTap: () =>
-                                AppHelpers.showCustomModalBottomSheet(
-                              context: context,
-                              modal: DeleteExtrasItemModal(
-                                extras: state.extras[index],
-                              ),
-                              isDarkMode: false,
-                            ),
-                          ),
                         );
                 },
               ),

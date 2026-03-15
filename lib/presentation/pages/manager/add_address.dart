@@ -46,9 +46,11 @@ class AddAddress extends StatelessWidget {
                       LocalStorage.setAddressSelected(
                         AddressData(
                           location: LocationData(
-                            latitude: (AppHelpers.getInitialLatitude() ??
+                            latitude:
+                                (AppHelpers.getInitialLatitude() ??
                                 AppConstants.demoLatitude),
-                            longitude: (AppHelpers.getInitialLongitude() ??
+                            longitude:
+                                (AppHelpers.getInitialLongitude() ??
                                 AppConstants.demoLongitude),
                           ),
                           title: AppHelpers.getAppAddressName(),

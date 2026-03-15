@@ -63,7 +63,8 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
               final appbarState = ref.watch(homeAppbarProvider);
               final event = ref.read(orderDetailsProvider.notifier);
               final appbarEvent = ref.read(homeAppbarProvider.notifier);
-              bool isHistoryOrder = widget.isHistoryOrder ??
+              bool isHistoryOrder =
+                  widget.isHistoryOrder ??
                   (state.order?.status == OrderStatus.delivered.name ||
                       state.order?.status == OrderStatus.canceled.name);
               return Column(
@@ -110,8 +111,11 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                     Text(
                                       isHistoryOrder
                                           ? AppHelpers.getTranslation(
-                                              state.order?.transaction
-                                                      ?.paymentSystem?.tag ??
+                                              state
+                                                      .order
+                                                      ?.transaction
+                                                      ?.paymentSystem
+                                                      ?.tag ??
                                                   "",
                                             )
                                           : '${AppHelpers.getTranslation(TrKeys.order)} - №${state.order?.id}',
@@ -142,9 +146,12 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                               AppHelpers.getTranslation(
                                 state.order?.deliveryType == TrKeys.dineIn
                                     ? TrKeys.table
-                                    : state.order?.transaction?.paymentSystem
-                                            ?.tag ??
-                                        TrKeys.noTransaction,
+                                    : state
+                                              .order
+                                              ?.transaction
+                                              ?.paymentSystem
+                                              ?.tag ??
+                                          TrKeys.noTransaction,
                               ),
                               style: AppStyle.interNormal(
                                 size: 12,
@@ -501,13 +508,12 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                   activeTabIndex:
                                                       appbarState.index,
                                                   updateTotal: (count) =>
-                                                      appbarEvent
-                                                          .setAppbarDetails(
-                                                    AppHelpers.getTranslation(
-                                                      TrKeys.newOrders,
-                                                    ),
-                                                    count,
-                                                  ),
+                                                      appbarEvent.setAppbarDetails(
+                                                        AppHelpers.getTranslation(
+                                                          TrKeys.newOrders,
+                                                        ),
+                                                        count,
+                                                      ),
                                                 );
                                             ref
                                                 .read(
@@ -531,13 +537,12 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                   refreshController: widget
                                                       .acceptedOrdersController,
                                                   updateTotal: (count) =>
-                                                      appbarEvent
-                                                          .setAppbarDetails(
-                                                    AppHelpers.getTranslation(
-                                                      TrKeys.acceptedOrders,
-                                                    ),
-                                                    count,
-                                                  ),
+                                                      appbarEvent.setAppbarDetails(
+                                                        AppHelpers.getTranslation(
+                                                          TrKeys.acceptedOrders,
+                                                        ),
+                                                        count,
+                                                      ),
                                                 );
                                             ref
                                                 .read(
@@ -581,13 +586,12 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                   refreshController: widget
                                                       .readyOrdersController,
                                                   updateTotal: (count) =>
-                                                      appbarEvent
-                                                          .setAppbarDetails(
-                                                    AppHelpers.getTranslation(
-                                                      TrKeys.readyOrders,
-                                                    ),
-                                                    count,
-                                                  ),
+                                                      appbarEvent.setAppbarDetails(
+                                                        AppHelpers.getTranslation(
+                                                          TrKeys.readyOrders,
+                                                        ),
+                                                        count,
+                                                      ),
                                                 );
                                             ref
                                                 .read(
@@ -609,13 +613,12 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                   refreshController: widget
                                                       .onAWayOrdersController,
                                                   updateTotal: (count) =>
-                                                      appbarEvent
-                                                          .setAppbarDetails(
-                                                    AppHelpers.getTranslation(
-                                                      TrKeys.onAWayOrders,
-                                                    ),
-                                                    count,
-                                                  ),
+                                                      appbarEvent.setAppbarDetails(
+                                                        AppHelpers.getTranslation(
+                                                          TrKeys.onAWayOrders,
+                                                        ),
+                                                        count,
+                                                      ),
                                                 );
                                             ref
                                                 .read(
@@ -638,13 +641,12 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                   activeTabIndex:
                                                       appbarState.index,
                                                   updateTotal: (count) =>
-                                                      appbarEvent
-                                                          .setAppbarDetails(
-                                                    AppHelpers.getTranslation(
-                                                      TrKeys.newOrders,
-                                                    ),
-                                                    count,
-                                                  ),
+                                                      appbarEvent.setAppbarDetails(
+                                                        AppHelpers.getTranslation(
+                                                          TrKeys.newOrders,
+                                                        ),
+                                                        count,
+                                                      ),
                                                 );
                                             break;
                                         }

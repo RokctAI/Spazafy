@@ -119,8 +119,12 @@ class ShopFormFields extends StatelessWidget {
     return DropdownButtonFormField<String>(
       value: selectedDeliveryType,
       items: deliveryTypeList
-          .map((e) => DropdownMenuItem<String>(
-              value: e.toString(), child: Text(e.toString())))
+          .map(
+            (e) => DropdownMenuItem<String>(
+              value: e.toString(),
+              child: Text(e.toString()),
+            ),
+          )
           .toList(),
       onChanged: onDeliveryTypeChanged,
       decoration: InputDecoration(

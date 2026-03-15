@@ -139,7 +139,8 @@ class _ParcelsPageState extends ConsumerState<ParcelsPage>
                                     ? ListView.builder(
                                         padding: EdgeInsets.only(
                                           top: 30.h,
-                                          bottom: MediaQuery.of(
+                                          bottom:
+                                              MediaQuery.of(
                                                 context,
                                               ).padding.bottom +
                                               42.h,
@@ -180,7 +181,8 @@ class _ParcelsPageState extends ConsumerState<ParcelsPage>
                                     ? ListView.builder(
                                         padding: EdgeInsets.only(
                                           top: 30.h,
-                                          bottom: MediaQuery.of(
+                                          bottom:
+                                              MediaQuery.of(
                                                 context,
                                               ).padding.bottom +
                                               42.h,

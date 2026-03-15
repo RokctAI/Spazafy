@@ -147,11 +147,11 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
                               try {
                                 final List<Placemark> placemarks =
                                     await placemarkFromCoordinates(
-                                  cameraPosition?.target.latitude ??
-                                      latLng.latitude,
-                                  cameraPosition?.target.longitude ??
-                                      latLng.longitude,
-                                );
+                                      cameraPosition?.target.latitude ??
+                                          latLng.latitude,
+                                      cameraPosition?.target.longitude ??
+                                          latLng.longitude,
+                                    );
 
                                 if (placemarks.isNotEmpty) {
                                   final Placemark pos = placemarks[0];
@@ -176,25 +176,26 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
                               }
 
                               event
-                                  // ..checkDriverZone(
-                                  //     context: context,
-                                  //     location: LatLng(
-                                  //       cameraPosition?.target.latitude ??
-                                  //           latLng.latitude,
-                                  //       cameraPosition?.target.longitude ??
-                                  //           latLng.longitude,
-                                  //     ),
-                                  //     shopId: widget.shopId)
-                                  .changePlace(
+                              // ..checkDriverZone(
+                              //     context: context,
+                              //     location: LatLng(
+                              //       cameraPosition?.target.latitude ??
+                              //           latLng.latitude,
+                              //       cameraPosition?.target.longitude ??
+                              //           latLng.longitude,
+                              //     ),
+                              //     shopId: widget.shopId)
+                              .changePlace(
                                 AddressData(
                                   title: controller.text,
                                   address: controller.text,
                                   location: LocationData(
-                                    latitude: cameraPosition?.target.latitude ??
+                                    latitude:
+                                        cameraPosition?.target.latitude ??
                                         latLng.latitude,
                                     longitude:
                                         cameraPosition?.target.longitude ??
-                                            latLng.longitude,
+                                        latLng.longitude,
                                   ),
                                 ),
                               );
@@ -209,11 +210,11 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
                               try {
                                 final List<Placemark> placemarks =
                                     await placemarkFromCoordinates(
-                                  cameraPosition?.target.latitude ??
-                                      latLng.latitude,
-                                  cameraPosition?.target.longitude ??
-                                      latLng.longitude,
-                                );
+                                      cameraPosition?.target.latitude ??
+                                          latLng.latitude,
+                                      cameraPosition?.target.longitude ??
+                                          latLng.longitude,
+                                    );
 
                                 if (placemarks.isNotEmpty) {
                                   final Placemark pos = placemarks[0];
@@ -242,11 +243,12 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
                                   title: controller.text,
                                   address: controller.text,
                                   location: LocationData(
-                                    latitude: cameraPosition?.target.latitude ??
+                                    latitude:
+                                        cameraPosition?.target.latitude ??
                                         latLng.latitude,
                                     longitude:
                                         cameraPosition?.target.longitude ??
-                                            latLng.longitude,
+                                        latLng.longitude,
                                   ),
                                 ),
                               );
@@ -260,7 +262,8 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
                           },
                         ),
                         Positioned(
-                          bottom: MediaQuery.paddingOf(context).bottom +
+                          bottom:
+                              MediaQuery.paddingOf(context).bottom +
                               85.h +
                               MediaQuery.sizeOf(context).height / 2,
                           left: MediaQuery.sizeOf(context).width / 2 - 23.w,
@@ -343,9 +346,9 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
               try {
                 final List<Placemark> placemarks =
                     await placemarkFromCoordinates(
-                  res?.result?.geometry?.location?.lat ?? latLng.latitude,
-                  res?.result?.geometry?.location?.lng ?? latLng.longitude,
-                );
+                      res?.result?.geometry?.location?.lat ?? latLng.latitude,
+                      res?.result?.geometry?.location?.lng ?? latLng.longitude,
+                    );
 
                 if (placemarks.isNotEmpty) {
                   final Placemark pos = placemarks[0];
@@ -382,7 +385,8 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
                   location: LocationData(
                     latitude:
                         res?.result?.geometry?.location?.lat ?? latLng.latitude,
-                    longitude: res?.result?.geometry?.location?.lng ??
+                    longitude:
+                        res?.result?.geometry?.location?.lng ??
                         latLng.longitude,
                   ),
                 ),
@@ -402,8 +406,7 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage> {
               24.horizontalSpace,
               Expanded(
                 child: Consumer(
-                  builder:
-                      (BuildContext context, WidgetRef ref, Widget? child) {
+                  builder: (BuildContext context, WidgetRef ref, Widget? child) {
                     //final event = ref.read(profileProvider.notifier);
                     return CustomButton(
                       isLoading: false,

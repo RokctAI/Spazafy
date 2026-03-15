@@ -72,8 +72,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     children: [
                       Text(
                         AppHelpers.getAppName(),
-                        style:
-                            AppStyle.interBold(color: AppStyle.white, size: 24),
+                        style: AppStyle.interBold(
+                          color: AppStyle.white,
+                          size: 24,
+                        ),
                       ),
                     ],
                   ),
@@ -83,10 +85,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     title: AppHelpers.getTranslation(TrKeys.login),
                     onPressed: () =>
                         AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
-                      context: context,
-                      modal: const LoginModal(),
-                      isDarkMode: false,
-                    ),
+                          context: context,
+                          modal: const LoginModal(),
+                          isDarkMode: false,
+                        ),
                   ),
                   10.verticalSpace,
                   CustomButton(

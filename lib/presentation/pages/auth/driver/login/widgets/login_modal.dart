@@ -129,10 +129,10 @@ class _LoginModalState extends ConsumerState<LoginModal>
                                       AppConstants.countryCodeISO,
                                   invalidNumberMessage:
                                       AppHelpers.getTranslation(
-                                    state.isLoginError
-                                        ? TrKeys.loginCredentialsAreNotValid
-                                        : TrKeys.phoneNumberIsNotValid,
-                                  ),
+                                        state.isLoginError
+                                            ? TrKeys.loginCredentialsAreNotValid
+                                            : TrKeys.phoneNumberIsNotValid,
+                                      ),
                                   inputFormatters: [
                                     FilteringTextInputFormatter.digitsOnly,
                                   ],
@@ -141,8 +141,8 @@ class _LoginModalState extends ConsumerState<LoginModal>
                                   autovalidateMode: state.isLoginError
                                       ? AutovalidateMode.always
                                       : AppConstants.isNumberLengthAlwaysSame
-                                          ? AutovalidateMode.onUserInteraction
-                                          : AutovalidateMode.disabled,
+                                      ? AutovalidateMode.onUserInteraction
+                                      : AutovalidateMode.disabled,
                                   textAlignVertical: TextAlignVertical.center,
                                   decoration: InputDecoration(
                                     counterText: '',
@@ -199,10 +199,10 @@ class _LoginModalState extends ConsumerState<LoginModal>
                                         TrKeys.loginCredentialsAreNotValid,
                                       )
                                     : state.isEmailNotValid
-                                        ? AppHelpers.getTranslation(
-                                            TrKeys.emailIsNotValid,
-                                          )
-                                        : null,
+                                    ? AppHelpers.getTranslation(
+                                        TrKeys.emailIsNotValid,
+                                      )
+                                    : null,
                               ),
                             ],
                           ),
@@ -237,11 +237,11 @@ class _LoginModalState extends ConsumerState<LoginModal>
                                   TrKeys.loginCredentialsAreNotValid,
                                 )
                               : (state.isPasswordNotValid
-                                  ? AppHelpers.getTranslation(
-                                      TrKeys
-                                          .passwordShouldContainMinimum8Characters,
-                                    )
-                                  : null),
+                                    ? AppHelpers.getTranslation(
+                                        TrKeys
+                                            .passwordShouldContainMinimum8Characters,
+                                      )
+                                    : null),
                         ),
                         30.verticalSpace,
                         Row(

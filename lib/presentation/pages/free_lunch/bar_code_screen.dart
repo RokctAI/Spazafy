@@ -47,8 +47,10 @@ class BarCodeScreen extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     text: AppHelpers.getTranslation(TrKeys.youWillShow),
-                    style:
-                        AppStyle.interRegular(size: 14.sp, letterSpacing: -0.3),
+                    style: AppStyle.interRegular(
+                      size: 14.sp,
+                      letterSpacing: -0.3,
+                    ),
                     children: [
                       TextSpan(
                         text: AppHelpers.getTranslation(TrKeys.qRCode),
@@ -85,10 +87,12 @@ class BarCodeScreen extends StatelessWidget {
                   Navigator.pop(context);
                   final Uint8List markerMarketIcon =
                       await AppHelpers.getBytesFromAsset(
-                    Assets.imageMarker,
-                    100,
-                  ).whenComplete(() {});
-                  ref.read(homeProvider.notifier).getRoutingAll(
+                        Assets.imageMarker,
+                        100,
+                      ).whenComplete(() {});
+                  ref
+                      .read(homeProvider.notifier)
+                      .getRoutingAll(
                         // ignore: use_build_context_synchronously
                         context: context,
                         start: LatLng(

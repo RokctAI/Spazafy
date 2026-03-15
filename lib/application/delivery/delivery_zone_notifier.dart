@@ -12,7 +12,7 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
   final UserFacade _usersRepository;
 
   DeliveryZoneNotifier(this._usersRepository)
-      : super(const DeliveryZoneState());
+    : super(const DeliveryZoneState());
 
   Future<void> updateDeliveryZone({VoidCallback? updateSuccess}) async {
     state = state.copyWith(isSaving: true);

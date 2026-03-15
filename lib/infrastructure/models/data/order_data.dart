@@ -82,16 +82,17 @@ class OrderData {
     _user = json['user'] != null
         ? UserModel.fromJson(json['user'])
         : json['user_id'] != null
-            ? UserModel(id: json['user_id']?.toString())
-            : null;
+        ? UserModel(id: json['user_id']?.toString())
+        : null;
     if (json['details'] != null) {
       _details = [];
       json['details'].forEach((v) {
         _details?.add(ShopOrderDetails.fromJson(v));
       });
     }
-    _review =
-        json['review'] != null ? ReviewData.fromJson(json['review']) : null;
+    _review = json['review'] != null
+        ? ReviewData.fromJson(json['review'])
+        : null;
     _status = json['status'];
     _tips = json['tips'];
     _commissionFee = json['commission_fee'];
@@ -104,8 +105,9 @@ class OrderData {
     _transaction = json['transaction'] != null
         ? Transaction.fromJson(json['transaction'])
         : null;
-    _orderAddress =
-        json['address'] != null ? OrderAddress.fromJson(json['address']) : null;
+    _orderAddress = json['address'] != null
+        ? OrderAddress.fromJson(json['address'])
+        : null;
     _note = json['note'];
     _afterDeliveredImage = json['image_after_delivered'];
     _seen = json['seen'];
@@ -113,8 +115,8 @@ class OrderData {
     _current = json["current"] == null
         ? false
         : ((json["current"].runtimeType == int)
-            ? (json["current"] == 0 ? false : true)
-            : json["current"]);
+              ? (json["current"] == 0 ? false : true)
+              : json["current"]);
   }
 
   String? _id;
@@ -175,37 +177,36 @@ class OrderData {
     bool? seen,
     num? distance,
     bool? current,
-  }) =>
-      OrderData(
-        id: id ?? _id,
-        userId: userId ?? _userId,
-        price: price ?? _price,
-        currencyPrice: currencyPrice ?? _currencyPrice,
-        rate: rate ?? _rate,
-        orderDetailsCount: orderDetailsCount ?? _orderDetailsCount,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        currency: currency ?? _currency,
-        user: user ?? _user,
-        details: details ?? _details,
-        review: review ?? _review,
-        status: status ?? _status,
-        tips: tips ?? _tips,
-        commissionFee: commissionFee ?? _commissionFee,
-        deliveryType: deliveryType ?? _deliveryType,
-        deliveryFee: deliveryFee ?? _deliveryFee,
-        otp: otp ?? _otp,
-        deliveryman: deliveryman ?? _deliveryman,
-        deliveryDate: deliveryDate ?? _deliveryDate,
-        deliveryTime: deliveryTime ?? _deliveryTime,
-        transaction: transaction ?? _transaction,
-        orderAddress: orderAddress ?? _orderAddress,
-        note: note ?? _note,
-        afterDeliveredImage: afterDeliveredImage ?? _afterDeliveredImage,
-        seen: seen ?? _seen,
-        distance: distance ?? _distance,
-        current: current ?? _current,
-      );
+  }) => OrderData(
+    id: id ?? _id,
+    userId: userId ?? _userId,
+    price: price ?? _price,
+    currencyPrice: currencyPrice ?? _currencyPrice,
+    rate: rate ?? _rate,
+    orderDetailsCount: orderDetailsCount ?? _orderDetailsCount,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    currency: currency ?? _currency,
+    user: user ?? _user,
+    details: details ?? _details,
+    review: review ?? _review,
+    status: status ?? _status,
+    tips: tips ?? _tips,
+    commissionFee: commissionFee ?? _commissionFee,
+    deliveryType: deliveryType ?? _deliveryType,
+    deliveryFee: deliveryFee ?? _deliveryFee,
+    otp: otp ?? _otp,
+    deliveryman: deliveryman ?? _deliveryman,
+    deliveryDate: deliveryDate ?? _deliveryDate,
+    deliveryTime: deliveryTime ?? _deliveryTime,
+    transaction: transaction ?? _transaction,
+    orderAddress: orderAddress ?? _orderAddress,
+    note: note ?? _note,
+    afterDeliveredImage: afterDeliveredImage ?? _afterDeliveredImage,
+    seen: seen ?? _seen,
+    distance: distance ?? _distance,
+    current: current ?? _current,
+  );
 
   String? get id => _id;
   String? get userId => _userId;
@@ -336,8 +337,9 @@ class ShopOrderDetails {
         _orderStocks?.add(OrderStocks.fromJson(v));
       });
     }
-    _coupon =
-        json['coupon'] != null ? CouponData.fromJson(json['coupon']) : null;
+    _coupon = json['coupon'] != null
+        ? CouponData.fromJson(json['coupon'])
+        : null;
     _deliveryman = json['deliveryman'];
     _deliveryType = json['delivery_type'] != null
         ? DeliveryType.fromJson(json['delivery_type'])
@@ -377,24 +379,23 @@ class ShopOrderDetails {
     dynamic deliveryman,
     DeliveryType? deliveryType,
     ShopData? shop,
-  }) =>
-      ShopOrderDetails(
-        id: id ?? _id,
-        shopId: shopId ?? _shopId,
-        deliveryFee: deliveryFee ?? _deliveryFee,
-        price: price ?? _price,
-        tax: tax ?? _tax,
-        status: status ?? _status,
-        deliveryDate: deliveryDate ?? _deliveryDate,
-        deliveryTime: deliveryTime ?? _deliveryTime,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        orderStocks: orderStocks ?? _orderStocks,
-        coupon: coupon ?? _coupon,
-        deliveryman: deliveryman ?? _deliveryman,
-        deliveryType: deliveryType ?? _deliveryType,
-        shop: shop ?? _shop,
-      );
+  }) => ShopOrderDetails(
+    id: id ?? _id,
+    shopId: shopId ?? _shopId,
+    deliveryFee: deliveryFee ?? _deliveryFee,
+    price: price ?? _price,
+    tax: tax ?? _tax,
+    status: status ?? _status,
+    deliveryDate: deliveryDate ?? _deliveryDate,
+    deliveryTime: deliveryTime ?? _deliveryTime,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    orderStocks: orderStocks ?? _orderStocks,
+    coupon: coupon ?? _coupon,
+    deliveryman: deliveryman ?? _deliveryman,
+    deliveryType: deliveryType ?? _deliveryType,
+    shop: shop ?? _shop,
+  );
 
   String? get id => _id;
   String? get shopId => _shopId;
@@ -535,25 +536,24 @@ class OrderStocks {
     dynamic kitchen,
     List<AddonData>? addons,
     String? note,
-  }) =>
-      OrderStocks(
-        id: id ?? _id,
-        stockId: stockId ?? _stockId,
-        originPrice: originPrice ?? _originPrice,
-        tax: tax ?? _tax,
-        discount: discount ?? _discount,
-        quantity: quantity ?? _quantity,
-        totalPrice: totalPrice ?? _totalPrice,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        stock: stock ?? _stock,
-        status: status ?? _status,
-        bonus: bonus ?? _bonus,
-        shopBonus: shopBonus ?? _shopBonus,
-        kitchen: kitchen ?? _kitchen,
-        addons: addons ?? _addons,
-        note: note ?? _note,
-      );
+  }) => OrderStocks(
+    id: id ?? _id,
+    stockId: stockId ?? _stockId,
+    originPrice: originPrice ?? _originPrice,
+    tax: tax ?? _tax,
+    discount: discount ?? _discount,
+    quantity: quantity ?? _quantity,
+    totalPrice: totalPrice ?? _totalPrice,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    stock: stock ?? _stock,
+    status: status ?? _status,
+    bonus: bonus ?? _bonus,
+    shopBonus: shopBonus ?? _shopBonus,
+    kitchen: kitchen ?? _kitchen,
+    addons: addons ?? _addons,
+    note: note ?? _note,
+  );
 
   String? get id => _id;
   String? get stockId => _stockId;
@@ -660,19 +660,18 @@ class DeliveryType {
     String? createdAt,
     String? updatedAt,
     Translation? translation,
-  }) =>
-      DeliveryType(
-        id: id ?? _id,
-        shopId: shopId ?? _shopId,
-        type: type ?? _type,
-        price: price ?? _price,
-        times: times ?? _times,
-        note: note ?? _note,
-        active: active ?? _active,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        translation: translation ?? _translation,
-      );
+  }) => DeliveryType(
+    id: id ?? _id,
+    shopId: shopId ?? _shopId,
+    type: type ?? _type,
+    price: price ?? _price,
+    times: times ?? _times,
+    note: note ?? _note,
+    active: active ?? _active,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    translation: translation ?? _translation,
+  );
 
   String? get id => _id;
 

@@ -89,14 +89,15 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                     validator: AppValidators.emptyCheck,
                                     onTap: () =>
                                         AppHelpers.showCustomModalBottomSheet(
-                                      paddingTop: MediaQuery.paddingOf(
-                                            context,
-                                          ).top +
-                                          300.h,
-                                      context: context,
-                                      modal: const EditAddonUnitsModal(),
-                                      isDarkMode: false,
-                                    ),
+                                          paddingTop:
+                                              MediaQuery.paddingOf(
+                                                context,
+                                              ).top +
+                                              300.h,
+                                          context: context,
+                                          modal: const EditAddonUnitsModal(),
+                                          isDarkMode: false,
+                                        ),
                                   ),
                                   24.verticalSpace,
                                   UnderlinedTextField(
@@ -135,8 +136,8 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                           validator: AppValidators.emptyCheck,
                                           initialText:
                                               AppHelpers.getInitialAddonPrice(
-                                            widget.addon,
-                                          ),
+                                                widget.addon,
+                                              ),
                                         ),
                                       ),
                                       10.horizontalSpace,
@@ -148,10 +149,10 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                           textInputAction: TextInputAction.next,
                                           onChanged: event.setQuantity,
                                           validator: AppValidators.emptyCheck,
-                                          initialText: AppHelpers
-                                              .getInitialAddonQuantity(
-                                            widget.addon,
-                                          ),
+                                          initialText:
+                                              AppHelpers.getInitialAddonQuantity(
+                                                widget.addon,
+                                              ),
                                         ),
                                       ),
                                     ],

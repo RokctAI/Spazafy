@@ -51,20 +51,21 @@ class CategoriesTabBar extends StatelessWidget {
                     ),
                   )
                 : (index == 1
-                    ? CategoryTabBarItem(
-                        title: AppHelpers.getTranslation(TrKeys.popular),
-                        isActive: activeIndex == 1,
-                        onTap: () {
-                          onChangeTab(1);
-                        },
-                      )
-                    : CategoryTabBarItem(
-                        title: categories[index - 2].translation?.title ?? '--',
-                        isActive: activeIndex == index,
-                        onTap: () {
-                          onChangeTab(index);
-                        },
-                      ));
+                      ? CategoryTabBarItem(
+                          title: AppHelpers.getTranslation(TrKeys.popular),
+                          isActive: activeIndex == 1,
+                          onTap: () {
+                            onChangeTab(1);
+                          },
+                        )
+                      : CategoryTabBarItem(
+                          title:
+                              categories[index - 2].translation?.title ?? '--',
+                          isActive: activeIndex == index,
+                          onTap: () {
+                            onChangeTab(index);
+                          },
+                        ));
           },
         ),
       ),

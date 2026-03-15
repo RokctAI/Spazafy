@@ -66,8 +66,9 @@ class FoodItem extends StatelessWidget {
                               ),
                         style: AppStyle.interSemi(
                           size: 14,
-                          color:
-                              isOutOfStock ? AppStyle.red : AppStyle.blackColor,
+                          color: isOutOfStock
+                              ? AppStyle.red
+                              : AppStyle.blackColor,
                           letterSpacing: -0.3,
                         ),
                       ),

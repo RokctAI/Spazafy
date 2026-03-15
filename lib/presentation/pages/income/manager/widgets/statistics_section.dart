@@ -88,8 +88,8 @@ class StatisticsSection extends StatelessWidget {
                             percentage: state.countData?.totalCount == 0
                                 ? 0
                                 : ((state.countData?.totalAcceptedCount ?? 0) /
-                                        (state.countData?.totalCount ?? 1)) *
-                                    100,
+                                          (state.countData?.totalCount ?? 1)) *
+                                      100,
                             bgColor: AppStyle.green,
                             textColor: AppStyle.white,
                             iconColor: AppStyle.white.withOpacity(0.54),
@@ -103,8 +103,8 @@ class StatisticsSection extends StatelessWidget {
                             percentage: state.countData?.totalCount == 0
                                 ? 0
                                 : ((state.countData?.totalCanceledCount ?? 0) /
-                                        (state.countData?.totalCount ?? 1)) *
-                                    100,
+                                          (state.countData?.totalCount ?? 1)) *
+                                      100,
                             bgColor: AppStyle.red,
                             textColor: AppStyle.white,
                             iconColor: AppStyle.white.withOpacity(0.54),
@@ -122,8 +122,8 @@ class StatisticsSection extends StatelessWidget {
                             percentage: state.countData?.totalCount == 0
                                 ? 0
                                 : ((state.countData?.totalDeliveredCount ?? 0) /
-                                        (state.countData?.totalCount ?? 1)) *
-                                    100,
+                                          (state.countData?.totalCount ?? 1)) *
+                                      100,
                             bgColor: AppStyle.white,
                             textColor: AppStyle.blackColor,
                             iconColor: AppStyle.iconColor,
@@ -135,8 +135,8 @@ class StatisticsSection extends StatelessWidget {
                             percentage: state.countData?.totalCount == 0
                                 ? 0
                                 : ((state.countData?.totalNewCount ?? 0) /
-                                        (state.countData?.totalCount ?? 1)) *
-                                    100,
+                                          (state.countData?.totalCount ?? 1)) *
+                                      100,
                             bgColor: AppStyle.white,
                             textColor: AppStyle.blackColor,
                             iconColor: AppStyle.iconColor,

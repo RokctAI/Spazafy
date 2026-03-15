@@ -131,7 +131,8 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                               location: Coords(
                                                 parcel?.addressFrom?.latitude ??
                                                     0,
-                                                parcel?.addressFrom
+                                                parcel
+                                                        ?.addressFrom
                                                         ?.longitude ??
                                                     0,
                                               ),
@@ -214,7 +215,8 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
-                                    width: MediaQuery.sizeOf(context).width -
+                                    width:
+                                        MediaQuery.sizeOf(context).width -
                                         190.w,
                                     child: Text(
                                       parcel?.addressTo?.address ?? "",
@@ -251,14 +253,14 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                             horizontal: 6.w,
                                           ),
                                           onPressed: () {
-                                            AppHelpers
-                                                .showCustomModalBottomSheet(
+                                            AppHelpers.showCustomModalBottomSheet(
                                               context: context,
                                               modal: MapsList(
                                                 location: Coords(
                                                   parcel?.addressTo?.latitude ??
                                                       0,
-                                                  parcel?.addressTo
+                                                  parcel
+                                                          ?.addressTo
                                                           ?.longitude ??
                                                       0,
                                                 ),
@@ -347,7 +349,9 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                             child: ApproveOrderDialog(parcel: parcel),
                           );
                         } else {
-                          ref.read(homeProvider.notifier).deliveredFinishParcel(
+                          ref
+                              .read(homeProvider.notifier)
+                              .deliveredFinishParcel(
                                 context: context,
                                 parcelId: parcel?.id,
                               );

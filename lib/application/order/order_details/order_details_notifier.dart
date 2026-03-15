@@ -10,7 +10,7 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
   final OrdersInterface _ordersRepository;
 
   OrderDetailsNotifier(this._ordersRepository)
-      : super(const OrderDetailsState());
+    : super(const OrderDetailsState());
 
   Future<void> updateOrderStatus(
     BuildContext context, {

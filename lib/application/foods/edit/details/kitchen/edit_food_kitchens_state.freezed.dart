@@ -48,8 +48,10 @@ abstract class $EditFoodKitchensStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EditFoodKitchensStateCopyWithImpl<$Res,
-        $Val extends EditFoodKitchensState>
+class _$EditFoodKitchensStateCopyWithImpl<
+  $Res,
+  $Val extends EditFoodKitchensState
+>
     implements $EditFoodKitchensStateCopyWith<$Res> {
   _$EditFoodKitchensStateCopyWithImpl(this._value, this._then);
 
@@ -71,27 +73,28 @@ class _$EditFoodKitchensStateCopyWithImpl<$Res,
   }) {
     return _then(
       _value.copyWith(
-        isLoading: null == isLoading
-            ? _value.isLoading
-            : isLoading // ignore: cast_nullable_to_non_nullable
-                as bool,
-        kitchens: null == kitchens
-            ? _value.kitchens
-            : kitchens // ignore: cast_nullable_to_non_nullable
-                as List<KitchenModel>,
-        activeIndex: null == activeIndex
-            ? _value.activeIndex
-            : activeIndex // ignore: cast_nullable_to_non_nullable
-                as int,
-        kitchenController: freezed == kitchenController
-            ? _value.kitchenController
-            : kitchenController // ignore: cast_nullable_to_non_nullable
-                as TextEditingController?,
-        foodKitchen: freezed == foodKitchen
-            ? _value.foodKitchen
-            : foodKitchen // ignore: cast_nullable_to_non_nullable
-                as KitchenModel?,
-      ) as $Val,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            kitchens: null == kitchens
+                ? _value.kitchens
+                : kitchens // ignore: cast_nullable_to_non_nullable
+                      as List<KitchenModel>,
+            activeIndex: null == activeIndex
+                ? _value.activeIndex
+                : activeIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            kitchenController: freezed == kitchenController
+                ? _value.kitchenController
+                : kitchenController // ignore: cast_nullable_to_non_nullable
+                      as TextEditingController?,
+            foodKitchen: freezed == foodKitchen
+                ? _value.foodKitchen
+                : foodKitchen // ignore: cast_nullable_to_non_nullable
+                      as KitchenModel?,
+          )
+          as $Val,
     );
   }
 }
@@ -116,8 +119,8 @@ abstract class _$$EditFoodKitchensStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$EditFoodKitchensStateImplCopyWithImpl<$Res>
-    extends _$EditFoodKitchensStateCopyWithImpl<$Res,
-        _$EditFoodKitchensStateImpl>
+    extends
+        _$EditFoodKitchensStateCopyWithImpl<$Res, _$EditFoodKitchensStateImpl>
     implements _$$EditFoodKitchensStateImplCopyWith<$Res> {
   __$$EditFoodKitchensStateImplCopyWithImpl(
     _$EditFoodKitchensStateImpl _value,
@@ -140,23 +143,23 @@ class __$$EditFoodKitchensStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                as bool,
+                  as bool,
         kitchens: null == kitchens
             ? _value._kitchens
             : kitchens // ignore: cast_nullable_to_non_nullable
-                as List<KitchenModel>,
+                  as List<KitchenModel>,
         activeIndex: null == activeIndex
             ? _value.activeIndex
             : activeIndex // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
         kitchenController: freezed == kitchenController
             ? _value.kitchenController
             : kitchenController // ignore: cast_nullable_to_non_nullable
-                as TextEditingController?,
+                  as TextEditingController?,
         foodKitchen: freezed == foodKitchen
             ? _value.foodKitchen
             : foodKitchen // ignore: cast_nullable_to_non_nullable
-                as KitchenModel?,
+                  as KitchenModel?,
       ),
     );
   }
@@ -171,8 +174,8 @@ class _$EditFoodKitchensStateImpl extends _EditFoodKitchensState {
     this.activeIndex = 0,
     this.kitchenController,
     this.foodKitchen,
-  })  : _kitchens = kitchens,
-        super._();
+  }) : _kitchens = kitchens,
+       super._();
 
   @override
   @JsonKey()
@@ -217,13 +220,13 @@ class _$EditFoodKitchensStateImpl extends _EditFoodKitchensState {
 
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        isLoading,
-        const DeepCollectionEquality().hash(_kitchens),
-        activeIndex,
-        kitchenController,
-        foodKitchen,
-      );
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_kitchens),
+    activeIndex,
+    kitchenController,
+    foodKitchen,
+  );
 
   /// Create a copy of EditFoodKitchensState
   /// with the given fields replaced by the non-null parameter values.
@@ -231,11 +234,11 @@ class _$EditFoodKitchensStateImpl extends _EditFoodKitchensState {
   @override
   @pragma('vm:prefer-inline')
   _$$EditFoodKitchensStateImplCopyWith<_$EditFoodKitchensStateImpl>
-      get copyWith => __$$EditFoodKitchensStateImplCopyWithImpl<
-              _$EditFoodKitchensStateImpl>(
-            this,
-            _$identity,
-          );
+  get copyWith =>
+      __$$EditFoodKitchensStateImplCopyWithImpl<_$EditFoodKitchensStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
 abstract class _EditFoodKitchensState extends EditFoodKitchensState {
@@ -264,5 +267,5 @@ abstract class _EditFoodKitchensState extends EditFoodKitchensState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditFoodKitchensStateImplCopyWith<_$EditFoodKitchensStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

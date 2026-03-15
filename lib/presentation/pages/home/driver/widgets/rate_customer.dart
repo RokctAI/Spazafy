@@ -73,14 +73,18 @@ class _RateCustomerState extends State<RateCustomer> {
                 onPressed: () {
                   Navigator.pop(context);
                   if (widget.order == null) {
-                    ref.read(homeProvider.notifier).addReviewParcel(
+                    ref
+                        .read(homeProvider.notifier)
+                        .addReviewParcel(
                           context: context,
                           parcelId: widget.parcel?.id,
                           rating: rate,
                           comment: note,
                         );
                   } else {
-                    ref.read(homeProvider.notifier).addReview(
+                    ref
+                        .read(homeProvider.notifier)
+                        .addReview(
                           context: context,
                           orderId: widget.order?.id,
                           rating: rate,
@@ -125,7 +129,9 @@ class _RateCustomerState extends State<RateCustomer> {
                   ? AppHelpers.getTranslation(TrKeys.noteAboutClient)
                   : note,
               style: AppStyle.interRegular(
-                  size: 13.sp, color: AppStyle.blackColor),
+                size: 13.sp,
+                color: AppStyle.blackColor,
+              ),
             ),
           ],
         ),

@@ -14,7 +14,8 @@ class FoodPriceWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isOutOfStock = stock?.quantity == null ||
+    final bool isOutOfStock =
+        stock?.quantity == null ||
         (stock?.quantity ?? 0) < (product.minQty ?? 0);
     final bool hasDiscount = isOutOfStock
         ? false
@@ -29,68 +30,68 @@ class FoodPriceWidget extends StatelessWidget {
             ),
           )
         : (hasDiscount
-            ? Row(
-                children: [
-                  Text(
-                    AppHelpers.numberFormat(
-                      (stock?.price ?? 0) + (stock?.tax ?? 0),
+              ? Row(
+                  children: [
+                    Text(
+                      AppHelpers.numberFormat(
+                        (stock?.price ?? 0) + (stock?.tax ?? 0),
+                      ),
+                      style: AppStyle.interSemi(
+                        size: 14,
+                        color: AppStyle.blackColor,
+                        letterSpacing: -0.3,
+                        decoration: TextDecoration.lineThrough,
+                      ),
                     ),
-                    style: AppStyle.interSemi(
-                      size: 14,
-                      color: AppStyle.blackColor,
-                      letterSpacing: -0.3,
-                      decoration: TextDecoration.lineThrough,
+                    10.horizontalSpace,
+                    Container(
+                      padding: REdgeInsets.only(
+                        top: 4,
+                        bottom: 4,
+                        left: 4,
+                        right: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.r),
+                        color: AppStyle.bgColor,
+                      ),
+                      alignment: Alignment.center,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 20.r,
+                            height: 20.r,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppStyle.red,
+                            ),
+                            child: Icon(
+                              FlutterRemix.percent_fill,
+                              size: 12.r,
+                              color: AppStyle.white,
+                            ),
+                          ),
+                          8.horizontalSpace,
+                          Text(
+                            AppHelpers.numberFormat(stock?.totalPrice ?? 0),
+                            style: AppStyle.interSemi(
+                              size: 14,
+                              color: AppStyle.blackColor,
+                              letterSpacing: -0.3,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
+                  ],
+                )
+              : Text(
+                  AppHelpers.numberFormat(stock?.totalPrice ?? 0),
+                  style: AppStyle.interSemi(
+                    size: 14,
+                    color: AppStyle.blackColor,
+                    letterSpacing: -0.3,
                   ),
-                  10.horizontalSpace,
-                  Container(
-                    padding: REdgeInsets.only(
-                      top: 4,
-                      bottom: 4,
-                      left: 4,
-                      right: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30.r),
-                      color: AppStyle.bgColor,
-                    ),
-                    alignment: Alignment.center,
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 20.r,
-                          height: 20.r,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppStyle.red,
-                          ),
-                          child: Icon(
-                            FlutterRemix.percent_fill,
-                            size: 12.r,
-                            color: AppStyle.white,
-                          ),
-                        ),
-                        8.horizontalSpace,
-                        Text(
-                          AppHelpers.numberFormat(stock?.totalPrice ?? 0),
-                          style: AppStyle.interSemi(
-                            size: 14,
-                            color: AppStyle.blackColor,
-                            letterSpacing: -0.3,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              )
-            : Text(
-                AppHelpers.numberFormat(stock?.totalPrice ?? 0),
-                style: AppStyle.interSemi(
-                  size: 14,
-                  color: AppStyle.blackColor,
-                  letterSpacing: -0.3,
-                ),
-              ));
+                ));
   }
 }

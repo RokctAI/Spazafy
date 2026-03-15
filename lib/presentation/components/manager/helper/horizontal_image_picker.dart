@@ -149,7 +149,8 @@ class HorizontalImagePicker extends StatelessWidget {
                               ),
                               child: Icon(
                                 FlutterRemix.image_add_fill,
-                                color: (!isAdding &&
+                                color:
+                                    (!isAdding &&
                                         imageUrl == null &&
                                         imageFilePath == null)
                                     ? AppStyle.blackColor

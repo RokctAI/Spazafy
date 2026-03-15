@@ -22,7 +22,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
   final DrawFacade _drawRouting;
 
   ParcelNotifier(this._parcelRepository, this._drawRouting)
-      : super(const ParcelState());
+    : super(const ParcelState());
 
   // Pagination for driver orders
   int activeOrderPage = 1;
@@ -164,7 +164,9 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       response.when(
         success: (data) {
           state = state.copyWith(
-              activeOrders: data.data ?? [], isActiveLoading: false);
+            activeOrders: data.data ?? [],
+            isActiveLoading: false,
+          );
         },
         failure: (failure, status) {
           state = state.copyWith(isActiveLoading: false);

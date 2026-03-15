@@ -53,11 +53,12 @@ class _$CreateOrderStateCopyWithImpl<$Res, $Val extends CreateOrderState>
   $Res call({Object? isCreating = null}) {
     return _then(
       _value.copyWith(
-        isCreating: null == isCreating
-            ? _value.isCreating
-            : isCreating // ignore: cast_nullable_to_non_nullable
-                as bool,
-      ) as $Val,
+            isCreating: null == isCreating
+                ? _value.isCreating
+                : isCreating // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
     );
   }
 }
@@ -93,7 +94,7 @@ class __$$CreateOrderStateImplCopyWithImpl<$Res>
         isCreating: null == isCreating
             ? _value.isCreating
             : isCreating // ignore: cast_nullable_to_non_nullable
-                as bool,
+                  as bool,
       ),
     );
   }

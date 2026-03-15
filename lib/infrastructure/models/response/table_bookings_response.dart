@@ -20,6 +20,6 @@ class TableBookingResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-      };
+    "data": List<dynamic>.from(data.map((x) => x.toJson())),
+  };
 }

@@ -81,7 +81,7 @@ class AuthRepository implements AuthFacade {
             'email': email,
             'name': displayName,
             'id': id,
-            'avatar': avatar
+            'avatar': avatar,
           },
         );
         return ApiResult.success(data: LoginResponse.fromJson(response.data));
@@ -107,7 +107,8 @@ class AuthRepository implements AuthFacade {
         final client = dioHttp.client(requireAuth: false);
         final response = await client.post('/api/v1/auth/register', data: data);
         return ApiResult.success(
-            data: RegisterResponse.fromJson(response.data));
+          data: RegisterResponse.fromJson(response.data),
+        );
       } catch (e2) {
         return ApiResult.failure(error: AppHelpers.errorHandler(e2));
       }
@@ -126,7 +127,8 @@ class AuthRepository implements AuthFacade {
         data: {"phone": verifyId, "otp": verifyCode},
       );
       return ApiResult.success(
-          data: VerifyPhoneResponse.fromJson(response.data));
+        data: VerifyPhoneResponse.fromJson(response.data),
+      );
     } catch (e) {
       // Fallback to V1
       try {
@@ -136,7 +138,8 @@ class AuthRepository implements AuthFacade {
           data: {"verifyId": verifyId, "verifyCode": verifyCode},
         );
         return ApiResult.success(
-            data: VerifyPhoneResponse.fromJson(response.data));
+          data: VerifyPhoneResponse.fromJson(response.data),
+        );
       } catch (e2) {
         return ApiResult.failure(error: AppHelpers.errorHandler(e2));
       }
@@ -144,8 +147,9 @@ class AuthRepository implements AuthFacade {
   }
 
   @override
-  Future<ApiResult<VerifyPhoneResponse>> verifyEmail(
-      {required String verifyCode}) async {
+  Future<ApiResult<VerifyPhoneResponse>> verifyEmail({
+    required String verifyCode,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
@@ -153,14 +157,16 @@ class AuthRepository implements AuthFacade {
         queryParameters: {'token': verifyCode},
       );
       return ApiResult.success(
-          data: VerifyPhoneResponse.fromJson(response.data));
+        data: VerifyPhoneResponse.fromJson(response.data),
+      );
     } catch (e) {
       // Fallback to V1
       try {
         final client = dioHttp.client(requireAuth: false);
         final response = await client.get('/api/v1/auth/verify/$verifyCode');
         return ApiResult.success(
-            data: VerifyPhoneResponse.fromJson(response.data));
+          data: VerifyPhoneResponse.fromJson(response.data),
+        );
       } catch (e2) {
         return ApiResult.failure(error: AppHelpers.errorHandler(e2));
       }
@@ -168,8 +174,9 @@ class AuthRepository implements AuthFacade {
   }
 
   @override
-  Future<ApiResult<RegisterResponse>> forgotPassword(
-      {required String email}) async {
+  Future<ApiResult<RegisterResponse>> forgotPassword({
+    required String email,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
@@ -188,7 +195,8 @@ class AuthRepository implements AuthFacade {
           queryParameters: {'email': email, 'phone': email.replaceAll('+', "")},
         );
         return ApiResult.success(
-            data: RegisterResponse.fromJson(response.data));
+          data: RegisterResponse.fromJson(response.data),
+        );
       } catch (e2) {
         return ApiResult.failure(error: AppHelpers.errorHandler(e2));
       }
@@ -207,15 +215,18 @@ class AuthRepository implements AuthFacade {
         data: {'verify_code': verifyCode, 'email': email},
       );
       return ApiResult.success(
-          data: VerifyData.fromJson(response.data['data'] ?? response.data));
+        data: VerifyData.fromJson(response.data['data'] ?? response.data),
+      );
     } catch (e) {
       // Fallback to V1
       try {
         final client = dioHttp.client(requireAuth: false);
         final response = await client.post(
-            '/api/v1/auth/forgot/email-password/$verifyCode?email=$email');
+          '/api/v1/auth/forgot/email-password/$verifyCode?email=$email',
+        );
         return ApiResult.success(
-            data: VerifyData.fromJson(response.data["data"]));
+          data: VerifyData.fromJson(response.data["data"]),
+        );
       } catch (e2) {
         return ApiResult.failure(error: AppHelpers.errorHandler(e2));
       }
@@ -223,8 +234,9 @@ class AuthRepository implements AuthFacade {
   }
 
   @override
-  Future<ApiResult<VerifyData>> forgotPasswordConfirmWithPhone(
-      {required String phone}) async {
+  Future<ApiResult<VerifyData>> forgotPasswordConfirmWithPhone({
+    required String phone,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
@@ -232,7 +244,8 @@ class AuthRepository implements AuthFacade {
         data: {"phone": phone.replaceAll('+', ""), "type": "firebase"},
       );
       return ApiResult.success(
-          data: VerifyData.fromJson(response.data["data"]));
+        data: VerifyData.fromJson(response.data["data"]),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
@@ -247,13 +260,16 @@ class AuthRepository implements AuthFacade {
         data: user.toJsonForSignUp(),
       );
       return ApiResult.success(
-          data: VerifyData.fromJson(res.data['data'] ?? res.data));
+        data: VerifyData.fromJson(res.data['data'] ?? res.data),
+      );
     } catch (e) {
       // Fallback to V1
       try {
         final client = dioHttp.client(requireAuth: false);
-        var res = await client.post('/api/v1/auth/after-verify',
-            data: user.toJsonForSignUp());
+        var res = await client.post(
+          '/api/v1/auth/after-verify',
+          data: user.toJsonForSignUp(),
+        );
         return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
       } catch (e2) {
         return ApiResult.failure(error: AppHelpers.errorHandler(e2));
@@ -262,8 +278,9 @@ class AuthRepository implements AuthFacade {
   }
 
   @override
-  Future<ApiResult<VerifyData>> sigUpWithPhone(
-      {required UserModel user}) async {
+  Future<ApiResult<VerifyData>> sigUpWithPhone({
+    required UserModel user,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
@@ -271,13 +288,16 @@ class AuthRepository implements AuthFacade {
         data: user.toJsonForSignUp(),
       );
       return ApiResult.success(
-          data: VerifyData.fromJson(response.data['data'] ?? response.data));
+        data: VerifyData.fromJson(response.data['data'] ?? response.data),
+      );
     } catch (e) {
       // Fallback to V1
       try {
         final client = dioHttp.client(requireAuth: false);
-        var res = await client.post('/api/v1/auth/verify/phone',
-            data: user.toJsonForSignUp(typeFirebase: true));
+        var res = await client.post(
+          '/api/v1/auth/verify/phone',
+          data: user.toJsonForSignUp(typeFirebase: true),
+        );
         return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
       } catch (e2) {
         return ApiResult.failure(error: AppHelpers.errorHandler(e2));
@@ -298,8 +318,10 @@ class AuthRepository implements AuthFacade {
       // Fallback to V1
       try {
         final client = dioHttp.client(requireAuth: false);
-        await client
-            .post('/api/v1/auth/register', queryParameters: {'email': email});
+        await client.post(
+          '/api/v1/auth/register',
+          queryParameters: {'email': email},
+        );
         return const ApiResult.success(data: null);
       } catch (e2) {
         return ApiResult.failure(error: AppHelpers.errorHandler(e2));
@@ -308,15 +330,19 @@ class AuthRepository implements AuthFacade {
   }
 
   @override
-  Future<ApiResult<CheckPhoneResponse>> checkPhone(
-      {required String phone}) async {
+  Future<ApiResult<CheckPhoneResponse>> checkPhone({
+    required String phone,
+  }) async {
     final data = {'phone': phone.replaceAll("+", "")};
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response =
-          await client.post('/api/v1/auth/check/phone', queryParameters: data);
+      final response = await client.post(
+        '/api/v1/auth/check/phone',
+        queryParameters: data,
+      );
       return ApiResult.success(
-          data: CheckPhoneResponse.fromJson(response.data));
+        data: CheckPhoneResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }

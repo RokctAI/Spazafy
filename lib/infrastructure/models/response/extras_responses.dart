@@ -30,13 +30,12 @@ class SingleExtrasGroupResponse {
     bool? status,
     String? message,
     Group? data,
-  }) =>
-      SingleExtrasGroupResponse(
-        timestamp: timestamp ?? _timestamp,
-        status: status ?? _status,
-        message: message ?? _message,
-        data: data ?? _data,
-      );
+  }) => SingleExtrasGroupResponse(
+    timestamp: timestamp ?? _timestamp,
+    status: status ?? _status,
+    message: message ?? _message,
+    data: data ?? _data,
+  );
 
   dynamic get timestamp => _timestamp;
   bool? get status => _status;
@@ -85,13 +84,12 @@ class CreateGroupExtrasResponse {
     bool? status,
     String? message,
     Extras? data,
-  }) =>
-      CreateGroupExtrasResponse(
-        timestamp: timestamp ?? _timestamp,
-        status: status ?? _status,
-        message: message ?? _message,
-        data: data ?? _data,
-      );
+  }) => CreateGroupExtrasResponse(
+    timestamp: timestamp ?? _timestamp,
+    status: status ?? _status,
+    message: message ?? _message,
+    data: data ?? _data,
+  );
 
   dynamic get timestamp => _timestamp;
   bool? get status => _status;

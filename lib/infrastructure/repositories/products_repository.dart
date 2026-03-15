@@ -41,23 +41,26 @@ class ProductsRepository implements ProductsFacade {
 
   @override
   Future<ApiResult<SingleProductResponse>> getProductDetails(
-      String uuid) async {
+    String uuid,
+  ) async {
     // Note: Manager uses dashboard/seller, Customer uses paas.api
     // We favor the more comprehensive one if authorized
     try {
-      final client =
-          dioHttp.client(requireAuth: LocalStorage.getToken().isNotEmpty);
+      final client = dioHttp.client(
+        requireAuth: LocalStorage.getToken().isNotEmpty,
+      );
       final response = await client.get(
         LocalStorage.getToken().isNotEmpty
             ? '/api/v1/dashboard/seller/products/$uuid'
             : '/api/method/paas.api.product.product.get_product_by_uuid',
         queryParameters: {
           'uuid': uuid,
-          'lang': LocalStorage.getLanguage()?.locale
+          'lang': LocalStorage.getLanguage()?.locale,
         },
       );
       return ApiResult.success(
-          data: SingleProductResponse.fromJson(response.data));
+        data: SingleProductResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -89,7 +92,8 @@ class ProductsRepository implements ProductsFacade {
         queryParameters: params,
       );
       return ApiResult.success(
-          data: ProductsPaginateResponse.fromJson(response.data));
+        data: ProductsPaginateResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -99,8 +103,9 @@ class ProductsRepository implements ProductsFacade {
   }
 
   @override
-  Future<ApiResult<AllProductsResponse>> getAllProducts(
-      {required String shopId}) async {
+  Future<ApiResult<AllProductsResponse>> getAllProducts({
+    required String shopId,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
@@ -108,7 +113,8 @@ class ProductsRepository implements ProductsFacade {
         queryParameters: {'shop_id': shopId, 'limit_page_length': 100},
       );
       return ApiResult.success(
-          data: AllProductsResponse.fromJson(response.data));
+        data: AllProductsResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -216,7 +222,7 @@ class ProductsRepository implements ProductsFacade {
     final data = {
       'title': {LocalStorage.getSystemLanguage()?.locale ?? 'en': title},
       'description': {
-        LocalStorage.getSystemLanguage()?.locale ?? 'en': description
+        LocalStorage.getSystemLanguage()?.locale ?? 'en': description,
       },
       'tax': num.tryParse(tax),
       'interval': num.tryParse(interval),
@@ -234,10 +240,13 @@ class ProductsRepository implements ProductsFacade {
     };
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response =
-          await client.post('/api/v1/dashboard/seller/products', data: data);
+      final response = await client.post(
+        '/api/v1/dashboard/seller/products',
+        data: data,
+      );
       return ApiResult.success(
-          data: SingleProductResponse.fromJson(response.data));
+        data: SingleProductResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -265,11 +274,11 @@ class ProductsRepository implements ProductsFacade {
     final data = {
       'title': {
         for (var k in titlesAndDescriptions.keys)
-          k: titlesAndDescriptions[k]?.first ?? ""
+          k: titlesAndDescriptions[k]?.first ?? "",
       },
       'description': {
         for (var k in titlesAndDescriptions.keys)
-          k: titlesAndDescriptions[k]?.last ?? ""
+          k: titlesAndDescriptions[k]?.last ?? "",
       },
       'tax': num.tryParse(tax),
       'interval': num.tryParse(interval),
@@ -285,10 +294,13 @@ class ProductsRepository implements ProductsFacade {
     };
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client
-          .put('/api/v1/dashboard/seller/products/$uuid', data: data);
+      final response = await client.put(
+        '/api/v1/dashboard/seller/products/$uuid',
+        data: data,
+      );
       return ApiResult.success(
-          data: SingleProductResponse.fromJson(response.data));
+        data: SingleProductResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -300,19 +312,23 @@ class ProductsRepository implements ProductsFacade {
   // --- Extras Management (Manager) ---
 
   @override
-  Future<ApiResult<ExtrasGroupsResponse>> getExtrasGroups(
-      {bool needOnlyValid = true}) async {
+  Future<ApiResult<ExtrasGroupsResponse>> getExtrasGroups({
+    bool needOnlyValid = true,
+  }) async {
     final params = {
       'lang': LocalStorage.getLanguage()?.locale,
       if (needOnlyValid) 'valid': true,
-      'perPage': 50
+      'perPage': 50,
     };
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get('/api/v1/dashboard/seller/extra/groups',
-          queryParameters: params);
+      final response = await client.get(
+        '/api/v1/dashboard/seller/extra/groups',
+        queryParameters: params,
+      );
       return ApiResult.success(
-          data: ExtrasGroupsResponse.fromJson(response.data));
+        data: ExtrasGroupsResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -322,19 +338,23 @@ class ProductsRepository implements ProductsFacade {
   }
 
   @override
-  Future<ApiResult<SingleExtrasGroupResponse>> createExtrasGroup(
-      {required String title}) async {
+  Future<ApiResult<SingleExtrasGroupResponse>> createExtrasGroup({
+    required String title,
+  }) async {
     final data = {
       'title': {LocalStorage.getSystemLanguage()?.locale ?? 'en': title},
       'active': 1,
-      'type': 'text'
+      'type': 'text',
     };
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client
-          .post('/api/v1/dashboard/seller/extra/groups', data: data);
+      final response = await client.post(
+        '/api/v1/dashboard/seller/extra/groups',
+        data: data,
+      );
       return ApiResult.success(
-          data: SingleExtrasGroupResponse.fromJson(response.data));
+        data: SingleExtrasGroupResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -347,10 +367,12 @@ class ProductsRepository implements ProductsFacade {
   Future<ApiResult<void>> deleteExtrasGroup({String? groupId}) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client
-          .delete('/api/v1/dashboard/seller/extra/groups/delete', data: {
-        'ids': [groupId]
-      });
+      await client.delete(
+        '/api/v1/dashboard/seller/extra/groups/delete',
+        data: {
+          'ids': [groupId],
+        },
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(
@@ -361,15 +383,19 @@ class ProductsRepository implements ProductsFacade {
   }
 
   @override
-  Future<ApiResult<CreateGroupExtrasResponse>> createExtrasItem(
-      {required String? groupId, required String title}) async {
+  Future<ApiResult<CreateGroupExtrasResponse>> createExtrasItem({
+    required String? groupId,
+    required String title,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-          '/api/v1/dashboard/seller/extra/values',
-          data: {'value': title, 'extra_group_id': groupId});
+        '/api/v1/dashboard/seller/extra/values',
+        data: {'value': title, 'extra_group_id': groupId},
+      );
       return ApiResult.success(
-          data: CreateGroupExtrasResponse.fromJson(response.data));
+        data: CreateGroupExtrasResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -382,17 +408,20 @@ class ProductsRepository implements ProductsFacade {
 
   @override
   Future<ApiResult<ProductCalculateResponse>> getAllCalculations(
-      List<CartProductData> cartProducts) async {
+    List<CartProductData> cartProducts,
+  ) async {
     final products = cartProducts
         .map((p) => {'product_id': p.selectedStock?.id, 'quantity': p.quantity})
         .toList();
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-          '/api/method/paas.api.product.product.order_products_calculate',
-          data: {'products': products});
+        '/api/method/paas.api.product.product.order_products_calculate',
+        data: {'products': products},
+      );
       return ApiResult.success(
-          data: ProductCalculateResponse.fromJson(response.data));
+        data: ProductCalculateResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -403,7 +432,8 @@ class ProductsRepository implements ProductsFacade {
 
   @override
   Future<ApiResult<CalculateResponse>> getProductsCalculation(
-      List<Stock> stocks) async {
+    List<Stock> stocks,
+  ) async {
     final data = {'currency_id': LocalStorage.getSelectedCurrency()?.id};
     for (int i = 0; i < stocks.length; i++) {
       data['products[$i][stock_id]'] = stocks[i].id;
@@ -412,8 +442,9 @@ class ProductsRepository implements ProductsFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-          '/api/v1/dashboard/seller/order/products/calculate',
-          queryParameters: data);
+        '/api/v1/dashboard/seller/order/products/calculate',
+        queryParameters: data,
+      );
       return ApiResult.success(data: CalculateResponse.fromJson(response.data));
     } catch (e) {
       return ApiResult.failure(
@@ -426,22 +457,28 @@ class ProductsRepository implements ProductsFacade {
   // --- Proxies & Helpers ---
 
   @override
-  Future<ApiResult<ProductsPaginateResponse>> getDiscountProducts(
-      {String? shopId, String? brandId, String? categoryId, int? page}) async {
+  Future<ApiResult<ProductsPaginateResponse>> getDiscountProducts({
+    String? shopId,
+    String? brandId,
+    String? categoryId,
+    int? page,
+  }) async {
     final params = {
       'limit_start': ((page ?? 1) - 1) * 14,
       'limit_page_length': 14,
       if (shopId != null) 'shop_id': shopId,
       if (categoryId != null) 'category_id': categoryId,
-      if (brandId != null) 'brand_id': brandId
+      if (brandId != null) 'brand_id': brandId,
     };
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-          '/api/method/paas.api.product.product.get_discounted_products',
-          queryParameters: params);
+        '/api/method/paas.api.product.product.get_discounted_products',
+        queryParameters: params,
+      );
       return ApiResult.success(
-          data: ProductsPaginateResponse.fromJson(response.data));
+        data: ProductsPaginateResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -451,49 +488,66 @@ class ProductsRepository implements ProductsFacade {
   }
 
   @override
-  Future<ApiResult<ProductsPaginateResponse>> getNewProducts(
-          {String? shopId, String? brandId, String? categoryId, int? page}) =>
-      getProductsPaginate(
-          shopId: shopId,
-          brandId: brandId,
-          categoryId: categoryId,
-          page: page ?? 1,
-          orderBy: 'created_at');
+  Future<ApiResult<ProductsPaginateResponse>> getNewProducts({
+    String? shopId,
+    String? brandId,
+    String? categoryId,
+    int? page,
+  }) => getProductsPaginate(
+    shopId: shopId,
+    brandId: brandId,
+    categoryId: categoryId,
+    page: page ?? 1,
+    orderBy: 'created_at',
+  );
 
   @override
-  Future<ApiResult<ProductsPaginateResponse>> getProfitableProducts(
-          {String? brandId, String? categoryId, int? page}) =>
-      getProductsPaginate(
-          brandId: brandId,
-          categoryId: categoryId,
-          page: page ?? 1,
-          orderBy: 'discount');
+  Future<ApiResult<ProductsPaginateResponse>> getProfitableProducts({
+    String? brandId,
+    String? categoryId,
+    int? page,
+  }) => getProductsPaginate(
+    brandId: brandId,
+    categoryId: categoryId,
+    page: page ?? 1,
+    orderBy: 'discount',
+  );
 
   @override
-  Future<ApiResult<ProductsPaginateResponse>> getMostSoldProducts(
-      {String? shopId, String? categoryId, String? brandId}) {
+  Future<ApiResult<ProductsPaginateResponse>> getMostSoldProducts({
+    String? shopId,
+    String? categoryId,
+    String? brandId,
+  }) {
     final params = {
       'limit_page_length': 14,
       if (shopId != null) 'shop_id': shopId,
       if (categoryId != null) 'category_id': categoryId,
-      if (brandId != null) 'brand_id': brandId
+      if (brandId != null) 'brand_id': brandId,
     };
     return searchProducts(
-        text: '', page: 1); // Proxy or implement correctly if API exists
+      text: '',
+      page: 1,
+    ); // Proxy or implement correctly if API exists
   }
 
   @override
-  Future<ApiResult<void>> addReview(String productUuid, String comment,
-      double rating, String? imageUrl) async {
+  Future<ApiResult<void>> addReview(
+    String productUuid,
+    String comment,
+    double rating,
+    String? imageUrl,
+  ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-          '/api/method/paas.api.product.product.add_product_review',
-          data: {
-            'uuid': productUuid,
-            'rating': rating,
-            if (comment.isNotEmpty) 'comment': comment
-          });
+        '/api/method/paas.api.product.product.add_product_review',
+        data: {
+          'uuid': productUuid,
+          'rating': rating,
+          if (comment.isNotEmpty) 'comment': comment,
+        },
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
@@ -501,11 +555,12 @@ class ProductsRepository implements ProductsFacade {
   }
 
   @override
-  Future<ApiResult<SingleProductResponse>> updateStocks(
-      {required List<Stock> stocks,
-      required List<String?> deletedStocks,
-      String? uuid,
-      bool isAddon = false}) async {
+  Future<ApiResult<SingleProductResponse>> updateStocks({
+    required List<Stock> stocks,
+    required List<String?> deletedStocks,
+    String? uuid,
+    bool isAddon = false,
+  }) async {
     final List<Map<String, dynamic>> extras = [];
     for (final stock in stocks) {
       extras.add({
@@ -518,14 +573,17 @@ class ProductsRepository implements ProductsFacade {
     }
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client
-          .post('/api/v1/dashboard/seller/products/$uuid/stocks', data: {
-        'extras': extras,
-        if (isAddon) 'addon': 1,
-        if (deletedStocks.isNotEmpty) 'delete_ids': deletedStocks
-      });
+      final response = await client.post(
+        '/api/v1/dashboard/seller/products/$uuid/stocks',
+        data: {
+          'extras': extras,
+          if (isAddon) 'addon': 1,
+          if (deletedStocks.isNotEmpty) 'delete_ids': deletedStocks,
+        },
+      );
       return ApiResult.success(
-          data: SingleProductResponse.fromJson(response.data));
+        data: SingleProductResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
@@ -533,14 +591,17 @@ class ProductsRepository implements ProductsFacade {
 
   @override
   Future<ApiResult<ProductsPaginateResponse>> getProductsByIds(
-      List<String> ids) async {
+    List<String> ids,
+  ) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-          '/api/method/paas.api.product.product.get_products_by_ids',
-          queryParameters: {'ids': ids});
+        '/api/method/paas.api.product.product.get_products_by_ids',
+        queryParameters: {'ids': ids},
+      );
       return ApiResult.success(
-          data: ProductsPaginateResponse.fromJson(response.data));
+        data: ProductsPaginateResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }

@@ -35,7 +35,7 @@ abstract class ProductsFacade {
   });
 
   Future<ApiResult<ProductsPaginateResponse>>
-      getProductsShopByCategoryPaginate({
+  getProductsShopByCategoryPaginate({
     String? shopId,
     List<String>? brands,
     int? sortIndex,

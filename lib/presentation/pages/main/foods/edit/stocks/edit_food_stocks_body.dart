@@ -90,16 +90,17 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                             event.setQuantity(value: value, index: index),
                         onAddonTap: (context) =>
                             AppHelpers.showCustomModalBottomSheet(
-                          paddingTop: MediaQuery.paddingOf(context).top + 150,
-                          context: context,
-                          radius: 12,
-                          modal: EditFoodAddonsModal(
-                            stock: state.stocks[index],
-                            onSave: (addons) =>
-                                event.setStockAddons(addons, index),
-                          ),
-                          isDarkMode: true,
-                        ),
+                              paddingTop:
+                                  MediaQuery.paddingOf(context).top + 150,
+                              context: context,
+                              radius: 12,
+                              modal: EditFoodAddonsModal(
+                                stock: state.stocks[index],
+                                onSave: (addons) =>
+                                    event.setStockAddons(addons, index),
+                              ),
+                              isDarkMode: true,
+                            ),
                         onSkuChange: (value) =>
                             event.setSku(value: value, index: index),
                         onCostPriceChange: (value) =>
@@ -125,8 +126,9 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                             categoryId: categoriesState.activeIndex == 1
                                 ? null
                                 : categoriesState
-                                    .categories[categoriesState.activeIndex - 2]
-                                    .id,
+                                      .categories[categoriesState.activeIndex -
+                                          2]
+                                      .id,
                           );
                           AppHelpers.showCheckTopSnackBar(
                             context,

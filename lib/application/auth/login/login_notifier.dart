@@ -292,14 +292,18 @@ class LoginNotifier extends StateNotifier<LoginState> {
           LocalStorage.setToken(data.data?.accessToken ?? '');
           LocalStorage.setAddressSelected(
             AddressData(
-              title: data.data?.user?.addresses?.firstWhere(
-                    (element) => element.active ?? false,
-                    orElse: () {
-                      return AddressNewModel();
-                    },
-                  ).title ??
+              title:
+                  data.data?.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .title ??
                   "",
-              address: data.data?.user?.addresses
+              address:
+                  data.data?.user?.addresses
                       ?.firstWhere(
                         (element) => element.active ?? false,
                         orElse: () {
@@ -379,15 +383,15 @@ class LoginNotifier extends StateNotifier<LoginState> {
         final rawNonce = AppHelpers.generateNonce();
         final OAuthCredential credential =
             user.accessToken?.type == AccessTokenType.limited
-                ? OAuthCredential(
-                    providerId: 'facebook.com',
-                    signInMethod: 'oauth',
-                    idToken: user.accessToken!.tokenString,
-                    rawNonce: rawNonce,
-                  )
-                : FacebookAuthProvider.credential(
-                    user.accessToken?.tokenString ?? "",
-                  );
+            ? OAuthCredential(
+                providerId: 'facebook.com',
+                signInMethod: 'oauth',
+                idToken: user.accessToken!.tokenString,
+                rawNonce: rawNonce,
+              )
+            : FacebookAuthProvider.credential(
+                user.accessToken?.tokenString ?? "",
+              );
 
         final userObj = await FirebaseAuth.instance.signInWithCredential(
           credential,
@@ -406,14 +410,18 @@ class LoginNotifier extends StateNotifier<LoginState> {
               LocalStorage.setToken(data.data?.accessToken ?? '');
               LocalStorage.setAddressSelected(
                 AddressData(
-                  title: data.data?.user?.addresses?.firstWhere(
-                        (element) => element.active ?? false,
-                        orElse: () {
-                          return AddressNewModel();
-                        },
-                      ).title ??
+                  title:
+                      data.data?.user?.addresses
+                          ?.firstWhere(
+                            (element) => element.active ?? false,
+                            orElse: () {
+                              return AddressNewModel();
+                            },
+                          )
+                          .title ??
                       "",
-                  address: data.data?.user?.addresses
+                  address:
+                      data.data?.user?.addresses
                           ?.firstWhere(
                             (element) => element.active ?? false,
                             orElse: () {
@@ -514,14 +522,18 @@ class LoginNotifier extends StateNotifier<LoginState> {
             LocalStorage.setToken(data.data?.accessToken ?? '');
             LocalStorage.setAddressSelected(
               AddressData(
-                title: data.data?.user?.addresses?.firstWhere(
-                      (element) => element.active ?? false,
-                      orElse: () {
-                        return AddressNewModel();
-                      },
-                    ).title ??
+                title:
+                    data.data?.user?.addresses
+                        ?.firstWhere(
+                          (element) => element.active ?? false,
+                          orElse: () {
+                            return AddressNewModel();
+                          },
+                        )
+                        .title ??
                     "",
-                address: data.data?.user?.addresses
+                address:
+                    data.data?.user?.addresses
                         ?.firstWhere(
                           (element) => element.active ?? false,
                           orElse: () {

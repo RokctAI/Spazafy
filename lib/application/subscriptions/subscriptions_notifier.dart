@@ -16,7 +16,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
   int _page = 0;
 
   SubscriptionNotifier(this._subscriptionRepository, this._paymentsRepo)
-      : super(const SubscriptionState());
+    : super(const SubscriptionState());
 
   Future<void> fetchSubscriptions({
     BuildContext? context,

@@ -54,15 +54,16 @@ class _$OrderCartStateCopyWithImpl<$Res, $Val extends OrderCartState>
   $Res call({Object? stocks = null, Object? totalPrice = null}) {
     return _then(
       _value.copyWith(
-        stocks: null == stocks
-            ? _value.stocks
-            : stocks // ignore: cast_nullable_to_non_nullable
-                as List<Stock>,
-        totalPrice: null == totalPrice
-            ? _value.totalPrice
-            : totalPrice // ignore: cast_nullable_to_non_nullable
-                as num,
-      ) as $Val,
+            stocks: null == stocks
+                ? _value.stocks
+                : stocks // ignore: cast_nullable_to_non_nullable
+                      as List<Stock>,
+            totalPrice: null == totalPrice
+                ? _value.totalPrice
+                : totalPrice // ignore: cast_nullable_to_non_nullable
+                      as num,
+          )
+          as $Val,
     );
   }
 }
@@ -98,11 +99,11 @@ class __$$OrderCartStateImplCopyWithImpl<$Res>
         stocks: null == stocks
             ? _value._stocks
             : stocks // ignore: cast_nullable_to_non_nullable
-                as List<Stock>,
+                  as List<Stock>,
         totalPrice: null == totalPrice
             ? _value.totalPrice
             : totalPrice // ignore: cast_nullable_to_non_nullable
-                as num,
+                  as num,
       ),
     );
   }
@@ -114,8 +115,8 @@ class _$OrderCartStateImpl extends _OrderCartState {
   const _$OrderCartStateImpl({
     final List<Stock> stocks = const [],
     this.totalPrice = 0,
-  })  : _stocks = stocks,
-        super._();
+  }) : _stocks = stocks,
+       super._();
 
   final List<Stock> _stocks;
   @override
@@ -147,10 +148,10 @@ class _$OrderCartStateImpl extends _OrderCartState {
 
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        const DeepCollectionEquality().hash(_stocks),
-        totalPrice,
-      );
+    runtimeType,
+    const DeepCollectionEquality().hash(_stocks),
+    totalPrice,
+  );
 
   /// Create a copy of OrderCartState
   /// with the given fields replaced by the non-null parameter values.

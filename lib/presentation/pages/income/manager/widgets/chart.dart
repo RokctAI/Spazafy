@@ -40,13 +40,13 @@ class SalesChart extends StatelessWidget {
               child: isLoading
                   ? const Loading()
                   : chart.isNotEmpty
-                      ? LineChart(mainData())
-                      : Center(
-                          child: Text(
-                            AppHelpers.getTranslation(TrKeys.needOrder),
-                            style: AppStyle.interSemi(size: 22),
-                          ),
-                        ),
+                  ? LineChart(mainData())
+                  : Center(
+                      child: Text(
+                        AppHelpers.getTranslation(TrKeys.needOrder),
+                        style: AppStyle.interSemi(size: 22),
+                      ),
+                    ),
             ),
           ),
         ],

@@ -125,30 +125,29 @@ class UserModel {
     Wallet? wallet,
     num? rate,
     List<List<double>>? deliveryZone,
-  }) =>
-      UserModel(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        firstname: firstname ?? _firstname,
-        lastname: lastname ?? _lastname,
-        referral: referral ?? _referral,
-        email: email ?? _email,
-        phone: phone ?? _phone,
-        birthday: birthday ?? _birthday,
-        gender: gender ?? _gender,
-        emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
-        registeredAt: registeredAt ?? _registeredAt,
-        active: active ?? _active,
-        img: img ?? _img,
-        role: role ?? _role,
-        confirmPassword: conPassword ?? _confirmPassword,
-        password: password ?? _password,
-        addresses: addresses ?? _addresses,
-        shop: shop ?? _shop,
-        wallet: wallet ?? _wallet,
-        rate: rate ?? _rate,
-        deliveryZone: deliveryZone ?? _deliveryZone,
-      );
+  }) => UserModel(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    firstname: firstname ?? _firstname,
+    lastname: lastname ?? _lastname,
+    referral: referral ?? _referral,
+    email: email ?? _email,
+    phone: phone ?? _phone,
+    birthday: birthday ?? _birthday,
+    gender: gender ?? _gender,
+    emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
+    registeredAt: registeredAt ?? _registeredAt,
+    active: active ?? _active,
+    img: img ?? _img,
+    role: role ?? _role,
+    confirmPassword: conPassword ?? _confirmPassword,
+    password: password ?? _password,
+    addresses: addresses ?? _addresses,
+    shop: shop ?? _shop,
+    wallet: wallet ?? _wallet,
+    rate: rate ?? _rate,
+    deliveryZone: deliveryZone ?? _deliveryZone,
+  );
 
   String? get id => _id;
   String? get uuid => _uuid;
@@ -207,16 +206,16 @@ class UserModel {
   }
 
   Map<String, dynamic> toJsonForSignUp({typeFirebase = false}) => {
-        "firstname": _firstname,
-        if (_lastname?.isNotEmpty ?? false) "lastname": _lastname,
-        if (_phone?.isNotEmpty ?? false) "phone": _phone?.replaceAll('+', ""),
-        if (_email?.isNotEmpty ?? false) "email": _email,
-        if (_password?.isNotEmpty ?? false) "password": _password,
-        if (_confirmPassword?.isNotEmpty ?? false)
-          "password_conformation": _confirmPassword,
-        if (_referral?.isNotEmpty ?? false) 'referral': _referral,
-        if (typeFirebase) "type": "firebase",
-      };
+    "firstname": _firstname,
+    if (_lastname?.isNotEmpty ?? false) "lastname": _lastname,
+    if (_phone?.isNotEmpty ?? false) "phone": _phone?.replaceAll('+', ""),
+    if (_email?.isNotEmpty ?? false) "email": _email,
+    if (_password?.isNotEmpty ?? false) "password": _password,
+    if (_confirmPassword?.isNotEmpty ?? false)
+      "password_conformation": _confirmPassword,
+    if (_referral?.isNotEmpty ?? false) 'referral': _referral,
+    if (typeFirebase) "type": "firebase",
+  };
 }
 
 class Wallet {
@@ -271,17 +270,16 @@ class Wallet {
     String? createdAt,
     String? updatedAt,
     CurrencyData? currency,
-  }) =>
-      Wallet(
-        uuid: uuid ?? _uuid,
-        userId: userId ?? _userId,
-        currencyId: currencyId ?? _currencyId,
-        price: price ?? _price,
-        symbol: symbol ?? _symbol,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        currency: currency ?? _currency,
-      );
+  }) => Wallet(
+    uuid: uuid ?? _uuid,
+    userId: userId ?? _userId,
+    currencyId: currencyId ?? _currencyId,
+    price: price ?? _price,
+    symbol: symbol ?? _symbol,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    currency: currency ?? _currency,
+  );
 
   String? get uuid => _uuid;
   String? get userId => _userId;

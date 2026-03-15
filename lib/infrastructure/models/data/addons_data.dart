@@ -28,8 +28,9 @@ class AddonData {
     _quantity = json['quantity'] ?? 0;
     _totalPrice = json["total_price"] ?? json['price'];
     _stock = json['stock'] != null ? Stocks.fromJson(json['stock']) : null;
-    _product =
-        json['product'] != null ? ProductData.fromJson(json['product']) : null;
+    _product = json['product'] != null
+        ? ProductData.fromJson(json['product'])
+        : null;
     _active = json['active'] is bool ? json['active'] : false;
   }
 
@@ -51,17 +52,16 @@ class AddonData {
     num? totalPrice,
     Stocks? stock,
     ProductData? product,
-  }) =>
-      AddonData(
-        id: id ?? _id,
-        stockId: stockId ?? _stockId,
-        addonId: addonId ?? _addonId,
-        quantity: quantity ?? _quantity,
-        totalPrice: totalPrice ?? _totalPrice,
-        stock: stock ?? _stock,
-        active: active ?? _active,
-        product: product ?? _product,
-      );
+  }) => AddonData(
+    id: id ?? _id,
+    stockId: stockId ?? _stockId,
+    addonId: addonId ?? _addonId,
+    quantity: quantity ?? _quantity,
+    totalPrice: totalPrice ?? _totalPrice,
+    stock: stock ?? _stock,
+    active: active ?? _active,
+    product: product ?? _product,
+  );
 
   String? get id => _id;
   String? get stockId => _stockId;

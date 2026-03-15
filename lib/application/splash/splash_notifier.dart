@@ -17,10 +17,8 @@ class SplashNotifier extends StateNotifier<SplashState> {
   final SettingsFacade _settingsRepository;
   final UserFacade _userRepository;
 
-  SplashNotifier(
-    this._settingsRepository,
-    this._userRepository,
-  ) : super(const SplashState());
+  SplashNotifier(this._settingsRepository, this._userRepository)
+    : super(const SplashState());
 
   Future<void> initApp(
     BuildContext context, {

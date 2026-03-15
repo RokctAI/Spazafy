@@ -69,7 +69,8 @@ Future<void> setUpDependencies() async {
   // core
   getIt.registerLazySingleton<HttpService>(() => HttpService());
   getIt.registerLazySingleton<GooglePlace>(
-      () => GooglePlace(AppConstants.googleApiKey));
+    () => GooglePlace(AppConstants.googleApiKey),
+  );
   getIt.registerLazySingleton<Map>(() => LocalStorage.getTranslations());
 
   // Hub Module (Unified)
@@ -90,9 +91,11 @@ Future<void> setUpDependencies() async {
     getIt.registerSingleton<ShopsFacade>(ShopsRepository());
     getIt.registerSingleton<ProductsFacade>(ProductsRepository());
     getIt.registerSingleton<CategoriesFacade>(
-        CatalogRepository()); // Unified Catalog
+      CatalogRepository(),
+    ); // Unified Catalog
     getIt.registerSingleton<CatalogInterface>(
-        CatalogRepository()); // Manager Catalog
+      CatalogRepository(),
+    ); // Manager Catalog
     getIt.registerSingleton<BannersFacade>(BannersRepository());
     getIt.registerSingleton<CartFacade>(CartRepository());
     getIt.registerSingleton<OrdersFacade>(OrdersRepository());

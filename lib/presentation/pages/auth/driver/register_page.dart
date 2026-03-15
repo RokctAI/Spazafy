@@ -99,8 +99,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                           physics: NeverScrollableScrollPhysics(),
                           children: [
                             Directionality(
-                              textDirection:
-                                  isLtr ? TextDirection.ltr : TextDirection.rtl,
+                              textDirection: isLtr
+                                  ? TextDirection.ltr
+                                  : TextDirection.rtl,
                               child: IntlPhoneField(
                                 disableLengthCheck:
                                     !AppConstants.isNumberLengthAlwaysSame,
@@ -136,8 +137,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                 autovalidateMode: state.isLoginError
                                     ? AutovalidateMode.always
                                     : AppConstants.isNumberLengthAlwaysSame
-                                        ? AutovalidateMode.onUserInteraction
-                                        : AutovalidateMode.disabled,
+                                    ? AutovalidateMode.onUserInteraction
+                                    : AutovalidateMode.disabled,
                                 textAlignVertical: TextAlignVertical.center,
                                 decoration: InputDecoration(
                                   counterText: '',
@@ -194,10 +195,10 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                       TrKeys.loginCredentialsAreNotValid,
                                     )
                                   : state.isEmailInvalid
-                                      ? AppHelpers.getTranslation(
-                                          TrKeys.emailIsNotValid,
-                                        )
-                                      : null,
+                                  ? AppHelpers.getTranslation(
+                                      TrKeys.emailIsNotValid,
+                                    )
+                                  : null,
                             ),
                           ],
                         ),
@@ -230,8 +231,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                       if (widget.isOnlyEmail &&
                           AppConstants.isSpecificNumberEnabled)
                         Directionality(
-                          textDirection:
-                              isLtr ? TextDirection.ltr : TextDirection.rtl,
+                          textDirection: isLtr
+                              ? TextDirection.ltr
+                              : TextDirection.rtl,
                           child: IntlPhoneField(
                             disableLengthCheck:
                                 !AppConstants.isNumberLengthAlwaysSame,
@@ -268,8 +270,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                             autovalidateMode: state.isLoginError
                                 ? AutovalidateMode.always
                                 : AppConstants.isNumberLengthAlwaysSame
-                                    ? AutovalidateMode.onUserInteraction
-                                    : AutovalidateMode.disabled,
+                                ? AutovalidateMode.onUserInteraction
+                                : AutovalidateMode.disabled,
                             textAlignVertical: TextAlignVertical.center,
                             decoration: InputDecoration(
                               counterText: '',
@@ -337,7 +339,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                 SizedBox(
                                   width:
                                       (MediaQuery.sizeOf(context).width - 40) /
-                                          2,
+                                      2,
                                   child: OutlinedBorderTextField(
                                     label: AppHelpers.getTranslation(
                                       TrKeys.firstname,
@@ -355,7 +357,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                 SizedBox(
                                   width:
                                       (MediaQuery.sizeOf(context).width - 40) /
-                                          2,
+                                      2,
                                   child: OutlinedBorderTextField(
                                     label: AppHelpers.getTranslation(
                                       TrKeys.surname,
@@ -440,56 +442,54 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                       onPressed: () {
                         widget.isOnlyEmail
                             ? (_tabController.index == 1
-                                ? event.sendCode(context, () {
-                                    Navigator.pop(context);
-                                    AppHelpers
-                                        .showCustomModalBottomSheetWithoutIosIcon(
-                                      context: context,
-                                      modal: RegisterConfirmationPage(
-                                        verificationId: "",
-                                        userModel: UserData(
-                                          firstname: state.firstName,
-                                          lastname: state.lastName,
-                                          phone: state.phone,
-                                          email: state.email,
-                                          password: state.password,
-                                          confirmPassword:
-                                              state.confirmPassword,
+                                  ? event.sendCode(context, () {
+                                      Navigator.pop(context);
+                                      AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
+                                        context: context,
+                                        modal: RegisterConfirmationPage(
+                                          verificationId: "",
+                                          userModel: UserData(
+                                            firstname: state.firstName,
+                                            lastname: state.lastName,
+                                            phone: state.phone,
+                                            email: state.email,
+                                            password: state.password,
+                                            confirmPassword:
+                                                state.confirmPassword,
+                                          ),
                                         ),
-                                      ),
-                                      isDarkMode: isDarkMode,
-                                    );
-                                  })
-                                : event.sendCodeToNumber(context, (s) {
-                                    print("object4444");
-                                    Navigator.pop(context);
-                                    AppHelpers
-                                        .showCustomModalBottomSheetWithoutIosIcon(
-                                      context: context,
-                                      modal: RegisterConfirmationPage(
-                                        verificationId: s,
-                                        userModel: UserData(
-                                          firstname: state.firstName,
-                                          lastname: state.lastName,
-                                          phone: state.phone,
-                                          email: state.email,
-                                          password: state.password,
-                                          confirmPassword:
-                                              state.confirmPassword,
+                                        isDarkMode: isDarkMode,
+                                      );
+                                    })
+                                  : event.sendCodeToNumber(context, (s) {
+                                      print("object4444");
+                                      Navigator.pop(context);
+                                      AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
+                                        context: context,
+                                        modal: RegisterConfirmationPage(
+                                          verificationId: s,
+                                          userModel: UserData(
+                                            firstname: state.firstName,
+                                            lastname: state.lastName,
+                                            phone: state.phone,
+                                            email: state.email,
+                                            password: state.password,
+                                            confirmPassword:
+                                                state.confirmPassword,
+                                          ),
                                         ),
-                                      ),
-                                      isDarkMode: isDarkMode,
-                                    );
-                                  }))
+                                        isDarkMode: isDarkMode,
+                                      );
+                                    }))
                             : state.verificationId.isEmpty
-                                ? event.register(
-                                    context,
-                                    profileState.userData?.email,
-                                  )
-                                : event.registerWithPhone(
-                                    context,
-                                    profileState.userData?.phone,
-                                  );
+                            ? event.register(
+                                context,
+                                profileState.userData?.email,
+                              )
+                            : event.registerWithPhone(
+                                context,
+                                profileState.userData?.phone,
+                              );
                       },
                     ),
                   ),

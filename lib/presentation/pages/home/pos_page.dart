@@ -162,7 +162,8 @@ class _PosPageState extends ConsumerState<PosPage> {
             Positioned(
               left: 16.w,
               right: 16.w,
-              bottom: MediaQuery.of(context).padding.bottom +
+              bottom:
+                  MediaQuery.of(context).padding.bottom +
                   100.h, // Higher clearance for bottom nav
               child: _buildBottomButton(state),
             ),

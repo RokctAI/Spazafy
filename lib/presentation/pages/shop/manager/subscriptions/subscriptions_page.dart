@@ -54,7 +54,8 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
           builder: (context, ref, child) {
             final state = ref.watch(subscriptionProvider);
             final notifier = ref.read(subscriptionProvider.notifier);
-            int height = state.list.length < 5 &&
+            int height =
+                state.list.length < 5 &&
                     LocalStorage.getShop()?.subscription == null
                 ? 0
                 : 80;
@@ -92,8 +93,8 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
                             horizontalPadding: 12,
                             itemHeight:
                                 ((MediaQuery.sizeOf(context).height - 240.h) ~/
-                                        2) -
-                                    height,
+                                    2) -
+                                height,
                           )
                         : SingleChildScrollView(
                             padding: REdgeInsets.symmetric(vertical: 16),
@@ -115,44 +116,47 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
                                         itemCount: state.list.length,
                                         gridDelegate:
                                             SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisSpacing: 8.r,
-                                          mainAxisSpacing: 4.r,
-                                          crossAxisCount: 2,
-                                          mainAxisExtent: ((MediaQuery.sizeOf(
-                                                        context,
-                                                      ).height -
-                                                      148.h) /
-                                                  2) -
-                                              height,
-                                        ),
+                                              crossAxisSpacing: 8.r,
+                                              mainAxisSpacing: 4.r,
+                                              crossAxisCount: 2,
+                                              mainAxisExtent:
+                                                  ((MediaQuery.sizeOf(
+                                                            context,
+                                                          ).height -
+                                                          148.h) /
+                                                      2) -
+                                                  height,
+                                            ),
                                         padding: REdgeInsets.all(12),
                                         itemBuilder: (context, index) =>
                                             SubscriptionsItem(
-                                          subscription: state.list[index],
-                                          purchase: () {
-                                            if (LocalStorage.getShop()
-                                                    ?.subscription ==
-                                                null) {
-                                              notifier.fetchPayments(
-                                                context: context,
-                                              );
-                                              notifier.selectSubscribe(
-                                                index: index,
-                                              );
-                                              AppHelpers.showAlertDialog(
-                                                context: context,
-                                                child: const PaymentDialog(),
-                                              );
-                                            } else {
-                                              AppHelpers.errorSnackBar(
-                                                context,
-                                                text: AppHelpers.getTranslation(
-                                                  TrKeys.youHaveSubscription,
-                                                ),
-                                              );
-                                            }
-                                          },
-                                        ),
+                                              subscription: state.list[index],
+                                              purchase: () {
+                                                if (LocalStorage.getShop()
+                                                        ?.subscription ==
+                                                    null) {
+                                                  notifier.fetchPayments(
+                                                    context: context,
+                                                  );
+                                                  notifier.selectSubscribe(
+                                                    index: index,
+                                                  );
+                                                  AppHelpers.showAlertDialog(
+                                                    context: context,
+                                                    child:
+                                                        const PaymentDialog(),
+                                                  );
+                                                } else {
+                                                  AppHelpers.errorSnackBar(
+                                                    context,
+                                                    text: AppHelpers.getTranslation(
+                                                      TrKeys
+                                                          .youHaveSubscription,
+                                                    ),
+                                                  );
+                                                }
+                                              },
+                                            ),
                                       ),
                               ],
                             ),

@@ -118,7 +118,9 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
                 radius: 12,
                 modal: FilterScreen(
                   onChangeDay: (rangeDatePicker) {
-                    ref.read(orderProvider.notifier).fetchHistoryOrders(
+                    ref
+                        .read(orderProvider.notifier)
+                        .fetchHistoryOrders(
                           isRefresh: true,
                           start: rangeDatePicker.last,
                           end: rangeDatePicker.first,

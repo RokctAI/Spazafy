@@ -12,7 +12,7 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
   final OrdersInterface _ordersRepository;
 
   OrderPaymentNotifier(this._ordersRepository)
-      : super(const OrderPaymentState());
+    : super(const OrderPaymentState());
 
   void setSelectedIndex(int index) {
     state = state.copyWith(selectedIndex: index);
