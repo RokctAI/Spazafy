@@ -5,7 +5,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/pages/customer/product/product_page.dart';
+import 'package:venderfoodyman/presentation/pages/product/product_page.dart';
 
 import '../../../../../utils/products/brand_utils.dart';
 import '../../../../../utils/products/product_card.dart';

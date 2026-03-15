@@ -18,7 +18,7 @@ import 'package:venderfoodyman/presentation/components/customer/buttons/animatio
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
-import 'package:venderfoodyman/presentation/pages/customer/product/widgets/w_ingredient.dart';
+import 'package:venderfoodyman/presentation/pages/product/widgets/w_ingredient.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:venderfoodyman/application/shop/shop_state.dart';
 import '../shop/widgets/bonus_screen.dart';

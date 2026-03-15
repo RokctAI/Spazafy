@@ -14,7 +14,7 @@ import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/application/like/like_notifier.dart';
 import 'package:venderfoodyman/application/like/like_provider.dart';
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
-import 'package:venderfoodyman/presentation/pages/customer/product/product_page.dart';
+import 'package:venderfoodyman/presentation/pages/product/product_page.dart';
 import 'package:venderfoodyman/presentation/pages/shop/widgets/category_tab_bar.widget.dart';
 import 'package:venderfoodyman/presentation/pages/shop/widgets/product_list.dart';
 import 'package:venderfoodyman/presentation/pages/shop/widgets/shimmer_product_list.dart';

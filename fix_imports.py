@@ -145,6 +145,14 @@ IMPORT_REPLACEMENTS = [
     ("package:venderfoodyman/infrastructure/services/utils/storage_keys.dart",
      "package:venderfoodyman/infrastructure/services/constants/storage_keys.dart"),
 
+    # ── Presentation Theme Unification ──────────────────────────────────────
+    ("package:venderfoodyman/presentation/theme/customer/",
+     "package:venderfoodyman/presentation/theme/customer/"), # Keep it for now but maybe map to unified later
+    ("presentation/theme/theme.dart",
+     "package:venderfoodyman/presentation/theme/customer/theme.dart"),
+
+    # ── Presentation Page Specific Unification ─────────────────────────────
+
     # ── Infrastructure Repository Unification ──────────────────────────────────
     ("package:venderfoodyman/infrastructure/repositories/customer/",
      "package:venderfoodyman/infrastructure/repositories/"),
@@ -184,6 +192,10 @@ IMPORT_REPLACEMENTS = [
      "package:venderfoodyman/presentation/pages/profile/wallet_history.dart"),
     ("package:venderfoodyman/presentation/pages/customer/auth/",
      "package:venderfoodyman/presentation/pages/auth/customer/"),
+
+    # ── Presentation Page Catch-all Unification ─────────────────────────────
+    ("package:venderfoodyman/presentation/pages/customer/",
+     "package:venderfoodyman/presentation/pages/"),
 
     # ── Domain Unification ──────────────────────────────────
     ("package:venderfoodyman/domain/handlers/customer/handlers.dart",

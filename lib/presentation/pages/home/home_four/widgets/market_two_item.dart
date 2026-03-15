@@ -7,7 +7,7 @@ import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/components/customer/badges.dart';
 import '../../../../../app_constants.dart';
 import '../../../../theme/theme.dart';
-//import 'package:venderfoodyman/presentation/pages/customer/home_two/widget/two_bonus_discount.dart';
+//import 'package:venderfoodyman/presentation/pages/home_two/widget/two_bonus_discount.dart';
 
 class MarketTwoItem extends StatelessWidget {
   final ShopData shop;

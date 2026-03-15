@@ -23,14 +23,14 @@ import 'package:venderfoodyman/presentation/components/customer/badges/alert_dia
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/application/like/like_provider.dart';
-import 'package:venderfoodyman/presentation/pages/customer/profile/delete_screen.dart';
-import 'package:venderfoodyman/presentation/pages/customer/profile/help_page.dart';
+import 'package:venderfoodyman/presentation/pages/profile/delete_screen.dart';
+import 'package:venderfoodyman/presentation/pages/profile/help_page.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:venderfoodyman/presentation/pages/policy_term/policy_page.dart';
 import 'package:venderfoodyman/presentation/pages/policy_term/term_page.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:venderfoodyman/presentation/pages/customer/profile/widgets/my_account.dart';
+import 'package:venderfoodyman/presentation/pages/profile/widgets/my_account.dart';
 
 import '../../app_constants.dart';
 import '../../components/buttons/second_button.dart';

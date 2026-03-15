@@ -8,7 +8,7 @@ import '../../domain/di/dependency_manager.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../infrastructure/services/tr_keys.dart';
 import '../../presentation/components/buttons/custom_button.dart';
-import '../../presentation/theme/theme.dart';
+import '../../package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 // Provider for preloaded WebView state
 final payFastWebViewProvider = StateProvider<PayFastWebViewState?>(

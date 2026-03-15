@@ -13,7 +13,7 @@ import 'package:venderfoodyman/infrastructure/services/customer/time_service.dar
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_checkbox.dart';
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
-import 'package:venderfoodyman/presentation/pages/customer/profile/phone_verify.dart';
+import 'package:venderfoodyman/presentation/pages/profile/phone_verify.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import '../../order_check/widgets/time_delivery.dart';

@@ -26,7 +26,7 @@ import 'package:venderfoodyman/presentation/components/customer/buttons/custom_b
 import 'package:venderfoodyman/presentation/pages/order/order_check/price_information.dart';
 import 'package:venderfoodyman/presentation/pages/order/order_check/widgets/auto_order_modal.dart';
 import 'package:venderfoodyman/presentation/pages/order/order_screen/widgets/image_dialog.dart';
-import 'package:venderfoodyman/presentation/pages/customer/profile/phone_verify.dart';
+import 'package:venderfoodyman/presentation/pages/profile/phone_verify.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
