@@ -145,6 +145,14 @@ IMPORT_REPLACEMENTS = [
     ("package:venderfoodyman/infrastructure/services/utils/storage_keys.dart",
      "package:venderfoodyman/infrastructure/services/constants/storage_keys.dart"),
 
+    # ── Infrastructure Repository Unification ──────────────────────────────────
+    ("package:venderfoodyman/infrastructure/repositories/customer/",
+     "package:venderfoodyman/infrastructure/repositories/"),
+    ("package:venderfoodyman/infrastructure/repositories/driver/",
+     "package:venderfoodyman/infrastructure/repositories/"),
+    ("package:venderfoodyman/infrastructure/repositories/manager/",
+     "package:venderfoodyman/infrastructure/repositories/"),
+
     # ── Presentation Page Unification ───────────────────────────────────────
     ("package:venderfoodyman/presentation/pages/customer/home/",
      "package:venderfoodyman/presentation/pages/home/"),
