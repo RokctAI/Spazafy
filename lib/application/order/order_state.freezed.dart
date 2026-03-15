@@ -84,47 +84,48 @@ class _$OrderStateCopyWithImpl<$Res, $Val extends OrderState>
   }) {
     return _then(
       _value.copyWith(
-        paymentType: null == paymentType
-            ? _value.paymentType
-            : paymentType // ignore: cast_nullable_to_non_nullable
-                as bool,
-        isLoading: null == isLoading
-            ? _value.isLoading
-            : isLoading // ignore: cast_nullable_to_non_nullable
-                as bool,
-        orders: null == orders
-            ? _value.orders
-            : orders // ignore: cast_nullable_to_non_nullable
-                as List<OrderData>,
-        totalCount: null == totalCount
-            ? _value.totalCount
-            : totalCount // ignore: cast_nullable_to_non_nullable
-                as int,
-        deliveryTime: null == deliveryTime
-            ? _value.deliveryTime
-            : deliveryTime // ignore: cast_nullable_to_non_nullable
-                as int,
-        deliveryType: null == deliveryType
-            ? _value.deliveryType
-            : deliveryType // ignore: cast_nullable_to_non_nullable
-                as int,
-        deliveredOrders: null == deliveredOrders
-            ? _value.deliveredOrders
-            : deliveredOrders // ignore: cast_nullable_to_non_nullable
-                as List<OrderData>,
-        canceledOrders: null == canceledOrders
-            ? _value.canceledOrders
-            : canceledOrders // ignore: cast_nullable_to_non_nullable
-                as List<OrderData>,
-        totalDeliveredOrderCount: null == totalDeliveredOrderCount
-            ? _value.totalDeliveredOrderCount
-            : totalDeliveredOrderCount // ignore: cast_nullable_to_non_nullable
-                as int,
-        totalCanceledOrderCount: null == totalCanceledOrderCount
-            ? _value.totalCanceledOrderCount
-            : totalCanceledOrderCount // ignore: cast_nullable_to_non_nullable
-                as int,
-      ) as $Val,
+            paymentType: null == paymentType
+                ? _value.paymentType
+                : paymentType // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            orders: null == orders
+                ? _value.orders
+                : orders // ignore: cast_nullable_to_non_nullable
+                      as List<OrderData>,
+            totalCount: null == totalCount
+                ? _value.totalCount
+                : totalCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+            deliveryTime: null == deliveryTime
+                ? _value.deliveryTime
+                : deliveryTime // ignore: cast_nullable_to_non_nullable
+                      as int,
+            deliveryType: null == deliveryType
+                ? _value.deliveryType
+                : deliveryType // ignore: cast_nullable_to_non_nullable
+                      as int,
+            deliveredOrders: null == deliveredOrders
+                ? _value.deliveredOrders
+                : deliveredOrders // ignore: cast_nullable_to_non_nullable
+                      as List<OrderData>,
+            canceledOrders: null == canceledOrders
+                ? _value.canceledOrders
+                : canceledOrders // ignore: cast_nullable_to_non_nullable
+                      as List<OrderData>,
+            totalDeliveredOrderCount: null == totalDeliveredOrderCount
+                ? _value.totalDeliveredOrderCount
+                : totalDeliveredOrderCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+            totalCanceledOrderCount: null == totalCanceledOrderCount
+                ? _value.totalCanceledOrderCount
+                : totalCanceledOrderCount // ignore: cast_nullable_to_non_nullable
+                      as int,
+          )
+          as $Val,
     );
   }
 }
@@ -182,43 +183,43 @@ class __$$OrdrStateImplCopyWithImpl<$Res>
         paymentType: null == paymentType
             ? _value.paymentType
             : paymentType // ignore: cast_nullable_to_non_nullable
-                as bool,
+                  as bool,
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                as bool,
+                  as bool,
         orders: null == orders
             ? _value._orders
             : orders // ignore: cast_nullable_to_non_nullable
-                as List<OrderData>,
+                  as List<OrderData>,
         totalCount: null == totalCount
             ? _value.totalCount
             : totalCount // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
         deliveryTime: null == deliveryTime
             ? _value.deliveryTime
             : deliveryTime // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
         deliveryType: null == deliveryType
             ? _value.deliveryType
             : deliveryType // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
         deliveredOrders: null == deliveredOrders
             ? _value._deliveredOrders
             : deliveredOrders // ignore: cast_nullable_to_non_nullable
-                as List<OrderData>,
+                  as List<OrderData>,
         canceledOrders: null == canceledOrders
             ? _value._canceledOrders
             : canceledOrders // ignore: cast_nullable_to_non_nullable
-                as List<OrderData>,
+                  as List<OrderData>,
         totalDeliveredOrderCount: null == totalDeliveredOrderCount
             ? _value.totalDeliveredOrderCount
             : totalDeliveredOrderCount // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
         totalCanceledOrderCount: null == totalCanceledOrderCount
             ? _value.totalCanceledOrderCount
             : totalCanceledOrderCount // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }
@@ -238,10 +239,10 @@ class _$OrdrStateImpl extends _OrdrState {
     final List<OrderData> canceledOrders = const [],
     this.totalDeliveredOrderCount = 0,
     this.totalCanceledOrderCount = 0,
-  })  : _orders = orders,
-        _deliveredOrders = deliveredOrders,
-        _canceledOrders = canceledOrders,
-        super._();
+  }) : _orders = orders,
+       _deliveredOrders = deliveredOrders,
+       _canceledOrders = canceledOrders,
+       super._();
 
   @override
   @JsonKey()
@@ -335,18 +336,18 @@ class _$OrdrStateImpl extends _OrdrState {
 
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        paymentType,
-        isLoading,
-        const DeepCollectionEquality().hash(_orders),
-        totalCount,
-        deliveryTime,
-        deliveryType,
-        const DeepCollectionEquality().hash(_deliveredOrders),
-        const DeepCollectionEquality().hash(_canceledOrders),
-        totalDeliveredOrderCount,
-        totalCanceledOrderCount,
-      );
+    runtimeType,
+    paymentType,
+    isLoading,
+    const DeepCollectionEquality().hash(_orders),
+    totalCount,
+    deliveryTime,
+    deliveryType,
+    const DeepCollectionEquality().hash(_deliveredOrders),
+    const DeepCollectionEquality().hash(_canceledOrders),
+    totalDeliveredOrderCount,
+    totalCanceledOrderCount,
+  );
 
   /// Create a copy of OrderState
   /// with the given fields replaced by the non-null parameter values.

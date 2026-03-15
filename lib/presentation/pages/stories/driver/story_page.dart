@@ -243,17 +243,17 @@ class _StoryPageState extends ConsumerState<StoryPage>
                               ),
                             )
                           : state.currentIndex > index
-                              ? ClipRRect(
-                                  borderRadius: BorderRadius.circular(122.r),
-                                  child: LinearProgressIndicator(
-                                    value: 1,
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      AppStyle.primary,
-                                    ),
-                                    backgroundColor: AppStyle.white,
-                                  ),
-                                )
-                              : const SizedBox.shrink(),
+                          ? ClipRRect(
+                              borderRadius: BorderRadius.circular(122.r),
+                              child: LinearProgressIndicator(
+                                value: 1,
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  AppStyle.primary,
+                                ),
+                                backgroundColor: AppStyle.white,
+                              ),
+                            )
+                          : const SizedBox.shrink(),
                     );
                   },
                 ),

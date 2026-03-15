@@ -27,7 +27,9 @@ class _ProgressOrdersBody extends ConsumerState<ProgressOrdersBody> {
             enablePullDown: true,
             enablePullUp: true,
             onRefresh: () {
-              ref.read(driverOrderProvider.notifier).fetchHistoryOrdersPage(
+              ref
+                  .read(driverOrderProvider.notifier)
+                  .fetchHistoryOrdersPage(
                     context,
                     widget.refreshController,
                     isRefresh: true,

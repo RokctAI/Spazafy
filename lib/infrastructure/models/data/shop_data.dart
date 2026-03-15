@@ -122,7 +122,8 @@ class ShopData {
           ? json["visibility"]
           : (json["visibility"] == 1),
       open: openValue,
-      verify: (json["verify"].runtimeType == int
+      verify:
+          (json["verify"].runtimeType == int
               ? (json["verify"] == 1)
               : json["verify"]) ??
           false,
@@ -136,8 +137,9 @@ class ShopData {
       statusNote: json["status_note"] ?? "",
       type: json["type"]?.toString(),
       isRecommend: json["is_recommended"] ?? false,
-      isDiscount:
-          json["discount"] == null ? false : json["discount"].isNotEmpty,
+      isDiscount: json["discount"] == null
+          ? false
+          : json["discount"].isNotEmpty,
       deliveryTime: json["delivery_time"] == null
           ? null
           : DeliveryTime.fromJson(json["delivery_time"]),
@@ -147,8 +149,9 @@ class ShopData {
       updatedAt: json["updated_at"] == null
           ? null
           : DateTime.tryParse(json["updated_at"])?.toLocal(),
-      location:
-          json["location"] == null ? null : Location.fromJson(json["location"]),
+      location: json["location"] == null
+          ? null
+          : Location.fromJson(json["location"]),
       productsCount: json["products_count"] ?? 0,
       translation: json["translation"] == null
           ? null
@@ -190,39 +193,40 @@ class ShopData {
   }
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "uuid": uuid,
-        "user_id": userId,
-        "tax": tax,
-        "delivery_range": deliveryRange,
-        "price_per_km": pricePerKm,
-        "price": minPrice,
-        "percentage": percentage,
-        "phone": phone,
-        "visibility": visibility,
-        "open_time": openTime,
-        "close_time": closeTime,
-        "background_img": backgroundImg,
-        "logo_img": logoImg,
-        "min_amount": minAmount,
-        "status": status,
-        "status_note": statusNote,
-        "type": type,
-        "invite_link": inviteLink,
-        "order_payment": orderPayment,
-        "delivery_time": deliveryTime?.toJson(),
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "location": location?.toJson(),
-        "products_count": productsCount,
-        "translation": translation?.toJson(),
-        "locales":
-            locales == null ? null : List<dynamic>.from(locales!.map((x) => x)),
-        "seller": seller?.toJson(),
-        "bonus": bonus,
-        "enable_cod": enableCod,
-        "subscription": subscription,
-      };
+    "id": id,
+    "uuid": uuid,
+    "user_id": userId,
+    "tax": tax,
+    "delivery_range": deliveryRange,
+    "price_per_km": pricePerKm,
+    "price": minPrice,
+    "percentage": percentage,
+    "phone": phone,
+    "visibility": visibility,
+    "open_time": openTime,
+    "close_time": closeTime,
+    "background_img": backgroundImg,
+    "logo_img": logoImg,
+    "min_amount": minAmount,
+    "status": status,
+    "status_note": statusNote,
+    "type": type,
+    "invite_link": inviteLink,
+    "order_payment": orderPayment,
+    "delivery_time": deliveryTime?.toJson(),
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+    "location": location?.toJson(),
+    "products_count": productsCount,
+    "translation": translation?.toJson(),
+    "locales": locales == null
+        ? null
+        : List<dynamic>.from(locales!.map((x) => x)),
+    "seller": seller?.toJson(),
+    "bonus": bonus,
+    "enable_cod": enableCod,
+    "subscription": subscription,
+  };
 }
 
 class DeliveryTime {
@@ -233,10 +237,10 @@ class DeliveryTime {
   String? type;
 
   factory DeliveryTime.fromJson(Map<String, dynamic> json) => DeliveryTime(
-        to: json["to"].toString(),
-        from: json["from"].toString(),
-        type: json["type"] ?? "min",
-      );
+    to: json["to"].toString(),
+    from: json["from"].toString(),
+    type: json["type"] ?? "min",
+  );
 
   Map<String, dynamic> toJson() => {"to": to, "from": from, "type": type};
 }
@@ -248,14 +252,14 @@ class Location {
   double? longitude;
 
   factory Location.fromJson(Map<String, dynamic> json) => Location(
-        latitude: double.tryParse(json["latitude"].toString()),
-        longitude: double.tryParse(json["longitude"].toString()),
-      );
+    latitude: double.tryParse(json["latitude"].toString()),
+    longitude: double.tryParse(json["longitude"].toString()),
+  );
 
   Map<String, dynamic> toJson() => {
-        "latitude": latitude,
-        "longitude": longitude,
-      };
+    "latitude": latitude,
+    "longitude": longitude,
+  };
 }
 
 class Seller {
@@ -268,20 +272,20 @@ class Seller {
   String? role;
 
   factory Seller.fromJson(Map<String, dynamic> json) => Seller(
-        id: json["id"]?.toString(),
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        active: json["active"],
-        role: json["role"],
-      );
+    id: json["id"]?.toString(),
+    firstname: json["firstname"],
+    lastname: json["lastname"],
+    active: json["active"],
+    role: json["role"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "firstname": firstname,
-        "lastname": lastname,
-        "active": active,
-        "role": role,
-      };
+    "id": id,
+    "firstname": firstname,
+    "lastname": lastname,
+    "active": active,
+    "role": role,
+  };
 }
 
 class ShopClosedDate {
@@ -293,19 +297,19 @@ class ShopClosedDate {
   DateTime? updatedAt;
 
   factory ShopClosedDate.fromJson(Map<String, dynamic>? json) => ShopClosedDate(
-        id: json?["id"],
-        day: DateTime.tryParse(json?["day"])?.toLocal(),
-        createdAt: DateTime.tryParse(json?["created_at"])?.toLocal(),
-        updatedAt: DateTime.tryParse(json?["updated_at"])?.toLocal(),
-      );
+    id: json?["id"],
+    day: DateTime.tryParse(json?["day"])?.toLocal(),
+    createdAt: DateTime.tryParse(json?["created_at"])?.toLocal(),
+    updatedAt: DateTime.tryParse(json?["updated_at"])?.toLocal(),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "day":
-            "${day!.year.toString().padLeft(4, '0')}-${day!.month.toString().padLeft(2, '0')}-${day!.day.toString().padLeft(2, '0')}",
-        "created_at": createdAt!.toIso8601String(),
-        "updated_at": updatedAt!.toIso8601String(),
-      };
+    "id": id,
+    "day":
+        "${day!.year.toString().padLeft(4, '0')}-${day!.month.toString().padLeft(2, '0')}-${day!.day.toString().padLeft(2, '0')}",
+    "created_at": createdAt!.toIso8601String(),
+    "updated_at": updatedAt!.toIso8601String(),
+  };
 }
 
 class ShopWorkingDay {
@@ -328,23 +332,23 @@ class ShopWorkingDay {
   DateTime? updatedAt;
 
   factory ShopWorkingDay.fromJson(Map<String, dynamic>? json) => ShopWorkingDay(
-        id: json?["id"],
-        day: json?["day"],
-        from: json?["from"],
-        disabled: json?["disabled"],
-        to: json?["to"],
-        createdAt: DateTime.tryParse(json?["created_at"])?.toLocal(),
-        updatedAt: DateTime.tryParse(json?["updated_at"])?.toLocal(),
-      );
+    id: json?["id"],
+    day: json?["day"],
+    from: json?["from"],
+    disabled: json?["disabled"],
+    to: json?["to"],
+    createdAt: DateTime.tryParse(json?["created_at"])?.toLocal(),
+    updatedAt: DateTime.tryParse(json?["updated_at"])?.toLocal(),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "day": day,
-        "from": from,
-        "to": to,
-        "created_at": createdAt!.toIso8601String(),
-        "updated_at": updatedAt!.toIso8601String(),
-      };
+    "id": id,
+    "day": day,
+    "from": from,
+    "to": to,
+    "created_at": createdAt!.toIso8601String(),
+    "updated_at": updatedAt!.toIso8601String(),
+  };
 }
 
 class ShopPayment {
@@ -376,13 +380,13 @@ class ShopPayment {
   }
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "shop_id": shopId,
-        "status": status,
-        "client_id": clientId,
-        "secret_id": secretId,
-        "payment": payment!.toJson(),
-      };
+    "id": id,
+    "shop_id": shopId,
+    "status": status,
+    "client_id": clientId,
+    "secret_id": secretId,
+    "payment": payment!.toJson(),
+  };
 }
 
 class Payment {
@@ -395,20 +399,21 @@ class Payment {
   List<dynamic>? locales;
 
   factory Payment.fromJson(Map<String, dynamic> json) => Payment(
-        id: json["id"],
-        tag: json["tag"],
-        active: json["active"],
-        translation: json["translation"],
-      );
+    id: json["id"],
+    tag: json["tag"],
+    active: json["active"],
+    translation: json["translation"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "tag": tag,
-        "active": active,
-        "translation": translation,
-        "locales":
-            locales == null ? [] : List<dynamic>.from(locales!.map((x) => x)),
-      };
+    "id": id,
+    "tag": tag,
+    "active": active,
+    "translation": translation,
+    "locales": locales == null
+        ? []
+        : List<dynamic>.from(locales!.map((x) => x)),
+  };
 }
 
 class TagsModel {

@@ -145,10 +145,7 @@ class _BecomeSellerPageState extends ConsumerState<BecomeSellerPage> {
               event: event,
             ),
             24.verticalSpace,
-            BackgroundImagePicker(
-              backgroundImage: state.bgImage,
-              event: event,
-            ),
+            BackgroundImagePicker(backgroundImage: state.bgImage, event: event),
             24.verticalSpace,
             ShopFormFields(
               descController: descController,
@@ -169,10 +166,7 @@ class _BecomeSellerPageState extends ConsumerState<BecomeSellerPage> {
               onAddressSelected: (addr) => event.setAddress(addr),
             ),
             24.verticalSpace,
-            DocumentUploadSection(
-              filePaths: state.filepath,
-              event: event,
-            ),
+            DocumentUploadSection(filePaths: state.filepath, event: event),
             32.verticalSpace,
             CustomButton(
               title: AppHelpers.getTranslation(TrKeys.save),
@@ -197,7 +191,9 @@ class _BecomeSellerPageState extends ConsumerState<BecomeSellerPage> {
                   );
                 } else if (state.addressModel == null) {
                   AppHelpers.showCheckTopSnackBar(
-                      context, 'Please select address');
+                    context,
+                    'Please select address',
+                  );
                 }
               },
             ),

@@ -137,7 +137,8 @@ class _OrdersPageState extends ConsumerState<OrdersPage>
                                     ? ListView.builder(
                                         padding: EdgeInsets.only(
                                           top: 30.h,
-                                          bottom: MediaQuery.of(
+                                          bottom:
+                                              MediaQuery.of(
                                                 context,
                                               ).padding.bottom +
                                               42.h,
@@ -178,7 +179,8 @@ class _OrdersPageState extends ConsumerState<OrdersPage>
                                     ? ListView.builder(
                                         padding: EdgeInsets.only(
                                           top: 30.h,
-                                          bottom: MediaQuery.paddingOf(
+                                          bottom:
+                                              MediaQuery.paddingOf(
                                                 context,
                                               ).bottom +
                                               42.h,

@@ -84,10 +84,10 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                         onTap: () async {
                                           XFile? file;
                                           try {
-                                            file =
-                                                await ImagePicker().pickImage(
-                                              source: ImageSource.gallery,
-                                            );
+                                            file = await ImagePicker()
+                                                .pickImage(
+                                                  source: ImageSource.gallery,
+                                                );
                                           } catch (ex) {
                                             debugPrint(
                                               '===> trying to select image $ex',
@@ -104,8 +104,8 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                                 ? BlurWrap(
                                                     radius:
                                                         BorderRadius.circular(
-                                                      16,
-                                                    ),
+                                                          16,
+                                                        ),
                                                     child: Container(
                                                       width: 50.r,
                                                       height: 50.r,
@@ -115,10 +115,9 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                                           Alignment.center,
                                                       child: ClipRRect(
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(
-                                                          20.r,
-                                                        ),
+                                                            BorderRadius.circular(
+                                                              20.r,
+                                                            ),
                                                         child: Image.file(
                                                           File(
                                                             state
@@ -194,18 +193,18 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                     keyboardType: TextInputType.phone,
                                     initialCountryCode: shopNumber == null
                                         ? (shopNumber?.isValidNumber() ?? false)
-                                            ? shopNumber?.countryISOCode
-                                            : AppConstants.countryCodeISO
+                                              ? shopNumber?.countryISOCode
+                                              : AppConstants.countryCodeISO
                                         : AppConstants.countryCodeISO,
                                     initialValue: shopNumber == null
                                         ? (shopNumber?.isValidNumber() ?? false)
-                                            ? shopNumber?.number
-                                            : state.shop?.phone
+                                              ? shopNumber?.number
+                                              : state.shop?.phone
                                         : "",
                                     invalidNumberMessage:
                                         AppHelpers.getTranslation(
-                                      TrKeys.phoneNumberIsNotValid,
-                                    ),
+                                          TrKeys.phoneNumberIsNotValid,
+                                        ),
                                     inputFormatters: [
                                       FilteringTextInputFormatter.digitsOnly,
                                     ],
@@ -214,8 +213,8 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                         AppConstants.showArrowIcon,
                                     autovalidateMode:
                                         AppConstants.isNumberLengthAlwaysSame
-                                            ? AutovalidateMode.onUserInteraction
-                                            : AutovalidateMode.disabled,
+                                        ? AutovalidateMode.onUserInteraction
+                                        : AutovalidateMode.disabled,
                                     textAlignVertical: TextAlignVertical.center,
                                     decoration: InputDecoration(
                                       counterText: '',
@@ -349,20 +348,23 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                             ...(state.shop?.shopWorkingDays ??
                                                     [])
                                                 .map(
-                                              (ShopWorkingDays day) => Padding(
-                                                padding: REdgeInsets.only(
-                                                  right: 4,
+                                                  (ShopWorkingDays day) =>
+                                                      Padding(
+                                                        padding:
+                                                            REdgeInsets.only(
+                                                              right: 4,
+                                                            ),
+                                                        child: SmallWeekdayItem(
+                                                          isSelected:
+                                                              !(day.disabled ??
+                                                                  false),
+                                                          day: day,
+                                                          size: 30,
+                                                          fontSize: 11,
+                                                          borderRadius: 6,
+                                                        ),
+                                                      ),
                                                 ),
-                                                child: SmallWeekdayItem(
-                                                  isSelected:
-                                                      !(day.disabled ?? false),
-                                                  day: day,
-                                                  size: 30,
-                                                  fontSize: 11,
-                                                  borderRadius: 6,
-                                                ),
-                                              ),
-                                            ),
                                           ],
                                         ),
                                       ],

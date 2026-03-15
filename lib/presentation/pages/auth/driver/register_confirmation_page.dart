@@ -144,8 +144,8 @@ class _RegisterConfirmationPageState
                                 state.isCodeError
                                     ? Style.redColor
                                     : isDarkMode
-                                        ? Style.borderColor
-                                        : AppStyle.blackColor,
+                                    ? Style.borderColor
+                                    : AppStyle.blackColor,
                               ),
                             ),
                           ),
@@ -198,11 +198,11 @@ class _RegisterConfirmationPageState
                                           widget.userModel.email ?? "",
                                         )
                                       : notifier
-                                          .confirmCodeResetPasswordWithPhone(
-                                          context,
-                                          widget.userModel.email ?? "",
-                                          widget.verificationId,
-                                        );
+                                            .confirmCodeResetPasswordWithPhone(
+                                              context,
+                                              widget.userModel.email ?? "",
+                                              widget.verificationId,
+                                            );
                                 } else {
                                   widget.verificationId.isEmpty
                                       ? notifier.confirmCode(context)

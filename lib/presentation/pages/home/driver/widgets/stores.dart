@@ -52,8 +52,10 @@ class StoresPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16.r),
                 ),
                 alignment: Alignment.center,
-                child: const Icon(FlutterRemix.image_line,
-                    color: AppStyle.blackColor),
+                child: const Icon(
+                  FlutterRemix.image_line,
+                  color: AppStyle.blackColor,
+                ),
               );
             },
           ),

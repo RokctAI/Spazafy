@@ -26,8 +26,9 @@ class UnitData {
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
         : null;
-    _locales =
-        json['locales'] != null ? List<String>.from(json['locales']) : [];
+    _locales = json['locales'] != null
+        ? List<String>.from(json['locales'])
+        : [];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
   }
@@ -48,16 +49,15 @@ class UnitData {
     List<String>? locales,
     String? createdAt,
     String? updatedAt,
-  }) =>
-      UnitData(
-        id: id ?? _id,
-        active: active ?? _active,
-        position: position ?? _position,
-        translation: translation ?? _translation,
-        locales: locales ?? _locales,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-      );
+  }) => UnitData(
+    id: id ?? _id,
+    active: active ?? _active,
+    position: position ?? _position,
+    translation: translation ?? _translation,
+    locales: locales ?? _locales,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+  );
 
   String? get id => _id;
   bool? get active => _active;

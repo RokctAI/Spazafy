@@ -118,10 +118,11 @@ class _LoginModalState extends State<LoginModal>
                                           AppConstants.countryCodeISO,
                                       invalidNumberMessage:
                                           AppHelpers.getTranslation(
-                                        state.isLoginError
-                                            ? TrKeys.loginCredentialsAreNotValid
-                                            : TrKeys.phoneNumberIsNotValid,
-                                      ),
+                                            state.isLoginError
+                                                ? TrKeys
+                                                      .loginCredentialsAreNotValid
+                                                : TrKeys.phoneNumberIsNotValid,
+                                          ),
                                       inputFormatters: [
                                         FilteringTextInputFormatter.digitsOnly,
                                       ],
@@ -131,10 +132,9 @@ class _LoginModalState extends State<LoginModal>
                                       autovalidateMode: state.isLoginError
                                           ? AutovalidateMode.always
                                           : AppConstants
-                                                  .isNumberLengthAlwaysSame
-                                              ? AutovalidateMode
-                                                  .onUserInteraction
-                                              : AutovalidateMode.disabled,
+                                                .isNumberLengthAlwaysSame
+                                          ? AutovalidateMode.onUserInteraction
+                                          : AutovalidateMode.disabled,
                                       textAlignVertical:
                                           TextAlignVertical.center,
                                       decoration: InputDecoration(
@@ -187,17 +187,18 @@ class _LoginModalState extends State<LoginModal>
                                       TrKeys.email,
                                     ).toUpperCase(),
                                     onChanged: event.setEmail,
-                                    isError: state.isEmailNotValid ||
+                                    isError:
+                                        state.isEmailNotValid ||
                                         state.isLoginError,
                                     descriptionText: state.isLoginError
                                         ? AppHelpers.getTranslation(
                                             TrKeys.loginCredentialsAreNotValid,
                                           )
                                         : state.isEmailNotValid
-                                            ? AppHelpers.getTranslation(
-                                                TrKeys.emailIsNotValid,
-                                              )
-                                            : null,
+                                        ? AppHelpers.getTranslation(
+                                            TrKeys.emailIsNotValid,
+                                          )
+                                        : null,
                                   ),
                                 ],
                               ),
@@ -282,40 +283,40 @@ class _LoginModalState extends State<LoginModal>
                                     index: _tabController.index,
                                     checkYourNetwork: () =>
                                         AppHelpers.showCheckTopSnackBar(
-                                      context,
-                                      text: AppHelpers.getTranslation(
-                                        TrKeys.checkYourNetworkConnection,
-                                      ),
-                                    ),
+                                          context,
+                                          text: AppHelpers.getTranslation(
+                                            TrKeys.checkYourNetworkConnection,
+                                          ),
+                                        ),
                                     loginSuccess: () {
                                       ref
                                           .read(restaurantProvider.notifier)
                                           .fetchMyShop(
-                                        afterFetched: () {
-                                          Navigator.pop(context);
-                                          context.router.popUntilRoot();
-                                          context.replaceRoute(
-                                            const MainRoute(),
+                                            afterFetched: () {
+                                              Navigator.pop(context);
+                                              context.router.popUntilRoot();
+                                              context.replaceRoute(
+                                                const MainRoute(),
+                                              );
+                                            },
                                           );
-                                        },
-                                      );
                                     },
                                     seller: () =>
                                         AppHelpers.showCheckTopSnackBar(
-                                      context,
-                                      text: AppHelpers.getTranslation(
-                                        TrKeys.youAreASeller,
-                                      ),
-                                      type: SnackBarType.success,
-                                    ),
+                                          context,
+                                          text: AppHelpers.getTranslation(
+                                            TrKeys.youAreASeller,
+                                          ),
+                                          type: SnackBarType.success,
+                                        ),
                                     admin: () =>
                                         AppHelpers.showCheckTopSnackBar(
-                                      context,
-                                      text: AppHelpers.getTranslation(
-                                        TrKeys.youAreAnAdmin,
-                                      ),
-                                      type: SnackBarType.success,
-                                    ),
+                                          context,
+                                          text: AppHelpers.getTranslation(
+                                            TrKeys.youAreAnAdmin,
+                                          ),
+                                          type: SnackBarType.success,
+                                        ),
                                     accessDenied: () {
                                       Navigator.pop(context);
                                       context.router.popUntilRoot();

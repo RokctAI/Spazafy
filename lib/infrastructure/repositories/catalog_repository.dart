@@ -26,10 +26,13 @@ class CatalogRepository implements CategoriesFacade, CatalogInterface {
       final client = dioHttp.client(requireAuth: false);
       // Try PaaS first
       try {
-        final response = await client.get('/api/method/paas.api.get_categories',
-            queryParameters: params);
+        final response = await client.get(
+          '/api/method/paas.api.get_categories',
+          queryParameters: params,
+        );
         return ApiResult.success(
-            data: CategoriesPaginateResponse.fromJson(response.data));
+          data: CategoriesPaginateResponse.fromJson(response.data),
+        );
       } catch (e) {
         // Fallback to V1 (from manager/catalog_repository)
         return getCategories(page: page);
@@ -40,23 +43,27 @@ class CatalogRepository implements CategoriesFacade, CatalogInterface {
   }
 
   @override
-  Future<ApiResult<CategoriesPaginateResponse>> searchCategories(
-      {required String text}) async {
+  Future<ApiResult<CategoriesPaginateResponse>> searchCategories({
+    required String text,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-          '/api/method/paas.api.search_categories',
-          queryParameters: {'search': text});
+        '/api/method/paas.api.search_categories',
+        queryParameters: {'search': text},
+      );
       return ApiResult.success(
-          data: CategoriesPaginateResponse.fromJson(response.data));
+        data: CategoriesPaginateResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
   }
 
   @override
-  Future<ApiResult<CategoriesPaginateResponse>> getCategoriesByShop(
-      {required String shopId}) async {
+  Future<ApiResult<CategoriesPaginateResponse>> getCategoriesByShop({
+    required String shopId,
+  }) async {
     return getAllCategories(page: 1, shopId: shopId);
   }
 
@@ -66,13 +73,16 @@ class CatalogRepository implements CategoriesFacade, CatalogInterface {
   Future<ApiResult<UnitsPaginateResponse>> getUnits() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client
-          .get('/api/v1/dashboard/seller/units/paginate', queryParameters: {
-        'lang': LocalStorage.getLanguage()?.locale,
-        'perPage': 100
-      });
+      final response = await client.get(
+        '/api/v1/dashboard/seller/units/paginate',
+        queryParameters: {
+          'lang': LocalStorage.getLanguage()?.locale,
+          'perPage': 100,
+        },
+      );
       return ApiResult.success(
-          data: UnitsPaginateResponse.fromJson(response.data));
+        data: UnitsPaginateResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
@@ -82,21 +92,26 @@ class CatalogRepository implements CategoriesFacade, CatalogInterface {
   Future<ApiResult<KitchensPaginateResponse>> getKitchens() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get('/api/v1/dashboard/seller/kitchen/',
-          queryParameters: {
-            'lang': LocalStorage.getLanguage()?.locale,
-            'perPage': 100
-          });
+      final response = await client.get(
+        '/api/v1/dashboard/seller/kitchen/',
+        queryParameters: {
+          'lang': LocalStorage.getLanguage()?.locale,
+          'perPage': 100,
+        },
+      );
       return ApiResult.success(
-          data: KitchensPaginateResponse.fromJson(response.data));
+        data: KitchensPaginateResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
   }
 
   @override
-  Future<ApiResult<void>> createCategory(
-      {required String title, int? input}) async {
+  Future<ApiResult<void>> createCategory({
+    required String title,
+    int? input,
+  }) async {
     final data = {
       'title': {LocalStorage.getSystemLanguage()?.locale ?? 'en': title},
       'active': 1,
@@ -114,11 +129,12 @@ class CatalogRepository implements CategoriesFacade, CatalogInterface {
   }
 
   @override
-  Future<ApiResult<CategoriesPaginateResponse>> getCategories(
-      {int? page,
-      String? query,
-      String? type,
-      bool hasProducts = false}) async {
+  Future<ApiResult<CategoriesPaginateResponse>> getCategories({
+    int? page,
+    String? query,
+    String? type,
+    bool hasProducts = false,
+  }) async {
     final shopId = LocalStorage.getUser()?.shop?.id;
     final data = {
       if (page != null) 'page': page,
@@ -133,24 +149,31 @@ class CatalogRepository implements CategoriesFacade, CatalogInterface {
     };
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get('/api/v1/dashboard/seller/categories',
-          queryParameters: data);
+      final response = await client.get(
+        '/api/v1/dashboard/seller/categories',
+        queryParameters: data,
+      );
       return ApiResult.success(
-          data: CategoriesPaginateResponse.fromJson(response.data));
+        data: CategoriesPaginateResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
   }
 
   @override
-  Future<ApiResult<CategoriesPaginateResponse>> getShopCategories(
-      {int? page, String? query}) async {
+  Future<ApiResult<CategoriesPaginateResponse>> getShopCategories({
+    int? page,
+    String? query,
+  }) async {
     return getCategories(page: page, query: query, hasProducts: true);
   }
 
   @override
-  Future<ApiResult<CategoriesPaginateResponse>> getCategoriesSub(
-      {int? page, String? query}) async {
+  Future<ApiResult<CategoriesPaginateResponse>> getCategoriesSub({
+    int? page,
+    String? query,
+  }) async {
     return getCategories(page: page, query: query, type: 'sub_shop');
   }
 
@@ -158,8 +181,10 @@ class CatalogRepository implements CategoriesFacade, CatalogInterface {
   Future<ApiResult> deleteCategory({required String? id}) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.delete('/api/v1/dashboard/seller/categories/delete',
-          queryParameters: {'ids[0]': id});
+      await client.delete(
+        '/api/v1/dashboard/seller/categories/delete',
+        queryParameters: {'ids[0]': id},
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));

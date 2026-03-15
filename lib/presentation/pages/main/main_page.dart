@@ -91,7 +91,9 @@ class _MainPageState extends State<MainPage> {
     IndexedStackChild(child: const OrdersHomePage(), preload: false),
     IndexedStackChild(child: const FoodsPage(), preload: false),
     IndexedStackChild(
-        child: const ProfilePage(isBackButton: false), preload: true),
+      child: const ProfilePage(isBackButton: false),
+      preload: true,
+    ),
   ];
 
   List listPages = [
@@ -105,10 +107,13 @@ class _MainPageState extends State<MainPage> {
           : IndexedStackChild(child: const SearchPage(isBackButton: false)),
       LocalStorage.getToken().isNotEmpty
           ? IndexedStackChild(
-              child: const WalletHistoryPage(isBackButton: false))
+              child: const WalletHistoryPage(isBackButton: false),
+            )
           : IndexedStackChild(child: const LikePage(isBackButton: false)),
       IndexedStackChild(
-          child: const ProfilePage(isBackButton: false), preload: true),
+        child: const ProfilePage(isBackButton: false),
+        preload: true,
+      ),
     ],
     [],
     [],
@@ -123,10 +128,13 @@ class _MainPageState extends State<MainPage> {
           : IndexedStackChild(child: const SearchPage(isBackButton: false)),
       LocalStorage.getToken().isNotEmpty
           ? IndexedStackChild(
-              child: const WalletHistoryPage(isBackButton: false))
+              child: const WalletHistoryPage(isBackButton: false),
+            )
           : IndexedStackChild(child: const LikePage(isBackButton: false)),
       IndexedStackChild(
-          child: const ProfilePage(isBackButton: false), preload: true),
+        child: const ProfilePage(isBackButton: false),
+        preload: true,
+      ),
     ],
   ];
 
@@ -231,41 +239,43 @@ class _MainPageState extends State<MainPage> {
   }
 
   Future<void> initDynamicLinks() async {
-    dynamicLinks.onLink.listen((dynamicLinkData) {
-      Uri link = dynamicLinkData.link;
-      if (link.queryParameters.keys.contains('group')) {
-        if (!mounted) return;
-        context.router.popUntilRoot();
-        if (!mounted) return;
-        context.pushRoute(
-          ShopRoute(
-            shopId: link.pathSegments.last,
-            cartId: link.queryParameters['group'],
-            ownerId: link.queryParameters['owner_id'] ?? '',
-          ),
-        );
-      } else if (!link.queryParameters.keys.contains("product") &&
-          link.pathSegments.contains("shop")) {
-        if (!mounted) return;
-        context.router.popUntilRoot();
-        context.pushRoute(ShopRoute(shopId: link.pathSegments.last));
-      } else if (link.pathSegments.contains("shop")) {
-        if (!mounted) return;
-        context.router.popUntilRoot();
-        if (!mounted) return;
-        context.pushRoute(
-          ShopRoute(
-            shopId: link.pathSegments.last,
-            productId: link.queryParameters['product'],
-          ),
-        );
-      }
-    }).onError((error) {
-      debugPrint(error.message);
-    });
+    dynamicLinks.onLink
+        .listen((dynamicLinkData) {
+          Uri link = dynamicLinkData.link;
+          if (link.queryParameters.keys.contains('group')) {
+            if (!mounted) return;
+            context.router.popUntilRoot();
+            if (!mounted) return;
+            context.pushRoute(
+              ShopRoute(
+                shopId: link.pathSegments.last,
+                cartId: link.queryParameters['group'],
+                ownerId: link.queryParameters['owner_id'] ?? '',
+              ),
+            );
+          } else if (!link.queryParameters.keys.contains("product") &&
+              link.pathSegments.contains("shop")) {
+            if (!mounted) return;
+            context.router.popUntilRoot();
+            context.pushRoute(ShopRoute(shopId: link.pathSegments.last));
+          } else if (link.pathSegments.contains("shop")) {
+            if (!mounted) return;
+            context.router.popUntilRoot();
+            if (!mounted) return;
+            context.pushRoute(
+              ShopRoute(
+                shopId: link.pathSegments.last,
+                productId: link.queryParameters['product'],
+              ),
+            );
+          }
+        })
+        .onError((error) {
+          debugPrint(error.message);
+        });
 
-    final PendingDynamicLinkData? data =
-        await FirebaseDynamicLinks.instance.getInitialLink();
+    final PendingDynamicLinkData? data = await FirebaseDynamicLinks.instance
+        .getInitialLink();
     if (!mounted) return;
     final Uri? deepLink = data?.link;
     if (deepLink?.queryParameters.keys.contains("group") ?? false) {
@@ -318,10 +328,7 @@ class _MainPageState extends State<MainPage> {
                   audioCallCount++;
                 });
               }
-              return ProsteIndexedStack(
-                index: index,
-                children: sellerPages,
-              );
+              return ProsteIndexedStack(index: index, children: sellerPages);
             }
 
             return ProsteIndexedStack(
@@ -354,7 +361,8 @@ class _MainPageState extends State<MainPage> {
     final curUser = LocalStorage.getUser();
     final bool isSeller = curUser?.role == 'seller';
     final orders = ref.watch(shopOrderProvider).cart;
-    final bool isCartEmpty = orders == null ||
+    final bool isCartEmpty =
+        orders == null ||
         (orders.userCarts?.isEmpty ?? true) ||
         ((orders.userCarts?.isEmpty ?? true)
             ? true
@@ -365,8 +373,9 @@ class _MainPageState extends State<MainPage> {
     final bool isFixed = AppConstants.fixed;
 
     // If fixed is true, always pass false for isScrolling
-    final bool isScrollingValue =
-        isFixed ? false : ref.watch(mainProvider).isScrolling;
+    final bool isScrollingValue = isFixed
+        ? false
+        : ref.watch(mainProvider).isScrolling;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -414,10 +423,13 @@ class _MainPageState extends State<MainPage> {
                       Consumer(
                         builder: (context, ref, child) {
                           // Check if currency is loaded
-                          final isLoading =
-                              ref.watch(shopOrderProvider).isLoading;
-                          final totalPrice =
-                              ref.watch(shopOrderProvider).cart?.totalPrice;
+                          final isLoading = ref
+                              .watch(shopOrderProvider)
+                              .isLoading;
+                          final totalPrice = ref
+                              .watch(shopOrderProvider)
+                              .cart
+                              ?.totalPrice;
                           final currency = LocalStorage.getSelectedCurrency();
 
                           if (isLoading) {
@@ -506,18 +518,18 @@ class _MainPageState extends State<MainPage> {
                         label: (isSeller && !isCustomerMode)
                             ? AppHelpers.getTranslation(TrKeys.orders)
                             : (AppHelpers.getParcel())
-                                ? AppHelpers.getTranslation(TrKeys.send)
-                                : AppHelpers.getTranslation(TrKeys.search),
+                            ? AppHelpers.getTranslation(TrKeys.send)
+                            : AppHelpers.getTranslation(TrKeys.search),
                         selectIcon: (isSeller && !isCustomerMode)
                             ? FlutterRemix.file_list_2_fill
                             : (AppHelpers.getParcel())
-                                ? Remix.instance_fill
-                                : FlutterRemix.search_fill,
+                            ? Remix.instance_fill
+                            : FlutterRemix.search_fill,
                         unSelectIcon: (isSeller && !isCustomerMode)
                             ? FlutterRemix.file_list_2_line
                             : (AppHelpers.getParcel())
-                                ? Remix.instance_line
-                                : FlutterRemix.search_line,
+                            ? Remix.instance_line
+                            : FlutterRemix.search_line,
                       ),
                       BottomNavigatorItem(
                         isScrolling: index == 3 ? false : isScrollingValue,
@@ -530,18 +542,18 @@ class _MainPageState extends State<MainPage> {
                         label: (isSeller && !isCustomerMode)
                             ? AppHelpers.getTranslation(TrKeys.foods)
                             : LocalStorage.getToken().isNotEmpty
-                                ? AppHelpers.getTranslation(TrKeys.wallet)
-                                : AppHelpers.getTranslation(TrKeys.liked),
+                            ? AppHelpers.getTranslation(TrKeys.wallet)
+                            : AppHelpers.getTranslation(TrKeys.liked),
                         selectIcon: (isSeller && !isCustomerMode)
                             ? FlutterRemix.restaurant_fill
                             : LocalStorage.getToken().isNotEmpty
-                                ? FlutterRemix.wallet_2_fill
-                                : FlutterRemix.heart_fill,
+                            ? FlutterRemix.wallet_2_fill
+                            : FlutterRemix.heart_fill,
                         unSelectIcon: (isSeller && !isCustomerMode)
                             ? FlutterRemix.restaurant_line
                             : LocalStorage.getToken().isNotEmpty
-                                ? FlutterRemix.wallet_2_line
-                                : FlutterRemix.heart_line,
+                            ? FlutterRemix.wallet_2_line
+                            : FlutterRemix.heart_line,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -602,33 +614,36 @@ class _MainPageState extends State<MainPage> {
                           index == 1
                               ? context.pushRoute(const CreateOrderRoute())
                               : (foodTabState.selectedIndex == 0
-                                  ? AppHelpers.showCustomModalBottomSheet(
-                                      paddingTop:
-                                          MediaQuery.paddingOf(context).top +
-                                              64.h,
-                                      context: context,
-                                      modal: const CreateProductModal(),
-                                      isDarkMode: false,
-                                    )
-                                  : (foodTabState.selectedIndex == 1
-                                      ? AppHelpers.showCustomModalBottomSheet(
-                                          paddingTop:
-                                              MediaQuery.paddingOf(context)
-                                                      .top +
+                                    ? AppHelpers.showCustomModalBottomSheet(
+                                        paddingTop:
+                                            MediaQuery.paddingOf(context).top +
+                                            64.h,
+                                        context: context,
+                                        modal: const CreateProductModal(),
+                                        isDarkMode: false,
+                                      )
+                                    : (foodTabState.selectedIndex == 1
+                                          ? AppHelpers.showCustomModalBottomSheet(
+                                              paddingTop:
+                                                  MediaQuery.paddingOf(
+                                                    context,
+                                                  ).top +
                                                   64.h,
-                                          context: context,
-                                          modal: const CreateAddonModal(),
-                                          isDarkMode: false,
-                                        )
-                                      : AppHelpers.showCustomModalBottomSheet(
-                                          paddingTop:
-                                              MediaQuery.paddingOf(context)
-                                                      .top +
+                                              context: context,
+                                              modal: const CreateAddonModal(),
+                                              isDarkMode: false,
+                                            )
+                                          : AppHelpers.showCustomModalBottomSheet(
+                                              paddingTop:
+                                                  MediaQuery.paddingOf(
+                                                    context,
+                                                  ).top +
                                                   64.h,
-                                          context: context,
-                                          modal: const CreateExtrasGroupModal(),
-                                          isDarkMode: false,
-                                        )));
+                                              context: context,
+                                              modal:
+                                                  const CreateExtrasGroupModal(),
+                                              isDarkMode: false,
+                                            )));
                         },
                         child: Container(
                           margin: EdgeInsetsDirectional.only(start: 8.r),
@@ -686,8 +701,8 @@ class _MainPageState extends State<MainPage> {
                           (isCustomerMode && !isCartEmpty)
                               ? FlutterRemix.shopping_basket_2_fill
                               : (isCustomerMode
-                                  ? FlutterRemix.arrow_left_line
-                                  : FlutterRemix.shopping_bag_3_fill),
+                                    ? FlutterRemix.arrow_left_line
+                                    : FlutterRemix.shopping_bag_3_fill),
                           color: AppStyle.white,
                         ),
                         if (isCustomerMode && !isCartEmpty)
@@ -753,14 +768,14 @@ class _MainPageState extends State<MainPage> {
                     isCartEmpty
                         ? "0"
                         : (ref
-                                    .watch(shopOrderProvider)
-                                    .cart
-                                    ?.userCarts
-                                    ?.first
-                                    .cartDetails
-                                    ?.length ??
-                                0)
-                            .toString(),
+                                      .watch(shopOrderProvider)
+                                      .cart
+                                      ?.userCarts
+                                      ?.first
+                                      .cartDetails
+                                      ?.length ??
+                                  0)
+                              .toString(),
                     style: const TextStyle(color: AppStyle.white),
                   ),
                 ),

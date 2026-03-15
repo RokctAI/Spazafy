@@ -21,7 +21,7 @@ class CountNotificationModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "notification": notification,
-        "transaction": transaction,
-      };
+    "notification": notification,
+    "transaction": transaction,
+  };
 }

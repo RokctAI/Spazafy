@@ -9,7 +9,8 @@ class OutsidePolygonPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Colors.red.withValues(alpha: 0.5) // Color for the outside area
+      ..color = Colors.red
+          .withValues(alpha: 0.5) // Color for the outside area
       ..style = PaintingStyle.fill;
 
     Path path = Path()

@@ -53,11 +53,12 @@ class _$DeliveryTimeStateCopyWithImpl<$Res, $Val extends DeliveryTimeState>
   $Res call({Object? deliveryDate = null}) {
     return _then(
       _value.copyWith(
-        deliveryDate: null == deliveryDate
-            ? _value.deliveryDate
-            : deliveryDate // ignore: cast_nullable_to_non_nullable
-                as String,
-      ) as $Val,
+            deliveryDate: null == deliveryDate
+                ? _value.deliveryDate
+                : deliveryDate // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
     );
   }
 }
@@ -93,7 +94,7 @@ class __$$DeliveryTimeStateImplCopyWithImpl<$Res>
         deliveryDate: null == deliveryDate
             ? _value.deliveryDate
             : deliveryDate // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }

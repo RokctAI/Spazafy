@@ -11,7 +11,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
   int _subPage = 0;
 
   AllCategoriesNotifier()
-      : super(AllCategoriesState(categoryController: TextEditingController()));
+    : super(AllCategoriesState(categoryController: TextEditingController()));
 
   Future<void> updateCategories(
     BuildContext context, {

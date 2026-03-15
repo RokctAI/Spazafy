@@ -12,7 +12,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
   final SettingsRepository _settingsRepository;
 
   ProfileImageNotifier(this._userRepository, this._settingsRepository)
-      : super(const ProfileImageState());
+    : super(const ProfileImageState());
 
   Future<void> updateProfileImage({
     required BuildContext context,

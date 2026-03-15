@@ -21,7 +21,7 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
   final CartFacade _cartRepository;
 
   ProductsNotifier(this._productsRepository, this._cartRepository)
-      : super(const ProductsState());
+    : super(const ProductsState());
 
   String? shareLink;
 
@@ -247,8 +247,9 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
     final setOfUniques = uniques.toSet().toList();
     final List<UiExtra> extras = [];
     for (int i = 0; i < setOfUniques.length; i++) {
-      extras.add(UiExtra(
-          setOfUniques[i], selectedIndexes[groupExtras.length] == i, i));
+      extras.add(
+        UiExtra(setOfUniques[i], selectedIndexes[groupExtras.length] == i, i),
+      );
     }
     return TypedExtra(type, extras, title, index);
   }
@@ -288,7 +289,8 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
       if ((addon.product?.maxQty ?? 0) > (addon.quantity ?? 0)) {
         addon.quantity = (addon.quantity ?? 0) + 1;
         state = state.copyWith(
-            selectedStock: state.selectedStock?.copyWith(addons: data));
+          selectedStock: state.selectedStock?.copyWith(addons: data),
+        );
       }
     }
   }
@@ -300,7 +302,8 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
       if ((addon.product?.minQty ?? 0) < (addon.quantity ?? 0)) {
         addon.quantity = (addon.quantity ?? 0) - 1;
         state = state.copyWith(
-            selectedStock: state.selectedStock?.copyWith(addons: data));
+          selectedStock: state.selectedStock?.copyWith(addons: data),
+        );
       }
     }
   }

@@ -78,34 +78,31 @@ class FoodsFilterItem extends StatelessWidget {
                                   ],
                                 )
                               : isOffer
-                                  ? Row(
-                                      children: [
-                                        Icon(FlutterRemix.leaf_fill,
-                                            size: 16.r),
-                                        6.horizontalSpace,
-                                      ],
-                                    )
-                                  : isSort
-                                      ? Row(
-                                          children: [
-                                            Container(
-                                              width: 14.w,
-                                              height: 14.h,
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  width: currentItem == e
-                                                      ? 4.r
-                                                      : 2.r,
-                                                  color: AppStyle.blackColor,
-                                                ),
-                                                color: AppStyle.transparent,
-                                                shape: BoxShape.circle,
-                                              ),
-                                            ),
-                                            6.horizontalSpace,
-                                          ],
-                                        )
-                                      : const SizedBox.shrink(),
+                              ? Row(
+                                  children: [
+                                    Icon(FlutterRemix.leaf_fill, size: 16.r),
+                                    6.horizontalSpace,
+                                  ],
+                                )
+                              : isSort
+                              ? Row(
+                                  children: [
+                                    Container(
+                                      width: 14.w,
+                                      height: 14.h,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          width: currentItem == e ? 4.r : 2.r,
+                                          color: AppStyle.blackColor,
+                                        ),
+                                        color: AppStyle.transparent,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    6.horizontalSpace,
+                                  ],
+                                )
+                              : const SizedBox.shrink(),
                           isPrice
                               ? Text(
                                   AppHelpers.numberFormat(double.tryParse(e)),

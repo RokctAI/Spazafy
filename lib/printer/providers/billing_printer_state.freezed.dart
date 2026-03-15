@@ -69,27 +69,28 @@ class _$BillingPrinterStateCopyWithImpl<$Res, $Val extends BillingPrinterState>
   }) {
     return _then(
       _value.copyWith(
-        status: null == status
-            ? _value.status
-            : status // ignore: cast_nullable_to_non_nullable
-                as PrinterStatus,
-        devices: null == devices
-            ? _value.devices
-            : devices // ignore: cast_nullable_to_non_nullable
-                as List<BluetoothInfo>,
-        connectedMac: freezed == connectedMac
-            ? _value.connectedMac
-            : connectedMac // ignore: cast_nullable_to_non_nullable
-                as String?,
-        connectedName: freezed == connectedName
-            ? _value.connectedName
-            : connectedName // ignore: cast_nullable_to_non_nullable
-                as String?,
-        errorMessage: freezed == errorMessage
-            ? _value.errorMessage
-            : errorMessage // ignore: cast_nullable_to_non_nullable
-                as String?,
-      ) as $Val,
+            status: null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                      as PrinterStatus,
+            devices: null == devices
+                ? _value.devices
+                : devices // ignore: cast_nullable_to_non_nullable
+                      as List<BluetoothInfo>,
+            connectedMac: freezed == connectedMac
+                ? _value.connectedMac
+                : connectedMac // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            connectedName: freezed == connectedName
+                ? _value.connectedName
+                : connectedName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            errorMessage: freezed == errorMessage
+                ? _value.errorMessage
+                : errorMessage // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
     );
   }
 }
@@ -137,23 +138,23 @@ class __$$BillingPrinterStateImplCopyWithImpl<$Res>
         status: null == status
             ? _value.status
             : status // ignore: cast_nullable_to_non_nullable
-                as PrinterStatus,
+                  as PrinterStatus,
         devices: null == devices
             ? _value._devices
             : devices // ignore: cast_nullable_to_non_nullable
-                as List<BluetoothInfo>,
+                  as List<BluetoothInfo>,
         connectedMac: freezed == connectedMac
             ? _value.connectedMac
             : connectedMac // ignore: cast_nullable_to_non_nullable
-                as String?,
+                  as String?,
         connectedName: freezed == connectedName
             ? _value.connectedName
             : connectedName // ignore: cast_nullable_to_non_nullable
-                as String?,
+                  as String?,
         errorMessage: freezed == errorMessage
             ? _value.errorMessage
             : errorMessage // ignore: cast_nullable_to_non_nullable
-                as String?,
+                  as String?,
       ),
     );
   }
@@ -168,8 +169,8 @@ class _$BillingPrinterStateImpl extends _BillingPrinterState {
     this.connectedMac,
     this.connectedName,
     this.errorMessage,
-  })  : _devices = devices,
-        super._();
+  }) : _devices = devices,
+       super._();
 
   @override
   @JsonKey()
@@ -212,13 +213,13 @@ class _$BillingPrinterStateImpl extends _BillingPrinterState {
 
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        status,
-        const DeepCollectionEquality().hash(_devices),
-        connectedMac,
-        connectedName,
-        errorMessage,
-      );
+    runtimeType,
+    status,
+    const DeepCollectionEquality().hash(_devices),
+    connectedMac,
+    connectedName,
+    errorMessage,
+  );
 
   /// Create a copy of BillingPrinterState
   /// with the given fields replaced by the non-null parameter values.

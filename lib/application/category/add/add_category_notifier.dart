@@ -11,7 +11,7 @@ class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
   String _input = '';
 
   AddCategoryNotifier(this._catalogRepository)
-      : super(const AddCategoryState());
+    : super(const AddCategoryState());
 
   Future<void> createCategory(
     BuildContext context, {

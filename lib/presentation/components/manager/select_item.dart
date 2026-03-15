@@ -43,8 +43,9 @@ class SelectItem extends StatelessWidget {
                       color: isActive ? AppStyle.primary : AppStyle.transparent,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color:
-                            isActive ? AppStyle.blackColor : AppStyle.textColor,
+                        color: isActive
+                            ? AppStyle.blackColor
+                            : AppStyle.textColor,
                         width: isActive ? 4.r : 2.r,
                       ),
                     ),

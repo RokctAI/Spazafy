@@ -60,7 +60,8 @@ class ShopBanner extends StatelessWidget {
                 width: double.infinity,
                 color: AppStyle.greyColor,
                 child: CommonImage(
-                  url: state.shop?.backgroundImg ??
+                  url:
+                      state.shop?.backgroundImg ??
                       LocalStorage.getShop()?.backgroundImg,
                   width: double.infinity,
                   radius: 0,

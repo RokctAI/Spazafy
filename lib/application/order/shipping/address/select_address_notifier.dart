@@ -13,7 +13,7 @@ class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
   Timer? _timer;
 
   SelectAddressNotifier()
-      : super(SelectAddressState(textController: TextEditingController()));
+    : super(SelectAddressState(textController: TextEditingController()));
 
   void setQuery(BuildContext context) {
     if (state.textController?.text.trim().isNotEmpty ?? false) {
