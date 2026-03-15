@@ -9,3 +9,6 @@ class IntroNotifier extends StateNotifier<IntroState> {
     state = state.copyWith(currentIndex: index);
   }
 }
+
+
+
