@@ -3,12 +3,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:driver/application/delivery_zone/delivery_zone_provider.dart';
+import 'package:venderfoodyman/application/delivery_zone/delivery_zone_provider.dart';
 
 import '../../../../theme/customer/app_style.dart';
 import '../../../../components/customer/buttons/pop_button.dart';
 import '../../../../components/customer/buttons/custom_button.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../../infrastructure/services/customer/app_helpers.dart';
 import '../../../../infrastructure/services/customer/tr_keys.dart';
 

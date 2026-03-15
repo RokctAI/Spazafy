@@ -4,7 +4,7 @@ import 'package:foodyman/domain/interface/categories.dart';
 import 'package:foodyman/infrastructure/models/response/categories_paginate_response.dart';
 import 'package:foodyman/infrastructure/models/data/translation.dart';
 
-class MockCategoriesRepository implements CategoriesRepositoryFacade {
+class MockCategoriesRepository implements CategoriesFacade {
   final CategoryData _demoCategory = CategoryData(
     id: "1",
     uuid: "demo_cat_1",

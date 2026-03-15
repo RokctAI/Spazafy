@@ -13,10 +13,10 @@ import 'widgets/shop_page_banner.dart';
 import '../../component/components.dart';
 import '../../phoenix_widget.dart';
 import '../auth/languages_modal.dart';
-import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'widgets/edit_restaurant_modal.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class RestaurantPage extends ConsumerStatefulWidget {
   const RestaurantPage({super.key});
@@ -380,14 +380,14 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
   //             child: Center(
   //               child: Text(
   //                 '4',
-  //                 style: Style.interSemi(size: 14, color: Style.blackColor),
+  //                 style: AppStyle.interSemi(size: 14, color: Style.blackColor),
   //               ),
   //             ),
   //           ),
   //           12.horizontalSpace,
   //           Text(
   //             AppHelpers.trans(TrKeys.notifications),
-  //             style: Style.interSemi(size: 18, color: Style.blackColor),
+  //             style: AppStyle.interSemi(size: 18, color: Style.blackColor),
   //           ),
   //           const Spacer(),
   //           GestureDetector(
@@ -396,7 +396,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
   //               padding: const EdgeInsets.all(4.0),
   //               child: Text(
   //                 AppHelpers.trans(TrKeys.seeAll),
-  //                 style: Style.interNormal(size: 14, color: Style.blueColor),
+  //                 style: AppStyle.interNormal(size: 14, color: Style.blueColor),
   //               ),
   //             ),
   //           ),

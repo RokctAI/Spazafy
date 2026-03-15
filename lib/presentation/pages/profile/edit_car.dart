@@ -5,20 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/application/profile/notifier/profile_edit_notifier.dart';
-import 'package:driver/application/profile/notifier/profile_image_notifier.dart';
-import 'package:driver/application/profile/provider/profile_edit_provider.dart';
-import 'package:driver/application/profile/provider/profile_image_provider.dart';
-import 'package:driver/application/profile/state/profile_edit_state.dart';
-import 'package:driver/application/profile/state/profile_image_state.dart';
-import 'package:driver/infrastructure/services/driver/img_service.dart';
+import 'package:venderfoodyman/application/profile/notifier/profile_edit_notifier.dart';
+import 'package:venderfoodyman/application/profile/notifier/profile_image_notifier.dart';
+import 'package:venderfoodyman/application/profile/provider/profile_edit_provider.dart';
+import 'package:venderfoodyman/application/profile/provider/profile_image_provider.dart';
+import 'package:venderfoodyman/application/profile/state/profile_edit_state.dart';
+import 'package:venderfoodyman/application/profile/state/profile_image_state.dart';
+import 'package:venderfoodyman/infrastructure/services/driver/img_service.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
-import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
 import 'package:venderfoodyman/presentation/components/customer/text_fields/underline_bordered_text_field.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
@@ -307,13 +307,13 @@ class _EditCarState extends ConsumerState<EditCar> {
                               16.verticalSpace,
                               Text(
                                 AppHelpers.getTranslation(TrKeys.carPicture),
-                                style: Style.interSemi(size: 14.sp),
+                                style: AppStyle.interSemi(size: 14.sp),
                               ),
                               Text(
                                 AppHelpers.getTranslation(
                                   TrKeys.recommendedSize,
                                 ),
-                                style: Style.interRegular(size: 14.sp),
+                                style: AppStyle.interRegular(size: 14.sp),
                               ),
                             ],
                           )

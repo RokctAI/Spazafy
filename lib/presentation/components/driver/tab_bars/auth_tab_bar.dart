@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../styles/style.dart';
 
 class AuthTabBar extends StatefulWidget {
@@ -35,11 +35,11 @@ class _AuthTabBarState extends State<AuthTabBar> {
       padding: EdgeInsets.all(6.r),
       height: 50.h,
       decoration: BoxDecoration(
-        color: Style.greyColor,
+        color: AppStyle.greyColor,
         borderRadius: BorderRadius.circular(10.r),
         boxShadow: [
           BoxShadow(
-            color: Style.black.withValues(alpha: 0.05),
+            color: AppStyle.blackColor.withValues(alpha: 0.05),
             blurRadius: 2,
             offset: const Offset(0, 1),
           ),
@@ -50,12 +50,12 @@ class _AuthTabBarState extends State<AuthTabBar> {
         controller: widget.tabController,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
-          color: Style.white,
+          color: AppStyle.white,
         ),
-        labelColor: Style.black,
-        unselectedLabelColor: Style.black.withValues(alpha: 0.5),
-        unselectedLabelStyle: Style.interNormal(size: 12.sp),
-        labelStyle: Style.interSemi(size: 12.sp),
+        labelColor: AppStyle.blackColor,
+        unselectedLabelColor: AppStyle.blackColor.withValues(alpha: 0.5),
+        unselectedLabelStyle: AppStyle.interNormal(size: 12.sp),
+        labelStyle: AppStyle.interSemi(size: 12.sp),
         tabs: widget.tabs
             .map(
               (tab) => Tab(
@@ -67,8 +67,8 @@ class _AuthTabBarState extends State<AuthTabBar> {
                       size: 18.r,
                       color:
                           widget.tabController.index == widget.tabs.indexOf(tab)
-                          ? Style.black
-                          : Style.black.withValues(alpha: 0.5),
+                          ? AppStyle.blackColor
+                          : AppStyle.blackColor.withValues(alpha: 0.5),
                     ),
                     8.horizontalSpace,
                     Text(AppHelpers.getTranslation(tab.text)),

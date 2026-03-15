@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:venderfoodyman/domain/interface/customer/settings.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 
 import 'language_state.dart';
 

@@ -3,10 +3,10 @@ import 'package:foodyman/domain/di/dependency_manager.dart';
 import 'package:foodyman/domain/interface/banners.dart';
 import 'package:foodyman/infrastructure/models/models.dart';
 import 'package:foodyman/domain/handlers/handlers.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 
-class BannersRepository implements BannersRepositoryFacade {
+class BannersRepository implements BannersFacade {
   @override
   Future<ApiResult<BannersPaginateResponse>> getBannersPaginate({
     required int page,

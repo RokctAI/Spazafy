@@ -5,10 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 
-import 'package:driver/application/providers/driver/providers.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'register_page.dart';
 import 'reset/set_password_page.dart';
@@ -80,7 +80,7 @@ class _RegisterConfirmationPageState
           child: Container(
             padding: MediaQuery.viewInsetsOf(context),
             decoration: BoxDecoration(
-              color: Style.greyColor.withValues(alpha: 0.96),
+              color: AppStyle.greyColor.withValues(alpha: 0.96),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(16.r),
                 topRight: Radius.circular(16.r),
@@ -100,16 +100,16 @@ class _RegisterConfirmationPageState
                         ),
                         Text(
                           AppHelpers.getTranslation(TrKeys.sendOtp),
-                          style: Style.interRegular(
+                          style: AppStyle.interRegular(
                             size: 14,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                           ),
                         ),
                         Text(
                           widget.userModel.email ?? "",
-                          style: Style.interRegular(
+                          style: AppStyle.interRegular(
                             size: 14,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                           ),
                         ),
                         40.verticalSpace,
@@ -122,24 +122,24 @@ class _RegisterConfirmationPageState
                             cursor: Cursor(
                               width: 1,
                               height: 24,
-                              color: isDarkMode ? Style.white : Style.black,
+                              color: isDarkMode ? AppStyle.white : AppStyle.blackColor,
                               enabled: true,
                             ),
                             decoration: BoxLooseDecoration(
                               gapSpace: 10.r,
-                              textStyle: Style.interNormal(
+                              textStyle: AppStyle.interNormal(
                                 size: 15.sp,
-                                color: isDarkMode ? Style.white : Style.black,
+                                color: isDarkMode ? AppStyle.white : AppStyle.blackColor,
                               ),
                               bgColorBuilder: FixedColorBuilder(
-                                isDarkMode ? Style.black : Style.transparent,
+                                isDarkMode ? AppStyle.blackColor : Style.transparent,
                               ),
                               strokeColorBuilder: FixedColorBuilder(
                                 state.isCodeError
                                     ? Style.redColor
                                     : isDarkMode
                                     ? Style.borderColor
-                                    : Style.black,
+                                    : AppStyle.blackColor,
                               ),
                             ),
                           ),
@@ -175,8 +175,8 @@ class _RegisterConfirmationPageState
                               }
                             },
                             weight: (MediaQuery.sizeOf(context).width - 40) / 3,
-                            background: Style.black,
-                            textColor: Style.white,
+                            background: AppStyle.blackColor,
+                            textColor: AppStyle.white,
                           ),
                           CustomButton(
                             isLoading: state.isLoading,
@@ -210,11 +210,11 @@ class _RegisterConfirmationPageState
                             weight:
                                 2 * (MediaQuery.sizeOf(context).width - 40) / 3,
                             background: state.isConfirm
-                                ? Style.primary
-                                : Style.white,
+                                ? AppStyle.primary
+                                : AppStyle.white,
                             textColor: state.isConfirm
-                                ? Style.black
-                                : Style.black,
+                                ? AppStyle.blackColor
+                                : AppStyle.blackColor,
                           ),
                         ],
                       ),

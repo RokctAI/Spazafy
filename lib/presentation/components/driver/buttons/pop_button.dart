@@ -17,11 +17,11 @@ class PopButton extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-            color: Style.black,
+            color: AppStyle.blackColor,
             borderRadius: BorderRadius.circular(10.r),
           ),
           padding: EdgeInsets.all(12.sp),
-          child: const Icon(Icons.keyboard_arrow_left, color: Style.white),
+          child: const Icon(Icons.keyboard_arrow_left, color: AppStyle.white),
         ),
       ),
     );

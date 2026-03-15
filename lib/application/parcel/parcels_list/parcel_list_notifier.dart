@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/domain/interface/customer/parcel.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/parcel_order.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'parcel_list_state.dart';
 
 class ParcelListNotifier extends StateNotifier<ParcelListState> {

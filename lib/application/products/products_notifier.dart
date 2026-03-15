@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:share_plus/share_plus.dart';
 
-import 'package:venderfoodyman/domain/interface/customer/products.dart';
-import 'package:venderfoodyman/domain/interface/customer/cart.dart';
+import 'package:venderfoodyman/domain/interface/products.dart';
+import 'package:venderfoodyman/domain/interface/cart.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/request/cart_request.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
@@ -17,8 +17,8 @@ import 'package:venderfoodyman/customer/app_constants.dart';
 import 'products_state.dart';
 
 class ProductsNotifier extends StateNotifier<ProductsState> {
-  final ProductsRepositoryFacade _productsRepository;
-  final CartRepositoryFacade _cartRepository;
+  final ProductsFacade _productsRepository;
+  final CartFacade _cartRepository;
 
   ProductsNotifier(this._productsRepository, this._cartRepository)
       : super(const ProductsState());

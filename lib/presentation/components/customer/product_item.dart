@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
-import 'package:driver/infrastructure/driver/services/app_helpers.dart';
-import 'package:driver/infrastructure/driver/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/driver/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/driver/services/tr_keys.dart';
 import '../styles/style.dart';
 
 class ProductItem extends StatelessWidget {
@@ -33,19 +33,19 @@ class ProductItem extends StatelessWidget {
                 children: [
                   Text(
                     product?.translation?.title ?? "",
-                    style: Style.interSemi(size: 14.sp, color: Style.black),
+                    style: AppStyle.interSemi(size: 14.sp, color: AppStyle.blackColor),
                   ),
                   4.verticalSpace,
                   Text(
                     "${AppHelpers.getTranslation(TrKeys.amount)} — ${(amount ?? 1) * (product?.interval ?? 1)} ${(product?.unit?.translation?.title ?? "")}",
-                    style: Style.interRegular(size: 14.sp, color: Style.black),
+                    style: AppStyle.interRegular(size: 14.sp, color: AppStyle.blackColor),
                   ),
                 ],
               ),
             ),
             Text(
               price,
-              style: Style.interSemi(size: 14.sp, color: Style.black),
+              style: AppStyle.interSemi(size: 14.sp, color: AppStyle.blackColor),
             ),
           ],
         ),
@@ -58,13 +58,13 @@ class ProductItem extends StatelessWidget {
                     child: RichText(
                       text: TextSpan(
                         text: "${AppHelpers.getTranslation(TrKeys.sideDish)}:",
-                        style: Style.interSemi(size: 14.sp, color: Style.black),
+                        style: AppStyle.interSemi(size: 14.sp, color: AppStyle.blackColor),
                         children: [
                           TextSpan(
                             text: product?.translation?.description ?? "",
-                            style: Style.interRegular(
+                            style: AppStyle.interRegular(
                               size: 14.sp,
-                              color: Style.black,
+                              color: AppStyle.blackColor,
                             ),
                           ),
                         ],

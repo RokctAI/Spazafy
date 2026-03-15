@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:driver/domain/interface/driver/orders.dart';
+import 'package:venderfoodyman/domain/interface/orders.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:driver/infrastructure/services/driver/app_connectivity.dart';
-import 'package:driver/infrastructure/services/driver/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 import 'order_state.dart';
 
 class OrderNotifier extends StateNotifier<OrderState> {
-  final OrdersRepositoryFacade _orderRepository;
+  final OrdersFacade _orderRepository;
 
   OrderNotifier(this._orderRepository) : super(const OrderState());
   int activeOrder = 1;

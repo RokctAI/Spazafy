@@ -1,0 +1,84 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/data/bonus_data.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+
+class BonusScreen extends StatelessWidget {
+  final BonusModel? bonus;
+
+  const BonusScreen({super.key, required this.bonus});
+
+  @override
+  Widget build(BuildContext context) {
+    final bool isLtr = LocalStorage.getLangLtr();
+    return Directionality(
+      textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppStyle.bgGrey.withOpacity(0.96),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(16.r),
+            topRight: Radius.circular(16.r),
+          ),
+        ),
+        width: double.infinity,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              8.verticalSpace,
+              Center(
+                child: Container(
+                  height: 4.h,
+                  width: 48.w,
+                  decoration: BoxDecoration(
+                    color: AppStyle.dragElement,
+                    borderRadius: BorderRadius.all(Radius.circular(40.r)),
+                  ),
+                ),
+              ),
+              14.verticalSpace,
+              TitleAndIcon(
+                title: AppHelpers.getTranslation(TrKeys.bonus),
+                paddingHorizontalSize: 0,
+              ),
+              10.verticalSpace,
+              Text(
+                bonus != null
+                    ? ((bonus?.type ?? "sum") == "sum")
+                        ? "${bonus?.bonusStock?.product?.translation?.title ?? ""} ${AppHelpers.getTranslation(TrKeys.giftBuy)} ${AppHelpers.numberFormat(number: bonus?.value)}"
+                        : "${bonus?.bonusStock?.product?.translation?.title ?? ""} ${AppHelpers.getTranslation(TrKeys.giftBuy)} ${bonus?.value ?? 0} ${AppHelpers.getTranslation(TrKeys.count)} "
+                    : AppHelpers.getTranslation(TrKeys.bonus),
+                style: AppStyle.interRegular(size: 14, color: AppStyle.black),
+              ),
+              30.verticalSpace,
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.paddingOf(context).bottom,
+                ),
+                child: CustomButton(
+                  title: AppHelpers.getTranslation(TrKeys.wantIt),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+

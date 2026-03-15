@@ -6,12 +6,12 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:driver/presentation/pages/driver/home/widgets/foods_page.dart';
+import 'package:venderfoodyman/presentation/pages/driver/home/widgets/foods_page.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import '../../application/providers.dart';
-import 'package:driver/infrastructure/driver/models/data/order_detail.dart';
-import 'package:driver/infrastructure/driver/services/services.dart';
+import 'package:venderfoodyman/infrastructure/driver/models/data/order_detail.dart';
+import 'package:venderfoodyman/infrastructure/driver/services/services.dart';
 import 'buttons/custom_button.dart';
 import 'image_dialog.dart';
 import 'order_item.dart';
@@ -50,7 +50,7 @@ class OrderDetail extends StatelessWidget {
                       );
                     },
                     background: Style.transparent,
-                    borderColor: Style.black,
+                    borderColor: AppStyle.blackColor,
                   ),
                   16.verticalSpace,
                   Consumer(
@@ -252,7 +252,7 @@ class OrderDetail extends StatelessWidget {
                         margin: EdgeInsets.only(top: 8.h),
                         decoration: BoxDecoration(
                           color: Style.transparent,
-                          border: Border.all(color: Style.black),
+                          border: Border.all(color: AppStyle.blackColor),
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                         padding: REdgeInsets.all(16),
@@ -261,7 +261,7 @@ class OrderDetail extends StatelessWidget {
                           children: [
                             Text(
                               AppHelpers.getTranslation(TrKeys.orderImage),
-                              style: Style.interNormal(
+                              style: AppStyle.interNormal(
                                 size: 14.sp,
                                 color: Style.blackColor,
                                 letterSpacing: -0.3,

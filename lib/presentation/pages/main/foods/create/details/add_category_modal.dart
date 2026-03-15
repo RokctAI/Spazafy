@@ -8,7 +8,7 @@ import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import '../../../../../component/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'food_categories_modal.dart';
 
 class AddCategoryModal extends StatefulWidget {

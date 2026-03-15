@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 
 import 'orders_list_notifier.dart';
 import 'orders_list_state.dart';

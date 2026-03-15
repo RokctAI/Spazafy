@@ -3,11 +3,11 @@ import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/application/statistics/statistics_provider.dart';
-import 'package:driver/application/statistics/statistics_state.dart';
+import 'package:venderfoodyman/application/statistics/statistics_provider.dart';
+import 'package:venderfoodyman/application/statistics/statistics_state.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
-import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'app_bar_screen.dart';
 import 'statistics_screen.dart';
@@ -76,7 +76,7 @@ class _IncomePageState extends ConsumerState<IncomePage>
   Widget build(BuildContext context) {
     final state = ref.watch(statisticsProvider);
     return Scaffold(
-      backgroundColor: Style.greyColor,
+      backgroundColor: AppStyle.greyColor,
       body: Column(
         children: [
           const AbbBarScreen(),
@@ -205,7 +205,7 @@ class _IncomePageState extends ConsumerState<IncomePage>
           width: double.infinity,
           height: 300.h,
           decoration: BoxDecoration(
-            color: Style.white,
+            color: AppStyle.white,
             borderRadius: BorderRadius.circular(10.r),
           ),
           padding: EdgeInsets.all(16.r),
@@ -230,7 +230,7 @@ class _IncomePageState extends ConsumerState<IncomePage>
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Style.white,
+            color: AppStyle.white,
             borderRadius: BorderRadius.circular(10.r),
           ),
           padding: EdgeInsets.all(16.r),
@@ -239,9 +239,9 @@ class _IncomePageState extends ConsumerState<IncomePage>
             children: [
               Text(
                 AppHelpers.getTranslation(TrKeys.orderPrice),
-                style: Style.interNormal(
+                style: AppStyle.interNormal(
                   size: 14.sp,
-                  color: Style.black,
+                  color: AppStyle.blackColor,
                   letterSpacing: -0.3,
                 ),
               ),
@@ -250,9 +250,9 @@ class _IncomePageState extends ConsumerState<IncomePage>
                 AppHelpers.numberFormat(
                   number: state.countData?.data?.lastOrderTotalPrice ?? 0,
                 ),
-                style: Style.interSemi(
+                style: AppStyle.interSemi(
                   size: 32.sp,
-                  color: Style.black,
+                  color: AppStyle.blackColor,
                   letterSpacing: -0.3,
                 ),
               ),
@@ -260,9 +260,9 @@ class _IncomePageState extends ConsumerState<IncomePage>
               RichText(
                 text: TextSpan(
                   text: AppHelpers.getTranslation(TrKeys.lastIncome),
-                  style: Style.interNormal(
+                  style: AppStyle.interNormal(
                     size: 12.sp,
-                    color: Style.black,
+                    color: AppStyle.blackColor,
                     letterSpacing: -0.3,
                   ),
                   children: [
@@ -270,9 +270,9 @@ class _IncomePageState extends ConsumerState<IncomePage>
                       text: AppHelpers.numberFormat(
                         number: state.countData?.data?.lastOrderIncome ?? 0,
                       ),
-                      style: Style.interSemi(
+                      style: AppStyle.interSemi(
                         size: 12.sp,
-                        color: Style.black,
+                        color: AppStyle.blackColor,
                         letterSpacing: -0.3,
                       ),
                     ),
@@ -298,13 +298,13 @@ class _IncomePageState extends ConsumerState<IncomePage>
         //         children: [
         //           Text(
         //             AppHelpers.getTranslation(TrKeys.restaurantRevenue),
-        //             style: Style.interNormal(
-        //                 size: 12.sp, color: Style.white, letterSpacing: -0.3),
+        //             style: AppStyle.interNormal(
+        //                 size: 12.sp, color: AppStyle.white, letterSpacing: -0.3),
         //           ),
         //           Text(
         //             "\$79",
-        //             style: Style.interSemi(
-        //                 size: 22.sp, color: Style.white, letterSpacing: -0.3),
+        //             style: AppStyle.interSemi(
+        //                 size: 22.sp, color: AppStyle.white, letterSpacing: -0.3),
         //           )
         //         ],
         //       ),
@@ -321,13 +321,13 @@ class _IncomePageState extends ConsumerState<IncomePage>
         //         children: [
         //           Text(
         //             AppHelpers.getTranslation(TrKeys.fMRevenue),
-        //             style: Style.interNormal(
-        //                 size: 12.sp, color: Style.white, letterSpacing: -0.3),
+        //             style: AppStyle.interNormal(
+        //                 size: 12.sp, color: AppStyle.white, letterSpacing: -0.3),
         //           ),
         //           Text(
         //             "\$7",
-        //             style: Style.interSemi(
-        //                 size: 22.sp, color: Style.white, letterSpacing: -0.3),
+        //             style: AppStyle.interSemi(
+        //                 size: 22.sp, color: AppStyle.white, letterSpacing: -0.3),
         //           )
         //         ],
         //       ),

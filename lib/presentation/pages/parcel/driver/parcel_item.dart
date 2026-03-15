@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 import 'package:intl/intl.dart' as intl;
-import 'package:driver/infrastructure/services/driver/app_helpers.dart';
-import 'package:driver/infrastructure/services/driver/tr_keys.dart';
-import 'package:driver/presentation/pages/driver/parcel/parcel_order.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/presentation/pages/driver/parcel/parcel_order.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class ParcelItem extends StatelessWidget {
@@ -40,7 +40,7 @@ class ParcelItem extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 10.h),
         padding: EdgeInsets.all(16.r),
         decoration: BoxDecoration(
-          color: Style.white,
+          color: AppStyle.white,
           borderRadius: BorderRadius.all(Radius.circular(10.r)),
         ),
         child: Column(
@@ -48,17 +48,17 @@ class ParcelItem extends StatelessWidget {
           children: [
             Text(
               "#${AppHelpers.getTranslation(TrKeys.id)}${parcel?.id}",
-              style: Style.interSemi(size: 16),
+              style: AppStyle.interSemi(size: 16),
             ),
             16.verticalSpace,
             Text(
               parcel?.addressFrom?.address ?? "",
-              style: Style.interSemi(size: 16),
+              style: AppStyle.interSemi(size: 16),
             ),
             16.verticalSpace,
             Text(
               parcel?.addressTo?.address ?? "",
-              style: Style.interSemi(size: 16),
+              style: AppStyle.interSemi(size: 16),
             ),
             16.verticalSpace,
             Row(
@@ -75,14 +75,14 @@ class ParcelItem extends StatelessWidget {
                             ? 0
                             : (parcel?.totalPrice ?? 0),
                       ),
-                      style: Style.interNormal(size: 16),
+                      style: AppStyle.interNormal(size: 16),
                     ),
                     6.verticalSpace,
                     Text(
                       intl.DateFormat(
                         "MMM dd, HH:mm",
                       ).format(parcel?.createdAt ?? DateTime.now()),
-                      style: Style.interRegular(size: 12),
+                      style: AppStyle.interRegular(size: 12),
                     ),
                   ],
                 ),

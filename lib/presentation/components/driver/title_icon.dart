@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:driver/infrastructure/driver/services/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/driver/services/local_storage.dart';
 import '../styles/style.dart';
 
 // ignore: must_be_immutable
@@ -18,7 +18,7 @@ class TitleAndIcon extends StatelessWidget {
     this.isIcon = false,
     required this.title,
     this.rightTitle,
-    this.rightTitleColor = Style.black,
+    this.rightTitleColor = AppStyle.blackColor,
     this.onRightTap,
     this.titleSize = 20,
   });
@@ -34,7 +34,7 @@ class TitleAndIcon extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: Style.interSemi(size: 18.sp, color: Style.black),
+              style: AppStyle.interSemi(size: 18.sp, color: AppStyle.blackColor),
             ),
           ),
           GestureDetector(
@@ -43,7 +43,7 @@ class TitleAndIcon extends StatelessWidget {
               children: [
                 Text(
                   rightTitle ?? "",
-                  style: Style.interRegular(
+                  style: AppStyle.interRegular(
                     size: 14.sp,
                     color: rightTitleColor,
                   ),

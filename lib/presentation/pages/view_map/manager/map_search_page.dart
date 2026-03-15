@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_place/google_place.dart';
 
-import 'package:venderfoodyman/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 import '../../component/text_fields/search_text_field.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 

@@ -6,17 +6,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:driver/application/home/home_provider.dart';
+import 'package:venderfoodyman/application/home/home_provider.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:driver/driver/app_constants.dart';
-import 'package:driver/infrastructure/services/driver/app_helpers.dart';
-import 'package:driver/infrastructure/services/driver/local_storage.dart';
-import 'package:driver/infrastructure/services/driver/marker_image_cropper.dart';
-import 'package:driver/presentation/components/driver/maps_list.dart';
+import 'package:venderfoodyman/driver/app_constants.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/driver/marker_image_cropper.dart';
+import 'package:venderfoodyman/presentation/components/driver/maps_list.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:driver/infrastructure/services/driver/tr_keys.dart';
-import 'package:driver/presentation/components/driver/buttons/custom_button.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/driver/buttons/custom_button.dart';
 
 class ParcelOrderPage extends StatelessWidget {
   final ParcelOrder? parcel;
@@ -51,7 +51,7 @@ class ParcelOrderPage extends StatelessWidget {
                       width: MediaQuery.sizeOf(context).width - 180.w,
                       child: Text(
                         parcel?.addressFrom?.address ?? "",
-                        style: Style.interSemi(
+                        style: AppStyle.interSemi(
                           size: 14.sp,
                           letterSpacing: -0.3,
                         ),
@@ -63,7 +63,7 @@ class ParcelOrderPage extends StatelessWidget {
                         children: [
                           Text(
                             "№ ${parcel?.id}",
-                            style: Style.interNormal(
+                            style: AppStyle.interNormal(
                               size: 14.sp,
                               letterSpacing: -0.3,
                             ),
@@ -73,7 +73,7 @@ class ParcelOrderPage extends StatelessWidget {
                             intl.DateFormat(
                               "hh:mm",
                             ).format(parcel?.updatedAt ?? DateTime.now()),
-                            style: Style.interNormal(
+                            style: AppStyle.interNormal(
                               size: 14.sp,
                               letterSpacing: -0.3,
                             ),
@@ -117,13 +117,13 @@ class ParcelOrderPage extends StatelessWidget {
                         height: 38.r,
                         width: 38.r,
                         decoration: const BoxDecoration(
-                          color: Style.black,
+                          color: AppStyle.blackColor,
                           shape: BoxShape.circle,
                         ),
                         margin: EdgeInsets.all(4.r),
                         child: Icon(
                           FlutterRemix.phone_fill,
-                          color: Style.white,
+                          color: AppStyle.white,
                           size: 20.r,
                         ),
                       ),
@@ -140,13 +140,13 @@ class ParcelOrderPage extends StatelessWidget {
                         height: 38.r,
                         width: 38.r,
                         decoration: const BoxDecoration(
-                          color: Style.black,
+                          color: AppStyle.blackColor,
                           shape: BoxShape.circle,
                         ),
                         margin: EdgeInsets.all(4.r),
                         child: Icon(
                           FlutterRemix.chat_1_fill,
-                          color: Style.white,
+                          color: AppStyle.white,
                           size: 20.r,
                         ),
                       ),
@@ -186,7 +186,7 @@ class ParcelOrderPage extends StatelessWidget {
                         width: MediaQuery.sizeOf(context).width - 190.w,
                         child: Text(
                           parcel?.addressTo?.address ?? "",
-                          style: Style.interSemi(
+                          style: AppStyle.interSemi(
                             size: 14.sp,
                             letterSpacing: -0.3,
                           ),
@@ -200,7 +200,7 @@ class ParcelOrderPage extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 parcel?.usernameTo ?? "",
-                                style: Style.interNormal(
+                                style: AppStyle.interNormal(
                                   size: 12.sp,
                                   letterSpacing: -0.3,
                                 ),
@@ -209,7 +209,7 @@ class ParcelOrderPage extends StatelessWidget {
                             const VerticalDivider(),
                             Text(
                               parcel?.phoneTo ?? "",
-                              style: Style.interNormal(
+                              style: AppStyle.interNormal(
                                 size: 12.sp,
                                 letterSpacing: -0.3,
                               ),
@@ -252,13 +252,13 @@ class ParcelOrderPage extends StatelessWidget {
                         height: 38.r,
                         width: 38.r,
                         decoration: const BoxDecoration(
-                          color: Style.black,
+                          color: AppStyle.blackColor,
                           shape: BoxShape.circle,
                         ),
                         margin: EdgeInsets.all(4.r),
                         child: Icon(
                           FlutterRemix.phone_fill,
-                          color: Style.white,
+                          color: AppStyle.white,
                           size: 20.r,
                         ),
                       ),
@@ -275,13 +275,13 @@ class ParcelOrderPage extends StatelessWidget {
                         height: 38.r,
                         width: 38.r,
                         decoration: const BoxDecoration(
-                          color: Style.black,
+                          color: AppStyle.blackColor,
                           shape: BoxShape.circle,
                         ),
                         margin: EdgeInsets.all(4.r),
                         child: Icon(
                           FlutterRemix.chat_1_fill,
-                          color: Style.white,
+                          color: AppStyle.white,
                           size: 20.r,
                         ),
                       ),

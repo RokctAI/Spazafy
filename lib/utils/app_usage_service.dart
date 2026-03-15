@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
 
 class AppUsageService {

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'logout_modal.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../component/components.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class LogoutButton extends StatelessWidget {
   final bool isOpen;

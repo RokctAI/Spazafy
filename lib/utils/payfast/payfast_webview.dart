@@ -5,7 +5,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../app_constants.dart';
 import '../../domain/di/dependency_manager.dart';
-import '../../infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../infrastructure/services/tr_keys.dart';
 import '../../presentation/components/buttons/custom_button.dart';
 import '../../presentation/theme/theme.dart';

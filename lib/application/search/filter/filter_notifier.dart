@@ -3,17 +3,17 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:venderfoodyman/domain/interface/customer/shops.dart';
+import 'package:venderfoodyman/domain/interface/shops.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/filter_model.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/tpying_delay.dart';
 
 import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'filter_state.dart';
 
 class FilterNotifier extends StateNotifier<FilterState> {
-  final ShopsRepositoryFacade _shopsRepository;
+  final ShopsFacade _shopsRepository;
 
   FilterNotifier(this._shopsRepository) : super(const FilterState());
   int shopIndex = 1;

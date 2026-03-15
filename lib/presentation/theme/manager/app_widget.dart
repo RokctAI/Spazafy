@@ -6,8 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:venderfoodyman/domain/di/customer/dependency_manager.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class AppWidget extends ConsumerWidget {
   const AppWidget({super.key});

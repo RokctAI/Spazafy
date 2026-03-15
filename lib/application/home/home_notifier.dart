@@ -6,16 +6,16 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:auto_route/auto_route.dart';
 
-import 'package:venderfoodyman/domain/interface/customer/banners.dart';
-import 'package:venderfoodyman/domain/interface/customer/categories.dart';
-import 'package:venderfoodyman/domain/interface/customer/shops.dart';
-import 'package:venderfoodyman/domain/interface/customer/brands.dart';
-import 'package:venderfoodyman/domain/interface/customer/products.dart';
+import 'package:venderfoodyman/domain/interface/banners.dart';
+import 'package:venderfoodyman/domain/interface/categories.dart';
+import 'package:venderfoodyman/domain/interface/shops.dart';
+import 'package:venderfoodyman/domain/interface/brands.dart';
+import 'package:venderfoodyman/domain/interface/products.dart';
 import 'package:venderfoodyman/domain/interface/customer/draw.dart';
-import 'package:venderfoodyman/domain/interface/customer/orders.dart';
+import 'package:venderfoodyman/domain/interface/orders.dart';
 import 'package:venderfoodyman/domain/interface/customer/parcel.dart';
 import 'package:venderfoodyman/domain/interface/customer/settings.dart';
-import 'package:venderfoodyman/domain/interface/customer/user.dart';
+import 'package:venderfoodyman/domain/interface/user.dart';
 
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/address_information.dart';
@@ -29,7 +29,7 @@ import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/marker_image_cropper.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_database.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import 'home_state.dart';
@@ -219,7 +219,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isShopLoading: true);
-      final response = await _shopsRepository.getShops(page: 1);
+      final response = await _shopsRepository.getAllShops(1, isOpen: true);
       response.when(
         success: (data) async {
           final shops = data.data ?? [];
@@ -252,7 +252,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isShopRecommendLoading: true);
-      final response = await _shopsRepository.getRecommendedShops(page: 1);
+      final response = await _shopsRepository.getShopsRecommend(1);
       response.when(
         success: (data) {
           state = state.copyWith(isShopRecommendLoading: false, shopsRecommend: data.data ?? []);
@@ -270,7 +270,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isAllShopsLoading: true);
-      final response = await _shopsRepository.getAllShops(page: 1);
+      final response = await _shopsRepository.getAllShops(1, isOpen: false);
       response.when(
         success: (data) {
           state = state.copyWith(isAllShopsLoading: false, allShops: data.data ?? [], totalShops: data.meta?.total ?? -1);
@@ -295,7 +295,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isNewShopsLoading: true);
-      final response = await _shopsRepository.getNewShops(page: 1);
+      final response = await _shopsRepository.getAllShops(1, isOpen: false, verify: true);
       response.when(
         success: (data) {
           state = state.copyWith(isNewShopsLoading: false, newShops: data.data ?? []);
@@ -313,7 +313,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isBannerLoading: true);
-      final response = await _bannersRepository.getAllBanners(page: 1);
+      final response = await _bannersRepository.getBannersPaginate(page: 1);
       response.when(
         success: (data) {
           state = state.copyWith(isBannerLoading: false, banners: data.data ?? []);
@@ -329,7 +329,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
 
   Future<void> fetchAds(BuildContext context) async {
     if (!await AppConnectivity.connectivity()) return;
-    final response = await _bannersRepository.getAllBanners(page: 1, type: 'banner');
+    final response = await _bannersRepository.getAdsPaginate(page: 1);
     response.when(
       success: (data) => state = state.copyWith(ads: data.data ?? []),
       failure: (_, __) {},
@@ -342,10 +342,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
       return;
     }
     state = state.copyWith(isStoryLoading: true);
-    final response = await _shopsRepository.getShopStories(page: 1);
+    final response = await _shopsRepository.getStory(1);
     response.when(
       success: (data) {
-        state = state.copyWith(isStoryLoading: false, story: data.data);
+        state = state.copyWith(isStoryLoading: false, story: data);
       },
       failure: (_, __) {
         state = state.copyWith(isStoryLoading: false);
@@ -402,7 +402,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
   Future<void> fetchAllShopsPage(BuildContext context, RefreshController? controller, {bool isRefresh = false}) async {
     if (!await AppConnectivity.connectivity()) { controller?.refreshCompleted(); return; }
     if (isRefresh) shopIndex = 1;
-    final response = await _shopsRepository.getAllShops(page: shopIndex);
+    final response = await _shopsRepository.getAllShops(shopIndex, isOpen: false);
     response.when(
       success: (data) {
         shopIndex++;

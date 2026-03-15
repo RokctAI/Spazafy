@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/components/manager/components.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class SetPasswordPage extends ConsumerWidget {

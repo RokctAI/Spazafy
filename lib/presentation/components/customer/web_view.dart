@@ -18,7 +18,7 @@ import 'package:venderfoodyman/customer/app_constants.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import '../../application/webview/preloaded_webview_provider.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class WebViewPage extends StatefulWidget {
   final String url;

@@ -4,7 +4,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:driver/infrastructure/driver/services/services.dart';
+import 'package:venderfoodyman/infrastructure/driver/services/services.dart';
 import '../styles/style.dart';
 
 class CommonImage extends StatelessWidget {
@@ -38,7 +38,7 @@ class CommonImage extends StatelessWidget {
               placeholderBuilder: (_) => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(radius.r),
-                  color: Style.white,
+                  color: AppStyle.white,
                 ),
               ),
             )
@@ -50,18 +50,18 @@ class CommonImage extends StatelessWidget {
               progressIndicatorBuilder: (_, _, _) => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(radius.r),
-                  color: Style.white,
+                  color: AppStyle.white,
                 ),
               ),
               errorWidget: (_, _, _) => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.r),
-                  color: errorBackground ?? Style.greyColor,
+                  color: errorBackground ?? AppStyle.greyColor,
                 ),
                 alignment: Alignment.center,
                 child: Icon(
                   FlutterRemix.image_line,
-                  color: Style.black.withValues(alpha: 0.5),
+                  color: AppStyle.blackColor.withValues(alpha: 0.5),
                   size: 20.r,
                 ),
               ),

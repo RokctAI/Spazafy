@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'add_category_state.dart';
 import 'package:venderfoodyman/domain/interface/manager/interfaces.dart';
 

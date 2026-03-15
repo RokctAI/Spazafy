@@ -6,7 +6,7 @@ import 'create_food_addons_modal.dart';
 import 'create_food_edit_extras_modal.dart';
 import '../../../../../component/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class CreateFoodStocksBody extends ConsumerStatefulWidget {
   const CreateFoodStocksBody({super.key});

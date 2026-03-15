@@ -5,8 +5,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 import '../../../../application/providers.dart';
-import '../../../../infrastructure/models/data/order_detail.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../component/components.dart';
 import '../../../styles/style.dart';
 
@@ -20,7 +20,7 @@ class ApproveOrderDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Style.white,
+        color: AppStyle.white,
         borderRadius: BorderRadius.circular(10.r),
       ),
       padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 24.w),
@@ -31,7 +31,7 @@ class ApproveOrderDialog extends StatelessWidget {
             textAlign: TextAlign.center,
             text: TextSpan(
               text: AppHelpers.getTranslation(TrKeys.thatYouHaveIndeed),
-              style: Style.interNormal(size: 16.sp),
+              style: AppStyle.interNormal(size: 16.sp),
             ),
           ),
           32.verticalSpace,
@@ -41,7 +41,7 @@ class ApproveOrderDialog extends StatelessWidget {
                 child: CustomButton(
                   title: AppHelpers.getTranslation(TrKeys.cancel),
                   background: Style.redColor,
-                  textColor: Style.white,
+                  textColor: AppStyle.white,
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -53,8 +53,8 @@ class ApproveOrderDialog extends StatelessWidget {
                   builder: (context, ref, child) {
                     return CustomButton(
                       title: AppHelpers.getTranslation(TrKeys.approve),
-                      background: Style.black,
-                      textColor: Style.white,
+                      background: AppStyle.blackColor,
+                      textColor: AppStyle.white,
                       onPressed: () async {
                         if (order == null) {
                           Navigator.pop(context);

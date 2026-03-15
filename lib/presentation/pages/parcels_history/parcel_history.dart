@@ -4,12 +4,12 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:driver/application/parcel/parcel_provider.dart';
-import 'package:driver/presentation/pages/driver/parcel/parcel_item.dart';
+import 'package:venderfoodyman/application/parcel/parcel_provider.dart';
+import 'package:venderfoodyman/presentation/pages/driver/parcel/parcel_item.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
-import 'package:driver/presentation/components/driver/components.dart';
-import 'package:driver/presentation/components/driver/loading.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
@@ -42,7 +42,7 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
   Widget build(BuildContext context) {
     final state = ref.watch(parcelProvider);
     return Scaffold(
-      backgroundColor: Style.greyColor,
+      backgroundColor: AppStyle.greyColor,
       body: Column(
         children: [
           CustomAppBar(
@@ -53,11 +53,11 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
               children: [
                 Text(
                   AppHelpers.getTranslation(TrKeys.orderHistory),
-                  style: Style.interSemi(size: 18.sp),
+                  style: AppStyle.interSemi(size: 18.sp),
                 ),
                 Text(
                   AppHelpers.getTranslation(TrKeys.thereAreOrders),
-                  style: Style.interRegular(size: 12.sp, letterSpacing: -0.3),
+                  style: AppStyle.interRegular(size: 12.sp, letterSpacing: -0.3),
                 ),
               ],
             ),
@@ -130,7 +130,7 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Style.primary,
+                  color: AppStyle.primary,
                 ),
                 padding: EdgeInsets.all(16.r),
                 child: Icon(

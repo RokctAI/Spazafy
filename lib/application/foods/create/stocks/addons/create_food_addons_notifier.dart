@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:venderfoodyman/domain/interface/manager/interfaces.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'create_food_addons_state.dart';
 
 class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {

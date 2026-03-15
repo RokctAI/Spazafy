@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/components/customer/badges.dart';
 import '../../../../../app_constants.dart';
 import '../../../../theme/theme.dart';

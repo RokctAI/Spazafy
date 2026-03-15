@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/presentation/theme/manager/app_assets.dart';
 
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class NoOrders extends StatelessWidget {
   const NoOrders({super.key});

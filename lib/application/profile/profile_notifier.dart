@@ -4,13 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/domain/interface/user.dart';
 import 'package:venderfoodyman/domain/interface/customer/settings.dart';
-import 'package:venderfoodyman/domain/interface/customer/shops.dart';
+import 'package:venderfoodyman/domain/interface/shops.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'profile_state.dart';
 
 class ProfileNotifier extends StateNotifier<ProfileState> {

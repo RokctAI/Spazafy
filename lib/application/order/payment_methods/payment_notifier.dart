@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
-import 'package:venderfoodyman/domain/interface/customer/payments.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/domain/interface/payments.dart';
 import 'payment_state.dart';
 
 class PaymentNotifier extends StateNotifier<PaymentState> {
-  final PaymentsRepositoryFacade _paymentsRepository;
+  final PaymentsFacade _paymentsRepository;
 
   PaymentNotifier(this._paymentsRepository) : super(const PaymentState());
 

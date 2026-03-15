@@ -7,7 +7,7 @@ import 'widgets/addon_item.dart';
 import 'edit/edit_addon_modal.dart';
 import '../../../../component/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class AddonsBody extends StatelessWidget {
   final RefreshController addonsController;

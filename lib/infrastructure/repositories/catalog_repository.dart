@@ -5,10 +5,10 @@ import 'package:foodyman/domain/interface/categories.dart'; // Ensure correct in
 import 'package:venderfoodyman/domain/interface/interfaces.dart'; // For CatalogInterface
 import 'package:foodyman/infrastructure/models/models.dart';
 import 'package:foodyman/domain/handlers/handlers.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 
-class CatalogRepository implements CategoriesRepositoryFacade, CatalogInterface {
+class CatalogRepository implements CategoriesFacade, CatalogInterface {
   // --- Common & Customer (Frappe/PaaS) ---
 
   @override

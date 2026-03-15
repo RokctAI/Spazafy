@@ -38,10 +38,10 @@ import 'package:venderfoodyman/infrastructure/models/customer/data/cart_data.dar
 import 'package:venderfoodyman/infrastructure/models/customer/data/profile_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/remote_message_data.dart';
 import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
-import 'package:venderfoodyman/infrastructure/services/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart' as manager_services;
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart' as manager_services;
 
 import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
@@ -51,7 +51,7 @@ import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import 'package:venderfoodyman/presentation/pages/home/home_zero/home_page_zero.dart';
 import 'package:venderfoodyman/presentation/pages/home/home_four/home_page_four.dart';
-import 'package:venderfoodyman/presentation/pages/home/billing_home_page.dart';
+import 'package:venderfoodyman/presentation/pages/home/pos_page.dart';
 import 'package:venderfoodyman/presentation/pages/main/orders/orders_home_page.dart';
 import 'package:venderfoodyman/presentation/pages/main/foods/foods_page.dart';
 import 'package:venderfoodyman/presentation/pages/customer/like/like_page.dart';
@@ -63,8 +63,8 @@ import 'package:venderfoodyman/presentation/pages/main/foods/create/create_produ
 import 'package:venderfoodyman/presentation/pages/main/foods/addons/create/create_addon_modal.dart';
 import 'package:venderfoodyman/presentation/pages/main/foods/extras/create/create_extras_group_modal.dart';
 
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
-import 'package:venderfoodyman/presentation/routes/manager/app_router.dart' as manager_routes;
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart' as manager_routes;
 import 'package:venderfoodyman/utils/app_usage_service.dart';
 import '../../../app_constants.dart';
 import 'widgets/bottom_navigator_item.dart';
@@ -85,7 +85,7 @@ class _MainPageState extends State<MainPage> {
   bool isCustomerMode = false;
 
   List<IndexedStackChild> sellerPages = [
-    IndexedStackChild(child: const BillingHomePage(), preload: true),
+    IndexedStackChild(child: const PosPage(), preload: true),
     IndexedStackChild(child: const OrdersHomePage(), preload: false),
     IndexedStackChild(child: const FoodsPage(), preload: false),
     IndexedStackChild(child: const ProfilePage(isBackButton: false), preload: true),

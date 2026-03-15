@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/domain/interface/customer/notification.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/response/notification_response.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 import 'notification_state.dart';
 

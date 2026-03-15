@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../buttons/animation_button_effect.dart';
 
 class CommonImage extends StatelessWidget {

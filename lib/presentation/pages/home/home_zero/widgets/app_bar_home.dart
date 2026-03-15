@@ -4,12 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:venderfoodyman/application/home/home_notifier.dart';
 import 'package:venderfoodyman/application/home/home_state.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
 import 'package:venderfoodyman/presentation/components/customer/sellect_address_screen.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class AppBarHome extends StatelessWidget {

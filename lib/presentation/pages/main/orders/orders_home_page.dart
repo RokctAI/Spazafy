@@ -13,7 +13,7 @@ import 'widgets/accepted_orders_body.dart';
 import 'widgets/on_a_way_orders_body.dart';
 import '../../../component/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class OrdersHomePage extends ConsumerStatefulWidget {
   const OrdersHomePage({super.key});

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/take_data.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 // ignore: must_be_immutable

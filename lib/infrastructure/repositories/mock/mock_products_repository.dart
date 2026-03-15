@@ -8,7 +8,7 @@ import 'package:foodyman/infrastructure/models/response/product_calculate_respon
 import 'package:foodyman/infrastructure/models/response/all_products_response.dart';
 import 'package:foodyman/infrastructure/models/data/cart_product_data.dart';
 
-class MockProductsRepository implements ProductsRepositoryFacade {
+class MockProductsRepository implements ProductsFacade {
   final ProductData _demoProduct = ProductData(
     id: "1",
     uuid: "demo_product_uuid",

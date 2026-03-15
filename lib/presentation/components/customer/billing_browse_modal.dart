@@ -5,8 +5,8 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/application/billing/billing_provider.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
-import 'package:venderfoodyman/presentation/components/manager/components.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class BillingBrowseModal extends ConsumerStatefulWidget {

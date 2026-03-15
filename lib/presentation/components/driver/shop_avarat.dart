@@ -51,7 +51,7 @@ class ShopAvatar extends StatelessWidget {
                         child: Container(
                           height: size.r,
                           decoration: BoxDecoration(
-                            color: Style.white,
+                            color: AppStyle.white,
                             borderRadius: BorderRadius.circular(size.r / 2),
                           ),
                         ),
@@ -61,12 +61,12 @@ class ShopAvatar extends StatelessWidget {
                       return Container(
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Style.greyColor,
+                          color: AppStyle.greyColor,
                         ),
                         alignment: Alignment.center,
                         child: const Icon(
                           FlutterRemix.image_line,
-                          color: Style.black,
+                          color: AppStyle.blackColor,
                         ),
                       );
                     },

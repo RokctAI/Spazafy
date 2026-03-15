@@ -4,7 +4,7 @@ import 'package:foodyman/infrastructure/models/data/shop_data.dart';
 import 'package:foodyman/infrastructure/models/data/translation.dart';
 import 'package:foodyman/infrastructure/models/response/banners_paginate_response.dart';
 
-class MockBannersRepository implements BannersRepositoryFacade {
+class MockBannersRepository implements BannersFacade {
   final BannerData _demoBanner = BannerData(
     id: 1,
     shops: [

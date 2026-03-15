@@ -12,10 +12,10 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'working_time_modal.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../component/components.dart';
-import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class EditRestaurantModal extends ConsumerStatefulWidget {
   const EditRestaurantModal({super.key});

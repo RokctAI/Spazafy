@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../infrastructure/models/data/shop_data.dart';
-import '../../../infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 //import '../../../infrastructure/services/tr_keys.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 

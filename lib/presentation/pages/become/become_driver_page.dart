@@ -10,8 +10,8 @@ import 'package:auto_route/annotations.dart';
 import 'package:venderfoodyman/application/profile/profile_provider.dart';
 import 'package:venderfoodyman/application/profile/profile_edit_notifier.dart';
 import 'package:venderfoodyman/application/profile/profile_image_notifier.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';
@@ -19,7 +19,7 @@ import 'package:venderfoodyman/presentation/components/customer/app_bars/common_
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
 import 'package:venderfoodyman/presentation/components/customer/helper/keyboard_disable.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 
 @RoutePage()
 class BecomeDriverPage extends ConsumerStatefulWidget {

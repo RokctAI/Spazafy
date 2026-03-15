@@ -7,7 +7,7 @@ import 'stocks/create_food_stocks_body.dart';
 import '../../../../component/components.dart';
 import 'details/create_food_details_body.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class CreateProductModal extends ConsumerStatefulWidget {
   const CreateProductModal({super.key});

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 import 'helper/shimmer.dart';
 import '../styles/style.dart';
@@ -45,7 +45,7 @@ class OrdersItem extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 10.h),
         padding: EdgeInsets.symmetric(vertical: 16.h),
         decoration: BoxDecoration(
-          color: Style.white,
+          color: AppStyle.white,
           borderRadius: BorderRadius.circular(10.r),
         ),
         child: Column(
@@ -62,7 +62,7 @@ class OrdersItem extends StatelessWidget {
                         height: 32.r,
                         width: 32.r,
                         decoration: const BoxDecoration(
-                          color: Style.white,
+                          color: AppStyle.white,
                           shape: BoxShape.circle,
                         ),
                         child: ClipOval(
@@ -78,12 +78,12 @@ class OrdersItem extends StatelessWidget {
                                 width: 32.r,
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Style.greyColor,
+                                  color: AppStyle.greyColor,
                                 ),
                                 alignment: Alignment.center,
                                 child: const Icon(
                                   FlutterRemix.image_line,
-                                  color: Style.black,
+                                  color: AppStyle.blackColor,
                                 ),
                               );
                             },
@@ -96,7 +96,7 @@ class OrdersItem extends StatelessWidget {
                         children: [
                           Text(
                             order.shop?.translation?.title ?? "",
-                            style: Style.interSemi(
+                            style: AppStyle.interSemi(
                               size: 14.sp,
                               letterSpacing: -0.3,
                             ),
@@ -107,7 +107,7 @@ class OrdersItem extends StatelessWidget {
                               children: [
                                 Text(
                                   '№ ${order.id}',
-                                  style: Style.interNormal(
+                                  style: AppStyle.interNormal(
                                     size: 14.sp,
                                     letterSpacing: -0.3,
                                   ),
@@ -120,7 +120,7 @@ class OrdersItem extends StatelessWidget {
                                           DateTime.now().toString(),
                                     ).toLocal(),
                                   ),
-                                  style: Style.interNormal(
+                                  style: AppStyle.interNormal(
                                     size: 14.sp,
                                     letterSpacing: -0.3,
                                   ),
@@ -135,7 +135,7 @@ class OrdersItem extends StatelessWidget {
                         width: 36.r,
                         height: 36.r,
                         decoration: const BoxDecoration(
-                          color: Style.greyColor,
+                          color: AppStyle.greyColor,
                           shape: BoxShape.circle,
                         ),
                         child: const Center(
@@ -176,7 +176,7 @@ class OrdersItem extends StatelessWidget {
                         height: 32.r,
                         width: 32.r,
                         decoration: const BoxDecoration(
-                          color: Style.white,
+                          color: AppStyle.white,
                           shape: BoxShape.circle,
                         ),
                         child: ClipOval(
@@ -192,12 +192,12 @@ class OrdersItem extends StatelessWidget {
                                 width: 32.r,
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Style.greyColor,
+                                  color: AppStyle.greyColor,
                                 ),
                                 alignment: Alignment.center,
                                 child: const Icon(
                                   FlutterRemix.image_line,
-                                  color: Style.black,
+                                  color: AppStyle.blackColor,
                                 ),
                               );
                             },
@@ -212,7 +212,7 @@ class OrdersItem extends StatelessWidget {
                             width: MediaQuery.sizeOf(context).width - 124.w,
                             child: Text(
                               order.address?.address ?? "",
-                              style: Style.interSemi(
+                              style: AppStyle.interSemi(
                                 size: 14.sp,
                                 letterSpacing: -0.3,
                               ),
@@ -232,7 +232,7 @@ class OrdersItem extends StatelessWidget {
                                             TrKeys.deletedUser,
                                           )
                                         : order.user?.firstname ?? "",
-                                    style: Style.interNormal(
+                                    style: AppStyle.interNormal(
                                       size: 14.sp,
                                       letterSpacing: -0.3,
                                     ),
@@ -250,7 +250,7 @@ class OrdersItem extends StatelessWidget {
                                 Expanded(
                                   child: AutoSizeText(
                                     order.user?.phone ?? "",
-                                    style: Style.interNormal(
+                                    style: AppStyle.interNormal(
                                       size: 14.sp,
                                       letterSpacing: -0.3,
                                     ),
@@ -280,7 +280,7 @@ class OrdersItem extends StatelessWidget {
                   Expanded(
                     child: AutoSizeText(
                       AppHelpers.numberFormat(number: order.totalPrice ?? 0),
-                      style: Style.interSemi(size: 14.sp),
+                      style: AppStyle.interSemi(size: 14.sp),
                       maxLines: 1,
                     ),
                   ),
@@ -289,7 +289,7 @@ class OrdersItem extends StatelessWidget {
                   Expanded(
                     child: AutoSizeText(
                       AppHelpers.numberFormat(number: order.deliveryFee ?? 0),
-                      style: Style.interSemi(size: 14.sp),
+                      style: AppStyle.interSemi(size: 14.sp),
                       maxLines: 1,
                     ),
                   ),
@@ -297,7 +297,7 @@ class OrdersItem extends StatelessWidget {
                     width: 36.r,
                     height: 36.r,
                     decoration: const BoxDecoration(
-                      color: Style.greyColor,
+                      color: AppStyle.greyColor,
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(FlutterRemix.arrow_right_s_line),

@@ -1,8 +1,8 @@
-import 'package:driver/presentation/theme/driver/app_assets.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../styles/style.dart';
 import '../../pages.dart';
 
@@ -26,7 +26,7 @@ class FreeLunch extends StatelessWidget {
         margin: EdgeInsets.only(left: 8.w),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.r),
-          color: Style.primary.withValues(alpha: 0.5),
+          color: AppStyle.primary.withValues(alpha: 0.5),
           image: const DecorationImage(
             image: AssetImage(Assets.imageLunch),
             fit: BoxFit.cover,
@@ -36,7 +36,7 @@ class FreeLunch extends StatelessWidget {
           padding: EdgeInsets.only(top: 16.h, left: 16.w),
           child: Text(
             AppHelpers.getTranslation(TrKeys.freeLunches),
-            style: Style.interSemi(size: 14.sp, letterSpacing: -0.3),
+            style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
           ),
         ),
       ),

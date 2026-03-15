@@ -20,7 +20,7 @@ class IncomeItem extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 4.h),
       decoration: BoxDecoration(
-        color: isBlack ? Style.black : Style.white,
+        color: isBlack ? AppStyle.blackColor : AppStyle.white,
         borderRadius: BorderRadius.circular(10.r),
       ),
       padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 16.w),
@@ -29,20 +29,20 @@ class IncomeItem extends StatelessWidget {
         children: [
           Text(
             title,
-            style: Style.interNormal(
+            style: AppStyle.interNormal(
               size: 14.sp,
               letterSpacing: -0.3,
-              color: isBlack ? Style.white : Style.black,
+              color: isBlack ? AppStyle.white : AppStyle.blackColor,
             ),
           ),
           6.horizontalSpace,
           Expanded(
             child: Text(
               price,
-              style: Style.interSemi(
+              style: AppStyle.interSemi(
                 size: 14.sp,
                 letterSpacing: -0.3,
-                color: isBlack ? Style.white : Style.black,
+                color: isBlack ? AppStyle.white : AppStyle.blackColor,
               ),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,

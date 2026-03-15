@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/domain/interface/customer/shops.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/domain/interface/shops.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 
 import 'like_state.dart';
 
 class LikeNotifier extends StateNotifier<LikeState> {
-  final ShopsRepositoryFacade _shopsRepository;
+  final ShopsFacade _shopsRepository;
 
   LikeNotifier(this._shopsRepository) : super(const LikeState());
 

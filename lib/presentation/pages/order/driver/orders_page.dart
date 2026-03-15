@@ -1,14 +1,14 @@
 import 'package:auto_route/annotations.dart';
-import 'package:driver/presentation/theme/driver/app_assets.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:driver/application/providers/driver/providers.dart';
-import 'package:driver/presentation/components/driver/loading.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
-import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
@@ -37,7 +37,7 @@ class _OrdersPageState extends ConsumerState<OrdersPage>
     activeController = RefreshController();
     availableController = RefreshController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(orderProvider.notifier)
+      ref.read(driverOrderProvider.notifier)
         ..fetchActiveOrders(context)
         ..fetchAvailableOrders(context);
     });
@@ -46,7 +46,7 @@ class _OrdersPageState extends ConsumerState<OrdersPage>
 
   @override
   void didChangeDependencies() {
-    event = ref.read(orderProvider.notifier);
+    event = ref.read(driverOrderProvider.notifier);
     super.didChangeDependencies();
   }
 
@@ -60,9 +60,9 @@ class _OrdersPageState extends ConsumerState<OrdersPage>
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(orderProvider);
+    final state = ref.watch(driverOrderProvider);
     return Scaffold(
-      backgroundColor: Style.greyColor,
+      backgroundColor: AppStyle.greyColor,
       body: Column(
         children: [
           CustomAppBar(
@@ -73,27 +73,27 @@ class _OrdersPageState extends ConsumerState<OrdersPage>
               children: [
                 Text(
                   AppHelpers.getTranslation(TrKeys.orders),
-                  style: Style.interSemi(size: 18.sp),
+                  style: AppStyle.interSemi(size: 18.sp),
                 ),
                 Row(
                   children: [
                     Text(
                       AppHelpers.getTranslation(TrKeys.thereAreOrders),
-                      style: Style.interRegular(
+                      style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,
                       ),
                     ),
                     Text(
                       " ${state.totalActiveOrder} ",
-                      style: Style.interRegular(
+                      style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,
                       ),
                     ),
                     Text(
                       AppHelpers.getTranslation(TrKeys.orders).toLowerCase(),
-                      style: Style.interRegular(
+                      style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,
                       ),
@@ -219,13 +219,13 @@ Widget _resultEmpty() {
       Lottie.asset(Assets.lottieEmptyBox),
       Text(
         AppHelpers.getTranslation(TrKeys.nothingFound),
-        style: Style.interSemi(size: 18.sp),
+        style: AppStyle.interSemi(size: 18.sp),
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 32.w),
         child: Text(
           AppHelpers.getTranslation(TrKeys.trySearchingAgain),
-          style: Style.interRegular(size: 14.sp),
+          style: AppStyle.interRegular(size: 14.sp),
           textAlign: TextAlign.center,
         ),
       ),

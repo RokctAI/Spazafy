@@ -13,7 +13,7 @@ import '../../../../../component/components.dart';
 import 'widgets/create_new_group_item_modal.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class ExtrasGroupDetailsModal extends ConsumerStatefulWidget {
   final Group group;

@@ -5,10 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:driver/presentation/components/driver/components.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:driver/application/providers/driver/providers.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
 import '../../component/tab_bars/auth_tab_bar.dart';
 import 'register_confirmation_page.dart';
 
@@ -56,7 +56,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
         child: Container(
           margin: MediaQuery.viewInsetsOf(context),
           decoration: BoxDecoration(
-            color: Style.greyColor.withValues(alpha: 0.96),
+            color: AppStyle.greyColor.withValues(alpha: 0.96),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(16.r),
               topRight: Radius.circular(16.r),
@@ -386,7 +386,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                       ? FlutterRemix.eye_line
                                       : FlutterRemix.eye_close_line,
                                   color: isDarkMode
-                                      ? Style.black
+                                      ? AppStyle.blackColor
                                       : Style.hintColor,
                                   size: 20.r,
                                 ),
@@ -414,7 +414,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                                       ? FlutterRemix.eye_line
                                       : FlutterRemix.eye_close_line,
                                   color: isDarkMode
-                                      ? Style.black
+                                      ? AppStyle.blackColor
                                       : Style.hintColor,
                                   size: 20.r,
                                 ),

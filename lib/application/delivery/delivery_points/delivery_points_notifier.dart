@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:venderfoodyman/domain/interface/customer/delivery_points.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'delivery_points_state.dart';
 
 class DeliveryPointsNotifier extends StateNotifier<DeliveryPointsState> {

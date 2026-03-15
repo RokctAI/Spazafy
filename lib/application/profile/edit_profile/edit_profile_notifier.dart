@@ -3,20 +3,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:venderfoodyman/domain/interface/customer/gallery.dart';
-import 'package:venderfoodyman/domain/interface/customer/user.dart';
+import 'package:venderfoodyman/domain/interface/user.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/request/edit_profile.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/marker_image_cropper.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/marker_image_cropper.dart';
 import 'edit_profile_state.dart';
 
 class EditProfileNotifier extends StateNotifier<EditProfileState> {
-  final UserRepositoryFacade _userRepository;
+  final UserFacade _userRepository;
   final GalleryRepositoryFacade _galleryRepository;
 
   EditProfileNotifier(this._userRepository, this._galleryRepository)

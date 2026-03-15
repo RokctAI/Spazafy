@@ -7,13 +7,13 @@ import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 class Loading extends StatelessWidget {
   final Color bgColor;
 
-  const Loading({super.key, this.bgColor = Style.greyColor});
+  const Loading({super.key, this.bgColor = AppStyle.greyColor});
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Platform.isAndroid
-          ? CircularProgressIndicator(color: Style.primary, strokeWidth: 5.r)
+          ? CircularProgressIndicator(color: AppStyle.primary, strokeWidth: 5.r)
           : CupertinoActivityIndicator(radius: 12.r),
     );
   }

@@ -7,13 +7,13 @@ import 'package:venderfoodyman/infrastructure/models/customer/data/address_old_d
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/domain/interface/customer/shops.dart';
+import 'package:venderfoodyman/domain/interface/shops.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 // Note: Relative import for local components if needed
 import 'view_map_state.dart';
 
 class ViewMapNotifier extends StateNotifier<ViewMapState> {
-  final ShopsRepositoryFacade _shopsRepository;
+  final ShopsFacade _shopsRepository;
   final UserFacade _userRepository;
 
   ViewMapNotifier(this._shopsRepository, this._userRepository)

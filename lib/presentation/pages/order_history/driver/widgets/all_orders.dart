@@ -19,7 +19,7 @@ class AllOrdersBody extends ConsumerStatefulWidget {
 class _AllOrdersBodyState extends ConsumerState<AllOrdersBody> {
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(orderProvider);
+    final state = ref.watch(driverOrderProvider);
     return state.isLoading
         ? const Padding(padding: EdgeInsets.only(top: 32), child: Loading())
         : SmartRefresher(
@@ -27,7 +27,7 @@ class _AllOrdersBodyState extends ConsumerState<AllOrdersBody> {
             enablePullUp: true,
             onRefresh: () {
               ref
-                  .read(orderProvider.notifier)
+                  .read(driverOrderProvider.notifier)
                   .fetchHistoryOrdersPage(
                     context,
                     widget.refreshController,
@@ -36,7 +36,7 @@ class _AllOrdersBodyState extends ConsumerState<AllOrdersBody> {
             },
             onLoading: () {
               ref
-                  .read(orderProvider.notifier)
+                  .read(driverOrderProvider.notifier)
                   .fetchHistoryOrdersPage(context, widget.refreshController);
             },
             controller: widget.refreshController,

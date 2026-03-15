@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'foods_filter_state.dart';
 
 class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
-  // final ShopsRepositoryFacade _shopsRepository;
+  // final ShopsFacade _shopsRepository;
 
   FoodsFilterNotifier(/*this._shopsRepository*/)
     : super(const FoodsFilterState());

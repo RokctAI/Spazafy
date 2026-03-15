@@ -3,8 +3,8 @@
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:riverpodtemp/infrastructure/models/data/user.dart';
-// import 'package:riverpodtemp/infrastructure/services/app_helpers.dart';
-// import 'package:riverpodtemp/infrastructure/services/local_storage.dart';
+// import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+// import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 // import 'package:riverpodtemp/infrastructure/services/tr_keys.dart';
 // import 'package:riverpodtemp/presentation/components/app_bars/app_bar_bottom_sheet.dart';
 // import 'package:riverpodtemp/presentation/components/buttons/custom_button.dart';
@@ -66,9 +66,9 @@
 //                         ),
 //                         Text(
 //                           AppHelpers.getTranslation(TrKeys.resetPasswordText),
-//                           style: Style.interRegular(
+//                           style: AppStyle.interRegular(
 //                             size: 14.sp,
-//                             color: Style.black,
+//                             color: AppStyle.blackColor,
 //                           ),
 //                         ),
 //                         40.verticalSpace,
@@ -95,7 +95,7 @@
 //                               : notifier.sendCodeToNumber(context);
 //                         },
 //                         background: Style.brandGreen,
-//                         textColor: Style.black,
+//                         textColor: AppStyle.blackColor,
 //                       ),
 //                     ),
 //                   ],

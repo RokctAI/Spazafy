@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/application/order/all_order/order_provider.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../component/components.dart';
 import '../../../component/loading.dart';
 import '../../../styles/style.dart';
@@ -27,7 +27,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
       hasData = false;
       WidgetsBinding.instance.addPostFrameCallback((_) {
         ref
-            .read(orderProvider.notifier)
+            .read(driverOrderProvider.notifier)
             .showOrder(context, widget.order.id ?? 0);
       });
     }
@@ -36,7 +36,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(orderProvider);
+    final state = ref.watch(driverOrderProvider);
     return state.isLoading
         ? const Loading()
         : SingleChildScrollView(
@@ -49,7 +49,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
-                    color: Style.white,
+                    color: AppStyle.white,
                   ),
                   padding: EdgeInsets.all(16.r),
                   child: Column(
@@ -96,7 +96,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                                     state.order?.details?[index].note != '')
                                   Text(
                                     "${AppHelpers.getTranslation(TrKeys.note)}: ${state.order?.details?[index].note}",
-                                    style: Style.interRegular(
+                                    style: AppStyle.interRegular(
                                       color: Style.blackColor,
                                       size: 14.sp,
                                       letterSpacing: -0.3,
@@ -168,7 +168,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
         : Column(
             children: [
               2.verticalSpace,
-              Divider(color: Style.black.withValues(alpha: 0.4)),
+              Divider(color: AppStyle.blackColor.withValues(alpha: 0.4)),
               2.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -176,22 +176,22 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                   Text(
                     AppHelpers.getTranslation(title),
                     style: isTotal
-                        ? Style.interSemi(size: 16.sp, letterSpacing: -0.3)
-                        : Style.interNormal(
+                        ? AppStyle.interSemi(size: 16.sp, letterSpacing: -0.3)
+                        : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount ? Style.redColor : Style.black,
+                            color: isDiscount ? Style.redColor : AppStyle.blackColor,
                           ),
                   ),
                   Text(
                     (isDiscount ? '-' : '') +
                         AppHelpers.numberFormat(number: price),
                     style: isTotal
-                        ? Style.interSemi(size: 16.sp, letterSpacing: -0.3)
-                        : Style.interNormal(
+                        ? AppStyle.interSemi(size: 16.sp, letterSpacing: -0.3)
+                        : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount ? Style.redColor : Style.black,
+                            color: isDiscount ? Style.redColor : AppStyle.blackColor,
                           ),
                   ),
                 ],

@@ -2,12 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/application/parcel/parcel_provider.dart';
-import 'package:driver/application/statistics/statistics_provider.dart';
+import 'package:venderfoodyman/application/parcel/parcel_provider.dart';
+import 'package:venderfoodyman/application/statistics/statistics_provider.dart';
 
 import '../../application/order/all_order/order_provider.dart';
-import 'package:driver/infrastructure/driver/services/app_helpers.dart';
-import 'package:driver/infrastructure/driver/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/driver/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/driver/services/tr_keys.dart';
 import '../styles/style.dart';
 import 'buttons/custom_button.dart';
 import 'custom_date_picker.dart';
@@ -116,9 +116,9 @@ class _FilterScreenState extends State<FilterScreen>
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Text(
             AppHelpers.getTranslation(TrKeys.selectDesiredOrderHistory),
-            style: Style.interNormal(
+            style: AppStyle.interNormal(
               size: 14.sp,
-              color: Style.black,
+              color: AppStyle.blackColor,
               letterSpacing: -0.3,
             ),
           ),
@@ -157,7 +157,7 @@ class _FilterScreenState extends State<FilterScreen>
                                     end: _newList.last,
                                   )
                             : ref
-                                  .read(orderProvider.notifier)
+                                  .read(driverOrderProvider.notifier)
                                   .fetchHistoryOrders(
                                     context,
                                     start: _newList.first,

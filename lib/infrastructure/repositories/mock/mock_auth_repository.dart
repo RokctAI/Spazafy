@@ -3,7 +3,7 @@ import 'package:foodyman/domain/interface/auth.dart';
 import 'package:foodyman/infrastructure/models/models.dart';
 import 'package:foodyman/infrastructure/models/data/address_information.dart';
 
-class MockAuthRepository implements AuthRepositoryFacade {
+class MockAuthRepository implements AuthFacade {
   final UserModel _demoUser = UserModel(
     id: "1",
     uuid: "demo_uuid",

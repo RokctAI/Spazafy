@@ -1,0 +1,241 @@
+#!/usr/bin/env python3
+"""
+fix_imports.py — Spazafy import unification script.
+
+Replaces all broken `package:driver/...`, `package:manager/...`,
+old relative paths, and legacy venderfoodyman subpaths with the
+correct unified `package:venderfoodyman/...` equivalents.
+
+Also fixes class name renames (e.g. OrdersRepositoryFacade → OrdersFacade).
+
+Usage:
+    python fix_imports.py [--dry-run]
+"""
+
+import os
+import re
+import sys
+import argparse
+
+DRY_RUN = False
+
+# ─── Import path replacements (order matters — more specific first) ───────────
+
+IMPORT_REPLACEMENTS = [
+    # ── driver package → venderfoodyman ──────────────────────────────────────
+    ("package:driver/infrastructure/services/driver/app_connectivity.dart",
+     "package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart"),
+    ("package:driver/infrastructure/services/driver/app_helpers.dart",
+     "package:venderfoodyman/infrastructure/services/utils/app_helpers.dart"),
+    ("package:driver/infrastructure/services/driver/tr_keys.dart",
+     "package:venderfoodyman/infrastructure/services/utils/tr_keys.dart"),
+    ("package:driver/infrastructure/services/driver/local_storage.dart",
+     "package:venderfoodyman/infrastructure/services/utils/local_storage.dart"),
+    ("package:driver/infrastructure/services/driver/services.dart",
+     "package:venderfoodyman/infrastructure/services/utils/app_helpers.dart"),
+    ("package:driver/infrastructure/services/driver/loading.dart",
+     "package:venderfoodyman/presentation/components/customer/loading.dart"),
+    ("package:driver/domain/interface/driver/orders.dart",
+     "package:venderfoodyman/domain/interface/orders.dart"),
+    ("package:driver/domain/di/customer/dependency_manager.dart",
+     "package:venderfoodyman/domain/di/dependency_manager.dart"),
+    ("package:driver/domain/di/dependency_manager.dart",
+     "package:venderfoodyman/domain/di/dependency_manager.dart"),
+    ("package:driver/presentation/theme/driver/app_style.dart",
+     "package:venderfoodyman/presentation/theme/customer/app_style.dart"),
+    ("package:driver/presentation/theme/driver/app_assets.dart",
+     "package:venderfoodyman/infrastructure/services/utils/app_assets.dart"),
+    ("package:driver/application/providers/driver/providers.dart",
+     "package:venderfoodyman/application/order/all_order/order_provider.dart"),
+    ("package:driver/presentation/components/driver/loading.dart",
+     "package:venderfoodyman/presentation/components/customer/loading.dart"),
+    ("package:driver/presentation/components/driver/components.dart",
+     "package:venderfoodyman/presentation/components/customer/components.dart"),
+    ("package:driver/infrastructure/models/models.dart",
+     "package:venderfoodyman/infrastructure/models/customer/models.dart"),
+    ("package:driver/application/order/all_order/order_provider.dart",
+     "package:venderfoodyman/application/order/all_order/order_provider.dart"),
+    ("package:driver/application/order/canceled_order/canceled_order_state.dart",
+     "package:venderfoodyman/application/order/canceled_order/canceled_order_state.dart"),
+    ("package:driver/application/order/delivered_order/delivered_order_state.dart",
+     "package:venderfoodyman/application/order/delivered_order/delivered_order_state.dart"),
+    ("package:driver/application/", "package:venderfoodyman/application/"),
+    # Catch-all remaining driver imports
+    ("package:driver/", "package:venderfoodyman/"),
+
+    # ── manager package → venderfoodyman ─────────────────────────────────────
+    ("package:manager/infrastructure/services/manager/services.dart",
+     "package:venderfoodyman/infrastructure/services/utils/app_helpers.dart"),
+    ("package:manager/domain/di/manager/dependency_manager.dart",
+     "package:venderfoodyman/domain/di/dependency_manager.dart"),
+    ("package:manager/presentation/theme/manager/app_style.dart",
+     "package:venderfoodyman/presentation/theme/customer/app_style.dart"),
+    # Catch-all remaining manager imports
+    ("package:manager/", "package:venderfoodyman/"),
+
+    # ── old venderfoodyman customer subpaths → unified paths ─────────────────
+    ("package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart",
+     "package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart"),
+    ("package:venderfoodyman/infrastructure/services/customer/app_helpers.dart",
+     "package:venderfoodyman/infrastructure/services/utils/app_helpers.dart"),
+    ("package:venderfoodyman/infrastructure/services/customer/local_storage.dart",
+     "package:venderfoodyman/infrastructure/services/utils/local_storage.dart"),
+    ("package:venderfoodyman/infrastructure/services/customer/tr_keys.dart",
+     "package:venderfoodyman/infrastructure/services/utils/tr_keys.dart"),
+    ("package:venderfoodyman/infrastructure/services/customer/marker_image_cropper.dart",
+     "package:venderfoodyman/infrastructure/services/utils/marker_image_cropper.dart"),
+    ("package:venderfoodyman/domain/interface/customer/orders.dart",
+     "package:venderfoodyman/domain/interface/orders.dart"),
+    ("package:venderfoodyman/domain/interface/customer/shops.dart",
+     "package:venderfoodyman/domain/interface/shops.dart"),
+    ("package:venderfoodyman/domain/interface/customer/banners.dart",
+     "package:venderfoodyman/domain/interface/banners.dart"),
+    ("package:venderfoodyman/domain/interface/customer/categories.dart",
+     "package:venderfoodyman/domain/interface/categories.dart"),
+    ("package:venderfoodyman/domain/interface/customer/products.dart",
+     "package:venderfoodyman/domain/interface/products.dart"),
+    ("package:venderfoodyman/domain/interface/customer/auth.dart",
+     "package:venderfoodyman/domain/interface/auth.dart"),
+    ("package:venderfoodyman/domain/interface/customer/user.dart",
+     "package:venderfoodyman/domain/interface/user.dart"),
+    ("package:venderfoodyman/domain/interface/customer/cart.dart",
+     "package:venderfoodyman/domain/interface/cart.dart"),
+    ("package:venderfoodyman/domain/interface/customer/payments.dart",
+     "package:venderfoodyman/domain/interface/payments.dart"),
+    ("package:venderfoodyman/domain/interface/customer/brands.dart",
+     "package:venderfoodyman/domain/interface/brands.dart"),
+    ("package:venderfoodyman/domain/di/customer/dependency_manager.dart",
+     "package:venderfoodyman/domain/di/dependency_manager.dart"),
+
+    # ── old manager service barrel → broken reference ─────────────────────────
+    ("package:venderfoodyman/infrastructure/services/manager/services.dart",
+     "package:venderfoodyman/infrastructure/services/utils/app_helpers.dart"),
+    ("package:venderfoodyman/presentation/components/manager/components.dart",
+     "package:venderfoodyman/presentation/components/customer/components.dart"),
+
+    # ── Router Merger (Customer/Driver/Manager → Unified) ──────────────────
+    ("package:venderfoodyman/presentation/routes/customer/app_router.dart",
+     "package:venderfoodyman/presentation/routes/app_router.dart"),
+    ("package:venderfoodyman/presentation/routes/driver/app_router.dart",
+     "package:venderfoodyman/presentation/routes/app_router.dart"),
+    ("package:venderfoodyman/presentation/routes/manager/app_router.dart",
+     "package:venderfoodyman/presentation/routes/app_router.dart"),
+    ("package:venderfoodyman/presentation/routes/customer/app_router.gr.dart",
+     "package:venderfoodyman/presentation/routes/app_router.gr.dart"),
+    ("package:venderfoodyman/presentation/routes/driver/app_router.gr.dart",
+     "package:venderfoodyman/presentation/routes/app_router.gr.dart"),
+    ("package:venderfoodyman/presentation/routes/manager/app_router.gr.dart",
+     "package:venderfoodyman/presentation/routes/app_router.gr.dart"),
+]
+
+# ─── Class/type name renames ──────────────────────────────────────────────────
+
+CLASS_RENAMES = [
+    (r"\bOrdersRepositoryFacade\b", "OrdersFacade"),
+    (r"\bShopsRepositoryFacade\b",  "ShopsFacade"),
+    (r"\bCartRepositoryFacade\b",   "CartFacade"),
+    (r"\bPaymentsRepositoryFacade\b", "PaymentsFacade"),
+    (r"\bBannersRepositoryFacade\b", "BannersFacade"),
+    (r"\bCategoriesRepositoryFacade\b", "CategoriesFacade"),
+    (r"\bProductsRepositoryFacade\b", "ProductsFacade"),
+    (r"\bUserRepositoryFacade\b",   "UserFacade"),
+    (r"\bAuthRepositoryFacade\b",   "AuthFacade"),
+    (r"\bDrawRepositoryFacade\b",   "DrawFacade"),
+    (r"\bOrdersDetailData\b",       "OrderDetailData"),
+    # Style → AppStyle (driver used Style not AppStyle)
+    (r"\bStyle\.inter",             "AppStyle.inter"),
+    (r"\bStyle\.greyColor\b",       "AppStyle.greyColor"),
+    (r"\bStyle\.primary\b",         "AppStyle.primary"),
+    (r"\bStyle\.white\b",           "AppStyle.white"),
+    (r"\bStyle\.black\b",           "AppStyle.blackColor"),
+]
+
+# Provider renames — applied only in files that import all_order/order_provider
+# (to avoid renaming the root customer orderProvider)
+PROVIDER_RENAMES_IN_DRIVER_FILES = [
+    (r"\borderProvider\b", "driverOrderProvider"),
+]
+
+# ─── Relative path fixes (broken relative imports in some files) ──────────────
+
+RELATIVE_FIXES = [
+    # Old relative imports to infrastructure/models/data/...
+    (r"import '[^']*infrastructure/models/data/order_detail\.dart'",
+     "import 'package:venderfoodyman/infrastructure/models/customer/models.dart'"),
+    (r"import '[^']*infrastructure/services/app_helpers\.dart'",
+     "import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart'"),
+    (r"import '[^']*infrastructure/services/app_connectivity\.dart'",
+     "import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart'"),
+    (r"import '[^']*infrastructure/services/local_storage\.dart'",
+     "import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart'"),
+]
+
+
+def fix_file(path: str) -> bool:
+    """Returns True if the file was modified."""
+    with open(path, "r", encoding="utf-8", errors="ignore") as f:
+        original = f.read()
+
+    content = original
+
+    # Apply import string replacements
+    for old, new in IMPORT_REPLACEMENTS:
+        content = content.replace(old, new)
+
+    # Apply relative path regex fixes
+    for pattern, replacement in RELATIVE_FIXES:
+        content = re.sub(pattern, replacement, content)
+
+    # Apply class renames
+    for pattern, replacement in CLASS_RENAMES:
+        content = re.sub(pattern, replacement, content)
+
+    # Apply driver provider rename only in files that import all_order/order_provider
+    if "all_order/order_provider" in content:
+        for pattern, replacement in PROVIDER_RENAMES_IN_DRIVER_FILES:
+            content = re.sub(pattern, replacement, content)
+
+    if content == original:
+        return False
+
+    if DRY_RUN:
+        print(f"  [DRY] Would update: {path}")
+        return True
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+    return True
+
+
+def main():
+    global DRY_RUN
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true", help="Preview only, don't write files")
+    args = parser.parse_args()
+    DRY_RUN = args.dry_run
+
+    root = os.path.join(os.path.dirname(__file__), "lib")
+    if not os.path.isdir(root):
+        print(f"ERROR: Could not find lib/ at {root}")
+        sys.exit(1)
+
+    changed = 0
+    scanned = 0
+
+    for dirpath, _, filenames in os.walk(root):
+        for filename in filenames:
+            if not filename.endswith(".dart"):
+                continue
+            filepath = os.path.join(dirpath, filename)
+            scanned += 1
+            if fix_file(filepath):
+                changed += 1
+                if not DRY_RUN:
+                    print(f"  Fixed: {os.path.relpath(filepath, root)}")
+
+    mode = "DRY RUN" if DRY_RUN else "DONE"
+    print(f"\n[{mode}] Scanned {scanned} files, fixed {changed}.")
+
+
+if __name__ == "__main__":
+    main()

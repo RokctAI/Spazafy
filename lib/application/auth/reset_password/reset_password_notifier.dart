@@ -4,20 +4,20 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/domain/interface/customer/auth.dart';
-import 'package:venderfoodyman/domain/interface/customer/user.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
+import 'package:venderfoodyman/domain/interface/auth.dart';
+import 'package:venderfoodyman/domain/interface/user.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/app_validators.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 
 import 'reset_password_state.dart';
 
 class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
-  final AuthRepositoryFacade _authRepository;
-  final UserRepositoryFacade _userRepositoryFacade;
+  final AuthFacade _authRepository;
+  final UserFacade _userRepositoryFacade;
 
   ResetPasswordNotifier(this._authRepository, this._userRepositoryFacade)
       : super(const ResetPasswordState());

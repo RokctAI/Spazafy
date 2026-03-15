@@ -11,7 +11,7 @@ import 'widgets/food_price_widget.dart';
 import '../../../../component/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'widgets/w_ingredient.dart';
 
 class FoodDetailsModal extends ConsumerStatefulWidget {

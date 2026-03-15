@@ -6,7 +6,7 @@ import 'package:venderfoodyman/presentation/theme/manager/app_assets.dart';
 
 import '../components.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class CategoriesTabBar extends StatelessWidget {
   final List<CategoryData> categories;

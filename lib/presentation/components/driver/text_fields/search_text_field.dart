@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/infrastructure/services/driver/app_helpers.dart';
-import 'package:driver/infrastructure/services/driver/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class SearchTextField extends StatelessWidget {
@@ -31,16 +31,16 @@ class SearchTextField extends StatelessWidget {
       readOnly: isRead,
       autofocus: false,
       autocorrect: true,
-      style: Style.interRegular(size: 16.sp, color: Style.black),
+      style: AppStyle.interRegular(size: 16.sp, color: AppStyle.blackColor),
       onChanged: onChanged,
       controller: textEditingController,
-      cursorColor: Style.black,
+      cursorColor: AppStyle.blackColor,
       cursorWidth: 1,
       decoration: InputDecoration(
-        hintStyle: Style.interRegular(size: 16.sp, color: Style.textColor),
+        hintStyle: AppStyle.interRegular(size: 16.sp, color: Style.textColor),
         hintText: hintText ?? AppHelpers.getTranslation(TrKeys.search),
         contentPadding: REdgeInsets.symmetric(horizontal: 15, vertical: 17),
-        prefixIcon: const Icon(FlutterRemix.search_2_line, color: Style.black),
+        prefixIcon: const Icon(FlutterRemix.search_2_line, color: AppStyle.blackColor),
 
         suffixIcon: suffixIcon,
         fillColor: bgColor,

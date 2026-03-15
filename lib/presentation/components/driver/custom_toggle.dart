@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:driver/infrastructure/driver/services/services.dart';
+import 'package:venderfoodyman/infrastructure/driver/services/services.dart';
 import '../styles/style.dart';
 
 class CustomToggle extends StatefulWidget {
@@ -44,7 +44,7 @@ class _CustomToggleState extends State<CustomToggle> {
     return AdvancedSwitch(
       controller: controller,
       initialValue: controller.value,
-      activeColor: Style.primary,
+      activeColor: AppStyle.primary,
       inactiveColor: Style.toggleColor,
       borderRadius: BorderRadius.circular(10.r),
       width: widget.isOrder ? 70.w : 94.w,
@@ -55,7 +55,7 @@ class _CustomToggleState extends State<CustomToggle> {
         margin: EdgeInsets.all(widget.isOrder ? 2.r : 4.r),
         padding: EdgeInsets.symmetric(vertical: 6.h),
         decoration: BoxDecoration(
-          color: Style.white,
+          color: AppStyle.white,
           borderRadius: BorderRadius.circular(10.r),
           boxShadow: [
             BoxShadow(
@@ -87,20 +87,20 @@ class _CustomToggleState extends State<CustomToggle> {
         !widget.isOrder
             ? AppHelpers.getTranslation(TrKeys.online)
             : AppHelpers.getTranslation(TrKeys.active),
-        style: Style.interNormal(
+        style: AppStyle.interNormal(
           size: widget.isOrder ? 10.sp : 12.sp,
           letterSpacing: -0.3,
-          color: !widget.isOrder ? Style.buttonFontColor : Style.black,
+          color: !widget.isOrder ? Style.buttonFontColor : AppStyle.blackColor,
         ),
       ),
       inactiveChild: Text(
         !widget.isOrder
             ? AppHelpers.getTranslation(TrKeys.offline)
             : AppHelpers.getTranslation(TrKeys.inActive),
-        style: Style.interNormal(
+        style: AppStyle.interNormal(
           size: widget.isOrder ? 10.sp : 12.sp,
           letterSpacing: -0.3,
-          color: Style.black,
+          color: AppStyle.blackColor,
         ),
       ),
     );

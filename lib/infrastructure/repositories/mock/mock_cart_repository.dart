@@ -4,7 +4,7 @@ import 'package:foodyman/infrastructure/models/data/cart_data.dart';
 import 'package:foodyman/infrastructure/models/data/product_data.dart';
 import 'package:foodyman/infrastructure/models/request/cart_request.dart';
 
-class MockCartRepository implements CartRepositoryFacade {
+class MockCartRepository implements CartFacade {
   final UserCart _demoUserCart = UserCart(
     id: "1",
     cartId: "1",

@@ -24,7 +24,7 @@ class CommonAppBar extends StatelessWidget {
               ? 34.h
               : MediaQuery.of(context).padding.top),
       decoration: BoxDecoration(
-        color: Style.white,
+        color: AppStyle.white,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(16.r),
           bottomRight: Radius.circular(16.r),

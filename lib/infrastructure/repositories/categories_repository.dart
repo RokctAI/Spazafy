@@ -2,9 +2,9 @@ import 'package:foodyman/domain/di/dependency_manager.dart';
 import 'package:foodyman/domain/interface/categories.dart';
 import 'package:foodyman/infrastructure/models/models.dart';
 import 'package:foodyman/domain/handlers/handlers.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
-class CategoriesRepository implements CategoriesRepositoryFacade {
+class CategoriesRepository implements CategoriesFacade {
   @override
   Future<ApiResult<CategoriesPaginateResponse>> getAllCategories({
     required int page,

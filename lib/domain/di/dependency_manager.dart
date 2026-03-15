@@ -6,23 +6,23 @@ import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
 
 // Customer Interfaces
 import 'package:venderfoodyman/domain/interface/customer/address.dart';
-import 'package:venderfoodyman/domain/interface/customer/auth.dart';
-import 'package:venderfoodyman/domain/interface/customer/banners.dart';
+import 'package:venderfoodyman/domain/interface/auth.dart';
+import 'package:venderfoodyman/domain/interface/banners.dart';
 import 'package:venderfoodyman/domain/interface/customer/blogs.dart';
-import 'package:venderfoodyman/domain/interface/customer/brands.dart';
-import 'package:venderfoodyman/domain/interface/customer/cart.dart';
-import 'package:venderfoodyman/domain/interface/customer/categories.dart';
+import 'package:venderfoodyman/domain/interface/brands.dart';
+import 'package:venderfoodyman/domain/interface/cart.dart';
+import 'package:venderfoodyman/domain/interface/categories.dart';
 import 'package:venderfoodyman/domain/interface/customer/currencies.dart';
 import 'package:venderfoodyman/domain/interface/customer/draw.dart';
 import 'package:venderfoodyman/domain/interface/customer/gallery.dart';
 import 'package:venderfoodyman/domain/interface/customer/notification.dart';
-import 'package:venderfoodyman/domain/interface/customer/orders.dart';
+import 'package:venderfoodyman/domain/interface/orders.dart';
 import 'package:venderfoodyman/domain/interface/customer/parcel.dart';
-import 'package:venderfoodyman/domain/interface/customer/payments.dart';
-import 'package:venderfoodyman/domain/interface/customer/products.dart';
+import 'package:venderfoodyman/domain/interface/payments.dart';
+import 'package:venderfoodyman/domain/interface/products.dart';
 import 'package:venderfoodyman/domain/interface/customer/settings.dart';
-import 'package:venderfoodyman/domain/interface/customer/shops.dart';
-import 'package:venderfoodyman/domain/interface/customer/user.dart';
+import 'package:venderfoodyman/domain/interface/shops.dart';
+import 'package:venderfoodyman/domain/interface/user.dart';
 import 'package:venderfoodyman/domain/interface/customer/loans.dart';
 import 'package:venderfoodyman/domain/interface/customer/wallet.dart';
 import 'package:venderfoodyman/domain/interface/customer/delivery_points.dart';
@@ -55,9 +55,8 @@ import 'package:venderfoodyman/infrastructure/repositories/customer/subscription
 import 'package:venderfoodyman/infrastructure/repositories/customer/delivery_points_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/mock/mock_repositories.dart' as mock;
 
-// Manager Routers
-import 'package:venderfoodyman/presentation/routes/manager/app_router.dart' as manager_router;
-import 'package:venderfoodyman/presentation/routes/driver/app_router.dart' as driver_router;
+// Router
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 
 // Services
 import 'package:venderfoodyman/customer/app_constants.dart';
@@ -113,8 +112,7 @@ Future<void> setUpDependencies() async {
   getIt.registerSingleton<TableInterface>(TableRepository());
   getIt.registerSingleton<SubscriptionsFacade>(SubscriptionsRepository());
   
-  getIt.registerSingleton<driver_router.AppRouter>(driver_router.AppRouter());
-  getIt.registerSingleton<manager_router.AppRouter>(manager_router.AppRouter());
+  getIt.registerSingleton<AppRouter>(AppRouter());
 }
 
 // Global accessor shortcuts (for legacy code/migration)
@@ -153,7 +151,7 @@ final driverUserRepo = getIt.get<UserFacade>();
 // Manager accessors
 final managerAuthRepo = getIt.get<AuthFacade>();
 final managerUsersRepo = getIt.get<UserFacade>();
-final managerRouter = getIt.get<manager_router.AppRouter>();
+final router = getIt.get<AppRouter>();
 
 
 

@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 
 import 'currency_notifier.dart';
 import 'currency_state.dart';

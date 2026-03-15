@@ -28,11 +28,11 @@ class RestaurantItem extends StatelessWidget {
       child: Container(
         height: 74.h,
         decoration: BoxDecoration(
-          color: Style.white,
+          color: AppStyle.white,
           borderRadius: BorderRadius.circular(10.r),
           boxShadow: [
             BoxShadow(
-              color: Style.white.withValues(alpha: 0.04),
+              color: AppStyle.white.withValues(alpha: 0.04),
               spreadRadius: 0,
               blurRadius: 2,
               offset: const Offset(0, 2),
@@ -54,7 +54,7 @@ class RestaurantItem extends StatelessWidget {
                     children: [
                       Text(
                         shopName,
-                        style: Style.interSemi(size: 15.sp, color: Style.black),
+                        style: AppStyle.interSemi(size: 15.sp, color: AppStyle.blackColor),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -65,16 +65,16 @@ class RestaurantItem extends StatelessWidget {
                       8.horizontalSpace,
                       Text(
                         "1.3 km",
-                        style: Style.interRegular(
+                        style: AppStyle.interRegular(
                           size: 14.sp,
-                          color: Style.black,
+                          color: AppStyle.blackColor,
                         ),
                       ),
                     ],
                   ),
                   Text(
                     shopText,
-                    style: Style.interNormal(size: 12.sp, color: Style.black),
+                    style: AppStyle.interNormal(size: 12.sp, color: AppStyle.blackColor),
                   ),
                 ],
               ),

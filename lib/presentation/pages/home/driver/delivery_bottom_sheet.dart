@@ -3,9 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
-import 'package:driver/application/providers/driver/providers.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
-import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'widgets/approve_dialog.dart';
 import 'widgets/foods_page.dart';
@@ -51,14 +51,14 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
               builder: (context, scrollController) => Container(
                 width: MediaQuery.sizeOf(context).width,
                 decoration: BoxDecoration(
-                  color: Style.greyColor,
+                  color: AppStyle.greyColor,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.r),
                     topLeft: Radius.circular(12.r),
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Style.black.withValues(alpha: 0.25),
+                      color: AppStyle.blackColor.withValues(alpha: 0.25),
                       blurRadius: 40,
                       offset: const Offset(0, -2),
                     ),
@@ -106,7 +106,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                   );
                                 },
                                 background: Style.transparent,
-                                borderColor: Style.black,
+                                borderColor: AppStyle.blackColor,
                               ),
                               10.verticalSpace,
                             ],
@@ -168,7 +168,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                             builder: (context, setState) {
                               return Container(
                                 decoration: BoxDecoration(
-                                  color: Style.white,
+                                  color: AppStyle.white,
                                   borderRadius: BorderRadius.circular(10.r),
                                 ),
                                 padding: EdgeInsets.symmetric(
@@ -184,7 +184,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                         text: AppHelpers.getTranslation(
                                           TrKeys.areYouSure,
                                         ),
-                                        style: Style.interNormal(size: 16.sp),
+                                        style: AppStyle.interNormal(size: 16.sp),
                                       ),
                                     ),
                                     Form(
@@ -214,7 +214,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                               TrKeys.cancel,
                                             ),
                                             background: Style.redColor,
-                                            textColor: Style.white,
+                                            textColor: AppStyle.white,
                                             onPressed: () {
                                               Navigator.pop(context);
                                             },
@@ -229,8 +229,8 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                                     AppHelpers.getTranslation(
                                                       TrKeys.confirmation,
                                                     ),
-                                                background: Style.black,
-                                                textColor: Style.white,
+                                                background: AppStyle.blackColor,
+                                                textColor: AppStyle.white,
                                                 borderColor: Colors.transparent,
                                                 onPressed: () {
                                                   if ((formKey.currentState

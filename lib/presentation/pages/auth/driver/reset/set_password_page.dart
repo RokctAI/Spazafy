@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 
 import '../../../../application/providers.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../styles/style.dart';
 
 class SetPasswordPage extends ConsumerWidget {
@@ -24,7 +24,7 @@ class SetPasswordPage extends ConsumerWidget {
           child: Container(
             padding: MediaQuery.viewInsetsOf(context),
             decoration: BoxDecoration(
-              color: Style.black.withValues(alpha: 0.5),
+              color: AppStyle.blackColor.withValues(alpha: 0.5),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(16.r),
                 topRight: Radius.circular(16.r),
@@ -110,7 +110,7 @@ class SetPasswordPage extends ConsumerWidget {
                           notifier.setResetPassword(context);
                         },
                         background: Style.greenColor,
-                        textColor: Style.black,
+                        textColor: AppStyle.blackColor,
                       ),
                     ),
                   ],

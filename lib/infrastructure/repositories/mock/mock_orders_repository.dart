@@ -14,7 +14,7 @@ import 'package:foodyman/infrastructure/models/response/coupon_response.dart';
 import 'package:foodyman/infrastructure/models/response/order_paginate_response.dart';
 import 'package:foodyman/infrastructure/services/enums.dart';
 
-class MockOrdersRepository implements OrdersRepositoryFacade {
+class MockOrdersRepository implements OrdersFacade {
   final OrderActiveModel _demoOrder = OrderActiveModel(
     id: "1",
     status: "delivered",

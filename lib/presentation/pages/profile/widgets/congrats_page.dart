@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
-import '../../../../infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../../infrastructure/services/tr_keys.dart';
 
 class CongratsPage extends StatelessWidget {

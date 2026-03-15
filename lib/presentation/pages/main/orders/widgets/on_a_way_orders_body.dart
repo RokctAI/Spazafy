@@ -7,7 +7,7 @@ import 'no_orders.dart';
 import '../details/order_details_modal.dart';
 import '../../../../component/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class OnAWayOrdersBody extends StatefulWidget {
   final ScrollController? scrollController;

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import 'common_image.dart';
@@ -18,7 +18,7 @@ class ImageDialog extends StatelessWidget {
     return Container(
       padding: REdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Style.white,
+        color: AppStyle.white,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -30,7 +30,7 @@ class ImageDialog extends StatelessWidget {
               Expanded(
                 child: Text(
                   AppHelpers.getTranslation(TrKeys.thisImageWasUploadDriver),
-                  style: Style.interNormal(),
+                  style: AppStyle.interNormal(),
                 ),
               ),
               GestureDetector(

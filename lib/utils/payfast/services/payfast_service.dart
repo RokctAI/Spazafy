@@ -8,7 +8,7 @@ import '../../../domain/di/dependency_manager.dart';
 import '../../../domain/handlers/customer/handlers.dart';
 import '../../../infrastructure/models/data/saved_card.dart';
 import '../../../infrastructure/models/models.dart';
-import '../../../infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 /// PayFast integration service
 class PayFastService {

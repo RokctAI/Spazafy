@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../../infrastructure/models/data/order_detail.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 part 'order_state.freezed.dart';
 

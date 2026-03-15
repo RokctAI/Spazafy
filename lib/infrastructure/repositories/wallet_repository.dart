@@ -17,8 +17,8 @@ import 'package:flutter/material.dart';
 import 'package:foodyman/domain/handlers/handlers.dart';
 import 'package:foodyman/domain/interface/wallet.dart';
 import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 
 import '../models/data/wallet_data.dart';
 import '../models/models.dart';

@@ -36,7 +36,7 @@ class StatisticsItem extends StatelessWidget {
         children: [
           Text(
             title,
-            style: Style.interNormal(
+            style: AppStyle.interNormal(
               size: 12.sp,
               color: textColor,
               letterSpacing: -0.3,
@@ -47,7 +47,7 @@ class StatisticsItem extends StatelessWidget {
             children: [
               Text(
                 count,
-                style: Style.interSemi(
+                style: AppStyle.interSemi(
                   size: 14.sp,
                   color: textColor,
                   letterSpacing: -0.6,
@@ -64,7 +64,7 @@ class StatisticsItem extends StatelessWidget {
               ),
               Text(
                 percentage,
-                style: Style.interSemi(
+                style: AppStyle.interSemi(
                   size: 14.sp,
                   color: textColor,
                   letterSpacing: -0.6,

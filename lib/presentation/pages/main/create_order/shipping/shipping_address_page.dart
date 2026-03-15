@@ -11,9 +11,9 @@ import 'package:venderfoodyman/application/order/shipping/table/table_provider.d
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'widgets/delivery_type_item.dart';
 import '../../../../component/components.dart';
-import 'package:venderfoodyman/presentation/routes/manager/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 @RoutePage()
 class ShippingAddressPage extends StatefulWidget {

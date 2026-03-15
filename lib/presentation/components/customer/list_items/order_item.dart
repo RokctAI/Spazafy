@@ -5,7 +5,7 @@ import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../helper/common_image.dart';
 import '../buttons/buttons_bouncing_effect.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class OrderItem extends StatelessWidget {
   final OrderData order;

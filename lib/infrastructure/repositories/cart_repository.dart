@@ -4,12 +4,12 @@ import 'package:foodyman/domain/interface/cart.dart';
 import 'package:foodyman/infrastructure/models/data/cart_data.dart';
 import 'package:foodyman/domain/di/dependency_manager.dart';
 import 'package:foodyman/domain/handlers/network_exceptions.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 import 'dart:convert';
 import 'package:foodyman/infrastructure/models/request/cart_request.dart';
 
-class CartRepository implements CartRepositoryFacade {
+class CartRepository implements CartFacade {
   @override
   Future<ApiResult<CartModel>> getCart(String shopId) async {
     try {

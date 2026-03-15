@@ -4,15 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:venderfoodyman/application/home/home_provider.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/presentation/pages/customer/home/home_one/widget/market_one_item.dart';
 import 'package:venderfoodyman/presentation/pages/customer/home/home_three/widgets/market_three_item.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/presentation/components/customer/market_item.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 

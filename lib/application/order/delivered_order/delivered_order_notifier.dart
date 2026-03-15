@@ -1,12 +1,12 @@
-import 'package:driver/application/order/delivered_order/delivered_order_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../domain/di/dependency_manager.dart';
-import '../../../infrastructure/models/data/order_detail.dart';
-import '../../../infrastructure/services/app_connectivity.dart';
-import '../../../infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'delivered_order_state.dart';
 
 class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
   DeliveredOrderNotifier() : super(const DeliveredOrderState());

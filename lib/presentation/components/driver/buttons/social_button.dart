@@ -26,7 +26,7 @@ class SocialButton extends StatelessWidget {
         child: Container(
           constraints: BoxConstraints(minWidth: 96.r, minHeight: 36.r),
           decoration: BoxDecoration(
-            color: Style.white,
+            color: AppStyle.white,
             borderRadius: BorderRadius.circular(10.r),
           ),
           alignment: Alignment.center,
@@ -41,12 +41,12 @@ class SocialButton extends StatelessWidget {
                       width: 12.r,
                       child: CircularProgressIndicator(
                         strokeWidth: 2.r,
-                        color: Style.black,
+                        color: AppStyle.blackColor,
                       ),
                     )
                   : Text(
                       title,
-                      style: Style.interNormal(
+                      style: AppStyle.interNormal(
                         size: 12,
                         color: Style.textColor,
                       ),

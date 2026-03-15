@@ -3,7 +3,7 @@ import 'package:foodyman/domain/di/dependency_manager.dart';
 import 'package:foodyman/domain/interface/currencies.dart';
 import 'package:foodyman/infrastructure/models/models.dart';
 import 'package:foodyman/domain/handlers/handlers.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class CurrenciesRepository implements CurrenciesRepositoryFacade {
   @override

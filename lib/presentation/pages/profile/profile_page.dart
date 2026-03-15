@@ -15,9 +15,9 @@ import 'package:venderfoodyman/application/orders_list/orders_list_provider.dart
 import 'package:venderfoodyman/application/parcels_list/parcel_list_provider.dart';
 import 'package:venderfoodyman/application/profile/profile_provider.dart';
 import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
 import 'package:venderfoodyman/presentation/components/customer/badges/alert_dialog.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
@@ -25,7 +25,7 @@ import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/application/like/like_provider.dart';
 import 'package:venderfoodyman/presentation/pages/customer/profile/delete_screen.dart';
 import 'package:venderfoodyman/presentation/pages/customer/profile/help_page.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:venderfoodyman/presentation/pages/customer/policy_term/policy_page.dart';
 import 'package:venderfoodyman/presentation/pages/customer/policy_term/term_page.dart';
@@ -545,7 +545,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                     context,
                                     icon: Remix.bank_line,
                                     title: AppHelpers.getTranslation(TrKeys.billing),
-                                    onTap: () => context.pushRoute(const BillingHomeRoute()),
+                                    onTap: () => context.pushRoute(const PosRoute()),
                                   ),
                                   _buildSquareButton(
                                     context,

@@ -3,8 +3,8 @@ import 'package:auto_route/auto_route.dart';
 //import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart'; //Changed
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart'; //changed
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart'; //Changed
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart'; //changed
 import 'package:venderfoodyman/presentation/components/customer/buttons/second_button.dart';
 //import '../../components/helper/shimmer.dart';
 

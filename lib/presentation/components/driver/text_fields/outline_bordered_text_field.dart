@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class OutlinedBorderTextField extends StatelessWidget {
@@ -55,7 +55,7 @@ class OutlinedBorderTextField extends StatelessWidget {
             children: [
               Text(
                 label!,
-                style: Style.interNormal(size: 9, color: Style.black),
+                style: AppStyle.interNormal(size: 9, color: AppStyle.blackColor),
               ),
             ],
           ),
@@ -68,9 +68,9 @@ class OutlinedBorderTextField extends StatelessWidget {
           obscuringCharacter: '*',
           controller: textController,
           validator: validation,
-          style: Style.interNormal(size: 15.sp, color: Style.black),
+          style: AppStyle.interNormal(size: 15.sp, color: AppStyle.blackColor),
           cursorWidth: 1,
-          cursorColor: Style.black,
+          cursorColor: AppStyle.blackColor,
           keyboardType: inputType,
           initialValue: initialText,
           readOnly: readOnly,
@@ -84,9 +84,9 @@ class OutlinedBorderTextField extends StatelessWidget {
             ),
             suffixIcon: suffixIcon,
             hintText: hint ?? AppHelpers.getTranslation(TrKeys.typeSomething),
-            hintStyle: Style.interNormal(
+            hintStyle: AppStyle.interNormal(
               size: 13,
-              color: Style.black.withValues(alpha: .5),
+              color: AppStyle.blackColor.withValues(alpha: .5),
             ),
             contentPadding: REdgeInsets.symmetric(horizontal: 0, vertical: 8),
             floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -94,8 +94,8 @@ class OutlinedBorderTextField extends StatelessWidget {
             filled: false,
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide.merge(
-                BorderSide(color: Style.black.withValues(alpha: .5)),
-                BorderSide(color: Style.black.withValues(alpha: .5)),
+                BorderSide(color: AppStyle.blackColor.withValues(alpha: .5)),
+                BorderSide(color: AppStyle.blackColor.withValues(alpha: .5)),
               ),
             ),
             errorBorder: UnderlineInputBorder(
@@ -123,13 +123,13 @@ class OutlinedBorderTextField extends StatelessWidget {
               4.verticalSpace,
               Text(
                 descriptionText!,
-                style: Style.interRegular(
+                style: AppStyle.interRegular(
                   letterSpacing: -0.3,
                   size: 12,
                   color: isError
                       ? Style.redColor
                       : isSuccess
-                      ? Style.greyColor
+                      ? AppStyle.greyColor
                       : Style.pendingDark,
                 ),
               ),

@@ -5,14 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:driver/application/order/all_order/order_provider.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:driver/presentation/components/driver/components.dart';
-import 'package:driver/presentation/components/driver/maps_list.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
+import 'package:venderfoodyman/presentation/components/driver/maps_list.dart';
 
 import '../../application/home/home_provider.dart';
-import 'package:driver/infrastructure/driver/services/app_helpers.dart';
-import 'package:driver/infrastructure/driver/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/driver/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/driver/services/tr_keys.dart';
 import '../styles/style.dart';
 import 'package:intl/intl.dart' as intl;
 
@@ -38,7 +38,7 @@ class OrderItem extends StatelessWidget {
         16.verticalSpace,
         Container(
           decoration: BoxDecoration(
-            color: Style.white,
+            color: AppStyle.white,
             borderRadius: BorderRadius.circular(10.r),
           ),
           padding: EdgeInsets.all(16.r),
@@ -50,17 +50,17 @@ class OrderItem extends StatelessWidget {
                 children: [
                   Text(
                     AppHelpers.getTranslation(TrKeys.restaurantHome),
-                    style: Style.interNormal(
+                    style: AppStyle.interNormal(
                       size: 12.sp,
-                      color: Style.black,
+                      color: AppStyle.blackColor,
                       letterSpacing: -0.3,
                     ),
                   ),
                   Text(
                     "${(order.distance ?? 0).toString()} ${AppHelpers.getTranslation(TrKeys.km)}",
-                    style: Style.interSemi(
+                    style: AppStyle.interSemi(
                       size: 14.sp,
-                      color: Style.black,
+                      color: AppStyle.blackColor,
                       letterSpacing: -0.3,
                     ),
                   ),
@@ -72,17 +72,17 @@ class OrderItem extends StatelessWidget {
                       children: [
                         Text(
                           AppHelpers.getTranslation(TrKeys.home),
-                          style: Style.interNormal(
+                          style: AppStyle.interNormal(
                             size: 12.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
                         Text(
                           order.address?.house ?? "",
-                          style: Style.interSemi(
+                          style: AppStyle.interSemi(
                             size: 14.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
@@ -95,17 +95,17 @@ class OrderItem extends StatelessWidget {
                       children: [
                         Text(
                           AppHelpers.getTranslation(TrKeys.entr),
-                          style: Style.interNormal(
+                          style: AppStyle.interNormal(
                             size: 12.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
                         Text(
                           order.address?.office ?? "",
-                          style: Style.interSemi(
+                          style: AppStyle.interSemi(
                             size: 14.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
@@ -118,17 +118,17 @@ class OrderItem extends StatelessWidget {
                       children: [
                         Text(
                           AppHelpers.getTranslation(TrKeys.apart),
-                          style: Style.interNormal(
+                          style: AppStyle.interNormal(
                             size: 12.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
                         Text(
                           order.address?.floor ?? "",
-                          style: Style.interSemi(
+                          style: AppStyle.interSemi(
                             size: 14.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
@@ -141,7 +141,7 @@ class OrderItem extends StatelessWidget {
         10.verticalSpace,
         Container(
           decoration: BoxDecoration(
-            color: Style.white,
+            color: AppStyle.white,
             borderRadius: BorderRadius.circular(10.r),
           ),
           padding: EdgeInsets.all(16.r),
@@ -153,17 +153,17 @@ class OrderItem extends StatelessWidget {
                 children: [
                   Text(
                     AppHelpers.getTranslation(TrKeys.askThisCodeFromCustomer),
-                    style: Style.interNormal(
+                    style: AppStyle.interNormal(
                       size: 12.sp,
-                      color: Style.black,
+                      color: AppStyle.blackColor,
                       letterSpacing: -0.3,
                     ),
                   ),
                   Text(
                     (order.otp ?? 0).toString(),
-                    style: Style.interSemi(
+                    style: AppStyle.interSemi(
                       size: 14.sp,
-                      color: Style.black,
+                      color: AppStyle.blackColor,
                       letterSpacing: -0.3,
                     ),
                   ),
@@ -175,17 +175,17 @@ class OrderItem extends StatelessWidget {
                       children: [
                         Text(
                           AppHelpers.getTranslation(TrKeys.home),
-                          style: Style.interNormal(
+                          style: AppStyle.interNormal(
                             size: 12.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
                         Text(
                           order.address?.house ?? "",
-                          style: Style.interSemi(
+                          style: AppStyle.interSemi(
                             size: 14.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
@@ -198,17 +198,17 @@ class OrderItem extends StatelessWidget {
                       children: [
                         Text(
                           AppHelpers.getTranslation(TrKeys.entr),
-                          style: Style.interNormal(
+                          style: AppStyle.interNormal(
                             size: 12.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
                         Text(
                           order.address?.office ?? "",
-                          style: Style.interSemi(
+                          style: AppStyle.interSemi(
                             size: 14.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
@@ -221,17 +221,17 @@ class OrderItem extends StatelessWidget {
                       children: [
                         Text(
                           AppHelpers.getTranslation(TrKeys.apart),
-                          style: Style.interNormal(
+                          style: AppStyle.interNormal(
                             size: 12.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
                         Text(
                           order.address?.floor ?? "",
-                          style: Style.interSemi(
+                          style: AppStyle.interSemi(
                             size: 14.sp,
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             letterSpacing: -0.3,
                           ),
                         ),
@@ -246,7 +246,7 @@ class OrderItem extends StatelessWidget {
         10.verticalSpace,
         Container(
           decoration: BoxDecoration(
-            color: Style.white,
+            color: AppStyle.white,
             borderRadius: BorderRadius.circular(10.r),
           ),
           padding: EdgeInsets.all(16.r),
@@ -256,21 +256,21 @@ class OrderItem extends StatelessWidget {
               10.horizontalSpace,
               Text(
                 AppHelpers.numberFormat(number: order.totalPrice ?? 0),
-                style: Style.interSemi(size: 12.sp),
+                style: AppStyle.interSemi(size: 12.sp),
               ),
               const Spacer(),
               Icon(FlutterRemix.takeaway_fill, size: 18.sp),
               10.horizontalSpace,
               Text(
                 AppHelpers.numberFormat(number: order.deliveryFee ?? 0),
-                style: Style.interSemi(size: 12.sp),
+                style: AppStyle.interSemi(size: 12.sp),
               ),
               const Spacer(),
               Icon(FlutterRemix.bank_card_2_line, size: 18.sp),
               10.horizontalSpace,
               Text(
                 order.transaction?.paymentSystem?.tag ?? "",
-                style: Style.interSemi(size: 12.sp),
+                style: AppStyle.interSemi(size: 12.sp),
               ),
             ],
           ),
@@ -290,7 +290,7 @@ class OrderItem extends StatelessWidget {
               height: 32.r,
               width: 32.r,
               decoration: const BoxDecoration(
-                color: Style.white,
+                color: AppStyle.white,
                 shape: BoxShape.circle,
               ),
               child: ClipOval(
@@ -306,12 +306,12 @@ class OrderItem extends StatelessWidget {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Style.greyColor,
+                        color: AppStyle.greyColor,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(
                         FlutterRemix.image_line,
-                        color: Style.black,
+                        color: AppStyle.blackColor,
                       ),
                     );
                   },
@@ -324,7 +324,7 @@ class OrderItem extends StatelessWidget {
               children: [
                 Text(
                   order.shop?.translation?.title ?? "",
-                  style: Style.interSemi(size: 14.sp, letterSpacing: -0.3),
+                  style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
                 ),
                 2.verticalSpace,
                 IntrinsicHeight(
@@ -332,7 +332,7 @@ class OrderItem extends StatelessWidget {
                     children: [
                       Text(
                         "№ ${order.id}",
-                        style: Style.interNormal(
+                        style: AppStyle.interNormal(
                           size: 14.sp,
                           letterSpacing: -0.3,
                         ),
@@ -345,7 +345,7 @@ class OrderItem extends StatelessWidget {
                               )?.toLocal() ??
                               DateTime.now(),
                         ),
-                        style: Style.interNormal(
+                        style: AppStyle.interNormal(
                           size: 14.sp,
                           letterSpacing: -0.3,
                         ),
@@ -396,13 +396,13 @@ class OrderItem extends StatelessWidget {
                           height: 38.r,
                           width: 38.r,
                           decoration: const BoxDecoration(
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             shape: BoxShape.circle,
                           ),
                           margin: EdgeInsets.all(4.r),
                           child: Icon(
                             FlutterRemix.phone_fill,
-                            color: Style.white,
+                            color: AppStyle.white,
                             size: 20.r,
                           ),
                         ),
@@ -419,13 +419,13 @@ class OrderItem extends StatelessWidget {
                           height: 38.r,
                           width: 38.r,
                           decoration: const BoxDecoration(
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             shape: BoxShape.circle,
                           ),
                           margin: EdgeInsets.all(4.r),
                           child: Icon(
                             FlutterRemix.chat_1_fill,
-                            color: Style.white,
+                            color: AppStyle.white,
                             size: 20.r,
                           ),
                         ),
@@ -441,7 +441,7 @@ class OrderItem extends StatelessWidget {
                         isOnline: order.current ?? false,
                         onChange: (bool value) {
                           if (value) {
-                            ref.read(orderProvider.notifier).setCurrentOrder(
+                            ref.read(driverOrderProvider.notifier).setCurrentOrder(
                               context,
                               order.id ?? 0,
                               () {
@@ -491,7 +491,7 @@ class OrderItem extends StatelessWidget {
               height: 32.r,
               width: 32.r,
               decoration: const BoxDecoration(
-                color: Style.white,
+                color: AppStyle.white,
                 shape: BoxShape.circle,
               ),
               child: ClipOval(
@@ -507,12 +507,12 @@ class OrderItem extends StatelessWidget {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Style.greyColor,
+                        color: AppStyle.greyColor,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(
                         FlutterRemix.image_line,
-                        color: Style.black,
+                        color: AppStyle.blackColor,
                       ),
                     );
                   },
@@ -529,7 +529,7 @@ class OrderItem extends StatelessWidget {
                     width: MediaQuery.sizeOf(context).width - 190.w,
                     child: Text(
                       order.address?.address ?? "",
-                      style: Style.interSemi(size: 14.sp, letterSpacing: -0.3),
+                      style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
                       maxLines: 1,
                     ),
                   ),
@@ -542,7 +542,7 @@ class OrderItem extends StatelessWidget {
                             order.user == null
                                 ? AppHelpers.getTranslation(TrKeys.deletedUser)
                                 : order.user?.firstname ?? "",
-                            style: Style.interNormal(
+                            style: AppStyle.interNormal(
                               size: 12.sp,
                               letterSpacing: -0.3,
                             ),
@@ -551,7 +551,7 @@ class OrderItem extends StatelessWidget {
                         const VerticalDivider(),
                         Text(
                           order.user?.phone ?? "",
-                          style: Style.interNormal(
+                          style: AppStyle.interNormal(
                             size: 12.sp,
                             letterSpacing: -0.3,
                           ),
@@ -601,13 +601,13 @@ class OrderItem extends StatelessWidget {
                           height: 38.r,
                           width: 38.r,
                           decoration: const BoxDecoration(
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             shape: BoxShape.circle,
                           ),
                           margin: EdgeInsets.all(4.r),
                           child: Icon(
                             FlutterRemix.phone_fill,
-                            color: Style.white,
+                            color: AppStyle.white,
                             size: 20.r,
                           ),
                         ),
@@ -624,13 +624,13 @@ class OrderItem extends StatelessWidget {
                           height: 38.r,
                           width: 38.r,
                           decoration: const BoxDecoration(
-                            color: Style.black,
+                            color: AppStyle.blackColor,
                             shape: BoxShape.circle,
                           ),
                           margin: EdgeInsets.all(4.r),
                           child: Icon(
                             FlutterRemix.chat_1_fill,
-                            color: Style.white,
+                            color: AppStyle.white,
                             size: 20.r,
                           ),
                         ),
@@ -647,7 +647,7 @@ class OrderItem extends StatelessWidget {
   Widget _reminder() {
     return Container(
       decoration: BoxDecoration(
-        color: Style.white,
+        color: AppStyle.white,
         borderRadius: BorderRadius.circular(10.r),
       ),
       padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
@@ -659,7 +659,7 @@ class OrderItem extends StatelessWidget {
           Expanded(
             child: Text(
               order.note ?? "",
-              style: Style.interRegular(size: 13.sp, color: Style.black),
+              style: AppStyle.interRegular(size: 13.sp, color: AppStyle.blackColor),
             ),
           ),
         ],

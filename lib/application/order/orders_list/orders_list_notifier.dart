@@ -3,13 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/order_active_model.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/refund_data.dart';
-import 'package:venderfoodyman/domain/interface/customer/orders.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/domain/interface/orders.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'orders_list_state.dart';
 
 class OrdersListNotifier extends StateNotifier<OrdersListState> {
-  final OrdersRepositoryFacade _orderRepository;
+  final OrdersFacade _orderRepository;
 
   OrdersListNotifier(this._orderRepository) : super(const OrdersListState());
   int activeOrder = 1;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
-import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'widgets/statistics_item.dart';
 
@@ -45,7 +45,7 @@ class StatisticsScreen extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.r),
-                  color: Style.white,
+                  color: AppStyle.white,
                 ),
                 padding: EdgeInsets.all(12.r),
                 child: Column(
@@ -53,35 +53,35 @@ class StatisticsScreen extends StatelessWidget {
                   children: [
                     Text(
                       AppHelpers.getTranslation(TrKeys.totalOrders),
-                      style: Style.interNormal(
+                      style: AppStyle.interNormal(
                         size: 12.sp,
-                        color: Style.black,
+                        color: AppStyle.blackColor,
                         letterSpacing: -0.3,
                       ),
                     ),
                     const Spacer(),
                     Text(
                       totalOrders,
-                      style: Style.interSemi(
+                      style: AppStyle.interSemi(
                         size: 34.sp,
-                        color: Style.black,
+                        color: AppStyle.blackColor,
                         letterSpacing: -1,
                       ),
                     ),
                     RichText(
                       text: TextSpan(
                         text: AppHelpers.getTranslation(TrKeys.today),
-                        style: Style.interNormal(
+                        style: AppStyle.interNormal(
                           size: 12.sp,
-                          color: Style.black,
+                          color: AppStyle.blackColor,
                           letterSpacing: -0.3,
                         ),
                         children: [
                           TextSpan(
                             text: " $todayOrders",
-                            style: Style.interSemi(
+                            style: AppStyle.interSemi(
                               size: 12.sp,
-                              color: Style.black,
+                              color: AppStyle.blackColor,
                               letterSpacing: -0.3,
                             ),
                           ),
@@ -102,8 +102,8 @@ class StatisticsScreen extends StatelessWidget {
                         count: acceptedOrders,
                         percentage: acceptedPer == "NaN%" ? "0%" : acceptedPer,
                         bgColor: Style.greenColor,
-                        textColor: Style.white,
-                        iconColor: Style.white.withValues(alpha: 0.54),
+                        textColor: AppStyle.white,
+                        iconColor: AppStyle.white.withValues(alpha: 0.54),
                       ),
                       8.horizontalSpace,
                       StatisticsItem(
@@ -111,8 +111,8 @@ class StatisticsScreen extends StatelessWidget {
                         count: rejectedOrders,
                         percentage: rejectedPer == "NaN%" ? "0%" : rejectedPer,
                         bgColor: Style.redColor,
-                        textColor: Style.white,
-                        iconColor: Style.white.withValues(alpha: 0.54),
+                        textColor: AppStyle.white,
+                        iconColor: AppStyle.white.withValues(alpha: 0.54),
                       ),
                     ],
                   ),
@@ -123,8 +123,8 @@ class StatisticsScreen extends StatelessWidget {
                         title: AppHelpers.getTranslation(TrKeys.doneOrders),
                         count: doneOrders,
                         percentage: donePer == "NaN%" ? "0%" : donePer,
-                        bgColor: Style.white,
-                        textColor: Style.black,
+                        bgColor: AppStyle.white,
+                        textColor: AppStyle.blackColor,
                         iconColor: Style.iconColor,
                       ),
                       8.horizontalSpace,
@@ -132,8 +132,8 @@ class StatisticsScreen extends StatelessWidget {
                         title: AppHelpers.getTranslation(TrKeys.newOrders),
                         count: canceledOrders,
                         percentage: canceledPer == "NaN%" ? "0%" : canceledPer,
-                        bgColor: Style.white,
-                        textColor: Style.black,
+                        bgColor: AppStyle.white,
+                        textColor: AppStyle.blackColor,
                         iconColor: Style.iconColor,
                       ),
                     ],

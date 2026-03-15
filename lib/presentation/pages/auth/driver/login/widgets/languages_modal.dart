@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:driver/application/providers/driver/providers.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/presentation/components/driver/loading.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../../component/components.dart';
 
 class LanguageScreen extends ConsumerStatefulWidget {

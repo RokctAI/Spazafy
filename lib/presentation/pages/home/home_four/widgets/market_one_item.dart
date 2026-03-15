@@ -6,7 +6,7 @@ import 'package:venderfoodyman/presentation/components/customer/badge_item.dart'
 import 'package:venderfoodyman/presentation/components/customer/bonus_discount_popular.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
 import 'package:venderfoodyman/presentation/components/customer/shop_avarat.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 
 import '../../../../theme/theme.dart';
 

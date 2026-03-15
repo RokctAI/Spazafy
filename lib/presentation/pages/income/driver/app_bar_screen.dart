@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
-import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class AbbBarScreen extends StatelessWidget {
@@ -25,11 +25,11 @@ class AbbBarScreen extends StatelessWidget {
               children: [
                 Text(
                   AppHelpers.getTranslation(TrKeys.income),
-                  style: Style.interSemi(size: 18.sp),
+                  style: AppStyle.interSemi(size: 18.sp),
                 ),
                 Text(
                   AppHelpers.getTranslation(TrKeys.earningsRestaurant),
-                  style: Style.interRegular(size: 12.sp, letterSpacing: -0.3),
+                  style: AppStyle.interRegular(size: 12.sp, letterSpacing: -0.3),
                 ),
               ],
             ),
@@ -46,12 +46,12 @@ class AbbBarScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(10.r),
                 decoration: const BoxDecoration(
-                  color: Style.greyColor,
+                  color: AppStyle.greyColor,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
                   FlutterRemix.calendar_event_fill,
-                  color: Style.black,
+                  color: AppStyle.blackColor,
                 ),
               ),
             ),

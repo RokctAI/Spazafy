@@ -27,7 +27,7 @@ class SelectItem extends StatelessWidget {
           child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Style.white,
+              color: AppStyle.white,
               borderRadius: BorderRadius.circular(10.r),
             ),
             child: Padding(
@@ -40,10 +40,10 @@ class SelectItem extends StatelessWidget {
                     width: 18.w,
                     height: 18.h,
                     decoration: BoxDecoration(
-                      color: isActive ? Style.primary : Style.transparent,
+                      color: isActive ? AppStyle.primary : Style.transparent,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: isActive ? Style.black : Style.textColor,
+                        color: isActive ? AppStyle.blackColor : Style.textColor,
                         width: isActive ? 4.r : 2.r,
                       ),
                     ),
@@ -54,7 +54,7 @@ class SelectItem extends StatelessWidget {
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.w500,
                       fontSize: 16.sp,
-                      color: Style.black,
+                      color: AppStyle.blackColor,
                     ),
                   ),
                 ],

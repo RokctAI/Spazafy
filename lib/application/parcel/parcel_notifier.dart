@@ -12,7 +12,7 @@ import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart'
 import 'package:venderfoodyman/infrastructure/services/utils/marker_image_cropper.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'parcel_state.dart';

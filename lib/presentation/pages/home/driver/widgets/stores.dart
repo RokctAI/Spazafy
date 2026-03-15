@@ -29,8 +29,8 @@ class StoresPage extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Style.primary.withValues(alpha: 0),
-              Style.primary.withValues(alpha: 0.8),
+              AppStyle.primary.withValues(alpha: 0),
+              AppStyle.primary.withValues(alpha: 0.8),
             ],
           ),
         ),
@@ -48,11 +48,11 @@ class StoresPage extends StatelessWidget {
                 height: 176.h,
                 width: 100.w,
                 decoration: BoxDecoration(
-                  color: Style.greyColor,
+                  color: AppStyle.greyColor,
                   borderRadius: BorderRadius.circular(16.r),
                 ),
                 alignment: Alignment.center,
-                child: const Icon(FlutterRemix.image_line, color: Style.black),
+                child: const Icon(FlutterRemix.image_line, color: AppStyle.blackColor),
               );
             },
           ),

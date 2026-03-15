@@ -1,4 +1,4 @@
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:foodyman/domain/di/dependency_manager.dart';
 import 'package:foodyman/domain/handlers/network_exceptions.dart';
@@ -8,7 +8,7 @@ import 'package:foodyman/app_constants.dart';
 
 import 'package:foodyman/domain/handlers/api_result.dart';
 
-class DrawRepository implements DrawRepositoryFacade {
+class DrawRepository implements DrawFacade {
   @override
   Future<ApiResult<DrawRouting>> getRouting({
     required LatLng start,

@@ -21,7 +21,7 @@ class DriverAvatar extends StatelessWidget {
             height: 50.r,
             width: 50.r,
             decoration: const BoxDecoration(
-              color: Style.white,
+              color: AppStyle.white,
               shape: BoxShape.circle,
             ),
             padding: REdgeInsets.all(2),
@@ -34,21 +34,21 @@ class DriverAvatar extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Style.orangeColor,
                 borderRadius: BorderRadius.circular(10.r),
-                border: Border.all(color: Style.white, width: 2),
+                border: Border.all(color: AppStyle.white, width: 2),
               ),
               padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 6.w),
               child: Row(
                 children: [
                   Icon(
                     FlutterRemix.star_smile_fill,
-                    color: Style.white,
+                    color: AppStyle.white,
                     size: 12.r,
                   ),
                   Text(
                     double.parse((rate ?? 0.0).toString()).toStringAsFixed(2),
-                    style: Style.interNormal(
+                    style: AppStyle.interNormal(
                       size: 10.sp,
-                      color: Style.white,
+                      color: AppStyle.white,
                       letterSpacing: -0.26,
                     ),
                   ),

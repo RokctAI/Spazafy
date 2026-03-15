@@ -11,7 +11,7 @@ import 'package:foodyman/infrastructure/models/data/story_data.dart';
 import 'package:foodyman/infrastructure/models/response/tag_response.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MockShopsRepository implements ShopsRepositoryFacade {
+class MockShopsRepository implements ShopsFacade {
   final ShopData _demoShop = ShopData(
     id: "1",
     userId: "1",

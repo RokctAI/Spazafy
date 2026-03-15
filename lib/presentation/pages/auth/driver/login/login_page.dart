@@ -1,15 +1,15 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:driver/presentation/theme/driver/app_assets.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/presentation/pages/driver/auth/login/widgets/languages_modal.dart';
+import 'package:venderfoodyman/presentation/pages/driver/auth/login/widgets/languages_modal.dart';
 import '../register_page.dart';
 import 'widgets/login_modal.dart';
 import '../../../styles/style.dart';
 import '../../../component/components.dart';
 import '../../../../application/providers.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 @RoutePage()
 class LoginPage extends ConsumerStatefulWidget {
@@ -72,13 +72,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     children: [
                       Text(
                         AppHelpers.getAppName(),
-                        style: Style.interBold(color: Style.white, size: 24),
+                        style: AppStyle.interBold(color: AppStyle.white, size: 24),
                       ),
                     ],
                   ),
                   const Spacer(),
                   CustomButton(
-                    background: Style.primary,
+                    background: AppStyle.primary,
                     title: AppHelpers.getTranslation(TrKeys.login),
                     onPressed: () =>
                         AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
@@ -98,8 +98,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       );
                     },
                     background: Style.transparent,
-                    textColor: Style.white,
-                    borderColor: Style.white,
+                    textColor: AppStyle.white,
+                    borderColor: AppStyle.white,
                   ),
                   30.verticalSpace,
                 ],

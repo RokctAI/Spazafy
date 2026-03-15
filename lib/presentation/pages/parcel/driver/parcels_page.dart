@@ -4,12 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:driver/application/parcel/parcel_notifier.dart';
-import 'package:driver/application/parcel/parcel_provider.dart';
-import 'package:driver/presentation/components/driver/loading.dart';
+import 'package:venderfoodyman/application/parcel/parcel_notifier.dart';
+import 'package:venderfoodyman/application/parcel/parcel_provider.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
-import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'parcel_item.dart';
 
@@ -64,7 +64,7 @@ class _ParcelsPageState extends ConsumerState<ParcelsPage>
   Widget build(BuildContext context) {
     final state = ref.watch(parcelProvider);
     return Scaffold(
-      backgroundColor: Style.greyColor,
+      backgroundColor: AppStyle.greyColor,
       body: Column(
         children: [
           CustomAppBar(
@@ -75,27 +75,27 @@ class _ParcelsPageState extends ConsumerState<ParcelsPage>
               children: [
                 Text(
                   AppHelpers.getTranslation(TrKeys.orders),
-                  style: Style.interSemi(size: 18.sp),
+                  style: AppStyle.interSemi(size: 18.sp),
                 ),
                 Row(
                   children: [
                     Text(
                       AppHelpers.getTranslation(TrKeys.thereAreOrders),
-                      style: Style.interRegular(
+                      style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,
                       ),
                     ),
                     Text(
                       " ${state.totalActiveOrder} ",
-                      style: Style.interRegular(
+                      style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,
                       ),
                     ),
                     Text(
                       AppHelpers.getTranslation(TrKeys.orders).toLowerCase(),
-                      style: Style.interRegular(
+                      style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,
                       ),
@@ -223,13 +223,13 @@ Widget _resultEmpty() {
       Lottie.asset("assets/lottie/empty-box.json"),
       Text(
         AppHelpers.getTranslation(TrKeys.nothingFound),
-        style: Style.interSemi(size: 18.sp),
+        style: AppStyle.interSemi(size: 18.sp),
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 32.w),
         child: Text(
           AppHelpers.getTranslation(TrKeys.trySearchingAgain),
-          style: Style.interRegular(size: 14.sp),
+          style: AppStyle.interRegular(size: 14.sp),
           textAlign: TextAlign.center,
         ),
       ),

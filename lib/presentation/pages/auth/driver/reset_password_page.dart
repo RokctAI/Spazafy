@@ -6,9 +6,9 @@ import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'register_confirmation_page.dart';
-import 'package:driver/presentation/components/driver/components.dart';
-import 'package:driver/application/providers/driver/providers.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class ResetPasswordPage extends ConsumerWidget {
   const ResetPasswordPage({super.key});
@@ -27,7 +27,7 @@ class ResetPasswordPage extends ConsumerWidget {
           child: Container(
             padding: MediaQuery.viewInsetsOf(context),
             decoration: BoxDecoration(
-              color: Style.greyColor.withValues(alpha: 0.96),
+              color: AppStyle.greyColor.withValues(alpha: 0.96),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(16.r),
                 topRight: Radius.circular(16.r),
@@ -50,7 +50,7 @@ class ResetPasswordPage extends ConsumerWidget {
                         ),
                         Text(
                           AppHelpers.getTranslation(TrKeys.resetPasswordText),
-                          style: Style.interRegular(
+                          style: AppStyle.interRegular(
                             size: 14.sp,
                             color: Style.blackColor,
                           ),
@@ -83,7 +83,7 @@ class ResetPasswordPage extends ConsumerWidget {
                             isDarkMode: isDarkMode,
                           );
                         },
-                        background: Style.primary,
+                        background: AppStyle.primary,
                         textColor: Style.blackColor,
                       ),
                     ),

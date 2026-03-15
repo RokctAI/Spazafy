@@ -1,4 +1,4 @@
-import 'package:driver/application/order/canceled_order/canceled_order_provider.dart';
+import 'package:venderfoodyman/application/order/canceled_order/canceled_order_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

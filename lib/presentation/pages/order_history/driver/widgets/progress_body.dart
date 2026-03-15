@@ -1,4 +1,4 @@
-import 'package:driver/application/order/progress_ordedr/progress_order_provider.dart';
+import 'package:venderfoodyman/application/order/progress_ordedr/progress_order_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,7 +28,7 @@ class _ProgressOrdersBody extends ConsumerState<ProgressOrdersBody> {
             enablePullUp: true,
             onRefresh: () {
               ref
-                  .read(orderProvider.notifier)
+                  .read(driverOrderProvider.notifier)
                   .fetchHistoryOrdersPage(
                     context,
                     widget.refreshController,
@@ -37,7 +37,7 @@ class _ProgressOrdersBody extends ConsumerState<ProgressOrdersBody> {
             },
             onLoading: () {
               ref
-                  .read(orderProvider.notifier)
+                  .read(driverOrderProvider.notifier)
                   .fetchHistoryOrdersPage(context, widget.refreshController);
             },
             controller: widget.refreshController,

@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/billing/billing_provider.dart';
 import 'package:venderfoodyman/application/billing/billing_state.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:venderfoodyman/presentation/components/manager/components.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 
 class ScanPrompt extends ConsumerWidget {
   const ScanPrompt({super.key});

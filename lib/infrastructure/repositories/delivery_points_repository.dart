@@ -4,7 +4,7 @@ import 'package:foodyman/domain/handlers/api_result.dart';
 import 'package:foodyman/domain/handlers/network_exceptions.dart';
 import 'package:foodyman/domain/interface/delivery_points.dart';
 import 'package:foodyman/infrastructure/models/data/delivery_point_data.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class DeliveryPointsRepository implements DeliveryPointsRepositoryFacade {
   /// Fetches delivery points near a specific location.

@@ -7,17 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:venderfoodyman/domain/interface/customer/auth.dart';
-import 'package:venderfoodyman/domain/interface/customer/user.dart';
+import 'package:venderfoodyman/domain/interface/auth.dart';
+import 'package:venderfoodyman/domain/interface/user.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/address_old_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/app_validators.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:venderfoodyman/domain/interface/customer/settings.dart';
@@ -25,9 +25,9 @@ import 'package:venderfoodyman/domain/interface/customer/settings.dart';
 import 'login_state.dart';
 
 class LoginNotifier extends StateNotifier<LoginState> {
-  final AuthRepositoryFacade _authRepository;
+  final AuthFacade _authRepository;
   final SettingsRepositoryFacade _settingsRepository;
-  final UserRepositoryFacade _userRepositoryFacade;
+  final UserFacade _userRepositoryFacade;
 
   LoginNotifier(
     this._authRepository,

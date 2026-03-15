@@ -4,7 +4,7 @@ import 'package:venderfoodyman/customer/app_constants.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../presentation/theme/theme.dart';
-import '../../infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 final preloadedWebViewProvider = StateProvider<PreloadedWebViewState?>(
   (ref) => null,

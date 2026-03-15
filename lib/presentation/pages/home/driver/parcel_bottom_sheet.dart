@@ -4,13 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:driver/application/home/home_provider.dart';
+import 'package:venderfoodyman/application/home/home_provider.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:driver/presentation/components/driver/buttons/custom_button.dart';
-import 'package:driver/presentation/components/driver/maps_list.dart';
+import 'package:venderfoodyman/presentation/components/driver/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/driver/maps_list.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'widgets/approve_dialog.dart';
 import 'widgets/rate_customer.dart';
 
@@ -39,14 +39,14 @@ class ParcelBottomSheetScreen extends StatelessWidget {
               builder: (context, scrollController) => Container(
                 width: MediaQuery.sizeOf(context).width,
                 decoration: BoxDecoration(
-                  color: Style.greyColor,
+                  color: AppStyle.greyColor,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.r),
                     topLeft: Radius.circular(12.r),
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Style.black.withValues(alpha: 0.25),
+                      color: AppStyle.blackColor.withValues(alpha: 0.25),
                       blurRadius: 40,
                       offset: const Offset(0, -2),
                     ),
@@ -88,7 +88,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                       MediaQuery.sizeOf(context).width - 180.w,
                                   child: Text(
                                     parcel?.addressFrom?.address ?? "",
-                                    style: Style.interSemi(
+                                    style: AppStyle.interSemi(
                                       size: 14.sp,
                                       letterSpacing: -0.3,
                                     ),
@@ -100,7 +100,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                     children: [
                                       Text(
                                         "№ ${parcel?.id}",
-                                        style: Style.interNormal(
+                                        style: AppStyle.interNormal(
                                           size: 14.sp,
                                           letterSpacing: -0.3,
                                         ),
@@ -111,7 +111,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                         intl.DateFormat("HH:mm").format(
                                           parcel?.updatedAt ?? DateTime.now(),
                                         ),
-                                        style: Style.interNormal(
+                                        style: AppStyle.interNormal(
                                           size: 14.sp,
                                           letterSpacing: -0.3,
                                         ),
@@ -167,13 +167,13 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                     height: 38.r,
                                     width: 38.r,
                                     decoration: const BoxDecoration(
-                                      color: Style.black,
+                                      color: AppStyle.blackColor,
                                       shape: BoxShape.circle,
                                     ),
                                     margin: EdgeInsets.all(4.r),
                                     child: Icon(
                                       FlutterRemix.phone_fill,
-                                      color: Style.white,
+                                      color: AppStyle.white,
                                       size: 20.r,
                                     ),
                                   ),
@@ -190,13 +190,13 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                     height: 38.r,
                                     width: 38.r,
                                     decoration: const BoxDecoration(
-                                      color: Style.black,
+                                      color: AppStyle.blackColor,
                                       shape: BoxShape.circle,
                                     ),
                                     margin: EdgeInsets.all(4.r),
                                     child: Icon(
                                       FlutterRemix.chat_1_fill,
-                                      color: Style.white,
+                                      color: AppStyle.white,
                                       size: 20.r,
                                     ),
                                   ),
@@ -221,7 +221,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                         190.w,
                                     child: Text(
                                       parcel?.addressTo?.address ?? "",
-                                      style: Style.interSemi(
+                                      style: AppStyle.interSemi(
                                         size: 14.sp,
                                         letterSpacing: -0.3,
                                       ),
@@ -235,7 +235,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                         Expanded(
                                           child: Text(
                                             parcel?.usernameTo ?? "",
-                                            style: Style.interNormal(
+                                            style: AppStyle.interNormal(
                                               size: 12.sp,
                                               letterSpacing: -0.3,
                                             ),
@@ -244,7 +244,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                         const VerticalDivider(),
                                         Text(
                                           parcel?.phoneTo ?? "",
-                                          style: Style.interNormal(
+                                          style: AppStyle.interNormal(
                                             size: 12.sp,
                                             letterSpacing: -0.3,
                                           ),
@@ -296,13 +296,13 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                     height: 38.r,
                                     width: 38.r,
                                     decoration: const BoxDecoration(
-                                      color: Style.black,
+                                      color: AppStyle.blackColor,
                                       shape: BoxShape.circle,
                                     ),
                                     margin: EdgeInsets.all(4.r),
                                     child: Icon(
                                       FlutterRemix.phone_fill,
-                                      color: Style.white,
+                                      color: AppStyle.white,
                                       size: 20.r,
                                     ),
                                   ),
@@ -319,13 +319,13 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                     height: 38.r,
                                     width: 38.r,
                                     decoration: const BoxDecoration(
-                                      color: Style.black,
+                                      color: AppStyle.blackColor,
                                       shape: BoxShape.circle,
                                     ),
                                     margin: EdgeInsets.all(4.r),
                                     child: Icon(
                                       FlutterRemix.chat_1_fill,
-                                      color: Style.white,
+                                      color: AppStyle.white,
                                       size: 20.r,
                                     ),
                                   ),

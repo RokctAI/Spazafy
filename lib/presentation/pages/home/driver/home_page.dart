@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
-import 'package:driver/presentation/theme/driver/app_assets.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_assets.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,16 +10,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:driver/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:driver/presentation/components/driver/loading.dart';
-import 'package:driver/presentation/pages/driver/pages.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/presentation/pages/driver/pages.dart';
 import 'package:workmanager/workmanager.dart';
-import 'package:driver/application/providers/driver/providers.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
-import 'package:driver/driver/main.dart';
-import 'package:driver/presentation/components/driver/components.dart';
-import 'package:driver/presentation/routes/driver/app_router.gr.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/driver/main.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.gr.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'bottom_sheet_screen.dart';
 import 'delivery_bottom_sheet.dart';
@@ -286,7 +286,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           .read(profileSettingsProvider.notifier)
           .fetchRequestResponse(context: context);
       ref.read(homeProvider.notifier).fetchCurrentOrder(context);
-      ref.read(orderProvider.notifier).fetchActiveOrders(context);
+      ref.read(driverOrderProvider.notifier).fetchActiveOrders(context);
     });
     if (LocalStorage.getOnline()) {
       Workmanager().registerPeriodicTask(
@@ -358,7 +358,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           children: [
                             Container(
                               decoration: BoxDecoration(
-                                color: Style.primary,
+                                color: AppStyle.primary,
                                 borderRadius: BorderRadius.circular(16.r),
                               ),
                               margin: EdgeInsets.all(8.r),
@@ -367,7 +367,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                     context.pushRoute(const OrdersRoute()),
                                 icon: const Icon(
                                   FlutterRemix.history_fill,
-                                  color: Style.white,
+                                  color: AppStyle.white,
                                 ),
                               ),
                             ),
@@ -376,11 +376,11 @@ class _HomePageState extends ConsumerState<HomePage> {
                               right: 8.r,
                               child: Text(
                                 ref
-                                    .watch(orderProvider)
+                                    .watch(driverOrderProvider)
                                     .totalActiveOrder
                                     .toString(),
-                                style: Style.interBold(
-                                  color: Style.black,
+                                style: AppStyle.interBold(
+                                  color: AppStyle.blackColor,
                                   size: 18,
                                 ),
                               ),
@@ -397,7 +397,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   right: state.isScrolling ? -120.w : 16.w,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Style.white,
+                      color: AppStyle.white,
                       borderRadius: BorderRadius.circular(10.r),
                     ),
                     padding: EdgeInsets.all(6.r),
@@ -471,13 +471,13 @@ class _HomePageState extends ConsumerState<HomePage> {
                 Polyline(
                   polylineId: const PolylineId("startLocation"),
                   points: ref.watch(homeProvider).endPolylineCoordinates,
-                  color: Style.primary.withValues(alpha: 0.4),
+                  color: AppStyle.primary.withValues(alpha: 0.4),
                   width: 6,
                 ),
                 Polyline(
                   polylineId: const PolylineId("market"),
                   points: ref.watch(homeProvider).polylineCoordinates,
-                  color: Style.primary,
+                  color: AppStyle.primary,
                   width: 6,
                 ),
               }
@@ -519,7 +519,7 @@ class _HomePageState extends ConsumerState<HomePage> {
       child: Container(
         width: MediaQuery.sizeOf(context).width,
         height: MediaQuery.sizeOf(context).height,
-        color: Style.white.withValues(alpha: 0.3),
+        color: AppStyle.white.withValues(alpha: 0.3),
         child: const Loading(),
       ),
     );
@@ -538,7 +538,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           width: 50.r,
           height: 50.r,
           decoration: BoxDecoration(
-            color: Style.white,
+            color: AppStyle.white,
             borderRadius: BorderRadius.circular(10.r),
             boxShadow: const [
               BoxShadow(

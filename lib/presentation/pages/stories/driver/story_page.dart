@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:driver/application/providers/driver/providers.dart';
-import 'package:driver/presentation/components/driver/components.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 @RoutePage()
@@ -95,10 +95,10 @@ class _StoryPageState extends ConsumerState<StoryPage>
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            Style.primary.withValues(alpha: 0.26),
-                            Style.primary.withValues(alpha: 0),
-                            Style.primary.withValues(alpha: 0),
-                            Style.primary.withValues(alpha: 0.26),
+                            AppStyle.primary.withValues(alpha: 0.26),
+                            AppStyle.primary.withValues(alpha: 0),
+                            AppStyle.primary.withValues(alpha: 0),
+                            AppStyle.primary.withValues(alpha: 0.26),
                           ],
                         ),
                       ),
@@ -110,8 +110,8 @@ class _StoryPageState extends ConsumerState<StoryPage>
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
-                              Style.black.withValues(alpha: 0.4),
-                              Style.black.withValues(alpha: 0.4),
+                              AppStyle.blackColor.withValues(alpha: 0.4),
+                              AppStyle.blackColor.withValues(alpha: 0.4),
                             ],
                           ),
                         ),
@@ -126,13 +126,13 @@ class _StoryPageState extends ConsumerState<StoryPage>
                           errorWidget: (context, url, error) {
                             return Container(
                               decoration: BoxDecoration(
-                                color: Style.greyColor,
+                                color: AppStyle.greyColor,
                                 borderRadius: BorderRadius.circular(16.r),
                               ),
                               alignment: Alignment.center,
                               child: const Icon(
                                 FlutterRemix.image_line,
-                                color: Style.black,
+                                color: AppStyle.blackColor,
                               ),
                             );
                           },
@@ -147,9 +147,9 @@ class _StoryPageState extends ConsumerState<StoryPage>
                             const Spacer(),
                             Text(
                               titles[image.indexOf(e)],
-                              style: Style.interNormal(
+                              style: AppStyle.interNormal(
                                 size: 32.sp,
-                                color: Style.white,
+                                color: AppStyle.white,
                               ),
                             ),
                             24.verticalSpace,
@@ -198,7 +198,7 @@ class _StoryPageState extends ConsumerState<StoryPage>
                           padding: const EdgeInsets.all(8.0),
                           child: Icon(
                             FlutterRemix.close_fill,
-                            color: Style.white,
+                            color: AppStyle.white,
                             size: 30.r,
                           ),
                         ),
@@ -226,8 +226,8 @@ class _StoryPageState extends ConsumerState<StoryPage>
                       width: (MediaQuery.sizeOf(context).width - 60.w) / 3,
                       decoration: BoxDecoration(
                         color: state.currentIndex >= index
-                            ? Style.primary
-                            : Style.white,
+                            ? AppStyle.primary
+                            : AppStyle.white,
                         borderRadius: BorderRadius.circular(122.r),
                       ),
                       duration: const Duration(milliseconds: 500),
@@ -237,9 +237,9 @@ class _StoryPageState extends ConsumerState<StoryPage>
                               child: LinearProgressIndicator(
                                 value: controller.value,
                                 valueColor: AlwaysStoppedAnimation<Color>(
-                                  Style.primary,
+                                  AppStyle.primary,
                                 ),
-                                backgroundColor: Style.white,
+                                backgroundColor: AppStyle.white,
                               ),
                             )
                           : state.currentIndex > index
@@ -248,9 +248,9 @@ class _StoryPageState extends ConsumerState<StoryPage>
                               child: LinearProgressIndicator(
                                 value: 1,
                                 valueColor: AlwaysStoppedAnimation<Color>(
-                                  Style.primary,
+                                  AppStyle.primary,
                                 ),
-                                backgroundColor: Style.white,
+                                backgroundColor: AppStyle.white,
                               ),
                             )
                           : const SizedBox.shrink(),

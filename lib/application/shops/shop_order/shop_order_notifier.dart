@@ -3,22 +3,22 @@ import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/domain/interface/customer/cart.dart';
+import 'package:venderfoodyman/domain/interface/cart.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/addons_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/cart_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/request/cart_request.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/tpying_delay.dart';
 import 'shop_order_state.dart';
 import 'package:http/http.dart' as http;
 
 class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
-  final CartRepositoryFacade _cartRepository;
+  final CartFacade _cartRepository;
 
   ShopOrderNotifier(this._cartRepository) : super(const ShopOrderState());
   final _delayed = Delayed(milliseconds: 700);

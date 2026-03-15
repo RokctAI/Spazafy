@@ -7,7 +7,7 @@ import 'edit_group_extras_modal.dart';
 import '../../../../../component/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class EditFoodStocksBody extends ConsumerStatefulWidget {
   final ProductData product;

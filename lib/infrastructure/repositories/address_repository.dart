@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodyman/domain/di/dependency_manager.dart';
 import 'package:foodyman/domain/interface/address.dart';
 import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:foodyman/domain/handlers/handlers.dart';
 
 class AddressRepository implements AddressRepositoryFacade {

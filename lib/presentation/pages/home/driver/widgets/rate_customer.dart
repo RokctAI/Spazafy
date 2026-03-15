@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 import '../../../../application/providers.dart';
-import '../../../../infrastructure/models/data/order_detail.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../component/components.dart';
 import '../../../styles/style.dart';
 import 'add_comment.dart';
@@ -36,24 +36,24 @@ class _RateCustomerState extends State<RateCustomer> {
           TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.evaluation)),
           Text(
             AppHelpers.getTranslation(TrKeys.yourFeedbackService),
-            style: Style.interNormal(size: 14.sp),
+            style: AppStyle.interNormal(size: 14.sp),
           ),
           24.verticalSpace,
           Text(
             AppHelpers.getTranslation(TrKeys.rateTheCustomer),
-            style: Style.interSemi(size: 16.sp),
+            style: AppStyle.interSemi(size: 16.sp),
           ),
           14.verticalSpace,
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Style.white,
+              color: AppStyle.white,
               borderRadius: BorderRadius.circular(10.r),
             ),
             padding: EdgeInsets.all(16.r),
             child: RatingBar.builder(
               itemBuilder: (context, index) =>
-                  Icon(FlutterRemix.star_fill, color: Style.primary),
+                  Icon(FlutterRemix.star_fill, color: AppStyle.primary),
               itemCount: 5,
               itemPadding: EdgeInsets.symmetric(horizontal: 11.r),
               direction: Axis.horizontal,
@@ -116,7 +116,7 @@ class _RateCustomerState extends State<RateCustomer> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Style.white,
+          color: AppStyle.white,
           borderRadius: BorderRadius.circular(10.r),
         ),
         padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
@@ -128,7 +128,7 @@ class _RateCustomerState extends State<RateCustomer> {
               note.isEmpty
                   ? AppHelpers.getTranslation(TrKeys.noteAboutClient)
                   : note,
-              style: Style.interRegular(size: 13.sp, color: Style.black),
+              style: AppStyle.interRegular(size: 13.sp, color: AppStyle.blackColor),
             ),
           ],
         ),

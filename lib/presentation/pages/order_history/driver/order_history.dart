@@ -1,20 +1,20 @@
 import 'package:auto_route/annotations.dart';
-import 'package:driver/application/order/canceled_order/canceled_order_provider.dart';
-import 'package:driver/application/order/delivered_order/delivery_order_provider.dart';
-import 'package:driver/presentation/pages/driver/order_history/widgets/all_orders.dart';
-import 'package:driver/presentation/pages/driver/order_history/widgets/canceled_body.dart';
-import 'package:driver/presentation/pages/driver/order_history/widgets/derliverd_body.dart';
-import 'package:driver/presentation/pages/driver/order_history/widgets/progress_body.dart';
+import 'package:venderfoodyman/application/order/canceled_order/canceled_order_provider.dart';
+import 'package:venderfoodyman/application/order/delivered_order/delivery_order_provider.dart';
+import 'package:venderfoodyman/presentation/pages/driver/order_history/widgets/all_orders.dart';
+import 'package:venderfoodyman/presentation/pages/driver/order_history/widgets/canceled_body.dart';
+import 'package:venderfoodyman/presentation/pages/driver/order_history/widgets/derliverd_body.dart';
+import 'package:venderfoodyman/presentation/pages/driver/order_history/widgets/progress_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:driver/application/order/all_order/order_provider.dart';
+import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
 
-import 'package:driver/infrastructure/services/driver/services.dart';
-import 'package:driver/presentation/components/driver/components.dart';
-import 'package:driver/presentation/components/driver/loading.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/presentation/components/customer/components.dart';
+import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import '../../../application/order/progress_ordedr/progress_order_provider.dart';
@@ -51,7 +51,7 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
     progressController = RefreshController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref
-          .read(orderProvider.notifier)
+          .read(driverOrderProvider.notifier)
           .fetchHistoryOrdersPage(context, historyController, isRefresh: true);
       ref
           .read(deliveredOrderProvider.notifier)
@@ -87,9 +87,9 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(orderProvider);
+    final state = ref.watch(driverOrderProvider);
     return Scaffold(
-      backgroundColor: Style.greyColor,
+      backgroundColor: AppStyle.greyColor,
       body: Column(
         children: [
           CustomAppBar(
@@ -101,11 +101,11 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
               children: [
                 Text(
                   AppHelpers.getTranslation(TrKeys.orderHistory),
-                  style: Style.interSemi(size: 18.sp),
+                  style: AppStyle.interSemi(size: 18.sp),
                 ),
                 Text(
                   AppHelpers.getTranslation(TrKeys.thereAreOrders),
-                  style: Style.interRegular(size: 12.sp, letterSpacing: -0.3),
+                  style: AppStyle.interRegular(size: 12.sp, letterSpacing: -0.3),
                 ),
               ],
             ),
@@ -157,7 +157,7 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Style.primary,
+                  color: AppStyle.primary,
                 ),
                 padding: EdgeInsets.all(16.r),
                 child: Icon(

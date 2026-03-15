@@ -19,7 +19,7 @@ class ImageShimmer extends StatelessWidget {
         width: size,
         decoration: BoxDecoration(
           shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
-          color: Style.white,
+          color: AppStyle.white,
         ),
       ),
     );

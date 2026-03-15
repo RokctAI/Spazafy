@@ -4,7 +4,7 @@ import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 import 'create_food_details_state.dart';
 import 'package:venderfoodyman/domain/interface/manager/interfaces.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
   final ProductsInterface _productsRepository;

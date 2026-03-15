@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:venderfoodyman/domain/di/customer/dependency_manager.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/services.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 import 'all_categories_state.dart';

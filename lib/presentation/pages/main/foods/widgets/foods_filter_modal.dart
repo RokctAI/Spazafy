@@ -6,7 +6,7 @@ import 'foods_filter_item.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../../component/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class FoodsFilterModal extends ConsumerStatefulWidget {
   const FoodsFilterModal({super.key});
@@ -140,7 +140,7 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //     padding:
   //         EdgeInsets.only(left: 10.w, right: 10.w, top: 18.h, bottom: 10.h),
   //     decoration: BoxDecoration(
-  //       color: Style.white.withOpacity(0.9),
+  //       color: AppStyle.white.withOpacity(0.9),
   //       borderRadius: BorderRadius.all(
   //         Radius.circular(10.r),
   //       ),
@@ -149,9 +149,9 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //       children: [
   //         Text(
   //           AppHelpers.getTranslation(TrKeys.priceRange),
-  //           style: Style.interNoSemi(
+  //           style: AppStyle.interNoSemi(
   //             size: 16,
-  //             color: Style.black,
+  //             color: AppStyle.blackColor,
   //           ),
   //         ),
   //         18.verticalSpace,
@@ -170,9 +170,9 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //                           decimalDigits: 0)
   //                       .format(double.tryParse(
   //                           state.rangeValues.start.toString())),
-  //                   style: Style.interNormal(
+  //                   style: AppStyle.interNormal(
   //                     size: 14,
-  //                     color: Style.black,
+  //                     color: AppStyle.blackColor,
   //                   ),
   //                 ),
   //               ),
@@ -239,9 +239,9 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //                           decimalDigits: 0)
   //                       .format(
   //                           double.tryParse(state.rangeValues.end.toString())),
-  //                   style: Style.interNormal(
+  //                   style: AppStyle.interNormal(
   //                     size: 14,
-  //                     color: Style.black,
+  //                     color: AppStyle.blackColor,
   //                   ),
   //                 ),
   //               ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:driver/presentation/components/driver/buttons/buttons_bouncing_effect.dart';
+import 'package:venderfoodyman/presentation/components/driver/buttons/buttons_bouncing_effect.dart';
 
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
@@ -35,7 +35,7 @@ class CustomButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           side: BorderSide(
             color: borderColor == Style.transparent
-                ? (background ?? Style.primary)
+                ? (background ?? AppStyle.primary)
                 : borderColor,
             width: 2.r,
           ),
@@ -45,7 +45,7 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(radius.r),
           ),
           minimumSize: Size(weight, 50.h),
-          backgroundColor: background ?? Style.primary,
+          backgroundColor: background ?? AppStyle.primary,
         ),
         onPressed: isLoading ? null : onPressed,
         child: isLoading
@@ -65,7 +65,7 @@ class CustomButton extends StatelessWidget {
                       : Row(children: [icon!, 10.horizontalSpace]),
                   Text(
                     title,
-                    style: Style.interNormal(
+                    style: AppStyle.interNormal(
                       size: 15,
                       color: textColor ?? Style.buttonFontColor,
                       letterSpacing: -14 * 0.01,

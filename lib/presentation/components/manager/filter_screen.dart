@@ -10,7 +10,7 @@ import 'helper/modal_wrap.dart';
 import 'custom_date_picker.dart';
 import 'buttons/custom_button.dart';
 import 'tab_bars/custom_tab_bar.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class FilterScreen extends StatefulWidget {
   final bool isTabBar;

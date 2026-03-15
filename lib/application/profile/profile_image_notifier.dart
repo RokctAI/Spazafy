@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:driver/domain/interface/driver/interfaces.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/domain/interface/driver/interfaces.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../state/profile_image_state.dart';
 
 class ProfileImageNotifier extends StateNotifier<ProfileImageState> {

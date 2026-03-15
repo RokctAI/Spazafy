@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:driver/presentation/routes/driver/app_router.gr.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.gr.dart';
 
-import 'package:driver/domain/interface/driver/interfaces.dart';
+import 'package:venderfoodyman/domain/interface/driver/interfaces.dart';
 import '../../../../infrastructure/models/models.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../state/profile_settings_state.dart';
 
 class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {

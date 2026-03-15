@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:driver/infrastructure/services/driver/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class UnderlinedBorderTextField extends StatelessWidget {
@@ -58,12 +58,12 @@ class UnderlinedBorderTextField extends StatelessWidget {
           obscureText: !(obscure ?? true),
           obscuringCharacter: '*',
           controller: textController,
-          style: Style.interNormal(
+          style: AppStyle.interNormal(
             size: 15.sp,
-            color: isDarkMode ? Style.white : Style.black,
+            color: isDarkMode ? AppStyle.white : AppStyle.blackColor,
           ),
           cursorWidth: 1,
-          cursorColor: isDarkMode ? Style.white : Style.black,
+          cursorColor: isDarkMode ? AppStyle.white : AppStyle.blackColor,
           keyboardType: inputType,
           initialValue: initialText,
           readOnly: readOnly,
@@ -80,10 +80,10 @@ class UnderlinedBorderTextField extends StatelessWidget {
             hintStyle: GoogleFonts.inter(
               fontWeight: FontWeight.w500,
               fontSize: 13.sp,
-              color: isDarkMode ? Style.white : Style.textColor,
+              color: isDarkMode ? AppStyle.white : Style.textColor,
             ),
             labelText: label.toUpperCase(),
-            labelStyle: Style.interNormal(size: 14.sp, color: Style.black),
+            labelStyle: AppStyle.interNormal(size: 14.sp, color: AppStyle.blackColor),
             contentPadding: REdgeInsets.symmetric(horizontal: 0, vertical: 8),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             enabledBorder: const UnderlineInputBorder(
@@ -114,7 +114,7 @@ class UnderlinedBorderTextField extends StatelessWidget {
                       ? Style.redColor
                       : isSuccess
                       ? Style.textColor
-                      : Style.black,
+                      : AppStyle.blackColor,
                 ),
               ),
             ],

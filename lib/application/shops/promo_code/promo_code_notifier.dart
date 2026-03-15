@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:venderfoodyman/domain/interface/customer/orders.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/domain/interface/orders.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'promo_code_state.dart';
 
 class PromoCodeNotifier extends StateNotifier<PromoCodeState> {
-  final OrdersRepositoryFacade _orderRepository;
+  final OrdersFacade _orderRepository;
 
   PromoCodeNotifier(this._orderRepository) : super(const PromoCodeState());
 

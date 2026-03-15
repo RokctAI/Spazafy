@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 
 class SearchProductModel {
   final String text;

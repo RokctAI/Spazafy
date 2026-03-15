@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../components.dart';
 
 class SecondButton extends StatelessWidget {
@@ -47,7 +47,7 @@ class SecondButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 8.r, horizontal: 16.r),
         child: isLoading
             ? Loading(
-                // color: bgColor == Style.primary ? Style.white : null,
+                // color: bgColor == AppStyle.primary ? AppStyle.white : null,
                 // size: 16,
               )
             : Row(

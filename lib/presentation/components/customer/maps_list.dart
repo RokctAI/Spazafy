@@ -40,7 +40,7 @@ class _MapsListState extends State<MapsList> {
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
             decoration: BoxDecoration(
-              color: Style.white,
+              color: AppStyle.white,
               borderRadius: BorderRadius.circular(16),
             ),
             child: ListTile(

@@ -11,7 +11,7 @@ import '../../../../styles/style.dart';
 import '../../../../component/components.dart';
 import '../../../../routes/app_router.gr.dart';
 import '../../../../../application/providers.dart';
-import 'package:driver/infrastructure/services/driver/services.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class LoginModal extends ConsumerStatefulWidget {
   const LoginModal({super.key});
@@ -56,7 +56,7 @@ class _LoginModalState extends ConsumerState<LoginModal>
           child: Container(
             margin: MediaQuery.viewInsetsOf(context),
             decoration: BoxDecoration(
-              color: Style.greyColor.withValues(alpha: 0.96),
+              color: AppStyle.greyColor.withValues(alpha: 0.96),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(16.r),
                 topRight: Radius.circular(16.r),
@@ -266,7 +266,7 @@ class _LoginModalState extends ConsumerState<LoginModal>
                                 8.horizontalSpace,
                                 Text(
                                   AppHelpers.getTranslation(TrKeys.keepLogged),
-                                  style: Style.interNormal(
+                                  style: AppStyle.interNormal(
                                     size: 12.sp,
                                     color: Style.blackColor,
                                   ),
@@ -343,7 +343,7 @@ class _LoginModalState extends ConsumerState<LoginModal>
                                           AppHelpers.getTranslation(
                                             TrKeys.demoLoginPassword,
                                           ),
-                                          style: Style.interNormal(
+                                          style: AppStyle.interNormal(
                                             size: 12.sp,
                                             color: Style.textColor,
                                           ),
@@ -382,14 +382,14 @@ class _LoginModalState extends ConsumerState<LoginModal>
                                           text: TextSpan(
                                             text:
                                                 '${AppHelpers.getTranslation(TrKeys.login)}:',
-                                            style: Style.interNormal(
+                                            style: AppStyle.interNormal(
                                               letterSpacing: -0.3,
                                             ),
                                             children: [
                                               TextSpan(
                                                 text:
                                                     ' ${AppConstants.demoSellerLogin}',
-                                                style: Style.interRegular(
+                                                style: AppStyle.interRegular(
                                                   letterSpacing: -0.3,
                                                   fontStyle: FontStyle.italic,
                                                 ),
@@ -402,14 +402,14 @@ class _LoginModalState extends ConsumerState<LoginModal>
                                           text: TextSpan(
                                             text:
                                                 '${AppHelpers.getTranslation(TrKeys.password)}:',
-                                            style: Style.interNormal(
+                                            style: AppStyle.interNormal(
                                               letterSpacing: -0.3,
                                             ),
                                             children: [
                                               TextSpan(
                                                 text:
                                                     ' ${AppConstants.demoSellerPassword}',
-                                                style: Style.interRegular(
+                                                style: AppStyle.interRegular(
                                                   letterSpacing: -0.3,
                                                   fontStyle: FontStyle.italic,
                                                 ),

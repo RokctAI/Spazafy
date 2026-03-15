@@ -5,14 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/filter/filter_notifier.dart';
 import 'package:venderfoodyman/application/filter/filter_state.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/take_data.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_toggle.dart';
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
-import 'package:venderfoodyman/presentation/routes/customer/app_router.dart';
+import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 import 'package:venderfoodyman/application/filter/filter_provider.dart';

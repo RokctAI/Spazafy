@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:driver/infrastructure/driver/models/models.dart';
+import 'package:venderfoodyman/infrastructure/driver/models/models.dart';
 
 part 'driver_state.freezed.dart';
 

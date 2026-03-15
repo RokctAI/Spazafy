@@ -5,22 +5,22 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:venderfoodyman/domain/handlers/customer/api_result.dart';
-import 'package:venderfoodyman/domain/interface/customer/auth.dart';
+import 'package:venderfoodyman/domain/interface/auth.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/address_old_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
-import 'package:venderfoodyman/domain/interface/customer/user.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/domain/interface/user.dart';
 import '../../main/main_provider.dart';
 import 'register_confirmation_state.dart';
 
 class RegisterConfirmationNotifier
     extends StateNotifier<RegisterConfirmationState> {
-  final AuthRepositoryFacade _authRepository;
-  final UserRepositoryFacade _userRepositoryFacade;
+  final AuthFacade _authRepository;
+  final UserFacade _userRepositoryFacade;
 
   RegisterConfirmationNotifier(this._authRepository, this._userRepositoryFacade)
       : super(const RegisterConfirmationState());

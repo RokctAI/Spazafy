@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import '../../../../../infrastructure/services/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../../../infrastructure/services/tr_keys.dart';
 import 'market_two_shimmer.dart';
 
