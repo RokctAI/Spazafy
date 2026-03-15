@@ -9,7 +9,3 @@ class CreateProductNotifier extends StateNotifier<CreateProductState> {
     state = state.copyWith(currentIndex: index);
   }
 }
-
-
-
-

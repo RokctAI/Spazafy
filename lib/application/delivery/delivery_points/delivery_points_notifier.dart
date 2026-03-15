@@ -31,7 +31,3 @@ class DeliveryPointsNotifier extends StateNotifier<DeliveryPointsState> {
     );
   }
 }
-
-
-
-

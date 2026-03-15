@@ -14,8 +14,3 @@ abstract class AiTranslationState with _$AiTranslationState {
 
   const AiTranslationState._();
 }
-
-
-
-
-

@@ -8,6 +8,3 @@ final loginProvider =
     StateNotifierProvider.autoDispose<LoginNotifier, LoginState>(
   (ref) => LoginNotifier(authRepository, settingsRepository, userRepository),
 );
-
-
-

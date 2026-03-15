@@ -9,7 +9,3 @@ abstract class AddCategoryState with _$AddCategoryState {
 
   const AddCategoryState._();
 }
-
-
-
-

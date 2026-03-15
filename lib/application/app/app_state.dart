@@ -13,7 +13,3 @@ abstract class AppState with _$AppState {
 
   const AppState._();
 }
-
-
-
-

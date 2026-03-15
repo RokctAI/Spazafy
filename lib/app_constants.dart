@@ -166,7 +166,3 @@ abstract class AppConstants {
   static const String heroTagIncomePage = 'heroTagIncomePage';
   static const String heroTagProfileAvatar = 'heroTagProfileAvatar';
 }
-
-
-
-

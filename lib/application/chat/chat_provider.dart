@@ -6,6 +6,3 @@ import 'chat_state.dart';
 final chatProvider = StateNotifierProvider<ChatNotifier, ChatState>(
   (ref) => ChatNotifier(),
 );
-
-
-

@@ -6,6 +6,3 @@ import 'add_card_state.dart';
 final addCardProvider = StateNotifierProvider<AddCardNotifier, AddCardState>(
   (ref) => AddCardNotifier(),
 );
-
-
-

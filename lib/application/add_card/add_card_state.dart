@@ -14,6 +14,3 @@ class AddCardState with _$AddCardState {
 
   const AddCardState._();
 }
-
-
-

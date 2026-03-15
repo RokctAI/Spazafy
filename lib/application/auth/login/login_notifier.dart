@@ -166,11 +166,11 @@ class LoginNotifier extends StateNotifier<LoginState> {
         if (user?.wallet != null) {
           LocalStorage.setWallet(user?.wallet);
         }
-        
+
         // Driver specific: online status
         if (user?.role == 'deliveryman') {
-           // We can also trigger the driver user repo fetch if needed, 
-           // but for now, we ensure the basic user is set.
+          // We can also trigger the driver user repo fetch if needed,
+          // but for now, we ensure the basic user is set.
         }
 
         state = state.copyWith(isProfileDetailsLoading: false);
@@ -189,16 +189,17 @@ class LoginNotifier extends StateNotifier<LoginState> {
     VoidCallback? seller,
     VoidCallback? admin,
     VoidCallback? accessDenied,
-    int index = 0, // 0 for phone, 1 for email (standardizing role-specific inputs)
+    int index =
+        0, // 0 for phone, 1 for email (standardizing role-specific inputs)
   }) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       // Validate inputs based on role-specific patterns
       if (index == 0 && AppConstants.isPhoneFirebase) {
-         if (!AppValidators.isValidPhone(state.email)) {
-            state = state.copyWith(isPhoneNotValid: true);
-            return;
-         }
+        if (!AppValidators.isValidPhone(state.email)) {
+          state = state.copyWith(isPhoneNotValid: true);
+          return;
+        }
       } else {
         if (!AppValidators.isValidEmail(state.email)) {
           state = state.copyWith(isEmailNotValid: true);
@@ -210,23 +211,23 @@ class LoginNotifier extends StateNotifier<LoginState> {
         state = state.copyWith(isPasswordNotValid: true);
         return;
       }
-      
+
       state = state.copyWith(isLoading: true);
       final response = await _authRepository.login(
         email: state.email,
         password: state.password,
       );
-      
+
       response.when(
         success: (data) async {
           final accessToken = data.data?.accessToken ?? '';
           LocalStorage.setToken(accessToken);
-          
+
           // Hydrate user and wallet
           await getProfileDetails(context);
-          
+
           final user = data.data?.user;
-          
+
           // Role-specific redirection logic
           if (user?.role == 'deliveryman') {
             if (youAreNotDeliveryman != null) {
@@ -577,7 +578,3 @@ class LoginNotifier extends StateNotifier<LoginState> {
     }
   }
 }
-
-
-
-

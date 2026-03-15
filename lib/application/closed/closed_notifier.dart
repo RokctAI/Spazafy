@@ -9,6 +9,3 @@ class ClosedNotifier extends StateNotifier<ClosedState> {
     state = state.copyWith(currentIndex: index);
   }
 }
-
-
-

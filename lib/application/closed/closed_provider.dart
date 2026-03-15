@@ -7,6 +7,3 @@ final closedProvider =
     StateNotifierProvider.autoDispose<ClosedNotifier, ClosedState>(
   (ref) => ClosedNotifier(),
 );
-
-
-

@@ -19,6 +19,3 @@ class RegisterConfirmationState with _$RegisterConfirmationState {
 
   const RegisterConfirmationState._();
 }
-
-
-

@@ -12,7 +12,7 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
   final UserFacade _usersRepository;
 
   DeliveryZoneNotifier(this._usersRepository)
-    : super(const DeliveryZoneState());
+      : super(const DeliveryZoneState());
 
   Future<void> updateDeliveryZone({VoidCallback? updateSuccess}) async {
     state = state.copyWith(isSaving: true);
@@ -57,38 +57,38 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
   Future<void> fetchDeliveryZone() async {
     state = state.copyWith(isLoading: true, tappedPoints: []);
     final user = LocalStorage.getUser();
-    
+
     if (user?.role == 'seller') {
-       final response = await _usersRepository.getDeliveryZone();
-       response.when(
-         success: (data) {
-           if (data.data != null && data.data!.isNotEmpty) {
-             final List<List<double>> addresses = data.data?.first.address ?? [];
-             _processPoints(addresses);
-           }
-           state = state.copyWith(isLoading: false);
-         },
-         failure: (failure, status) {
-           state = state.copyWith(isLoading: false);
-           debugPrint('==> error fetching manager delivery zone $failure');
-         },
-       );
+      final response = await _usersRepository.getDeliveryZone();
+      response.when(
+        success: (data) {
+          if (data.data != null && data.data!.isNotEmpty) {
+            final List<List<double>> addresses = data.data?.first.address ?? [];
+            _processPoints(addresses);
+          }
+          state = state.copyWith(isLoading: false);
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isLoading: false);
+          debugPrint('==> error fetching manager delivery zone $failure');
+        },
+      );
     } else {
-       // Default/Driver behavior
-       final response = await _usersRepository.getProfileDetails();
-       response.when(
-         success: (data) {
-           if (data.data?.deliveryZone?.isNotEmpty ?? false) {
-             final List<List<double>> addresses = data.data?.deliveryZone ?? [];
-             _processPoints(addresses);
-           }
-           state = state.copyWith(isLoading: false);
-         },
-         failure: (failure, status) {
-           state = state.copyWith(isLoading: false);
-           debugPrint('==> error fetching profile delivery zone $failure');
-         },
-       );
+      // Default/Driver behavior
+      final response = await _usersRepository.getProfileDetails();
+      response.when(
+        success: (data) {
+          if (data.data?.deliveryZone?.isNotEmpty ?? false) {
+            final List<List<double>> addresses = data.data?.deliveryZone ?? [];
+            _processPoints(addresses);
+          }
+          state = state.copyWith(isLoading: false);
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isLoading: false);
+          debugPrint('==> error fetching profile delivery zone $failure');
+        },
+      );
     }
   }
 

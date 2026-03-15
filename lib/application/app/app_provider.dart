@@ -6,6 +6,3 @@ import 'app_state.dart';
 final appProvider = StateNotifierProvider<AppNotifier, AppState>(
   (ref) => AppNotifier(),
 );
-
-
-

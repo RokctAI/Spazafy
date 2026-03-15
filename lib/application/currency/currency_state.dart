@@ -12,7 +12,3 @@ class CurrencyState with _$CurrencyState {
 
   const CurrencyState._();
 }
-
-
-
-

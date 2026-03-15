@@ -34,7 +34,3 @@ class AppNotifier extends StateNotifier<AppState> {
     );
   }
 }
-
-
-
-

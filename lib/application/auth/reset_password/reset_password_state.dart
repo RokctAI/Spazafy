@@ -21,6 +21,3 @@ class ResetPasswordState with _$ResetPasswordState {
 
   const ResetPasswordState._();
 }
-
-
-

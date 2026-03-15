@@ -10,11 +10,3 @@ class DriverNotifier extends StateNotifier<DriverState> {
     state = state.copyWith(driverData: data);
   }
 }
-
-
-
-
-
-
-
-

@@ -21,8 +21,3 @@ class BillingState with _$BillingState {
 
   const BillingState._();
 }
-
-
-
-
-

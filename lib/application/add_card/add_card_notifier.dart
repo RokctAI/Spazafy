@@ -40,6 +40,3 @@ class AddCardNotifier extends StateNotifier<AddCardState> {
     }
   }
 }
-
-
-

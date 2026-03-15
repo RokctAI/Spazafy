@@ -38,8 +38,3 @@ class AiTranslationNotifier extends StateNotifier<AiTranslationState> {
     state = state.copyWith(translatedUsingAi: value);
   }
 }
-
-
-
-
-

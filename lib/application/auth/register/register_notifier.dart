@@ -197,7 +197,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         success: (data) async {
           state = state.copyWith(isLoading: false);
           LocalStorage.setToken(data.token);
-          
+
           // Role-specific redirection
           if (role == 'deliveryman') {
             context.replaceRoute(const HomeRoute());
@@ -234,7 +234,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
     }
   }
 
-  Future<void> registerWithFirebase(BuildContext context, {String? role}) async {
+  Future<void> registerWithFirebase(BuildContext context,
+      {String? role}) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       if (!AppValidators.isValidPassword(state.password)) {
@@ -265,7 +266,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         success: (data) async {
           state = state.copyWith(isLoading: false);
           LocalStorage.setToken(data.token);
-          
+
           // Role-specific redirection
           if (role == 'deliveryman') {
             context.replaceRoute(const BecomeDriverRoute());
@@ -331,12 +332,12 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       response.when(
         success: (data) async {
           state = state.copyWith(isLoading: false);
-          
+
           // Role-specific redirection
           if (role == 'deliveryman') {
-             context.replaceRoute(const HomeRoute());
+            context.replaceRoute(const HomeRoute());
           } else if (role == 'seller') {
-             context.replaceRoute(const MainRoute());
+            context.replaceRoute(const MainRoute());
           } else {
             if (AppConstants.isDemo) {
               context.replaceRoute(UiTypeRoute());
@@ -694,7 +695,3 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
     }
   }
 }
-
-
-
-

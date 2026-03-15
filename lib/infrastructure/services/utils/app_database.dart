@@ -74,6 +74,7 @@ class AppDatabase extends _$AppDatabase {
               // Skip if invalid JSON or missing fields
             }
           }
+        }
         if (from < 4) {
           // Orders Flattening Migration
           await m.addColumn(ordersTable, ordersTable.shopId);
@@ -279,6 +280,7 @@ class AppDatabase extends _$AppDatabase {
   // Helper methods to dynamically extract fields and create companions
   Insertable<dynamic> _createInsertable(
     String boxName,
+    String id,
     String data,
   ) {
     switch (boxName) {

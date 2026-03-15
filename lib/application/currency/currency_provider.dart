@@ -7,6 +7,3 @@ import 'currency_state.dart';
 final currencyProvider = StateNotifierProvider<CurrencyNotifier, CurrencyState>(
   (ref) => CurrencyNotifier(currenciesRepository),
 );
-
-
-

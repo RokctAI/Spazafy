@@ -27,6 +27,3 @@ class RegisterState with _$RegisterState {
 
   const RegisterState._();
 }
-
-
-

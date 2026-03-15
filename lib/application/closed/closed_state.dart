@@ -8,6 +8,3 @@ class ClosedState with _$ClosedState {
 
   const ClosedState._();
 }
-
-
-

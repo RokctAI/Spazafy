@@ -363,10 +363,6 @@ class ProductData {
   }
 }
 
-    return map;
-  }
-}
-
 class Stocks {
   Stocks({
     String? id,

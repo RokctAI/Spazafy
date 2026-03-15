@@ -53,12 +53,11 @@ class _$AddCategoryStateCopyWithImpl<$Res, $Val extends AddCategoryState>
   $Res call({Object? isLoading = null}) {
     return _then(
       _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+      ) as $Val,
     );
   }
 }
@@ -94,7 +93,7 @@ class __$$AddCategoryStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
       ),
     );
   }
@@ -153,7 +152,3 @@ abstract class _AddCategoryState extends AddCategoryState {
   _$$AddCategoryStateImplCopyWith<_$AddCategoryStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

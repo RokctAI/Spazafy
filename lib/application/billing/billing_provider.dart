@@ -148,9 +148,8 @@ class BillingNotifier extends StateNotifier<BillingState> {
   }
 
   void removeFromCart(ProductData product) {
-    final newItems = state.cartItems
-        .where((item) => item.product.id != product.id)
-        .toList();
+    final newItems =
+        state.cartItems.where((item) => item.product.id != product.id).toList();
     state = state.copyWith(cartItems: newItems);
     _updateTotal();
   }
@@ -205,8 +204,3 @@ final billingProvider = StateNotifierProvider<BillingNotifier, BillingState>((
 ) {
   return BillingNotifier();
 });
-
-
-
-
-

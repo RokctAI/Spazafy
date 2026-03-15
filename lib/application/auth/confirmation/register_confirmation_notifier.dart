@@ -534,7 +534,3 @@ class RegisterConfirmationNotifier
     return "$minutesStr:$secondsStr";
   }
 }
-
-
-
-

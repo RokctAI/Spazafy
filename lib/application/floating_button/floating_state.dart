@@ -9,6 +9,3 @@ class FloatingState with _$FloatingState {
 
   const FloatingState._();
 }
-
-
-

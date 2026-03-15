@@ -81,44 +81,43 @@ class _$BillingStateCopyWithImpl<$Res, $Val extends BillingState>
   }) {
     return _then(
       _value.copyWith(
-            cartItems: null == cartItems
-                ? _value.cartItems
-                : cartItems // ignore: cast_nullable_to_non_nullable
-                      as List<CartItem>,
-            isScanning: null == isScanning
-                ? _value.isScanning
-                : isScanning // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            lastScannedBarcode: freezed == lastScannedBarcode
-                ? _value.lastScannedBarcode
-                : lastScannedBarcode // ignore: cast_nullable_to_non_nullable
-                      as String?,
-            promptType: null == promptType
-                ? _value.promptType
-                : promptType // ignore: cast_nullable_to_non_nullable
-                      as ScanPromptType,
-            selectedProduct: freezed == selectedProduct
-                ? _value.selectedProduct
-                : selectedProduct // ignore: cast_nullable_to_non_nullable
-                      as ProductData?,
-            scanCount: null == scanCount
-                ? _value.scanCount
-                : scanCount // ignore: cast_nullable_to_non_nullable
-                      as int,
-            isPrinting: null == isPrinting
-                ? _value.isPrinting
-                : isPrinting // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            printSuccess: null == printSuccess
-                ? _value.printSuccess
-                : printSuccess // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            totalAmount: null == totalAmount
-                ? _value.totalAmount
-                : totalAmount // ignore: cast_nullable_to_non_nullable
-                      as double,
-          )
-          as $Val,
+        cartItems: null == cartItems
+            ? _value.cartItems
+            : cartItems // ignore: cast_nullable_to_non_nullable
+                as List<CartItem>,
+        isScanning: null == isScanning
+            ? _value.isScanning
+            : isScanning // ignore: cast_nullable_to_non_nullable
+                as bool,
+        lastScannedBarcode: freezed == lastScannedBarcode
+            ? _value.lastScannedBarcode
+            : lastScannedBarcode // ignore: cast_nullable_to_non_nullable
+                as String?,
+        promptType: null == promptType
+            ? _value.promptType
+            : promptType // ignore: cast_nullable_to_non_nullable
+                as ScanPromptType,
+        selectedProduct: freezed == selectedProduct
+            ? _value.selectedProduct
+            : selectedProduct // ignore: cast_nullable_to_non_nullable
+                as ProductData?,
+        scanCount: null == scanCount
+            ? _value.scanCount
+            : scanCount // ignore: cast_nullable_to_non_nullable
+                as int,
+        isPrinting: null == isPrinting
+            ? _value.isPrinting
+            : isPrinting // ignore: cast_nullable_to_non_nullable
+                as bool,
+        printSuccess: null == printSuccess
+            ? _value.printSuccess
+            : printSuccess // ignore: cast_nullable_to_non_nullable
+                as bool,
+        totalAmount: null == totalAmount
+            ? _value.totalAmount
+            : totalAmount // ignore: cast_nullable_to_non_nullable
+                as double,
+      ) as $Val,
     );
   }
 }
@@ -174,39 +173,39 @@ class __$$BillingStateImplCopyWithImpl<$Res>
         cartItems: null == cartItems
             ? _value._cartItems
             : cartItems // ignore: cast_nullable_to_non_nullable
-                  as List<CartItem>,
+                as List<CartItem>,
         isScanning: null == isScanning
             ? _value.isScanning
             : isScanning // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         lastScannedBarcode: freezed == lastScannedBarcode
             ? _value.lastScannedBarcode
             : lastScannedBarcode // ignore: cast_nullable_to_non_nullable
-                  as String?,
+                as String?,
         promptType: null == promptType
             ? _value.promptType
             : promptType // ignore: cast_nullable_to_non_nullable
-                  as ScanPromptType,
+                as ScanPromptType,
         selectedProduct: freezed == selectedProduct
             ? _value.selectedProduct
             : selectedProduct // ignore: cast_nullable_to_non_nullable
-                  as ProductData?,
+                as ProductData?,
         scanCount: null == scanCount
             ? _value.scanCount
             : scanCount // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         isPrinting: null == isPrinting
             ? _value.isPrinting
             : isPrinting // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         printSuccess: null == printSuccess
             ? _value.printSuccess
             : printSuccess // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         totalAmount: null == totalAmount
             ? _value.totalAmount
             : totalAmount // ignore: cast_nullable_to_non_nullable
-                  as double,
+                as double,
       ),
     );
   }
@@ -225,8 +224,8 @@ class _$BillingStateImpl extends _BillingState {
     this.isPrinting = false,
     this.printSuccess = false,
     this.totalAmount = 0.0,
-  }) : _cartItems = cartItems,
-       super._();
+  })  : _cartItems = cartItems,
+        super._();
 
   final List<CartItem> _cartItems;
   @override
@@ -294,17 +293,17 @@ class _$BillingStateImpl extends _BillingState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_cartItems),
-    isScanning,
-    lastScannedBarcode,
-    promptType,
-    selectedProduct,
-    scanCount,
-    isPrinting,
-    printSuccess,
-    totalAmount,
-  );
+        runtimeType,
+        const DeepCollectionEquality().hash(_cartItems),
+        isScanning,
+        lastScannedBarcode,
+        promptType,
+        selectedProduct,
+        scanCount,
+        isPrinting,
+        printSuccess,
+        totalAmount,
+      );
 
   /// Create a copy of BillingState
   /// with the given fields replaced by the non-null parameter values.
@@ -355,7 +354,3 @@ abstract class _BillingState extends BillingState {
   _$$BillingStateImplCopyWith<_$BillingStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

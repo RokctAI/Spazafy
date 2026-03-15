@@ -30,6 +30,3 @@ final deliveryProvider = FutureProvider<Map<String, dynamic>?>((ref) async {
     }
   }
 });
-
-
-

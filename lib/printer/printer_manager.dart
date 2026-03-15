@@ -136,10 +136,6 @@ class PrinterManager {
     return List.from(text.codeUnits);
   }
 }
-  List<int> _textToBytes(String text) {
-    return List.from(text.codeUnits);
-  }
-}
 
 
 

@@ -16,8 +16,3 @@ abstract class CreateFoodKitchensState with _$CreateFoodKitchensState {
 
   const CreateFoodKitchensState._();
 }
-
-
-
-
-

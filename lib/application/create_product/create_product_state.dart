@@ -9,7 +9,3 @@ abstract class CreateProductState with _$CreateProductState {
 
   const CreateProductState._();
 }
-
-
-
-

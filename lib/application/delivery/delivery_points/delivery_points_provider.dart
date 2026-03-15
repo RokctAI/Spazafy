@@ -7,6 +7,3 @@ final deliveryPointsProvider =
     StateNotifierProvider<DeliveryPointsNotifier, DeliveryPointsState>(
   (ref) => DeliveryPointsNotifier(deliveryPointsRepository),
 );
-
-
-

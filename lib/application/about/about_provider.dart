@@ -34,6 +34,3 @@ final aboutProvider = FutureProvider<Map<String, dynamic>?>((ref) async {
     }
   }
 });
-
-
-

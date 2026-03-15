@@ -63,20 +63,19 @@ class _$AiTranslationStateCopyWithImpl<$Res, $Val extends AiTranslationState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            translatedUsingAi: null == translatedUsingAi
-                ? _value.translatedUsingAi
-                : translatedUsingAi // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            selectedLanguage: freezed == selectedLanguage
-                ? _value.selectedLanguage
-                : selectedLanguage // ignore: cast_nullable_to_non_nullable
-                      as LanguageData?,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        translatedUsingAi: null == translatedUsingAi
+            ? _value.translatedUsingAi
+            : translatedUsingAi // ignore: cast_nullable_to_non_nullable
+                as bool,
+        selectedLanguage: freezed == selectedLanguage
+            ? _value.selectedLanguage
+            : selectedLanguage // ignore: cast_nullable_to_non_nullable
+                as LanguageData?,
+      ) as $Val,
     );
   }
 }
@@ -120,15 +119,15 @@ class __$$AiTranslationStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         translatedUsingAi: null == translatedUsingAi
             ? _value.translatedUsingAi
             : translatedUsingAi // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         selectedLanguage: freezed == selectedLanguage
             ? _value.selectedLanguage
             : selectedLanguage // ignore: cast_nullable_to_non_nullable
-                  as LanguageData?,
+                as LanguageData?,
       ),
     );
   }
@@ -208,7 +207,3 @@ abstract class _AiTranslationState extends AiTranslationState {
   _$$AiTranslationStateImplCopyWith<_$AiTranslationStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

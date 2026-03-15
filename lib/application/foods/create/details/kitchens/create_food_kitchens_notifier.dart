@@ -10,9 +10,9 @@ class CreateFoodKitchensNotifier
   final CatalogInterface _catalogRepository;
 
   CreateFoodKitchensNotifier(this._catalogRepository)
-    : super(
-        CreateFoodKitchensState(kitchenController: TextEditingController()),
-      );
+      : super(
+          CreateFoodKitchensState(kitchenController: TextEditingController()),
+        );
 
   Future<void> fetchKitchens(BuildContext context) async {
     if (state.kitchens.isNotEmpty) {
@@ -50,8 +50,3 @@ class CreateFoodKitchensNotifier
         state.kitchens[index].translation?.title ?? '';
   }
 }
-
-
-
-
-

@@ -90,52 +90,51 @@ class _$AllCategoriesStateCopyWithImpl<$Res, $Val extends AllCategoriesState>
   }) {
     return _then(
       _value.copyWith(
-            categories: null == categories
-                ? _value.categories
-                : categories // ignore: cast_nullable_to_non_nullable
-                      as List<CategoryData>,
-            comboCategories: null == comboCategories
-                ? _value.comboCategories
-                : comboCategories // ignore: cast_nullable_to_non_nullable
-                      as List<CategoryData>,
-            categoriesSub: null == categoriesSub
-                ? _value.categoriesSub
-                : categoriesSub // ignore: cast_nullable_to_non_nullable
-                      as List<CategoryData>,
-            comboCategoriesSub: null == comboCategoriesSub
-                ? _value.comboCategoriesSub
-                : comboCategoriesSub // ignore: cast_nullable_to_non_nullable
-                      as List<CategoryData>,
-            activeIndex: null == activeIndex
-                ? _value.activeIndex
-                : activeIndex // ignore: cast_nullable_to_non_nullable
-                      as int,
-            activeSubIndex: null == activeSubIndex
-                ? _value.activeSubIndex
-                : activeSubIndex // ignore: cast_nullable_to_non_nullable
-                      as int,
-            activeComboIndex: null == activeComboIndex
-                ? _value.activeComboIndex
-                : activeComboIndex // ignore: cast_nullable_to_non_nullable
-                      as int,
-            activeComboSubIndex: null == activeComboSubIndex
-                ? _value.activeComboSubIndex
-                : activeComboSubIndex // ignore: cast_nullable_to_non_nullable
-                      as int,
-            categoryController: freezed == categoryController
-                ? _value.categoryController
-                : categoryController // ignore: cast_nullable_to_non_nullable
-                      as TextEditingController?,
-            categorySubController: freezed == categorySubController
-                ? _value.categorySubController
-                : categorySubController // ignore: cast_nullable_to_non_nullable
-                      as TextEditingController?,
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-          )
-          as $Val,
+        categories: null == categories
+            ? _value.categories
+            : categories // ignore: cast_nullable_to_non_nullable
+                as List<CategoryData>,
+        comboCategories: null == comboCategories
+            ? _value.comboCategories
+            : comboCategories // ignore: cast_nullable_to_non_nullable
+                as List<CategoryData>,
+        categoriesSub: null == categoriesSub
+            ? _value.categoriesSub
+            : categoriesSub // ignore: cast_nullable_to_non_nullable
+                as List<CategoryData>,
+        comboCategoriesSub: null == comboCategoriesSub
+            ? _value.comboCategoriesSub
+            : comboCategoriesSub // ignore: cast_nullable_to_non_nullable
+                as List<CategoryData>,
+        activeIndex: null == activeIndex
+            ? _value.activeIndex
+            : activeIndex // ignore: cast_nullable_to_non_nullable
+                as int,
+        activeSubIndex: null == activeSubIndex
+            ? _value.activeSubIndex
+            : activeSubIndex // ignore: cast_nullable_to_non_nullable
+                as int,
+        activeComboIndex: null == activeComboIndex
+            ? _value.activeComboIndex
+            : activeComboIndex // ignore: cast_nullable_to_non_nullable
+                as int,
+        activeComboSubIndex: null == activeComboSubIndex
+            ? _value.activeComboSubIndex
+            : activeComboSubIndex // ignore: cast_nullable_to_non_nullable
+                as int,
+        categoryController: freezed == categoryController
+            ? _value.categoryController
+            : categoryController // ignore: cast_nullable_to_non_nullable
+                as TextEditingController?,
+        categorySubController: freezed == categorySubController
+            ? _value.categorySubController
+            : categorySubController // ignore: cast_nullable_to_non_nullable
+                as TextEditingController?,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+      ) as $Val,
     );
   }
 }
@@ -195,47 +194,47 @@ class __$$AllCategoriesStateImplCopyWithImpl<$Res>
         categories: null == categories
             ? _value._categories
             : categories // ignore: cast_nullable_to_non_nullable
-                  as List<CategoryData>,
+                as List<CategoryData>,
         comboCategories: null == comboCategories
             ? _value._comboCategories
             : comboCategories // ignore: cast_nullable_to_non_nullable
-                  as List<CategoryData>,
+                as List<CategoryData>,
         categoriesSub: null == categoriesSub
             ? _value._categoriesSub
             : categoriesSub // ignore: cast_nullable_to_non_nullable
-                  as List<CategoryData>,
+                as List<CategoryData>,
         comboCategoriesSub: null == comboCategoriesSub
             ? _value._comboCategoriesSub
             : comboCategoriesSub // ignore: cast_nullable_to_non_nullable
-                  as List<CategoryData>,
+                as List<CategoryData>,
         activeIndex: null == activeIndex
             ? _value.activeIndex
             : activeIndex // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         activeSubIndex: null == activeSubIndex
             ? _value.activeSubIndex
             : activeSubIndex // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         activeComboIndex: null == activeComboIndex
             ? _value.activeComboIndex
             : activeComboIndex // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         activeComboSubIndex: null == activeComboSubIndex
             ? _value.activeComboSubIndex
             : activeComboSubIndex // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         categoryController: freezed == categoryController
             ? _value.categoryController
             : categoryController // ignore: cast_nullable_to_non_nullable
-                  as TextEditingController?,
+                as TextEditingController?,
         categorySubController: freezed == categorySubController
             ? _value.categorySubController
             : categorySubController // ignore: cast_nullable_to_non_nullable
-                  as TextEditingController?,
+                as TextEditingController?,
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
       ),
     );
   }
@@ -256,11 +255,11 @@ class _$AllCategoriesStateImpl extends _AllCategoriesState {
     this.categoryController,
     this.categorySubController,
     this.isLoading = false,
-  }) : _categories = categories,
-       _comboCategories = comboCategories,
-       _categoriesSub = categoriesSub,
-       _comboCategoriesSub = comboCategoriesSub,
-       super._();
+  })  : _categories = categories,
+        _comboCategories = comboCategories,
+        _categoriesSub = categoriesSub,
+        _comboCategoriesSub = comboCategoriesSub,
+        super._();
 
   final List<CategoryData> _categories;
   @override
@@ -363,19 +362,19 @@ class _$AllCategoriesStateImpl extends _AllCategoriesState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_categories),
-    const DeepCollectionEquality().hash(_comboCategories),
-    const DeepCollectionEquality().hash(_categoriesSub),
-    const DeepCollectionEquality().hash(_comboCategoriesSub),
-    activeIndex,
-    activeSubIndex,
-    activeComboIndex,
-    activeComboSubIndex,
-    categoryController,
-    categorySubController,
-    isLoading,
-  );
+        runtimeType,
+        const DeepCollectionEquality().hash(_categories),
+        const DeepCollectionEquality().hash(_comboCategories),
+        const DeepCollectionEquality().hash(_categoriesSub),
+        const DeepCollectionEquality().hash(_comboCategoriesSub),
+        activeIndex,
+        activeSubIndex,
+        activeComboIndex,
+        activeComboSubIndex,
+        categoryController,
+        categorySubController,
+        isLoading,
+      );
 
   /// Create a copy of AllCategoriesState
   /// with the given fields replaced by the non-null parameter values.
@@ -435,7 +434,3 @@ abstract class _AllCategoriesState extends AllCategoriesState {
   _$$AllCategoriesStateImplCopyWith<_$AllCategoriesStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

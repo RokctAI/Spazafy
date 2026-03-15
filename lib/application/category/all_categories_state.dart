@@ -22,8 +22,3 @@ abstract class AllCategoriesState with _$AllCategoriesState {
 
   const AllCategoriesState._();
 }
-
-
-
-
-

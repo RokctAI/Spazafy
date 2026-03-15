@@ -5,6 +5,3 @@ import 'floating_state.dart';
 final floatingProvider = StateNotifierProvider<FloatingNotifier, FloatingState>(
   (ref) => FloatingNotifier(),
 );
-
-
-

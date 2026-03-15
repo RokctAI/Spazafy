@@ -8,6 +8,3 @@ final resetPasswordProvider =
     StateNotifierProvider<ResetPasswordNotifier, ResetPasswordState>(
   (ref) => ResetPasswordNotifier(authRepository, userRepository),
 );
-
-
-

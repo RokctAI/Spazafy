@@ -9,6 +9,3 @@ class FloatingNotifier extends StateNotifier<FloatingState> {
     state = state.copyWith(isScrolling: isScrolling);
   }
 }
-
-
-

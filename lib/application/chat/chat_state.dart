@@ -18,7 +18,3 @@ class ChatState with _$ChatState {
 
   const ChatState._();
 }
-
-
-
-

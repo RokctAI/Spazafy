@@ -12,7 +12,3 @@ class DeliveryPointsState with _$DeliveryPointsState {
 
   const DeliveryPointsState._();
 }
-
-
-
-
