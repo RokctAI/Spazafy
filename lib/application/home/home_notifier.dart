@@ -20,7 +20,7 @@ import 'package:venderfoodyman/domain/interface/user.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/models/data/address_information.dart';
 import 'package:venderfoodyman/infrastructure/models/data/address_old_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/filter_model.dart';
+import 'package:venderfoodyman/infrastructure/models/data/filter_model.dart';
 
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';

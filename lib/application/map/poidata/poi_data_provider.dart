@@ -1,6 +1,6 @@
 // poi_data_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/poi_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/poi_data.dart';
 
 final poiDataProvider = StateNotifierProvider<POIDataNotifier, List<POIData>>((
   ref,

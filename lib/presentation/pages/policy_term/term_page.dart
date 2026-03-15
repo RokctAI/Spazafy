@@ -9,7 +9,7 @@ import 'package:venderfoodyman/application/profile/profile_provider.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/app_assets.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_assets.dart';
 import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
 
 @RoutePage()

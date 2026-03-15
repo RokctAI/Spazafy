@@ -1,5 +1,5 @@
 import 'package:venderfoodyman/domain/handlers/handlers.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/response/parcel_paginate_response.dart';
+import 'package:venderfoodyman/infrastructure/models/response/parcel_paginate_response.dart';
 
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 

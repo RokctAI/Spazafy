@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/domain/interface/shops.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/filter_model.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/tpying_delay.dart';
+import 'package:venderfoodyman/infrastructure/models/data/filter_model.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/tpying_delay.dart';
 
-import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'filter_state.dart';

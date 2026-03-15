@@ -1,6 +1,6 @@
 import 'package:venderfoodyman/domain/handlers/customer/api_result.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/count_of_notifications_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/response/notification_response.dart';
+import 'package:venderfoodyman/infrastructure/models/data/count_of_notifications_data.dart';
+import 'package:venderfoodyman/infrastructure/models/response/notification_response.dart';
 
 abstract class NotificationFacade {
   Future<ApiResult<NotificationResponse>> getNotifications({int? page});

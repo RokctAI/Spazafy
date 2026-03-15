@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/get_calculate_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/order_active_model.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/order_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/response/branches_response.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/delivery_point_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/get_calculate_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/order_active_model.dart';
+import 'package:venderfoodyman/infrastructure/models/data/order_data.dart';
+import 'package:venderfoodyman/infrastructure/models/response/branches_response.dart';
+import 'package:venderfoodyman/infrastructure/models/data/delivery_point_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 part 'order_state.freezed.dart';
 
 @freezed

@@ -8,7 +8,7 @@ import 'package:venderfoodyman/application/order/order_provider.dart';
 import 'package:venderfoodyman/application/parcel/parcel_provider.dart';
 import 'package:venderfoodyman/application/select/select_provider.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/input_formatter.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/input_formatter.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';

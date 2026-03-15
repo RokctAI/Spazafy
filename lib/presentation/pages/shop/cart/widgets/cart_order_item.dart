@@ -4,14 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:venderfoodyman/application/order/order_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/addons_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/order_active_model.dart';
+import 'package:venderfoodyman/infrastructure/models/data/addons_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/order_active_model.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
 import 'package:venderfoodyman/presentation/pages/shop/cart/widgets/note_product.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/cart_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/cart_data.dart';
 
 class CartOrderItem extends StatelessWidget {
   final CartDetail? cart;

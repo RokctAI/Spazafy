@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:venderfoodyman/infrastructure/models/customer/data/cart_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/cart_product_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/cart_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/cart_product_data.dart';
 
 part 'shop_order_state.freezed.dart';
 

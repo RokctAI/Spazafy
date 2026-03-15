@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/customer/response/all_products_response.dart';
+import 'package:venderfoodyman/infrastructure/models/response/all_products_response.dart';
 
 import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';

@@ -7,7 +7,7 @@ import 'package:venderfoodyman/presentation/components/customer/buttons/animatio
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
-import 'package:venderfoodyman/infrastructure/models/customer/response/all_products_response.dart';
+import 'package:venderfoodyman/infrastructure/models/response/all_products_response.dart';
 import 'bonus_screen.dart';
 
 class ShopProductItem extends StatelessWidget {

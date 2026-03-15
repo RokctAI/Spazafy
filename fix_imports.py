@@ -145,6 +145,20 @@ IMPORT_REPLACEMENTS = [
     ("package:venderfoodyman/infrastructure/services/utils/storage_keys.dart",
      "package:venderfoodyman/infrastructure/services/constants/storage_keys.dart"),
 
+    # ── Infrastructure Model Unification ────────────────────────────────────
+    ("package:venderfoodyman/infrastructure/models/customer/data/",
+     "package:venderfoodyman/infrastructure/models/data/"),
+    ("package:venderfoodyman/infrastructure/models/customer/response/",
+     "package:venderfoodyman/infrastructure/models/response/"),
+    ("package:venderfoodyman/infrastructure/models/customer/request/",
+     "package:venderfoodyman/infrastructure/models/request/"),
+    ("package:venderfoodyman/infrastructure/models/customer/",
+     "package:venderfoodyman/infrastructure/models/"),
+
+    # ── Infrastructure Service Unification ──────────────────────────────────
+    ("package:venderfoodyman/infrastructure/services/customer/",
+     "package:venderfoodyman/infrastructure/services/utils/"),
+
     # ── Presentation Theme Unification ──────────────────────────────────────
     ("package:venderfoodyman/presentation/theme/customer/",
      "package:venderfoodyman/presentation/theme/customer/"), # Keep it for now but maybe map to unified later

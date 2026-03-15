@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/order_active_model.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/refund_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/order_active_model.dart';
+import 'package:venderfoodyman/infrastructure/models/data/refund_data.dart';
 
 part 'orders_list_state.freezed.dart';
 

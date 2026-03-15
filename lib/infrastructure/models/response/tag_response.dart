@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/customer/data/take_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/take_data.dart';
 
 class TagResponse {
   TagResponse({

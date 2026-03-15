@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/address_new_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/address_new_data.dart';
 
 part 'view_map_state.freezed.dart';
 

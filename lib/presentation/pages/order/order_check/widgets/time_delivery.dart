@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/extension.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/time_service.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/extension.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/time_service.dart';
 import 'package:intl/intl.dart';
 import 'package:venderfoodyman/application/order/order_provider.dart';
 import 'package:venderfoodyman/application/order/order_state.dart';

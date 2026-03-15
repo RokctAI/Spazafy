@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/addons_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/addons_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/vibration.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/vibration.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 import 'package:venderfoodyman/presentation/components/customer/custom_checkbox.dart';

@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/filter/filter_notifier.dart';
 import 'package:venderfoodyman/application/filter/filter_state.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/take_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/take_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';

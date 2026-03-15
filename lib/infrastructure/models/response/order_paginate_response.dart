@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/customer/data/order_active_model.dart';
+import 'package:venderfoodyman/infrastructure/models/data/order_active_model.dart';
 
 import '../data/meta.dart';
 

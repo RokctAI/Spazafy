@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:venderfoodyman/infrastructure/models/customer/data/typed_extra.dart';
+import 'package:venderfoodyman/infrastructure/models/data/typed_extra.dart';
 import '../../pages/product/widgets/size_item.dart';
 
 class TextExtras extends StatelessWidget {

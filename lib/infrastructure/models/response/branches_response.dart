@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 
 import '../data/translation.dart';
 

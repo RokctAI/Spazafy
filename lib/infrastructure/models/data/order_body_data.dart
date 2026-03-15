@@ -1,6 +1,6 @@
-import 'package:venderfoodyman/infrastructure/models/customer/data/order_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
+import 'package:venderfoodyman/infrastructure/models/data/order_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/enums.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 
 class OrderBodyData {

@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/customer/data/translation.dart';
+import 'package:venderfoodyman/infrastructure/models/data/translation.dart';
 
 class ReferralModel {
   int? id;

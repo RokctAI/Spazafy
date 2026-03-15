@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/chat_message_data.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
+import 'package:venderfoodyman/infrastructure/models/data/chat_message_data.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/enums.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class ChatItem extends StatelessWidget {

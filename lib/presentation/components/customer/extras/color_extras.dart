@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/infrastructure/models/customer/data/typed_extra.dart';
+import 'package:venderfoodyman/infrastructure/models/data/typed_extra.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 class ColorExtras extends StatelessWidget {

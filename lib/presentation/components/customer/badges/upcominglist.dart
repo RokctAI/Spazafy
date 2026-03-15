@@ -4,13 +4,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/order_active_model.dart';
+import 'package:venderfoodyman/infrastructure/models/data/order_active_model.dart';
 import 'package:venderfoodyman/application/orders_list/orders_list_provider.dart';
 import 'package:venderfoodyman/application/shop/shop_provider.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/presentation/components/customer/shop_avarat.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/filter_model.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/take_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/filter_model.dart';
+import 'package:venderfoodyman/infrastructure/models/data/take_data.dart';
 
-import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 part 'filter_state.freezed.dart';
 
 @freezed

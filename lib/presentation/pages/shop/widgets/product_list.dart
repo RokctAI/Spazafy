@@ -10,7 +10,7 @@ import 'package:venderfoodyman/presentation/components/customer/title_icon.dart'
 import 'package:venderfoodyman/application/shop/shop_provider.dart';
 import 'package:venderfoodyman/application/shop/shop_state.dart';
 import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/response/all_products_response.dart';
+import 'package:venderfoodyman/infrastructure/models/response/all_products_response.dart';
 import '../../../../utils/products/product_card.dart';
 import '../../../../utils/products/product_utils.dart';
 import '../../product/product_page.dart';

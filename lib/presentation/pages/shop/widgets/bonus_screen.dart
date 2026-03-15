@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/bonus_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/bonus_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/shop/shop_notifier.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/time_service.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/time_service.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
@@ -24,7 +24,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 import 'package:venderfoodyman/application/shop/shop_provider.dart';
 import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/response/all_products_response.dart';
+import 'package:venderfoodyman/infrastructure/models/response/all_products_response.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 
 import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';

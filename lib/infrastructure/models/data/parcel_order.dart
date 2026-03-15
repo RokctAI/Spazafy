@@ -2,9 +2,9 @@
 //
 //     final parcelOrder = parcelOrderFromJson(jsonString);
 
-import 'package:venderfoodyman/infrastructure/models/customer/data/review_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/user.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/response/parcel_response.dart';
+import 'package:venderfoodyman/infrastructure/models/data/review_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/user.dart';
+import 'package:venderfoodyman/infrastructure/models/response/parcel_response.dart';
 
 class ParcelOrder {
   String? id;

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/enums.dart';
 
 import 'package:venderfoodyman/application/product/product_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/typed_extra.dart';
+import 'package:venderfoodyman/infrastructure/models/data/typed_extra.dart';
 import 'package:venderfoodyman/presentation/components/customer/extras/color_extras.dart';
 import 'package:venderfoodyman/presentation/components/customer/extras/image_extras.dart';
 import 'package:venderfoodyman/presentation/components/customer/extras/text_extras.dart';

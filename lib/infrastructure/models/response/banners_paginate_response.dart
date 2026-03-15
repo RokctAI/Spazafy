@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 import 'package:flutter/foundation.dart';
 import '../../../utils/banner_text_cache.dart';
 import '../data/meta.dart';
