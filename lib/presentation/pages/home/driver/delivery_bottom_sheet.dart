@@ -130,13 +130,17 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                             onSuccess: (path) async {
                               if (context.mounted) {
                                 if (path.isNotEmpty) {
-                                  ref.read(homeProvider.notifier).uploadImage(
+                                  ref
+                                      .read(homeProvider.notifier)
+                                      .uploadImage(
                                         context: context,
                                         orderId: widget.order.id,
                                         path: path,
                                       );
                                 }
-                                ref.read(homeProvider.notifier).deliveredFinish(
+                                ref
+                                    .read(homeProvider.notifier)
+                                    .deliveredFinish(
                                       context: context,
                                       orderId: widget.order.id,
                                     );
@@ -180,8 +184,9 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                         text: AppHelpers.getTranslation(
                                           TrKeys.areYouSure,
                                         ),
-                                        style:
-                                            AppStyle.interNormal(size: 16.sp),
+                                        style: AppStyle.interNormal(
+                                          size: 16.sp,
+                                        ),
                                       ),
                                     ),
                                     Form(
@@ -224,8 +229,8 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                               return CustomButton(
                                                 title:
                                                     AppHelpers.getTranslation(
-                                                  TrKeys.confirmation,
-                                                ),
+                                                      TrKeys.confirmation,
+                                                    ),
                                                 background: AppStyle.blackColor,
                                                 textColor: AppStyle.white,
                                                 borderColor: Colors.transparent,
@@ -242,7 +247,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                                           context: context,
                                                           orderId:
                                                               widget.order.id ??
-                                                                  0,
+                                                              0,
                                                           note: noteCon.text,
                                                         );
                                                     Navigator.pop(context);

@@ -47,7 +47,7 @@ void callbackDispatcher() {
               "location": {
                 "latitude": userLocation.latitude,
                 "longitude": userLocation.longitude,
-              }
+              },
             },
           );
         } catch (e) {
@@ -115,11 +115,7 @@ void main() async {
 
   runApp(
     ProviderScope(
-      child: Phoenix(
-        child: AppInitializerWidget(
-          child: AppWidget(),
-        ),
-      ),
+      child: Phoenix(child: AppInitializerWidget(child: AppWidget())),
     ),
   );
 }

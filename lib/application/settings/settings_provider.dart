@@ -5,5 +5,5 @@ import 'settings_state.dart';
 
 final settingsNotifierProvider =
     StateNotifierProvider<SettingsNotifier, SettingsState>(
-  (ref) => SettingsNotifier(settingsRepository),
-);
+      (ref) => SettingsNotifier(settingsRepository),
+    );

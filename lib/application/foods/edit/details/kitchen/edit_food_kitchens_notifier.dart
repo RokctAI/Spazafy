@@ -9,8 +9,7 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
   final CatalogInterface _catalogRepository;
 
   EditFoodKitchensNotifier(this._catalogRepository)
-      : super(
-            EditFoodKitchensState(kitchenController: TextEditingController()));
+    : super(EditFoodKitchensState(kitchenController: TextEditingController()));
 
   void setFoodKitchen(KitchenModel? unit) {
     state = state.copyWith(foodKitchen: unit);

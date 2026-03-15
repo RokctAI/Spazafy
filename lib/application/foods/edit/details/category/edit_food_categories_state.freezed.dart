@@ -48,8 +48,10 @@ abstract class $EditFoodCategoriesStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EditFoodCategoriesStateCopyWithImpl<$Res,
-        $Val extends EditFoodCategoriesState>
+class _$EditFoodCategoriesStateCopyWithImpl<
+  $Res,
+  $Val extends EditFoodCategoriesState
+>
     implements $EditFoodCategoriesStateCopyWith<$Res> {
   _$EditFoodCategoriesStateCopyWithImpl(this._value, this._then);
 
@@ -71,27 +73,28 @@ class _$EditFoodCategoriesStateCopyWithImpl<$Res,
   }) {
     return _then(
       _value.copyWith(
-        isLoading: null == isLoading
-            ? _value.isLoading
-            : isLoading // ignore: cast_nullable_to_non_nullable
-                as bool,
-        categories: null == categories
-            ? _value.categories
-            : categories // ignore: cast_nullable_to_non_nullable
-                as List<CategoryData>,
-        activeIndex: null == activeIndex
-            ? _value.activeIndex
-            : activeIndex // ignore: cast_nullable_to_non_nullable
-                as int,
-        categoriesController: freezed == categoriesController
-            ? _value.categoriesController
-            : categoriesController // ignore: cast_nullable_to_non_nullable
-                as TextEditingController?,
-        foodCategory: freezed == foodCategory
-            ? _value.foodCategory
-            : foodCategory // ignore: cast_nullable_to_non_nullable
-                as CategoryData?,
-      ) as $Val,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            categories: null == categories
+                ? _value.categories
+                : categories // ignore: cast_nullable_to_non_nullable
+                      as List<CategoryData>,
+            activeIndex: null == activeIndex
+                ? _value.activeIndex
+                : activeIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            categoriesController: freezed == categoriesController
+                ? _value.categoriesController
+                : categoriesController // ignore: cast_nullable_to_non_nullable
+                      as TextEditingController?,
+            foodCategory: freezed == foodCategory
+                ? _value.foodCategory
+                : foodCategory // ignore: cast_nullable_to_non_nullable
+                      as CategoryData?,
+          )
+          as $Val,
     );
   }
 }
@@ -116,8 +119,11 @@ abstract class _$$EditFoodCategoriesStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$EditFoodCategoriesStateImplCopyWithImpl<$Res>
-    extends _$EditFoodCategoriesStateCopyWithImpl<$Res,
-        _$EditFoodCategoriesStateImpl>
+    extends
+        _$EditFoodCategoriesStateCopyWithImpl<
+          $Res,
+          _$EditFoodCategoriesStateImpl
+        >
     implements _$$EditFoodCategoriesStateImplCopyWith<$Res> {
   __$$EditFoodCategoriesStateImplCopyWithImpl(
     _$EditFoodCategoriesStateImpl _value,
@@ -140,23 +146,23 @@ class __$$EditFoodCategoriesStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                as bool,
+                  as bool,
         categories: null == categories
             ? _value._categories
             : categories // ignore: cast_nullable_to_non_nullable
-                as List<CategoryData>,
+                  as List<CategoryData>,
         activeIndex: null == activeIndex
             ? _value.activeIndex
             : activeIndex // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
         categoriesController: freezed == categoriesController
             ? _value.categoriesController
             : categoriesController // ignore: cast_nullable_to_non_nullable
-                as TextEditingController?,
+                  as TextEditingController?,
         foodCategory: freezed == foodCategory
             ? _value.foodCategory
             : foodCategory // ignore: cast_nullable_to_non_nullable
-                as CategoryData?,
+                  as CategoryData?,
       ),
     );
   }
@@ -171,8 +177,8 @@ class _$EditFoodCategoriesStateImpl extends _EditFoodCategoriesState {
     this.activeIndex = 0,
     this.categoriesController,
     this.foodCategory,
-  })  : _categories = categories,
-        super._();
+  }) : _categories = categories,
+       super._();
 
   @override
   @JsonKey()
@@ -220,13 +226,13 @@ class _$EditFoodCategoriesStateImpl extends _EditFoodCategoriesState {
 
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        isLoading,
-        const DeepCollectionEquality().hash(_categories),
-        activeIndex,
-        categoriesController,
-        foodCategory,
-      );
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_categories),
+    activeIndex,
+    categoriesController,
+    foodCategory,
+  );
 
   /// Create a copy of EditFoodCategoriesState
   /// with the given fields replaced by the non-null parameter values.
@@ -234,8 +240,10 @@ class _$EditFoodCategoriesStateImpl extends _EditFoodCategoriesState {
   @override
   @pragma('vm:prefer-inline')
   _$$EditFoodCategoriesStateImplCopyWith<_$EditFoodCategoriesStateImpl>
-      get copyWith => __$$EditFoodCategoriesStateImplCopyWithImpl<
-          _$EditFoodCategoriesStateImpl>(this, _$identity);
+  get copyWith =>
+      __$$EditFoodCategoriesStateImplCopyWithImpl<
+        _$EditFoodCategoriesStateImpl
+      >(this, _$identity);
 }
 
 abstract class _EditFoodCategoriesState extends EditFoodCategoriesState {
@@ -264,5 +272,5 @@ abstract class _EditFoodCategoriesState extends EditFoodCategoriesState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditFoodCategoriesStateImplCopyWith<_$EditFoodCategoriesStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

@@ -5,5 +5,5 @@ import 'statistics_state.dart';
 
 final statisticsProvider =
     StateNotifierProvider<StatisticsNotifier, StatisticsState>(
-  (ref) => StatisticsNotifier(userRepository),
-);
+      (ref) => StatisticsNotifier(userRepository),
+    );

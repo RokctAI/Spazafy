@@ -47,15 +47,14 @@ class ExtrasGroupsResponse {
     List<Group>? data,
     Links? links,
     Meta? meta,
-  }) =>
-      ExtrasGroupsResponse(
-        timestamp: timestamp ?? _timestamp,
-        status: status ?? _status,
-        message: message ?? _message,
-        data: data ?? _data,
-        links: links ?? _links,
-        meta: meta ?? _meta,
-      );
+  }) => ExtrasGroupsResponse(
+    timestamp: timestamp ?? _timestamp,
+    status: status ?? _status,
+    message: message ?? _message,
+    data: data ?? _data,
+    links: links ?? _links,
+    meta: meta ?? _meta,
+  );
 
   dynamic get timestamp => _timestamp;
   bool? get status => _status;
@@ -112,13 +111,12 @@ class GroupExtrasResponse {
     bool? status,
     String? message,
     Group? data,
-  }) =>
-      GroupExtrasResponse(
-        timestamp: timestamp ?? _timestamp,
-        status: status ?? _status,
-        message: message ?? _message,
-        data: data ?? _data,
-      );
+  }) => GroupExtrasResponse(
+    timestamp: timestamp ?? _timestamp,
+    status: status ?? _status,
+    message: message ?? _message,
+    data: data ?? _data,
+  );
 
   dynamic get timestamp => _timestamp;
   bool? get status => _status;

@@ -29,7 +29,8 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
           queryParameters: data,
         );
         return ApiResult.success(
-            data: NotificationResponse.fromJson(response.data));
+          data: NotificationResponse.fromJson(response.data),
+        );
       } catch (e) {
         // Fallback to V1
         final response = await client.get(
@@ -37,7 +38,8 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
           queryParameters: data,
         );
         return ApiResult.success(
-            data: NotificationResponse.fromJson(response.data));
+          data: NotificationResponse.fromJson(response.data),
+        );
       }
     } catch (e) {
       return ApiResult.failure(
@@ -55,10 +57,12 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
         await client.post('/api/method/paas.api.read_all_notifications');
         return ApiResult.success(data: NotificationResponse());
       } catch (e) {
-        final response =
-            await client.post('/api/v1/dashboard/notifications/read-all');
+        final response = await client.post(
+          '/api/v1/dashboard/notifications/read-all',
+        );
         return ApiResult.success(
-            data: NotificationResponse.fromJson(response.data));
+          data: NotificationResponse.fromJson(response.data),
+        );
       }
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
@@ -94,15 +98,19 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       try {
-        final response =
-            await client.get('/api/method/paas.api.get_notification_count');
+        final response = await client.get(
+          '/api/method/paas.api.get_notification_count',
+        );
         return ApiResult.success(
-            data: CountNotificationModel.fromJson(response.data['message']));
+          data: CountNotificationModel.fromJson(response.data['message']),
+        );
       } catch (e) {
-        final response = await client
-            .get('/api/v1/dashboard/user/profile/notifications-statistic');
+        final response = await client.get(
+          '/api/v1/dashboard/user/profile/notifications-statistic',
+        );
         return ApiResult.success(
-            data: CountNotificationModel.fromJson(response.data));
+          data: CountNotificationModel.fromJson(response.data),
+        );
       }
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
@@ -121,7 +129,8 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
         queryParameters: data,
       );
       return ApiResult.success(
-          data: NotificationResponse.fromJson(response.data));
+        data: NotificationResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }

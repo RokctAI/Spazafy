@@ -186,7 +186,9 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   void getSetProgressLocation() {
     timer = Timer.periodic(const Duration(seconds: 10), (Timer t) {
-      ref.read(homeProvider.notifier).getRouting(
+      ref
+          .read(homeProvider.notifier)
+          .getRouting(
             context: context,
             start: latLng,
             isOnline: (LocalStorage.getOnline()),
@@ -226,12 +228,16 @@ class _HomePageState extends ConsumerState<HomePage> {
       child: PushOrder(pushModel: push ?? OrderDetailData(), isActive: false),
     );
     final ImageCropperMarker image = ImageCropperMarker();
-    ref.read(homeProvider.notifier).goMarket(
+    ref
+        .read(homeProvider.notifier)
+        .goMarket(
           context: context,
           orderId: (push?.id ?? 0).toString(),
           order: push,
           onSuccess: () async {
-            ref.read(homeProvider.notifier).getRoutingAll(
+            ref
+                .read(homeProvider.notifier)
+                .getRoutingAll(
                   // ignore: use_build_context_synchronously
                   context: context,
                   start: LatLng(
@@ -308,11 +314,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                 _map(context, ref),
                 state.isGoRestaurant || state.isGoUser
                     ? state.parcelDetail == null
-                        ? DeliverBottomSheetScreen(
-                            order: push ??
-                                (state.orderDetail ?? OrderDetailData()),
-                          )
-                        : ParcelBottomSheetScreen(parcel: state.parcelDetail)
+                          ? DeliverBottomSheetScreen(
+                              order:
+                                  push ??
+                                  (state.orderDetail ?? OrderDetailData()),
+                            )
+                          : ParcelBottomSheetScreen(parcel: state.parcelDetail)
                     : BottomSheetScreen(isScrolling: state.isScrolling),
                 state.isGoRestaurant || state.isGoUser
                     ? const SizedBox.shrink()
@@ -457,7 +464,8 @@ class _HomePageState extends ConsumerState<HomePage> {
           ...ref.watch(homeProvider).markers,
         },
         polygons: ref.watch(homeProvider).polygon,
-        polylines: ref.watch(homeProvider).isGoRestaurant ||
+        polylines:
+            ref.watch(homeProvider).isGoRestaurant ||
                 ref.watch(homeProvider).isGoUser
             ? {
                 Polyline(
@@ -497,8 +505,8 @@ class _HomePageState extends ConsumerState<HomePage> {
           bottom: ref.watch(homeProvider).isGoRestaurant
               ? 90.h
               : ref.watch(homeProvider).isScrolling
-                  ? 60.h
-                  : 330.h,
+              ? 60.h
+              : 330.h,
         ),
       ),
     );

@@ -34,8 +34,9 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
         } else {
           // Driver logic (different model structure usually)
           state = state.copyWith(
-              countDataDriver: data as StatisticsIncomeResponse,
-              isLoading: false);
+            countDataDriver: data as StatisticsIncomeResponse,
+            isLoading: false,
+          );
         }
       },
       failure: (fail, status) {

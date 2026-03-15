@@ -61,16 +61,18 @@ class AppDatabase extends _$AppDatabase {
           for (final product in products) {
             try {
               final Map<String, dynamic> data = jsonDecode(product.data);
-              await (update(productsTable)
-                    ..where((t) => t.id.equals(product.id)))
-                  .write(ProductsTableCompanion(
-                title: Value(data['title']),
-                barcode: Value(data['bar_code'] ?? data['barcode']),
-                categoryId: Value(data['category_id']?.toString()),
-                active: Value(data['active'] ?? true),
-                img: Value(data['img']),
-                unitId: Value(data['unit_id']?.toString()),
-              ));
+              await (update(
+                productsTable,
+              )..where((t) => t.id.equals(product.id))).write(
+                ProductsTableCompanion(
+                  title: Value(data['title']),
+                  barcode: Value(data['bar_code'] ?? data['barcode']),
+                  categoryId: Value(data['category_id']?.toString()),
+                  active: Value(data['active'] ?? true),
+                  img: Value(data['img']),
+                  unitId: Value(data['unit_id']?.toString()),
+                ),
+              );
             } catch (e) {
               // Skip if invalid JSON or missing fields
             }
@@ -162,10 +164,9 @@ class AppDatabase extends _$AppDatabase {
   /// Delete an item by key.
   Future<void> deleteItem(String boxName, String key) async {
     final table = getTable(boxName);
-    await (delete(table)
-          ..where((tbl) {
-            return _idColumn(table).equals(key);
-          }))
+    await (delete(table)..where((tbl) {
+          return _idColumn(table).equals(key);
+        }))
         .go();
   }
 
@@ -181,11 +182,9 @@ class AppDatabase extends _$AppDatabase {
   }
 
   Future<List<SyncQueueEntity>> getPendingSyncRequests() {
-    return (select(syncQueueTable)
-          ..orderBy([
-            (t) =>
-                OrderingTerm(expression: t.createdAt, mode: OrderingMode.asc),
-          ]))
+    return (select(syncQueueTable)..orderBy([
+          (t) => OrderingTerm(expression: t.createdAt, mode: OrderingMode.asc),
+        ]))
         .get();
   }
 
@@ -202,10 +201,12 @@ class AppDatabase extends _$AppDatabase {
   }) async {
     final search = select(productsTable);
     if (query != null && query.isNotEmpty) {
-      search.where((t) =>
-          t.title.contains(query) |
-          t.barcode.equals(query) |
-          t.data.contains(query)); // Fallback to data search
+      search.where(
+        (t) =>
+            t.title.contains(query) |
+            t.barcode.equals(query) |
+            t.data.contains(query),
+      ); // Fallback to data search
     }
     if (categoryId != null) {
       search.where((t) => t.categoryId.equals(categoryId));
@@ -240,7 +241,7 @@ class AppDatabase extends _$AppDatabase {
       query.where((t) => t.status.equals(status));
     }
     query.orderBy([
-      (t) => OrderingTerm(expression: t.createdAt, mode: OrderingMode.desc)
+      (t) => OrderingTerm(expression: t.createdAt, mode: OrderingMode.desc),
     ]);
     return query.get();
   }

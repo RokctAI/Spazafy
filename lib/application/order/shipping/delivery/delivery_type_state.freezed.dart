@@ -53,11 +53,12 @@ class _$DeliveryTypeStateCopyWithImpl<$Res, $Val extends DeliveryTypeState>
   $Res call({Object? type = null}) {
     return _then(
       _value.copyWith(
-        type: null == type
-            ? _value.type
-            : type // ignore: cast_nullable_to_non_nullable
-                as String,
-      ) as $Val,
+            type: null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
     );
   }
 }
@@ -93,7 +94,7 @@ class __$$DeliveryTypeStateImplCopyWithImpl<$Res>
         type: null == type
             ? _value.type
             : type // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }

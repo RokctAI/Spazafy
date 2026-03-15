@@ -16,10 +16,12 @@ class PaymentsRepository implements PaymentsFacade {
       final client = dioHttp.client(requireAuth: true);
       // Try PaaS first
       try {
-        final response = await client
-            .get('/api/method/paas.api.payment.payment.get_payment_gateways');
+        final response = await client.get(
+          '/api/method/paas.api.payment.payment.get_payment_gateways',
+        );
         return ApiResult.success(
-            data: PaymentsResponse.fromJson(response.data));
+          data: PaymentsResponse.fromJson(response.data),
+        );
       } catch (e) {
         // Fallback to V1
         final response = await client.get(
@@ -27,7 +29,8 @@ class PaymentsRepository implements PaymentsFacade {
           queryParameters: {"lang": LocalStorage.getLanguage()?.locale ?? 'en'},
         );
         return ApiResult.success(
-            data: PaymentsResponse.fromJson(response.data));
+          data: PaymentsResponse.fromJson(response.data),
+        );
       }
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
@@ -46,7 +49,8 @@ class PaymentsRepository implements PaymentsFacade {
         data: {'order_id': orderId, 'payment_id': paymentId},
       );
       return ApiResult.success(
-          data: TransactionsResponse.fromJson(response.data));
+        data: TransactionsResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
@@ -56,8 +60,9 @@ class PaymentsRepository implements PaymentsFacade {
   Future<ApiResult<List<SavedCardModel>>> getSavedCards() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client
-          .get('/api/method/paas.api.payment.payment.get_saved_cards');
+      final response = await client.get(
+        '/api/method/paas.api.payment.payment.get_saved_cards',
+      );
       return ApiResult.success(
         data: (response.data['data'] as List)
             .map((e) => SavedCardModel.fromJson(e))
@@ -83,7 +88,7 @@ class PaymentsRepository implements PaymentsFacade {
           'card_number': cardNumber,
           'card_holder': cardName,
           'expiry_date': expiryDate,
-          'cvc': cvc
+          'cvc': cvc,
         },
       );
       return ApiResult.success(data: response.data['data']['token']);
@@ -96,8 +101,10 @@ class PaymentsRepository implements PaymentsFacade {
   Future<ApiResult<bool>> deleteCard(String cardId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/method/paas.api.payment.payment.delete_card',
-          data: {'card_name': cardId});
+      await client.post(
+        '/api/method/paas.api.payment.payment.delete_card',
+        data: {'card_name': cardId},
+      );
       return const ApiResult.success(data: true);
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
@@ -111,12 +118,15 @@ class PaymentsRepository implements PaymentsFacade {
 
   @override
   Future<ApiResult<String>> processTokenPayment(
-      OrderBodyData orderData, String token) async {
+    OrderBodyData orderData,
+    String token,
+  ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-          '/api/method/paas.api.payment.payment.process_token_payment',
-          data: {'order_id': orderData.cartId, 'token': token});
+        '/api/method/paas.api.payment.payment.process_token_payment',
+        data: {'order_id': orderData.cartId, 'token': token},
+      );
       return const ApiResult.success(data: "Success");
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
@@ -124,8 +134,13 @@ class PaymentsRepository implements PaymentsFacade {
   }
 
   @override
-  Future<ApiResult<String>> processDirectCardPayment(OrderBodyData orderBody,
-      String cardNumber, String cardName, String expiryDate, String cvc) async {
+  Future<ApiResult<String>> processDirectCardPayment(
+    OrderBodyData orderBody,
+    String cardNumber,
+    String cardName,
+    String expiryDate,
+    String cvc,
+  ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
@@ -135,7 +150,7 @@ class PaymentsRepository implements PaymentsFacade {
           'card_number': cardNumber,
           'card_holder': cardName,
           'expiry_date': expiryDate,
-          'cvc': cvc
+          'cvc': cvc,
         },
       );
       return ApiResult.success(data: response.data['message']);
@@ -155,15 +170,18 @@ class PaymentsRepository implements PaymentsFacade {
         queryParameters: {"lang": LocalStorage.getLanguage()?.locale ?? 'en'},
       );
       return ApiResult.success(
-          data: NonExistPaymentResponse.fromJson(response.data));
+        data: NonExistPaymentResponse.fromJson(response.data),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
   }
 
   @override
-  Future<ApiResult<String>> paymentWalletWebView(
-      {required String name, required num price}) async {
+  Future<ApiResult<String>> paymentWalletWebView({
+    required String name,
+    required num price,
+  }) async {
     try {
       final data = {
         'wallet_id': LocalStorage.getUser()?.wallet?.uuid ?? '',
@@ -171,8 +189,10 @@ class PaymentsRepository implements PaymentsFacade {
         "currency_id": LocalStorage.getSelectedCurrency()?.id,
       };
       final client = dioHttp.client(requireAuth: true);
-      final res =
-          await client.post('/api/v1/dashboard/user/$name-process', data: data);
+      final res = await client.post(
+        '/api/v1/dashboard/user/$name-process',
+        data: data,
+      );
       return ApiResult.success(data: res.data["data"]["data"]["url"] ?? "");
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
@@ -180,8 +200,9 @@ class PaymentsRepository implements PaymentsFacade {
   }
 
   @override
-  Future<ApiResult<MaksekeskusResponse>> paymentMaksekeskusView(
-      {num? price}) async {
+  Future<ApiResult<MaksekeskusResponse>> paymentMaksekeskusView({
+    num? price,
+  }) async {
     try {
       final data = {
         'wallet_id': LocalStorage.getUser()?.wallet?.uuid,
@@ -189,26 +210,33 @@ class PaymentsRepository implements PaymentsFacade {
         "currency_id": LocalStorage.getSelectedCurrency()?.id,
       };
       final client = dioHttp.client(requireAuth: true);
-      final res = await client
-          .post('/api/v1/dashboard/user/maksekeskus-process', data: data);
+      final res = await client.post(
+        '/api/v1/dashboard/user/maksekeskus-process',
+        data: data,
+      );
       return ApiResult.success(
-          data: MaksekeskusResponse.fromJson(res.data["data"]));
+        data: MaksekeskusResponse.fromJson(res.data["data"]),
+      );
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
   }
 
   @override
-  Future<ApiResult<String>> paymentSubscriptionWebView(
-      {required String name, required String? subscriptionId}) async {
+  Future<ApiResult<String>> paymentSubscriptionWebView({
+    required String name,
+    required String? subscriptionId,
+  }) async {
     try {
       final data = {
         'subscription_id': subscriptionId,
         "currency_id": LocalStorage.getSelectedCurrency()?.id,
       };
       final client = dioHttp.client(requireAuth: true);
-      final res =
-          await client.post('/api/v1/dashboard/user/$name-process', data: data);
+      final res = await client.post(
+        '/api/v1/dashboard/user/$name-process',
+        data: data,
+      );
       return ApiResult.success(data: res.data["data"]["data"]["url"] ?? "");
     } catch (e) {
       return ApiResult.failure(error: AppHelpers.errorHandler(e));

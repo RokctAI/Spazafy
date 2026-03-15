@@ -63,38 +63,38 @@ class OrdersItem extends StatelessWidget {
                     status == OrderStatus.delivered
                         ? const SizedBox.shrink()
                         : status == OrderStatus.canceled
-                            ? Container(
-                                width: 10.r,
-                                height: 10.r,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.red,
+                        ? Container(
+                            width: 10.r,
+                            height: 10.r,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.red,
+                            ),
+                          )
+                        : Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 8.w,
+                              vertical: 6.h,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppStyle.greyColor,
+                              borderRadius: BorderRadius.circular(100.r),
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(FlutterRemix.time_fill, size: 16.r),
+                                4.horizontalSpace,
+                                Text(
+                                  "41:00",
+                                  style: AppStyle.interSemi(
+                                    size: 14,
+                                    color: AppStyle.blackColor,
+                                  ),
                                 ),
-                              )
-                            : Container(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 8.w,
-                                  vertical: 6.h,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: AppStyle.greyColor,
-                                  borderRadius: BorderRadius.circular(100.r),
-                                ),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Icon(FlutterRemix.time_fill, size: 16.r),
-                                    4.horizontalSpace,
-                                    Text(
-                                      "41:00",
-                                      style: AppStyle.interSemi(
-                                        size: 14,
-                                        color: AppStyle.blackColor,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              ],
+                            ),
+                          ),
                   ],
                 ),
               ],

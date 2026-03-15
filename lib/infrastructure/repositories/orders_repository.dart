@@ -66,7 +66,8 @@ class OrdersRepository implements OrdersFacade {
 
   @override
   Future<ApiResult<OrderActiveModel>> createOrder(
-      OrderBodyData orderBody) async {
+    OrderBodyData orderBody,
+  ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
@@ -482,13 +483,18 @@ class OrdersRepository implements OrdersFacade {
         'created_at': DateTime.now().toIso8601String(),
         'stocks': stocks.map((s) => s.toJson()).toList(),
         'price': stocks.fold<num>(
-            0, (sum, s) => sum + ((s.totalPrice ?? 0) * (s.cartCount ?? 1))),
+          0,
+          (sum, s) => sum + ((s.totalPrice ?? 0) * (s.cartCount ?? 1)),
+        ),
       };
       await appDatabase.putItem('orders', orderId, orderJson);
       return ApiResult.success(
         data: CreateOrderResponse(
           data: CreatedOrder(
-              id: orderId, userId: user?.id, price: orderJson['price'] as num?),
+            id: orderId,
+            userId: user?.id,
+            price: orderJson['price'] as num?,
+          ),
         ),
       );
     } catch (e) {
@@ -518,7 +524,8 @@ class OrdersRepository implements OrdersFacade {
         data: data,
       );
       return ApiResult.success(
-          data: GetCalculateModel.fromJson(response.data["message"]));
+        data: GetCalculateModel.fromJson(response.data["message"]),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -598,7 +605,8 @@ class OrdersRepository implements OrdersFacade {
         queryParameters: {'order_id': deliveryId},
       );
       return ApiResult.success(
-          data: LocalLocation.fromJson(response.data['message']));
+        data: LocalLocation.fromJson(response.data['message']),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -775,7 +783,8 @@ class OrdersRepository implements OrdersFacade {
         data: {'shop_id': shopId, 'amount': amount},
       );
       return ApiResult.success(
-          data: CashbackModel.fromJson(response.data['message']));
+        data: CashbackModel.fromJson(response.data['message']),
+      );
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),

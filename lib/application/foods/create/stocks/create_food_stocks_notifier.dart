@@ -12,7 +12,7 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
   List<Stock> _oldStocks = [];
 
   CreateFoodStocksNotifier(this._productsRepository)
-      : super(const CreateFoodStocksState());
+    : super(const CreateFoodStocksState());
 
   void setStockAddons(List<ProductData> addons, int stockIndex) {
     List<AddonData> checkedAddons = [];

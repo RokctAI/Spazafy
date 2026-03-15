@@ -60,15 +60,17 @@ class OrderDetail extends StatelessWidget {
                         title: AppHelpers.getTranslation(
                           isOrder
                               ? (order.status != "on_a_way"
-                                  ? TrKeys.startShopping
-                                  : TrKeys.completeCheckout)
+                                    ? TrKeys.startShopping
+                                    : TrKeys.completeCheckout)
                               : TrKeys.order,
                         ),
                         onPressed: () async {
                           if (order.deliveryman == null) {
                             final ImageCropperMarker image =
                                 ImageCropperMarker();
-                            ref.read(homeProvider.notifier).goMarket(
+                            ref
+                                .read(homeProvider.notifier)
+                                .goMarket(
                                   context: context,
                                   orderId: order.id.toString(),
                                   setOrder: !isActiveButton && true,
@@ -100,12 +102,16 @@ class OrderDetail extends StatelessWidget {
                                             markerId: const MarkerId("Shop"),
                                             position: LatLng(
                                               double.parse(
-                                                order.shop?.location
+                                                order
+                                                        .shop
+                                                        ?.location
                                                         ?.latitude ??
                                                     "41.285127",
                                               ),
                                               double.parse(
-                                                order.shop?.location
+                                                order
+                                                        .shop
+                                                        ?.location
                                                         ?.longitude ??
                                                     "69.172530",
                                               ),
@@ -123,7 +129,9 @@ class OrderDetail extends StatelessWidget {
                             final ImageCropperMarker image =
                                 ImageCropperMarker();
                             if (order.status != "on_a_way") {
-                              ref.read(homeProvider.notifier).getRoutingAll(
+                              ref
+                                  .read(homeProvider.notifier)
+                                  .getRoutingAll(
                                     context: context,
                                     start: LatLng(
                                       LocalStorage.getAddressSelected()
@@ -162,7 +170,9 @@ class OrderDetail extends StatelessWidget {
                                     ),
                                   );
                             } else {
-                              ref.read(homeProvider.notifier).getRoutingAll(
+                              ref
+                                  .read(homeProvider.notifier)
+                                  .getRoutingAll(
                                     context: context,
                                     start: LatLng(
                                       LocalStorage.getAddressSelected()
@@ -201,18 +211,22 @@ class OrderDetail extends StatelessWidget {
                                   );
                             }
                             order.status != "on_a_way"
-                                ? ref.read(homeProvider.notifier).goMarket(
-                                      context: context,
-                                      orderId: "",
-                                      order: order,
-                                      setOrder: !isActiveButton,
-                                      onSuccess: () {},
-                                    )
-                                : ref.read(homeProvider.notifier).goClient(
-                                      context,
-                                      order.id,
-                                      order: order,
-                                    );
+                                ? ref
+                                      .read(homeProvider.notifier)
+                                      .goMarket(
+                                        context: context,
+                                        orderId: "",
+                                        order: order,
+                                        setOrder: !isActiveButton,
+                                        onSuccess: () {},
+                                      )
+                                : ref
+                                      .read(homeProvider.notifier)
+                                      .goClient(
+                                        context,
+                                        order.id,
+                                        order: order,
+                                      );
                             Navigator.pop(context);
                             Navigator.pop(context);
                           }

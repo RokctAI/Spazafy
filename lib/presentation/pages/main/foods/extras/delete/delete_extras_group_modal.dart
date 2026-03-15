@@ -52,18 +52,19 @@ class DeleteExtrasGroupModal extends StatelessWidget {
                     builder: (context, ref, child) {
                       return CustomButton(
                         title: AppHelpers.getTranslation(TrKeys.yes),
-                        isLoading:
-                            ref.watch(deleteExtrasGroupProvider).isLoading,
+                        isLoading: ref
+                            .watch(deleteExtrasGroupProvider)
+                            .isLoading,
                         onPressed: () => ref
                             .read(deleteExtrasGroupProvider.notifier)
                             .deleteExtrasGroup(
-                          context,
-                          groupId: group.id,
-                          success: () {
-                            ref.read(extrasProvider.notifier).fetchGroups();
-                            context.router.popUntilRoot();
-                          },
-                        ),
+                              context,
+                              groupId: group.id,
+                              success: () {
+                                ref.read(extrasProvider.notifier).fetchGroups();
+                                context.router.popUntilRoot();
+                              },
+                            ),
                         background: AppStyle.red,
                         borderColor: AppStyle.red,
                         textColor: AppStyle.white,

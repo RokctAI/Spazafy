@@ -178,10 +178,13 @@ class _BecomeDriverPageState extends ConsumerState<BecomeDriverPage> {
               });
             },
             decoration: InputDecoration(
-              labelText:
-                  AppHelpers.getTranslation(TrKeys.typeTechnique).toUpperCase(),
-              labelStyle:
-                  AppStyle.interNormal(size: 14.sp, color: AppStyle.black),
+              labelText: AppHelpers.getTranslation(
+                TrKeys.typeTechnique,
+              ).toUpperCase(),
+              labelStyle: AppStyle.interNormal(
+                size: 14.sp,
+                color: AppStyle.black,
+              ),
               contentPadding: REdgeInsets.symmetric(horizontal: 0, vertical: 8),
               floatingLabelBehavior: FloatingLabelBehavior.always,
               enabledBorder: const UnderlineInputBorder(
@@ -273,7 +276,9 @@ class _BecomeDriverPageState extends ConsumerState<BecomeDriverPage> {
               if (pickedFile != null) {
                 setState(() => imagePath = pickedFile.path);
                 eventImage.editCarImage(
-                    context: context, path: pickedFile.path);
+                  context: context,
+                  path: pickedFile.path,
+                );
               }
             },
             child: Container(
@@ -286,30 +291,34 @@ class _BecomeDriverPageState extends ConsumerState<BecomeDriverPage> {
               ),
               child: stateImage.carImageUrl == null
                   ? (imagePath == null
-                      ? Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              FlutterRemix.upload_cloud_2_line,
-                              size: 36.sp,
-                              color: AppStyle.primary,
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                FlutterRemix.upload_cloud_2_line,
+                                size: 36.sp,
+                                color: AppStyle.primary,
+                              ),
+                              16.verticalSpace,
+                              Text(
+                                AppHelpers.getTranslation(TrKeys.carPicture),
+                                style: AppStyle.interSemi(size: 14.sp),
+                              ),
+                              Text(
+                                AppHelpers.getTranslation(
+                                  TrKeys.recommendedSize,
+                                ),
+                                style: AppStyle.interRegular(size: 14.sp),
+                              ),
+                            ],
+                          )
+                        : ClipRRect(
+                            borderRadius: BorderRadius.circular(20.r),
+                            child: Image.file(
+                              File(imagePath!),
+                              fit: BoxFit.cover,
                             ),
-                            16.verticalSpace,
-                            Text(
-                              AppHelpers.getTranslation(TrKeys.carPicture),
-                              style: AppStyle.interSemi(size: 14.sp),
-                            ),
-                            Text(
-                              AppHelpers.getTranslation(TrKeys.recommendedSize),
-                              style: AppStyle.interRegular(size: 14.sp),
-                            ),
-                          ],
-                        )
-                      : ClipRRect(
-                          borderRadius: BorderRadius.circular(20.r),
-                          child:
-                              Image.file(File(imagePath!), fit: BoxFit.cover),
-                        ))
+                          ))
                   : CommonImage(
                       imageUrl: stateImage.carImageUrl,
                       height: 160,

@@ -55,8 +55,10 @@ class OutlinedBorderTextField extends StatelessWidget {
             children: [
               Text(
                 label!,
-                style:
-                    AppStyle.interNormal(size: 9, color: AppStyle.blackColor),
+                style: AppStyle.interNormal(
+                  size: 9,
+                  color: AppStyle.blackColor,
+                ),
               ),
             ],
           ),
@@ -130,8 +132,8 @@ class OutlinedBorderTextField extends StatelessWidget {
                   color: isError
                       ? Style.redColor
                       : isSuccess
-                          ? AppStyle.greyColor
-                          : Style.pendingDark,
+                      ? AppStyle.greyColor
+                      : Style.pendingDark,
                 ),
               ),
             ],
