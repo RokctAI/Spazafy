@@ -11,7 +11,7 @@ import 'package:venderfoodyman/application/map/view_map_notifier.dart';
 import 'package:venderfoodyman/application/map/view_map_provider.dart';
 import 'package:venderfoodyman/application/map/view_map_state.dart';
 import 'package:venderfoodyman/domain/di/dependency_manager.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/presentation/theme/manager/app_assets.dart';
 import 'package:venderfoodyman/presentation/components/customer/components.dart';

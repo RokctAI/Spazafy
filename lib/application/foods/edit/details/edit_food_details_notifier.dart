@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'edit_food_details_state.dart';
 import 'package:venderfoodyman/domain/interface/manager/interfaces.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {

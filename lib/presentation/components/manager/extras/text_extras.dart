@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../list_items/text_extras_item.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 class TextExtras extends StatelessWidget {
   final int groupIndex;

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:venderfoodyman/application/home/home_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/presentation/components/driver/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/driver/maps_list.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';

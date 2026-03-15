@@ -14,7 +14,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:venderfoodyman/application/app_widget/app_provider.dart';
 import 'package:venderfoodyman/application/profile/profile_provider.dart';
 import 'package:venderfoodyman/domain/di/dependency_manager.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/address_information.dart';
+import 'package:venderfoodyman/infrastructure/models/data/address_information.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/address_new_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';

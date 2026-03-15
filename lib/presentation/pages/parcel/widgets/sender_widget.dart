@@ -12,7 +12,7 @@ import 'package:venderfoodyman/presentation/components/customer/text_fields/outl
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'custom_expanded.dart';
 
 class SenderWidget extends StatelessWidget {

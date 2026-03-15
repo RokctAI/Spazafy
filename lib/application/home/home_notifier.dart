@@ -17,9 +17,9 @@ import 'package:venderfoodyman/domain/interface/customer/parcel.dart';
 import 'package:venderfoodyman/domain/interface/customer/settings.dart';
 import 'package:venderfoodyman/domain/interface/user.dart';
 
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/address_information.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/address_old_data.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:venderfoodyman/infrastructure/models/data/address_information.dart';
+import 'package:venderfoodyman/infrastructure/models/data/address_old_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/filter_model.dart';
 
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';

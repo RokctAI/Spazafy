@@ -126,6 +126,24 @@ IMPORT_REPLACEMENTS = [
      "package:venderfoodyman/presentation/routes/app_router.gr.dart"),
     ("package:venderfoodyman/presentation/routes/manager/app_router.gr.dart",
      "package:venderfoodyman/presentation/routes/app_router.gr.dart"),
+
+    # ── Infrastructure & Utils Unification ──────────────────────────────────
+    ("package:venderfoodyman/utils/customer/app_initializer_widget.dart",
+     "package:venderfoodyman/utils/app_initializer_widget.dart"),
+    ("package:venderfoodyman/infrastructure/services/customer/app_database.dart",
+     "package:venderfoodyman/infrastructure/services/utils/app_database.dart"),
+    ("package:venderfoodyman/infrastructure/models/customer/data/address_information.dart",
+     "package:venderfoodyman/infrastructure/models/data/address_information.dart"),
+    ("package:venderfoodyman/infrastructure/models/customer/data/address_old_data.dart",
+     "package:venderfoodyman/infrastructure/models/data/address_old_data.dart"),
+    ("package:venderfoodyman/infrastructure/models/customer/models.dart",
+     "package:venderfoodyman/infrastructure/models/models.dart"),
+    ("package:venderfoodyman/infrastructure/models/driver/models.dart",
+     "package:venderfoodyman/infrastructure/models/models.dart"),
+    ("package:venderfoodyman/infrastructure/models/manager/models.dart",
+     "package:venderfoodyman/infrastructure/models/models.dart"),
+    ("package:venderfoodyman/infrastructure/services/utils/storage_keys.dart",
+     "package:venderfoodyman/infrastructure/services/constants/storage_keys.dart"),
 ]
 
 # ─── Class/type name renames ──────────────────────────────────────────────────

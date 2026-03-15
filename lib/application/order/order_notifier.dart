@@ -32,7 +32,7 @@ import 'package:venderfoodyman/domain/interface/orders.dart';
 import 'package:venderfoodyman/domain/interface/payments.dart';
 import 'package:venderfoodyman/domain/interface/shops.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/delivery_point_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/request/cart_request.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';

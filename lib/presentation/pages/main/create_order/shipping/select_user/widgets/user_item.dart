@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../../../../component/components.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 class UserItem extends StatelessWidget {
   final UserData user;

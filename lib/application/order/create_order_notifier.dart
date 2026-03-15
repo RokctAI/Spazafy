@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'create_order_state.dart';
 import 'package:venderfoodyman/domain/interface/manager/interfaces.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
   final OrdersInterface _ordersRepository;

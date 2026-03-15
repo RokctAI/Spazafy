@@ -6,7 +6,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/application/order/order_provider.dart';
 import 'package:venderfoodyman/application/profile/profile_provider.dart';
 import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/address_old_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/address_old_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/location.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';

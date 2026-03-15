@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:venderfoodyman/application/edit_profile/edit_profile_provider.dart';
 import 'package:venderfoodyman/application/profile/profile_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/app_validators.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';

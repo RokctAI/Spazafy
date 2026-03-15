@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 import 'package:venderfoodyman/infrastructure/driver/services/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/driver/services/tr_keys.dart';

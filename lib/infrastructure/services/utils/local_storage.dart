@@ -1,10 +1,10 @@
 import 'dart:convert';
-import 'package:venderfoodyman/infrastructure/models/customer/data/address_information.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/data/address_old_data.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/data/address_information.dart';
+import 'package:venderfoodyman/infrastructure/models/data/address_old_data.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
-import 'storage_keys.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
+import '../constants/storage_keys.dart';
 
 abstract class LocalStorage {
   LocalStorage._();

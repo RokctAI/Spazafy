@@ -14,7 +14,7 @@ import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../../component/components.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class EditRestaurantModal extends ConsumerStatefulWidget {

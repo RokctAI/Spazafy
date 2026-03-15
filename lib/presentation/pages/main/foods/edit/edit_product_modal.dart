@@ -5,7 +5,7 @@ import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'stocks/edit_food_stocks_body.dart';
 import 'details/edit_food_details_body.dart';
 import '../../../../component/components.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class EditProductModal extends StatefulWidget {

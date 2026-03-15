@@ -1,5 +1,5 @@
 import 'package:venderfoodyman/domain/handlers/manager/api_result.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 abstract class TableFacade {
   Future<ApiResult<ShopSection>> createNewSection({

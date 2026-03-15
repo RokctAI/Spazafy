@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'edit_food_kitchens_state.dart';
 import 'package:venderfoodyman/domain/interface/manager/interfaces.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
   final CatalogInterface _catalogRepository;

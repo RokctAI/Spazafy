@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 
 import 'section_state.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 class SectionNotifier extends StateNotifier<SectionState> {
   String _query = '';

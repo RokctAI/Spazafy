@@ -3,7 +3,7 @@ import 'package:venderfoodyman/infrastructure/models/customer/data/notification_
 
 import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/translation.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 abstract class SettingsFacade {
   Future<ApiResult<GlobalSettingsResponse>> getGlobalSettings();

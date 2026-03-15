@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   dio: ^5.9.0
+  flutter_displaymode: ^0.6.0
   jiffy: ^6.4.4
   intl: ^0.20.2
   lottie: ^3.3.2

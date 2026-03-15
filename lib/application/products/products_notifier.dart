@@ -7,7 +7,7 @@ import 'package:share_plus/share_plus.dart';
 
 import 'package:venderfoodyman/domain/interface/products.dart';
 import 'package:venderfoodyman/domain/interface/cart.dart';
-import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/request/cart_request.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
