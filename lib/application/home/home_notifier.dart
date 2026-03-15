@@ -11,10 +11,10 @@ import 'package:venderfoodyman/domain/interface/categories.dart';
 import 'package:venderfoodyman/domain/interface/shops.dart';
 import 'package:venderfoodyman/domain/interface/brands.dart';
 import 'package:venderfoodyman/domain/interface/products.dart';
-import 'package:venderfoodyman/domain/interface/customer/draw.dart';
+import 'package:venderfoodyman/domain/interface/draw.dart';
 import 'package:venderfoodyman/domain/interface/orders.dart';
-import 'package:venderfoodyman/domain/interface/customer/parcel.dart';
-import 'package:venderfoodyman/domain/interface/customer/settings.dart';
+import 'package:venderfoodyman/domain/interface/parcel.dart';
+import 'package:venderfoodyman/domain/interface/settings.dart';
 import 'package:venderfoodyman/domain/interface/user.dart';
 
 import 'package:venderfoodyman/infrastructure/models/models.dart';

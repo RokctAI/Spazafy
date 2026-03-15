@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../infrastructure/models/data/loans/loan_application.dart';
 import '../../infrastructure/models/data/loans/loan_contract_model.dart';
-import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 
 abstract class LoansFacade {
   /// Submit a new loan application

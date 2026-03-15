@@ -15,7 +15,7 @@ import 'package:venderfoodyman/presentation/components/customer/buttons/forgot_t
 import 'package:venderfoodyman/presentation/components/customer/buttons/social_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
-import 'package:venderfoodyman/presentation/pages/customer/auth/reset/reset_password_page.dart';
+import 'package:venderfoodyman/presentation/pages/auth/customer/reset/reset_password_page.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:venderfoodyman/application/auth/auth.dart';

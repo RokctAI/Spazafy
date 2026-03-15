@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/pages/customer/home/home_three/widgets/banner_screen.dart';
+import 'package:venderfoodyman/presentation/pages/home/home_three/widgets/banner_screen.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 class BannerItemThree extends StatelessWidget {

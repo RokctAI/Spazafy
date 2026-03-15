@@ -3,7 +3,7 @@ import 'package:venderfoodyman/infrastructure/models/customer/data/order_active_
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
 
-import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 
 abstract class OrdersFacade {
   Future<ApiResult<GetCalculateModel>> getCalculate({

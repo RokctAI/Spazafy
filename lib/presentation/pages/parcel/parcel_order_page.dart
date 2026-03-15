@@ -17,10 +17,10 @@ import 'package:venderfoodyman/presentation/components/customer/app_bars/common_
 //import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';
-import 'package:venderfoodyman/presentation/pages/customer/order/order_check/widgets/rating_page.dart';
-import 'package:venderfoodyman/presentation/pages/customer/order/order_check/widgets/title_price.dart';
-import 'package:venderfoodyman/presentation/pages/customer/order/order_screen/widgets/order_status.dart';
-import 'package:venderfoodyman/presentation/pages/customer/order/order_type/widgets/order_map.dart';
+import 'package:venderfoodyman/presentation/pages/order/order_check/widgets/rating_page.dart';
+import 'package:venderfoodyman/presentation/pages/order/order_check/widgets/title_price.dart';
+import 'package:venderfoodyman/presentation/pages/order/order_screen/widgets/order_status.dart';
+import 'package:venderfoodyman/presentation/pages/order/order_type/widgets/order_map.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import '../../../infrastructure/services/enums.dart';

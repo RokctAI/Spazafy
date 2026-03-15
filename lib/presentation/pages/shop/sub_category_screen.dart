@@ -14,8 +14,8 @@
 // import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
 // import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 // import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
-// import 'package:venderfoodyman/presentation/pages/customer/shop/cart/cart_order_page.dart';
-// import 'package:venderfoodyman/presentation/pages/customer/shop/widgets/make_tab_bar.dart';
+// import 'package:venderfoodyman/presentation/pages/shop/cart/cart_order_page.dart';
+// import 'package:venderfoodyman/presentation/pages/shop/widgets/make_tab_bar.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 //
 // import 'package:venderfoodyman/infrastructure/models/models.dart';

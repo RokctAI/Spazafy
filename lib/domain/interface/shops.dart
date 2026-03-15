@@ -1,7 +1,7 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/filter_model.dart';
 
-import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 abstract class ShopsFacade {

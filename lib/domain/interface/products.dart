@@ -1,6 +1,6 @@
 import 'package:venderfoodyman/infrastructure/models/customer/response/all_products_response.dart';
 
-import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 abstract class ProductsFacade {

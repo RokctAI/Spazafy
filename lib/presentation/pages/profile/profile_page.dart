@@ -27,8 +27,8 @@ import 'package:venderfoodyman/presentation/pages/customer/profile/delete_screen
 import 'package:venderfoodyman/presentation/pages/customer/profile/help_page.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
-import 'package:venderfoodyman/presentation/pages/customer/policy_term/policy_page.dart';
-import 'package:venderfoodyman/presentation/pages/customer/policy_term/term_page.dart';
+import 'package:venderfoodyman/presentation/pages/policy_term/policy_page.dart';
+import 'package:venderfoodyman/presentation/pages/policy_term/term_page.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:venderfoodyman/presentation/pages/customer/profile/widgets/my_account.dart';
 

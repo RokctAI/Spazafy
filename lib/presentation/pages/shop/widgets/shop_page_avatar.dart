@@ -16,7 +16,7 @@ import 'package:venderfoodyman/presentation/components/customer/buttons/animatio
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
 //import 'package:venderfoodyman/presentation/components/customer/shop_avarat.dart';
-import 'package:venderfoodyman/presentation/pages/customer/shop/group_order/group_order.dart';
+import 'package:venderfoodyman/presentation/pages/shop/group_order/group_order.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:venderfoodyman/presentation/components/customer/badges.dart';

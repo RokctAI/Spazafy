@@ -9,7 +9,7 @@ import 'package:venderfoodyman/application/shop/shop_provider.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/shop_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
-import 'package:venderfoodyman/presentation/pages/customer/order/order_type/widgets/order_map.dart';
+import 'package:venderfoodyman/presentation/pages/order/order_type/widgets/order_map.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 import 'package:venderfoodyman/customer/app_constants.dart';

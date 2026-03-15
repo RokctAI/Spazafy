@@ -1,7 +1,7 @@
 import 'package:venderfoodyman/infrastructure/models/customer/data/help_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/notification_list_data.dart';
 
-import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/translation.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 

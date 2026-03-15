@@ -58,6 +58,7 @@ dependencies:
   print_bluetooth_thermal: ^1.1.2
   mobile_scanner: ^5.1.0
   uuid: ^4.5.3
+  remixicon: ^1.0.1
 
   #media:
   image_picker: ^1.2.1

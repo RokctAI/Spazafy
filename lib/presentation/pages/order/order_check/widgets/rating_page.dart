@@ -14,7 +14,7 @@ import 'package:venderfoodyman/presentation/components/customer/buttons/custom_b
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
 import 'package:venderfoodyman/presentation/components/customer/web_view.dart';
-import 'package:venderfoodyman/presentation/pages/customer/order/order_check/widgets/payment_method.dart';
+import 'package:venderfoodyman/presentation/pages/order/order_check/widgets/payment_method.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 

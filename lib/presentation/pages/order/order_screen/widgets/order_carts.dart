@@ -9,8 +9,8 @@ import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/tpying_delay.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
-import 'package:venderfoodyman/presentation/pages/customer/shop/cart/widgets/cart_clear_dialog.dart';
-import 'package:venderfoodyman/presentation/pages/customer/shop/cart/widgets/cart_order_item.dart';
+import 'package:venderfoodyman/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
+import 'package:venderfoodyman/presentation/pages/shop/cart/widgets/cart_order_item.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class OrderCarts extends StatefulWidget {

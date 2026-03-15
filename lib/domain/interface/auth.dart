@@ -1,6 +1,6 @@
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 
-import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 
 abstract class AuthFacade {
   Future<ApiResult<LoginResponse>> login({

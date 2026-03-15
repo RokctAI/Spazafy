@@ -12,7 +12,7 @@ import 'package:venderfoodyman/presentation/components/customer/app_bars/app_bar
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
-import 'package:venderfoodyman/presentation/pages/customer/auth/confirmation/register_confirmation_page.dart';
+import 'package:venderfoodyman/presentation/pages/auth/customer/confirmation/register_confirmation_page.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
 import 'package:venderfoodyman/application/auth/auth.dart';

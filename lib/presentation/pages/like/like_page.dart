@@ -12,7 +12,7 @@ import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/market_item.dart';
-import 'package:venderfoodyman/presentation/pages/customer/home/shimmer/all_shop_shimmer.dart';
+import 'package:venderfoodyman/presentation/pages/home/shimmer/all_shop_shimmer.dart';
 import '../home/home_four/widgets/market_one_item.dart';
 import '../home/home_four/widgets/market_three_item.dart';
 import '../home/home_four/widgets/market_two_item.dart';

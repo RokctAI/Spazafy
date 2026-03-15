@@ -2,32 +2,32 @@ import 'package:get_it/get_it.dart';
 import 'package:google_place/google_place.dart';
 
 // Handlers
-import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 
 // Customer Interfaces
-import 'package:venderfoodyman/domain/interface/customer/address.dart';
+import 'package:venderfoodyman/domain/interface/address.dart';
 import 'package:venderfoodyman/domain/interface/auth.dart';
 import 'package:venderfoodyman/domain/interface/banners.dart';
-import 'package:venderfoodyman/domain/interface/customer/blogs.dart';
+import 'package:venderfoodyman/domain/interface/blogs.dart';
 import 'package:venderfoodyman/domain/interface/brands.dart';
 import 'package:venderfoodyman/domain/interface/cart.dart';
 import 'package:venderfoodyman/domain/interface/categories.dart';
-import 'package:venderfoodyman/domain/interface/customer/currencies.dart';
-import 'package:venderfoodyman/domain/interface/customer/draw.dart';
-import 'package:venderfoodyman/domain/interface/customer/gallery.dart';
-import 'package:venderfoodyman/domain/interface/customer/notification.dart';
+import 'package:venderfoodyman/domain/interface/currencies.dart';
+import 'package:venderfoodyman/domain/interface/draw.dart';
+import 'package:venderfoodyman/domain/interface/gallery.dart';
+import 'package:venderfoodyman/domain/interface/notification.dart';
 import 'package:venderfoodyman/domain/interface/orders.dart';
-import 'package:venderfoodyman/domain/interface/customer/parcel.dart';
+import 'package:venderfoodyman/domain/interface/parcel.dart';
 import 'package:venderfoodyman/domain/interface/payments.dart';
 import 'package:venderfoodyman/domain/interface/products.dart';
-import 'package:venderfoodyman/domain/interface/customer/settings.dart';
+import 'package:venderfoodyman/domain/interface/settings.dart';
 import 'package:venderfoodyman/domain/interface/shops.dart';
 import 'package:venderfoodyman/domain/interface/user.dart';
-import 'package:venderfoodyman/domain/interface/customer/loans.dart';
-import 'package:venderfoodyman/domain/interface/customer/wallet.dart';
-import 'package:venderfoodyman/domain/interface/customer/delivery_points.dart';
-import 'package:venderfoodyman/domain/interface/customer/table.dart';
-import 'package:venderfoodyman/domain/interface/customer/subscriptions.dart';
+import 'package:venderfoodyman/domain/interface/loans.dart';
+import 'package:venderfoodyman/domain/interface/wallet.dart';
+import 'package:venderfoodyman/domain/interface/delivery_points.dart';
+import 'package:venderfoodyman/domain/interface/table.dart';
+import 'package:venderfoodyman/domain/interface/subscriptions.dart';
 
 // Customer Repositories
 import 'package:venderfoodyman/infrastructure/repositories/customer/address_repository.dart';

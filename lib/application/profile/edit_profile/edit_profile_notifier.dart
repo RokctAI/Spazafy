@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:venderfoodyman/domain/interface/customer/gallery.dart';
+import 'package:venderfoodyman/domain/interface/gallery.dart';
 import 'package:venderfoodyman/domain/interface/user.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/request/edit_profile.dart';

@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 import '../../infrastructure/models/data/user.dart';

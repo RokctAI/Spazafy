@@ -8,7 +8,7 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/enums.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/pages/customer/order/order_check/widgets/refund_screen.dart';
+import 'package:venderfoodyman/presentation/pages/order/order_check/widgets/refund_screen.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 import 'package:venderfoodyman/application/order/order_provider.dart';

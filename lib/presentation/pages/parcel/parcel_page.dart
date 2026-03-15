@@ -14,8 +14,8 @@ import 'package:venderfoodyman/presentation/components/customer/buttons/custom_b
 import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
-import 'package:venderfoodyman/presentation/pages/customer/parcel/widgets/recipient_widget.dart';
-import 'package:venderfoodyman/presentation/pages/customer/parcel/widgets/sender_widget.dart';
+import 'package:venderfoodyman/presentation/pages/parcel/widgets/recipient_widget.dart';
+import 'package:venderfoodyman/presentation/pages/parcel/widgets/sender_widget.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'widgets/info_item.dart';
 import 'widgets/parcel_payments.dart';

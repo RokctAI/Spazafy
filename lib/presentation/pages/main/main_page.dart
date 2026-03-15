@@ -55,10 +55,10 @@ import 'package:venderfoodyman/presentation/pages/home/home_four/home_page_four.
 import 'package:venderfoodyman/presentation/pages/home/pos_page.dart';
 import 'package:venderfoodyman/presentation/pages/main/orders/orders_home_page.dart';
 import 'package:venderfoodyman/presentation/pages/main/foods/foods_page.dart';
-import 'package:venderfoodyman/presentation/pages/customer/like/like_page.dart';
-import 'package:venderfoodyman/presentation/pages/customer/search/search_page.dart';
-import 'package:venderfoodyman/presentation/pages/customer/parcel/parcel_page.dart';
-import 'package:venderfoodyman/presentation/pages/customer/profile/wallet_history.dart';
+import 'package:venderfoodyman/presentation/pages/like/like_page.dart';
+import 'package:venderfoodyman/presentation/pages/search/search_page.dart';
+import 'package:venderfoodyman/presentation/pages/parcel/parcel_page.dart';
+import 'package:venderfoodyman/presentation/pages/profile/wallet_history.dart';
 import 'package:venderfoodyman/presentation/pages/profile/profile_page.dart';
 import 'package:venderfoodyman/presentation/pages/main/foods/create/create_product_modal.dart';
 import 'package:venderfoodyman/presentation/pages/main/foods/addons/create/create_addon_modal.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/domain/interface/customer/settings.dart';
+import 'package:venderfoodyman/domain/interface/settings.dart';
 import 'package:venderfoodyman/domain/interface/user.dart';
 import 'package:venderfoodyman/domain/interface/driver/interfaces.dart'
     as driver;

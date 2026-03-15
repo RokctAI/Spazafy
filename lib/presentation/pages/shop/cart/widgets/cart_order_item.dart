@@ -9,7 +9,7 @@ import 'package:venderfoodyman/infrastructure/models/customer/data/order_active_
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/pages/customer/shop/cart/widgets/note_product.dart';
+import 'package:venderfoodyman/presentation/pages/shop/cart/widgets/note_product.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/cart_data.dart';
 

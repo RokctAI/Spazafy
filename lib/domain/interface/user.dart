@@ -1,5 +1,5 @@
 import 'package:venderfoodyman/infrastructure/models/customer/request/edit_profile.dart';
-import 'package:venderfoodyman/domain/handlers/customer/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 abstract class UserFacade {

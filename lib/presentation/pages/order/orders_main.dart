@@ -16,7 +16,7 @@ import 'package:venderfoodyman/presentation/components/customer/custom_tab_bar.d
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'widgets/orders_item.dart';
-import 'package:venderfoodyman/presentation/pages/customer/parcel/parcel_item.dart';
+import 'package:venderfoodyman/presentation/pages/parcel/parcel_item.dart';
 import 'package:venderfoodyman/presentation/components/customer/badges/empty_badge.dart';
 
 @RoutePage()

@@ -23,7 +23,7 @@ import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
-import 'package:venderfoodyman/presentation/pages/customer/view_map/view_map_modal.dart';
+import 'package:venderfoodyman/presentation/pages/view_map/view_map_modal.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:venderfoodyman/application/map/view_map_notifier.dart';

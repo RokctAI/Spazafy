@@ -19,7 +19,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:venderfoodyman/infrastructure/services/customer/extension.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:venderfoodyman/domain/interface/cart.dart';
-import 'package:venderfoodyman/domain/interface/customer/draw.dart';
+import 'package:venderfoodyman/domain/interface/draw.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/addons_data.dart';
 import 'package:venderfoodyman/infrastructure/models/customer/data/order_active_model.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
