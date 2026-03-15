@@ -24,6 +24,30 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     this._shopsRepository,
   ) : super(const ProfileState());
 
+  void setLogoImage(String path) {
+    state = state.copyWith(logoImage: path);
+  }
+
+  void setBgImage(String path) {
+    state = state.copyWith(bgImage: path);
+  }
+
+  void setAddress(AddressData? address) {
+    state = state.copyWith(addressModel: address);
+  }
+
+  void setFile(String path) {
+    List<String> list = List.from(state.filepath);
+    list.add(path);
+    state = state.copyWith(filepath: list);
+  }
+
+  void deleteFile(String path) {
+    List<String> list = List.from(state.filepath);
+    list.remove(path);
+    state = state.copyWith(filepath: list);
+  }
+
   Future<void> fetchUser(
     BuildContext context, {
     RefreshController? refreshController,
@@ -134,3 +158,25 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     }
   }
 }
+
+  Future<void> fetchRequestResponse({required BuildContext context}) async {
+    if (await AppConnectivity.connectivity()) {
+      state = state.copyWith(isLoading: true);
+      final response = await _usersRepository.getRequestModel();
+      response.when(
+        success: (data) {
+          state = state.copyWith(
+            requestData: (data.data?.isEmpty ?? true) ? null : data.data?.first,
+            isLoading: false,
+          );
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isLoading: false);
+          debugPrint('==> get request response failure: $failure');
+        },
+      );
+    } else {
+      // ignore: use_build_context_synchronously
+      AppHelpers.showNoConnectionSnackBar(context);
+    }
+  }

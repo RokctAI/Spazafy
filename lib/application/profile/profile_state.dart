@@ -15,6 +15,7 @@ class ProfileState with _$ProfileState {
     @Default("") String logoImage,
     @Default(null) AddressData? addressModel,
     @Default(null) UserData? userData,
+    @Default(null) RequestModelData? requestData,
     @Default(null) ReferralModel? referralData,
     @Default([]) List<WalletData>? walletHistory,
     @Default([]) List<String> filepath,

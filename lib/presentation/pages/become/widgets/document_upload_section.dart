@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/profile/profile_notifier.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/img_service.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class DocumentUploadSection extends StatelessWidget {
@@ -144,7 +146,3 @@ class DocumentUploadSection extends StatelessWidget {
     );
   }
 }
-
-
-
-

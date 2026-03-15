@@ -4,8 +4,9 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:venderfoodyman/application/profile/profile_notifier.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
-import 'package:venderfoodyman/presentation/components/manager/components.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class LogoAndNameSection extends StatelessWidget {
@@ -96,14 +97,10 @@ class LogoAndNameSection extends StatelessWidget {
           child: OutlinedBorderTextField(
             validation: validation,
             textController: shopNameController,
-            label: AppHelpers.getTranslation(TrKeys.restaurantName),
+            label: AppHelpers.getTranslation(TrKeys.shopName),
           ),
         ),
       ],
     );
   }
 }
-
-
-
-

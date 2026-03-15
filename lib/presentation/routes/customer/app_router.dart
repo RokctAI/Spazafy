@@ -51,6 +51,8 @@ import 'package:venderfoodyman/presentation/pages/customer/order/orders_main.dar
 import '../../presentation/pages/loans/widgets/loan_document_upload_screen.dart';
 import '../../presentation/pages/loans/widgets/loan_eligibility_screen.dart';
 import '../../presentation/pages/loans/loan_screen.dart';
+import '../pages/become/become_driver_page.dart';
+import '../pages/become/become_seller_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -85,7 +87,8 @@ class AppRouter extends RootStackRouter {
         MaterialRoute(path: '/order_progress', page: OrderProgressRoute.page),
         MaterialRoute(path: '/result_filter', page: ResultFilterRoute.page),
         MaterialRoute(path: '/wallet_history', page: WalletHistoryRoute.page),
-        MaterialRoute(path: '/create_shop', page: CreateShopRoute.page),
+        MaterialRoute(path: '/become_seller', page: BecomeSellerRoute.page),
+        MaterialRoute(path: '/become_driver', page: BecomeDriverRoute.page),
         MaterialRoute(path: '/shops_banner', page: ShopsBannerRoute.page),
         MaterialRoute(path: '/shops_detail', page: ShopDetailRoute.page),
         MaterialRoute(path: '/share_referral', page: ShareReferralRoute.page),

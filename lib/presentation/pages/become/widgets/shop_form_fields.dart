@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
-import 'package:venderfoodyman/presentation/components/manager/components.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class ShopFormFields extends StatelessWidget {
@@ -17,7 +17,6 @@ class ShopFormFields extends StatelessWidget {
   final String selectedDeliveryType;
   final List deliveryTypeList;
   final Function(String?) onDeliveryTypeChanged;
-  final bool isSpecificNumberEnabled;
 
   const ShopFormFields({
     super.key,
@@ -31,7 +30,6 @@ class ShopFormFields extends StatelessWidget {
     required this.selectedDeliveryType,
     required this.deliveryTypeList,
     required this.onDeliveryTypeChanged,
-    this.isSpecificNumberEnabled = false,
   });
 
   @override
@@ -43,23 +41,17 @@ class ShopFormFields extends StatelessWidget {
         12.verticalSpace,
         OutlinedBorderTextField(
           textController: descController,
-          validation: AppValidators.emptyCheck,
           label: AppHelpers.getTranslation(TrKeys.description),
         ),
         24.verticalSpace,
-        if (isSpecificNumberEnabled)
-          _buildPhoneField()
-        else
-          OutlinedBorderTextField(
-            textController: phoneController,
-            inputType: TextInputType.phone,
-            validation: AppValidators.emptyCheck,
-            label: AppHelpers.getTranslation(TrKeys.phoneNumber),
-          ),
+        OutlinedBorderTextField(
+          textController: phoneController,
+          inputType: TextInputType.phone,
+          label: AppHelpers.getTranslation(TrKeys.phoneNumber),
+        ),
         24.verticalSpace,
         OutlinedBorderTextField(
           textController: taxController,
-          validation: AppValidators.emptyCheck,
           inputType: TextInputType.number,
           label: AppHelpers.getTranslation(TrKeys.tax),
         ),
@@ -123,87 +115,22 @@ class ShopFormFields extends StatelessWidget {
     );
   }
 
-  Widget _buildPhoneField() {
-    return IntlPhoneField(
-      disableLengthCheck: !AppConstants.isNumberLengthAlwaysSame,
-      controller: phoneController,
-      validator: (s) {
-        if (AppConstants.isNumberLengthAlwaysSame &&
-            (s?.isValidNumber() ?? true)) {
-          return AppHelpers.getTranslation(TrKeys.phoneNumberIsNotValid);
-        }
-        return null;
-      },
-      keyboardType: TextInputType.phone,
-      initialCountryCode: AppConstants.countryCodeISO,
-      invalidNumberMessage: AppHelpers.getTranslation(
-        TrKeys.phoneNumberIsNotValid,
-      ),
-      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-      showCountryFlag: AppConstants.showFlag,
-      showDropdownIcon: AppConstants.showArrowIcon,
-      autovalidateMode: AppConstants.isNumberLengthAlwaysSame
-          ? AutovalidateMode.onUserInteraction
-          : AutovalidateMode.disabled,
-      textAlignVertical: TextAlignVertical.center,
-      decoration: InputDecoration(
-        counterText: '',
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide.merge(
-            const BorderSide(color: AppStyle.differBorderColor),
-            const BorderSide(color: AppStyle.differBorderColor),
-          ),
-        ),
-        errorBorder: UnderlineInputBorder(
-          borderSide: BorderSide.merge(
-            const BorderSide(color: AppStyle.differBorderColor),
-            const BorderSide(color: AppStyle.differBorderColor),
-          ),
-        ),
-        border: const UnderlineInputBorder(),
-        focusedErrorBorder: const UnderlineInputBorder(),
-        disabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide.merge(
-            const BorderSide(color: AppStyle.differBorderColor),
-            const BorderSide(color: AppStyle.differBorderColor),
-          ),
-        ),
-        focusedBorder: const UnderlineInputBorder(),
-      ),
-    );
-  }
-
   Widget _buildDeliveryTypeDropdown() {
     return DropdownButtonFormField<String>(
       value: selectedDeliveryType,
       items: deliveryTypeList
-          .map((e) => DropdownMenuItem<String>(value: e, child: Text(e)))
+          .map((e) => DropdownMenuItem<String>(value: e.toString(), child: Text(e.toString())))
           .toList(),
       onChanged: onDeliveryTypeChanged,
       decoration: InputDecoration(
         labelText: AppHelpers.getTranslation(TrKeys.deliveryType),
         labelStyle: AppStyle.interNormal(size: 12, color: AppStyle.black),
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide.merge(
-            const BorderSide(color: AppStyle.differBorderColor),
-            const BorderSide(color: AppStyle.differBorderColor),
-          ),
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: AppStyle.differBorderColor),
         ),
-        errorBorder: InputBorder.none,
         border: const UnderlineInputBorder(),
-        focusedErrorBorder: const UnderlineInputBorder(),
-        disabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide.merge(
-            const BorderSide(color: AppStyle.differBorderColor),
-            const BorderSide(color: AppStyle.differBorderColor),
-          ),
-        ),
         focusedBorder: const UnderlineInputBorder(),
       ),
     );
   }
 }
-
-
-
-

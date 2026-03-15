@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/services.dart';
-import 'package:venderfoodyman/presentation/pages/restaurant/widgets/logout_modal.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/customer/tr_keys.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class ProcessingView extends StatelessWidget {
@@ -54,35 +54,9 @@ class ProcessingView extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          OutlinedButton(
-            onPressed: () => AppHelpers.showCustomModalBottomSheet(
-              context: context,
-              modal: const LogoutModal(),
-              isDarkMode: false,
-            ),
-            style: OutlinedButton.styleFrom(
-              padding: EdgeInsets.symmetric(vertical: 16.h),
-              minimumSize: Size(double.infinity, 50.h),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-              side: BorderSide(
-                color: AppStyle.red.withOpacity(0.5),
-                width: 1.5,
-              ),
-            ),
-            child: Text(
-              AppHelpers.getTranslation(TrKeys.logout),
-              style: AppStyle.interSemi(size: 15, color: AppStyle.red),
-            ),
-          ),
           36.verticalSpace,
         ],
       ),
     );
   }
 }
-
-
-
-
