@@ -26,7 +26,9 @@ class _AllOrdersBodyState extends ConsumerState<AllOrdersBody> {
             enablePullDown: true,
             enablePullUp: true,
             onRefresh: () {
-              ref.read(driverOrderProvider.notifier).fetchHistoryOrdersPage(
+              ref
+                  .read(driverOrderProvider.notifier)
+                  .fetchHistoryOrdersPage(
                     context,
                     widget.refreshController,
                     isRefresh: true,

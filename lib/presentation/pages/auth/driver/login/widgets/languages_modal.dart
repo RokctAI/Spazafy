@@ -68,7 +68,9 @@ class _LanguagePageState extends ConsumerState<LanguageScreen> {
                       CustomButton(
                         title: AppHelpers.getTranslation(TrKeys.save),
                         onPressed: () {
-                          ref.read(languagesProvider.notifier).makeSelectedLang(
+                          ref
+                              .read(languagesProvider.notifier)
+                              .makeSelectedLang(
                                 afterUpdate: widget.afterUpdate,
                                 context: context,
                               );

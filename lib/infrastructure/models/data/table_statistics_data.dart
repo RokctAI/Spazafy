@@ -36,15 +36,15 @@ class TableStatisticData {
       );
 
   Map<String, dynamic> toJson() => {
-        "available": available,
-        "booked": booked,
-        "occupied": occupied,
-        "available_ids": List.from(availableIds.map((x) => x)),
-        "booked_ids": List.from(bookedIds.map((x) => x)),
-        "occupied_ids": List.from(occupiedIds.map((x) => x)),
-        "all_booked": List.from(allBooked.map((x) => x)),
-        "all_occupied": List.from(allOccupied.map((x) => x)),
-      };
+    "available": available,
+    "booked": booked,
+    "occupied": occupied,
+    "available_ids": List.from(availableIds.map((x) => x)),
+    "booked_ids": List.from(bookedIds.map((x) => x)),
+    "occupied_ids": List.from(occupiedIds.map((x) => x)),
+    "all_booked": List.from(allBooked.map((x) => x)),
+    "all_occupied": List.from(allOccupied.map((x) => x)),
+  };
 }
 
 class AllStatisticStatusData {
@@ -65,13 +65,12 @@ class AllStatisticStatusData {
     String? tableName,
     DateTime? tableStartDate,
     String? username,
-  }) =>
-      AllStatisticStatusData(
-        tableId: tableId ?? this.tableId,
-        tableName: tableName ?? this.tableName,
-        tableStartDate: tableStartDate ?? this.tableStartDate,
-        username: username ?? this.username,
-      );
+  }) => AllStatisticStatusData(
+    tableId: tableId ?? this.tableId,
+    tableName: tableName ?? this.tableName,
+    tableStartDate: tableStartDate ?? this.tableStartDate,
+    username: username ?? this.username,
+  );
 
   factory AllStatisticStatusData.fromJson(Map<String, dynamic> json) =>
       AllStatisticStatusData(
@@ -82,9 +81,9 @@ class AllStatisticStatusData {
       );
 
   Map<String, dynamic> toJson() => {
-        "table_id": tableId,
-        "table_name": tableName,
-        "table_start_date": tableStartDate?.toIso8601String(),
-        "username": username,
-      };
+    "table_id": tableId,
+    "table_name": tableName,
+    "table_start_date": tableStartDate?.toIso8601String(),
+    "username": username,
+  };
 }

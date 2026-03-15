@@ -49,8 +49,9 @@ class EditableFoodStockItem extends StatelessWidget {
                   label: '${AppHelpers.getTranslation(TrKeys.price)}*',
                   inputType: TextInputType.number,
                   textInputAction: TextInputAction.next,
-                  initialText:
-                      stock.price == null ? '' : stock.price.toString(),
+                  initialText: stock.price == null
+                      ? ''
+                      : stock.price.toString(),
                   onChanged: onPriceChange,
                   validator: AppValidators.emptyCheck,
                 ),
@@ -61,8 +62,9 @@ class EditableFoodStockItem extends StatelessWidget {
                   label: '${AppHelpers.getTranslation(TrKeys.quantity)}*',
                   inputType: TextInputType.number,
                   textInputAction: TextInputAction.next,
-                  initialText:
-                      stock.quantity == null ? '' : stock.quantity.toString(),
+                  initialText: stock.quantity == null
+                      ? ''
+                      : stock.quantity.toString(),
                   onChanged: onQuantityChange,
                   validator: AppValidators.emptyCheck,
                 ),

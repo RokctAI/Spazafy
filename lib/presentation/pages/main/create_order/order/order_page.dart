@@ -24,7 +24,9 @@ class _OrderPageState extends ConsumerState<OrderPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(orderPaymentProvider.notifier).getCalculate(
+      ref
+          .read(orderPaymentProvider.notifier)
+          .getCalculate(
             stocks: ref.watch(orderCartProvider).stocks,
             type: 'pickup',
           );
@@ -119,7 +121,7 @@ class _OrderPageState extends ConsumerState<OrderPage> {
                             onDelete: () => event.deleteStockFromCart(
                               stock:
                                   paymentState.orderCalculate?.stocks?[index] ??
-                                      Stock(),
+                                  Stock(),
                               updateProducts: (stocks) => productsEvent
                                   .updateProducts(cartStocks: stocks),
                             ),

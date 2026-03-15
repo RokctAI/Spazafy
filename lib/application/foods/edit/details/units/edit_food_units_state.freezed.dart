@@ -70,27 +70,28 @@ class _$EditFoodUnitsStateCopyWithImpl<$Res, $Val extends EditFoodUnitsState>
   }) {
     return _then(
       _value.copyWith(
-        isLoading: null == isLoading
-            ? _value.isLoading
-            : isLoading // ignore: cast_nullable_to_non_nullable
-                as bool,
-        units: null == units
-            ? _value.units
-            : units // ignore: cast_nullable_to_non_nullable
-                as List<UnitData>,
-        activeIndex: null == activeIndex
-            ? _value.activeIndex
-            : activeIndex // ignore: cast_nullable_to_non_nullable
-                as int,
-        unitController: freezed == unitController
-            ? _value.unitController
-            : unitController // ignore: cast_nullable_to_non_nullable
-                as TextEditingController?,
-        foodUnit: freezed == foodUnit
-            ? _value.foodUnit
-            : foodUnit // ignore: cast_nullable_to_non_nullable
-                as UnitData?,
-      ) as $Val,
+            isLoading: null == isLoading
+                ? _value.isLoading
+                : isLoading // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            units: null == units
+                ? _value.units
+                : units // ignore: cast_nullable_to_non_nullable
+                      as List<UnitData>,
+            activeIndex: null == activeIndex
+                ? _value.activeIndex
+                : activeIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            unitController: freezed == unitController
+                ? _value.unitController
+                : unitController // ignore: cast_nullable_to_non_nullable
+                      as TextEditingController?,
+            foodUnit: freezed == foodUnit
+                ? _value.foodUnit
+                : foodUnit // ignore: cast_nullable_to_non_nullable
+                      as UnitData?,
+          )
+          as $Val,
     );
   }
 }
@@ -138,23 +139,23 @@ class __$$EditFoodUnitsStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                as bool,
+                  as bool,
         units: null == units
             ? _value._units
             : units // ignore: cast_nullable_to_non_nullable
-                as List<UnitData>,
+                  as List<UnitData>,
         activeIndex: null == activeIndex
             ? _value.activeIndex
             : activeIndex // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
         unitController: freezed == unitController
             ? _value.unitController
             : unitController // ignore: cast_nullable_to_non_nullable
-                as TextEditingController?,
+                  as TextEditingController?,
         foodUnit: freezed == foodUnit
             ? _value.foodUnit
             : foodUnit // ignore: cast_nullable_to_non_nullable
-                as UnitData?,
+                  as UnitData?,
       ),
     );
   }
@@ -169,8 +170,8 @@ class _$EditFoodUnitsStateImpl extends _EditFoodUnitsState {
     this.activeIndex = 0,
     this.unitController,
     this.foodUnit,
-  })  : _units = units,
-        super._();
+  }) : _units = units,
+       super._();
 
   @override
   @JsonKey()
@@ -215,13 +216,13 @@ class _$EditFoodUnitsStateImpl extends _EditFoodUnitsState {
 
   @override
   int get hashCode => Object.hash(
-        runtimeType,
-        isLoading,
-        const DeepCollectionEquality().hash(_units),
-        activeIndex,
-        unitController,
-        foodUnit,
-      );
+    runtimeType,
+    isLoading,
+    const DeepCollectionEquality().hash(_units),
+    activeIndex,
+    unitController,
+    foodUnit,
+  );
 
   /// Create a copy of EditFoodUnitsState
   /// with the given fields replaced by the non-null parameter values.

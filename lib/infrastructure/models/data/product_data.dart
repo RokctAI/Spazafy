@@ -115,8 +115,9 @@ class ProductData {
     _status = json['status'];
     _type = json['type'];
     _addon = json['addon'];
-    _locales =
-        json['locales'] != null ? List<String>.from(json['locales']) : [];
+    _locales = json['locales'] != null
+        ? List<String>.from(json['locales'])
+        : [];
     _isSelectedAddon = false;
     _unit = json['unit'] != null ? UnitData.fromJson(json['unit']) : null;
     _translation = json['translation'] != null
@@ -228,44 +229,43 @@ class ProductData {
     List<Translation>? translations,
     bool? isSelectedAddon,
     int? cartCount,
-  }) =>
-      ProductData(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        stock: stock ?? _stock,
-        shopId: shopId ?? _shopId,
-        categoryId: categoryId ?? _categoryId,
-        keywords: keywords ?? _keywords,
-        brandId: brandId ?? _brandId,
-        tax: tax ?? _tax,
-        interval: interval ?? _interval,
-        minQty: minQty ?? _minQty,
-        maxQty: maxQty ?? _maxQty,
-        active: active ?? _active,
-        img: img ?? _img,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        ratingAvg: ratingAvg ?? _ratingAvg,
-        ordersCount: ordersCount ?? _ordersCount,
-        translation: translation ?? _translation,
-        properties: properties ?? _properties,
-        stocks: stocks ?? _stocks,
-        shop: shop ?? _shop,
-        category: category ?? _category,
-        brand: brand ?? _brand,
-        unit: unit ?? _unit,
-        reviews: reviews ?? _reviews,
-        galleries: galleries ?? _galleries,
-        barCode: barCode ?? _barCode,
-        status: status ?? _status,
-        type: type ?? _type,
-        addon: addon ?? _addon,
-        kitchen: kitchen ?? _kitchen,
-        locales: locales ?? _locales,
-        translations: translations ?? _translations,
-        isSelectedAddon: isSelectedAddon ?? _isSelectedAddon,
-        cartCount: cartCount ?? _cartCount,
-      );
+  }) => ProductData(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    stock: stock ?? _stock,
+    shopId: shopId ?? _shopId,
+    categoryId: categoryId ?? _categoryId,
+    keywords: keywords ?? _keywords,
+    brandId: brandId ?? _brandId,
+    tax: tax ?? _tax,
+    interval: interval ?? _interval,
+    minQty: minQty ?? _minQty,
+    maxQty: maxQty ?? _maxQty,
+    active: active ?? _active,
+    img: img ?? _img,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    ratingAvg: ratingAvg ?? _ratingAvg,
+    ordersCount: ordersCount ?? _ordersCount,
+    translation: translation ?? _translation,
+    properties: properties ?? _properties,
+    stocks: stocks ?? _stocks,
+    shop: shop ?? _shop,
+    category: category ?? _category,
+    brand: brand ?? _brand,
+    unit: unit ?? _unit,
+    reviews: reviews ?? _reviews,
+    galleries: galleries ?? _galleries,
+    barCode: barCode ?? _barCode,
+    status: status ?? _status,
+    type: type ?? _type,
+    addon: addon ?? _addon,
+    kitchen: kitchen ?? _kitchen,
+    locales: locales ?? _locales,
+    translations: translations ?? _translations,
+    isSelectedAddon: isSelectedAddon ?? _isSelectedAddon,
+    cartCount: cartCount ?? _cartCount,
+  );
 
   String? get id => _id;
   String? get uuid => _uuid;
@@ -445,8 +445,9 @@ class Stocks {
         _addons?.add(AddonData.fromJson(v));
       });
     }
-    _product =
-        json['product'] != null ? ProductData.fromJson(json['product']) : null;
+    _product = json['product'] != null
+        ? ProductData.fromJson(json['product'])
+        : null;
   }
 
   String? _id;
@@ -485,26 +486,25 @@ class Stocks {
     String? countableType,
     bool? shopBonus,
     int? cartCount,
-  }) =>
-      Stocks(
-        bonus: bonus ?? _bonus,
-        id: id ?? _id,
-        countableId: countableId ?? _countableId,
-        price: price ?? _price,
-        quantity: quantity ?? _quantity,
-        discount: discount ?? _discount,
-        tax: tax ?? _tax,
-        totalPrice: totalPrice ?? _totalPrice,
-        extras: extras ?? _extras,
-        product: product ?? _product,
-        addons: addons ?? _addons,
-        costPrice: costPrice ?? _costPrice,
-        purchasePrice: purchasePrice ?? _purchasePrice,
-        sku: sku ?? _sku,
-        countableType: countableType ?? _countableType,
-        shopBonus: shopBonus ?? _shopBonus,
-        cartCount: cartCount ?? _cartCount,
-      );
+  }) => Stocks(
+    bonus: bonus ?? _bonus,
+    id: id ?? _id,
+    countableId: countableId ?? _countableId,
+    price: price ?? _price,
+    quantity: quantity ?? _quantity,
+    discount: discount ?? _discount,
+    tax: tax ?? _tax,
+    totalPrice: totalPrice ?? _totalPrice,
+    extras: extras ?? _extras,
+    product: product ?? _product,
+    addons: addons ?? _addons,
+    costPrice: costPrice ?? _costPrice,
+    purchasePrice: purchasePrice ?? _purchasePrice,
+    sku: sku ?? _sku,
+    countableType: countableType ?? _countableType,
+    shopBonus: shopBonus ?? _shopBonus,
+    cartCount: cartCount ?? _cartCount,
+  );
 
   String? get id => _id;
   String? get countableId => _countableId;

@@ -65,8 +65,9 @@ class PrinterManager {
     bytes += EscPos.lineFeed;
 
     // Date
-    String formattedDate =
-        DateFormat('dd-MM-yyyy hh:mm a').format(DateTime.now());
+    String formattedDate = DateFormat(
+      'dd-MM-yyyy hh:mm a',
+    ).format(DateTime.now());
     bytes += _textToBytes(formattedDate);
     bytes += EscPos.lineFeed;
 

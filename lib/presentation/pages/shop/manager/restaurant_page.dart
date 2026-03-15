@@ -172,11 +172,11 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                                 10.horizontalSpace,
                                 RichText(
                                   text: TextSpan(
-                                    text: AppHelpers.getTranslation(
+                                    text:
+                                        AppHelpers.getTranslation(
                                               TrKeys.theRestaurantIsClosedToday,
                                             ) ==
-                                            AppHelpers
-                                                .getShopWorkingTimeForToday()
+                                            AppHelpers.getShopWorkingTimeForToday()
                                         ? ''
                                         : '${AppHelpers.getTranslation(TrKeys.workingHours)}:',
                                     style: AppStyle.interRegular(

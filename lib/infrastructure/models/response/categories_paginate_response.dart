@@ -20,14 +20,8 @@ class CategoriesPaginateResponse {
   List<CategoryData>? _data;
   Meta? _meta;
 
-  CategoriesPaginateResponse copyWith({
-    List<CategoryData>? data,
-    Meta? meta,
-  }) =>
-      CategoriesPaginateResponse(
-        data: data ?? _data,
-        meta: meta ?? _meta,
-      );
+  CategoriesPaginateResponse copyWith({List<CategoryData>? data, Meta? meta}) =>
+      CategoriesPaginateResponse(data: data ?? _data, meta: meta ?? _meta);
 
   List<CategoryData>? get data => _data;
 

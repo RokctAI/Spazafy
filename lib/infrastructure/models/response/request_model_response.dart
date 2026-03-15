@@ -20,12 +20,11 @@ class RequestModelResponse {
     List<RequestModelData>? data,
     Links? links,
     Meta? meta,
-  }) =>
-      RequestModelResponse(
-        data: data ?? this.data,
-        links: links ?? this.links,
-        meta: meta ?? this.meta,
-      );
+  }) => RequestModelResponse(
+    data: data ?? this.data,
+    links: links ?? this.links,
+    meta: meta ?? this.meta,
+  );
 
   factory RequestModelResponse.fromJson(Map<String, dynamic> json) =>
       RequestModelResponse(
@@ -39,10 +38,10 @@ class RequestModelResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        "data": data == null
-            ? []
-            : List<dynamic>.from(data!.map((x) => x.toJson())),
-        "links": links?.toJson(),
-        "meta": meta?.toJson(),
-      };
+    "data": data == null
+        ? []
+        : List<dynamic>.from(data!.map((x) => x.toJson())),
+    "links": links?.toJson(),
+    "meta": meta?.toJson(),
+  };
 }

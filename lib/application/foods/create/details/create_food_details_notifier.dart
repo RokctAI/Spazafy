@@ -11,7 +11,7 @@ class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
   final SettingsInterface _settingsRepository;
 
   CreateFoodDetailsNotifier(this._productsRepository, this._settingsRepository)
-      : super(const CreateFoodDetailsState());
+    : super(const CreateFoodDetailsState());
 
   void updateAddFoodInfo() {
     state = state.copyWith(

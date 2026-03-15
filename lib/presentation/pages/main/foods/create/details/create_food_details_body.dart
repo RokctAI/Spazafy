@@ -323,11 +323,13 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                           event.createProduct(
                             context,
                             categoryId: categoryState
-                                .categories[categoryState.activeIndex].id,
+                                .categories[categoryState.activeIndex]
+                                .id,
                             unitId: unitState.units[unitState.activeIndex].id,
                             kitchenId: kitchenState.kitchens.isNotEmpty
                                 ? kitchenState
-                                    .kitchens[kitchenState.activeIndex].id
+                                      .kitchens[kitchenState.activeIndex]
+                                      .id
                                 : null,
                             created: () {
                               widget.onSave();
@@ -343,9 +345,10 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                                 categoryId: categoryState.activeIndex == 1
                                     ? null
                                     : categoryState
-                                        .categories[
-                                            categoryState.activeIndex - 2]
-                                        .id,
+                                          .categories[categoryState
+                                                  .activeIndex -
+                                              2]
+                                          .id,
                               );
                             },
                             onError: () {},

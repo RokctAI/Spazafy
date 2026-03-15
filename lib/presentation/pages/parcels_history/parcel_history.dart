@@ -57,8 +57,10 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
                 ),
                 Text(
                   AppHelpers.getTranslation(TrKeys.thereAreOrders),
-                  style:
-                      AppStyle.interRegular(size: 12.sp, letterSpacing: -0.3),
+                  style: AppStyle.interRegular(
+                    size: 12.sp,
+                    letterSpacing: -0.3,
+                  ),
                 ),
               ],
             ),
@@ -73,7 +75,9 @@ class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
                     enablePullDown: true,
                     enablePullUp: true,
                     onRefresh: () {
-                      ref.read(parcelProvider.notifier).fetchHistoryOrdersPage(
+                      ref
+                          .read(parcelProvider.notifier)
+                          .fetchHistoryOrdersPage(
                             context,
                             historyController,
                             isRefresh: true,

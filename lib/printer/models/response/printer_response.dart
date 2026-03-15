@@ -3,11 +3,7 @@ class PrinterResponse {
   final String? message;
   final dynamic data;
 
-  PrinterResponse({
-    required this.isSuccess,
-    this.message,
-    this.data,
-  });
+  PrinterResponse({required this.isSuccess, this.message, this.data});
 
   factory PrinterResponse.success({dynamic data}) =>
       PrinterResponse(isSuccess: true, data: data);

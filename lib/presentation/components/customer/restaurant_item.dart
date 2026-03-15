@@ -55,7 +55,9 @@ class RestaurantItem extends StatelessWidget {
                       Text(
                         shopName,
                         style: AppStyle.interSemi(
-                            size: 15.sp, color: AppStyle.blackColor),
+                          size: 15.sp,
+                          color: AppStyle.blackColor,
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -76,7 +78,9 @@ class RestaurantItem extends StatelessWidget {
                   Text(
                     shopText,
                     style: AppStyle.interNormal(
-                        size: 12.sp, color: AppStyle.blackColor),
+                      size: 12.sp,
+                      color: AppStyle.blackColor,
+                    ),
                   ),
                 ],
               ),

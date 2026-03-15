@@ -52,16 +52,15 @@ class Group {
     Translation? translation,
     List<Extras>? fetchedExtras,
     List<Extras>? extraValues,
-  }) =>
-      Group(
-        id: id ?? _id,
-        shopId: shopId ?? _shopId,
-        type: type ?? _type,
-        isChecked: isChecked ?? _isChecked,
-        translation: translation ?? _translation,
-        fetchedExtras: fetchedExtras ?? _fetchedExtras,
-        extraValues: extraValues ?? _extraValues,
-      );
+  }) => Group(
+    id: id ?? _id,
+    shopId: shopId ?? _shopId,
+    type: type ?? _type,
+    isChecked: isChecked ?? _isChecked,
+    translation: translation ?? _translation,
+    fetchedExtras: fetchedExtras ?? _fetchedExtras,
+    extraValues: extraValues ?? _extraValues,
+  );
 
   String? get id => _id;
   String? get shopId => _shopId;
@@ -120,14 +119,13 @@ class Extras {
     String? value,
     bool? active,
     Group? group,
-  }) =>
-      Extras(
-        id: id ?? _id,
-        extraGroupId: extraGroupId ?? _extraGroupId,
-        value: value ?? _value,
-        group: group ?? _group,
-        active: active ?? _active,
-      );
+  }) => Extras(
+    id: id ?? _id,
+    extraGroupId: extraGroupId ?? _extraGroupId,
+    value: value ?? _value,
+    group: group ?? _group,
+    active: active ?? _active,
+  );
 
   dynamic get id => _id;
   dynamic get extraGroupId => _extraGroupId;

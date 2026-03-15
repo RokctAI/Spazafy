@@ -41,8 +41,8 @@ class SwipeButton extends StatefulWidget {
     this.onSwipe,
     this.onSwipeEnd,
     this.duration = const Duration(milliseconds: 250),
-  })  : assert(elevationThumb >= 0.0),
-        assert(elevationTrack >= 0.0);
+  }) : assert(elevationThumb >= 0.0),
+       assert(elevationTrack >= 0.0);
 
   @override
   State<SwipeButton> createState() => _SwipeState();
@@ -165,16 +165,19 @@ class _SwipeState extends State<SwipeButton> with TickerProviderStateMixin {
               child: AnimatedBuilder(
                 animation: expandAnimationController,
                 builder: (context, child) => SizedBox(
-                  width: 16.r +
+                  width:
+                      16.r +
                       widget.height +
                       (expandAnimationController.value *
                           (constraints.maxWidth - widget.height)) -
                       widget.thumbPadding.horizontal,
                   height: widget.height - widget.thumbPadding.vertical,
-                  child: widget.thumb ??
+                  child:
+                      widget.thumb ??
                       Icon(
                         Icons.arrow_forward,
-                        color: widget.activeTrackColor ??
+                        color:
+                            widget.activeTrackColor ??
                             widget.inactiveTrackColor,
                       ),
                 ),

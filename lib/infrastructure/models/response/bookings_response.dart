@@ -10,7 +10,5 @@ class BookingsResponse {
         data: json["data"] == null ? null : BookingsData.fromJson(json["data"]),
       );
 
-  Map<String, dynamic> toJson() => {
-        "data": data?.toJson(),
-      };
+  Map<String, dynamic> toJson() => {"data": data?.toJson()};
 }
