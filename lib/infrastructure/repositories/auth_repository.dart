@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
-import 'package:foodyman/domain/interface/auth.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
+import 'package:venderfoodyman/domain/interface/auth.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import '../models/models.dart';

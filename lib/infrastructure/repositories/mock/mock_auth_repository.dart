@@ -1,7 +1,7 @@
-import 'package:foodyman/domain/handlers/api_result.dart';
-import 'package:foodyman/domain/interface/auth.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/models/data/address_information.dart';
+import 'package:venderfoodyman/domain/handlers/api_result.dart';
+import 'package:venderfoodyman/domain/interface/auth.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:venderfoodyman/infrastructure/models/data/address_information.dart';
 
 class MockAuthRepository implements AuthFacade {
   final UserModel _demoUser = UserModel(

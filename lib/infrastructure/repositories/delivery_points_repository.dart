@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/domain/handlers/api_result.dart';
-import 'package:foodyman/domain/handlers/network_exceptions.dart';
-import 'package:foodyman/domain/interface/delivery_points.dart';
-import 'package:foodyman/infrastructure/models/data/delivery_point_data.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
+import 'package:venderfoodyman/domain/handlers/api_result.dart';
+import 'package:venderfoodyman/domain/handlers/network_exceptions.dart';
+import 'package:venderfoodyman/domain/interface/delivery_points.dart';
+import 'package:venderfoodyman/infrastructure/models/data/delivery_point_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class DeliveryPointsRepository implements DeliveryPointsRepositoryFacade {

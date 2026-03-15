@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/domain/interface/products.dart';
-import 'package:foodyman/infrastructure/models/models.dart';
-import 'package:foodyman/infrastructure/models/response/all_products_response.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
+import 'package:venderfoodyman/domain/interface/products.dart';
+import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:venderfoodyman/infrastructure/models/response/all_products_response.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:foodyman/infrastructure/services/app_database.dart';
+import 'package:venderfoodyman/infrastructure/services/app_database.dart';
 
 class ProductsRepository implements ProductsFacade {
   // --- Common & Customer ---

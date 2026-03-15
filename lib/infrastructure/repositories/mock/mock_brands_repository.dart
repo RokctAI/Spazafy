@@ -1,8 +1,8 @@
-import 'package:foodyman/domain/handlers/api_result.dart';
-import 'package:foodyman/domain/interface/brands.dart';
-import 'package:foodyman/infrastructure/models/data/brand_data.dart';
-import 'package:foodyman/infrastructure/models/response/brands_paginate_response.dart';
-import 'package:foodyman/infrastructure/models/response/single_brand_response.dart';
+import 'package:venderfoodyman/domain/handlers/api_result.dart';
+import 'package:venderfoodyman/domain/interface/brands.dart';
+import 'package:venderfoodyman/infrastructure/models/data/brand_data.dart';
+import 'package:venderfoodyman/infrastructure/models/response/brands_paginate_response.dart';
+import 'package:venderfoodyman/infrastructure/models/response/single_brand_response.dart';
 
 class MockBrandsRepository implements BrandsRepositoryFacade {
   final BrandData _demoBrand = BrandData(

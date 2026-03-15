@@ -22,6 +22,9 @@ DRY_RUN = False
 # ─── Import path replacements (order matters — more specific first) ───────────
 
 IMPORT_REPLACEMENTS = [
+    # ── legacy foodyman package → venderfoodyman ──────────────────────────────
+    ("package:foodyman/", "package:venderfoodyman/"),
+
     # ── driver package → venderfoodyman ──────────────────────────────────────
     ("package:driver/infrastructure/services/driver/app_connectivity.dart",
      "package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart"),

@@ -1,8 +1,8 @@
-import 'package:foodyman/domain/handlers/api_result.dart';
-import 'package:foodyman/domain/interface/cart.dart';
-import 'package:foodyman/infrastructure/models/data/cart_data.dart';
-import 'package:foodyman/infrastructure/models/data/product_data.dart';
-import 'package:foodyman/infrastructure/models/request/cart_request.dart';
+import 'package:venderfoodyman/domain/handlers/api_result.dart';
+import 'package:venderfoodyman/domain/interface/cart.dart';
+import 'package:venderfoodyman/infrastructure/models/data/cart_data.dart';
+import 'package:venderfoodyman/infrastructure/models/data/product_data.dart';
+import 'package:venderfoodyman/infrastructure/models/request/cart_request.dart';
 
 class MockCartRepository implements CartFacade {
   final UserCart _demoUserCart = UserCart(

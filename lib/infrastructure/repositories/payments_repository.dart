@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/domain/interface/payments.dart'; // Ensure correct interface name
-import 'package:foodyman/infrastructure/models/models.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
+import 'package:venderfoodyman/domain/interface/payments.dart'; // Ensure correct interface name
+import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import '../models/data/saved_card.dart';
 

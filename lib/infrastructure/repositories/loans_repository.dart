@@ -15,12 +15,12 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:foodyman/app_constants.dart';
-import 'package:foodyman/domain/di/dependency_manager.dart';
-import 'package:foodyman/infrastructure/models/data/loans/loan_contract_model.dart';
+import 'package:venderfoodyman/app_constants.dart';
+import 'package:venderfoodyman/domain/di/dependency_manager.dart';
+import 'package:venderfoodyman/infrastructure/models/data/loans/loan_contract_model.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:foodyman/domain/handlers/handlers.dart';
+import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'dart:math';
 import 'package:payfast/payfast.dart';
 import '../../domain/interface/loans.dart';
