@@ -96,8 +96,8 @@ class _MultiTranslationInputModalState
                             )
                           : null,
                       onChanged: (text) {
-                        _inputs[state.selectedLanguage?.locale ?? 'en'] = text
-                            .trim();
+                        _inputs[state.selectedLanguage?.locale ?? 'en'] =
+                            text.trim();
                         notifier.setTranslatedUsingAi(false);
                       },
                     ),
@@ -186,8 +186,7 @@ class _MultiTranslationInputModalState
                     notifier.getAiTranslation(
                       model: AiTranslationRequest(
                         model: widget.model,
-                        content:
-                            (_inputs[state.selectedLanguage?.locale]
+                        content: (_inputs[state.selectedLanguage?.locale]
                                     ?.isNotEmpty ??
                                 false)
                             ? _inputs[state.selectedLanguage?.locale]
@@ -222,6 +221,3 @@ class _MultiTranslationInputModalState
     );
   }
 }
-
-
-

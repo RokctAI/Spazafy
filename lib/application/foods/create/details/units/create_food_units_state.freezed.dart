@@ -46,10 +46,8 @@ abstract class $CreateFoodUnitsStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CreateFoodUnitsStateCopyWithImpl<
-  $Res,
-  $Val extends CreateFoodUnitsState
->
+class _$CreateFoodUnitsStateCopyWithImpl<$Res,
+        $Val extends CreateFoodUnitsState>
     implements $CreateFoodUnitsStateCopyWith<$Res> {
   _$CreateFoodUnitsStateCopyWithImpl(this._value, this._then);
 
@@ -70,24 +68,23 @@ class _$CreateFoodUnitsStateCopyWithImpl<
   }) {
     return _then(
       _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            units: null == units
-                ? _value.units
-                : units // ignore: cast_nullable_to_non_nullable
-                      as List<UnitData>,
-            activeIndex: null == activeIndex
-                ? _value.activeIndex
-                : activeIndex // ignore: cast_nullable_to_non_nullable
-                      as int,
-            unitController: freezed == unitController
-                ? _value.unitController
-                : unitController // ignore: cast_nullable_to_non_nullable
-                      as TextEditingController?,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        units: null == units
+            ? _value.units
+            : units // ignore: cast_nullable_to_non_nullable
+                as List<UnitData>,
+        activeIndex: null == activeIndex
+            ? _value.activeIndex
+            : activeIndex // ignore: cast_nullable_to_non_nullable
+                as int,
+        unitController: freezed == unitController
+            ? _value.unitController
+            : unitController // ignore: cast_nullable_to_non_nullable
+                as TextEditingController?,
+      ) as $Val,
     );
   }
 }
@@ -133,19 +130,19 @@ class __$$CreateFoodUnitsStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         units: null == units
             ? _value._units
             : units // ignore: cast_nullable_to_non_nullable
-                  as List<UnitData>,
+                as List<UnitData>,
         activeIndex: null == activeIndex
             ? _value.activeIndex
             : activeIndex // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         unitController: freezed == unitController
             ? _value.unitController
             : unitController // ignore: cast_nullable_to_non_nullable
-                  as TextEditingController?,
+                as TextEditingController?,
       ),
     );
   }
@@ -159,8 +156,8 @@ class _$CreateFoodUnitsStateImpl extends _CreateFoodUnitsState {
     final List<UnitData> units = const [],
     this.activeIndex = 0,
     this.unitController,
-  }) : _units = units,
-       super._();
+  })  : _units = units,
+        super._();
 
   @override
   @JsonKey()
@@ -201,12 +198,12 @@ class _$CreateFoodUnitsStateImpl extends _CreateFoodUnitsState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    const DeepCollectionEquality().hash(_units),
-    activeIndex,
-    unitController,
-  );
+        runtimeType,
+        isLoading,
+        const DeepCollectionEquality().hash(_units),
+        activeIndex,
+        unitController,
+      );
 
   /// Create a copy of CreateFoodUnitsState
   /// with the given fields replaced by the non-null parameter values.
@@ -214,11 +211,11 @@ class _$CreateFoodUnitsStateImpl extends _CreateFoodUnitsState {
   @override
   @pragma('vm:prefer-inline')
   _$$CreateFoodUnitsStateImplCopyWith<_$CreateFoodUnitsStateImpl>
-  get copyWith =>
-      __$$CreateFoodUnitsStateImplCopyWithImpl<_$CreateFoodUnitsStateImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith =>
+          __$$CreateFoodUnitsStateImplCopyWithImpl<_$CreateFoodUnitsStateImpl>(
+            this,
+            _$identity,
+          );
 }
 
 abstract class _CreateFoodUnitsState extends CreateFoodUnitsState {
@@ -244,9 +241,5 @@ abstract class _CreateFoodUnitsState extends CreateFoodUnitsState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateFoodUnitsStateImplCopyWith<_$CreateFoodUnitsStateImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
-
-
-
-

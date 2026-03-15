@@ -9,7 +9,7 @@ class EditFoodUnitsNotifier extends StateNotifier<EditFoodUnitsState> {
   final CatalogInterface _catalogRepository;
 
   EditFoodUnitsNotifier(this._catalogRepository)
-    : super(EditFoodUnitsState(unitController: TextEditingController()));
+      : super(EditFoodUnitsState(unitController: TextEditingController()));
 
   void setFoodUnit(UnitData? unit) {
     state = state.copyWith(foodUnit: unit);
@@ -97,8 +97,3 @@ class EditFoodUnitsNotifier extends StateNotifier<EditFoodUnitsState> {
     state.unitController?.text = newUnit.translation?.title ?? '';
   }
 }
-
-
-
-
-

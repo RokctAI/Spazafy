@@ -4,6 +4,3 @@ class LookLikeData {
 
   LookLikeData({required this.index, required this.isLiking});
 }
-
-
-

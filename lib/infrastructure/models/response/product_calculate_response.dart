@@ -219,6 +219,3 @@ class CalculatedProduct {
     return map;
   }
 }
-
-
-

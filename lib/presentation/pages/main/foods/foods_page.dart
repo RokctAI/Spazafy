@@ -107,8 +107,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
                       categoryId: categoriesState.activeIndex == 1
                           ? null
                           : categoriesState
-                                .categories[categoriesState.activeIndex - 2]
-                                .id,
+                              .categories[categoriesState.activeIndex - 2].id,
                     ),
                     suffixIcon: ButtonsBouncingEffect(
                       child: GestureDetector(
@@ -129,59 +128,59 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
                 controller: _scrollController,
                 headerSliverBuilder:
                     (BuildContext context, bool innerBoxIsScrolled) {
-                      return [
-                        SliverAppBar(
-                          floating: true,
-                          backgroundColor: AppStyle.transparent,
-                          elevation: 0,
-                          titleSpacing: 0,
-                          toolbarHeight: 48.h,
-                          title: Container(
-                            padding: REdgeInsets.all(6),
-                            margin: REdgeInsets.symmetric(horizontal: 16),
-                            height: 48.h,
-                            decoration: BoxDecoration(
-                              color: AppStyle.transparent,
-                              borderRadius: BorderRadius.circular(10.r),
-                              border: Border.all(
-                                color: AppStyle.tabBarBorderColor,
-                              ),
-                            ),
-                            child: TabBar(
-                              onTap: (index) {},
-                              controller: _tabController,
-                              indicator: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.r),
-                                color: AppStyle.blackColor,
-                              ),
-                              labelColor: AppStyle.white,
-                              unselectedLabelColor: AppStyle.textColor,
-                              unselectedLabelStyle: AppStyle.interRegular(
-                                size: 14,
-                              ),
-                              labelStyle: AppStyle.interSemi(size: 14),
-                              tabs: [
-                                Tab(
-                                  child: Text(
-                                    AppHelpers.getTranslation(TrKeys.foods),
-                                  ),
-                                ),
-                                Tab(
-                                  child: Text(
-                                    AppHelpers.getTranslation(TrKeys.addons),
-                                  ),
-                                ),
-                                Tab(
-                                  child: Text(
-                                    AppHelpers.getTranslation(TrKeys.extras),
-                                  ),
-                                ),
-                              ],
-                            ),
+                  return [
+                    SliverAppBar(
+                      floating: true,
+                      backgroundColor: AppStyle.transparent,
+                      elevation: 0,
+                      titleSpacing: 0,
+                      toolbarHeight: 48.h,
+                      title: Container(
+                        padding: REdgeInsets.all(6),
+                        margin: REdgeInsets.symmetric(horizontal: 16),
+                        height: 48.h,
+                        decoration: BoxDecoration(
+                          color: AppStyle.transparent,
+                          borderRadius: BorderRadius.circular(10.r),
+                          border: Border.all(
+                            color: AppStyle.tabBarBorderColor,
                           ),
                         ),
-                      ];
-                    },
+                        child: TabBar(
+                          onTap: (index) {},
+                          controller: _tabController,
+                          indicator: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.r),
+                            color: AppStyle.blackColor,
+                          ),
+                          labelColor: AppStyle.white,
+                          unselectedLabelColor: AppStyle.textColor,
+                          unselectedLabelStyle: AppStyle.interRegular(
+                            size: 14,
+                          ),
+                          labelStyle: AppStyle.interSemi(size: 14),
+                          tabs: [
+                            Tab(
+                              child: Text(
+                                AppHelpers.getTranslation(TrKeys.foods),
+                              ),
+                            ),
+                            Tab(
+                              child: Text(
+                                AppHelpers.getTranslation(TrKeys.addons),
+                              ),
+                            ),
+                            Tab(
+                              child: Text(
+                                AppHelpers.getTranslation(TrKeys.extras),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ];
+                },
                 body: TabBarView(
                   physics: const BouncingScrollPhysics(),
                   controller: _tabController,
@@ -202,7 +201,3 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
     );
   }
 }
-
-
-
-

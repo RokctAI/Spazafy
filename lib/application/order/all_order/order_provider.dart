@@ -6,7 +6,3 @@ import 'order_state.dart';
 final driverOrderProvider = StateNotifierProvider<OrderNotifier, OrderState>(
   (ref) => OrderNotifier(ordersRepository),
 );
-
-
-
-

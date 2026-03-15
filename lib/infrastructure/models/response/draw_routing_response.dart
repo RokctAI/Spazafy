@@ -275,6 +275,3 @@ class Query {
         "format": format,
       };
 }
-
-
-

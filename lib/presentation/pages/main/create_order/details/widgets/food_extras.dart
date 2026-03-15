@@ -19,9 +19,8 @@ class FoodExtras extends ConsumerWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: state.typedExtras.isEmpty
-            ? AppStyle.transparent
-            : AppStyle.white,
+        color:
+            state.typedExtras.isEmpty ? AppStyle.transparent : AppStyle.white,
         borderRadius: BorderRadius.circular(10.r),
       ),
       padding: REdgeInsets.symmetric(horizontal: 16, vertical: 26),
@@ -57,26 +56,27 @@ class FoodExtras extends ConsumerWidget {
                       ),
                     )
                   : typedExtra.type == ExtrasType.color
-                  ? ColorExtras(
-                      uiExtras: typedExtra.uiExtras,
-                      groupIndex: typedExtra.groupIndex,
-                      onUpdate: (uiExtra) => event.updateSelectedIndexes(
-                        typedExtra.groupIndex,
-                        uiExtra.index,
-                        cartStocks: cartState.stocks,
-                      ),
-                    )
-                  : typedExtra.type == ExtrasType.image
-                  ? ImageExtras(
-                      uiExtras: typedExtra.uiExtras,
-                      groupIndex: typedExtra.groupIndex,
-                      onUpdate: (uiExtra) => event.updateSelectedIndexes(
-                        typedExtra.groupIndex,
-                        uiExtra.index,
-                        cartStocks: cartState.stocks,
-                      ),
-                    )
-                  : const SizedBox.shrink(),
+                      ? ColorExtras(
+                          uiExtras: typedExtra.uiExtras,
+                          groupIndex: typedExtra.groupIndex,
+                          onUpdate: (uiExtra) => event.updateSelectedIndexes(
+                            typedExtra.groupIndex,
+                            uiExtra.index,
+                            cartStocks: cartState.stocks,
+                          ),
+                        )
+                      : typedExtra.type == ExtrasType.image
+                          ? ImageExtras(
+                              uiExtras: typedExtra.uiExtras,
+                              groupIndex: typedExtra.groupIndex,
+                              onUpdate: (uiExtra) =>
+                                  event.updateSelectedIndexes(
+                                typedExtra.groupIndex,
+                                uiExtra.index,
+                                cartStocks: cartState.stocks,
+                              ),
+                            )
+                          : const SizedBox.shrink(),
             ],
           );
         },
@@ -84,7 +84,3 @@ class FoodExtras extends ConsumerWidget {
     );
   }
 }
-
-
-
-

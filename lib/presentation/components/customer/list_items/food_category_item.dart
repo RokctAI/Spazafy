@@ -87,7 +87,3 @@ class FoodCategoryItem extends StatelessWidget {
         : const SizedBox.shrink();
   }
 }
-
-
-
-

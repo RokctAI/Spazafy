@@ -8,6 +8,3 @@ class SplashState with _$SplashState {
 
   const SplashState._();
 }
-
-
-

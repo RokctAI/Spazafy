@@ -39,7 +39,3 @@ class SectionsItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

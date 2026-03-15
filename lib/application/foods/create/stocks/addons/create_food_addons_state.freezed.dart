@@ -38,10 +38,8 @@ abstract class $CreateFoodAddonsStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CreateFoodAddonsStateCopyWithImpl<
-  $Res,
-  $Val extends CreateFoodAddonsState
->
+class _$CreateFoodAddonsStateCopyWithImpl<$Res,
+        $Val extends CreateFoodAddonsState>
     implements $CreateFoodAddonsStateCopyWith<$Res> {
   _$CreateFoodAddonsStateCopyWithImpl(this._value, this._then);
 
@@ -57,16 +55,15 @@ class _$CreateFoodAddonsStateCopyWithImpl<
   $Res call({Object? isLoading = null, Object? addons = null}) {
     return _then(
       _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            addons: null == addons
-                ? _value.addons
-                : addons // ignore: cast_nullable_to_non_nullable
-                      as List<ProductData>,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        addons: null == addons
+            ? _value.addons
+            : addons // ignore: cast_nullable_to_non_nullable
+                as List<ProductData>,
+      ) as $Val,
     );
   }
 }
@@ -85,8 +82,8 @@ abstract class _$$CreateFoodAddonsStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$CreateFoodAddonsStateImplCopyWithImpl<$Res>
-    extends
-        _$CreateFoodAddonsStateCopyWithImpl<$Res, _$CreateFoodAddonsStateImpl>
+    extends _$CreateFoodAddonsStateCopyWithImpl<$Res,
+        _$CreateFoodAddonsStateImpl>
     implements _$$CreateFoodAddonsStateImplCopyWith<$Res> {
   __$$CreateFoodAddonsStateImplCopyWithImpl(
     _$CreateFoodAddonsStateImpl _value,
@@ -103,11 +100,11 @@ class __$$CreateFoodAddonsStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         addons: null == addons
             ? _value._addons
             : addons // ignore: cast_nullable_to_non_nullable
-                  as List<ProductData>,
+                as List<ProductData>,
       ),
     );
   }
@@ -119,8 +116,8 @@ class _$CreateFoodAddonsStateImpl extends _CreateFoodAddonsState {
   const _$CreateFoodAddonsStateImpl({
     this.isLoading = false,
     final List<ProductData> addons = const [],
-  }) : _addons = addons,
-       super._();
+  })  : _addons = addons,
+        super._();
 
   @override
   @JsonKey()
@@ -151,10 +148,10 @@ class _$CreateFoodAddonsStateImpl extends _CreateFoodAddonsState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    const DeepCollectionEquality().hash(_addons),
-  );
+        runtimeType,
+        isLoading,
+        const DeepCollectionEquality().hash(_addons),
+      );
 
   /// Create a copy of CreateFoodAddonsState
   /// with the given fields replaced by the non-null parameter values.
@@ -162,11 +159,11 @@ class _$CreateFoodAddonsStateImpl extends _CreateFoodAddonsState {
   @override
   @pragma('vm:prefer-inline')
   _$$CreateFoodAddonsStateImplCopyWith<_$CreateFoodAddonsStateImpl>
-  get copyWith =>
-      __$$CreateFoodAddonsStateImplCopyWithImpl<_$CreateFoodAddonsStateImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$CreateFoodAddonsStateImplCopyWithImpl<
+              _$CreateFoodAddonsStateImpl>(
+            this,
+            _$identity,
+          );
 }
 
 abstract class _CreateFoodAddonsState extends CreateFoodAddonsState {
@@ -186,9 +183,5 @@ abstract class _CreateFoodAddonsState extends CreateFoodAddonsState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateFoodAddonsStateImplCopyWith<_$CreateFoodAddonsStateImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
-
-
-
-

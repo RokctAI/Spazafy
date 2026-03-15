@@ -17,8 +17,3 @@ abstract class EditFoodKitchensState with _$EditFoodKitchensState {
 
   const EditFoodKitchensState._();
 }
-
-
-
-
-

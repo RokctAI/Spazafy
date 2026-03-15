@@ -52,23 +52,22 @@ class DeleteExtrasItemModal extends StatelessWidget {
                     builder: (context, ref, child) {
                       return CustomButton(
                         title: AppHelpers.getTranslation(TrKeys.yes),
-                        isLoading: ref
-                            .watch(deleteExtrasItemProvider)
-                            .isLoading,
+                        isLoading:
+                            ref.watch(deleteExtrasItemProvider).isLoading,
                         onPressed: () => ref
                             .read(deleteExtrasItemProvider.notifier)
                             .deleteExtrasItem(
-                              context,
-                              extrasId: extras.id,
-                              success: () {
-                                ref
-                                    .read(extrasGroupDetailsProvider.notifier)
-                                    .fetchGroupExtras(
-                                      groupId: extras.extraGroupId,
-                                    );
-                                context.maybePop();
-                              },
-                            ),
+                          context,
+                          extrasId: extras.id,
+                          success: () {
+                            ref
+                                .read(extrasGroupDetailsProvider.notifier)
+                                .fetchGroupExtras(
+                                  groupId: extras.extraGroupId,
+                                );
+                            context.maybePop();
+                          },
+                        ),
                         background: AppStyle.red,
                         borderColor: AppStyle.red,
                         textColor: AppStyle.white,
@@ -85,8 +84,3 @@ class DeleteExtrasItemModal extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

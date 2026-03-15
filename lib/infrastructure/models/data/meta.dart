@@ -19,6 +19,3 @@ class Meta {
     return map;
   }
 }
-
-
-

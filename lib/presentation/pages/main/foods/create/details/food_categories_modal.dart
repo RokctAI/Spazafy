@@ -90,13 +90,13 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
                         final currentCategories = widget.isSubCategory
                             ? state.categoriesSub
                             : (isCombo
-                                  ? state.comboCategories
-                                  : state.categories);
+                                ? state.comboCategories
+                                : state.categories);
                         final currentActiveIndex = widget.isSubCategory
                             ? state.activeSubIndex
                             : (isCombo
-                                  ? state.activeComboIndex
-                                  : state.activeIndex);
+                                ? state.activeComboIndex
+                                : state.activeIndex);
 
                         return ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
@@ -119,8 +119,7 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
                                 Navigator.pop(context);
                               },
                               isSelected: currentActiveIndex == index,
-                              onDelete:
-                                  currentCategories[index].shopId ==
+                              onDelete: currentCategories[index].shopId ==
                                       LocalStorage.getShop()?.id
                                   ? () {
                                       ref
@@ -146,7 +145,3 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
     );
   }
 }
-
-
-
-

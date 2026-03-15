@@ -30,7 +30,3 @@ class SearchedUserItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

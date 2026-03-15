@@ -74,7 +74,3 @@ class _EditFoodCategoriesScreenState
     );
   }
 }
-
-
-
-

@@ -68,7 +68,8 @@ class MaksekeskusData {
         deliveryPointId: deliveryPointId ?? this.deliveryPointId,
       );
 
-  factory MaksekeskusData.fromJson(Map<String, dynamic> json) => MaksekeskusData(
+  factory MaksekeskusData.fromJson(Map<String, dynamic> json) =>
+      MaksekeskusData(
         methods: json["methods"] == null
             ? []
             : List<Method>.from(
@@ -168,8 +169,9 @@ class Method {
 
   Map<String, dynamic> toJson() => {
         "channel": channel,
-        "countries":
-            countries == null ? [] : List<dynamic>.from(countries!.map((x) => x)),
+        "countries": countries == null
+            ? []
+            : List<dynamic>.from(countries!.map((x) => x)),
         "country": country,
         "display_name": displayName,
         "logo_url": logoUrl,

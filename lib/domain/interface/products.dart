@@ -173,7 +173,3 @@ abstract class ProductsFacade {
     String? type,
   });
 }
-
-
-
-

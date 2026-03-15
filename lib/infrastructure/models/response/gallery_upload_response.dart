@@ -84,6 +84,3 @@ class ImageData {
     return map;
   }
 }
-
-
-

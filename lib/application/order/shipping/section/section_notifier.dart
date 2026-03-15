@@ -15,7 +15,7 @@ class SectionNotifier extends StateNotifier<SectionState> {
   Timer? _timer;
 
   SectionNotifier()
-    : super(SectionState(textController: TextEditingController()));
+      : super(SectionState(textController: TextEditingController()));
 
   void clearSelectSectionInfo() {
     state = state.copyWith(selectSection: null, selectedIndex: 0);
@@ -150,8 +150,3 @@ class SectionNotifier extends StateNotifier<SectionState> {
     );
   }
 }
-
-
-
-
-

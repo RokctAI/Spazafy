@@ -9,6 +9,3 @@ class SignUpRequest {
     return map;
   }
 }
-
-
-

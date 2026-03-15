@@ -45,6 +45,3 @@ class AppAssets {
   /// lottie
   static const String lottiePin = '$_lottiePath/pin.json';
 }
-
-
-

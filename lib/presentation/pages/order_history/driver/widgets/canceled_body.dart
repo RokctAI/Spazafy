@@ -26,9 +26,7 @@ class _CanceledOrdersBody extends ConsumerState<CanceledOrdersBody> {
             enablePullDown: true,
             enablePullUp: true,
             onRefresh: () {
-              ref
-                  .read(canceledOrderProvider.notifier)
-                  .fetchCanceledOrdersPage(
+              ref.read(canceledOrderProvider.notifier).fetchCanceledOrdersPage(
                     context,
                     widget.refreshController,
                     isRefresh: true,
@@ -58,7 +56,3 @@ class _CanceledOrdersBody extends ConsumerState<CanceledOrdersBody> {
           );
   }
 }
-
-
-
-

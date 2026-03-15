@@ -435,8 +435,3 @@ class _ParcelListTabState extends ConsumerState<ParcelListTab>
 Widget _resultEmpty() {
   return EmptyBadge();
 }
-
-
-
-
-

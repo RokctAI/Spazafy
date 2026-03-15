@@ -159,24 +159,24 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
   }
 }
 
-  Future<void> fetchRequestResponse({required BuildContext context}) async {
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(isLoading: true);
-      final response = await _usersRepository.getRequestModel();
-      response.when(
-        success: (data) {
-          state = state.copyWith(
-            requestData: (data.data?.isEmpty ?? true) ? null : data.data?.first,
-            isLoading: false,
-          );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          debugPrint('==> get request response failure: $failure');
-        },
-      );
-    } else {
-      // ignore: use_build_context_synchronously
-      AppHelpers.showNoConnectionSnackBar(context);
-    }
+Future<void> fetchRequestResponse({required BuildContext context}) async {
+  if (await AppConnectivity.connectivity()) {
+    state = state.copyWith(isLoading: true);
+    final response = await _usersRepository.getRequestModel();
+    response.when(
+      success: (data) {
+        state = state.copyWith(
+          requestData: (data.data?.isEmpty ?? true) ? null : data.data?.first,
+          isLoading: false,
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+        debugPrint('==> get request response failure: $failure');
+      },
+    );
+  } else {
+    // ignore: use_build_context_synchronously
+    AppHelpers.showNoConnectionSnackBar(context);
   }
+}

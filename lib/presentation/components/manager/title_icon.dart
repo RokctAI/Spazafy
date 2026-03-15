@@ -60,7 +60,3 @@ class TitleAndIcon extends StatelessWidget {
     );
   }
 }
-
-
-
-

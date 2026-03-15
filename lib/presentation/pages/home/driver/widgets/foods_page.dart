@@ -68,28 +68,18 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                                 ProductItem(
                                   product: hasData
                                       ? (widget
-                                            .order
-                                            .details?[index]
-                                            .stock
-                                            ?.product)
-                                      : (state
-                                            .order
-                                            ?.details?[index]
-                                            .stock
-                                            ?.product),
+                                          .order.details?[index].stock?.product)
+                                      : (state.order?.details?[index].stock
+                                          ?.product),
                                   amount: hasData
                                       ? (widget.order.details?[index].quantity)
                                       : (state.order?.details?[index].quantity),
                                   price: AppHelpers.numberFormat(
                                     number: hasData
                                         ? (widget
-                                              .order
-                                              .details?[index]
-                                              .totalPrice)
+                                            .order.details?[index].totalPrice)
                                         : state
-                                              .order
-                                              ?.details?[index]
-                                              .totalPrice,
+                                            .order?.details?[index].totalPrice,
                                   ),
                                 ),
                                 if (state.order?.details?[index].note != null &&
@@ -180,7 +170,9 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                         : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount ? Style.redColor : AppStyle.blackColor,
+                            color: isDiscount
+                                ? Style.redColor
+                                : AppStyle.blackColor,
                           ),
                   ),
                   Text(
@@ -191,7 +183,9 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                         : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount ? Style.redColor : AppStyle.blackColor,
+                            color: isDiscount
+                                ? Style.redColor
+                                : AppStyle.blackColor,
                           ),
                   ),
                 ],
@@ -200,8 +194,3 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
           );
   }
 }
-
-
-
-
-

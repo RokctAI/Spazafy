@@ -104,8 +104,3 @@ class WProductExtras extends ConsumerWidget {
     );
   }
 }
-
-
-
-
-

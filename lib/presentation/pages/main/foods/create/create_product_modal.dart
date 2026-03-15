@@ -92,7 +92,3 @@ class _CreateProductModalState extends ConsumerState<CreateProductModal>
     );
   }
 }
-
-
-
-

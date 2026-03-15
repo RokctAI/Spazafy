@@ -48,8 +48,3 @@ class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
     state = state.copyWith(currentIndex: index);
   }
 }
-
-
-
-
-

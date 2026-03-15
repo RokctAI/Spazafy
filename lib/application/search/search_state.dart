@@ -17,7 +17,3 @@ class SearchState with _$SearchState {
 
   const SearchState._();
 }
-
-
-
-

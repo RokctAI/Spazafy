@@ -38,6 +38,3 @@ class SearchUserResponse {
         "meta": meta?.toJson(),
       };
 }
-
-
-

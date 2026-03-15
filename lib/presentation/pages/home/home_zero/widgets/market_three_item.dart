@@ -226,7 +226,3 @@ class MarketThreeItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

@@ -86,6 +86,3 @@ class CartProductData {
     return map;
   }
 }
-
-
-

@@ -253,7 +253,3 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //   );
   // }
 }
-
-
-
-

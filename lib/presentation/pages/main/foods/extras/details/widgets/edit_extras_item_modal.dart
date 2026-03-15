@@ -94,8 +94,3 @@ class _EditExtrasItemModalState extends ConsumerState<EditExtrasItemModal> {
     );
   }
 }
-
-
-
-
-

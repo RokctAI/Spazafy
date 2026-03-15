@@ -15,7 +15,7 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
   bool _hasMore = true;
 
   CreateFoodAddonsNotifier(this._productsRepository)
-    : super(const CreateFoodAddonsState());
+      : super(const CreateFoodAddonsState());
 
   void toggleAddonSelection(int index) {
     List<ProductData> addons = List.from(state.addons);
@@ -113,8 +113,3 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
     );
   }
 }
-
-
-
-
-

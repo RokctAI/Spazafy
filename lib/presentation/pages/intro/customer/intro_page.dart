@@ -317,8 +317,3 @@ class _IntroPageState extends ConsumerState<IntroPage>
     );
   }
 }
-
-
-
-
-

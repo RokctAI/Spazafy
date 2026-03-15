@@ -117,12 +117,12 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
     final bool isLtr = LocalStorage.getLangLtr();
     final state = ref.watch(profileProvider);
     final user = LocalStorage.getUser();
-    
+
     // Check roles
     final bool isDriver = user?.role == 'deliveryman';
     final bool isSeller = user?.role == 'seller';
     final bool isCustomerOnly = !isDriver && !isSeller;
-    
+
     final bool hasMembership = user?.membership != null;
 
     ref.listen(languageProvider, (previous, next) {
@@ -165,10 +165,12 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 SizedBox(
-                                  width: MediaQuery.sizeOf(context).width - 280.w,
+                                  width:
+                                      MediaQuery.sizeOf(context).width - 280.w,
                                   child: Text(
                                     state.userData?.firstname != null &&
-                                            state.userData!.firstname!.length > 10
+                                            state.userData!.firstname!.length >
+                                                10
                                         ? "${state.userData!.firstname![0]}."
                                         : state.userData?.firstname ?? "",
                                     style: AppStyle.interBold(
@@ -179,7 +181,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                   ),
                                 ),
                                 SizedBox(
-                                  width: MediaQuery.sizeOf(context).width - 280.w,
+                                  width:
+                                      MediaQuery.sizeOf(context).width - 280.w,
                                   child: Text(
                                     state.userData?.lastname ?? "",
                                     style: AppStyle.interBold(
@@ -199,7 +202,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                           },
                           icon: Badge(
                             label: Text(
-                              (ref.watch(likeProvider).likedShopsCount).toString(),
+                              (ref.watch(likeProvider).likedShopsCount)
+                                  .toString(),
                             ),
                             child: const Icon(
                               Remix.heart_3_line,
@@ -214,7 +218,12 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                           },
                           icon: Badge(
                             label: Text(
-                              (ref.watch(notificationProvider).countOfNotifications?.notification ?? 0).toString(),
+                              (ref
+                                          .watch(notificationProvider)
+                                          .countOfNotifications
+                                          ?.notification ??
+                                      0)
+                                  .toString(),
                             ),
                             child: const Icon(
                               Remix.notification_line,
@@ -228,7 +237,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const MyAccount(isBackButton: false),
+                                builder: (context) =>
+                                    const MyAccount(isBackButton: false),
                               ),
                             );
                           },
@@ -261,7 +271,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                               context,
                               refreshController: refreshController,
                             );
-                        ref.read(ordersListProvider.notifier).fetchActiveOrders(context);
+                        ref
+                            .read(ordersListProvider.notifier)
+                            .fetchActiveOrders(context);
                       },
                       controller: refreshController,
                       child: SingleChildScrollView(
@@ -277,7 +289,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                               Column(
                                 children: [
                                   Container(
-                                    width: MediaQuery.sizeOf(context).width - 40.w,
+                                    width:
+                                        MediaQuery.sizeOf(context).width - 40.w,
                                     decoration: BoxDecoration(
                                       color: AppStyle.primary.withOpacity(0.3),
                                       borderRadius: BorderRadius.circular(20),
@@ -285,39 +298,53 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                     child: Padding(
                                       padding: const EdgeInsets.all(16.0),
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            AppHelpers.getTranslation(TrKeys.plan),
-                                            style: AppStyle.interBold(size: 24, color: AppStyle.black),
+                                            AppHelpers.getTranslation(
+                                                TrKeys.plan),
+                                            style: AppStyle.interBold(
+                                                size: 24,
+                                                color: AppStyle.black),
                                           ),
                                           5.verticalSpace,
                                           GestureDetector(
                                             onTap: () {
                                               showDialog(
                                                 context: context,
-                                                builder: (BuildContext context) => const ComingSoonDialog(),
+                                                builder: (BuildContext
+                                                        context) =>
+                                                    const ComingSoonDialog(),
                                               );
                                             },
                                             child: Row(
                                               children: [
                                                 Text(
                                                   '${user?.membership?.title ?? ''} ${AppHelpers.getTranslation(TrKeys.benefits)}',
-                                                  style: AppStyle.interNormal(size: 16, color: AppStyle.black),
+                                                  style: AppStyle.interNormal(
+                                                      size: 16,
+                                                      color: AppStyle.black),
                                                 ),
-                                                const Icon(Icons.keyboard_arrow_right_sharp),
+                                                const Icon(Icons
+                                                    .keyboard_arrow_right_sharp),
                                               ],
                                             ),
                                           ),
                                           Row(
                                             children: [
                                               Text(
-                                                AppHelpers.getTranslation(TrKeys.expire),
-                                                style: AppStyle.interNormal(size: 12, color: AppStyle.textGrey),
+                                                AppHelpers.getTranslation(
+                                                    TrKeys.expire),
+                                                style: AppStyle.interNormal(
+                                                    size: 12,
+                                                    color: AppStyle.textGrey),
                                               ),
                                               Text(
                                                 ' ${(user?.membership?.endDate ?? '').substring(0, 10)}',
-                                                style: AppStyle.interNormal(size: 12, color: AppStyle.textGrey),
+                                                style: AppStyle.interNormal(
+                                                    size: 12,
+                                                    color: AppStyle.textGrey),
                                               ),
                                             ],
                                           ),
@@ -328,7 +355,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                   10.verticalSpace,
                                 ],
                               ),
-                            
+
                             // Wallet Section
                             Container(
                               width: MediaQuery.sizeOf(context).width - 40.w,
@@ -342,8 +369,10 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                     top: 5,
                                     right: 5,
                                     child: GestureDetector(
-                                      onTap: () => context.pushRoute(WalletHistoryRoute()),
-                                      child: const Icon(Remix.arrow_right_up_line),
+                                      onTap: () => context
+                                          .pushRoute(WalletHistoryRoute()),
+                                      child:
+                                          const Icon(Remix.arrow_right_up_line),
                                     ),
                                   ),
                                   Column(
@@ -356,7 +385,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                             16.horizontalSpace,
                                             Text(
                                               "${AppHelpers.getTranslation(TrKeys.wallet)}: ${AppHelpers.numberFormat(number: state.userData?.wallet?.price)}",
-                                              style: AppStyle.interNoSemi(size: 16),
+                                              style: AppStyle.interNoSemi(
+                                                  size: 16),
                                             ),
                                           ],
                                         ),
@@ -370,18 +400,25 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                           ),
                                         ),
                                         width: double.infinity,
-                                        padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 12.0, horizontal: 16.0),
                                         child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
                                             Expanded(
                                               child: SecondButton(
-                                                title: AppHelpers.getTranslation(TrKeys.topup),
+                                                title:
+                                                    AppHelpers.getTranslation(
+                                                        TrKeys.topup),
                                                 bgColor: AppStyle.primary,
                                                 titleColor: AppStyle.white,
-                                                onTap: () => AppHelpers.showCustomModalBottomSheet(
+                                                onTap: () => AppHelpers
+                                                    .showCustomModalBottomSheet(
                                                   context: context,
-                                                  modal: const ProviderScope(child: WalletTopUpScreen()),
+                                                  modal: const ProviderScope(
+                                                      child:
+                                                          WalletTopUpScreen()),
                                                   isDarkMode: false,
                                                 ),
                                               ),
@@ -389,26 +426,36 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                             12.horizontalSpace,
                                             Expanded(
                                               child: SecondButton(
-                                                title: AppHelpers.getTranslation(TrKeys.send),
+                                                title:
+                                                    AppHelpers.getTranslation(
+                                                        TrKeys.send),
                                                 bgColor: AppStyle.primary,
                                                 titleColor: AppStyle.white,
-                                                onTap: () => AppHelpers.showCustomModalBottomSheet(
+                                                onTap: () => AppHelpers
+                                                    .showCustomModalBottomSheet(
                                                   context: context,
-                                                  modal: const ProviderScope(child: WalletSendScreen()),
+                                                  modal: const ProviderScope(
+                                                      child:
+                                                          WalletSendScreen()),
                                                   isDarkMode: false,
                                                 ),
                                               ),
                                             ),
-                                            if (AppHelpers.getLendingEnabled()) ...[
+                                            if (AppHelpers
+                                                .getLendingEnabled()) ...[
                                               12.horizontalSpace,
                                               Expanded(
                                                 child: SecondButton(
-                                                  title: AppHelpers.getTranslation(TrKeys.loan),
+                                                  title:
+                                                      AppHelpers.getTranslation(
+                                                          TrKeys.loan),
                                                   bgColor: AppStyle.primary,
                                                   titleColor: AppStyle.white,
-                                                  onTap: () => AppHelpers.showCustomModalBottomSheet(
+                                                  onTap: () => AppHelpers
+                                                      .showCustomModalBottomSheet(
                                                     context: context,
-                                                    modal: const ProviderScope(child: LoanScreen()),
+                                                    modal: const ProviderScope(
+                                                        child: LoanScreen()),
                                                     isDarkMode: false,
                                                   ),
                                                 ),
@@ -422,7 +469,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                 ],
                               ),
                             ),
-                            
+
                             // Driver-specific Statistics
                             if (isDriver) ...[
                               15.verticalSpace,
@@ -441,14 +488,19 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                 ),
                                 padding: EdgeInsets.all(16.r),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     _buildStatItem(
                                       TrKeys.lastProfit,
-                                      AppHelpers.numberFormat(number: user?.wallet?.price ?? 0),
+                                      AppHelpers.numberFormat(
+                                          number: user?.wallet?.price ?? 0),
                                       color: AppStyle.primary,
                                     ),
-                                    Container(width: 1, height: 40.h, color: AppStyle.bgGrey),
+                                    Container(
+                                        width: 1,
+                                        height: 40.h,
+                                        color: AppStyle.bgGrey),
                                     _buildStatItem(
                                       TrKeys.deliveredOrder,
                                       "0", // This would ideally come from driver statistics provider
@@ -457,9 +509,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                 ),
                               ),
                             ],
-                            
+
                             15.verticalSpace,
-                            
+
                             // Main Grid of Buttons
                             Wrap(
                               spacing: 10.w,
@@ -470,73 +522,98 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                 _buildSquareButton(
                                   context,
                                   icon: Remix.file_list_3_line,
-                                  title: AppHelpers.getTranslation(TrKeys.order),
-                                  onTap: () => context.pushRoute(const OrdersListRoute()),
-                                  badgeText: ref.watch(ordersListProvider).totalActiveCount.toString(),
+                                  title:
+                                      AppHelpers.getTranslation(TrKeys.order),
+                                  onTap: () => context
+                                      .pushRoute(const OrdersListRoute()),
+                                  badgeText: ref
+                                      .watch(ordersListProvider)
+                                      .totalActiveCount
+                                      .toString(),
                                 ),
                                 if (AppHelpers.getParcel())
                                   _buildSquareButton(
                                     context,
                                     icon: Remix.instance_line,
-                                    title: AppHelpers.getTranslation(TrKeys.parcels),
-                                    onTap: () => context.pushRoute(const ParcelListRoute()),
-                                    badgeText: ref.watch(parcelListProvider).totalActiveCount.toString(),
+                                    title: AppHelpers.getTranslation(
+                                        TrKeys.parcels),
+                                    onTap: () => context
+                                        .pushRoute(const ParcelListRoute()),
+                                    badgeText: ref
+                                        .watch(parcelListProvider)
+                                        .totalActiveCount
+                                        .toString(),
                                   ),
-                                
+
                                 _buildSquareButton(
                                   context,
                                   icon: Remix.bank_card_2_line,
-                                  title: AppHelpers.getTranslation(TrKeys.cards),
-                                  onTap: () => AppHelpers.showCustomModalBottomSheet(
+                                  title:
+                                      AppHelpers.getTranslation(TrKeys.cards),
+                                  onTap: () =>
+                                      AppHelpers.showCustomModalBottomSheet(
                                     context: context,
                                     modal: PaymentScreen(
                                       tokenizeOnly: true,
                                       onPaymentComplete: (success) {
                                         Navigator.pop(context);
-                                        if (success && widget.onCardAdded != null) widget.onCardAdded!();
+                                        if (success &&
+                                            widget.onCardAdded != null)
+                                          widget.onCardAdded!();
                                         if (success) {
-                                          AppHelpers.showCheckTopSnackBarDone(context, AppHelpers.getTranslation(TrKeys.cardAddedSuccessfully));
+                                          AppHelpers.showCheckTopSnackBarDone(
+                                              context,
+                                              AppHelpers.getTranslation(TrKeys
+                                                  .cardAddedSuccessfully));
                                         }
                                       },
                                     ),
                                     isDarkMode: isDarkMode,
                                   ),
                                 ),
-                                
+
                                 _buildSquareButton(
                                   context,
                                   icon: Remix.hand_coin_line,
-                                  title: AppHelpers.getTranslation(TrKeys.inviteFriend),
-                                  onTap: () => context.pushRoute(const ShareReferralRoute()),
+                                  title: AppHelpers.getTranslation(
+                                      TrKeys.inviteFriend),
+                                  onTap: () => context
+                                      .pushRoute(const ShareReferralRoute()),
                                 ),
-                                
+
                                 // Role-specific Buttons
                                 if (isDriver) ...[
                                   _buildSquareButton(
                                     context,
                                     icon: Remix.navigation_fill,
-                                    title: AppHelpers.getTranslation(TrKeys.deliveryZone),
-                                    onTap: () => context.pushRoute(const DeliveryZoneRoute()),
+                                    title: AppHelpers.getTranslation(
+                                        TrKeys.deliveryZone),
+                                    onTap: () => context
+                                        .pushRoute(const DeliveryZoneRoute()),
                                   ),
                                   _buildSquareButton(
                                     context,
                                     icon: Remix.line_chart_line,
-                                    title: AppHelpers.getTranslation(TrKeys.income),
-                                    onTap: () => context.pushRoute(const IncomeRoute()),
+                                    title: AppHelpers.getTranslation(
+                                        TrKeys.income),
+                                    onTap: () =>
+                                        context.pushRoute(const IncomeRoute()),
                                   ),
                                 ],
-                                
+
                                 if (isSeller) ...[
                                   _buildSquareButton(
                                     context,
                                     icon: Remix.store_2_line,
-                                    title: AppHelpers.getTranslation(TrKeys.shop),
+                                    title:
+                                        AppHelpers.getTranslation(TrKeys.shop),
                                     onTap: () {
                                       // Navigate to shop settings or selection
                                       if (user?.shop != null) {
                                         context.pushRoute(const ShopRoute());
                                       } else {
-                                        context.pushRoute(const BecomeSellerRoute());
+                                        context.pushRoute(
+                                            const BecomeSellerRoute());
                                       }
                                     },
                                     iconColor: AppStyle.primary,
@@ -544,58 +621,74 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                   _buildSquareButton(
                                     context,
                                     icon: Remix.bank_line,
-                                    title: AppHelpers.getTranslation(TrKeys.billing),
-                                    onTap: () => context.pushRoute(const PosRoute()),
+                                    title: AppHelpers.getTranslation(
+                                        TrKeys.billing),
+                                    onTap: () =>
+                                        context.pushRoute(const PosRoute()),
                                   ),
                                   _buildSquareButton(
                                     context,
                                     icon: Remix.vip_diamond_line,
-                                    title: AppHelpers.getTranslation(TrKeys.subscription),
-                                    onTap: () => context.pushRoute(const SubscriptionsRoute()),
+                                    title: AppHelpers.getTranslation(
+                                        TrKeys.subscription),
+                                    onTap: () => context
+                                        .pushRoute(const SubscriptionsRoute()),
                                   ),
                                 ],
-                                
+
                                 // Registration Buttons (if not already that role)
                                 if (!isDriver)
                                   _buildSquareButton(
                                     context,
                                     icon: Remix.walk_line,
-                                    title: AppHelpers.getTranslation(TrKeys.signUpToDeliver),
-                                    onTap: () => context.pushRoute(const BecomeDriverRoute()),
+                                    title: AppHelpers.getTranslation(
+                                        TrKeys.signUpToDeliver),
+                                    onTap: () => context
+                                        .pushRoute(const BecomeDriverRoute()),
                                   ),
                                 if (!isSeller)
                                   _buildSquareButton(
                                     context,
                                     icon: Remix.store_fill,
-                                    title: AppHelpers.getTranslation(TrKeys.becomeSeller),
-                                    onTap: () => context.pushRoute(const BecomeSellerRoute()),
+                                    title: AppHelpers.getTranslation(
+                                        TrKeys.becomeSeller),
+                                    onTap: () => context
+                                        .pushRoute(const BecomeSellerRoute()),
                                   ),
-                                
+
                                 // More Info Buttons
                                 _buildSquareButton(
                                   context,
                                   icon: Remix.lightbulb_flash_fill,
                                   iconColor: AppStyle.starColor,
-                                  title: AppHelpers.getTranslation(TrKeys.about),
-                                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutPage())),
+                                  title:
+                                      AppHelpers.getTranslation(TrKeys.about),
+                                  onTap: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const AboutPage())),
                                 ),
-                                
+
                                 if (AppHelpers.getReservationEnable())
                                   _buildSquareButton(
                                     context,
                                     icon: Remix.reserved_line,
-                                    title: AppHelpers.getTranslation(TrKeys.reservation),
+                                    title: AppHelpers.getTranslation(
+                                        TrKeys.reservation),
                                     onTap: () => AppHelpers.showAlertDialog(
                                       context: context,
-                                      child: const SizedBox(child: ReservationShops()),
+                                      child: const SizedBox(
+                                          child: ReservationShops()),
                                     ),
                                   ),
-                                
+
                                 // Delete Account
                                 _buildSquareButton(
                                   context,
                                   icon: Remix.logout_box_r_line,
-                                  title: AppHelpers.getTranslation(TrKeys.deleteAccount),
+                                  title: AppHelpers.getTranslation(
+                                      TrKeys.deleteAccount),
                                   onTap: () => AppHelpers.showAlertDialog(
                                     context: context,
                                     child: DeleteScreen(
@@ -609,7 +702,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                 ),
                               ],
                             ),
-                            
+
                             // App Version and Status Info
                             10.verticalSpace,
                             _buildAppInfoSection(),
@@ -640,7 +733,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
         ),
         Text(
           value,
-          style: AppStyle.interSemi(size: 16.sp, color: color ?? AppStyle.black),
+          style:
+              AppStyle.interSemi(size: 16.sp, color: color ?? AppStyle.black),
         ),
       ],
     );
@@ -692,7 +786,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
             if (title != null)
               Text(
                 title,
-                style: AppStyle.interNormal(size: 12.sp, color: textColor ?? AppStyle.black),
+                style: AppStyle.interNormal(
+                    size: 12.sp, color: textColor ?? AppStyle.black),
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
@@ -712,18 +807,32 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextButton(
-                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const HelpPage())),
-                child: Text(AppHelpers.getTranslation(TrKeys.help), style: const TextStyle(color: AppStyle.black, decoration: TextDecoration.underline)),
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const HelpPage())),
+                child: Text(AppHelpers.getTranslation(TrKeys.help),
+                    style: const TextStyle(
+                        color: AppStyle.black,
+                        decoration: TextDecoration.underline)),
               ),
               const Icon(Icons.circle_rounded, color: AppStyle.black, size: 7),
               TextButton(
-                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TermPage())),
-                child: Text(AppHelpers.getTranslation(TrKeys.terms), style: const TextStyle(color: AppStyle.black, decoration: TextDecoration.underline)),
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const TermPage())),
+                child: Text(AppHelpers.getTranslation(TrKeys.terms),
+                    style: const TextStyle(
+                        color: AppStyle.black,
+                        decoration: TextDecoration.underline)),
               ),
               const Icon(Icons.circle_rounded, color: AppStyle.black, size: 7),
               TextButton(
-                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const PolicyPage())),
-                child: Text(AppHelpers.getTranslation(TrKeys.privacyPolicy), style: const TextStyle(color: AppStyle.black, decoration: TextDecoration.underline)),
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PolicyPage())),
+                child: Text(AppHelpers.getTranslation(TrKeys.privacyPolicy),
+                    style: const TextStyle(
+                        color: AppStyle.black,
+                        decoration: TextDecoration.underline)),
               ),
             ],
           ),
@@ -734,21 +843,27 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(AppHelpers.getAppName() ?? "", style: AppStyle.interBold(color: AppStyle.primary)),
+                  Text(AppHelpers.getAppName() ?? "",
+                      style: AppStyle.interBold(color: AppStyle.primary)),
                   const SizedBox(width: 4),
-                  const Icon(Remix.checkbox_blank_circle_fill, size: 8, color: AppStyle.black),
+                  const Icon(Remix.checkbox_blank_circle_fill,
+                      size: 8, color: AppStyle.black),
                   FutureBuilder<PackageInfo>(
                     future: PackageInfo.fromPlatform(),
                     builder: (context, packageSnapshot) {
                       if (packageSnapshot.hasData) {
-                        return Text(" Version ${packageSnapshot.data!.version}", style: AppStyle.interNormal(color: AppStyle.black));
+                        return Text(" Version ${packageSnapshot.data!.version}",
+                            style: AppStyle.interNormal(color: AppStyle.black));
                       }
                       return const SizedBox.shrink();
                     },
                   ),
                   const SizedBox(width: 8),
-                  Icon(Remix.checkbox_blank_circle_fill, size: 12, color: isOnline ? Colors.green : Colors.red),
-                  Text(isOnline ? ' Online' : ' Offline', style: TextStyle(color: isOnline ? Colors.green : Colors.red)),
+                  Icon(Remix.checkbox_blank_circle_fill,
+                      size: 12, color: isOnline ? Colors.green : Colors.red),
+                  Text(isOnline ? ' Online' : ' Offline',
+                      style: TextStyle(
+                          color: isOnline ? Colors.green : Colors.red)),
                   SizedBox(width: 16.w),
                   const AppUsageBadge(),
                 ],

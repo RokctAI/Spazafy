@@ -27,7 +27,3 @@ class BillingPrinterState with _$BillingPrinterState {
 
   const BillingPrinterState._();
 }
-
-
-
-

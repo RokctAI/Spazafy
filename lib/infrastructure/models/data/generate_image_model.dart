@@ -37,6 +37,3 @@ class Datum {
 
   Map<String, dynamic> toJson() => {"url": url};
 }
-
-
-

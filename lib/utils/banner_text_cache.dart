@@ -16,6 +16,3 @@ class BannerTextCache {
     return result;
   }
 }
-
-
-

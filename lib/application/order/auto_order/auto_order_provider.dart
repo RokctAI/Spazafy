@@ -7,6 +7,3 @@ final autoOrderProvider =
     StateNotifierProvider.autoDispose<AutoOrderNotifier, AutoOrderState>(
   (ref) => AutoOrderNotifier(),
 );
-
-
-

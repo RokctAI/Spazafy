@@ -41,7 +41,8 @@ import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart' as manager_services;
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart'
+    as manager_services;
 
 import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
@@ -64,7 +65,8 @@ import 'package:venderfoodyman/presentation/pages/main/foods/addons/create/creat
 import 'package:venderfoodyman/presentation/pages/main/foods/extras/create/create_extras_group_modal.dart';
 
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart' as manager_routes;
+import 'package:venderfoodyman/presentation/routes/app_router.dart'
+    as manager_routes;
 import 'package:venderfoodyman/utils/app_usage_service.dart';
 import '../../../app_constants.dart';
 import 'widgets/bottom_navigator_item.dart';
@@ -88,7 +90,8 @@ class _MainPageState extends State<MainPage> {
     IndexedStackChild(child: const PosPage(), preload: true),
     IndexedStackChild(child: const OrdersHomePage(), preload: false),
     IndexedStackChild(child: const FoodsPage(), preload: false),
-    IndexedStackChild(child: const ProfilePage(isBackButton: false), preload: true),
+    IndexedStackChild(
+        child: const ProfilePage(isBackButton: false), preload: true),
   ];
 
   List listPages = [
@@ -101,9 +104,11 @@ class _MainPageState extends State<MainPage> {
             )
           : IndexedStackChild(child: const SearchPage(isBackButton: false)),
       LocalStorage.getToken().isNotEmpty
-          ? IndexedStackChild(child: const WalletHistoryPage(isBackButton: false))
+          ? IndexedStackChild(
+              child: const WalletHistoryPage(isBackButton: false))
           : IndexedStackChild(child: const LikePage(isBackButton: false)),
-      IndexedStackChild(child: const ProfilePage(isBackButton: false), preload: true),
+      IndexedStackChild(
+          child: const ProfilePage(isBackButton: false), preload: true),
     ],
     [],
     [],
@@ -117,9 +122,11 @@ class _MainPageState extends State<MainPage> {
             )
           : IndexedStackChild(child: const SearchPage(isBackButton: false)),
       LocalStorage.getToken().isNotEmpty
-          ? IndexedStackChild(child: const WalletHistoryPage(isBackButton: false))
+          ? IndexedStackChild(
+              child: const WalletHistoryPage(isBackButton: false))
           : IndexedStackChild(child: const LikePage(isBackButton: false)),
-      IndexedStackChild(child: const ProfilePage(isBackButton: false), preload: true),
+      IndexedStackChild(
+          child: const ProfilePage(isBackButton: false), preload: true),
     ],
   ];
 
@@ -175,14 +182,16 @@ class _MainPageState extends State<MainPage> {
       RemoteMessageData data = RemoteMessageData.fromJson(message.data);
 
       if (isSeller) {
-        if (data.type == "new_order" || AppConstants.playMusicOnOrderStatusChange) {
+        if (data.type == "new_order" ||
+            AppConstants.playMusicOnOrderStatusChange) {
           player.play(AssetSource("audio/notification.wav"));
         }
         if (mounted) {
           AppHelpers.showCheckTopSnackBar(
             context,
             type: SnackBarType.success,
-            text: "${AppHelpers.getTranslation(TrKeys.id)} #${message.notification?.title} ${message.notification?.body}",
+            text:
+                "${AppHelpers.getTranslation(TrKeys.id)} #${message.notification?.title} ${message.notification?.body}",
           );
         }
         return;
@@ -356,7 +365,8 @@ class _MainPageState extends State<MainPage> {
     final bool isFixed = AppConstants.fixed;
 
     // If fixed is true, always pass false for isScrolling
-    final bool isScrollingValue = isFixed ? false : ref.watch(mainProvider).isScrolling;
+    final bool isScrollingValue =
+        isFixed ? false : ref.watch(mainProvider).isScrolling;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -404,8 +414,10 @@ class _MainPageState extends State<MainPage> {
                       Consumer(
                         builder: (context, ref, child) {
                           // Check if currency is loaded
-                          final isLoading = ref.watch(shopOrderProvider).isLoading;
-                          final totalPrice = ref.watch(shopOrderProvider).cart?.totalPrice;
+                          final isLoading =
+                              ref.watch(shopOrderProvider).isLoading;
+                          final totalPrice =
+                              ref.watch(shopOrderProvider).cart?.totalPrice;
                           final currency = LocalStorage.getSelectedCurrency();
 
                           if (isLoading) {
@@ -473,9 +485,15 @@ class _MainPageState extends State<MainPage> {
                         },
                         index: 0,
                         currentIndex: index,
-                        selectIcon: (isSeller && !isCustomerMode) ? FlutterRemix.money_dollar_circle_fill : FlutterRemix.store_fill,
-                        unSelectIcon: (isSeller && !isCustomerMode) ? FlutterRemix.money_dollar_circle_line : FlutterRemix.store_line,
-                        label: (isSeller && !isCustomerMode) ? AppHelpers.getTranslation(TrKeys.sell) : AppHelpers.getTranslation(TrKeys.stores),
+                        selectIcon: (isSeller && !isCustomerMode)
+                            ? FlutterRemix.money_dollar_circle_fill
+                            : FlutterRemix.store_fill,
+                        unSelectIcon: (isSeller && !isCustomerMode)
+                            ? FlutterRemix.money_dollar_circle_line
+                            : FlutterRemix.store_line,
+                        label: (isSeller && !isCustomerMode)
+                            ? AppHelpers.getTranslation(TrKeys.sell)
+                            : AppHelpers.getTranslation(TrKeys.stores),
                       ),
                       BottomNavigatorItem(
                         isScrolling: index == 3 ? false : isScrollingValue,
@@ -541,7 +559,9 @@ class _MainPageState extends State<MainPage> {
                           height: 40.r,
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: index == 3 ? AppStyle.primary : AppStyle.transparent,
+                              color: index == 3
+                                  ? AppStyle.primary
+                                  : AppStyle.transparent,
                               width: 2.w,
                             ),
                             shape: BoxShape.circle,
@@ -583,20 +603,28 @@ class _MainPageState extends State<MainPage> {
                               ? context.pushRoute(const CreateOrderRoute())
                               : (foodTabState.selectedIndex == 0
                                   ? AppHelpers.showCustomModalBottomSheet(
-                                      paddingTop: MediaQuery.paddingOf(context).top + 64.h,
+                                      paddingTop:
+                                          MediaQuery.paddingOf(context).top +
+                                              64.h,
                                       context: context,
                                       modal: const CreateProductModal(),
                                       isDarkMode: false,
                                     )
                                   : (foodTabState.selectedIndex == 1
                                       ? AppHelpers.showCustomModalBottomSheet(
-                                          paddingTop: MediaQuery.paddingOf(context).top + 64.h,
+                                          paddingTop:
+                                              MediaQuery.paddingOf(context)
+                                                      .top +
+                                                  64.h,
                                           context: context,
                                           modal: const CreateAddonModal(),
                                           isDarkMode: false,
                                         )
                                       : AppHelpers.showCustomModalBottomSheet(
-                                          paddingTop: MediaQuery.paddingOf(context).top + 64.h,
+                                          paddingTop:
+                                              MediaQuery.paddingOf(context)
+                                                      .top +
+                                                  64.h,
                                           context: context,
                                           modal: const CreateExtrasGroupModal(),
                                           isDarkMode: false,
@@ -655,7 +683,11 @@ class _MainPageState extends State<MainPage> {
                       alignment: Alignment.center,
                       children: [
                         Icon(
-                          (isCustomerMode && !isCartEmpty) ? FlutterRemix.shopping_basket_2_fill : (isCustomerMode ? FlutterRemix.arrow_left_line : FlutterRemix.shopping_bag_3_fill),
+                          (isCustomerMode && !isCartEmpty)
+                              ? FlutterRemix.shopping_basket_2_fill
+                              : (isCustomerMode
+                                  ? FlutterRemix.arrow_left_line
+                                  : FlutterRemix.shopping_bag_3_fill),
                           color: AppStyle.white,
                         ),
                         if (isCustomerMode && !isCartEmpty)
@@ -664,7 +696,15 @@ class _MainPageState extends State<MainPage> {
                             right: 8,
                             child: Badge(
                               label: Text(
-                                (ref.watch(shopOrderProvider).cart?.userCarts?.first.cartDetails?.length ?? 0).toString(),
+                                (ref
+                                            .watch(shopOrderProvider)
+                                            .cart
+                                            ?.userCarts
+                                            ?.first
+                                            .cartDetails
+                                            ?.length ??
+                                        0)
+                                    .toString(),
                                 style: const TextStyle(color: AppStyle.white),
                               ),
                             ),
@@ -710,7 +750,17 @@ class _MainPageState extends State<MainPage> {
                 right: 8,
                 child: Badge(
                   label: Text(
-                    isCartEmpty ? "0" : (ref.watch(shopOrderProvider).cart?.userCarts?.first.cartDetails?.length ?? 0).toString(),
+                    isCartEmpty
+                        ? "0"
+                        : (ref
+                                    .watch(shopOrderProvider)
+                                    .cart
+                                    ?.userCarts
+                                    ?.first
+                                    .cartDetails
+                                    ?.length ??
+                                0)
+                            .toString(),
                     style: const TextStyle(color: AppStyle.white),
                   ),
                 ),
@@ -765,8 +815,3 @@ class TriangleClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(TriangleClipper oldClipper) => false;
 }
-
-
-
-
-

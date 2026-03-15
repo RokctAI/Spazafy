@@ -19,16 +19,16 @@ class PrinterManager {
 
   Future<PrinterResponse> connect(String macAddress) async {
     final success = await _bluetooth.connect(macAddress);
-    return success 
-      ? PrinterResponse.success() 
-      : PrinterResponse.failure('Failed to connect to Bluetooth printer');
+    return success
+        ? PrinterResponse.success()
+        : PrinterResponse.failure('Failed to connect to Bluetooth printer');
   }
 
   Future<PrinterResponse> disconnect() async {
     final success = await _bluetooth.disconnect();
-    return success 
-      ? PrinterResponse.success() 
-      : PrinterResponse.failure('Failed to disconnect');
+    return success
+        ? PrinterResponse.success()
+        : PrinterResponse.failure('Failed to disconnect');
   }
 
   Future<PrinterResponse> printText(String text) async {
@@ -65,7 +65,8 @@ class PrinterManager {
     bytes += EscPos.lineFeed;
 
     // Date
-    String formattedDate = DateFormat('dd-MM-yyyy hh:mm a').format(DateTime.now());
+    String formattedDate =
+        DateFormat('dd-MM-yyyy hh:mm a').format(DateTime.now());
     bytes += _textToBytes(formattedDate);
     bytes += EscPos.lineFeed;
 
@@ -136,6 +137,3 @@ class PrinterManager {
     return List.from(text.codeUnits);
   }
 }
-
-
-

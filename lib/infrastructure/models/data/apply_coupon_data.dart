@@ -19,6 +19,3 @@ class ApplyCouponData {
         isError: isError ?? this.isError,
       );
 }
-
-
-

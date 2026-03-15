@@ -437,8 +437,3 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
     );
   }
 }
-
-
-
-
-

@@ -36,23 +36,17 @@ class _IncomePageState extends ConsumerState<IncomePage>
     _tabController = TabController(length: 3, vsync: this);
     _tabController.addListener(() {
       if (_tabController.index == 0) {
-        ref
-            .read(statisticsProvider.notifier)
-            .fetchStatistics(
+        ref.read(statisticsProvider.notifier).fetchStatistics(
               startTime: DateTime.now(),
               endTime: DateTime.now(),
             );
       } else if (_tabController.index == 1) {
-        ref
-            .read(statisticsProvider.notifier)
-            .fetchStatistics(
+        ref.read(statisticsProvider.notifier).fetchStatistics(
               startTime: DateTime.now(),
               endTime: DateTime.now().subtract(const Duration(days: 7)),
             );
       } else {
-        ref
-            .read(statisticsProvider.notifier)
-            .fetchStatistics(
+        ref.read(statisticsProvider.notifier).fetchStatistics(
               startTime: DateTime.now(),
               endTime: DateTime.now().subtract(const Duration(days: 30)),
             );
@@ -99,8 +93,8 @@ class _IncomePageState extends ConsumerState<IncomePage>
                         days: _tabController.index == 0
                             ? 0
                             : _tabController.index == 1
-                            ? 7
-                            : 30,
+                                ? 7
+                                : 30,
                       ),
                     ),
                   ),
@@ -194,7 +188,3 @@ class _IncomePageState extends ConsumerState<IncomePage>
     );
   }
 }
-
-
-
-

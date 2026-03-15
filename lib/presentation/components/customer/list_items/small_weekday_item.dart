@@ -38,7 +38,3 @@ class SmallWeekdayItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

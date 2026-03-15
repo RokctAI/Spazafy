@@ -40,9 +40,8 @@ class SizeItem extends StatelessWidget {
                       color: isActive ? AppStyle.green : AppStyle.transparent,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: isActive
-                            ? AppStyle.blackColor
-                            : AppStyle.greyColor,
+                        color:
+                            isActive ? AppStyle.blackColor : AppStyle.greyColor,
                         width: isActive ? 4.r : 2.r,
                       ),
                     ),
@@ -66,7 +65,3 @@ class SizeItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

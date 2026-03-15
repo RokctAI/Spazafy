@@ -13,11 +13,3 @@ class SavedCardsState with _$SavedCardsState {
 
   const SavedCardsState._();
 }
-
-
-
-
-
-
-
-

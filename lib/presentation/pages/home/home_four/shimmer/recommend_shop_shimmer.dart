@@ -56,7 +56,3 @@ class RecommendShopShimmer extends StatelessWidget {
     );
   }
 }
-
-
-
-

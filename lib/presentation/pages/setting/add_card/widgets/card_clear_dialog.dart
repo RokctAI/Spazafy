@@ -80,8 +80,3 @@ class CardClearDialog extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

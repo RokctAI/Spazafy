@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:venderfoodyman/domain/interface/customer/settings.dart';
 import 'package:venderfoodyman/domain/interface/user.dart';
-import 'package:venderfoodyman/domain/interface/driver/interfaces.dart' as driver;
-import 'package:venderfoodyman/domain/interface/manager/interfaces.dart' as manager;
+import 'package:venderfoodyman/domain/interface/driver/interfaces.dart'
+    as driver;
+import 'package:venderfoodyman/domain/interface/manager/interfaces.dart'
+    as manager;
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
@@ -59,9 +61,9 @@ class SplashNotifier extends StateNotifier<SplashState> {
 
         // Role-based routing
         if (user?.role == 'deliveryman') {
-           // Basic user data is enough for now, 
-           // specific driver data can be fetched in driver-specific screens 
-           // if not already in the profile response.
+          // Basic user data is enough for now,
+          // specific driver data can be fetched in driver-specific screens
+          // if not already in the profile response.
           goMain?.call();
         } else if (user?.role == 'seller') {
           goMain?.call();
@@ -130,7 +132,3 @@ class SplashNotifier extends StateNotifier<SplashState> {
     );
   }
 }
-
-
-
-

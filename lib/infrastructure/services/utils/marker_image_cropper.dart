@@ -113,6 +113,3 @@ class ImageCropperForMarker {
     return canvas;
   }
 }
-
-
-

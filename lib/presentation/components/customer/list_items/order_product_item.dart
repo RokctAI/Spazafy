@@ -50,10 +50,7 @@ class OrderProductItem extends StatelessWidget {
                               Wrap(
                                 children: [
                                   Text(
-                                    orderDetail
-                                            .stock
-                                            ?.product
-                                            ?.translation
+                                    orderDetail.stock?.product?.translation
                                             ?.title ??
                                         AppHelpers.getTranslation(
                                           TrKeys.noName,
@@ -64,13 +61,11 @@ class OrderProductItem extends StatelessWidget {
                                     ),
                                   ),
                                   8.horizontalSpace,
-                                  for (
-                                    int i = 0;
-                                    i <
-                                        (orderDetail.stock?.extras?.length ??
-                                            0);
-                                    i++
-                                  )
+                                  for (int i = 0;
+                                      i <
+                                          (orderDetail.stock?.extras?.length ??
+                                              0);
+                                      i++)
                                     Padding(
                                       padding: REdgeInsets.only(right: 2),
                                       child: Text(
@@ -83,11 +78,9 @@ class OrderProductItem extends StatelessWidget {
                                     ),
                                 ],
                               ),
-                              for (
-                                int i = 0;
-                                i < (orderDetail.addons?.length ?? 0);
-                                i++
-                              )
+                              for (int i = 0;
+                                  i < (orderDetail.addons?.length ?? 0);
+                                  i++)
                                 Padding(
                                   padding: EdgeInsets.only(top: 2.h),
                                   child: Text(
@@ -151,7 +144,3 @@ class OrderProductItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

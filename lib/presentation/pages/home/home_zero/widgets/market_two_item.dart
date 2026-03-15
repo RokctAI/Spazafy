@@ -245,7 +245,3 @@ class MarketTwoItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

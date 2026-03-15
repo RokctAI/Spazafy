@@ -87,7 +87,3 @@ class PaymentDialog extends ConsumerWidget {
     );
   }
 }
-
-
-
-

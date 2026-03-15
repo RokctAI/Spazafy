@@ -101,6 +101,3 @@ class OpTimeBadge extends StatelessWidget {
     );
   }
 }
-
-
-

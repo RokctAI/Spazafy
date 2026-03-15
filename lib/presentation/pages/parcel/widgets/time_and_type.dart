@@ -269,7 +269,3 @@ class TypeAndTime extends StatelessWidget {
     );
   }
 }
-
-
-
-

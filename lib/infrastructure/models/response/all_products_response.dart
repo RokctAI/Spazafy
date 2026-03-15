@@ -352,6 +352,3 @@ class Stock {
         "bonus": bonus,
       };
 }
-
-
-

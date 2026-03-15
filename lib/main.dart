@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -35,7 +34,8 @@ void callbackDispatcher() {
           final Dio client = Dio(
             BaseOptions(
               headers: {
-                'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
+                'Accept':
+                    'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
                 'Content-type': 'application/json',
                 "Authorization": "Bearer ${LocalStorage.getToken()}",
               },
@@ -85,7 +85,7 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  
+
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: AppStyle.transparent,
@@ -98,7 +98,7 @@ void main() async {
   );
 
   await LocalStorage.init();
-  
+
   // Workmanager for Driver tracking
   try {
     await Workmanager().initialize(callbackDispatcher);
@@ -112,7 +112,7 @@ void main() async {
   }
 
   setUpDependencies();
-  
+
   runApp(
     ProviderScope(
       child: Phoenix(

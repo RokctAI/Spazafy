@@ -124,6 +124,3 @@ class LoanIneligibilityDialog extends ConsumerWidget {
     return reasons;
   }
 }
-
-
-

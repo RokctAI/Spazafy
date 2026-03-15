@@ -154,7 +154,3 @@ Widget _resultEmpty() {
     ],
   );
 }
-
-
-
-

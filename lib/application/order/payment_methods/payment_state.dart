@@ -12,6 +12,3 @@ class PaymentState with _$PaymentState {
 
   const PaymentState._();
 }
-
-
-

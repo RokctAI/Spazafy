@@ -218,7 +218,3 @@ class FoodsBody extends StatelessWidget {
     );
   }
 }
-
-
-
-

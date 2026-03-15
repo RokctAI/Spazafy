@@ -34,7 +34,3 @@ class CustomTabBar extends StatelessWidget {
     );
   }
 }
-
-
-
-

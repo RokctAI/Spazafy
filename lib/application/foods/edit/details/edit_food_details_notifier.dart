@@ -12,7 +12,7 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
   String? _oldBarcode;
 
   EditFoodDetailsNotifier(this._productsRepository, this._settingsRepository)
-    : super(const EditFoodDetailsState());
+      : super(const EditFoodDetailsState());
 
   void setTax(String value) {
     state = state.copyWith(tax: value.trim());
@@ -135,9 +135,8 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
     } else {
       List<String> list = [state.title, state.description];
       temp[state.language?.locale ??
-              LocalStorage.getLanguage()?.locale ??
-              "en"] =
-          list;
+          LocalStorage.getLanguage()?.locale ??
+          "en"] = list;
     }
     state = state.copyWith(mapOfDesc: temp);
   }
@@ -202,9 +201,8 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
       minQty: product?.minQty.toString() ?? '',
       maxQty: product?.maxQty.toString() ?? '',
       tax: product?.tax == null ? '' : (product?.tax.toString() ?? ''),
-      interval: product?.interval == null
-          ? ''
-          : (product?.interval.toString() ?? ''),
+      interval:
+          product?.interval == null ? '' : (product?.interval.toString() ?? ''),
       title: product?.translation?.title ?? '',
       description: product?.translation?.description ?? '',
       barcode: product?.barCode ?? '',
@@ -250,8 +248,3 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
     );
   }
 }
-
-
-
-
-

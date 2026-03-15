@@ -341,6 +341,3 @@ class _WalletHistoryState extends ConsumerState<WalletHistoryPage> {
     );
   }
 }
-
-
-

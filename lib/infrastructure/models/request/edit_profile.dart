@@ -57,6 +57,3 @@ class EditProfile {
     return data;
   }
 }
-
-
-

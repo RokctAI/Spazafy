@@ -89,18 +89,15 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
     _readyController?.addListener(() => listen(_readyController));
     _onAWayController?.addListener(() => listen(_onAWayController));
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref
-          .read(newOrdersProvider.notifier)
-          .fetchNewOrders(
+      ref.read(newOrdersProvider.notifier).fetchNewOrders(
             context: context,
             activeTabIndex: ref.watch(homeAppbarProvider).index,
-            updateTotal: (count) => ref
-                .read(homeAppbarProvider.notifier)
-                .setAppbarDetails(
-                  AppHelpers.getTranslation(TrKeys.newOrders),
-                  count,
-                  index: 0,
-                ),
+            updateTotal: (count) =>
+                ref.read(homeAppbarProvider.notifier).setAppbarDetails(
+                      AppHelpers.getTranslation(TrKeys.newOrders),
+                      count,
+                      index: 0,
+                    ),
           );
       ref.read(acceptedOrdersProvider.notifier).fetchAcceptedOrders();
       ref.read(cookingOrdersProvider.notifier).fetchCookingOrders();
@@ -225,7 +222,3 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
     );
   }
 }
-
-
-
-

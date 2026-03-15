@@ -41,6 +41,3 @@ class SignatureService {
     return crypto.md5.convert(utf8.encode(signatureString)).toString();
   }
 }
-
-
-

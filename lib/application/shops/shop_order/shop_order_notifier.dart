@@ -736,7 +736,3 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     );
   }
 }
-
-
-
-

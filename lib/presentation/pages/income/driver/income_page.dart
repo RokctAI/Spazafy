@@ -36,23 +36,17 @@ class _IncomePageState extends ConsumerState<IncomePage>
     _tabController = TabController(length: 3, vsync: this);
     _tabController.addListener(() {
       if (_tabController.index == 0) {
-        ref
-            .read(statisticsProvider.notifier)
-            .fetchStatistics(
+        ref.read(statisticsProvider.notifier).fetchStatistics(
               startTime: DateTime.now(),
               endTime: DateTime.now(),
             );
       } else if (_tabController.index == 1) {
-        ref
-            .read(statisticsProvider.notifier)
-            .fetchStatistics(
+        ref.read(statisticsProvider.notifier).fetchStatistics(
               startTime: DateTime.now(),
               endTime: DateTime.now().subtract(const Duration(days: 7)),
             );
       } else {
-        ref
-            .read(statisticsProvider.notifier)
-            .fetchStatistics(
+        ref.read(statisticsProvider.notifier).fetchStatistics(
               startTime: DateTime.now(),
               endTime: DateTime.now().subtract(const Duration(days: 30)),
             );
@@ -159,8 +153,8 @@ class _IncomePageState extends ConsumerState<IncomePage>
                   // ),
                   // 24.verticalSpace,
                   StatisticsScreen(
-                    totalOrders: (state.countData?.data?.totalCount ?? 0)
-                        .toString(),
+                    totalOrders:
+                        (state.countData?.data?.totalCount ?? 0).toString(),
                     todayOrders: (state.countData?.data?.totalTodayCount ?? 0)
                         .toString(),
                     acceptedOrders:
@@ -172,8 +166,8 @@ class _IncomePageState extends ConsumerState<IncomePage>
                     doneOrders:
                         (state.countData?.data?.totalDeliveredCount ?? 0)
                             .toString(),
-                    canceledOrders: (state.countData?.data?.totalNewCount ?? 0)
-                        .toString(),
+                    canceledOrders:
+                        (state.countData?.data?.totalNewCount ?? 0).toString(),
                     acceptedPer:
                         "${((state.countData?.data?.totalAcceptedCount ?? 0) / (state.countData?.data?.totalCount ?? 1) * 100).toStringAsFixed(1)}%",
                     rejectedPer:
@@ -339,8 +333,3 @@ class _IncomePageState extends ConsumerState<IncomePage>
     );
   }
 }
-
-
-
-
-

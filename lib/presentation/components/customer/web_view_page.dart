@@ -42,6 +42,3 @@ class _WebViewPageState extends State<WebViewPage> {
     return Scaffold(body: WebViewWidget(controller: controller));
   }
 }
-
-
-

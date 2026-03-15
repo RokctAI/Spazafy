@@ -43,7 +43,8 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     state = state.copyWith(isLoading: true);
   }
 
-  Future<void> saveLocation(BuildContext context, {VoidCallback? onSuccess}) async {
+  Future<void> saveLocation(BuildContext context,
+      {VoidCallback? onSuccess}) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isLoading: true);

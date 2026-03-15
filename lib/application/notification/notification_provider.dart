@@ -8,6 +8,3 @@ final notificationProvider =
     StateNotifierProvider<NotificationNotifier, NotificationState>(
   (ref) => NotificationNotifier(notificationRepo),
 );
-
-
-

@@ -4,6 +4,3 @@ class SimpleBilling {
 
   SimpleBilling({required this.amount, required this.itemName});
 }
-
-
-

@@ -80,8 +80,3 @@ class _PolicyPageState extends ConsumerState<PolicyPage> {
     );
   }
 }
-
-
-
-
-

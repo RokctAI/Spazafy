@@ -307,8 +307,3 @@ class _RatingPageState extends ConsumerState<RatingPage> {
     );
   }
 }
-
-
-
-
-

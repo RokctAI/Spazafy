@@ -67,7 +67,3 @@ class _CreateFoodUnitsModalState extends ConsumerState<CreateFoodUnitsModal> {
     );
   }
 }
-
-
-
-

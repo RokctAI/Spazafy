@@ -76,36 +76,35 @@ class _$SelectAddressStateCopyWithImpl<$Res, $Val extends SelectAddressState>
   }) {
     return _then(
       _value.copyWith(
-            isSearching: null == isSearching
-                ? _value.isSearching
-                : isSearching // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            isSearchLoading: null == isSearchLoading
-                ? _value.isSearchLoading
-                : isSearchLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            isChoosing: null == isChoosing
-                ? _value.isChoosing
-                : isChoosing // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            searchedPlaces: null == searchedPlaces
-                ? _value.searchedPlaces
-                : searchedPlaces // ignore: cast_nullable_to_non_nullable
-                      as List<Place>,
-            textController: freezed == textController
-                ? _value.textController
-                : textController // ignore: cast_nullable_to_non_nullable
-                      as TextEditingController?,
-            mapController: freezed == mapController
-                ? _value.mapController
-                : mapController // ignore: cast_nullable_to_non_nullable
-                      as GoogleMapController?,
-            location: freezed == location
-                ? _value.location
-                : location // ignore: cast_nullable_to_non_nullable
-                      as LocationData?,
-          )
-          as $Val,
+        isSearching: null == isSearching
+            ? _value.isSearching
+            : isSearching // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isSearchLoading: null == isSearchLoading
+            ? _value.isSearchLoading
+            : isSearchLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isChoosing: null == isChoosing
+            ? _value.isChoosing
+            : isChoosing // ignore: cast_nullable_to_non_nullable
+                as bool,
+        searchedPlaces: null == searchedPlaces
+            ? _value.searchedPlaces
+            : searchedPlaces // ignore: cast_nullable_to_non_nullable
+                as List<Place>,
+        textController: freezed == textController
+            ? _value.textController
+            : textController // ignore: cast_nullable_to_non_nullable
+                as TextEditingController?,
+        mapController: freezed == mapController
+            ? _value.mapController
+            : mapController // ignore: cast_nullable_to_non_nullable
+                as GoogleMapController?,
+        location: freezed == location
+            ? _value.location
+            : location // ignore: cast_nullable_to_non_nullable
+                as LocationData?,
+      ) as $Val,
     );
   }
 }
@@ -157,31 +156,31 @@ class __$$SelectAddressStateImplCopyWithImpl<$Res>
         isSearching: null == isSearching
             ? _value.isSearching
             : isSearching // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         isSearchLoading: null == isSearchLoading
             ? _value.isSearchLoading
             : isSearchLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         isChoosing: null == isChoosing
             ? _value.isChoosing
             : isChoosing // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         searchedPlaces: null == searchedPlaces
             ? _value._searchedPlaces
             : searchedPlaces // ignore: cast_nullable_to_non_nullable
-                  as List<Place>,
+                as List<Place>,
         textController: freezed == textController
             ? _value.textController
             : textController // ignore: cast_nullable_to_non_nullable
-                  as TextEditingController?,
+                as TextEditingController?,
         mapController: freezed == mapController
             ? _value.mapController
             : mapController // ignore: cast_nullable_to_non_nullable
-                  as GoogleMapController?,
+                as GoogleMapController?,
         location: freezed == location
             ? _value.location
             : location // ignore: cast_nullable_to_non_nullable
-                  as LocationData?,
+                as LocationData?,
       ),
     );
   }
@@ -198,8 +197,8 @@ class _$SelectAddressStateImpl extends _SelectAddressState {
     this.textController,
     this.mapController,
     this.location,
-  }) : _searchedPlaces = searchedPlaces,
-       super._();
+  })  : _searchedPlaces = searchedPlaces,
+        super._();
 
   @override
   @JsonKey()
@@ -256,15 +255,15 @@ class _$SelectAddressStateImpl extends _SelectAddressState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isSearching,
-    isSearchLoading,
-    isChoosing,
-    const DeepCollectionEquality().hash(_searchedPlaces),
-    textController,
-    mapController,
-    location,
-  );
+        runtimeType,
+        isSearching,
+        isSearchLoading,
+        isChoosing,
+        const DeepCollectionEquality().hash(_searchedPlaces),
+        textController,
+        mapController,
+        location,
+      );
 
   /// Create a copy of SelectAddressState
   /// with the given fields replaced by the non-null parameter values.
@@ -312,7 +311,3 @@ abstract class _SelectAddressState extends SelectAddressState {
   _$$SelectAddressStateImplCopyWith<_$SelectAddressStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

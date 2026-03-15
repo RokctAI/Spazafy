@@ -31,6 +31,3 @@ class ShimmerCategoryList extends StatelessWidget {
     );
   }
 }
-
-
-

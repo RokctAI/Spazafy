@@ -149,8 +149,3 @@ class ProductItem extends ConsumerWidget {
     );
   }
 }
-
-
-
-
-

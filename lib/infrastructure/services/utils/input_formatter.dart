@@ -8,6 +8,3 @@ abstract class InputFormatter {
   static final TextInputFormatter digitsOnly =
       FilteringTextInputFormatter.allow(RegExp(r'[0-9]'));
 }
-
-
-

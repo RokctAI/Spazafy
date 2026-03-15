@@ -46,7 +46,3 @@ class LocationService {
     return await Geolocator.getCurrentPosition();
   }
 }
-
-
-
-

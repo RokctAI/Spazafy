@@ -15,7 +15,3 @@ class SearchProductModel {
     return map;
   }
 }
-
-
-
-

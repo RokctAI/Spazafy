@@ -67,109 +67,108 @@ class _PosPageState extends ConsumerState<PosPage> {
     return Directionality(
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
       child: Scaffold(
-      backgroundColor: isDarkMode ? AppStyle.mainBackDark : AppStyle.bgGrey,
-      body: Stack(
-        children: [
-          // ─── Camera / Camera-Off Area ───
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 0.4.sh,
-            child: _buildCameraArea(state),
-          ),
+        backgroundColor: isDarkMode ? AppStyle.mainBackDark : AppStyle.bgGrey,
+        body: Stack(
+          children: [
+            // ─── Camera / Camera-Off Area ───
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 0.4.sh,
+              child: _buildCameraArea(state),
+            ),
 
-          // ─── Fixed Controls on Camera Area ───
-          Positioned(
-            top: MediaQuery.of(context).padding.top + 10,
-            right: 16,
-            child: _buildFixedControls(state),
-          ),
+            // ─── Fixed Controls on Camera Area ───
+            Positioned(
+              top: MediaQuery.of(context).padding.top + 10,
+              right: 16,
+              child: _buildFixedControls(state),
+            ),
 
-          // ─── Scan Prompt (Floating) ───
-          Positioned(
-            top: 0.35.sh, // Positioned at the bottom of the camera area
-            left: 16.w,
-            right: 16.w,
-            child: const ScanPrompt(),
-          ),
+            // ─── Scan Prompt (Floating) ───
+            Positioned(
+              top: 0.35.sh, // Positioned at the bottom of the camera area
+              left: 16.w,
+              right: 16.w,
+              child: const ScanPrompt(),
+            ),
 
-          // ─── Draggable Cart Panel ───
-          DraggableScrollableSheet(
-            initialChildSize: 0.6,
-            minChildSize: 0.6,
-            maxChildSize: 0.95,
-            builder: (context, scrollController) {
-              return Container(
-                decoration: BoxDecoration(
-                  color: AppStyle.white,
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(24.r),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppStyle.blackColor.withOpacity(0.05),
-                      blurRadius: 10,
-                      offset: const Offset(0, -5),
+            // ─── Draggable Cart Panel ───
+            DraggableScrollableSheet(
+              initialChildSize: 0.6,
+              minChildSize: 0.6,
+              maxChildSize: 0.95,
+              builder: (context, scrollController) {
+                return Container(
+                  decoration: BoxDecoration(
+                    color: AppStyle.white,
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(24.r),
                     ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    // Handle
-                    Center(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 12.h),
-                        width: 40.w,
-                        height: 5.h,
-                        decoration: BoxDecoration(
-                          color: AppStyle.greyColor.withOpacity(0.3),
-                          borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppStyle.blackColor.withOpacity(0.05),
+                        blurRadius: 10,
+                        offset: const Offset(0, -5),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      // Handle
+                      Center(
+                        child: Container(
+                          margin: EdgeInsets.symmetric(vertical: 12.h),
+                          width: 40.w,
+                          height: 5.h,
+                          decoration: BoxDecoration(
+                            color: AppStyle.greyColor.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
                       ),
-                    ),
 
-                    // Cart Summary Header
-                    _buildCartHeader(state),
+                      // Cart Summary Header
+                      _buildCartHeader(state),
 
-                    // Cart Items List
-                    Expanded(
-                      child: state.cartItems.isEmpty
-                          ? _buildEmptyCart()
-                          : ListView.separated(
-                              controller: scrollController,
-                              padding: EdgeInsets.fromLTRB(
-                                16.w,
-                                8.h,
-                                16.w,
-                                140.h, // Bottom padding to keep items visible above floating button
+                      // Cart Items List
+                      Expanded(
+                        child: state.cartItems.isEmpty
+                            ? _buildEmptyCart()
+                            : ListView.separated(
+                                controller: scrollController,
+                                padding: EdgeInsets.fromLTRB(
+                                  16.w,
+                                  8.h,
+                                  16.w,
+                                  140.h, // Bottom padding to keep items visible above floating button
+                                ),
+                                itemCount: state.cartItems.length,
+                                separatorBuilder: (context, index) =>
+                                    12.verticalSpace,
+                                itemBuilder: (context, index) {
+                                  final item = state.cartItems[index];
+                                  return _buildCartItem(item, notifier);
+                                },
                               ),
-                              itemCount: state.cartItems.length,
-                              separatorBuilder: (context, index) =>
-                                  12.verticalSpace,
-                              itemBuilder: (context, index) {
-                                final item = state.cartItems[index];
-                                return _buildCartItem(item, notifier);
-                              },
-                            ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
 
-          Positioned(
-            left: 16.w,
-            right: 16.w,
-            bottom:
-                MediaQuery.of(context).padding.bottom +
-                100.h, // Higher clearance for bottom nav
-            child: _buildBottomButton(state),
-          ),
-        ],
+            Positioned(
+              left: 16.w,
+              right: 16.w,
+              bottom: MediaQuery.of(context).padding.bottom +
+                  100.h, // Higher clearance for bottom nav
+              child: _buildBottomButton(state),
+            ),
+          ],
+        ),
       ),
-    ),
     );
   }
 
@@ -515,7 +514,3 @@ class _PosPageState extends ConsumerState<PosPage> {
     );
   }
 }
-
-
-
-

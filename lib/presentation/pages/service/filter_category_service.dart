@@ -148,7 +148,3 @@ Widget _resultEmpty() {
     ],
   );
 }
-
-
-
-

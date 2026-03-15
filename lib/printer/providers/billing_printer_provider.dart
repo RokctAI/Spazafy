@@ -117,10 +117,5 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
 
 final billingPrinterProvider =
     StateNotifierProvider<BillingPrinterNotifier, BillingPrinterState>((ref) {
-      return BillingPrinterNotifier();
-    });
-
-
-
-
-
+  return BillingPrinterNotifier();
+});

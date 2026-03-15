@@ -183,8 +183,3 @@ class ProductFilter extends ConsumerWidget {
     );
   }
 }
-
-
-
-
-

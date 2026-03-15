@@ -392,7 +392,3 @@ class CustomTags extends StatelessWidget {
     );
   }
 }
-
-
-
-

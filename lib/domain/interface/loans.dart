@@ -155,7 +155,3 @@ abstract class LoansFacade {
   /// any additional data such as financial details, or empty if none exists
   Future<ApiResult<List<Map<String, dynamic>>>> fetchSavedApplications();
 }
-
-
-
-

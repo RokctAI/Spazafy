@@ -5,6 +5,3 @@ class TabBarModel {
 
   TabBarModel({required this.name, required this.count, this.height});
 }
-
-
-

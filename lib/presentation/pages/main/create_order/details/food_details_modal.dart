@@ -32,9 +32,7 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback(
-      (_) => ref
-          .read(productsProvider.notifier)
-          .setProductDetails(
+      (_) => ref.read(productsProvider.notifier).setProductDetails(
             product: widget.product,
             cartStocks: ref.watch(orderCartProvider).stocks,
           ),
@@ -157,14 +155,14 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                                     onTap: () => event.decreaseStockCount(
                                       updateCart: (count) =>
                                           cartEvent.addStockToCart(
-                                            count: count,
-                                            product: state.productData,
-                                            stock: state.selectedStock,
-                                            updateProducts: (stocks) =>
-                                                productsEvent.updateProducts(
-                                                  cartStocks: stocks,
-                                                ),
-                                          ),
+                                        count: count,
+                                        product: state.productData,
+                                        stock: state.selectedStock,
+                                        updateProducts: (stocks) =>
+                                            productsEvent.updateProducts(
+                                          cartStocks: stocks,
+                                        ),
+                                      ),
                                     ),
                                     child: Container(
                                       height: 50.r,
@@ -191,14 +189,14 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                                     onTap: () => event.increaseStockCount(
                                       updateCart: (count) =>
                                           cartEvent.addStockToCart(
-                                            count: count,
-                                            product: state.productData,
-                                            stock: state.selectedStock,
-                                            updateProducts: (stocks) =>
-                                                productsEvent.updateProducts(
-                                                  cartStocks: stocks,
-                                                ),
-                                          ),
+                                        count: count,
+                                        product: state.productData,
+                                        stock: state.selectedStock,
+                                        updateProducts: (stocks) =>
+                                            productsEvent.updateProducts(
+                                          cartStocks: stocks,
+                                        ),
+                                      ),
                                     ),
                                     child: Container(
                                       height: 50.r,
@@ -252,7 +250,3 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
     );
   }
 }
-
-
-
-

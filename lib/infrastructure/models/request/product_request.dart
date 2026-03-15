@@ -65,7 +65,3 @@ class ProductRequest {
     return map;
   }
 }
-
-
-
-

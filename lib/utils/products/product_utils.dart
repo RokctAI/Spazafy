@@ -374,7 +374,3 @@ class ProductUtils {
     return true;
   }
 }
-
-
-
-

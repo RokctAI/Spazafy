@@ -62,8 +62,3 @@ class ShopOrderDescription extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

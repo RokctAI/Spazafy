@@ -69,7 +69,3 @@ class ProductsBody extends StatelessWidget {
           );
   }
 }
-
-
-
-

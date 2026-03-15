@@ -148,7 +148,3 @@ class NoConnectionDialog extends ConsumerWidget {
     AppHelpers.goHome(context);
   }
 }
-
-
-
-

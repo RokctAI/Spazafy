@@ -197,6 +197,3 @@ class Data {
 
   Map<String, dynamic> toJson() => {"id": id, "type": type, "status": status};
 }
-
-
-

@@ -17,8 +17,3 @@ abstract class OrderUserState with _$OrderUserState {
 
   const OrderUserState._();
 }
-
-
-
-
-

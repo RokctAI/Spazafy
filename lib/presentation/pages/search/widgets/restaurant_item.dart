@@ -81,8 +81,3 @@ class RestaurantItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

@@ -15,8 +15,3 @@ abstract class TodayOrdersState with _$TodayOrdersState {
 
   const TodayOrdersState._();
 }
-
-
-
-
-

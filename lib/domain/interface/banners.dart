@@ -16,7 +16,3 @@ abstract class BannersFacade {
 
   Future<ApiResult<void>> likeBanner(int? bannerId);
 }
-
-
-
-

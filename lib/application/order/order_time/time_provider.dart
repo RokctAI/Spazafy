@@ -6,6 +6,3 @@ import 'time_state.dart';
 final timeProvider = StateNotifierProvider<TimeNotifier, TimeState>(
   (ref) => TimeNotifier(),
 );
-
-
-

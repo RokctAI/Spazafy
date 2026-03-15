@@ -46,6 +46,3 @@ class DeliveryPointData {
         "distance": distance,
       };
 }
-
-
-

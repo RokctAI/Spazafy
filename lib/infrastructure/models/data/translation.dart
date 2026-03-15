@@ -74,6 +74,3 @@ class Translation {
     return map;
   }
 }
-
-
-

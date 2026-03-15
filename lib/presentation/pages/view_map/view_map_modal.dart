@@ -261,8 +261,3 @@ class _ViewMapModalState extends ConsumerState<ViewMapModal> {
     );
   }
 }
-
-
-
-
-

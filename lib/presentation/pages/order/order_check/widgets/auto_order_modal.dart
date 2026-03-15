@@ -498,7 +498,3 @@ class _AutoOrderModalState extends ConsumerState<AutoOrderModal> {
     );
   }
 }
-
-
-
-

@@ -95,23 +95,23 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                   GestureDetector(
                                     onTap: () =>
                                         AppHelpers.showCustomModalBottomSheet(
-                                          paddingTop: MediaQuery.paddingOf(
-                                            context,
-                                          ).top,
-                                          context: context,
-                                          radius: 12,
-                                          modal: SelectDateModal(
-                                            initialDate: timeState.deliveryDate,
-                                            onDateSaved: (date) =>
-                                                timeEvent.setDeliveryDate(
-                                                  date.toString().substring(
-                                                    0,
-                                                    10,
-                                                  ),
-                                                ),
-                                          ),
-                                          isDarkMode: true,
+                                      paddingTop: MediaQuery.paddingOf(
+                                        context,
+                                      ).top,
+                                      context: context,
+                                      radius: 12,
+                                      modal: SelectDateModal(
+                                        initialDate: timeState.deliveryDate,
+                                        onDateSaved: (date) =>
+                                            timeEvent.setDeliveryDate(
+                                          date.toString().substring(
+                                                0,
+                                                10,
+                                              ),
                                         ),
+                                      ),
+                                      isDarkMode: true,
+                                    ),
                                     child: Text(
                                       timeState.deliveryDate,
                                       style: AppStyle.interNormal(
@@ -178,17 +178,14 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                           const NeverScrollableScrollPhysics(),
                                       itemBuilder: (context, index) =>
                                           PaymentItem(
-                                            payment:
-                                                paymentState.payments[index],
-                                            isSelected:
-                                                paymentState.selectedIndex ==
-                                                index,
-                                            isLast:
-                                                paymentState.payments.length ==
-                                                index + 1,
-                                            onTap: () => paymentEvent
-                                                .setSelectedIndex(index),
-                                          ),
+                                        payment: paymentState.payments[index],
+                                        isSelected:
+                                            paymentState.selectedIndex == index,
+                                        isLast: paymentState.payments.length ==
+                                            index + 1,
+                                        onTap: () => paymentEvent
+                                            .setSelectedIndex(index),
+                                      ),
                                     );
                             },
                           ),
@@ -327,8 +324,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                       isLoading: ref.watch(createOrderProvider).isCreating,
                       onPressed: () {
                         if (paymentState
-                                .payments[paymentState.selectedIndex]
-                                .tag ==
+                                .payments[paymentState.selectedIndex].tag ==
                             'wallet') {
                           final num walletPrice =
                               userState.selectedUser?.wallet?.price ?? 0;
@@ -345,22 +341,17 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                             return;
                           }
                         }
-                        ref
-                            .read(createOrderProvider.notifier)
-                            .createOrder(
-                              deliveryType: ref
-                                  .watch(deliveryTypeProvider)
-                                  .type,
+                        ref.read(createOrderProvider.notifier).createOrder(
+                              deliveryType:
+                                  ref.watch(deliveryTypeProvider).type,
                               user: userState.selectedUser,
-                              stocks:
-                                  ref
+                              stocks: ref
                                       .watch(orderPaymentProvider)
                                       .orderCalculate
                                       ?.stocks ??
                                   ref.watch(orderCartProvider).stocks,
-                              deliveryDate: ref
-                                  .watch(deliveryTimeProvider)
-                                  .deliveryDate,
+                              deliveryDate:
+                                  ref.watch(deliveryTimeProvider).deliveryDate,
                               address: addressState.textController?.text ?? '',
                               location: addressState.location,
                               entrance: addressState.entrance,
@@ -383,9 +374,8 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                     .fetchNewOrders(
                                       context: context,
                                       isRefresh: true,
-                                      activeTabIndex: ref
-                                          .watch(homeAppbarProvider)
-                                          .index,
+                                      activeTabIndex:
+                                          ref.watch(homeAppbarProvider).index,
                                     );
                                 ref
                                     .read(orderPaymentProvider.notifier)
@@ -399,10 +389,10 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                               },
                               failed: (message) =>
                                   AppHelpers.showCheckTopSnackBar(
-                                    context,
-                                    text: message,
-                                    type: SnackBarType.error,
-                                  ),
+                                context,
+                                text: message,
+                                type: SnackBarType.error,
+                              ),
                               tableId: ref.watch(tableProvider).selectTable?.id,
                             );
                       },
@@ -417,7 +407,3 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
     );
   }
 }
-
-
-
-

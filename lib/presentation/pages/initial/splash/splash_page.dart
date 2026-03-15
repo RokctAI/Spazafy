@@ -166,7 +166,3 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     );
   }
 }
-
-
-
-

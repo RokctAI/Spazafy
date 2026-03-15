@@ -86,17 +86,16 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
                             event.setQuantity(value: value, index: index),
                         onAddonTap: (context) =>
                             AppHelpers.showCustomModalBottomSheet(
-                              paddingTop:
-                                  MediaQuery.paddingOf(context).top + 150,
-                              context: context,
-                              radius: 12,
-                              modal: CreateFoodAddonsModal(
-                                stock: state.stocks[index],
-                                onSave: (addons) =>
-                                    event.setStockAddons(addons, index),
-                              ),
-                              isDarkMode: true,
-                            ),
+                          paddingTop: MediaQuery.paddingOf(context).top + 150,
+                          context: context,
+                          radius: 12,
+                          modal: CreateFoodAddonsModal(
+                            stock: state.stocks[index],
+                            onSave: (addons) =>
+                                event.setStockAddons(addons, index),
+                          ),
+                          isDarkMode: true,
+                        ),
                         onSkuChange: (value) {
                           event.setSku(value: value, index: index);
                         },
@@ -123,9 +122,8 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
                             categoryId: categoriesState.activeIndex == 1
                                 ? null
                                 : categoriesState
-                                      .categories[categoriesState.activeIndex -
-                                          2]
-                                      .id,
+                                    .categories[categoriesState.activeIndex - 2]
+                                    .id,
                           );
                           AppHelpers.showCheckTopSnackBar(
                             context,
@@ -154,7 +152,3 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
     );
   }
 }
-
-
-
-

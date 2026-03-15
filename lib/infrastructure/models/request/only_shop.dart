@@ -12,7 +12,3 @@ class OnlyShopRequest {
     return map;
   }
 }
-
-
-
-

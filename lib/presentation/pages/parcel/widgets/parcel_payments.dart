@@ -126,8 +126,3 @@ class _PaymentMethodsState extends ConsumerState<ParcelPayments> {
     );
   }
 }
-
-
-
-
-

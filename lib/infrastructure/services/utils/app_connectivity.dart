@@ -46,7 +46,3 @@ abstract class AppConnectivity {
     return hasConnection;
   }
 }
-
-
-
-

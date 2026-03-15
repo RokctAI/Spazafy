@@ -128,7 +128,3 @@ class TitleAndIcon extends StatelessWidget {
     );
   }
 }
-
-
-
-

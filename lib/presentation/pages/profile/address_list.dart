@@ -218,7 +218,3 @@ class _AddressListPageState extends State<AddressListPage> {
     );
   }
 }
-
-
-
-

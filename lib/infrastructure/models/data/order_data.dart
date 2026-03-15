@@ -104,9 +104,8 @@ class OrderData {
     _transaction = json['transaction'] != null
         ? Transaction.fromJson(json['transaction'])
         : null;
-    _orderAddress = json['address'] != null
-        ? OrderAddress.fromJson(json['address'])
-        : null;
+    _orderAddress =
+        json['address'] != null ? OrderAddress.fromJson(json['address']) : null;
     _note = json['note'];
     _afterDeliveredImage = json['image_after_delivered'];
     _seen = json['seen'];
@@ -489,7 +488,9 @@ class OrderStocks {
     _stock = json['stock'] != null ? Stocks.fromJson(json['stock']) : null;
     _status = json['status'];
     _bonus = json['bonus'] is int ? (json['bonus'] != 0) : json['bonus'];
-    _shopBonus = json['bonus_shop'] is int ? (json['bonus_shop'] != 0) : json['bonus_shop'];
+    _shopBonus = json['bonus_shop'] is int
+        ? (json['bonus_shop'] != 0)
+        : json['bonus_shop'];
     _kitchen = json['kitchen'];
     if (json['addons'] != null) {
       _addons = [];
@@ -717,6 +718,3 @@ class ProductNote {
 
   ProductNote({required this.stockId, required this.comment});
 }
-
-
-

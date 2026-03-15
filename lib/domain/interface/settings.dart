@@ -40,7 +40,3 @@ abstract class SettingsFacade {
     required AiTranslationRequest model,
   });
 }
-
-
-
-

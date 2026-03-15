@@ -271,6 +271,3 @@ class NetworkExceptions with _$NetworkExceptions {
     return errorMessage;
   }
 }
-
-
-

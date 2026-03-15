@@ -200,7 +200,3 @@ class FoodStockItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

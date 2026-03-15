@@ -267,6 +267,3 @@ abstract class AppStyle {
     }
   }
 }
-
-
-

@@ -76,6 +76,3 @@ class SavedCardModel {
         'cardType: $cardType, expiryDate: $expiryDate, isDefault: $isDefault)';
   }
 }
-
-
-

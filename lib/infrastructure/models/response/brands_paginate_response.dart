@@ -59,6 +59,3 @@ class BrandsPaginateResponse {
     return map;
   }
 }
-
-
-

@@ -89,6 +89,3 @@ class CurrencyData {
     return map;
   }
 }
-
-
-

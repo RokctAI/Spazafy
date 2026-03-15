@@ -62,7 +62,3 @@ class _NoteProductState extends State<NoteProduct> {
     );
   }
 }
-
-
-
-

@@ -9,7 +9,7 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
   final CatalogInterface _catalogRepository;
 
   CreateFoodUnitsNotifier(this._catalogRepository)
-    : super(CreateFoodUnitsState(unitController: TextEditingController()));
+      : super(CreateFoodUnitsState(unitController: TextEditingController()));
 
   Future<void> fetchUnits(BuildContext context) async {
     if (state.units.isNotEmpty) {
@@ -46,8 +46,3 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
     state.unitController?.text = state.units[index].translation?.title ?? '';
   }
 }
-
-
-
-
-

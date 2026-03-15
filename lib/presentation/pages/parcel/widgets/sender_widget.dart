@@ -154,7 +154,3 @@ class SenderWidget extends StatelessWidget {
     );
   }
 }
-
-
-
-

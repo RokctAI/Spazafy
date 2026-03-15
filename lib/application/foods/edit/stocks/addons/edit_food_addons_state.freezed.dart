@@ -54,16 +54,15 @@ class _$EditFoodAddonsStateCopyWithImpl<$Res, $Val extends EditFoodAddonsState>
   $Res call({Object? isLoading = null, Object? addons = null}) {
     return _then(
       _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            addons: null == addons
-                ? _value.addons
-                : addons // ignore: cast_nullable_to_non_nullable
-                      as List<ProductData>,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        addons: null == addons
+            ? _value.addons
+            : addons // ignore: cast_nullable_to_non_nullable
+                as List<ProductData>,
+      ) as $Val,
     );
   }
 }
@@ -99,11 +98,11 @@ class __$$EditFoodAddonsStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         addons: null == addons
             ? _value._addons
             : addons // ignore: cast_nullable_to_non_nullable
-                  as List<ProductData>,
+                as List<ProductData>,
       ),
     );
   }
@@ -115,8 +114,8 @@ class _$EditFoodAddonsStateImpl extends _EditFoodAddonsState {
   const _$EditFoodAddonsStateImpl({
     this.isLoading = false,
     final List<ProductData> addons = const [],
-  }) : _addons = addons,
-       super._();
+  })  : _addons = addons,
+        super._();
 
   @override
   @JsonKey()
@@ -147,10 +146,10 @@ class _$EditFoodAddonsStateImpl extends _EditFoodAddonsState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    const DeepCollectionEquality().hash(_addons),
-  );
+        runtimeType,
+        isLoading,
+        const DeepCollectionEquality().hash(_addons),
+      );
 
   /// Create a copy of EditFoodAddonsState
   /// with the given fields replaced by the non-null parameter values.
@@ -183,7 +182,3 @@ abstract class _EditFoodAddonsState extends EditFoodAddonsState {
   _$$EditFoodAddonsStateImplCopyWith<_$EditFoodAddonsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

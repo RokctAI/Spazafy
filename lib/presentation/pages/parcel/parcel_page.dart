@@ -274,7 +274,3 @@ class _ParcelPageState extends ConsumerState<ParcelPage> {
     );
   }
 }
-
-
-
-

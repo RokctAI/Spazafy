@@ -39,7 +39,3 @@ class ShopAvatar extends StatelessWidget {
     );
   }
 }
-
-
-
-

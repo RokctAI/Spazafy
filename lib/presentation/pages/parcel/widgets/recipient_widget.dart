@@ -319,7 +319,3 @@ class RecipientWidget extends StatelessWidget {
     );
   }
 }
-
-
-
-

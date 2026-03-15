@@ -65,7 +65,3 @@ class WIngredientScreen extends StatelessWidget {
           );
   }
 }
-
-
-
-

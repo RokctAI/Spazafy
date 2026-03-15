@@ -57,6 +57,3 @@ class BlogDetailsResponse {
     return map;
   }
 }
-
-
-

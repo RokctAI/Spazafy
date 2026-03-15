@@ -147,6 +147,3 @@ class _ShopBadgeState extends State<ShopBadge>
     return text;
   }
 }
-
-
-

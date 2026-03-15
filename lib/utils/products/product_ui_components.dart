@@ -243,7 +243,3 @@ class ProductUIComponents {
     return null;
   }
 }
-
-
-
-

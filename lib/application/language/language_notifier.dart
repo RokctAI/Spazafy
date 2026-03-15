@@ -106,7 +106,3 @@ class LanguageNotifier extends StateNotifier<LanguageState> {
     }
   }
 }
-
-
-
-

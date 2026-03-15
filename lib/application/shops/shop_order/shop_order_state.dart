@@ -23,7 +23,3 @@ class ShopOrderState with _$ShopOrderState {
 
   const ShopOrderState._();
 }
-
-
-
-

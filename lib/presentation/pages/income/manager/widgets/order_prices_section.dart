@@ -192,7 +192,3 @@ class OrderPricesSection extends StatelessWidget {
     );
   }
 }
-
-
-
-

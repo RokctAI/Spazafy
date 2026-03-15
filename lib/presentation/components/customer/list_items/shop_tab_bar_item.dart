@@ -38,7 +38,3 @@ class ShopTabBarItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

@@ -18,9 +18,9 @@ sealed class ApiResult<T> with _$ApiResult<T> {
     return switch (this) {
       Success<T>(data: final data) => success(data),
       Failure<T>(error: final error, statusCode: final statusCode) => failure(
-        error,
-        statusCode,
-      ),
+          error,
+          statusCode,
+        ),
     };
   }
 
@@ -36,6 +36,3 @@ sealed class ApiResult<T> with _$ApiResult<T> {
     };
   }
 }
-
-
-

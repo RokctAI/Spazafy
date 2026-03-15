@@ -13,8 +13,3 @@ abstract class EditFoodAddonsState with _$EditFoodAddonsState {
 
   const EditFoodAddonsState._();
 }
-
-
-
-
-

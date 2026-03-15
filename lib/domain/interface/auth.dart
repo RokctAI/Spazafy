@@ -51,7 +51,3 @@ abstract class AuthFacade {
 
   Future<ApiResult<CheckPhoneResponse>> checkPhone({required String phone});
 }
-
-
-
-

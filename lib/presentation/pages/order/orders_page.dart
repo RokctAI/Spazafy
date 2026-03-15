@@ -221,8 +221,3 @@ Widget _resultEmpty() {
     titleText: "No Orders",
   );
 }
-
-
-
-
-

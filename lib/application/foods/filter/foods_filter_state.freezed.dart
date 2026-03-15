@@ -86,48 +86,47 @@ class _$FoodsFilterStateCopyWithImpl<$Res, $Val extends FoodsFilterState>
   }) {
     return _then(
       _value.copyWith(
-            checked: null == checked
-                ? _value.checked
-                : checked // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            shopCount: null == shopCount
-                ? _value.shopCount
-                : shopCount // ignore: cast_nullable_to_non_nullable
-                      as int,
-            endPrice: null == endPrice
-                ? _value.endPrice
-                : endPrice // ignore: cast_nullable_to_non_nullable
-                      as double,
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            isTagLoading: null == isTagLoading
-                ? _value.isTagLoading
-                : isTagLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            isShopLoading: null == isShopLoading
-                ? _value.isShopLoading
-                : isShopLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            isRestaurantLoading: null == isRestaurantLoading
-                ? _value.isRestaurantLoading
-                : isRestaurantLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            rangeValues: null == rangeValues
-                ? _value.rangeValues
-                : rangeValues // ignore: cast_nullable_to_non_nullable
-                      as RangeValues,
-            tags: null == tags
-                ? _value.tags
-                : tags // ignore: cast_nullable_to_non_nullable
-                      as List<String>,
-            prices: null == prices
-                ? _value.prices
-                : prices // ignore: cast_nullable_to_non_nullable
-                      as List<int>,
-          )
-          as $Val,
+        checked: null == checked
+            ? _value.checked
+            : checked // ignore: cast_nullable_to_non_nullable
+                as bool,
+        shopCount: null == shopCount
+            ? _value.shopCount
+            : shopCount // ignore: cast_nullable_to_non_nullable
+                as int,
+        endPrice: null == endPrice
+            ? _value.endPrice
+            : endPrice // ignore: cast_nullable_to_non_nullable
+                as double,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isTagLoading: null == isTagLoading
+            ? _value.isTagLoading
+            : isTagLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isShopLoading: null == isShopLoading
+            ? _value.isShopLoading
+            : isShopLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isRestaurantLoading: null == isRestaurantLoading
+            ? _value.isRestaurantLoading
+            : isRestaurantLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        rangeValues: null == rangeValues
+            ? _value.rangeValues
+            : rangeValues // ignore: cast_nullable_to_non_nullable
+                as RangeValues,
+        tags: null == tags
+            ? _value.tags
+            : tags // ignore: cast_nullable_to_non_nullable
+                as List<String>,
+        prices: null == prices
+            ? _value.prices
+            : prices // ignore: cast_nullable_to_non_nullable
+                as List<int>,
+      ) as $Val,
     );
   }
 }
@@ -185,43 +184,43 @@ class __$$FoodsFilterStateImplCopyWithImpl<$Res>
         checked: null == checked
             ? _value.checked
             : checked // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         shopCount: null == shopCount
             ? _value.shopCount
             : shopCount // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         endPrice: null == endPrice
             ? _value.endPrice
             : endPrice // ignore: cast_nullable_to_non_nullable
-                  as double,
+                as double,
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         isTagLoading: null == isTagLoading
             ? _value.isTagLoading
             : isTagLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         isShopLoading: null == isShopLoading
             ? _value.isShopLoading
             : isShopLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         isRestaurantLoading: null == isRestaurantLoading
             ? _value.isRestaurantLoading
             : isRestaurantLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         rangeValues: null == rangeValues
             ? _value.rangeValues
             : rangeValues // ignore: cast_nullable_to_non_nullable
-                  as RangeValues,
+                as RangeValues,
         tags: null == tags
             ? _value._tags
             : tags // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                as List<String>,
         prices: null == prices
             ? _value._prices
             : prices // ignore: cast_nullable_to_non_nullable
-                  as List<int>,
+                as List<int>,
       ),
     );
   }
@@ -241,9 +240,9 @@ class _$FoodsFilterStateImpl extends _FoodsFilterState {
     this.rangeValues = const RangeValues(1, 100),
     final List<String> tags = const [],
     final List<int> prices = const [],
-  }) : _tags = tags,
-       _prices = prices,
-       super._();
+  })  : _tags = tags,
+        _prices = prices,
+        super._();
 
   // @Default(null) FilterModel? filterModel,
   @override
@@ -321,18 +320,18 @@ class _$FoodsFilterStateImpl extends _FoodsFilterState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    checked,
-    shopCount,
-    endPrice,
-    isLoading,
-    isTagLoading,
-    isShopLoading,
-    isRestaurantLoading,
-    rangeValues,
-    const DeepCollectionEquality().hash(_tags),
-    const DeepCollectionEquality().hash(_prices),
-  );
+        runtimeType,
+        checked,
+        shopCount,
+        endPrice,
+        isLoading,
+        isTagLoading,
+        isShopLoading,
+        isRestaurantLoading,
+        rangeValues,
+        const DeepCollectionEquality().hash(_tags),
+        const DeepCollectionEquality().hash(_prices),
+      );
 
   /// Create a copy of FoodsFilterState
   /// with the given fields replaced by the non-null parameter values.
@@ -390,7 +389,3 @@ abstract class _FoodsFilterState extends FoodsFilterState {
   _$$FoodsFilterStateImplCopyWith<_$FoodsFilterStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

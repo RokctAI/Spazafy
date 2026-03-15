@@ -190,6 +190,3 @@ class Links {
     return map;
   }
 }
-
-
-

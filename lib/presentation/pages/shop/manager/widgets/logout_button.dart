@@ -70,7 +70,3 @@ class LogoutButton extends StatelessWidget {
     );
   }
 }
-
-
-
-

@@ -39,7 +39,3 @@ class OrderPaginateResponse {
     return map;
   }
 }
-
-
-
-

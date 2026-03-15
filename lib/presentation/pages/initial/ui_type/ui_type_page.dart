@@ -79,7 +79,3 @@ class UiTypePage extends StatelessWidget {
     );
   }
 }
-
-
-
-

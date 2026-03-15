@@ -98,8 +98,12 @@ class ProductData {
     _brandId = json['brand_id']?.toString();
     _tax = json['tax'] != null ? num.tryParse(json['tax'].toString()) : null;
     _interval = json['interval'];
-    _minQty = json['min_qty'] != null ? int.tryParse(json['min_qty'].toString()) : null;
-    _maxQty = json['max_qty'] != null ? int.tryParse(json['max_qty'].toString()) : null;
+    _minQty = json['min_qty'] != null
+        ? int.tryParse(json['min_qty'].toString())
+        : null;
+    _maxQty = json['max_qty'] != null
+        ? int.tryParse(json['max_qty'].toString())
+        : null;
     _img = json['img'] ?? json['image'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
@@ -111,7 +115,8 @@ class ProductData {
     _status = json['status'];
     _type = json['type'];
     _addon = json['addon'];
-    _locales = json['locales'] != null ? List<String>.from(json['locales']) : [];
+    _locales =
+        json['locales'] != null ? List<String>.from(json['locales']) : [];
     _isSelectedAddon = false;
     _unit = json['unit'] != null ? UnitData.fromJson(json['unit']) : null;
     _translation = json['translation'] != null
@@ -546,7 +551,3 @@ class Stocks {
     return map;
   }
 }
-
-
-
-

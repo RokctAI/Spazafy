@@ -146,7 +146,3 @@ class _BannerThreeState extends State<BannerThree> {
     );
   }
 }
-
-
-
-

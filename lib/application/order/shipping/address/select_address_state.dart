@@ -21,8 +21,3 @@ abstract class SelectAddressState with _$SelectAddressState {
 
   const SelectAddressState._();
 }
-
-
-
-
-

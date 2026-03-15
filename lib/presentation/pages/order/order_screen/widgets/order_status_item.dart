@@ -44,7 +44,3 @@ class OrderStatusItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

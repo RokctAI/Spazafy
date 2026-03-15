@@ -173,6 +173,3 @@ class Link {
         "active": active,
       };
 }
-
-
-

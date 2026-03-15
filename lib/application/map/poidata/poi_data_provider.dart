@@ -15,7 +15,3 @@ class POIDataNotifier extends StateNotifier<List<POIData>> {
     state = newData;
   }
 }
-
-
-
-

@@ -34,8 +34,8 @@ class SecondButton extends StatelessWidget {
       disabled: active,
       onTap: active
           ? isLoading
-                ? null
-                : onTap
+              ? null
+              : onTap
           : null,
       child: Container(
         decoration: BoxDecoration(
@@ -49,7 +49,7 @@ class SecondButton extends StatelessWidget {
             ? Loading(
                 // color: bgColor == AppStyle.primary ? AppStyle.white : null,
                 // size: 16,
-              )
+                )
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -68,7 +68,3 @@ class SecondButton extends StatelessWidget {
     );
   }
 }
-
-
-
-

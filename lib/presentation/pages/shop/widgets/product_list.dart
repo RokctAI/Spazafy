@@ -270,7 +270,3 @@ class _ProductsListState extends ConsumerState<ProductsList> {
     super.dispose();
   }
 }
-
-
-
-

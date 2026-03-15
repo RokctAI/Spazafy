@@ -57,6 +57,3 @@ class SingleProductResponse {
     return map;
   }
 }
-
-
-

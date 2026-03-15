@@ -85,7 +85,3 @@ class LogoutModal extends StatelessWidget {
     );
   }
 }
-
-
-
-

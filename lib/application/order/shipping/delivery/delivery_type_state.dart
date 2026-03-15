@@ -11,8 +11,3 @@ abstract class DeliveryTypeState with _$DeliveryTypeState {
 
   const DeliveryTypeState._();
 }
-
-
-
-
-

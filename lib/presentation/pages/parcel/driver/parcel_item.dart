@@ -94,8 +94,3 @@ class ParcelItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

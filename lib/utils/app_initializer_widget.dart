@@ -63,6 +63,3 @@ class _AppInitializerWidgetState extends State<AppInitializerWidget> {
     );
   }
 }
-
-
-

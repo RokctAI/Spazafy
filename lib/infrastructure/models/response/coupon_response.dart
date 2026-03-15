@@ -57,6 +57,3 @@ class CouponResponse {
     return map;
   }
 }
-
-
-

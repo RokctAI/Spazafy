@@ -7,9 +7,10 @@ import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 class EditFoodCategoriesNotifier
     extends StateNotifier<EditFoodCategoriesState> {
   EditFoodCategoriesNotifier()
-    : super(
-        EditFoodCategoriesState(categoriesController: TextEditingController()),
-      );
+      : super(
+          EditFoodCategoriesState(
+              categoriesController: TextEditingController()),
+        );
 
   void setCategories(List<CategoryData> list) {
     List<CategoryData> categories = List.from(list);
@@ -47,8 +48,3 @@ class EditFoodCategoriesNotifier
     state.categoriesController?.text = newCategory.translation?.title ?? '';
   }
 }
-
-
-
-
-

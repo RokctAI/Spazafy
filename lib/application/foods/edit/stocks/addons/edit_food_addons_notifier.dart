@@ -15,7 +15,7 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
   bool _hasMore = true;
 
   EditFoodAddonsNotifier(this._productsRepository)
-    : super(const EditFoodAddonsState());
+      : super(const EditFoodAddonsState());
 
   void toggleAddonSelection(int index) {
     List<ProductData> addons = List.from(state.addons);
@@ -100,8 +100,3 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
     );
   }
 }
-
-
-
-
-

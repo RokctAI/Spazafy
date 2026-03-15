@@ -163,7 +163,8 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       final response = await _parcelRepository.getActiveParcel(1);
       response.when(
         success: (data) {
-          state = state.copyWith(activeOrders: data.data ?? [], isActiveLoading: false);
+          state = state.copyWith(
+              activeOrders: data.data ?? [], isActiveLoading: false);
         },
         failure: (failure, status) {
           state = state.copyWith(isActiveLoading: false);
@@ -180,7 +181,9 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     required BuildContext context,
   }) {
     state = state.copyWith(addressFrom: title, locationFrom: location);
-    if (state.types.isNotEmpty && state.addressFrom != null && state.addressTo != null) {
+    if (state.types.isNotEmpty &&
+        state.addressFrom != null &&
+        state.addressTo != null) {
       getCalculate(context);
     }
   }
@@ -191,7 +194,9 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     required BuildContext context,
   }) {
     state = state.copyWith(addressTo: title, locationTo: location);
-    if (state.types.isNotEmpty && state.addressFrom != null && state.addressTo != null) {
+    if (state.types.isNotEmpty &&
+        state.addressFrom != null &&
+        state.addressTo != null) {
       getCalculate(context);
     }
   }

@@ -70,28 +70,27 @@ class _$SectionStateCopyWithImpl<$Res, $Val extends SectionState>
   }) {
     return _then(
       _value.copyWith(
-            sections: null == sections
-                ? _value.sections
-                : sections // ignore: cast_nullable_to_non_nullable
-                      as List<ShopSection>,
-            selectedIndex: null == selectedIndex
-                ? _value.selectedIndex
-                : selectedIndex // ignore: cast_nullable_to_non_nullable
-                      as int,
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            selectSection: freezed == selectSection
-                ? _value.selectSection
-                : selectSection // ignore: cast_nullable_to_non_nullable
-                      as ShopSection?,
-            textController: freezed == textController
-                ? _value.textController
-                : textController // ignore: cast_nullable_to_non_nullable
-                      as TextEditingController?,
-          )
-          as $Val,
+        sections: null == sections
+            ? _value.sections
+            : sections // ignore: cast_nullable_to_non_nullable
+                as List<ShopSection>,
+        selectedIndex: null == selectedIndex
+            ? _value.selectedIndex
+            : selectedIndex // ignore: cast_nullable_to_non_nullable
+                as int,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        selectSection: freezed == selectSection
+            ? _value.selectSection
+            : selectSection // ignore: cast_nullable_to_non_nullable
+                as ShopSection?,
+        textController: freezed == textController
+            ? _value.textController
+            : textController // ignore: cast_nullable_to_non_nullable
+                as TextEditingController?,
+      ) as $Val,
     );
   }
 }
@@ -139,23 +138,23 @@ class __$$SectionStateImplCopyWithImpl<$Res>
         sections: null == sections
             ? _value._sections
             : sections // ignore: cast_nullable_to_non_nullable
-                  as List<ShopSection>,
+                as List<ShopSection>,
         selectedIndex: null == selectedIndex
             ? _value.selectedIndex
             : selectedIndex // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         selectSection: freezed == selectSection
             ? _value.selectSection
             : selectSection // ignore: cast_nullable_to_non_nullable
-                  as ShopSection?,
+                as ShopSection?,
         textController: freezed == textController
             ? _value.textController
             : textController // ignore: cast_nullable_to_non_nullable
-                  as TextEditingController?,
+                as TextEditingController?,
       ),
     );
   }
@@ -170,8 +169,8 @@ class _$SectionStateImpl extends _SectionState {
     this.isLoading = false,
     this.selectSection,
     this.textController,
-  }) : _sections = sections,
-       super._();
+  })  : _sections = sections,
+        super._();
 
   final List<ShopSection> _sections;
   @override
@@ -216,13 +215,13 @@ class _$SectionStateImpl extends _SectionState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_sections),
-    selectedIndex,
-    isLoading,
-    selectSection,
-    textController,
-  );
+        runtimeType,
+        const DeepCollectionEquality().hash(_sections),
+        selectedIndex,
+        isLoading,
+        selectSection,
+        textController,
+      );
 
   /// Create a copy of SectionState
   /// with the given fields replaced by the non-null parameter values.
@@ -261,7 +260,3 @@ abstract class _SectionState extends SectionState {
   _$$SectionStateImplCopyWith<_$SectionStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

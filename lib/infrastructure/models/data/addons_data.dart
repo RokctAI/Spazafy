@@ -28,9 +28,8 @@ class AddonData {
     _quantity = json['quantity'] ?? 0;
     _totalPrice = json["total_price"] ?? json['price'];
     _stock = json['stock'] != null ? Stocks.fromJson(json['stock']) : null;
-    _product = json['product'] != null
-        ? ProductData.fromJson(json['product'])
-        : null;
+    _product =
+        json['product'] != null ? ProductData.fromJson(json['product']) : null;
     _active = json['active'] is bool ? json['active'] : false;
   }
 

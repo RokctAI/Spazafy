@@ -53,7 +53,3 @@ class ReferralModel {
     return data;
   }
 }
-
-
-
-

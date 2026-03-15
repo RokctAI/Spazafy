@@ -57,8 +57,3 @@ class EmptyBadge extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

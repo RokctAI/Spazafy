@@ -29,6 +29,3 @@ class LocationModel {
     return map;
   }
 }
-
-
-

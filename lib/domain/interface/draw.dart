@@ -9,7 +9,3 @@ abstract class DrawFacade {
     required LatLng end,
   });
 }
-
-
-
-

@@ -46,8 +46,3 @@ class BannerItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

@@ -43,6 +43,3 @@ class SearchCategoryShimmer extends StatelessWidget {
     );
   }
 }
-
-
-

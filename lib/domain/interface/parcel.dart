@@ -65,7 +65,3 @@ abstract class ParcelFacade {
   });
   Future<ApiResult<ParcelOrder>> setParcel(String orderId);
 }
-
-
-
-

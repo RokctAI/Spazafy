@@ -181,7 +181,3 @@ class MarketOneItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

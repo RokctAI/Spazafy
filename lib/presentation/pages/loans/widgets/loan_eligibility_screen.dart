@@ -950,6 +950,3 @@ class _CurrencyInputFormatter extends TextInputFormatter {
     );
   }
 }
-
-
-

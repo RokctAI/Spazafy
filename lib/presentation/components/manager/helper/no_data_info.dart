@@ -31,7 +31,3 @@ class NoDataInfo extends StatelessWidget {
     );
   }
 }
-
-
-
-

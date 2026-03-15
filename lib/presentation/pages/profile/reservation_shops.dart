@@ -145,7 +145,3 @@ class _ReservationShopsState extends ConsumerState<ReservationShops> {
     );
   }
 }
-
-
-
-

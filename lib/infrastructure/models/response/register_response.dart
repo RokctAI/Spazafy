@@ -84,6 +84,3 @@ class RegisterData {
     return map;
   }
 }
-
-
-

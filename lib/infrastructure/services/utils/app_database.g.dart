@@ -558,8 +558,8 @@ class ShopTableCompanion extends UpdateCompanion<ShopEntity> {
     required String id,
     required String data,
     this.rowid = const Value.absent(),
-  }) : id = Value(id),
-       data = Value(data);
+  })  : id = Value(id),
+        data = Value(data);
   static Insertable<ShopEntity> custom({
     Expression<String>? id,
     Expression<String>? data,
@@ -763,8 +763,8 @@ class CategoriesTableCompanion extends UpdateCompanion<CategoryEntity> {
     required String id,
     required String data,
     this.rowid = const Value.absent(),
-  }) : id = Value(id),
-       data = Value(data);
+  })  : id = Value(id),
+        data = Value(data);
   static Insertable<CategoryEntity> custom({
     Expression<String>? id,
     Expression<String>? data,
@@ -968,8 +968,8 @@ class SettingsTableCompanion extends UpdateCompanion<SettingEntity> {
     required String id,
     required String data,
     this.rowid = const Value.absent(),
-  }) : id = Value(id),
-       data = Value(data);
+  })  : id = Value(id),
+        data = Value(data);
   static Insertable<SettingEntity> custom({
     Expression<String>? id,
     Expression<String>? data,
@@ -1174,8 +1174,8 @@ class BillingCartTableCompanion extends UpdateCompanion<BillingCartEntity> {
     required String id,
     required String data,
     this.rowid = const Value.absent(),
-  }) : id = Value(id),
-       data = Value(data);
+  })  : id = Value(id),
+        data = Value(data);
   static Insertable<BillingCartEntity> custom({
     Expression<String>? id,
     Expression<String>? data,
@@ -1434,13 +1434,14 @@ class SyncQueueEntity extends DataClass implements Insertable<SyncQueueEntity> {
     String? method,
     String? payload,
     DateTime? createdAt,
-  }) => SyncQueueEntity(
-    id: id ?? this.id,
-    url: url ?? this.url,
-    method: method ?? this.method,
-    payload: payload ?? this.payload,
-    createdAt: createdAt ?? this.createdAt,
-  );
+  }) =>
+      SyncQueueEntity(
+        id: id ?? this.id,
+        url: url ?? this.url,
+        method: method ?? this.method,
+        payload: payload ?? this.payload,
+        createdAt: createdAt ?? this.createdAt,
+      );
   SyncQueueEntity copyWithCompanion(SyncQueueTableCompanion data) {
     return SyncQueueEntity(
       id: data.id.present ? data.id.value : this.id,
@@ -1498,10 +1499,10 @@ class SyncQueueTableCompanion extends UpdateCompanion<SyncQueueEntity> {
     required String payload,
     required DateTime createdAt,
     this.rowid = const Value.absent(),
-  }) : url = Value(url),
-       method = Value(method),
-       payload = Value(payload),
-       createdAt = Value(createdAt);
+  })  : url = Value(url),
+        method = Value(method),
+        payload = Value(payload),
+        createdAt = Value(createdAt);
   static Insertable<SyncQueueEntity> custom({
     Expression<String>? id,
     Expression<String>? url,
@@ -1595,28 +1596,28 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [
-    productsTable,
-    ordersTable,
-    shopTable,
-    categoriesTable,
-    settingsTable,
-    billingCartTable,
-    syncQueueTable,
-  ];
+        productsTable,
+        ordersTable,
+        shopTable,
+        categoriesTable,
+        settingsTable,
+        billingCartTable,
+        syncQueueTable,
+      ];
 }
 
-typedef $$ProductsTableTableCreateCompanionBuilder =
-    ProductsTableCompanion Function({
-      Value<String> id,
-      required String data,
-      Value<int> rowid,
-    });
-typedef $$ProductsTableTableUpdateCompanionBuilder =
-    ProductsTableCompanion Function({
-      Value<String> id,
-      Value<String> data,
-      Value<int> rowid,
-    });
+typedef $$ProductsTableTableCreateCompanionBuilder = ProductsTableCompanion
+    Function({
+  Value<String> id,
+  required String data,
+  Value<int> rowid,
+});
+typedef $$ProductsTableTableUpdateCompanionBuilder = ProductsTableCompanion
+    Function({
+  Value<String> id,
+  Value<String> data,
+  Value<int> rowid,
+});
 
 class $$ProductsTableTableFilterComposer
     extends Composer<_$AppDatabase, $ProductsTableTable> {
@@ -1628,14 +1629,14 @@ class $$ProductsTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnFilters(column),
+      );
 
   ColumnFilters<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnFilters(column),
+      );
 }
 
 class $$ProductsTableTableOrderingComposer
@@ -1648,14 +1649,14 @@ class $$ProductsTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnOrderings(column),
+      );
 
   ColumnOrderings<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnOrderings(column),
+      );
 }
 
 class $$ProductsTableTableAnnotationComposer
@@ -1674,88 +1675,83 @@ class $$ProductsTableTableAnnotationComposer
       $composableBuilder(column: $table.data, builder: (column) => column);
 }
 
-class $$ProductsTableTableTableManager
-    extends
-        RootTableManager<
-          _$AppDatabase,
-          $ProductsTableTable,
-          ProductEntity,
-          $$ProductsTableTableFilterComposer,
-          $$ProductsTableTableOrderingComposer,
-          $$ProductsTableTableAnnotationComposer,
-          $$ProductsTableTableCreateCompanionBuilder,
-          $$ProductsTableTableUpdateCompanionBuilder,
-          (
-            ProductEntity,
-            BaseReferences<_$AppDatabase, $ProductsTableTable, ProductEntity>,
-          ),
-          ProductEntity,
-          PrefetchHooks Function()
-        > {
+class $$ProductsTableTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $ProductsTableTable,
+    ProductEntity,
+    $$ProductsTableTableFilterComposer,
+    $$ProductsTableTableOrderingComposer,
+    $$ProductsTableTableAnnotationComposer,
+    $$ProductsTableTableCreateCompanionBuilder,
+    $$ProductsTableTableUpdateCompanionBuilder,
+    (
+      ProductEntity,
+      BaseReferences<_$AppDatabase, $ProductsTableTable, ProductEntity>,
+    ),
+    ProductEntity,
+    PrefetchHooks Function()> {
   $$ProductsTableTableTableManager(_$AppDatabase db, $ProductsTableTable table)
-    : super(
-        TableManagerState(
-          db: db,
-          table: table,
-          createFilteringComposer: () =>
-              $$ProductsTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$ProductsTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$ProductsTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback:
-              ({
-                Value<String> id = const Value.absent(),
-                Value<String> data = const Value.absent(),
-                Value<int> rowid = const Value.absent(),
-              }) => ProductsTableCompanion(id: id, data: data, rowid: rowid),
-          createCompanionCallback:
-              ({
-                Value<String> id = const Value.absent(),
-                required String data,
-                Value<int> rowid = const Value.absent(),
-              }) => ProductsTableCompanion.insert(
-                id: id,
-                data: data,
-                rowid: rowid,
-              ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ),
-      );
+      : super(
+          TableManagerState(
+            db: db,
+            table: table,
+            createFilteringComposer: () =>
+                $$ProductsTableTableFilterComposer($db: db, $table: table),
+            createOrderingComposer: () =>
+                $$ProductsTableTableOrderingComposer($db: db, $table: table),
+            createComputedFieldComposer: () =>
+                $$ProductsTableTableAnnotationComposer($db: db, $table: table),
+            updateCompanionCallback: ({
+              Value<String> id = const Value.absent(),
+              Value<String> data = const Value.absent(),
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                ProductsTableCompanion(id: id, data: data, rowid: rowid),
+            createCompanionCallback: ({
+              Value<String> id = const Value.absent(),
+              required String data,
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                ProductsTableCompanion.insert(
+              id: id,
+              data: data,
+              rowid: rowid,
+            ),
+            withReferenceMapper: (p0) => p0
+                .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+                .toList(),
+            prefetchHooksCallback: null,
+          ),
+        );
 }
 
-typedef $$ProductsTableTableProcessedTableManager =
-    ProcessedTableManager<
-      _$AppDatabase,
-      $ProductsTableTable,
+typedef $$ProductsTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $ProductsTableTable,
+    ProductEntity,
+    $$ProductsTableTableFilterComposer,
+    $$ProductsTableTableOrderingComposer,
+    $$ProductsTableTableAnnotationComposer,
+    $$ProductsTableTableCreateCompanionBuilder,
+    $$ProductsTableTableUpdateCompanionBuilder,
+    (
       ProductEntity,
-      $$ProductsTableTableFilterComposer,
-      $$ProductsTableTableOrderingComposer,
-      $$ProductsTableTableAnnotationComposer,
-      $$ProductsTableTableCreateCompanionBuilder,
-      $$ProductsTableTableUpdateCompanionBuilder,
-      (
-        ProductEntity,
-        BaseReferences<_$AppDatabase, $ProductsTableTable, ProductEntity>,
-      ),
-      ProductEntity,
-      PrefetchHooks Function()
-    >;
-typedef $$OrdersTableTableCreateCompanionBuilder =
-    OrdersTableCompanion Function({
-      Value<String> id,
-      required String data,
-      Value<int> rowid,
-    });
-typedef $$OrdersTableTableUpdateCompanionBuilder =
-    OrdersTableCompanion Function({
-      Value<String> id,
-      Value<String> data,
-      Value<int> rowid,
-    });
+      BaseReferences<_$AppDatabase, $ProductsTableTable, ProductEntity>,
+    ),
+    ProductEntity,
+    PrefetchHooks Function()>;
+typedef $$OrdersTableTableCreateCompanionBuilder = OrdersTableCompanion
+    Function({
+  Value<String> id,
+  required String data,
+  Value<int> rowid,
+});
+typedef $$OrdersTableTableUpdateCompanionBuilder = OrdersTableCompanion
+    Function({
+  Value<String> id,
+  Value<String> data,
+  Value<int> rowid,
+});
 
 class $$OrdersTableTableFilterComposer
     extends Composer<_$AppDatabase, $OrdersTableTable> {
@@ -1767,14 +1763,14 @@ class $$OrdersTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnFilters(column),
+      );
 
   ColumnFilters<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnFilters(column),
+      );
 }
 
 class $$OrdersTableTableOrderingComposer
@@ -1787,14 +1783,14 @@ class $$OrdersTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnOrderings(column),
+      );
 
   ColumnOrderings<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnOrderings(column),
+      );
 }
 
 class $$OrdersTableTableAnnotationComposer
@@ -1813,85 +1809,77 @@ class $$OrdersTableTableAnnotationComposer
       $composableBuilder(column: $table.data, builder: (column) => column);
 }
 
-class $$OrdersTableTableTableManager
-    extends
-        RootTableManager<
-          _$AppDatabase,
-          $OrdersTableTable,
-          OrderEntity,
-          $$OrdersTableTableFilterComposer,
-          $$OrdersTableTableOrderingComposer,
-          $$OrdersTableTableAnnotationComposer,
-          $$OrdersTableTableCreateCompanionBuilder,
-          $$OrdersTableTableUpdateCompanionBuilder,
-          (
-            OrderEntity,
-            BaseReferences<_$AppDatabase, $OrdersTableTable, OrderEntity>,
-          ),
-          OrderEntity,
-          PrefetchHooks Function()
-        > {
+class $$OrdersTableTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $OrdersTableTable,
+    OrderEntity,
+    $$OrdersTableTableFilterComposer,
+    $$OrdersTableTableOrderingComposer,
+    $$OrdersTableTableAnnotationComposer,
+    $$OrdersTableTableCreateCompanionBuilder,
+    $$OrdersTableTableUpdateCompanionBuilder,
+    (
+      OrderEntity,
+      BaseReferences<_$AppDatabase, $OrdersTableTable, OrderEntity>,
+    ),
+    OrderEntity,
+    PrefetchHooks Function()> {
   $$OrdersTableTableTableManager(_$AppDatabase db, $OrdersTableTable table)
-    : super(
-        TableManagerState(
-          db: db,
-          table: table,
-          createFilteringComposer: () =>
-              $$OrdersTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$OrdersTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$OrdersTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback:
-              ({
-                Value<String> id = const Value.absent(),
-                Value<String> data = const Value.absent(),
-                Value<int> rowid = const Value.absent(),
-              }) => OrdersTableCompanion(id: id, data: data, rowid: rowid),
-          createCompanionCallback:
-              ({
-                Value<String> id = const Value.absent(),
-                required String data,
-                Value<int> rowid = const Value.absent(),
-              }) =>
-                  OrdersTableCompanion.insert(id: id, data: data, rowid: rowid),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ),
-      );
+      : super(
+          TableManagerState(
+            db: db,
+            table: table,
+            createFilteringComposer: () =>
+                $$OrdersTableTableFilterComposer($db: db, $table: table),
+            createOrderingComposer: () =>
+                $$OrdersTableTableOrderingComposer($db: db, $table: table),
+            createComputedFieldComposer: () =>
+                $$OrdersTableTableAnnotationComposer($db: db, $table: table),
+            updateCompanionCallback: ({
+              Value<String> id = const Value.absent(),
+              Value<String> data = const Value.absent(),
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                OrdersTableCompanion(id: id, data: data, rowid: rowid),
+            createCompanionCallback: ({
+              Value<String> id = const Value.absent(),
+              required String data,
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                OrdersTableCompanion.insert(id: id, data: data, rowid: rowid),
+            withReferenceMapper: (p0) => p0
+                .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+                .toList(),
+            prefetchHooksCallback: null,
+          ),
+        );
 }
 
-typedef $$OrdersTableTableProcessedTableManager =
-    ProcessedTableManager<
-      _$AppDatabase,
-      $OrdersTableTable,
+typedef $$OrdersTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $OrdersTableTable,
+    OrderEntity,
+    $$OrdersTableTableFilterComposer,
+    $$OrdersTableTableOrderingComposer,
+    $$OrdersTableTableAnnotationComposer,
+    $$OrdersTableTableCreateCompanionBuilder,
+    $$OrdersTableTableUpdateCompanionBuilder,
+    (
       OrderEntity,
-      $$OrdersTableTableFilterComposer,
-      $$OrdersTableTableOrderingComposer,
-      $$OrdersTableTableAnnotationComposer,
-      $$OrdersTableTableCreateCompanionBuilder,
-      $$OrdersTableTableUpdateCompanionBuilder,
-      (
-        OrderEntity,
-        BaseReferences<_$AppDatabase, $OrdersTableTable, OrderEntity>,
-      ),
-      OrderEntity,
-      PrefetchHooks Function()
-    >;
-typedef $$ShopTableTableCreateCompanionBuilder =
-    ShopTableCompanion Function({
-      required String id,
-      required String data,
-      Value<int> rowid,
-    });
-typedef $$ShopTableTableUpdateCompanionBuilder =
-    ShopTableCompanion Function({
-      Value<String> id,
-      Value<String> data,
-      Value<int> rowid,
-    });
+      BaseReferences<_$AppDatabase, $OrdersTableTable, OrderEntity>,
+    ),
+    OrderEntity,
+    PrefetchHooks Function()>;
+typedef $$ShopTableTableCreateCompanionBuilder = ShopTableCompanion Function({
+  required String id,
+  required String data,
+  Value<int> rowid,
+});
+typedef $$ShopTableTableUpdateCompanionBuilder = ShopTableCompanion Function({
+  Value<String> id,
+  Value<String> data,
+  Value<int> rowid,
+});
 
 class $$ShopTableTableFilterComposer
     extends Composer<_$AppDatabase, $ShopTableTable> {
@@ -1903,14 +1891,14 @@ class $$ShopTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnFilters(column),
+      );
 
   ColumnFilters<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnFilters(column),
+      );
 }
 
 class $$ShopTableTableOrderingComposer
@@ -1923,14 +1911,14 @@ class $$ShopTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnOrderings(column),
+      );
 
   ColumnOrderings<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnOrderings(column),
+      );
 }
 
 class $$ShopTableTableAnnotationComposer
@@ -1949,81 +1937,76 @@ class $$ShopTableTableAnnotationComposer
       $composableBuilder(column: $table.data, builder: (column) => column);
 }
 
-class $$ShopTableTableTableManager
-    extends
-        RootTableManager<
-          _$AppDatabase,
-          $ShopTableTable,
-          ShopEntity,
-          $$ShopTableTableFilterComposer,
-          $$ShopTableTableOrderingComposer,
-          $$ShopTableTableAnnotationComposer,
-          $$ShopTableTableCreateCompanionBuilder,
-          $$ShopTableTableUpdateCompanionBuilder,
-          (
-            ShopEntity,
-            BaseReferences<_$AppDatabase, $ShopTableTable, ShopEntity>,
-          ),
-          ShopEntity,
-          PrefetchHooks Function()
-        > {
+class $$ShopTableTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $ShopTableTable,
+    ShopEntity,
+    $$ShopTableTableFilterComposer,
+    $$ShopTableTableOrderingComposer,
+    $$ShopTableTableAnnotationComposer,
+    $$ShopTableTableCreateCompanionBuilder,
+    $$ShopTableTableUpdateCompanionBuilder,
+    (
+      ShopEntity,
+      BaseReferences<_$AppDatabase, $ShopTableTable, ShopEntity>,
+    ),
+    ShopEntity,
+    PrefetchHooks Function()> {
   $$ShopTableTableTableManager(_$AppDatabase db, $ShopTableTable table)
-    : super(
-        TableManagerState(
-          db: db,
-          table: table,
-          createFilteringComposer: () =>
-              $$ShopTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$ShopTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$ShopTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback:
-              ({
-                Value<String> id = const Value.absent(),
-                Value<String> data = const Value.absent(),
-                Value<int> rowid = const Value.absent(),
-              }) => ShopTableCompanion(id: id, data: data, rowid: rowid),
-          createCompanionCallback:
-              ({
-                required String id,
-                required String data,
-                Value<int> rowid = const Value.absent(),
-              }) => ShopTableCompanion.insert(id: id, data: data, rowid: rowid),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ),
-      );
+      : super(
+          TableManagerState(
+            db: db,
+            table: table,
+            createFilteringComposer: () =>
+                $$ShopTableTableFilterComposer($db: db, $table: table),
+            createOrderingComposer: () =>
+                $$ShopTableTableOrderingComposer($db: db, $table: table),
+            createComputedFieldComposer: () =>
+                $$ShopTableTableAnnotationComposer($db: db, $table: table),
+            updateCompanionCallback: ({
+              Value<String> id = const Value.absent(),
+              Value<String> data = const Value.absent(),
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                ShopTableCompanion(id: id, data: data, rowid: rowid),
+            createCompanionCallback: ({
+              required String id,
+              required String data,
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                ShopTableCompanion.insert(id: id, data: data, rowid: rowid),
+            withReferenceMapper: (p0) => p0
+                .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+                .toList(),
+            prefetchHooksCallback: null,
+          ),
+        );
 }
 
-typedef $$ShopTableTableProcessedTableManager =
-    ProcessedTableManager<
-      _$AppDatabase,
-      $ShopTableTable,
-      ShopEntity,
-      $$ShopTableTableFilterComposer,
-      $$ShopTableTableOrderingComposer,
-      $$ShopTableTableAnnotationComposer,
-      $$ShopTableTableCreateCompanionBuilder,
-      $$ShopTableTableUpdateCompanionBuilder,
-      (ShopEntity, BaseReferences<_$AppDatabase, $ShopTableTable, ShopEntity>),
-      ShopEntity,
-      PrefetchHooks Function()
-    >;
-typedef $$CategoriesTableTableCreateCompanionBuilder =
-    CategoriesTableCompanion Function({
-      required String id,
-      required String data,
-      Value<int> rowid,
-    });
-typedef $$CategoriesTableTableUpdateCompanionBuilder =
-    CategoriesTableCompanion Function({
-      Value<String> id,
-      Value<String> data,
-      Value<int> rowid,
-    });
+typedef $$ShopTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $ShopTableTable,
+    ShopEntity,
+    $$ShopTableTableFilterComposer,
+    $$ShopTableTableOrderingComposer,
+    $$ShopTableTableAnnotationComposer,
+    $$ShopTableTableCreateCompanionBuilder,
+    $$ShopTableTableUpdateCompanionBuilder,
+    (ShopEntity, BaseReferences<_$AppDatabase, $ShopTableTable, ShopEntity>),
+    ShopEntity,
+    PrefetchHooks Function()>;
+typedef $$CategoriesTableTableCreateCompanionBuilder = CategoriesTableCompanion
+    Function({
+  required String id,
+  required String data,
+  Value<int> rowid,
+});
+typedef $$CategoriesTableTableUpdateCompanionBuilder = CategoriesTableCompanion
+    Function({
+  Value<String> id,
+  Value<String> data,
+  Value<int> rowid,
+});
 
 class $$CategoriesTableTableFilterComposer
     extends Composer<_$AppDatabase, $CategoriesTableTable> {
@@ -2035,14 +2018,14 @@ class $$CategoriesTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnFilters(column),
+      );
 
   ColumnFilters<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnFilters(column),
+      );
 }
 
 class $$CategoriesTableTableOrderingComposer
@@ -2055,14 +2038,14 @@ class $$CategoriesTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnOrderings(column),
+      );
 
   ColumnOrderings<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnOrderings(column),
+      );
 }
 
 class $$CategoriesTableTableAnnotationComposer
@@ -2081,94 +2064,86 @@ class $$CategoriesTableTableAnnotationComposer
       $composableBuilder(column: $table.data, builder: (column) => column);
 }
 
-class $$CategoriesTableTableTableManager
-    extends
-        RootTableManager<
-          _$AppDatabase,
-          $CategoriesTableTable,
-          CategoryEntity,
-          $$CategoriesTableTableFilterComposer,
-          $$CategoriesTableTableOrderingComposer,
-          $$CategoriesTableTableAnnotationComposer,
-          $$CategoriesTableTableCreateCompanionBuilder,
-          $$CategoriesTableTableUpdateCompanionBuilder,
-          (
-            CategoryEntity,
-            BaseReferences<
-              _$AppDatabase,
-              $CategoriesTableTable,
-              CategoryEntity
-            >,
-          ),
-          CategoryEntity,
-          PrefetchHooks Function()
-        > {
+class $$CategoriesTableTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $CategoriesTableTable,
+    CategoryEntity,
+    $$CategoriesTableTableFilterComposer,
+    $$CategoriesTableTableOrderingComposer,
+    $$CategoriesTableTableAnnotationComposer,
+    $$CategoriesTableTableCreateCompanionBuilder,
+    $$CategoriesTableTableUpdateCompanionBuilder,
+    (
+      CategoryEntity,
+      BaseReferences<_$AppDatabase, $CategoriesTableTable, CategoryEntity>,
+    ),
+    CategoryEntity,
+    PrefetchHooks Function()> {
   $$CategoriesTableTableTableManager(
     _$AppDatabase db,
     $CategoriesTableTable table,
   ) : super(
-        TableManagerState(
-          db: db,
-          table: table,
-          createFilteringComposer: () =>
-              $$CategoriesTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$CategoriesTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$CategoriesTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback:
-              ({
-                Value<String> id = const Value.absent(),
-                Value<String> data = const Value.absent(),
-                Value<int> rowid = const Value.absent(),
-              }) => CategoriesTableCompanion(id: id, data: data, rowid: rowid),
-          createCompanionCallback:
-              ({
-                required String id,
-                required String data,
-                Value<int> rowid = const Value.absent(),
-              }) => CategoriesTableCompanion.insert(
-                id: id,
-                data: data,
-                rowid: rowid,
-              ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ),
-      );
+          TableManagerState(
+            db: db,
+            table: table,
+            createFilteringComposer: () =>
+                $$CategoriesTableTableFilterComposer($db: db, $table: table),
+            createOrderingComposer: () =>
+                $$CategoriesTableTableOrderingComposer($db: db, $table: table),
+            createComputedFieldComposer: () =>
+                $$CategoriesTableTableAnnotationComposer(
+                    $db: db, $table: table),
+            updateCompanionCallback: ({
+              Value<String> id = const Value.absent(),
+              Value<String> data = const Value.absent(),
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                CategoriesTableCompanion(id: id, data: data, rowid: rowid),
+            createCompanionCallback: ({
+              required String id,
+              required String data,
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                CategoriesTableCompanion.insert(
+              id: id,
+              data: data,
+              rowid: rowid,
+            ),
+            withReferenceMapper: (p0) => p0
+                .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+                .toList(),
+            prefetchHooksCallback: null,
+          ),
+        );
 }
 
-typedef $$CategoriesTableTableProcessedTableManager =
-    ProcessedTableManager<
-      _$AppDatabase,
-      $CategoriesTableTable,
+typedef $$CategoriesTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $CategoriesTableTable,
+    CategoryEntity,
+    $$CategoriesTableTableFilterComposer,
+    $$CategoriesTableTableOrderingComposer,
+    $$CategoriesTableTableAnnotationComposer,
+    $$CategoriesTableTableCreateCompanionBuilder,
+    $$CategoriesTableTableUpdateCompanionBuilder,
+    (
       CategoryEntity,
-      $$CategoriesTableTableFilterComposer,
-      $$CategoriesTableTableOrderingComposer,
-      $$CategoriesTableTableAnnotationComposer,
-      $$CategoriesTableTableCreateCompanionBuilder,
-      $$CategoriesTableTableUpdateCompanionBuilder,
-      (
-        CategoryEntity,
-        BaseReferences<_$AppDatabase, $CategoriesTableTable, CategoryEntity>,
-      ),
-      CategoryEntity,
-      PrefetchHooks Function()
-    >;
-typedef $$SettingsTableTableCreateCompanionBuilder =
-    SettingsTableCompanion Function({
-      required String id,
-      required String data,
-      Value<int> rowid,
-    });
-typedef $$SettingsTableTableUpdateCompanionBuilder =
-    SettingsTableCompanion Function({
-      Value<String> id,
-      Value<String> data,
-      Value<int> rowid,
-    });
+      BaseReferences<_$AppDatabase, $CategoriesTableTable, CategoryEntity>,
+    ),
+    CategoryEntity,
+    PrefetchHooks Function()>;
+typedef $$SettingsTableTableCreateCompanionBuilder = SettingsTableCompanion
+    Function({
+  required String id,
+  required String data,
+  Value<int> rowid,
+});
+typedef $$SettingsTableTableUpdateCompanionBuilder = SettingsTableCompanion
+    Function({
+  Value<String> id,
+  Value<String> data,
+  Value<int> rowid,
+});
 
 class $$SettingsTableTableFilterComposer
     extends Composer<_$AppDatabase, $SettingsTableTable> {
@@ -2180,14 +2155,14 @@ class $$SettingsTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnFilters(column),
+      );
 
   ColumnFilters<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnFilters(column),
+      );
 }
 
 class $$SettingsTableTableOrderingComposer
@@ -2200,14 +2175,14 @@ class $$SettingsTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnOrderings(column),
+      );
 
   ColumnOrderings<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnOrderings(column),
+      );
 }
 
 class $$SettingsTableTableAnnotationComposer
@@ -2226,88 +2201,83 @@ class $$SettingsTableTableAnnotationComposer
       $composableBuilder(column: $table.data, builder: (column) => column);
 }
 
-class $$SettingsTableTableTableManager
-    extends
-        RootTableManager<
-          _$AppDatabase,
-          $SettingsTableTable,
-          SettingEntity,
-          $$SettingsTableTableFilterComposer,
-          $$SettingsTableTableOrderingComposer,
-          $$SettingsTableTableAnnotationComposer,
-          $$SettingsTableTableCreateCompanionBuilder,
-          $$SettingsTableTableUpdateCompanionBuilder,
-          (
-            SettingEntity,
-            BaseReferences<_$AppDatabase, $SettingsTableTable, SettingEntity>,
-          ),
-          SettingEntity,
-          PrefetchHooks Function()
-        > {
+class $$SettingsTableTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $SettingsTableTable,
+    SettingEntity,
+    $$SettingsTableTableFilterComposer,
+    $$SettingsTableTableOrderingComposer,
+    $$SettingsTableTableAnnotationComposer,
+    $$SettingsTableTableCreateCompanionBuilder,
+    $$SettingsTableTableUpdateCompanionBuilder,
+    (
+      SettingEntity,
+      BaseReferences<_$AppDatabase, $SettingsTableTable, SettingEntity>,
+    ),
+    SettingEntity,
+    PrefetchHooks Function()> {
   $$SettingsTableTableTableManager(_$AppDatabase db, $SettingsTableTable table)
-    : super(
-        TableManagerState(
-          db: db,
-          table: table,
-          createFilteringComposer: () =>
-              $$SettingsTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$SettingsTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$SettingsTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback:
-              ({
-                Value<String> id = const Value.absent(),
-                Value<String> data = const Value.absent(),
-                Value<int> rowid = const Value.absent(),
-              }) => SettingsTableCompanion(id: id, data: data, rowid: rowid),
-          createCompanionCallback:
-              ({
-                required String id,
-                required String data,
-                Value<int> rowid = const Value.absent(),
-              }) => SettingsTableCompanion.insert(
-                id: id,
-                data: data,
-                rowid: rowid,
-              ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ),
-      );
+      : super(
+          TableManagerState(
+            db: db,
+            table: table,
+            createFilteringComposer: () =>
+                $$SettingsTableTableFilterComposer($db: db, $table: table),
+            createOrderingComposer: () =>
+                $$SettingsTableTableOrderingComposer($db: db, $table: table),
+            createComputedFieldComposer: () =>
+                $$SettingsTableTableAnnotationComposer($db: db, $table: table),
+            updateCompanionCallback: ({
+              Value<String> id = const Value.absent(),
+              Value<String> data = const Value.absent(),
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                SettingsTableCompanion(id: id, data: data, rowid: rowid),
+            createCompanionCallback: ({
+              required String id,
+              required String data,
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                SettingsTableCompanion.insert(
+              id: id,
+              data: data,
+              rowid: rowid,
+            ),
+            withReferenceMapper: (p0) => p0
+                .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+                .toList(),
+            prefetchHooksCallback: null,
+          ),
+        );
 }
 
-typedef $$SettingsTableTableProcessedTableManager =
-    ProcessedTableManager<
-      _$AppDatabase,
-      $SettingsTableTable,
+typedef $$SettingsTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $SettingsTableTable,
+    SettingEntity,
+    $$SettingsTableTableFilterComposer,
+    $$SettingsTableTableOrderingComposer,
+    $$SettingsTableTableAnnotationComposer,
+    $$SettingsTableTableCreateCompanionBuilder,
+    $$SettingsTableTableUpdateCompanionBuilder,
+    (
       SettingEntity,
-      $$SettingsTableTableFilterComposer,
-      $$SettingsTableTableOrderingComposer,
-      $$SettingsTableTableAnnotationComposer,
-      $$SettingsTableTableCreateCompanionBuilder,
-      $$SettingsTableTableUpdateCompanionBuilder,
-      (
-        SettingEntity,
-        BaseReferences<_$AppDatabase, $SettingsTableTable, SettingEntity>,
-      ),
-      SettingEntity,
-      PrefetchHooks Function()
-    >;
-typedef $$BillingCartTableTableCreateCompanionBuilder =
-    BillingCartTableCompanion Function({
-      required String id,
-      required String data,
-      Value<int> rowid,
-    });
-typedef $$BillingCartTableTableUpdateCompanionBuilder =
-    BillingCartTableCompanion Function({
-      Value<String> id,
-      Value<String> data,
-      Value<int> rowid,
-    });
+      BaseReferences<_$AppDatabase, $SettingsTableTable, SettingEntity>,
+    ),
+    SettingEntity,
+    PrefetchHooks Function()>;
+typedef $$BillingCartTableTableCreateCompanionBuilder
+    = BillingCartTableCompanion Function({
+  required String id,
+  required String data,
+  Value<int> rowid,
+});
+typedef $$BillingCartTableTableUpdateCompanionBuilder
+    = BillingCartTableCompanion Function({
+  Value<String> id,
+  Value<String> data,
+  Value<int> rowid,
+});
 
 class $$BillingCartTableTableFilterComposer
     extends Composer<_$AppDatabase, $BillingCartTableTable> {
@@ -2319,14 +2289,14 @@ class $$BillingCartTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnFilters(column),
+      );
 
   ColumnFilters<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnFilters(column),
+      );
 }
 
 class $$BillingCartTableTableOrderingComposer
@@ -2339,14 +2309,14 @@ class $$BillingCartTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnOrderings(column),
+      );
 
   ColumnOrderings<String> get data => $composableBuilder(
-    column: $table.data,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.data,
+        builder: (column) => ColumnOrderings(column),
+      );
 }
 
 class $$BillingCartTableTableAnnotationComposer
@@ -2365,104 +2335,92 @@ class $$BillingCartTableTableAnnotationComposer
       $composableBuilder(column: $table.data, builder: (column) => column);
 }
 
-class $$BillingCartTableTableTableManager
-    extends
-        RootTableManager<
-          _$AppDatabase,
-          $BillingCartTableTable,
-          BillingCartEntity,
-          $$BillingCartTableTableFilterComposer,
-          $$BillingCartTableTableOrderingComposer,
-          $$BillingCartTableTableAnnotationComposer,
-          $$BillingCartTableTableCreateCompanionBuilder,
-          $$BillingCartTableTableUpdateCompanionBuilder,
-          (
-            BillingCartEntity,
-            BaseReferences<
-              _$AppDatabase,
-              $BillingCartTableTable,
-              BillingCartEntity
-            >,
-          ),
-          BillingCartEntity,
-          PrefetchHooks Function()
-        > {
+class $$BillingCartTableTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $BillingCartTableTable,
+    BillingCartEntity,
+    $$BillingCartTableTableFilterComposer,
+    $$BillingCartTableTableOrderingComposer,
+    $$BillingCartTableTableAnnotationComposer,
+    $$BillingCartTableTableCreateCompanionBuilder,
+    $$BillingCartTableTableUpdateCompanionBuilder,
+    (
+      BillingCartEntity,
+      BaseReferences<_$AppDatabase, $BillingCartTableTable, BillingCartEntity>,
+    ),
+    BillingCartEntity,
+    PrefetchHooks Function()> {
   $$BillingCartTableTableTableManager(
     _$AppDatabase db,
     $BillingCartTableTable table,
   ) : super(
-        TableManagerState(
-          db: db,
-          table: table,
-          createFilteringComposer: () =>
-              $$BillingCartTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$BillingCartTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$BillingCartTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback:
-              ({
-                Value<String> id = const Value.absent(),
-                Value<String> data = const Value.absent(),
-                Value<int> rowid = const Value.absent(),
-              }) => BillingCartTableCompanion(id: id, data: data, rowid: rowid),
-          createCompanionCallback:
-              ({
-                required String id,
-                required String data,
-                Value<int> rowid = const Value.absent(),
-              }) => BillingCartTableCompanion.insert(
-                id: id,
-                data: data,
-                rowid: rowid,
-              ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ),
-      );
+          TableManagerState(
+            db: db,
+            table: table,
+            createFilteringComposer: () =>
+                $$BillingCartTableTableFilterComposer($db: db, $table: table),
+            createOrderingComposer: () =>
+                $$BillingCartTableTableOrderingComposer($db: db, $table: table),
+            createComputedFieldComposer: () =>
+                $$BillingCartTableTableAnnotationComposer(
+                    $db: db, $table: table),
+            updateCompanionCallback: ({
+              Value<String> id = const Value.absent(),
+              Value<String> data = const Value.absent(),
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                BillingCartTableCompanion(id: id, data: data, rowid: rowid),
+            createCompanionCallback: ({
+              required String id,
+              required String data,
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                BillingCartTableCompanion.insert(
+              id: id,
+              data: data,
+              rowid: rowid,
+            ),
+            withReferenceMapper: (p0) => p0
+                .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+                .toList(),
+            prefetchHooksCallback: null,
+          ),
+        );
 }
 
-typedef $$BillingCartTableTableProcessedTableManager =
-    ProcessedTableManager<
-      _$AppDatabase,
-      $BillingCartTableTable,
+typedef $$BillingCartTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $BillingCartTableTable,
+    BillingCartEntity,
+    $$BillingCartTableTableFilterComposer,
+    $$BillingCartTableTableOrderingComposer,
+    $$BillingCartTableTableAnnotationComposer,
+    $$BillingCartTableTableCreateCompanionBuilder,
+    $$BillingCartTableTableUpdateCompanionBuilder,
+    (
       BillingCartEntity,
-      $$BillingCartTableTableFilterComposer,
-      $$BillingCartTableTableOrderingComposer,
-      $$BillingCartTableTableAnnotationComposer,
-      $$BillingCartTableTableCreateCompanionBuilder,
-      $$BillingCartTableTableUpdateCompanionBuilder,
-      (
-        BillingCartEntity,
-        BaseReferences<
-          _$AppDatabase,
-          $BillingCartTableTable,
-          BillingCartEntity
-        >,
-      ),
-      BillingCartEntity,
-      PrefetchHooks Function()
-    >;
-typedef $$SyncQueueTableTableCreateCompanionBuilder =
-    SyncQueueTableCompanion Function({
-      Value<String> id,
-      required String url,
-      required String method,
-      required String payload,
-      required DateTime createdAt,
-      Value<int> rowid,
-    });
-typedef $$SyncQueueTableTableUpdateCompanionBuilder =
-    SyncQueueTableCompanion Function({
-      Value<String> id,
-      Value<String> url,
-      Value<String> method,
-      Value<String> payload,
-      Value<DateTime> createdAt,
-      Value<int> rowid,
-    });
+      BaseReferences<_$AppDatabase, $BillingCartTableTable, BillingCartEntity>,
+    ),
+    BillingCartEntity,
+    PrefetchHooks Function()>;
+typedef $$SyncQueueTableTableCreateCompanionBuilder = SyncQueueTableCompanion
+    Function({
+  Value<String> id,
+  required String url,
+  required String method,
+  required String payload,
+  required DateTime createdAt,
+  Value<int> rowid,
+});
+typedef $$SyncQueueTableTableUpdateCompanionBuilder = SyncQueueTableCompanion
+    Function({
+  Value<String> id,
+  Value<String> url,
+  Value<String> method,
+  Value<String> payload,
+  Value<DateTime> createdAt,
+  Value<int> rowid,
+});
 
 class $$SyncQueueTableTableFilterComposer
     extends Composer<_$AppDatabase, $SyncQueueTableTable> {
@@ -2474,29 +2432,29 @@ class $$SyncQueueTableTableFilterComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnFilters<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnFilters(column),
+      );
 
   ColumnFilters<String> get url => $composableBuilder(
-    column: $table.url,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.url,
+        builder: (column) => ColumnFilters(column),
+      );
 
   ColumnFilters<String> get method => $composableBuilder(
-    column: $table.method,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.method,
+        builder: (column) => ColumnFilters(column),
+      );
 
   ColumnFilters<String> get payload => $composableBuilder(
-    column: $table.payload,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.payload,
+        builder: (column) => ColumnFilters(column),
+      );
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
-    column: $table.createdAt,
-    builder: (column) => ColumnFilters(column),
-  );
+        column: $table.createdAt,
+        builder: (column) => ColumnFilters(column),
+      );
 }
 
 class $$SyncQueueTableTableOrderingComposer
@@ -2509,29 +2467,29 @@ class $$SyncQueueTableTableOrderingComposer
     super.$removeJoinBuilderFromRootComposer,
   });
   ColumnOrderings<String> get id => $composableBuilder(
-    column: $table.id,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.id,
+        builder: (column) => ColumnOrderings(column),
+      );
 
   ColumnOrderings<String> get url => $composableBuilder(
-    column: $table.url,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.url,
+        builder: (column) => ColumnOrderings(column),
+      );
 
   ColumnOrderings<String> get method => $composableBuilder(
-    column: $table.method,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.method,
+        builder: (column) => ColumnOrderings(column),
+      );
 
   ColumnOrderings<String> get payload => $composableBuilder(
-    column: $table.payload,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.payload,
+        builder: (column) => ColumnOrderings(column),
+      );
 
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
-    column: $table.createdAt,
-    builder: (column) => ColumnOrderings(column),
-  );
+        column: $table.createdAt,
+        builder: (column) => ColumnOrderings(column),
+      );
 }
 
 class $$SyncQueueTableTableAnnotationComposer
@@ -2559,98 +2517,89 @@ class $$SyncQueueTableTableAnnotationComposer
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
 }
 
-class $$SyncQueueTableTableTableManager
-    extends
-        RootTableManager<
-          _$AppDatabase,
-          $SyncQueueTableTable,
-          SyncQueueEntity,
-          $$SyncQueueTableTableFilterComposer,
-          $$SyncQueueTableTableOrderingComposer,
-          $$SyncQueueTableTableAnnotationComposer,
-          $$SyncQueueTableTableCreateCompanionBuilder,
-          $$SyncQueueTableTableUpdateCompanionBuilder,
-          (
-            SyncQueueEntity,
-            BaseReferences<
-              _$AppDatabase,
-              $SyncQueueTableTable,
-              SyncQueueEntity
-            >,
-          ),
-          SyncQueueEntity,
-          PrefetchHooks Function()
-        > {
+class $$SyncQueueTableTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $SyncQueueTableTable,
+    SyncQueueEntity,
+    $$SyncQueueTableTableFilterComposer,
+    $$SyncQueueTableTableOrderingComposer,
+    $$SyncQueueTableTableAnnotationComposer,
+    $$SyncQueueTableTableCreateCompanionBuilder,
+    $$SyncQueueTableTableUpdateCompanionBuilder,
+    (
+      SyncQueueEntity,
+      BaseReferences<_$AppDatabase, $SyncQueueTableTable, SyncQueueEntity>,
+    ),
+    SyncQueueEntity,
+    PrefetchHooks Function()> {
   $$SyncQueueTableTableTableManager(
     _$AppDatabase db,
     $SyncQueueTableTable table,
   ) : super(
-        TableManagerState(
-          db: db,
-          table: table,
-          createFilteringComposer: () =>
-              $$SyncQueueTableTableFilterComposer($db: db, $table: table),
-          createOrderingComposer: () =>
-              $$SyncQueueTableTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer: () =>
-              $$SyncQueueTableTableAnnotationComposer($db: db, $table: table),
-          updateCompanionCallback:
-              ({
-                Value<String> id = const Value.absent(),
-                Value<String> url = const Value.absent(),
-                Value<String> method = const Value.absent(),
-                Value<String> payload = const Value.absent(),
-                Value<DateTime> createdAt = const Value.absent(),
-                Value<int> rowid = const Value.absent(),
-              }) => SyncQueueTableCompanion(
-                id: id,
-                url: url,
-                method: method,
-                payload: payload,
-                createdAt: createdAt,
-                rowid: rowid,
-              ),
-          createCompanionCallback:
-              ({
-                Value<String> id = const Value.absent(),
-                required String url,
-                required String method,
-                required String payload,
-                required DateTime createdAt,
-                Value<int> rowid = const Value.absent(),
-              }) => SyncQueueTableCompanion.insert(
-                id: id,
-                url: url,
-                method: method,
-                payload: payload,
-                createdAt: createdAt,
-                rowid: rowid,
-              ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ),
-      );
+          TableManagerState(
+            db: db,
+            table: table,
+            createFilteringComposer: () =>
+                $$SyncQueueTableTableFilterComposer($db: db, $table: table),
+            createOrderingComposer: () =>
+                $$SyncQueueTableTableOrderingComposer($db: db, $table: table),
+            createComputedFieldComposer: () =>
+                $$SyncQueueTableTableAnnotationComposer($db: db, $table: table),
+            updateCompanionCallback: ({
+              Value<String> id = const Value.absent(),
+              Value<String> url = const Value.absent(),
+              Value<String> method = const Value.absent(),
+              Value<String> payload = const Value.absent(),
+              Value<DateTime> createdAt = const Value.absent(),
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                SyncQueueTableCompanion(
+              id: id,
+              url: url,
+              method: method,
+              payload: payload,
+              createdAt: createdAt,
+              rowid: rowid,
+            ),
+            createCompanionCallback: ({
+              Value<String> id = const Value.absent(),
+              required String url,
+              required String method,
+              required String payload,
+              required DateTime createdAt,
+              Value<int> rowid = const Value.absent(),
+            }) =>
+                SyncQueueTableCompanion.insert(
+              id: id,
+              url: url,
+              method: method,
+              payload: payload,
+              createdAt: createdAt,
+              rowid: rowid,
+            ),
+            withReferenceMapper: (p0) => p0
+                .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+                .toList(),
+            prefetchHooksCallback: null,
+          ),
+        );
 }
 
-typedef $$SyncQueueTableTableProcessedTableManager =
-    ProcessedTableManager<
-      _$AppDatabase,
-      $SyncQueueTableTable,
+typedef $$SyncQueueTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $SyncQueueTableTable,
+    SyncQueueEntity,
+    $$SyncQueueTableTableFilterComposer,
+    $$SyncQueueTableTableOrderingComposer,
+    $$SyncQueueTableTableAnnotationComposer,
+    $$SyncQueueTableTableCreateCompanionBuilder,
+    $$SyncQueueTableTableUpdateCompanionBuilder,
+    (
       SyncQueueEntity,
-      $$SyncQueueTableTableFilterComposer,
-      $$SyncQueueTableTableOrderingComposer,
-      $$SyncQueueTableTableAnnotationComposer,
-      $$SyncQueueTableTableCreateCompanionBuilder,
-      $$SyncQueueTableTableUpdateCompanionBuilder,
-      (
-        SyncQueueEntity,
-        BaseReferences<_$AppDatabase, $SyncQueueTableTable, SyncQueueEntity>,
-      ),
-      SyncQueueEntity,
-      PrefetchHooks Function()
-    >;
+      BaseReferences<_$AppDatabase, $SyncQueueTableTable, SyncQueueEntity>,
+    ),
+    SyncQueueEntity,
+    PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -2670,6 +2619,3 @@ class $AppDatabaseManager {
   $$SyncQueueTableTableTableManager get syncQueueTable =>
       $$SyncQueueTableTableTableManager(_db, _db.syncQueueTable);
 }
-
-
-

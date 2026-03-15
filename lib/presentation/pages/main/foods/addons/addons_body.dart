@@ -63,7 +63,3 @@ class AddonsBody extends StatelessWidget {
     );
   }
 }
-
-
-
-

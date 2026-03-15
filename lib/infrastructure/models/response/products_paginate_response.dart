@@ -58,6 +58,3 @@ class ProductsPaginateResponse {
     return map;
   }
 }
-
-
-

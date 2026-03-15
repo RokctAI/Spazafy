@@ -8,6 +8,3 @@ final ordersListProvider =
     StateNotifierProvider<OrdersListNotifier, OrdersListState>(
   (ref) => OrdersListNotifier(ordersRepository),
 );
-
-
-

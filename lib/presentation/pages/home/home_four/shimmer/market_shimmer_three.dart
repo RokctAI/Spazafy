@@ -38,6 +38,3 @@ class MarketShimmerThree extends StatelessWidget {
           );
   }
 }
-
-
-

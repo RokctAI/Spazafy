@@ -29,7 +29,3 @@ class FilterState with _$FilterState {
 
   const FilterState._();
 }
-
-
-
-

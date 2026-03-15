@@ -10,6 +10,3 @@ class RecurringBilling {
 
   RecurringBilling({required this.recurringPaymentType});
 }
-
-
-

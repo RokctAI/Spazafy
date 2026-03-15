@@ -62,8 +62,3 @@ class PaymentItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

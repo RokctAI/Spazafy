@@ -135,8 +135,3 @@ class FadingEffect extends CustomPainter {
   @override
   bool shouldRepaint(FadingEffect oldDelegate) => false;
 }
-
-
-
-
-

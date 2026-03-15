@@ -44,7 +44,3 @@ class LoadingList extends StatelessWidget {
     );
   }
 }
-
-
-
-

@@ -40,7 +40,3 @@ class ShopBorderedAvatar extends StatelessWidget {
     );
   }
 }
-
-
-
-

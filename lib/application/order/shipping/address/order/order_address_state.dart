@@ -17,8 +17,3 @@ abstract class OrderAddressState with _$OrderAddressState {
 
   const OrderAddressState._();
 }
-
-
-
-
-

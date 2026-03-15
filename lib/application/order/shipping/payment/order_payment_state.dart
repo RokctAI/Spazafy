@@ -16,8 +16,3 @@ abstract class OrderPaymentState with _$OrderPaymentState {
 
   const OrderPaymentState._();
 }
-
-
-
-
-

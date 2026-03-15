@@ -425,8 +425,3 @@ class _ETADisplayState extends State<ETADisplay> {
     }
   }
 }
-
-
-
-
-

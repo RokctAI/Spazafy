@@ -18,6 +18,3 @@ class BadgeItem extends StatelessWidget {
     );
   }
 }
-
-
-

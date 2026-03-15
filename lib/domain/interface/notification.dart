@@ -13,7 +13,3 @@ abstract class NotificationFacade {
 
   Future<ApiResult<NotificationResponse>> getAllNotifications();
 }
-
-
-
-

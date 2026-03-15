@@ -294,6 +294,3 @@ class PayFastService {
     return encoded;
   }
 }
-
-
-

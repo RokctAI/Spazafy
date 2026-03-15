@@ -85,7 +85,3 @@ class _UpdateExtrasGroupModalState
     );
   }
 }
-
-
-
-

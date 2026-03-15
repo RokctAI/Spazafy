@@ -61,7 +61,8 @@ class AppDatabase extends _$AppDatabase {
           for (final product in products) {
             try {
               final Map<String, dynamic> data = jsonDecode(product.data);
-              await (update(productsTable)..where((t) => t.id.equals(product.id)))
+              await (update(productsTable)
+                    ..where((t) => t.id.equals(product.id)))
                   .write(ProductsTableCompanion(
                 title: Value(data['title']),
                 barcode: Value(data['bar_code'] ?? data['barcode']),
@@ -84,7 +85,7 @@ class AppDatabase extends _$AppDatabase {
           await m.addColumn(ordersTable, ordersTable.paymentType);
           await m.addColumn(ordersTable, ordersTable.createdAt);
           await m.addColumn(ordersTable, ordersTable.synced);
-          
+
           await m.createTable(orderItemsTable);
         }
       },
@@ -161,9 +162,10 @@ class AppDatabase extends _$AppDatabase {
   /// Delete an item by key.
   Future<void> deleteItem(String boxName, String key) async {
     final table = getTable(boxName);
-    await (delete(table)..where((tbl) {
-          return _idColumn(table).equals(key);
-        }))
+    await (delete(table)
+          ..where((tbl) {
+            return _idColumn(table).equals(key);
+          }))
         .go();
   }
 
@@ -179,9 +181,11 @@ class AppDatabase extends _$AppDatabase {
   }
 
   Future<List<SyncQueueEntity>> getPendingSyncRequests() {
-    return (select(syncQueueTable)..orderBy([
-          (t) => OrderingTerm(expression: t.createdAt, mode: OrderingMode.asc),
-        ]))
+    return (select(syncQueueTable)
+          ..orderBy([
+            (t) =>
+                OrderingTerm(expression: t.createdAt, mode: OrderingMode.asc),
+          ]))
         .get();
   }
 
@@ -235,7 +239,9 @@ class AppDatabase extends _$AppDatabase {
     if (status != null) {
       query.where((t) => t.status.equals(status));
     }
-    query.orderBy([(t) => OrderingTerm(expression: t.createdAt, mode: OrderingMode.desc)]);
+    query.orderBy([
+      (t) => OrderingTerm(expression: t.createdAt, mode: OrderingMode.desc)
+    ]);
     return query.get();
   }
 
@@ -251,7 +257,8 @@ class AppDatabase extends _$AppDatabase {
         totalCost: Value((json['total_cost'] as num?)?.toDouble()),
         status: Value(json['status']),
         paymentType: Value(json['payment_type']),
-        createdAt: DateTime.tryParse(json['created_at'] ?? '') ?? DateTime.now(),
+        createdAt:
+            DateTime.tryParse(json['created_at'] ?? '') ?? DateTime.now(),
         synced: const Value(true), // If coming from API, it's synced
         data: jsonEncode(json),
       ),
@@ -350,6 +357,3 @@ LazyDatabase _openConnection() {
     return NativeDatabase.createInBackground(file);
   });
 }
-
-
-

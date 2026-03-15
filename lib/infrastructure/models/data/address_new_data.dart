@@ -74,6 +74,3 @@ class AddressNewModel {
         "updated_at": updatedAt?.toIso8601String(),
       };
 }
-
-
-

@@ -14,7 +14,3 @@ abstract class ProgressOrderState with _$ProgressOrderState {
 
   const ProgressOrderState._();
 }
-
-
-
-

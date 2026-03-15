@@ -154,8 +154,8 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                       },
                                       textController:
                                           userState.userTextController,
-                                      descriptionText:
-                                          userState.selectedUser == null
+                                      descriptionText: userState.selectedUser ==
+                                              null
                                           ? null
                                           : userState.selectedUser?.email ?? '',
                                     ),
@@ -185,8 +185,8 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                             AppConstants.countryCodeISO,
                                         invalidNumberMessage:
                                             AppHelpers.getTranslation(
-                                              TrKeys.phoneNumberIsNotValid,
-                                            ),
+                                          TrKeys.phoneNumberIsNotValid,
+                                        ),
                                         inputFormatters: [
                                           FilteringTextInputFormatter
                                               .digitsOnly,
@@ -194,8 +194,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                         showCountryFlag: AppConstants.showFlag,
                                         showDropdownIcon:
                                             AppConstants.showArrowIcon,
-                                        autovalidateMode:
-                                            AppConstants
+                                        autovalidateMode: AppConstants
                                                 .isNumberLengthAlwaysSame
                                             ? AutovalidateMode.onUserInteraction
                                             : AutovalidateMode.disabled,
@@ -401,11 +400,9 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                   textController: state.textController,
                                   descriptionText: state.selectSection == null
                                       ? null
-                                      : state
-                                                .selectSection
-                                                ?.translation
-                                                ?.description ??
-                                            '',
+                                      : state.selectSection?.translation
+                                              ?.description ??
+                                          '',
                                 ),
                                 4.verticalSpace,
                                 UnderlinedTextField(
@@ -484,7 +481,3 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
     );
   }
 }
-
-
-
-

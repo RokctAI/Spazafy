@@ -161,7 +161,3 @@ class DiscountedProductsSection extends ConsumerWidget {
     return true;
   }
 }
-
-
-
-

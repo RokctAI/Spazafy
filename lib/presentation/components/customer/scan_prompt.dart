@@ -247,7 +247,3 @@ class ScanPrompt extends ConsumerWidget {
     );
   }
 }
-
-
-
-

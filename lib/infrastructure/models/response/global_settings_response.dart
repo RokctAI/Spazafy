@@ -125,6 +125,3 @@ class SettingsData {
     return map;
   }
 }
-
-
-

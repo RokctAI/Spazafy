@@ -37,6 +37,3 @@ class MarketTwoShimmer extends StatelessWidget {
           );
   }
 }
-
-
-

@@ -54,7 +54,3 @@ class ServiceTwoCategoriesItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

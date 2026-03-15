@@ -407,8 +407,3 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
     );
   }
 }
-
-
-
-
-

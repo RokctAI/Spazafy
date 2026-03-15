@@ -203,6 +203,3 @@ class Option {
         "translation": translation?.toJson(),
       };
 }
-
-
-

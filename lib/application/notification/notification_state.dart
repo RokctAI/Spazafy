@@ -15,7 +15,3 @@ class NotificationState with _$NotificationState {
 
   const NotificationState._();
 }
-
-
-
-

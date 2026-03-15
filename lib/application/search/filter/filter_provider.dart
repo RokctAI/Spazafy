@@ -8,6 +8,3 @@ final filterProvider =
     StateNotifierProvider.autoDispose<FilterNotifier, FilterState>(
   (ref) => FilterNotifier(shopsRepository),
 );
-
-
-

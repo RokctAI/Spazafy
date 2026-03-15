@@ -44,6 +44,3 @@ class MobileTranslationsResponse {
 
   Map<String, dynamic>? get data => _data;
 }
-
-
-

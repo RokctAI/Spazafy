@@ -75,6 +75,3 @@ class RepeatData {
         "saved_card": savedCard,
       };
 }
-
-
-

@@ -49,8 +49,3 @@ class ImageDialog extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

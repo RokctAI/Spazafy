@@ -79,40 +79,39 @@ class _$EditFoodStocksStateCopyWithImpl<$Res, $Val extends EditFoodStocksState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            isSaving: null == isSaving
-                ? _value.isSaving
-                : isSaving // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            isFetchingGroups: null == isFetchingGroups
-                ? _value.isFetchingGroups
-                : isFetchingGroups // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            deleteStocks: null == deleteStocks
-                ? _value.deleteStocks
-                : deleteStocks // ignore: cast_nullable_to_non_nullable
-                      as List<String>,
-            groups: null == groups
-                ? _value.groups
-                : groups // ignore: cast_nullable_to_non_nullable
-                      as List<Group>,
-            stocks: null == stocks
-                ? _value.stocks
-                : stocks // ignore: cast_nullable_to_non_nullable
-                      as List<Stock>,
-            activeGroupExtras: null == activeGroupExtras
-                ? _value.activeGroupExtras
-                : activeGroupExtras // ignore: cast_nullable_to_non_nullable
-                      as List<Extras>,
-            selectGroups: null == selectGroups
-                ? _value.selectGroups
-                : selectGroups // ignore: cast_nullable_to_non_nullable
-                      as Map<String, List<Extras?>>,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isSaving: null == isSaving
+            ? _value.isSaving
+            : isSaving // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isFetchingGroups: null == isFetchingGroups
+            ? _value.isFetchingGroups
+            : isFetchingGroups // ignore: cast_nullable_to_non_nullable
+                as bool,
+        deleteStocks: null == deleteStocks
+            ? _value.deleteStocks
+            : deleteStocks // ignore: cast_nullable_to_non_nullable
+                as List<String>,
+        groups: null == groups
+            ? _value.groups
+            : groups // ignore: cast_nullable_to_non_nullable
+                as List<Group>,
+        stocks: null == stocks
+            ? _value.stocks
+            : stocks // ignore: cast_nullable_to_non_nullable
+                as List<Stock>,
+        activeGroupExtras: null == activeGroupExtras
+            ? _value.activeGroupExtras
+            : activeGroupExtras // ignore: cast_nullable_to_non_nullable
+                as List<Extras>,
+        selectGroups: null == selectGroups
+            ? _value.selectGroups
+            : selectGroups // ignore: cast_nullable_to_non_nullable
+                as Map<String, List<Extras?>>,
+      ) as $Val,
     );
   }
 }
@@ -166,35 +165,35 @@ class __$$EditFoodStocksStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         isSaving: null == isSaving
             ? _value.isSaving
             : isSaving // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         isFetchingGroups: null == isFetchingGroups
             ? _value.isFetchingGroups
             : isFetchingGroups // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         deleteStocks: null == deleteStocks
             ? _value._deleteStocks
             : deleteStocks // ignore: cast_nullable_to_non_nullable
-                  as List<String>,
+                as List<String>,
         groups: null == groups
             ? _value._groups
             : groups // ignore: cast_nullable_to_non_nullable
-                  as List<Group>,
+                as List<Group>,
         stocks: null == stocks
             ? _value._stocks
             : stocks // ignore: cast_nullable_to_non_nullable
-                  as List<Stock>,
+                as List<Stock>,
         activeGroupExtras: null == activeGroupExtras
             ? _value._activeGroupExtras
             : activeGroupExtras // ignore: cast_nullable_to_non_nullable
-                  as List<Extras>,
+                as List<Extras>,
         selectGroups: null == selectGroups
             ? _value._selectGroups
             : selectGroups // ignore: cast_nullable_to_non_nullable
-                  as Map<String, List<Extras?>>,
+                as Map<String, List<Extras?>>,
       ),
     );
   }
@@ -212,12 +211,12 @@ class _$EditFoodStocksStateImpl extends _EditFoodStocksState {
     final List<Stock> stocks = const [],
     final List<Extras> activeGroupExtras = const [],
     final Map<String, List<Extras?>> selectGroups = const {},
-  }) : _deleteStocks = deleteStocks,
-       _groups = groups,
-       _stocks = stocks,
-       _activeGroupExtras = activeGroupExtras,
-       _selectGroups = selectGroups,
-       super._();
+  })  : _deleteStocks = deleteStocks,
+        _groups = groups,
+        _stocks = stocks,
+        _activeGroupExtras = activeGroupExtras,
+        _selectGroups = selectGroups,
+        super._();
 
   @override
   @JsonKey()
@@ -308,16 +307,16 @@ class _$EditFoodStocksStateImpl extends _EditFoodStocksState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    isSaving,
-    isFetchingGroups,
-    const DeepCollectionEquality().hash(_deleteStocks),
-    const DeepCollectionEquality().hash(_groups),
-    const DeepCollectionEquality().hash(_stocks),
-    const DeepCollectionEquality().hash(_activeGroupExtras),
-    const DeepCollectionEquality().hash(_selectGroups),
-  );
+        runtimeType,
+        isLoading,
+        isSaving,
+        isFetchingGroups,
+        const DeepCollectionEquality().hash(_deleteStocks),
+        const DeepCollectionEquality().hash(_groups),
+        const DeepCollectionEquality().hash(_stocks),
+        const DeepCollectionEquality().hash(_activeGroupExtras),
+        const DeepCollectionEquality().hash(_selectGroups),
+      );
 
   /// Create a copy of EditFoodStocksState
   /// with the given fields replaced by the non-null parameter values.
@@ -368,7 +367,3 @@ abstract class _EditFoodStocksState extends EditFoodStocksState {
   _$$EditFoodStocksStateImplCopyWith<_$EditFoodStocksStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

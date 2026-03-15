@@ -205,8 +205,8 @@ class _RegisterConfirmationPageState
                 state.isCodeError
                     ? AppStyle.red
                     : isDarkMode
-                    ? AppStyle.borderColor
-                    : AppStyle.black,
+                        ? AppStyle.borderColor
+                        : AppStyle.black,
               ),
             ),
           ),
@@ -247,7 +247,3 @@ class _RegisterConfirmationPageState
     );
   }
 }
-
-
-
-

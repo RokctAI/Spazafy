@@ -79,7 +79,3 @@ class DeliveryTypeItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

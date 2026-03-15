@@ -26,7 +26,8 @@ class UnitData {
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
         : null;
-    _locales = json['locales'] != null ? List<String>.from(json['locales']) : [];
+    _locales =
+        json['locales'] != null ? List<String>.from(json['locales']) : [];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
   }

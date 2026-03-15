@@ -64,8 +64,3 @@ class _MapsListState extends State<MapsList> {
     );
   }
 }
-
-
-
-
-

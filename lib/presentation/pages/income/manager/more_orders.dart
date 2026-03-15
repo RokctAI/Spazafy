@@ -28,9 +28,7 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
   void initState() {
     _refreshController = RefreshController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref
-          .read(statisticsProvider.notifier)
-          .fetchStatisticsOrder(
+      ref.read(statisticsProvider.notifier).fetchStatisticsOrder(
             startTime: widget.startTime,
             endTime: widget.endTime,
           );
@@ -209,15 +207,13 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                               ),
                             ],
                           ),
-                          for (
-                            int i = 0;
-                            i <
-                                (ref
-                                    .watch(statisticsProvider)
-                                    .listOfOrder
-                                    .length);
-                            i++
-                          )
+                          for (int i = 0;
+                              i <
+                                  (ref
+                                      .watch(statisticsProvider)
+                                      .listOfOrder
+                                      .length);
+                              i++)
                             TableRow(
                               decoration: BoxDecoration(
                                 border: Border(
@@ -321,7 +317,3 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
     );
   }
 }
-
-
-
-

@@ -307,7 +307,3 @@ import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 //         ));
 //   }
 // }
-
-
-
-

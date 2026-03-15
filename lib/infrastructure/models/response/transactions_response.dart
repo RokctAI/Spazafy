@@ -281,6 +281,3 @@ class TransactionDetails {
     return map;
   }
 }
-
-
-

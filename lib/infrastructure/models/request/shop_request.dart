@@ -78,7 +78,3 @@ class ShopRequest {
     return map;
   }
 }
-
-
-
-

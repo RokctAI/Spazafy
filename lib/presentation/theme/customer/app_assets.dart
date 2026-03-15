@@ -63,6 +63,3 @@ class Assets {
   static const String svgsTicket = 'assets/svgs/ticket.svg';
   static const String svgsVegetarin = 'assets/svgs/vegetarin.svg';
 }
-
-
-

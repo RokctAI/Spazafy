@@ -51,6 +51,3 @@ class ShimmerProductList extends StatelessWidget {
     );
   }
 }
-
-
-

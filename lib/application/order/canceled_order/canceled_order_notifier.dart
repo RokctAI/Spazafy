@@ -70,7 +70,3 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
     }
   }
 }
-
-
-
-

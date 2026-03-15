@@ -12,7 +12,3 @@ abstract class PushOrderState with _$PushOrderState {
 
   const PushOrderState._();
 }
-
-
-
-

@@ -43,7 +43,3 @@ class CommonAppBar extends StatelessWidget {
     );
   }
 }
-
-
-
-

@@ -88,6 +88,3 @@ class VerifyData {
     return map;
   }
 }
-
-
-

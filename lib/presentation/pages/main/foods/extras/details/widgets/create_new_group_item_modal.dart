@@ -77,8 +77,3 @@ class _CreateNewGroupItemModalState extends State<CreateNewGroupItemModal> {
     );
   }
 }
-
-
-
-
-

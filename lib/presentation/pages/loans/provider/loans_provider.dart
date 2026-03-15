@@ -27,6 +27,3 @@ final savedApplicationIdProvider = StateProvider<String?>((ref) => null);
 
 // Provider to track if user has an application in pending_review status
 final hasPendingApplicationProvider = StateProvider<bool>((ref) => false);
-
-
-

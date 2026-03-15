@@ -307,6 +307,3 @@ class Wallet {
     return map;
   }
 }
-
-
-

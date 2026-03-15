@@ -62,7 +62,3 @@ abstract class TableFacade {
     DateTime? to,
   });
 }
-
-
-
-

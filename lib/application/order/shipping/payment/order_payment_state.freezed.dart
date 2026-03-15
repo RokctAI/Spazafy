@@ -70,28 +70,27 @@ class _$OrderPaymentStateCopyWithImpl<$Res, $Val extends OrderPaymentState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            isCalculateLoading: null == isCalculateLoading
-                ? _value.isCalculateLoading
-                : isCalculateLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            payments: null == payments
-                ? _value.payments
-                : payments // ignore: cast_nullable_to_non_nullable
-                      as List<PaymentData>,
-            selectedIndex: null == selectedIndex
-                ? _value.selectedIndex
-                : selectedIndex // ignore: cast_nullable_to_non_nullable
-                      as int,
-            orderCalculate: freezed == orderCalculate
-                ? _value.orderCalculate
-                : orderCalculate // ignore: cast_nullable_to_non_nullable
-                      as OrderCalculateDetail?,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isCalculateLoading: null == isCalculateLoading
+            ? _value.isCalculateLoading
+            : isCalculateLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        payments: null == payments
+            ? _value.payments
+            : payments // ignore: cast_nullable_to_non_nullable
+                as List<PaymentData>,
+        selectedIndex: null == selectedIndex
+            ? _value.selectedIndex
+            : selectedIndex // ignore: cast_nullable_to_non_nullable
+                as int,
+        orderCalculate: freezed == orderCalculate
+            ? _value.orderCalculate
+            : orderCalculate // ignore: cast_nullable_to_non_nullable
+                as OrderCalculateDetail?,
+      ) as $Val,
     );
   }
 }
@@ -139,23 +138,23 @@ class __$$OrderPaymentStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         isCalculateLoading: null == isCalculateLoading
             ? _value.isCalculateLoading
             : isCalculateLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         payments: null == payments
             ? _value._payments
             : payments // ignore: cast_nullable_to_non_nullable
-                  as List<PaymentData>,
+                as List<PaymentData>,
         selectedIndex: null == selectedIndex
             ? _value.selectedIndex
             : selectedIndex // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         orderCalculate: freezed == orderCalculate
             ? _value.orderCalculate
             : orderCalculate // ignore: cast_nullable_to_non_nullable
-                  as OrderCalculateDetail?,
+                as OrderCalculateDetail?,
       ),
     );
   }
@@ -170,8 +169,8 @@ class _$OrderPaymentStateImpl extends _OrderPaymentState {
     final List<PaymentData> payments = const [],
     this.selectedIndex = 0,
     this.orderCalculate,
-  }) : _payments = payments,
-       super._();
+  })  : _payments = payments,
+        super._();
 
   @override
   @JsonKey()
@@ -217,13 +216,13 @@ class _$OrderPaymentStateImpl extends _OrderPaymentState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    isCalculateLoading,
-    const DeepCollectionEquality().hash(_payments),
-    selectedIndex,
-    orderCalculate,
-  );
+        runtimeType,
+        isLoading,
+        isCalculateLoading,
+        const DeepCollectionEquality().hash(_payments),
+        selectedIndex,
+        orderCalculate,
+      );
 
   /// Create a copy of OrderPaymentState
   /// with the given fields replaced by the non-null parameter values.
@@ -265,7 +264,3 @@ abstract class _OrderPaymentState extends OrderPaymentState {
   _$$OrderPaymentStateImplCopyWith<_$OrderPaymentStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

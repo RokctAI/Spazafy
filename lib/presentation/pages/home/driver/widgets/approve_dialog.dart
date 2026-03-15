@@ -62,9 +62,7 @@ class ApproveOrderDialog extends StatelessWidget {
                           ref
                               .read(homeProvider.notifier)
                               .goClientParcel(context, parcel?.id);
-                          ref
-                              .read(homeProvider.notifier)
-                              .getRoutingAll(
+                          ref.read(homeProvider.notifier).getRoutingAll(
                                 // ignore: use_build_context_synchronously
                                 context: context,
                                 start: LatLng(
@@ -93,9 +91,7 @@ class ApproveOrderDialog extends StatelessWidget {
                           ref
                               .read(homeProvider.notifier)
                               .goClient(context, order?.id);
-                          ref
-                              .read(homeProvider.notifier)
-                              .getRoutingAll(
+                          ref.read(homeProvider.notifier).getRoutingAll(
                                 // ignore: use_build_context_synchronously
                                 context: context,
                                 start: LatLng(
@@ -142,8 +138,3 @@ class ApproveOrderDialog extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

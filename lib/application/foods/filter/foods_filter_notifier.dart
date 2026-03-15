@@ -8,7 +8,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
   // final ShopsFacade _shopsRepository;
 
   FoodsFilterNotifier(/*this._shopsRepository*/)
-    : super(const FoodsFilterState());
+      : super(const FoodsFilterState());
   int shopIndex = 1;
   int marketRefreshIndex = 1;
 
@@ -286,7 +286,3 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     // }
   }
 }
-
-
-
-

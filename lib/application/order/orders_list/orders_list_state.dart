@@ -18,7 +18,3 @@ class OrdersListState with _$OrdersListState {
 
   const OrdersListState._();
 }
-
-
-
-

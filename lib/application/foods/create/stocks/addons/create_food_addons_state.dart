@@ -13,8 +13,3 @@ abstract class CreateFoodAddonsState with _$CreateFoodAddonsState {
 
   const CreateFoodAddonsState._();
 }
-
-
-
-
-

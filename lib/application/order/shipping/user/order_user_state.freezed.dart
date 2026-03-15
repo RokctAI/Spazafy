@@ -70,28 +70,27 @@ class _$OrderUserStateCopyWithImpl<$Res, $Val extends OrderUserState>
   }) {
     return _then(
       _value.copyWith(
-            users: null == users
-                ? _value.users
-                : users // ignore: cast_nullable_to_non_nullable
-                      as List<UserData>,
-            selectedIndex: null == selectedIndex
-                ? _value.selectedIndex
-                : selectedIndex // ignore: cast_nullable_to_non_nullable
-                      as int,
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            selectedUser: freezed == selectedUser
-                ? _value.selectedUser
-                : selectedUser // ignore: cast_nullable_to_non_nullable
-                      as UserData?,
-            userTextController: freezed == userTextController
-                ? _value.userTextController
-                : userTextController // ignore: cast_nullable_to_non_nullable
-                      as TextEditingController?,
-          )
-          as $Val,
+        users: null == users
+            ? _value.users
+            : users // ignore: cast_nullable_to_non_nullable
+                as List<UserData>,
+        selectedIndex: null == selectedIndex
+            ? _value.selectedIndex
+            : selectedIndex // ignore: cast_nullable_to_non_nullable
+                as int,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        selectedUser: freezed == selectedUser
+            ? _value.selectedUser
+            : selectedUser // ignore: cast_nullable_to_non_nullable
+                as UserData?,
+        userTextController: freezed == userTextController
+            ? _value.userTextController
+            : userTextController // ignore: cast_nullable_to_non_nullable
+                as TextEditingController?,
+      ) as $Val,
     );
   }
 }
@@ -139,23 +138,23 @@ class __$$OrderUserStateImplCopyWithImpl<$Res>
         users: null == users
             ? _value._users
             : users // ignore: cast_nullable_to_non_nullable
-                  as List<UserData>,
+                as List<UserData>,
         selectedIndex: null == selectedIndex
             ? _value.selectedIndex
             : selectedIndex // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         selectedUser: freezed == selectedUser
             ? _value.selectedUser
             : selectedUser // ignore: cast_nullable_to_non_nullable
-                  as UserData?,
+                as UserData?,
         userTextController: freezed == userTextController
             ? _value.userTextController
             : userTextController // ignore: cast_nullable_to_non_nullable
-                  as TextEditingController?,
+                as TextEditingController?,
       ),
     );
   }
@@ -170,8 +169,8 @@ class _$OrderUserStateImpl extends _OrderUserState {
     this.isLoading = false,
     this.selectedUser,
     this.userTextController,
-  }) : _users = users,
-       super._();
+  })  : _users = users,
+        super._();
 
   final List<UserData> _users;
   @override
@@ -216,13 +215,13 @@ class _$OrderUserStateImpl extends _OrderUserState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_users),
-    selectedIndex,
-    isLoading,
-    selectedUser,
-    userTextController,
-  );
+        runtimeType,
+        const DeepCollectionEquality().hash(_users),
+        selectedIndex,
+        isLoading,
+        selectedUser,
+        userTextController,
+      );
 
   /// Create a copy of OrderUserState
   /// with the given fields replaced by the non-null parameter values.
@@ -264,7 +263,3 @@ abstract class _OrderUserState extends OrderUserState {
   _$$OrderUserStateImplCopyWith<_$OrderUserStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

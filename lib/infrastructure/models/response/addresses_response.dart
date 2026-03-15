@@ -62,7 +62,3 @@ class AddressesResponse {
     return map;
   }
 }
-
-
-
-

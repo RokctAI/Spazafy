@@ -234,8 +234,3 @@ class OrderStatusScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

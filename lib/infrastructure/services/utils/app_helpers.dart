@@ -806,7 +806,3 @@ extension ExtendedIterable<E> on Iterable<E> {
     return map((e) => f(e, i++));
   }
 }
-
-
-
-

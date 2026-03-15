@@ -188,6 +188,3 @@ class WalletData {
     return map;
   }
 }
-
-
-

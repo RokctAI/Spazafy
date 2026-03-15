@@ -17,8 +17,3 @@ abstract class SubscriptionState with _$SubscriptionState {
 
   const SubscriptionState._();
 }
-
-
-
-
-

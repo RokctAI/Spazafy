@@ -174,8 +174,3 @@ class _PromoCodeState extends ConsumerState<PromoCodeScreen> {
     );
   }
 }
-
-
-
-
-

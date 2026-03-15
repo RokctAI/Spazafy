@@ -181,6 +181,3 @@ class _AppInitializerState extends State<AppInitializer> {
     return Container(); // No UI needed here
   }
 }
-
-
-

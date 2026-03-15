@@ -25,6 +25,3 @@ class CountNotificationModel {
         "transaction": transaction,
       };
 }
-
-
-

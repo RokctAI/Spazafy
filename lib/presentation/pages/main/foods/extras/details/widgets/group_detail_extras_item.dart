@@ -73,8 +73,3 @@ class GroupDetailExtrasItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

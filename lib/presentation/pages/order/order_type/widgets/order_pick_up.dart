@@ -142,7 +142,3 @@ class _OrderPickUpState extends ConsumerState<OrderPickUp> {
     );
   }
 }
-
-
-
-

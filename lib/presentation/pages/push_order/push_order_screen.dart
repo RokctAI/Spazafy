@@ -131,9 +131,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                                 final ImageCropperMarker image =
                                     ImageCropperMarker();
                                 notifier.changeLoading();
-                                ref
-                                    .read(homeProvider.notifier)
-                                    .goMarket(
+                                ref.read(homeProvider.notifier).goMarket(
                                       context: context,
                                       orderId: widget.pushModel.id.toString(),
                                       order: widget.pushModel,
@@ -194,15 +192,13 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                                                         "0",
                                                   ),
                                                 ),
-                                                icon: await image
-                                                    .resizeAndCircle(
-                                                      widget
-                                                              .pushModel
-                                                              .shop
-                                                              ?.logoImg ??
-                                                          "",
-                                                      120,
-                                                    ),
+                                                icon:
+                                                    await image.resizeAndCircle(
+                                                  widget.pushModel.shop
+                                                          ?.logoImg ??
+                                                      "",
+                                                  120,
+                                                ),
                                               ),
                                             );
                                       },
@@ -240,12 +236,8 @@ class _PushOrderState extends ConsumerState<PushOrder> {
         child: CircularPercentIndicator(
           radius: 48.r,
           lineWidth: 12.r,
-          percent:
-              double.parse(
-                ref
-                    .watch(pushOrderProvider)
-                    .timerText
-                    .substring(
+          percent: double.parse(
+                ref.watch(pushOrderProvider).timerText.substring(
                       0,
                       ref.watch(pushOrderProvider).timerText.indexOf(' '),
                     ),
@@ -450,8 +442,3 @@ class _PushOrderState extends ConsumerState<PushOrder> {
     );
   }
 }
-
-
-
-
-

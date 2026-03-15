@@ -57,6 +57,3 @@ class SingleBrandResponse {
     return map;
   }
 }
-
-
-

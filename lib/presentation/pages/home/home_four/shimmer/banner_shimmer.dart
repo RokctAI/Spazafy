@@ -41,6 +41,3 @@ class BannerShimmer extends StatelessWidget {
     );
   }
 }
-
-
-

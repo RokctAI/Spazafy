@@ -35,6 +35,3 @@ class MetaLinks {
     return map;
   }
 }
-
-
-

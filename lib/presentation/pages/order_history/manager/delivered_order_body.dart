@@ -39,35 +39,32 @@ class _DeliveredOrdersBody extends ConsumerState<DeliveredOrdersBody> {
       child: state.isLoading
           ? const LoadingList(horizontalPadding: 16, verticalPadding: 16)
           : state.deliveredOrders.isNotEmpty
-          ? ListView.builder(
-              padding: REdgeInsets.only(
-                right: 16,
-                left: 16,
-                top: 16,
-                bottom: 86,
-              ),
-              // shrinkWrap: true,
-              itemCount: state.deliveredOrders.length,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) => OrderItem(
-                isHistoryOrder: true,
-                order: state.deliveredOrders[index],
-                onTap: () => AppHelpers.showCustomModalBottomSheet(
-                  paddingTop: MediaQuery.paddingOf(context).top + 60,
-                  context: context,
-                  radius: 12,
-                  modal: OrderDetailsModal(
+              ? ListView.builder(
+                  padding: REdgeInsets.only(
+                    right: 16,
+                    left: 16,
+                    top: 16,
+                    bottom: 86,
+                  ),
+                  // shrinkWrap: true,
+                  itemCount: state.deliveredOrders.length,
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (context, index) => OrderItem(
                     isHistoryOrder: true,
                     order: state.deliveredOrders[index],
+                    onTap: () => AppHelpers.showCustomModalBottomSheet(
+                      paddingTop: MediaQuery.paddingOf(context).top + 60,
+                      context: context,
+                      radius: 12,
+                      modal: OrderDetailsModal(
+                        isHistoryOrder: true,
+                        order: state.deliveredOrders[index],
+                      ),
+                      isDarkMode: true,
+                    ),
                   ),
-                  isDarkMode: true,
-                ),
-              ),
-            )
-          : const NoOrders(),
+                )
+              : const NoOrders(),
     );
   }
 }
-
-
-

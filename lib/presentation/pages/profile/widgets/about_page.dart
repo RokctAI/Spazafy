@@ -130,7 +130,3 @@ class _AboutPageState extends ConsumerState<AboutPage> {
     );
   }
 }
-
-
-
-

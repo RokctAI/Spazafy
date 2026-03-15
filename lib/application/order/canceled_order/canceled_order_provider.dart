@@ -4,9 +4,5 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final canceledOrderProvider =
     StateNotifierProvider<CanceledOrderNotifier, CanceledOrderState>(
-      (ref) => CanceledOrderNotifier(),
-    );
-
-
-
-
+  (ref) => CanceledOrderNotifier(),
+);

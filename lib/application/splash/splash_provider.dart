@@ -10,6 +10,3 @@ final splashProvider = StateNotifierProvider<SplashNotifier, SplashState>(
     userRepository,
   ),
 );
-
-
-

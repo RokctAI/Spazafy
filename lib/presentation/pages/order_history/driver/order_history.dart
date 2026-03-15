@@ -53,23 +53,17 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
       ref
           .read(driverOrderProvider.notifier)
           .fetchHistoryOrdersPage(context, historyController, isRefresh: true);
-      ref
-          .read(deliveredOrderProvider.notifier)
-          .fetchDeliveredOrdersPage(
+      ref.read(deliveredOrderProvider.notifier).fetchDeliveredOrdersPage(
             context,
             deliveredController,
             isRefresh: true,
           );
-      ref
-          .read(canceledOrderProvider.notifier)
-          .fetchCanceledOrdersPage(
+      ref.read(canceledOrderProvider.notifier).fetchCanceledOrdersPage(
             context,
             canceledController,
             isRefresh: true,
           );
-      ref
-          .read(progressOrderProvider.notifier)
-          .fetchProgressOrdersPage(
+      ref.read(progressOrderProvider.notifier).fetchProgressOrdersPage(
             context,
             progressController,
             isRefresh: true,
@@ -105,7 +99,8 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
                 ),
                 Text(
                   AppHelpers.getTranslation(TrKeys.thereAreOrders),
-                  style: AppStyle.interRegular(size: 12.sp, letterSpacing: -0.3),
+                  style:
+                      AppStyle.interRegular(size: 12.sp, letterSpacing: -0.3),
                 ),
               ],
             ),
@@ -172,8 +167,3 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
     );
   }
 }
-
-
-
-
-

@@ -309,7 +309,3 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
     );
   }
 }
-
-
-
-

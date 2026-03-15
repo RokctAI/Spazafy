@@ -1,4 +1,1 @@
 enum PaymentType { simplePayment, recurringBilling }
-
-
-

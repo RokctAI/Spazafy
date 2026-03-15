@@ -58,7 +58,3 @@ class CategoryBarItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

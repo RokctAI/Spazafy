@@ -75,6 +75,3 @@ class FailurePage extends StatelessWidget {
     );
   }
 }
-
-
-

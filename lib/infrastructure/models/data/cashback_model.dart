@@ -13,6 +13,3 @@ class CashbackModel {
     return map;
   }
 }
-
-
-

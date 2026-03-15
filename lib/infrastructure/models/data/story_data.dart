@@ -67,6 +67,3 @@ class StoryModel {
         "updated_at": updatedAt?.toIso8601String(),
       };
 }
-
-
-

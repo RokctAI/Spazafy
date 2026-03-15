@@ -78,8 +78,3 @@ class _TermPageState extends ConsumerState<TermPage> {
     );
   }
 }
-
-
-
-
-

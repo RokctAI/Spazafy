@@ -61,7 +61,3 @@ class ChatItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

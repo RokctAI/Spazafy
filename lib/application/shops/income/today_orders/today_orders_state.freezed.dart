@@ -66,24 +66,23 @@ class _$TodayOrdersStateCopyWithImpl<$Res, $Val extends TodayOrdersState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            todayOrders: null == todayOrders
-                ? _value.todayOrders
-                : todayOrders // ignore: cast_nullable_to_non_nullable
-                      as List<OrderData>,
-            ordersStatistic: freezed == ordersStatistic
-                ? _value.ordersStatistic
-                : ordersStatistic // ignore: cast_nullable_to_non_nullable
-                      as OrdersStatistic?,
-            lastOrder: freezed == lastOrder
-                ? _value.lastOrder
-                : lastOrder // ignore: cast_nullable_to_non_nullable
-                      as OrderData?,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        todayOrders: null == todayOrders
+            ? _value.todayOrders
+            : todayOrders // ignore: cast_nullable_to_non_nullable
+                as List<OrderData>,
+        ordersStatistic: freezed == ordersStatistic
+            ? _value.ordersStatistic
+            : ordersStatistic // ignore: cast_nullable_to_non_nullable
+                as OrdersStatistic?,
+        lastOrder: freezed == lastOrder
+            ? _value.lastOrder
+            : lastOrder // ignore: cast_nullable_to_non_nullable
+                as OrderData?,
+      ) as $Val,
     );
   }
 }
@@ -129,19 +128,19 @@ class __$$TodayOrdersStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         todayOrders: null == todayOrders
             ? _value._todayOrders
             : todayOrders // ignore: cast_nullable_to_non_nullable
-                  as List<OrderData>,
+                as List<OrderData>,
         ordersStatistic: freezed == ordersStatistic
             ? _value.ordersStatistic
             : ordersStatistic // ignore: cast_nullable_to_non_nullable
-                  as OrdersStatistic?,
+                as OrdersStatistic?,
         lastOrder: freezed == lastOrder
             ? _value.lastOrder
             : lastOrder // ignore: cast_nullable_to_non_nullable
-                  as OrderData?,
+                as OrderData?,
       ),
     );
   }
@@ -155,8 +154,8 @@ class _$TodayOrdersStateImpl extends _TodayOrdersState {
     final List<OrderData> todayOrders = const [],
     this.ordersStatistic,
     this.lastOrder,
-  }) : _todayOrders = todayOrders,
-       super._();
+  })  : _todayOrders = todayOrders,
+        super._();
 
   @override
   @JsonKey()
@@ -199,12 +198,12 @@ class _$TodayOrdersStateImpl extends _TodayOrdersState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    const DeepCollectionEquality().hash(_todayOrders),
-    ordersStatistic,
-    lastOrder,
-  );
+        runtimeType,
+        isLoading,
+        const DeepCollectionEquality().hash(_todayOrders),
+        ordersStatistic,
+        lastOrder,
+      );
 
   /// Create a copy of TodayOrdersState
   /// with the given fields replaced by the non-null parameter values.
@@ -243,7 +242,3 @@ abstract class _TodayOrdersState extends TodayOrdersState {
   _$$TodayOrdersStateImplCopyWith<_$TodayOrdersStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

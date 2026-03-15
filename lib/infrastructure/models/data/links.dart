@@ -43,6 +43,3 @@ class Links {
     return map;
   }
 }
-
-
-

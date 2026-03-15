@@ -69,6 +69,3 @@ class CustomTransitionBuilder extends PageTransitionsBuilder {
     );
   }
 }
-
-
-

@@ -75,8 +75,3 @@ class ShopBarItemThree extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

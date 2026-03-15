@@ -121,6 +121,3 @@ void _debugDrawShadow(Canvas canvas, Path path, double elevation) {
     );
   }
 }
-
-
-

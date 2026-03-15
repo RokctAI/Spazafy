@@ -341,7 +341,3 @@ class _ShopDetailPageState extends ConsumerState<ShopDetailPage> {
     );
   }
 }
-
-
-
-

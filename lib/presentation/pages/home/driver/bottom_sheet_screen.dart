@@ -112,7 +112,8 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                 shape: BoxShape.circle,
                 color: AppStyle.blackColor,
               ),
-              child: Icon(FlutterRemix.file_list_2_fill, color: AppStyle.primary),
+              child:
+                  Icon(FlutterRemix.file_list_2_fill, color: AppStyle.primary),
             ),
             14.horizontalSpace,
             Column(
@@ -123,7 +124,8 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                   width: 60.w,
                   child: Text(
                     AppHelpers.getTranslation(TrKeys.foodymanBenefit),
-                    style: AppStyle.interNormal(size: 12.sp, letterSpacing: -0.3),
+                    style:
+                        AppStyle.interNormal(size: 12.sp, letterSpacing: -0.3),
                     maxLines: 1,
                   ),
                 ),
@@ -131,15 +133,15 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                   builder: (context, ref, child) {
                     return Text(
                       AppHelpers.numberFormat(
-                        number:
-                            (ref
+                        number: (ref
                                 .watch(profileSettingsProvider)
                                 .statistics
                                 ?.data
                                 ?.totalPrice ??
                             0),
                       ),
-                      style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
+                      style:
+                          AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
                     );
                   },
                 ),
@@ -177,7 +179,8 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                 children: [
                   Text(
                     AppHelpers.getTranslation(TrKeys.balance),
-                    style: AppStyle.interNormal(size: 12.sp, letterSpacing: -0.3),
+                    style:
+                        AppStyle.interNormal(size: 12.sp, letterSpacing: -0.3),
                   ),
                   Expanded(
                     child: Text(
@@ -185,7 +188,8 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                         number: LocalStorage.getUser()?.wallet?.price,
                         maxLength: 3,
                       ),
-                      style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
+                      style:
+                          AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
                     ),
                   ),
                 ],
@@ -197,8 +201,3 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
     );
   }
 }
-
-
-
-
-

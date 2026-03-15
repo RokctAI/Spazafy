@@ -74,7 +74,3 @@ class ImageExtras extends StatelessWidget {
     );
   }
 }
-
-
-
-

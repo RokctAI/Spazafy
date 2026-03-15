@@ -63,7 +63,3 @@ class CategoryTabBar extends StatelessWidget {
     );
   }
 }
-
-
-
-

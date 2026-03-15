@@ -13,7 +13,3 @@ abstract class GalleryFacade {
     UploadType uploadType,
   );
 }
-
-
-
-

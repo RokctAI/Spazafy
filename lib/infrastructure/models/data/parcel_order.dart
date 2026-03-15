@@ -294,7 +294,3 @@ class Currency {
         "updated_at": updatedAt?.toIso8601String(),
       };
 }
-
-
-
-

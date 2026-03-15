@@ -7,6 +7,3 @@ final introProvider =
     StateNotifierProvider.autoDispose<IntroNotifier, IntroState>(
   (ref) => IntroNotifier(),
 );
-
-
-

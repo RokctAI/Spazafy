@@ -166,8 +166,9 @@ class CarData {
         online: json["online"],
         images0: json["images[0]"],
         typeOfTechnique: json["type_of_technique"],
-        location:
-            json["location"] == null ? null : Location.fromJson(json["location"]),
+        location: json["location"] == null
+            ? null
+            : Location.fromJson(json["location"]),
       );
 
   Map<String, dynamic> toJson() => {

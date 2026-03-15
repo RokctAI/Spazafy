@@ -40,8 +40,8 @@ class SearchTextField extends StatelessWidget {
         hintStyle: AppStyle.interRegular(size: 16.sp, color: Style.textColor),
         hintText: hintText ?? AppHelpers.getTranslation(TrKeys.search),
         contentPadding: REdgeInsets.symmetric(horizontal: 15, vertical: 17),
-        prefixIcon: const Icon(FlutterRemix.search_2_line, color: AppStyle.blackColor),
-
+        prefixIcon:
+            const Icon(FlutterRemix.search_2_line, color: AppStyle.blackColor),
         suffixIcon: suffixIcon,
         fillColor: bgColor,
         filled: true,
@@ -52,8 +52,3 @@ class SearchTextField extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

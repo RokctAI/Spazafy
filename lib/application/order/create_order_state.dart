@@ -9,7 +9,3 @@ abstract class CreateOrderState with _$CreateOrderState {
 
   const CreateOrderState._();
 }
-
-
-
-

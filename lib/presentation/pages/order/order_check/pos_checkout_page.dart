@@ -203,7 +203,3 @@ class PosCheckoutPage extends ConsumerWidget {
     );
   }
 }
-
-
-
-

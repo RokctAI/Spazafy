@@ -243,8 +243,3 @@ class MarketItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

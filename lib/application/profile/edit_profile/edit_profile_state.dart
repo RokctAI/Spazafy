@@ -22,7 +22,3 @@ class EditProfileState with _$EditProfileState {
 
   const EditProfileState._();
 }
-
-
-
-

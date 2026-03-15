@@ -396,6 +396,3 @@ class _LoanContractScreenState extends ConsumerState<LoanContractScreen> {
     );
   }
 }
-
-
-

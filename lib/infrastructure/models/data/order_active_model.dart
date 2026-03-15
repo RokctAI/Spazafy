@@ -445,7 +445,3 @@ class CurrencyModel {
     return data;
   }
 }
-
-
-
-

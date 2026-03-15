@@ -17,8 +17,3 @@ abstract class SectionState with _$SectionState {
 
   const SectionState._();
 }
-
-
-
-
-

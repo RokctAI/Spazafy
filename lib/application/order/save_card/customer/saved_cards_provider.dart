@@ -8,9 +8,3 @@ final savedCardsProvider =
     StateNotifierProvider<SavedCardsNotifier, SavedCardsState>((ref) {
   return SavedCardsNotifier();
 });
-
-
-
-
-
-

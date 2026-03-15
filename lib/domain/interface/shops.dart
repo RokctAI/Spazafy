@@ -70,7 +70,3 @@ abstract class ShopsFacade {
     String? backgroundImage,
   });
 }
-
-
-
-

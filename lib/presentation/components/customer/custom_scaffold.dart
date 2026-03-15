@@ -109,6 +109,3 @@ class _CustomScaffoldState extends ConsumerState<CustomScaffold>
     );
   }
 }
-
-
-

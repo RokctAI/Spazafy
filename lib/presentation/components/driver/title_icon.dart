@@ -34,7 +34,8 @@ class TitleAndIcon extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: AppStyle.interSemi(size: 18.sp, color: AppStyle.blackColor),
+              style:
+                  AppStyle.interSemi(size: 18.sp, color: AppStyle.blackColor),
             ),
           ),
           GestureDetector(
@@ -63,7 +64,3 @@ class TitleAndIcon extends StatelessWidget {
     );
   }
 }
-
-
-
-

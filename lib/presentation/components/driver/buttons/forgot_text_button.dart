@@ -40,8 +40,3 @@ class ForgotTextButton extends ConsumerWidget {
     );
   }
 }
-
-
-
-
-

@@ -52,6 +52,3 @@ Future<void> initializeExcludedCategoryIds() async {
   excludedCategoryIds = excludedCategoryIdsFromRemoteConfig;
   // print('Excluded Category IDs: $excludedCategoryIds');
 }
-
-
-

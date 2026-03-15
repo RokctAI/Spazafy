@@ -14,8 +14,3 @@ abstract class OrderDetailsState with _$OrderDetailsState {
 
   const OrderDetailsState._();
 }
-
-
-
-
-

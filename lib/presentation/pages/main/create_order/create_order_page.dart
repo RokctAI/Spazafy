@@ -30,13 +30,10 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
     _categoryController = RefreshController();
     _productController = RefreshController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref
-          .read(orderProductsProvider.notifier)
-          .fetchProducts(
+      ref.read(orderProductsProvider.notifier).fetchProducts(
             categoryId: null,
-            isRefresh: ref.watch(categoriesProvider).activeIndex != 1
-                ? true
-                : false,
+            isRefresh:
+                ref.watch(categoriesProvider).activeIndex != 1 ? true : false,
             isOpeningPage: true,
             cartStocks: ref.watch(orderCartProvider).stocks,
           );
@@ -78,8 +75,7 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                         categoryId: categoriesState.activeIndex == 1
                             ? null
                             : categoriesState
-                                  .categories[categoriesState.activeIndex - 2]
-                                  .id,
+                                .categories[categoriesState.activeIndex - 2].id,
                         cartStocks: ref.watch(orderCartProvider).stocks,
                       ),
                       suffixIcon: Icon(
@@ -113,9 +109,8 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                                   onTap: () {
                                     productsEvent.setProductType(
                                       'single',
-                                      cartStocks: ref
-                                          .watch(orderCartProvider)
-                                          .stocks,
+                                      cartStocks:
+                                          ref.watch(orderCartProvider).stocks,
                                       refreshController: _productController,
                                     );
                                     categoriesEvent.fetchCategories(context);
@@ -127,12 +122,11 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                                     decoration: BoxDecoration(
                                       color:
                                           productsState.productType == 'single'
-                                          ? AppStyle.blackColor
-                                          : AppStyle.white,
+                                              ? AppStyle.blackColor
+                                              : AppStyle.white,
                                       borderRadius: BorderRadius.circular(10.r),
                                       border: Border.all(
-                                        color:
-                                            productsState.productType ==
+                                        color: productsState.productType ==
                                                 'single'
                                             ? AppStyle.blackColor
                                             : AppStyle.borderColor,
@@ -145,8 +139,7 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                                         ),
                                         style: AppStyle.interSemi(
                                           size: 14,
-                                          color:
-                                              productsState.productType ==
+                                          color: productsState.productType ==
                                                   'single'
                                               ? AppStyle.white
                                               : AppStyle.blackColor,
@@ -162,9 +155,8 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                                   onTap: () {
                                     productsEvent.setProductType(
                                       'combo',
-                                      cartStocks: ref
-                                          .watch(orderCartProvider)
-                                          .stocks,
+                                      cartStocks:
+                                          ref.watch(orderCartProvider).stocks,
                                       refreshController: _productController,
                                     );
                                     categoriesEvent.fetchComboCategories(
@@ -178,14 +170,14 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                                     decoration: BoxDecoration(
                                       color:
                                           productsState.productType == 'combo'
-                                          ? AppStyle.blackColor
-                                          : AppStyle.white,
+                                              ? AppStyle.blackColor
+                                              : AppStyle.white,
                                       borderRadius: BorderRadius.circular(10.r),
                                       border: Border.all(
                                         color:
                                             productsState.productType == 'combo'
-                                            ? AppStyle.blackColor
-                                            : AppStyle.borderColor,
+                                                ? AppStyle.blackColor
+                                                : AppStyle.borderColor,
                                       ),
                                     ),
                                     child: Center(
@@ -193,8 +185,7 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                                         AppHelpers.getTranslation(TrKeys.combo),
                                         style: AppStyle.interSemi(
                                           size: 14,
-                                          color:
-                                              productsState.productType ==
+                                          color: productsState.productType ==
                                                   'combo'
                                               ? AppStyle.white
                                               : AppStyle.blackColor,
@@ -250,9 +241,8 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                                             ? null
                                             : currentCategories[index - 2].id,
                                         isRefresh: true,
-                                        cartStocks: ref
-                                            .watch(orderCartProvider)
-                                            .stocks,
+                                        cartStocks:
+                                            ref.watch(orderCartProvider).stocks,
                                       );
                                     }
                                   },
@@ -293,10 +283,9 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                               categoryId: categoriesState.activeIndex == 1
                                   ? null
                                   : categoriesState
-                                        .categories[categoriesState
-                                                .activeIndex -
-                                            2]
-                                        .id,
+                                      .categories[
+                                          categoriesState.activeIndex - 2]
+                                      .id,
                             ),
                             onLoading: () => productsEvent.fetchProducts(
                               refreshController: _productController,
@@ -304,22 +293,21 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                               categoryId: categoriesState.activeIndex == 1
                                   ? null
                                   : categoriesState
-                                        .categories[categoriesState
-                                                .activeIndex -
-                                            2]
-                                        .id,
+                                      .categories[
+                                          categoriesState.activeIndex - 2]
+                                      .id,
                             ),
                             onProductTap: (index) =>
                                 AppHelpers.showCustomModalBottomDragSheet(
-                                  paddingTop: 60,
-                                  context: context,
-                                  maxChildSize: 0.8,
-                                  initSize: 0.6,
-                                  modal: (c) => FoodDetailsModal(
-                                    controller: c,
-                                    product: productsState.products[index],
-                                  ),
-                                ),
+                              paddingTop: 60,
+                              context: context,
+                              maxChildSize: 0.8,
+                              initSize: 0.6,
+                              modal: (c) => FoodDetailsModal(
+                                controller: c,
+                                product: productsState.products[index],
+                              ),
+                            ),
                           );
                         },
                       ),
@@ -403,7 +391,3 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
     );
   }
 }
-
-
-
-

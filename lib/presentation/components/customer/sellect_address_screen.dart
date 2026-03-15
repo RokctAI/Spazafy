@@ -248,7 +248,3 @@ class _SelectAddressScreenState extends ConsumerState<SelectAddressScreen> {
     );
   }
 }
-
-
-
-

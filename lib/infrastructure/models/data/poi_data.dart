@@ -21,6 +21,3 @@ class POIData {
     return 'POIData{name: $name, latitude: $latitude, longitude: $longitude, titleColor: $titleColor, pin: $pin}';
   }
 }
-
-
-

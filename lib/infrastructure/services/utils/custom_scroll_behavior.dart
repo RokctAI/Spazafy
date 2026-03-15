@@ -10,6 +10,3 @@ class CustomBehavior extends ScrollBehavior {
     return child;
   }
 }
-
-
-

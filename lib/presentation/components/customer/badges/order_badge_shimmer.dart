@@ -71,8 +71,3 @@ class OrderBadge extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

@@ -10,6 +10,3 @@ class SelectState with _$SelectState {
 
   const SelectState._();
 }
-
-
-

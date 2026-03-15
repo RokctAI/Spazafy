@@ -18,8 +18,3 @@ abstract class CreateFoodStocksState with _$CreateFoodStocksState {
 
   const CreateFoodStocksState._();
 }
-
-
-
-
-

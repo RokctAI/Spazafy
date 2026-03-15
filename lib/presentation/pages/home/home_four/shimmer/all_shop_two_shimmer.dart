@@ -59,6 +59,3 @@ class AllShopTwoShimmer extends StatelessWidget {
     );
   }
 }
-
-
-

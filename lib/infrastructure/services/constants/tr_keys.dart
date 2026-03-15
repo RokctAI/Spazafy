@@ -841,6 +841,3 @@ class TrKeys {
   static const String youWillShow = 'you.will.show.the';
   static const String yourShopRejected = 'your.shop.rejected';
 }
-
-
-

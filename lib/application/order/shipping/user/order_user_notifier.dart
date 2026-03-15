@@ -17,7 +17,7 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
   Timer? _timer;
 
   OrderUserNotifier(this._usersRepository)
-    : super(OrderUserState(userTextController: TextEditingController()));
+      : super(OrderUserState(userTextController: TextEditingController()));
 
   void addCreatedUser(UserData? user) {
     List<UserData> users = List.from(state.users);
@@ -169,8 +169,3 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
     );
   }
 }
-
-
-
-
-

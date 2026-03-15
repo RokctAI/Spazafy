@@ -77,6 +77,3 @@ class LocalAddressData {
     return 'LocalAddressData(title - $title})';
   }
 }
-
-
-

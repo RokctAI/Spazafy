@@ -92,7 +92,3 @@ class BonusStock {
         "total_price": totalPrice,
       };
 }
-
-
-
-

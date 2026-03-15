@@ -99,6 +99,3 @@ export 'response/group_extras_response.dart';
 typedef CalculateResponse = ProductCalculateResponse;
 typedef OrderDetailModel = SingleOrderResponse;
 typedef OrderDetailData = OrderData;
-
-
-

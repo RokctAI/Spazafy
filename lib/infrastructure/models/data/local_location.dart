@@ -29,6 +29,3 @@ class LocalLocation {
     return map;
   }
 }
-
-
-

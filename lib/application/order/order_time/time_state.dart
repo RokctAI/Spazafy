@@ -12,6 +12,3 @@ class TimeState with _$TimeState {
 
   const TimeState._();
 }
-
-
-

@@ -70,6 +70,3 @@ class NotificationData {
                 : List<dynamic>.from(payload!.map((x) => x)),
       };
 }
-
-
-

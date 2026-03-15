@@ -18,7 +18,7 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
   String _productType = 'single';
 
   OrderProductsNotifier(this._productsRepository)
-    : super(const OrderProductsState());
+      : super(const OrderProductsState());
 
   void setProductType(
     String type, {
@@ -176,8 +176,3 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
     );
   }
 }
-
-
-
-
-

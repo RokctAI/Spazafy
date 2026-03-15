@@ -114,7 +114,3 @@ extension StringBool on String? {
     return this == "1" || this == "true";
   }
 }
-
-
-
-

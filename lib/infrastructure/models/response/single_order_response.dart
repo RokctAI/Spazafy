@@ -57,6 +57,3 @@ class SingleOrderResponse {
     return map;
   }
 }
-
-
-

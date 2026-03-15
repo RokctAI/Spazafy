@@ -15,7 +15,3 @@ class ParcelListState with _$ParcelListState {
 
   const ParcelListState._();
 }
-
-
-
-

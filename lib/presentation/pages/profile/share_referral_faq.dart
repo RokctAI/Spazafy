@@ -53,7 +53,3 @@ class _ShareReferralFaqPageState extends State<ShareReferralFaqPage> {
     );
   }
 }
-
-
-
-

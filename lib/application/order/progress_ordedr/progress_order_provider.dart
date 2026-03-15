@@ -4,9 +4,5 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final progressOrderProvider =
     StateNotifierProvider<ProgressOrderNotifier, ProgressOrderState>(
-      (ref) => ProgressOrderNotifier(),
-    );
-
-
-
-
+  (ref) => ProgressOrderNotifier(),
+);

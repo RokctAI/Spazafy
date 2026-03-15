@@ -74,6 +74,3 @@ class TitleWidget extends StatelessWidget {
     );
   }
 }
-
-
-

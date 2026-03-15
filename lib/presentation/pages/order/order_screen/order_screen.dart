@@ -384,8 +384,3 @@ Widget _customLoading() {
     ),
   );
 }
-
-
-
-
-

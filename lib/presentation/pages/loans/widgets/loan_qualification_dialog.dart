@@ -75,6 +75,3 @@ class LoanQualificationDialog extends ConsumerWidget {
     );
   }
 }
-
-
-

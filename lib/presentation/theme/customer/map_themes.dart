@@ -197,6 +197,3 @@ abstract class AppMapThemes {
     },
   ];
 }
-
-
-

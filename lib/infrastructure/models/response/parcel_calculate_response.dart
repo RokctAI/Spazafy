@@ -58,6 +58,3 @@ class Data {
 
   Map<String, dynamic> toJson() => {"price": price, "km": km};
 }
-
-
-

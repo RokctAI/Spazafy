@@ -122,24 +122,30 @@ class _RegisterConfirmationPageState
                             cursor: Cursor(
                               width: 1,
                               height: 24,
-                              color: isDarkMode ? AppStyle.white : AppStyle.blackColor,
+                              color: isDarkMode
+                                  ? AppStyle.white
+                                  : AppStyle.blackColor,
                               enabled: true,
                             ),
                             decoration: BoxLooseDecoration(
                               gapSpace: 10.r,
                               textStyle: AppStyle.interNormal(
                                 size: 15.sp,
-                                color: isDarkMode ? AppStyle.white : AppStyle.blackColor,
+                                color: isDarkMode
+                                    ? AppStyle.white
+                                    : AppStyle.blackColor,
                               ),
                               bgColorBuilder: FixedColorBuilder(
-                                isDarkMode ? AppStyle.blackColor : Style.transparent,
+                                isDarkMode
+                                    ? AppStyle.blackColor
+                                    : Style.transparent,
                               ),
                               strokeColorBuilder: FixedColorBuilder(
                                 state.isCodeError
                                     ? Style.redColor
                                     : isDarkMode
-                                    ? Style.borderColor
-                                    : AppStyle.blackColor,
+                                        ? Style.borderColor
+                                        : AppStyle.blackColor,
                               ),
                             ),
                           ),
@@ -192,11 +198,11 @@ class _RegisterConfirmationPageState
                                           widget.userModel.email ?? "",
                                         )
                                       : notifier
-                                            .confirmCodeResetPasswordWithPhone(
-                                              context,
-                                              widget.userModel.email ?? "",
-                                              widget.verificationId,
-                                            );
+                                          .confirmCodeResetPasswordWithPhone(
+                                          context,
+                                          widget.userModel.email ?? "",
+                                          widget.verificationId,
+                                        );
                                 } else {
                                   widget.verificationId.isEmpty
                                       ? notifier.confirmCode(context)
@@ -229,8 +235,3 @@ class _RegisterConfirmationPageState
     );
   }
 }
-
-
-
-
-

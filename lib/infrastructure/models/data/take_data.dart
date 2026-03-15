@@ -73,6 +73,3 @@ class Translation {
     return data;
   }
 }
-
-
-

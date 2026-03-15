@@ -9,7 +9,3 @@ abstract class DeliveryTimeState with _$DeliveryTimeState {
 
   const DeliveryTimeState._();
 }
-
-
-
-

@@ -48,7 +48,3 @@ class NewsShopShimmer extends StatelessWidget {
     );
   }
 }
-
-
-
-

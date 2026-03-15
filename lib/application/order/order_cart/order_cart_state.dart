@@ -13,8 +13,3 @@ abstract class OrderCartState with _$OrderCartState {
 
   const OrderCartState._();
 }
-
-
-
-
-

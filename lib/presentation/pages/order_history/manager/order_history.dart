@@ -111,7 +111,6 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const PopButton(heroTag: AppConstants.heroTagOrderHistory),
-
             GestureDetector(
               onTap: () => AppHelpers.showCustomModalBottomSheet(
                 paddingTop: MediaQuery.paddingOf(context).top,
@@ -119,9 +118,7 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
                 radius: 12,
                 modal: FilterScreen(
                   onChangeDay: (rangeDatePicker) {
-                    ref
-                        .read(orderProvider.notifier)
-                        .fetchHistoryOrders(
+                    ref.read(orderProvider.notifier).fetchHistoryOrders(
                           isRefresh: true,
                           start: rangeDatePicker.last,
                           end: rangeDatePicker.first,
@@ -148,7 +145,3 @@ class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
     );
   }
 }
-
-
-
-

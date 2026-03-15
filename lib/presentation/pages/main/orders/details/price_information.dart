@@ -103,7 +103,3 @@ class PriceInformation extends StatelessWidget {
           );
   }
 }
-
-
-
-

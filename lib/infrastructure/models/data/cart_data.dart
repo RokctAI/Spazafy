@@ -279,6 +279,3 @@ class CartDetail {
         "stock": stock?.toJson(),
       };
 }
-
-
-

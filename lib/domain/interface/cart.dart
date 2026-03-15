@@ -38,7 +38,3 @@ abstract class CartFacade {
 
   Future<ApiResult<CartModel>> createCart({required CartRequest cart});
 }
-
-
-
-

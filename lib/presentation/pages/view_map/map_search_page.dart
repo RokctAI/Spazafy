@@ -84,6 +84,3 @@ class _MapSearchPageState extends State<MapSearchPage> {
     );
   }
 }
-
-
-

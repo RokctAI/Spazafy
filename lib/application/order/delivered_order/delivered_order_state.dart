@@ -14,7 +14,3 @@ abstract class DeliveredOrderState with _$DeliveredOrderState {
 
   const DeliveredOrderState._();
 }
-
-
-
-

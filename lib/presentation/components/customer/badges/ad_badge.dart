@@ -39,8 +39,3 @@ class AdBadge extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

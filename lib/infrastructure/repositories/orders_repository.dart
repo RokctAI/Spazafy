@@ -14,7 +14,7 @@ import 'package:uuid/uuid.dart';
 
 class OrdersRepository implements OrdersFacade {
   // --- Common ---
-  
+
   @override
   Future<ApiResult<void>> addReview(
     String orderId, {
@@ -65,7 +65,8 @@ class OrdersRepository implements OrdersFacade {
   // --- Customer Specific ---
 
   @override
-  Future<ApiResult<OrderActiveModel>> createOrder(OrderBodyData orderBody) async {
+  Future<ApiResult<OrderActiveModel>> createOrder(
+      OrderBodyData orderBody) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
@@ -353,9 +354,9 @@ class OrdersRepository implements OrdersFacade {
     required OrderStatus status,
     String? orderId,
   }) async {
-    String statusText = status.name; 
+    String statusText = status.name;
     final data = {'status': statusText};
-    
+
     // 1. Update Local Status
     try {
       final local = await appDatabase.getItem('orders', orderId ?? '');
@@ -400,7 +401,7 @@ class OrdersRepository implements OrdersFacade {
       'perPage': 10,
       'lang': LocalStorage.getLanguage()?.locale,
     };
-    
+
     // 1. Return Local Results Immediately (Manager Path)
     try {
       final localResults = await appDatabase.getOrdersLocally(
@@ -408,7 +409,9 @@ class OrdersRepository implements OrdersFacade {
       );
 
       if (localResults.isNotEmpty) {
-        final orders = localResults.map((e) => OrderData.fromJson(jsonDecode(e.data))).toList();
+        final orders = localResults
+            .map((e) => OrderData.fromJson(jsonDecode(e.data)))
+            .toList();
         _backgroundSyncOrders(data); // Refresh in background
         return ApiResult.success(
           data: OrdersPaginateResponse(
@@ -428,7 +431,7 @@ class OrdersRepository implements OrdersFacade {
         '/api/v1/dashboard/seller/orders/paginate',
         queryParameters: data,
       );
-      
+
       final result = OrdersPaginateResponse.fromJson(response.data);
       for (final order in result.data ?? []) {
         appDatabase.upsertOrder(order.toJson());
@@ -459,7 +462,7 @@ class OrdersRepository implements OrdersFacade {
   }
 
   // --- Offline Order Methods (Manager) ---
-  
+
   Future<ApiResult<CreateOrderResponse>> createOfflineOrder({
     required String deliveryType,
     UserData? user,
@@ -478,12 +481,14 @@ class OrdersRepository implements OrdersFacade {
         'status': 'new',
         'created_at': DateTime.now().toIso8601String(),
         'stocks': stocks.map((s) => s.toJson()).toList(),
-        'price': stocks.fold<num>(0, (sum, s) => sum + ((s.totalPrice ?? 0) * (s.cartCount ?? 1))),
+        'price': stocks.fold<num>(
+            0, (sum, s) => sum + ((s.totalPrice ?? 0) * (s.cartCount ?? 1))),
       };
       await appDatabase.putItem('orders', orderId, orderJson);
       return ApiResult.success(
         data: CreateOrderResponse(
-          data: CreatedOrder(id: orderId, userId: user?.id, price: orderJson['price'] as num?),
+          data: CreatedOrder(
+              id: orderId, userId: user?.id, price: orderJson['price'] as num?),
         ),
       );
     } catch (e) {
@@ -512,7 +517,8 @@ class OrdersRepository implements OrdersFacade {
         '/api/method/paas.api.order.order.get_calculate',
         data: data,
       );
-      return ApiResult.success(data: GetCalculateModel.fromJson(response.data["message"]));
+      return ApiResult.success(
+          data: GetCalculateModel.fromJson(response.data["message"]));
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -591,7 +597,8 @@ class OrdersRepository implements OrdersFacade {
         '/api/method/paas.api.get_driver_location',
         queryParameters: {'order_id': deliveryId},
       );
-      return ApiResult.success(data: LocalLocation.fromJson(response.data['message']));
+      return ApiResult.success(
+          data: LocalLocation.fromJson(response.data['message']));
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -767,7 +774,8 @@ class OrdersRepository implements OrdersFacade {
         '/api/method/paas.api.check_cashback',
         data: {'shop_id': shopId, 'amount': amount},
       );
-      return ApiResult.success(data: CashbackModel.fromJson(response.data['message']));
+      return ApiResult.success(
+          data: CashbackModel.fromJson(response.data['message']));
     } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),

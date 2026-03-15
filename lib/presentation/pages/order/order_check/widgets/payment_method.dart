@@ -199,8 +199,3 @@ class _PaymentMethodsState extends ConsumerState<PaymentMethods> {
     );
   }
 }
-
-
-
-
-

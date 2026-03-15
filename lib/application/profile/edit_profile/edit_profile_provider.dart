@@ -8,6 +8,3 @@ final editProfileProvider =
     StateNotifierProvider<EditProfileNotifier, EditProfileState>(
   (ref) => EditProfileNotifier(userRepository, galleryRepository),
 );
-
-
-

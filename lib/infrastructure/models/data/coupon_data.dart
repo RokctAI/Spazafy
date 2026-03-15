@@ -89,6 +89,3 @@ class CouponData {
     return map;
   }
 }
-
-
-

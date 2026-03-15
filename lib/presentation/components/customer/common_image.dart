@@ -69,7 +69,3 @@ class CommonImage extends StatelessWidget {
     );
   }
 }
-
-
-
-

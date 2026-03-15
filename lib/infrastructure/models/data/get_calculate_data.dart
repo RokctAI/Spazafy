@@ -54,6 +54,3 @@ class GetCalculateModel {
         "coupon_price": couponPrice,
       };
 }
-
-
-

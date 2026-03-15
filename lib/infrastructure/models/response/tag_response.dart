@@ -64,7 +64,3 @@ class Data {
 
   Map<String, dynamic> toJson() => {"min": min, "max": max};
 }
-
-
-
-

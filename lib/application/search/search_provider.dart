@@ -7,6 +7,3 @@ import 'search_state.dart';
 final searchProvider = StateNotifierProvider<SearchNotifier, SearchState>(
   (ref) => SearchNotifier(shopsRepository, productsRepository),
 );
-
-
-

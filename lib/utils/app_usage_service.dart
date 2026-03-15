@@ -133,7 +133,3 @@ class AppUsageService {
     return {'days_in_app_this_year': 0};
   }
 }
-
-
-
-

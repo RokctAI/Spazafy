@@ -185,8 +185,3 @@ Widget _resultEmpty() {
     titleText: "No Parcel Orders",
   );
 }
-
-
-
-
-

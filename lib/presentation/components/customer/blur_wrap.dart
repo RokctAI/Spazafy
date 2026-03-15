@@ -25,6 +25,3 @@ class BlurWrap extends StatelessWidget {
     );
   }
 }
-
-
-

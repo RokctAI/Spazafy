@@ -445,6 +445,3 @@ class PayFastWebViewPreloader {
     return null;
   }
 }
-
-
-

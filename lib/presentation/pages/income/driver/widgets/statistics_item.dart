@@ -77,7 +77,3 @@ class StatisticsItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

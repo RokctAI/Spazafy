@@ -95,6 +95,3 @@ class AddressData {
     return map;
   }
 }
-
-
-

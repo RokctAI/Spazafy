@@ -130,8 +130,3 @@ class CustomTimePicker {
     );
   }
 }
-
-
-
-
-

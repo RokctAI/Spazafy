@@ -20,7 +20,3 @@ class MakeShimmer extends StatelessWidget {
         : child;
   }
 }
-
-
-
-

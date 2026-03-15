@@ -9,7 +9,3 @@ abstract class DeliveryPointsFacade {
 
   Future<ApiResult<List<DeliveryPointData>>> getAllDeliveryPoints();
 }
-
-
-
-

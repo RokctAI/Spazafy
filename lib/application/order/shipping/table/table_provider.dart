@@ -6,7 +6,3 @@ import 'table_notifier.dart';
 final tableProvider = StateNotifierProvider<TableNotifier, TableState>(
   (ref) => TableNotifier(),
 );
-
-
-
-

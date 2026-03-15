@@ -568,6 +568,3 @@ class _LoanDocumentUploadScreenState
     }).toList();
   }
 }
-
-
-

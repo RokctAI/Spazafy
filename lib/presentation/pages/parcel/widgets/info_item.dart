@@ -44,7 +44,3 @@ class InfoItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

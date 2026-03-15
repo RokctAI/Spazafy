@@ -46,8 +46,3 @@ class PushOrderNotifier extends StateNotifier<PushOrderState> {
     state = state.copyWith(isLoading: !state.isLoading);
   }
 }
-
-
-
-
-

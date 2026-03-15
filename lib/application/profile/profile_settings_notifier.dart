@@ -14,7 +14,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
   final UserRepository _userRepository;
 
   ProfileSettingsNotifier(this._userRepository)
-    : super(const ProfileSettingsState());
+      : super(const ProfileSettingsState());
 
   Future<void> fetchProfileDetails({
     required BuildContext context,
@@ -135,8 +135,3 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
     }
   }
 }
-
-
-
-
-

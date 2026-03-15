@@ -62,6 +62,3 @@ abstract class ImgService {
     }
   }
 }
-
-
-

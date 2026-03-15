@@ -40,6 +40,3 @@ class FrappeResponseInterceptor extends Interceptor {
     handler.next(response);
   }
 }
-
-
-

@@ -149,26 +149,24 @@ class _FilterScreenState extends State<FilterScreen>
                 onPressed: () {
                   widget.isTabBar
                       ? widget.parcel
-                            ? ref
-                                  .read(parcelProvider.notifier)
-                                  .fetchHistoryOrders(
-                                    context,
-                                    start: _newList.first,
-                                    end: _newList.last,
-                                  )
-                            : ref
-                                  .read(driverOrderProvider.notifier)
-                                  .fetchHistoryOrders(
-                                    context,
-                                    start: _newList.first,
-                                    end: _newList.last,
-                                  )
-                      : ref
-                            .read(statisticsProvider.notifier)
-                            .fetchStatistics(
-                              startTime: _newList.last ?? DateTime.now(),
-                              endTime: _newList.first ?? DateTime.now(),
-                            );
+                          ? ref
+                              .read(parcelProvider.notifier)
+                              .fetchHistoryOrders(
+                                context,
+                                start: _newList.first,
+                                end: _newList.last,
+                              )
+                          : ref
+                              .read(driverOrderProvider.notifier)
+                              .fetchHistoryOrders(
+                                context,
+                                start: _newList.first,
+                                end: _newList.last,
+                              )
+                      : ref.read(statisticsProvider.notifier).fetchStatistics(
+                            startTime: _newList.last ?? DateTime.now(),
+                            endTime: _newList.first ?? DateTime.now(),
+                          );
                   context.router.maybePop();
                 },
               );
@@ -180,7 +178,3 @@ class _FilterScreenState extends State<FilterScreen>
     );
   }
 }
-
-
-
-

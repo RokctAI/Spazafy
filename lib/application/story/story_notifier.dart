@@ -9,7 +9,3 @@ class StoryNotifier extends StateNotifier<StoryState> {
     state = state.copyWith(currentIndex: index);
   }
 }
-
-
-
-

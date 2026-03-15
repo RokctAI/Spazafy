@@ -8,7 +8,3 @@ abstract class StoryState with _$StoryState {
 
   const StoryState._();
 }
-
-
-
-

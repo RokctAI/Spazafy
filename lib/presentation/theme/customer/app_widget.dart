@@ -71,7 +71,3 @@ class AppWidget extends ConsumerWidget {
     );
   }
 }
-
-
-
-

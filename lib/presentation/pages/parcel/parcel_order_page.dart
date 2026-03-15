@@ -345,7 +345,3 @@ class _ParcelProgressPageState extends ConsumerState<ParcelProgressPage> {
     );
   }
 }
-
-
-
-

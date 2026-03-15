@@ -67,8 +67,8 @@ class _AuthTabBarState extends State<AuthTabBar> {
                       size: 18.r,
                       color:
                           widget.tabController.index == widget.tabs.indexOf(tab)
-                          ? AppStyle.blackColor
-                          : AppStyle.blackColor.withValues(alpha: 0.5),
+                              ? AppStyle.blackColor
+                              : AppStyle.blackColor.withValues(alpha: 0.5),
                     ),
                     8.horizontalSpace,
                     Text(AppHelpers.getTranslation(tab.text)),
@@ -88,8 +88,3 @@ class AuthTab {
 
   const AuthTab({required this.text, required this.icon});
 }
-
-
-
-
-

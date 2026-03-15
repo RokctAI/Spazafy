@@ -68,8 +68,3 @@ class CheckStatusDialog extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

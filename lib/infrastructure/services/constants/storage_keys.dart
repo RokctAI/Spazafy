@@ -38,6 +38,3 @@ abstract class StorageKeys {
   static const String keyAppPin = 'keyAppPin';
   static const String keyOnline = 'keyOnline';
 }
-
-
-

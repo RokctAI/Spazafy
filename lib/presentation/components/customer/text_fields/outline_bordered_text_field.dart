@@ -143,8 +143,3 @@ class OutlinedBorderTextField extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

@@ -9,7 +9,3 @@ abstract class CreateUserState with _$CreateUserState {
 
   const CreateUserState._();
 }
-
-
-
-

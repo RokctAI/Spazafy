@@ -209,6 +209,3 @@ class Payfast {
     recurringTokenizationQueryParameters.addEntries(signatureEntry.entries);
   }
 }*/
-
-
-

@@ -12,7 +12,3 @@ class DeliveryTypeNotifier extends StateNotifier<DeliveryTypeState> {
     state = state.copyWith(type: type);
   }
 }
-
-
-
-

@@ -305,17 +305,13 @@ class ParcelOrderPage extends StatelessWidget {
                           if (parcel?.deliveryman == null) {
                             final ImageCropperMarker image =
                                 ImageCropperMarker();
-                            ref
-                                .read(homeProvider.notifier)
-                                .goMarketParcel(
+                            ref.read(homeProvider.notifier).goMarketParcel(
                                   context: context,
                                   parcelId: parcel?.id.toString(),
                                   setOrder: isSet,
                                   parcel: parcel,
                                 );
-                            ref
-                                .read(homeProvider.notifier)
-                                .getRoutingAll(
+                            ref.read(homeProvider.notifier).getRoutingAll(
                                   // ignore: use_build_context_synchronously
                                   context: context,
                                   start: LatLng(
@@ -347,17 +343,13 @@ class ParcelOrderPage extends StatelessWidget {
                                 ImageCropperMarker();
 
                             if (parcel?.status != "on_a_way") {
-                              ref
-                                  .read(homeProvider.notifier)
-                                  .goMarketParcel(
+                              ref.read(homeProvider.notifier).goMarketParcel(
                                     context: context,
                                     parcelId: "",
                                     parcel: parcel,
                                     setOrder: isSet,
                                   );
-                              ref
-                                  .read(homeProvider.notifier)
-                                  .getRoutingAll(
+                              ref.read(homeProvider.notifier).getRoutingAll(
                                     // ignore: use_build_context_synchronously
                                     context: context,
                                     start: LatLng(
@@ -385,16 +377,12 @@ class ParcelOrderPage extends StatelessWidget {
                                     ),
                                   );
                             } else {
-                              ref
-                                  .read(homeProvider.notifier)
-                                  .goClientParcel(
+                              ref.read(homeProvider.notifier).goClientParcel(
                                     context,
                                     parcel?.id,
                                     parcel: parcel,
                                   );
-                              ref
-                                  .read(homeProvider.notifier)
-                                  .getRoutingAll(
+                              ref.read(homeProvider.notifier).getRoutingAll(
                                     // ignore: use_build_context_synchronously
                                     context: context,
                                     start: LatLng(
@@ -439,8 +427,3 @@ class ParcelOrderPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

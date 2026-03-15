@@ -29,6 +29,3 @@ class ShopDeliveriesResponse {
     return map;
   }
 }
-
-
-

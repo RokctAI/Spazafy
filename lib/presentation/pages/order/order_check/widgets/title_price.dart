@@ -37,7 +37,3 @@ class TitleAndPrice extends StatelessWidget {
     );
   }
 }
-
-
-
-

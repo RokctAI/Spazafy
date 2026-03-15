@@ -20,6 +20,3 @@ class SubscriptionPayment {
 
   void setupSubscriptionPayment(String test) {}
 }
-
-
-

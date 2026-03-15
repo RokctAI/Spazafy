@@ -8,6 +8,3 @@ final shopOrderProvider =
     StateNotifierProvider<ShopOrderNotifier, ShopOrderState>(
   (ref) => ShopOrderNotifier(cartRepository),
 );
-
-
-

@@ -40,6 +40,3 @@ class MarketShimmer extends StatelessWidget {
           );
   }
 }
-
-
-

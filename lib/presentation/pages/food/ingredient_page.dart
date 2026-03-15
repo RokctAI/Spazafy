@@ -85,7 +85,3 @@ class IngredientPage extends StatelessWidget {
     );
   }
 }
-
-
-
-

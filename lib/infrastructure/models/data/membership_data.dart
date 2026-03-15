@@ -129,6 +129,3 @@ class MembershipBenefit {
     return map;
   }
 }
-
-
-

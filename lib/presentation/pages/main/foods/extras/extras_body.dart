@@ -38,34 +38,30 @@ class ExtrasBody extends StatelessWidget {
                   ),
                 )
               : state.groups.isEmpty
-              ? NoDataInfo(title: AppHelpers.getTranslation(TrKeys.noData))
-              : ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: state.groups.length,
-                  padding: REdgeInsets.only(
-                    right: 16,
-                    top: 20,
-                    left: 16,
-                    bottom: 100,
-                  ),
-                  itemBuilder: (context, index) => MainGroupItem(
-                    group: state.groups[index],
-                    onTap: () => AppHelpers.showCustomModalBottomSheet(
-                      context: context,
-                      modal: ExtrasGroupDetailsModal(
-                        group: state.groups[index],
+                  ? NoDataInfo(title: AppHelpers.getTranslation(TrKeys.noData))
+                  : ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: state.groups.length,
+                      padding: REdgeInsets.only(
+                        right: 16,
+                        top: 20,
+                        left: 16,
+                        bottom: 100,
                       ),
-                      isDarkMode: true,
+                      itemBuilder: (context, index) => MainGroupItem(
+                        group: state.groups[index],
+                        onTap: () => AppHelpers.showCustomModalBottomSheet(
+                          context: context,
+                          modal: ExtrasGroupDetailsModal(
+                            group: state.groups[index],
+                          ),
+                          isDarkMode: true,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
         );
       },
     );
   }
 }
-
-
-
-

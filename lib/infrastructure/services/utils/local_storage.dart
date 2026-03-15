@@ -355,7 +355,8 @@ abstract class LocalStorage {
     await _preferences?.setBool(StorageKeys.keyOnline, online);
   }
 
-  static bool getOnline() => _preferences?.getBool(StorageKeys.keyOnline) ?? false;
+  static bool getOnline() =>
+      _preferences?.getBool(StorageKeys.keyOnline) ?? false;
 
   static void deleteOnline() => _preferences?.remove(StorageKeys.keyOnline);
 
@@ -363,37 +364,40 @@ abstract class LocalStorage {
     await _preferences?.setString(StorageKeys.keyPrinterMac, mac ?? '');
   }
 
-  static String? getPrinterMac() => _preferences?.getString(StorageKeys.keyPrinterMac);
+  static String? getPrinterMac() =>
+      _preferences?.getString(StorageKeys.keyPrinterMac);
 
-  static void removePrinterMac() => _preferences?.remove(StorageKeys.keyPrinterMac);
+  static void removePrinterMac() =>
+      _preferences?.remove(StorageKeys.keyPrinterMac);
 
   static Future<void> setPrinterName(String? name) async {
     await _preferences?.setString(StorageKeys.keyPrinterName, name ?? '');
   }
 
-  static String? getPrinterName() => _preferences?.getString(StorageKeys.keyPrinterName);
+  static String? getPrinterName() =>
+      _preferences?.getString(StorageKeys.keyPrinterName);
 
-  static void removePrinterName() => _preferences?.remove(StorageKeys.keyPrinterName);
+  static void removePrinterName() =>
+      _preferences?.remove(StorageKeys.keyPrinterName);
 
   static Future<void> setAppPin(String? pin) async {
     await _preferences?.setString(StorageKeys.keyAppPin, pin ?? '');
   }
 
-  static String getAppPin() => _preferences?.getString(StorageKeys.keyAppPin) ?? '';
+  static String getAppPin() =>
+      _preferences?.getString(StorageKeys.keyAppPin) ?? '';
 
   static void removeAppPin() => _preferences?.remove(StorageKeys.keyAppPin);
 
   static Future<void> setActiveLanguages(List<dynamic> languages) async {
-    final List<String> strings = languages.map((l) => jsonEncode(l.toJson())).toList();
+    final List<String> strings =
+        languages.map((l) => jsonEncode(l.toJson())).toList();
     await _preferences?.setStringList(StorageKeys.keyActiveLanguages, strings);
   }
 
   static List<dynamic> getActiveLanguages() {
-    final List<String> languages = _preferences?.getStringList(StorageKeys.keyActiveLanguages) ?? [];
+    final List<String> languages =
+        _preferences?.getStringList(StorageKeys.keyActiveLanguages) ?? [];
     return languages.map((l) => jsonDecode(l)).toList();
   }
 }
-
-
-
-

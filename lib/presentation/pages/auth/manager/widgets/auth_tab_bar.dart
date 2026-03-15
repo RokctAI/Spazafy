@@ -91,7 +91,3 @@ class AuthTab {
 
   const AuthTab({required this.text, required this.icon});
 }
-
-
-
-

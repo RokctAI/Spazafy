@@ -251,6 +251,3 @@ class Galleries {
     return data;
   }
 }
-
-
-

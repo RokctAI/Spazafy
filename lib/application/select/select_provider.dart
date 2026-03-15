@@ -7,6 +7,3 @@ final selectProvider =
     StateNotifierProvider.autoDispose<SelectNotifier, SelectState>(
   (ref) => SelectNotifier(),
 );
-
-
-

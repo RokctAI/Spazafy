@@ -90,8 +90,7 @@ class MultiImagePicker extends StatelessWidget {
             : Stack(
                 children: [
                   CommonImage(
-                    fileImage:
-                        ((imageUrls?.isEmpty ?? true) &&
+                    fileImage: ((imageUrls?.isEmpty ?? true) &&
                             (listOfImages?.isNotEmpty ?? false))
                         ? File(listOfImages?.first ?? "")
                         : null,
@@ -190,10 +189,9 @@ class MultiImagePicker extends StatelessWidget {
                                   try {
                                     path = imageUrls?[index + 1]?.path ?? "";
                                   } catch (e) {
-                                    path =
-                                        listOfImages?[(index -
-                                                (imageUrls?.length ?? 0)) +
-                                            1] ??
+                                    path = listOfImages?[
+                                            (index - (imageUrls?.length ?? 0)) +
+                                                1] ??
                                         "";
                                   }
                                   onDelete(path);
@@ -253,7 +251,3 @@ class MultiImagePicker extends StatelessWidget {
     );
   }
 }
-
-
-
-

@@ -8,6 +8,3 @@ final promoCodeProvider =
     StateNotifierProvider<PromoCodeNotifier, PromoCodeState>(
   (ref) => PromoCodeNotifier(ordersRepository),
 );
-
-
-

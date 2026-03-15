@@ -64,6 +64,3 @@ class Vibrate {
     await vibrate();
   }
 }
-
-
-

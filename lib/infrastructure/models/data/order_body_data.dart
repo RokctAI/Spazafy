@@ -150,7 +150,3 @@ class ProductOrder {
     return "{\"stock_id\":$stockId, \"price\":$price, \"qty\":$quantity, \"tax\":$tax, \"discount\":$discount, \"total_price\":$totalPrice}";
   }
 }
-
-
-
-

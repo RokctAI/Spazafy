@@ -70,28 +70,27 @@ class _$TableStateCopyWithImpl<$Res, $Val extends TableState>
   }) {
     return _then(
       _value.copyWith(
-            tables: null == tables
-                ? _value.tables
-                : tables // ignore: cast_nullable_to_non_nullable
-                      as List<TableData>,
-            selectedIndex: null == selectedIndex
-                ? _value.selectedIndex
-                : selectedIndex // ignore: cast_nullable_to_non_nullable
-                      as int,
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            selectTable: freezed == selectTable
-                ? _value.selectTable
-                : selectTable // ignore: cast_nullable_to_non_nullable
-                      as TableData?,
-            textController: freezed == textController
-                ? _value.textController
-                : textController // ignore: cast_nullable_to_non_nullable
-                      as TextEditingController?,
-          )
-          as $Val,
+        tables: null == tables
+            ? _value.tables
+            : tables // ignore: cast_nullable_to_non_nullable
+                as List<TableData>,
+        selectedIndex: null == selectedIndex
+            ? _value.selectedIndex
+            : selectedIndex // ignore: cast_nullable_to_non_nullable
+                as int,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        selectTable: freezed == selectTable
+            ? _value.selectTable
+            : selectTable // ignore: cast_nullable_to_non_nullable
+                as TableData?,
+        textController: freezed == textController
+            ? _value.textController
+            : textController // ignore: cast_nullable_to_non_nullable
+                as TextEditingController?,
+      ) as $Val,
     );
   }
 }
@@ -139,23 +138,23 @@ class __$$TableStateImplCopyWithImpl<$Res>
         tables: null == tables
             ? _value._tables
             : tables // ignore: cast_nullable_to_non_nullable
-                  as List<TableData>,
+                as List<TableData>,
         selectedIndex: null == selectedIndex
             ? _value.selectedIndex
             : selectedIndex // ignore: cast_nullable_to_non_nullable
-                  as int,
+                as int,
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         selectTable: freezed == selectTable
             ? _value.selectTable
             : selectTable // ignore: cast_nullable_to_non_nullable
-                  as TableData?,
+                as TableData?,
         textController: freezed == textController
             ? _value.textController
             : textController // ignore: cast_nullable_to_non_nullable
-                  as TextEditingController?,
+                as TextEditingController?,
       ),
     );
   }
@@ -170,8 +169,8 @@ class _$TableStateImpl extends _TableState {
     this.isLoading = false,
     this.selectTable,
     this.textController,
-  }) : _tables = tables,
-       super._();
+  })  : _tables = tables,
+        super._();
 
   final List<TableData> _tables;
   @override
@@ -216,13 +215,13 @@ class _$TableStateImpl extends _TableState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_tables),
-    selectedIndex,
-    isLoading,
-    selectTable,
-    textController,
-  );
+        runtimeType,
+        const DeepCollectionEquality().hash(_tables),
+        selectedIndex,
+        isLoading,
+        selectTable,
+        textController,
+      );
 
   /// Create a copy of TableState
   /// with the given fields replaced by the non-null parameter values.
@@ -261,7 +260,3 @@ abstract class _TableState extends TableState {
   _$$TableStateImplCopyWith<_$TableStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

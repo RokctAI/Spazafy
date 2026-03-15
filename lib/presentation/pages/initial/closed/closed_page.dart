@@ -255,8 +255,3 @@ class _ClosedPageState extends ConsumerState<ClosedPage>
     );
   }
 }
-
-
-
-
-

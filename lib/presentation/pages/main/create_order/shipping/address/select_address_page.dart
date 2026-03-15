@@ -73,8 +73,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                     _animationController.repeat(
                       min: AppConstants.pinLoadingMin,
                       max: AppConstants.pinLoadingMax,
-                      period:
-                          _animationController.duration! *
+                      period: _animationController.duration! *
                           (AppConstants.pinLoadingMax -
                               AppConstants.pinLoadingMin),
                     );
@@ -234,8 +233,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                                       ref
                                           .read(orderAddressProvider.notifier)
                                           .setLocation(
-                                            title:
-                                                state.textController?.text ??
+                                            title: state.textController?.text ??
                                                 '',
                                             location: state.location,
                                           );
@@ -266,7 +264,3 @@ class _SelectAddressPageState extends State<SelectAddressPage>
     );
   }
 }
-
-
-
-

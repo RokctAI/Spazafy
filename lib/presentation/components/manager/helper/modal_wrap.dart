@@ -37,7 +37,3 @@ class ModalWrap extends StatelessWidget {
     );
   }
 }
-
-
-
-

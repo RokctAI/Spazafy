@@ -428,8 +428,3 @@ class CartOrderItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

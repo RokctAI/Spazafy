@@ -6,7 +6,3 @@ import 'section_notifier.dart';
 final sectionProvider = StateNotifierProvider<SectionNotifier, SectionState>(
   (ref) => SectionNotifier(),
 );
-
-
-
-

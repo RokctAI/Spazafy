@@ -66,6 +66,3 @@ export 'text_fields/search_text_field.dart';
 export 'text_fields/underlined_text_field.dart';
 export 'text_fields/outline_bordered_text_field.dart';
 export '../pages/auth/widgets/auth_tab_bar.dart';
-
-
-

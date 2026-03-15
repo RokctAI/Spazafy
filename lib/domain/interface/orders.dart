@@ -114,7 +114,3 @@ abstract class OrdersFacade {
   });
   Future<ApiResult<PaymentsResponse>> getPayments();
 }
-
-
-
-

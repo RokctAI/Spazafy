@@ -49,6 +49,3 @@ class ResendButton extends StatelessWidget {
     );
   }
 }
-
-
-

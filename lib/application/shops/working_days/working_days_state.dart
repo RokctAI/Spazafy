@@ -14,8 +14,3 @@ abstract class WorkingDaysState with _$WorkingDaysState {
 
   const WorkingDaysState._();
 }
-
-
-
-
-

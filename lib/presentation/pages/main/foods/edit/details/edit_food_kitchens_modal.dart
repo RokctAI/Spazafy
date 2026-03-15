@@ -75,7 +75,3 @@ class _EditFoodKitchensModalState extends ConsumerState<EditFoodKitchensModal> {
     );
   }
 }
-
-
-
-

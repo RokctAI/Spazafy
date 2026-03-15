@@ -441,7 +441,9 @@ class OrderItem extends StatelessWidget {
                         isOnline: order.current ?? false,
                         onChange: (bool value) {
                           if (value) {
-                            ref.read(driverOrderProvider.notifier).setCurrentOrder(
+                            ref
+                                .read(driverOrderProvider.notifier)
+                                .setCurrentOrder(
                               context,
                               order.id ?? 0,
                               () {
@@ -529,7 +531,8 @@ class OrderItem extends StatelessWidget {
                     width: MediaQuery.sizeOf(context).width - 190.w,
                     child: Text(
                       order.address?.address ?? "",
-                      style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
+                      style:
+                          AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
                       maxLines: 1,
                     ),
                   ),
@@ -659,7 +662,8 @@ class OrderItem extends StatelessWidget {
           Expanded(
             child: Text(
               order.note ?? "",
-              style: AppStyle.interRegular(size: 13.sp, color: AppStyle.blackColor),
+              style: AppStyle.interRegular(
+                  size: 13.sp, color: AppStyle.blackColor),
             ),
           ),
         ],
@@ -667,8 +671,3 @@ class OrderItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

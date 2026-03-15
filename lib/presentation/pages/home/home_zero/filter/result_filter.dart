@@ -147,7 +147,3 @@ class _ResultFilterState extends ConsumerState<ResultFilterPage> {
     );
   }
 }
-
-
-
-

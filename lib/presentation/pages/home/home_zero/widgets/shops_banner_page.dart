@@ -134,7 +134,3 @@ class _ShopsBannerPageState extends ConsumerState<ShopsBannerPage> {
     );
   }
 }
-
-
-
-

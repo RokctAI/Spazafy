@@ -387,7 +387,3 @@ class ProductCard extends ConsumerWidget {
     );
   }
 }
-
-
-
-

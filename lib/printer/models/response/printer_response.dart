@@ -9,6 +9,8 @@ class PrinterResponse {
     this.data,
   });
 
-  factory PrinterResponse.success({dynamic data}) => PrinterResponse(isSuccess: true, data: data);
-  factory PrinterResponse.failure(String message) => PrinterResponse(isSuccess: false, message: message);
+  factory PrinterResponse.success({dynamic data}) =>
+      PrinterResponse(isSuccess: true, data: data);
+  factory PrinterResponse.failure(String message) =>
+      PrinterResponse(isSuccess: false, message: message);
 }

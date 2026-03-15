@@ -59,20 +59,19 @@ class _$OrderDetailsStateCopyWithImpl<$Res, $Val extends OrderDetailsState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            isUpdating: null == isUpdating
-                ? _value.isUpdating
-                : isUpdating // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            order: freezed == order
-                ? _value.order
-                : order // ignore: cast_nullable_to_non_nullable
-                      as OrderData?,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        isUpdating: null == isUpdating
+            ? _value.isUpdating
+            : isUpdating // ignore: cast_nullable_to_non_nullable
+                as bool,
+        order: freezed == order
+            ? _value.order
+            : order // ignore: cast_nullable_to_non_nullable
+                as OrderData?,
+      ) as $Val,
     );
   }
 }
@@ -112,15 +111,15 @@ class __$$OrderDetailsStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         isUpdating: null == isUpdating
             ? _value.isUpdating
             : isUpdating // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         order: freezed == order
             ? _value.order
             : order // ignore: cast_nullable_to_non_nullable
-                  as OrderData?,
+                as OrderData?,
       ),
     );
   }
@@ -198,7 +197,3 @@ abstract class _OrderDetailsState extends OrderDetailsState {
   _$$OrderDetailsStateImplCopyWith<_$OrderDetailsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

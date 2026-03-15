@@ -27,8 +27,3 @@ class ModalDrag extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

@@ -18,6 +18,3 @@ class ShopTotalData {
     required this.cartProducts,
   });
 }
-
-
-

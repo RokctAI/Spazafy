@@ -30,7 +30,7 @@ class BecomeSellerPage extends ConsumerStatefulWidget {
 
 class _BecomeSellerPageState extends ConsumerState<BecomeSellerPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  
+
   // Controllers
   late TextEditingController shopNameController;
   late TextEditingController descController;
@@ -100,8 +100,9 @@ class _BecomeSellerPageState extends ConsumerState<BecomeSellerPage> {
 
   Widget _buildContent(state, event) {
     // If shop already exists and is approved
-    if (state.userData?.shop != null && 
-        (state.userData?.shop?.status == 'approved' || state.userData?.shop?.status == 'active')) {
+    if (state.userData?.shop != null &&
+        (state.userData?.shop?.status == 'approved' ||
+            state.userData?.shop?.status == 'active')) {
       return Center(
         child: Padding(
           padding: EdgeInsets.all(24.r),
@@ -123,8 +124,9 @@ class _BecomeSellerPageState extends ConsumerState<BecomeSellerPage> {
     }
 
     // If shop is pending
-    if (state.userData?.shop != null && 
-        (state.userData?.shop?.status == 'new' || state.userData?.shop?.status == 'pending')) {
+    if (state.userData?.shop != null &&
+        (state.userData?.shop?.status == 'new' ||
+            state.userData?.shop?.status == 'pending')) {
       return const ProcessingView();
     }
 
@@ -158,7 +160,8 @@ class _BecomeSellerPageState extends ConsumerState<BecomeSellerPage> {
               pricePerKmController: pricePerKmController,
               selectedDeliveryType: selectedDeliveryType,
               deliveryTypeList: deliveryTypeList,
-              onDeliveryTypeChanged: (val) => setState(() => selectedDeliveryType = val!),
+              onDeliveryTypeChanged: (val) =>
+                  setState(() => selectedDeliveryType = val!),
             ),
             24.verticalSpace,
             AddressSelector(
@@ -175,7 +178,8 @@ class _BecomeSellerPageState extends ConsumerState<BecomeSellerPage> {
               title: AppHelpers.getTranslation(TrKeys.save),
               isLoading: state.isSaveLoading,
               onPressed: () {
-                if (_formKey.currentState!.validate() && state.addressModel != null) {
+                if (_formKey.currentState!.validate() &&
+                    state.addressModel != null) {
                   event.createShop(
                     context: context,
                     tax: taxController.text,
@@ -188,10 +192,12 @@ class _BecomeSellerPageState extends ConsumerState<BecomeSellerPage> {
                     perKm: pricePerKmController.text,
                     address: state.addressModel!,
                     deliveryType: selectedDeliveryType,
-                    categoryId: '1', // Default or select? Manager used specific logic
+                    categoryId:
+                        '1', // Default or select? Manager used specific logic
                   );
                 } else if (state.addressModel == null) {
-                   AppHelpers.showCheckTopSnackBar(context, 'Please select address');
+                  AppHelpers.showCheckTopSnackBar(
+                      context, 'Please select address');
                 }
               },
             ),

@@ -76,8 +76,3 @@ class _AppUsageBadgeState extends State<AppUsageBadge> {
     );
   }
 }
-
-
-
-
-

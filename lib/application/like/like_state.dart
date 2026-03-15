@@ -12,7 +12,3 @@ class LikeState with _$LikeState {
 
   const LikeState._();
 }
-
-
-
-

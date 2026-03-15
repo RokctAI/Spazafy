@@ -16,7 +16,3 @@ abstract class WalletFacade {
   });
   Future<ApiResult<List<WalletHistoryData>>> getWalletHistory();
 }
-
-
-
-

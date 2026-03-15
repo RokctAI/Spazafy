@@ -91,18 +91,16 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                         ),
                                         readOnly: true,
                                         validator: AppValidators.emptyCheck,
-                                        onTap: () =>
-                                            AppHelpers.showCustomModalBottomSheet(
-                                              paddingTop:
-                                                  MediaQuery.of(
-                                                    context,
-                                                  ).padding.top +
-                                                  300.h,
-                                              context: context,
-                                              modal:
-                                                  const CreateAddonUnitsModal(),
-                                              isDarkMode: false,
-                                            ),
+                                        onTap: () => AppHelpers
+                                            .showCustomModalBottomSheet(
+                                          paddingTop: MediaQuery.of(
+                                                context,
+                                              ).padding.top +
+                                              300.h,
+                                          context: context,
+                                          modal: const CreateAddonUnitsModal(),
+                                          isDarkMode: false,
+                                        ),
                                       );
                                     },
                                   ),
@@ -216,7 +214,3 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
     );
   }
 }
-
-
-
-

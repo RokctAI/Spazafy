@@ -392,7 +392,3 @@ class BonusDiscountPopular extends StatelessWidget {
     );
   }
 }
-
-
-
-

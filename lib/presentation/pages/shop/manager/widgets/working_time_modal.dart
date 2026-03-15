@@ -111,8 +111,7 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                                   _savingWorkingDays = _workingDays;
                                 },
                                 child: SmallWeekdayItem(
-                                  isSelected:
-                                      state.currentIndex ==
+                                  isSelected: state.currentIndex ==
                                       _workingDays.indexOf(day),
                                   day: day,
                                 ),
@@ -135,8 +134,7 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                           CustomToggle(
                             key: UniqueKey(),
                             controller: ValueNotifier<bool>(
-                              !(state
-                                      .workingDays[state.currentIndex]
+                              !(state.workingDays[state.currentIndex]
                                       .disabled ??
                                   false),
                             ),
@@ -164,12 +162,14 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                                   1,
                                   1,
                                   int.parse(
-                                    _savingWorkingDays[state.currentIndex].from
+                                    _savingWorkingDays[state.currentIndex]
+                                            .from
                                             ?.substring(0, 2) ??
                                         '',
                                   ),
                                   int.parse(
-                                    _savingWorkingDays[state.currentIndex].from
+                                    _savingWorkingDays[state.currentIndex]
+                                            .from
                                             ?.substring(3, 5) ??
                                         '',
                                   ),
@@ -199,12 +199,14 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                                   1,
                                   1,
                                   int.parse(
-                                    _savingWorkingDays[state.currentIndex].to
+                                    _savingWorkingDays[state.currentIndex]
+                                            .to
                                             ?.substring(0, 2) ??
                                         '',
                                   ),
                                   int.parse(
-                                    _savingWorkingDays[state.currentIndex].to
+                                    _savingWorkingDays[state.currentIndex]
+                                            .to
                                             ?.substring(3, 5) ??
                                         '',
                                   ),
@@ -273,7 +275,3 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
     }
   }
 }
-
-
-
-

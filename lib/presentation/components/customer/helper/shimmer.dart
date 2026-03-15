@@ -25,6 +25,3 @@ class ImageShimmer extends StatelessWidget {
     );
   }
 }
-
-
-

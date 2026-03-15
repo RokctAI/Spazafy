@@ -76,11 +76,10 @@ class _EditFoodAddonsModalState extends ConsumerState<EditFoodAddonsModal> {
                             itemCount: state.addons.length,
                             itemBuilder: (context, index) =>
                                 SelectableAddonItem(
-                                  addon: state.addons[index],
-                                  isLast: state.addons.length - 1 == index,
-                                  onTap: () =>
-                                      event.toggleAddonSelection(index),
-                                ),
+                              addon: state.addons[index],
+                              isLast: state.addons.length - 1 == index,
+                              onTap: () => event.toggleAddonSelection(index),
+                            ),
                           ),
                         ),
                 ),
@@ -100,7 +99,3 @@ class _EditFoodAddonsModalState extends ConsumerState<EditFoodAddonsModal> {
     );
   }
 }
-
-
-
-

@@ -107,7 +107,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
     try {
       final connected = await AppConnectivity.connectivity();
       if (!connected) return;
-      final response = await _shopsRepository.getShopFilter(categoryId: categoryId, page: 1);
+      final response =
+          await _shopsRepository.getShopFilter(categoryId: categoryId, page: 1);
       response.when(
         success: (data) {
           final shopsList = data.data ?? [];
@@ -132,10 +133,14 @@ class HomeNotifier extends StateNotifier<HomeState> {
         filterMarket: [],
       );
     } else {
-      final String? categoryId = index >= 0 && index < state.categories.length ? state.categories[index].id : null;
-      final bool hasPreloadedShops = categoryId != null && _preloadedCategoryShops.containsKey(categoryId);
+      final String? categoryId = index >= 0 && index < state.categories.length
+          ? state.categories[index].id
+          : null;
+      final bool hasPreloadedShops =
+          categoryId != null && _preloadedCategoryShops.containsKey(categoryId);
 
-      if (hasPreloadedShops && _preloadedCategoryShops[categoryId]!.length == 1) {
+      if (hasPreloadedShops &&
+          _preloadedCategoryShops[categoryId]!.length == 1) {
         _isNavigatingToShop = true;
         state = state.copyWith(
           selectIndexCategory: index,
@@ -143,7 +148,9 @@ class HomeNotifier extends StateNotifier<HomeState> {
           filterShops: _preloadedCategoryShops[categoryId]!,
         );
         final shop = _preloadedCategoryShops[categoryId]!.first;
-        context.router.push(ShopRoute(shopId: shop.id.toString())).then((_) => _isNavigatingToShop = false);
+        context.router
+            .push(ShopRoute(shopId: shop.id.toString()))
+            .then((_) => _isNavigatingToShop = false);
         return;
       }
 
@@ -151,22 +158,29 @@ class HomeNotifier extends StateNotifier<HomeState> {
         selectIndexCategory: index,
         selectIndexSubCategory: -1,
         isSelectCategoryLoading: index,
-        filterShops: hasPreloadedShops ? _preloadedCategoryShops[categoryId]! : [],
+        filterShops:
+            hasPreloadedShops ? _preloadedCategoryShops[categoryId]! : [],
       );
 
       if (index != -1 && categoryId != null) {
-        final response = await _shopsRepository.getShopFilter(categoryId: categoryId, page: 1);
+        final response = await _shopsRepository.getShopFilter(
+            categoryId: categoryId, page: 1);
         response.when(
           success: (data) {
             final shopsList = data.data ?? [];
             _preloadedCategoryShops[categoryId] = shopsList;
             _categoryTotalShops[categoryId] = data.meta?.total ?? 0;
             if (!_isNavigatingToShop) {
-              state = state.copyWith(filterShops: shopsList, isSelectCategoryLoading: 1, totalShops: data.meta?.total ?? 0);
+              state = state.copyWith(
+                  filterShops: shopsList,
+                  isSelectCategoryLoading: 1,
+                  totalShops: data.meta?.total ?? 0);
               if (shopsList.length == 1) {
                 final shop = shopsList.first;
                 _isNavigatingToShop = true;
-                context.router.push(ShopRoute(shopId: shop.id.toString())).then((_) => _isNavigatingToShop = false);
+                context.router
+                    .push(ShopRoute(shopId: shop.id.toString()))
+                    .then((_) => _isNavigatingToShop = false);
               }
             }
           },
@@ -187,7 +201,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
       response.when(
         success: (data) async {
           final categories = data.data ?? [];
-          state = state.copyWith(isCategoryLoading: false, categories: categories);
+          state =
+              state.copyWith(isCategoryLoading: false, categories: categories);
           // Cache locally
           final db = AppDatabase();
           for (final cat in categories) {
@@ -208,7 +223,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
         final db = AppDatabase();
         final cached = await db.getAll('categories');
         final categories = cached.map((e) => CategoryData.fromJson(e)).toList();
-        state = state.copyWith(isCategoryLoading: false, categories: categories);
+        state =
+            state.copyWith(isCategoryLoading: false, categories: categories);
       } catch (_) {
         state = state.copyWith(isCategoryLoading: false);
       }
@@ -255,7 +271,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
       final response = await _shopsRepository.getShopsRecommend(1);
       response.when(
         success: (data) {
-          state = state.copyWith(isShopRecommendLoading: false, shopsRecommend: data.data ?? []);
+          state = state.copyWith(
+              isShopRecommendLoading: false, shopsRecommend: data.data ?? []);
         },
         failure: (failure, status) {
           state = state.copyWith(isShopRecommendLoading: false);
@@ -273,7 +290,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
       final response = await _shopsRepository.getAllShops(1, isOpen: false);
       response.when(
         success: (data) {
-          state = state.copyWith(isAllShopsLoading: false, allShops: data.data ?? [], totalShops: data.meta?.total ?? -1);
+          state = state.copyWith(
+              isAllShopsLoading: false,
+              allShops: data.data ?? [],
+              totalShops: data.meta?.total ?? -1);
         },
         failure: (failure, status) {
           state = state.copyWith(isAllShopsLoading: false);
@@ -295,10 +315,12 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isNewShopsLoading: true);
-      final response = await _shopsRepository.getAllShops(1, isOpen: false, verify: true);
+      final response =
+          await _shopsRepository.getAllShops(1, isOpen: false, verify: true);
       response.when(
         success: (data) {
-          state = state.copyWith(isNewShopsLoading: false, newShops: data.data ?? []);
+          state = state.copyWith(
+              isNewShopsLoading: false, newShops: data.data ?? []);
         },
         failure: (failure, status) {
           state = state.copyWith(isNewShopsLoading: false);
@@ -316,7 +338,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
       final response = await _bannersRepository.getBannersPaginate(page: 1);
       response.when(
         success: (data) {
-          state = state.copyWith(isBannerLoading: false, banners: data.data ?? []);
+          state =
+              state.copyWith(isBannerLoading: false, banners: data.data ?? []);
         },
         failure: (failure, status) {
           state = state.copyWith(isBannerLoading: false);
@@ -362,7 +385,9 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final response = await _productsRepository.getDiscountProducts(page: 1);
     response.when(
       success: (data) {
-        state = state.copyWith(isDiscountProductsLoading: false, discountProducts: data.data ?? []);
+        state = state.copyWith(
+            isDiscountProductsLoading: false,
+            discountProducts: data.data ?? []);
       },
       failure: (_, __) {
         state = state.copyWith(isDiscountProductsLoading: false);
@@ -376,17 +401,20 @@ class HomeNotifier extends StateNotifier<HomeState> {
     bool isRefresh = false,
   }) async {
     if (!await AppConnectivity.connectivity()) return;
-    final catId = state.selectIndexCategory >= 0 && state.selectIndexCategory < state.categories.length
+    final catId = state.selectIndexCategory >= 0 &&
+            state.selectIndexCategory < state.categories.length
         ? state.categories[state.selectIndexCategory].id
         : null;
     if (catId == null) return;
-    final response = await _shopsRepository.getShopFilter(categoryId: catId, page: isRefresh ? 1 : filterShopIndex);
+    final response = await _shopsRepository.getShopFilter(
+        categoryId: catId, page: isRefresh ? 1 : filterShopIndex);
     response.when(
       success: (data) {
         if (isRefresh) filterShopIndex = 1;
         filterShopIndex++;
         final shops = data.data ?? [];
-        state = state.copyWith(filterShops: isRefresh ? shops : [...state.filterShops, ...shops]);
+        state = state.copyWith(
+            filterShops: isRefresh ? shops : [...state.filterShops, ...shops]);
         controller?.refreshCompleted();
         controller?.loadComplete();
       },
@@ -399,57 +427,78 @@ class HomeNotifier extends StateNotifier<HomeState> {
 
   // ─── Paginated variants ───
 
-  Future<void> fetchAllShopsPage(BuildContext context, RefreshController? controller, {bool isRefresh = false}) async {
-    if (!await AppConnectivity.connectivity()) { controller?.refreshCompleted(); return; }
+  Future<void> fetchAllShopsPage(
+      BuildContext context, RefreshController? controller,
+      {bool isRefresh = false}) async {
+    if (!await AppConnectivity.connectivity()) {
+      controller?.refreshCompleted();
+      return;
+    }
     if (isRefresh) shopIndex = 1;
-    final response = await _shopsRepository.getAllShops(shopIndex, isOpen: false);
+    final response =
+        await _shopsRepository.getAllShops(shopIndex, isOpen: false);
     response.when(
       success: (data) {
         shopIndex++;
         final shops = data.data ?? [];
-        state = state.copyWith(allShops: isRefresh ? shops : [...state.allShops, ...shops], totalShops: data.meta?.total ?? -1);
+        state = state.copyWith(
+            allShops: isRefresh ? shops : [...state.allShops, ...shops],
+            totalShops: data.meta?.total ?? -1);
         controller?.refreshCompleted();
         controller?.loadComplete();
       },
-      failure: (_, __) { controller?.refreshFailed(); },
+      failure: (_, __) {
+        controller?.refreshFailed();
+      },
     );
   }
 
-  Future<void> fetchBannerPage(BuildContext context, RefreshController? controller, {bool isRefresh = false}) async {
+  Future<void> fetchBannerPage(
+      BuildContext context, RefreshController? controller,
+      {bool isRefresh = false}) async {
     if (isRefresh) bannerIndex = 1;
     await fetchBanner(context);
     controller?.refreshCompleted();
   }
 
-  Future<void> fetchCategoriesPage(BuildContext context, RefreshController? controller, {bool isRefresh = false}) async {
+  Future<void> fetchCategoriesPage(
+      BuildContext context, RefreshController? controller,
+      {bool isRefresh = false}) async {
     if (isRefresh) categoryIndex = 1;
     await fetchCategories(context);
     controller?.refreshCompleted();
   }
 
-  Future<void> fetchStoriesPage(BuildContext context, RefreshController? controller, {bool isRefresh = false}) async {
+  Future<void> fetchStoriesPage(
+      BuildContext context, RefreshController? controller,
+      {bool isRefresh = false}) async {
     if (isRefresh) storyIndex = 1;
     await fetchStories(context);
     controller?.refreshCompleted();
   }
 
-  Future<void> fetchShopPage(BuildContext context, RefreshController? controller, {bool isRefresh = false}) async {
+  Future<void> fetchShopPage(
+      BuildContext context, RefreshController? controller,
+      {bool isRefresh = false}) async {
     if (isRefresh) shopRefreshIndex = 1;
     await fetchShop(context);
     controller?.refreshCompleted();
   }
 
-  Future<void> fetchShopPageRecommend(BuildContext context, RefreshController? controller, {bool isRefresh = false}) async {
+  Future<void> fetchShopPageRecommend(
+      BuildContext context, RefreshController? controller,
+      {bool isRefresh = false}) async {
     await fetchShopRecommend(context);
     controller?.refreshCompleted();
   }
 
-  Future<void> fetchNewShopsPage(BuildContext context, RefreshController? controller, {bool isRefresh = false}) async {
+  Future<void> fetchNewShopsPage(
+      BuildContext context, RefreshController? controller,
+      {bool isRefresh = false}) async {
     if (isRefresh) newShopIndex = 1;
     await fetchNewShops(context);
     controller?.refreshCompleted();
   }
-
 
   // --- Driver Methods (Unified) ---
 
@@ -459,7 +508,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
       final response = await userRepo.getDeliveryZone();
       response.when(
         success: (data) => setDeliveryZone(data.data?.first.address),
-        failure: (failure, status) => debugPrint('==> get delivery zone failure: $failure'),
+        failure: (failure, status) =>
+            debugPrint('==> get delivery zone failure: $failure'),
       );
     } else {
       setDeliveryZone(LocalStorage.getUser()?.deliveryZone);
@@ -483,7 +533,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
           strokeWidth: 8,
         ),
       );
-      state = state.copyWith(polygon: polygon, isLoading: false, deliveryZone: points);
+      state = state.copyWith(
+          polygon: polygon, isLoading: false, deliveryZone: points);
     }
   }
 
@@ -494,7 +545,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
     required Marker market,
   }) async {
     if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(polylineCoordinates: [], markers: {}, isLoading: true);
+      state =
+          state.copyWith(polylineCoordinates: [], markers: {}, isLoading: true);
       final response = await _drawRepository.getRouting(start: start, end: end);
       response.when(
         success: (data) {
@@ -503,9 +555,11 @@ class HomeNotifier extends StateNotifier<HomeState> {
           for (int i = 0; i < ls.length; i++) {
             list.add(LatLng(ls[i][1], ls[i][0]));
           }
-          state = state.copyWith(polylineCoordinates: list, markers: {market}, isLoading: false);
+          state = state.copyWith(
+              polylineCoordinates: list, markers: {market}, isLoading: false);
         },
-        failure: (failure, status) => state = state.copyWith(polylineCoordinates: [], markers: {}, isLoading: false),
+        failure: (failure, status) => state = state
+            .copyWith(polylineCoordinates: [], markers: {}, isLoading: false),
       );
     } else if (context.mounted) {
       AppHelpers.showNoConnectionSnackBar(context);
@@ -522,25 +576,37 @@ class HomeNotifier extends StateNotifier<HomeState> {
           if (data.data?.isNotEmpty ?? false) {
             state = state.copyWith(orderDetail: data.data?.first);
             final order = data.data!.first;
-            final dest = order.status == "on_a_way" 
-                ? LatLng(double.parse(order.location?.latitude ?? "0"), double.parse(order.location?.longitude ?? "0"))
-                : LatLng(double.parse(order.shop?.location?.latitude ?? "0"), double.parse(order.shop?.location?.longitude ?? "0"));
-            
+            final dest = order.status == "on_a_way"
+                ? LatLng(double.parse(order.location?.latitude ?? "0"),
+                    double.parse(order.location?.longitude ?? "0"))
+                : LatLng(double.parse(order.shop?.location?.latitude ?? "0"),
+                    double.parse(order.shop?.location?.longitude ?? "0"));
+
             final markerIcon = order.status == "on_a_way"
-                ? await _markerImageCropper.resizeAndCircle(order.user?.img ?? "", 100)
-                : await _markerImageCropper.resizeAndCircle(order.shop?.logoImg ?? "", 120);
+                ? await _markerImageCropper.resizeAndCircle(
+                    order.user?.img ?? "", 100)
+                : await _markerImageCropper.resizeAndCircle(
+                    order.shop?.logoImg ?? "", 120);
 
             getRoutingAll(
               context: context,
-              start: LatLng(LocalStorage.getAddressSelected()?.location?.latitude ?? AppConstants.demoLatitude, LocalStorage.getAddressSelected()?.location?.longitude ?? AppConstants.demoLongitude),
+              start: LatLng(
+                  LocalStorage.getAddressSelected()?.location?.latitude ??
+                      AppConstants.demoLatitude,
+                  LocalStorage.getAddressSelected()?.location?.longitude ??
+                      AppConstants.demoLongitude),
               end: dest,
               market: Marker(
-                markerId: MarkerId(order.status == "on_a_way" ? "User" : "Shop"),
+                markerId:
+                    MarkerId(order.status == "on_a_way" ? "User" : "Shop"),
                 position: dest,
                 icon: markerIcon,
               ),
             );
-            state = state.copyWith(isGoRestaurant: order.status != "on_a_way", isGoUser: order.status == "on_a_way", isLoading: false);
+            state = state.copyWith(
+                isGoRestaurant: order.status != "on_a_way",
+                isGoUser: order.status == "on_a_way",
+                isLoading: false);
           }
         },
         failure: (failure, status) {
@@ -557,7 +623,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
       final response = await userRepo.setOnline();
       response.when(
         success: (data) => LocalStorage.setOnline(!LocalStorage.getOnline()),
-        failure: (failure, status) => AppHelpers.showCheckTopSnackBar(context, failure),
+        failure: (failure, status) =>
+            AppHelpers.showCheckTopSnackBar(context, failure),
       );
     }
   }

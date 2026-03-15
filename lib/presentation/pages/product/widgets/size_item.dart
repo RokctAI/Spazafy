@@ -67,8 +67,3 @@ class SizeItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

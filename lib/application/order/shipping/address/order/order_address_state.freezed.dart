@@ -70,28 +70,27 @@ class _$OrderAddressStateCopyWithImpl<$Res, $Val extends OrderAddressState>
   }) {
     return _then(
       _value.copyWith(
-            textController: freezed == textController
-                ? _value.textController
-                : textController // ignore: cast_nullable_to_non_nullable
-                      as TextEditingController?,
-            location: freezed == location
-                ? _value.location
-                : location // ignore: cast_nullable_to_non_nullable
-                      as LocationData?,
-            entrance: null == entrance
-                ? _value.entrance
-                : entrance // ignore: cast_nullable_to_non_nullable
-                      as String,
-            floor: null == floor
-                ? _value.floor
-                : floor // ignore: cast_nullable_to_non_nullable
-                      as String,
-            house: null == house
-                ? _value.house
-                : house // ignore: cast_nullable_to_non_nullable
-                      as String,
-          )
-          as $Val,
+        textController: freezed == textController
+            ? _value.textController
+            : textController // ignore: cast_nullable_to_non_nullable
+                as TextEditingController?,
+        location: freezed == location
+            ? _value.location
+            : location // ignore: cast_nullable_to_non_nullable
+                as LocationData?,
+        entrance: null == entrance
+            ? _value.entrance
+            : entrance // ignore: cast_nullable_to_non_nullable
+                as String,
+        floor: null == floor
+            ? _value.floor
+            : floor // ignore: cast_nullable_to_non_nullable
+                as String,
+        house: null == house
+            ? _value.house
+            : house // ignore: cast_nullable_to_non_nullable
+                as String,
+      ) as $Val,
     );
   }
 }
@@ -139,23 +138,23 @@ class __$$OrderAddressStateImplCopyWithImpl<$Res>
         textController: freezed == textController
             ? _value.textController
             : textController // ignore: cast_nullable_to_non_nullable
-                  as TextEditingController?,
+                as TextEditingController?,
         location: freezed == location
             ? _value.location
             : location // ignore: cast_nullable_to_non_nullable
-                  as LocationData?,
+                as LocationData?,
         entrance: null == entrance
             ? _value.entrance
             : entrance // ignore: cast_nullable_to_non_nullable
-                  as String,
+                as String,
         floor: null == floor
             ? _value.floor
             : floor // ignore: cast_nullable_to_non_nullable
-                  as String,
+                as String,
         house: null == house
             ? _value.house
             : house // ignore: cast_nullable_to_non_nullable
-                  as String,
+                as String,
       ),
     );
   }
@@ -208,13 +207,13 @@ class _$OrderAddressStateImpl extends _OrderAddressState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    textController,
-    location,
-    entrance,
-    floor,
-    house,
-  );
+        runtimeType,
+        textController,
+        location,
+        entrance,
+        floor,
+        house,
+      );
 
   /// Create a copy of OrderAddressState
   /// with the given fields replaced by the non-null parameter values.
@@ -256,7 +255,3 @@ abstract class _OrderAddressState extends OrderAddressState {
   _$$OrderAddressStateImplCopyWith<_$OrderAddressStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

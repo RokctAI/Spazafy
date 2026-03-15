@@ -20,6 +20,3 @@ final shopNameProvider = FutureProvider.family<String, String>((
     throw Exception('Failed to load shop details');
   }
 });
-
-
-

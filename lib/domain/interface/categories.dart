@@ -34,7 +34,3 @@ abstract class CategoriesFacade {
   });
   Future<ApiResult> deleteCategory({required String? id});
 }
-
-
-
-

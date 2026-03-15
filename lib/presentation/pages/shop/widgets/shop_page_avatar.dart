@@ -473,8 +473,3 @@ class ShopPageAvatar extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

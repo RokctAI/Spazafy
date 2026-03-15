@@ -64,6 +64,3 @@ class CartRequest {
     return list;
   }
 }
-
-
-

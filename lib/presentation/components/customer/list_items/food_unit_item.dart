@@ -39,9 +39,8 @@ class FoodUnitItem extends StatelessWidget {
                     width: 18.w,
                     height: 18.h,
                     decoration: BoxDecoration(
-                      color: isSelected
-                          ? AppStyle.primary
-                          : AppStyle.transparent,
+                      color:
+                          isSelected ? AppStyle.primary : AppStyle.transparent,
                       shape: BoxShape.circle,
                       border: Border.all(
                         color: isSelected
@@ -69,7 +68,3 @@ class FoodUnitItem extends StatelessWidget {
     );
   }
 }
-
-
-
-

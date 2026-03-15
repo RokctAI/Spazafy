@@ -139,7 +139,8 @@ class _BecomeDriverPageState extends ConsumerState<BecomeDriverPage> {
               title: AppHelpers.getTranslation(TrKeys.logout),
               onPressed: () => AppHelpers.showCustomModalBottomSheet(
                 context: context,
-                modal: const AuthRoute(), // Assuming AuthRoute is the login flow
+                modal:
+                    const AuthRoute(), // Assuming AuthRoute is the login flow
                 isDarkMode: LocalStorage.getAppThemeMode(),
               ),
             ),
@@ -177,8 +178,10 @@ class _BecomeDriverPageState extends ConsumerState<BecomeDriverPage> {
               });
             },
             decoration: InputDecoration(
-              labelText: AppHelpers.getTranslation(TrKeys.typeTechnique).toUpperCase(),
-              labelStyle: AppStyle.interNormal(size: 14.sp, color: AppStyle.black),
+              labelText:
+                  AppHelpers.getTranslation(TrKeys.typeTechnique).toUpperCase(),
+              labelStyle:
+                  AppStyle.interNormal(size: 14.sp, color: AppStyle.black),
               contentPadding: REdgeInsets.symmetric(horizontal: 0, vertical: 8),
               floatingLabelBehavior: FloatingLabelBehavior.always,
               enabledBorder: const UnderlineInputBorder(
@@ -269,7 +272,8 @@ class _BecomeDriverPageState extends ConsumerState<BecomeDriverPage> {
               );
               if (pickedFile != null) {
                 setState(() => imagePath = pickedFile.path);
-                eventImage.editCarImage(context: context, path: pickedFile.path);
+                eventImage.editCarImage(
+                    context: context, path: pickedFile.path);
               }
             },
             child: Container(
@@ -303,7 +307,8 @@ class _BecomeDriverPageState extends ConsumerState<BecomeDriverPage> {
                         )
                       : ClipRRect(
                           borderRadius: BorderRadius.circular(20.r),
-                          child: Image.file(File(imagePath!), fit: BoxFit.cover),
+                          child:
+                              Image.file(File(imagePath!), fit: BoxFit.cover),
                         ))
                   : CommonImage(
                       imageUrl: stateImage.carImageUrl,
@@ -331,7 +336,9 @@ class _BecomeDriverPageState extends ConsumerState<BecomeDriverPage> {
                   length: length.text,
                   width: width.text,
                   updated: () {
-                    ref.read(profileProvider.notifier).fetchRequestResponse(context: context);
+                    ref
+                        .read(profileProvider.notifier)
+                        .fetchRequestResponse(context: context);
                   },
                 );
               }

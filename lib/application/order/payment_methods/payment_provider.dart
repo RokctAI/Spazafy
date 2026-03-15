@@ -7,6 +7,3 @@ import 'payment_state.dart';
 final paymentProvider = StateNotifierProvider<PaymentNotifier, PaymentState>(
   (ref) => PaymentNotifier(paymentsRepository),
 );
-
-
-

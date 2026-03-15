@@ -26,6 +26,3 @@ class DefaultFirebaseOptions {
     iosBundleId: 'org.goshops',
   );
 }
-
-
-

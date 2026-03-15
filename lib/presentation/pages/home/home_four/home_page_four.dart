@@ -674,6 +674,3 @@ class _HomePageState extends ConsumerState<HomePageFour> {
     );
   }
 }
-
-
-

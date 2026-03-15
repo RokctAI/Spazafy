@@ -79,13 +79,16 @@ class AppRouter extends RootStackRouter {
         MaterialRoute(path: '/setting', page: SettingRoute.page),
         MaterialRoute(path: '/order-check', page: OrderRoute.page),
         MaterialRoute(path: '/search', page: SearchRoute.page),
-        MaterialRoute(path: '/profile-customer', page: ProfileRoute.page), // Shared Profile
+        MaterialRoute(
+            path: '/profile-customer',
+            page: ProfileRoute.page), // Shared Profile
         MaterialRoute(path: '/map', page: ViewMapRoute.page),
         MaterialRoute(path: "/story-list", page: StoryListRoute.page),
         MaterialRoute(path: '/recommended', page: RecommendedRoute.page),
         MaterialRoute(path: '/recommended-one', page: RecommendedOneRoute.page),
         MaterialRoute(path: '/recommended-two', page: RecommendedTwoRoute.page),
-        MaterialRoute(path: '/recommended-three', page: RecommendedThreeRoute.page),
+        MaterialRoute(
+            path: '/recommended-three', page: RecommendedThreeRoute.page),
         MaterialRoute(path: '/map-search', page: MapSearchRoute.page),
         MaterialRoute(path: '/help', page: HelpRoute.page),
         MaterialRoute(path: '/order-progress', page: OrderProgressRoute.page),
@@ -96,10 +99,12 @@ class AppRouter extends RootStackRouter {
         MaterialRoute(path: '/shops-banner', page: ShopsBannerRoute.page),
         MaterialRoute(path: '/shops-detail', page: ShopDetailRoute.page),
         MaterialRoute(path: '/share-referral', page: ShareReferralRoute.page),
-        MaterialRoute(path: '/share-referral-faq', page: ShareReferralFaqRoute.page),
+        MaterialRoute(
+            path: '/share-referral-faq', page: ShareReferralFaqRoute.page),
         MaterialRoute(path: '/chat', page: ChatRoute.page),
         MaterialRoute(path: '/notifications', page: NotificationListRoute.page),
-        MaterialRoute(path: '/service-category', page: ServiceTwoCategoryRoute.page),
+        MaterialRoute(
+            path: '/service-category', page: ServiceTwoCategoryRoute.page),
         MaterialRoute(path: '/parcel', page: ParcelRoute.page),
         MaterialRoute(path: '/parcel-list', page: ParcelListRoute.page),
         MaterialRoute(path: '/parcel-progress', page: ParcelProgressRoute.page),
@@ -109,9 +114,10 @@ class AppRouter extends RootStackRouter {
         MaterialRoute(path: '/term', page: TermRoute.page),
         MaterialRoute(path: '/policy', page: PolicyRoute.page),
         MaterialRoute(path: '/orders-main', page: OrdersMainRoute.page),
-        
+
         // ─── Financial/Loan Routes ───────────────────────────────────────────
-        MaterialRoute(path: '/loan-eligibility', page: LoanEligibilityRoute.page),
+        MaterialRoute(
+            path: '/loan-eligibility', page: LoanEligibilityRoute.page),
         MaterialRoute(path: '/loan-upload', page: LoanDocumentUploadRoute.page),
         MaterialRoute(path: '/loan', page: LoanRoute.page),
 
@@ -123,7 +129,8 @@ class AppRouter extends RootStackRouter {
         CupertinoRoute(path: '/delivery-zone', page: DeliveryZoneRoute.page),
         CupertinoRoute(path: '/select-address', page: SelectAddressRoute.page),
         CupertinoRoute(path: '/order-products', page: CreateOrderRoute.page),
-        CupertinoRoute(path: '/shipping-address', page: ShippingAddressRoute.page),
+        CupertinoRoute(
+            path: '/shipping-address', page: ShippingAddressRoute.page),
         MaterialRoute(path: '/select-section', page: SelectSectionRoute.page),
         MaterialRoute(path: '/select-table', page: SelectTableRoute.page),
         MaterialRoute(path: '/webview', page: WebViewRoute.page),

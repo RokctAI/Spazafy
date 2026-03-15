@@ -40,6 +40,3 @@ class AddressInformation {
     return map;
   }
 }
-
-
-

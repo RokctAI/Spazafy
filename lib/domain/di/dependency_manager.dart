@@ -53,7 +53,8 @@ import 'package:venderfoodyman/infrastructure/repositories/customer/wallet_repos
 import 'package:venderfoodyman/infrastructure/repositories/customer/table_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/subscription_repository.dart';
 import 'package:venderfoodyman/infrastructure/repositories/customer/delivery_points_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/customer/mock/mock_repositories.dart' as mock;
+import 'package:venderfoodyman/infrastructure/repositories/customer/mock/mock_repositories.dart'
+    as mock;
 
 // Router
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
@@ -67,7 +68,8 @@ final GetIt getIt = GetIt.instance;
 Future<void> setUpDependencies() async {
   // core
   getIt.registerLazySingleton<HttpService>(() => HttpService());
-  getIt.registerLazySingleton<GooglePlace>(() => GooglePlace(AppConstants.googleApiKey));
+  getIt.registerLazySingleton<GooglePlace>(
+      () => GooglePlace(AppConstants.googleApiKey));
   getIt.registerLazySingleton<Map>(() => LocalStorage.getTranslations());
 
   // Hub Module (Unified)
@@ -87,8 +89,10 @@ Future<void> setUpDependencies() async {
     getIt.registerSingleton<AuthFacade>(AuthRepository());
     getIt.registerSingleton<ShopsFacade>(ShopsRepository());
     getIt.registerSingleton<ProductsFacade>(ProductsRepository());
-    getIt.registerSingleton<CategoriesFacade>(CatalogRepository()); // Unified Catalog
-    getIt.registerSingleton<CatalogInterface>(CatalogRepository()); // Manager Catalog
+    getIt.registerSingleton<CategoriesFacade>(
+        CatalogRepository()); // Unified Catalog
+    getIt.registerSingleton<CatalogInterface>(
+        CatalogRepository()); // Manager Catalog
     getIt.registerSingleton<BannersFacade>(BannersRepository());
     getIt.registerSingleton<CartFacade>(CartRepository());
     getIt.registerSingleton<OrdersFacade>(OrdersRepository());
@@ -107,11 +111,11 @@ Future<void> setUpDependencies() async {
   getIt.registerSingleton<WalletFacade>(WalletRepository());
   getIt.registerSingleton<LoansFacade>(LoansRepository());
   getIt.registerSingleton<DeliveryPointsFacade>(DeliveryPointsRepository());
-  
+
   // Manager/Driver Specific (Pointing to Unified Hub)
   getIt.registerSingleton<TableInterface>(TableRepository());
   getIt.registerSingleton<SubscriptionsFacade>(SubscriptionsRepository());
-  
+
   getIt.registerSingleton<AppRouter>(AppRouter());
 }
 
@@ -152,7 +156,3 @@ final driverUserRepo = getIt.get<UserFacade>();
 final managerAuthRepo = getIt.get<AuthFacade>();
 final managerUsersRepo = getIt.get<UserFacade>();
 final router = getIt.get<AppRouter>();
-
-
-
-

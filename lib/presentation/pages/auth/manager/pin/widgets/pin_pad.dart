@@ -84,7 +84,3 @@ class _PinButton extends StatelessWidget {
     );
   }
 }
-
-
-
-

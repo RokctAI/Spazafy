@@ -21,7 +21,3 @@ class BannersRequest {
     return map;
   }
 }
-
-
-
-

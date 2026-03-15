@@ -14,7 +14,7 @@ class PrinterDiscovery {
 
   Future<List<PrinterDevice>> discoverAll() async {
     final List<PrinterDevice> devices = [];
-    
+
     // Scan all transports in parallel
     final results = await Future.wait([
       _bluetooth.getBondedDevices(),

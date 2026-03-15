@@ -23,7 +23,3 @@ class TokenInterceptor extends Interceptor {
     handler.next(options);
   }
 }
-
-
-
-

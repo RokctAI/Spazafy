@@ -17,6 +17,3 @@ class FilterModel {
     this.isOpen = true,
   });
 }
-
-
-

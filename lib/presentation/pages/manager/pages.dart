@@ -23,7 +23,3 @@ export 'package:venderfoodyman/presentation/components/manager/web_view_page.dar
 export '../home/pos_page.dart';
 export '../order/customer/order_check/pos_checkout_page.dart';
 export 'auth/pin/pin_page.dart';
-
-
-
-

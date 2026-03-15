@@ -82,6 +82,3 @@ class BrandData {
     return map;
   }
 }
-
-
-

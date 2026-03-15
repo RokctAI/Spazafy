@@ -70,7 +70,3 @@ class _CreateExtrasGroupModalState extends State<CreateExtrasGroupModal> {
     );
   }
 }
-
-
-
-

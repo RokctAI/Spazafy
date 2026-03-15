@@ -68,8 +68,3 @@ class CartClearDialog extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

@@ -113,7 +113,3 @@ class _SelectSectionPageState extends ConsumerState<SelectSectionPage> {
     );
   }
 }
-
-
-
-

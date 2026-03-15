@@ -474,8 +474,3 @@ class _WalletTopUpScreenState extends ConsumerState<WalletTopUpScreen> {
     );
   }
 }
-
-
-
-
-

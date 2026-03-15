@@ -113,6 +113,3 @@ class BlogData {
     return map;
   }
 }
-
-
-

@@ -82,7 +82,8 @@ class OrderItemsTable extends Table {
   TextColumn get stockId => text().nullable()();
   IntColumn get quantity => integer().nullable()();
   RealColumn get price => real().nullable()(); // Snapshot at sale
-  RealColumn get costPrice => real().nullable()(); // Snapshot at sale for accurate margins
+  RealColumn get costPrice =>
+      real().nullable()(); // Snapshot at sale for accurate margins
 
   @override
   Set<Column> get primaryKey => {id};
@@ -123,6 +124,3 @@ class BillingCartTable extends Table {
   @override
   Set<Column> get primaryKey => {id};
 }
-
-
-

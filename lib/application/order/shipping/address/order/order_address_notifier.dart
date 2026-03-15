@@ -6,7 +6,7 @@ import 'package:venderfoodyman/infrastructure/models/customer/models.dart';
 
 class OrderAddressNotifier extends StateNotifier<OrderAddressState> {
   OrderAddressNotifier()
-    : super(OrderAddressState(textController: TextEditingController()));
+      : super(OrderAddressState(textController: TextEditingController()));
 
   void setHouse(String value) {
     state = state.copyWith(house: value.trim());
@@ -25,8 +25,3 @@ class OrderAddressNotifier extends StateNotifier<OrderAddressState> {
     state = state.copyWith(location: location);
   }
 }
-
-
-
-
-

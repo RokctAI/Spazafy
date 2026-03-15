@@ -33,7 +33,9 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
           );
         } else {
           // Driver logic (different model structure usually)
-          state = state.copyWith(countDataDriver: data as StatisticsIncomeResponse, isLoading: false);
+          state = state.copyWith(
+              countDataDriver: data as StatisticsIncomeResponse,
+              isLoading: false);
         }
       },
       failure: (fail, status) {
@@ -82,9 +84,13 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
       num a = price / 6;
       prices = List.generate(7, (index) => (price - (index * a)));
       times = List.generate(
-        startTime.difference(endTime).inDays.abs() == 0 ? 24 : startTime.difference(endTime).inDays.abs(),
+        startTime.difference(endTime).inDays.abs() == 0
+            ? 24
+            : startTime.difference(endTime).inDays.abs(),
         (index) => DateTime.now().subtract(
-          startTime.difference(endTime).inDays.abs() == 0 ? Duration(hours: index) : Duration(days: index),
+          startTime.difference(endTime).inDays.abs() == 0
+              ? Duration(hours: index)
+              : Duration(days: index),
         ),
       );
     }

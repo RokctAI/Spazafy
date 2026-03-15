@@ -25,9 +25,8 @@ class TableItem extends StatelessWidget {
         margin: REdgeInsets.only(bottom: 8),
         padding: REdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
-          color: isSelected
-              ? AppStyle.primary.withOpacity(0.06)
-              : AppStyle.white,
+          color:
+              isSelected ? AppStyle.primary.withOpacity(0.06) : AppStyle.white,
           borderRadius: isSelected ? null : BorderRadius.circular(10.r),
           border: isSelected
               ? Border(
@@ -61,8 +60,3 @@ class TableItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

@@ -50,7 +50,3 @@ class TabBarLoading extends StatelessWidget {
     );
   }
 }
-
-
-
-

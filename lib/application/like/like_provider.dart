@@ -6,6 +6,3 @@ import 'like_state.dart';
 final likeProvider = StateNotifierProvider<LikeNotifier, LikeState>(
   (ref) => LikeNotifier(shopsRepository),
 );
-
-
-

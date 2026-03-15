@@ -74,6 +74,3 @@ class Order {
 
   Map<String, dynamic> toJson() => {"id": id};
 }
-
-
-

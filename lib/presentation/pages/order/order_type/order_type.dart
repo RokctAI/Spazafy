@@ -95,8 +95,3 @@ class _OrderPageState extends State<OrderType> {
     }
   }
 }
-
-
-
-
-

@@ -239,6 +239,3 @@ class _CustomStatusBarState extends State<CustomStatusBar> {
     return Remix.battery_low_fill;
   }
 }
-
-
-

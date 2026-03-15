@@ -125,7 +125,3 @@ abstract class UserFacade {
   Future<ApiResult<SingleShopResponse>> getMyShop();
   Future<ApiResult<dynamic>> setOnlineOffline();
 }
-
-
-
-

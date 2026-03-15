@@ -28,14 +28,12 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
     _categoryController = RefreshController();
     _productController = RefreshController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref
-          .read(orderProductsProvider.notifier)
-          .fetchProducts(
-            categoryId: null,
-            isRefresh: true,
-            isOpeningPage: true,
-            cartStocks: [],
-          );
+      ref.read(orderProductsProvider.notifier).fetchProducts(
+        categoryId: null,
+        isRefresh: true,
+        isOpeningPage: true,
+        cartStocks: [],
+      );
       ref
           .read(categoriesProvider.notifier)
           .fetchCategories(context, isRefresh: true);
@@ -87,16 +85,13 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
     return SearchTextField(
       onChanged: (value) {
         final categoriesState = ref.read(categoriesProvider);
-        ref
-            .read(orderProductsProvider.notifier)
-            .setQuery(
+        ref.read(orderProductsProvider.notifier).setQuery(
               query: value,
               cartStocks: cartStocks,
               categoryId: categoriesState.activeIndex == 1
                   ? null
                   : categoriesState
-                        .categories[categoriesState.activeIndex - 2]
-                        .id,
+                      .categories[categoriesState.activeIndex - 2].id,
             );
       },
     );
@@ -117,9 +112,8 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
           categoriesEvent.setActiveIndex(index);
           productsEvent.fetchProducts(
             refreshController: _productController,
-            categoryId: index == 1
-                ? null
-                : categoriesState.categories[index - 2].id,
+            categoryId:
+                index == 1 ? null : categoriesState.categories[index - 2].id,
             isRefresh: true,
             cartStocks: cartStocks,
           );
@@ -169,7 +163,3 @@ class _BillingBrowseModalState extends ConsumerState<BillingBrowseModal> {
     );
   }
 }
-
-
-
-

@@ -59,20 +59,19 @@ class _$OrderProductsStateCopyWithImpl<$Res, $Val extends OrderProductsState>
   }) {
     return _then(
       _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            products: null == products
-                ? _value.products
-                : products // ignore: cast_nullable_to_non_nullable
-                      as List<ProductData>,
-            productType: null == productType
-                ? _value.productType
-                : productType // ignore: cast_nullable_to_non_nullable
-                      as String,
-          )
-          as $Val,
+        isLoading: null == isLoading
+            ? _value.isLoading
+            : isLoading // ignore: cast_nullable_to_non_nullable
+                as bool,
+        products: null == products
+            ? _value.products
+            : products // ignore: cast_nullable_to_non_nullable
+                as List<ProductData>,
+        productType: null == productType
+            ? _value.productType
+            : productType // ignore: cast_nullable_to_non_nullable
+                as String,
+      ) as $Val,
     );
   }
 }
@@ -112,15 +111,15 @@ class __$$OrderProductsStateImplCopyWithImpl<$Res>
         isLoading: null == isLoading
             ? _value.isLoading
             : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
+                as bool,
         products: null == products
             ? _value._products
             : products // ignore: cast_nullable_to_non_nullable
-                  as List<ProductData>,
+                as List<ProductData>,
         productType: null == productType
             ? _value.productType
             : productType // ignore: cast_nullable_to_non_nullable
-                  as String,
+                as String,
       ),
     );
   }
@@ -133,8 +132,8 @@ class _$OrderProductsStateImpl extends _OrderProductsState {
     this.isLoading = false,
     final List<ProductData> products = const [],
     this.productType = 'single',
-  }) : _products = products,
-       super._();
+  })  : _products = products,
+        super._();
 
   @override
   @JsonKey()
@@ -171,11 +170,11 @@ class _$OrderProductsStateImpl extends _OrderProductsState {
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    const DeepCollectionEquality().hash(_products),
-    productType,
-  );
+        runtimeType,
+        isLoading,
+        const DeepCollectionEquality().hash(_products),
+        productType,
+      );
 
   /// Create a copy of OrderProductsState
   /// with the given fields replaced by the non-null parameter values.
@@ -211,7 +210,3 @@ abstract class _OrderProductsState extends OrderProductsState {
   _$$OrderProductsStateImplCopyWith<_$OrderProductsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
-
-

@@ -39,7 +39,3 @@ class ParcelPaginateResponse {
     return map;
   }
 }
-
-
-
-

@@ -31,7 +31,3 @@ class CategoryModel {
     return map;
   }
 }
-
-
-
-

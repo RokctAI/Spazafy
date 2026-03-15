@@ -15,7 +15,3 @@ class ChatMessageData {
     required this.messageId,
   });
 }
-
-
-
-

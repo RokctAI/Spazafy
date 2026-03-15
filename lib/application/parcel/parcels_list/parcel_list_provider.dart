@@ -8,6 +8,3 @@ final parcelListProvider =
     StateNotifierProvider<ParcelListNotifier, ParcelListState>(
   (ref) => ParcelListNotifier(parcelRepository),
 );
-
-
-

@@ -122,8 +122,8 @@ class UnderlinedTextField extends StatelessWidget {
                   color: isError
                       ? AppStyle.red
                       : isSuccess
-                      ? AppStyle.textColor
-                      : AppStyle.blackColor,
+                          ? AppStyle.textColor
+                          : AppStyle.blackColor,
                 ),
               ),
             ],
@@ -132,7 +132,3 @@ class UnderlinedTextField extends StatelessWidget {
     );
   }
 }
-
-
-
-

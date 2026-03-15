@@ -48,7 +48,3 @@ class ShopShimmer extends StatelessWidget {
     );
   }
 }
-
-
-
-

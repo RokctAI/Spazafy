@@ -84,18 +84,19 @@ class _AuthPageState extends ConsumerState<AuthPage> {
                         children: [
                           CustomButton(
                             title: AppHelpers.getTranslation(TrKeys.login),
-                            onPressed: () =>
-                                AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
-                                  context: context,
-                                  modal: const LoginModal(),
-                                  isDarkMode: false,
-                                ),
+                            onPressed: () => AppHelpers
+                                .showCustomModalBottomSheetWithoutIosIcon(
+                              context: context,
+                              modal: const LoginModal(),
+                              isDarkMode: false,
+                            ),
                           ),
                           10.verticalSpace,
                           CustomButton(
                             title: AppHelpers.getTranslation(TrKeys.register),
                             onPressed: () {
-                              AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
+                              AppHelpers
+                                  .showCustomModalBottomSheetWithoutIosIcon(
                                 context: context,
                                 modal: const RegisterModal(isOnlyEmail: true),
                                 isDarkMode: false,
@@ -119,7 +120,3 @@ class _AuthPageState extends ConsumerState<AuthPage> {
     );
   }
 }
-
-
-
-

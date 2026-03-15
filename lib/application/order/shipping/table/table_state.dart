@@ -17,8 +17,3 @@ abstract class TableState with _$TableState {
 
   const TableState._();
 }
-
-
-
-
-

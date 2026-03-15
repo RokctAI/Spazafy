@@ -114,8 +114,8 @@ class OutlinedBorderTextField extends StatelessWidget {
                   color: isError
                       ? AppStyle.red
                       : isSuccess
-                      ? AppStyle.greyColor
-                      : AppStyle.pendingDark,
+                          ? AppStyle.greyColor
+                          : AppStyle.pendingDark,
                 ),
               ),
             ],
@@ -133,7 +133,3 @@ class OutlinedBorderTextField extends StatelessWidget {
     );
   }
 }
-
-
-
-

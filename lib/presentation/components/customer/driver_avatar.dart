@@ -61,7 +61,3 @@ class DriverAvatar extends StatelessWidget {
     );
   }
 }
-
-
-
-

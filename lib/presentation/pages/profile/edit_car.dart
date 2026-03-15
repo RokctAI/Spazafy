@@ -87,9 +87,7 @@ class _EditCarState extends ConsumerState<EditCar> {
     );
     dropdownValue = LocalStorage.getDeliveryInfo()?.data?.typeOfTechnique;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref
-          .read(profileImageProvider.notifier)
-          .setUrlCar(
+      ref.read(profileImageProvider.notifier).setUrlCar(
             LocalStorage.getDeliveryInfo()?.data?.galleries?.first.path,
           );
     });
@@ -296,34 +294,34 @@ class _EditCarState extends ConsumerState<EditCar> {
               ),
               child: stateImage.carImageUrl == null
                   ? imagePath == null
-                        ? Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                FlutterRemix.upload_cloud_2_line,
-                                size: 36.sp,
-                                color: AppStyle.blueBonus,
-                              ),
-                              16.verticalSpace,
-                              Text(
-                                AppHelpers.getTranslation(TrKeys.carPicture),
-                                style: AppStyle.interSemi(size: 14.sp),
-                              ),
-                              Text(
-                                AppHelpers.getTranslation(
-                                  TrKeys.recommendedSize,
-                                ),
-                                style: AppStyle.interRegular(size: 14.sp),
-                              ),
-                            ],
-                          )
-                        : ClipRRect(
-                            borderRadius: BorderRadius.circular(20.r),
-                            child: Image.file(
-                              File(imagePath!),
-                              fit: BoxFit.cover,
+                      ? Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FlutterRemix.upload_cloud_2_line,
+                              size: 36.sp,
+                              color: AppStyle.blueBonus,
                             ),
-                          )
+                            16.verticalSpace,
+                            Text(
+                              AppHelpers.getTranslation(TrKeys.carPicture),
+                              style: AppStyle.interSemi(size: 14.sp),
+                            ),
+                            Text(
+                              AppHelpers.getTranslation(
+                                TrKeys.recommendedSize,
+                              ),
+                              style: AppStyle.interRegular(size: 14.sp),
+                            ),
+                          ],
+                        )
+                      : ClipRRect(
+                          borderRadius: BorderRadius.circular(20.r),
+                          child: Image.file(
+                            File(imagePath!),
+                            fit: BoxFit.cover,
+                          ),
+                        )
                   : CommonImage(
                       imageUrl: stateImage.carImageUrl,
                       height: 160,
@@ -335,8 +333,7 @@ class _EditCarState extends ConsumerState<EditCar> {
           Padding(
             padding: EdgeInsets.all(16.r),
             child: CustomButton(
-              textColor:
-                  (dropdownValue?.isNotEmpty ?? false) &&
+              textColor: (dropdownValue?.isNotEmpty ?? false) &&
                       brand.text.isNotEmpty &&
                       model.text.isNotEmpty &&
                       number.text.isNotEmpty &&
@@ -347,8 +344,7 @@ class _EditCarState extends ConsumerState<EditCar> {
                       length.text.isNotEmpty
                   ? AppStyle.black
                   : AppStyle.white,
-              background:
-                  (dropdownValue?.isNotEmpty ?? false) &&
+              background: (dropdownValue?.isNotEmpty ?? false) &&
                       brand.text.isNotEmpty &&
                       model.text.isNotEmpty &&
                       number.text.isNotEmpty &&
@@ -396,8 +392,3 @@ class _EditCarState extends ConsumerState<EditCar> {
     );
   }
 }
-
-
-
-
-

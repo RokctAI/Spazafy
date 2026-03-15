@@ -152,8 +152,3 @@ class _LikePageState extends ConsumerState<LikePage> {
     return EmptyBadge();
   }
 }
-
-
-
-
-

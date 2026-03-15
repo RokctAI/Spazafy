@@ -204,7 +204,8 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
     for (int i = 0; i < state.initialStocks.length; i++) {
       if (state.initialStocks[i].extras?.isNotEmpty ?? false) {
         uniques.add(state.initialStocks[i].extras?[0].value ?? '');
-        title = state.initialStocks[i].extras?[0].group?.translation?.title ?? '';
+        title =
+            state.initialStocks[i].extras?[0].group?.translation?.title ?? '';
         type = AppHelpers.getExtraTypeByValue(
           state.initialStocks[i].extras?[0].group?.type,
         );
@@ -233,9 +234,11 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
     String title = '';
     ExtrasType type = ExtrasType.text;
     for (int i = 0; i < includedStocks.length; i++) {
-      if (includedStocks[i].extras != null && includedStocks[i].extras!.length > index) {
+      if (includedStocks[i].extras != null &&
+          includedStocks[i].extras!.length > index) {
         uniques.add(includedStocks[i].extras?[index].value ?? '');
-        title = includedStocks[i].extras?[index].group?.translation?.title ?? '';
+        title =
+            includedStocks[i].extras?[index].group?.translation?.title ?? '';
         type = AppHelpers.getExtraTypeByValue(
           includedStocks[i].extras?[index].group?.type ?? '',
         );
@@ -244,7 +247,8 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
     final setOfUniques = uniques.toSet().toList();
     final List<UiExtra> extras = [];
     for (int i = 0; i < setOfUniques.length; i++) {
-      extras.add(UiExtra(setOfUniques[i], selectedIndexes[groupExtras.length] == i, i));
+      extras.add(UiExtra(
+          setOfUniques[i], selectedIndexes[groupExtras.length] == i, i));
     }
     return TypedExtra(type, extras, title, index);
   }
@@ -256,7 +260,8 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
   ) {
     List<Stocks> stocks = [];
     for (int i = 0; i < includedStocks.length; i++) {
-      if (includedStocks[i].extras != null && includedStocks[i].extras!.length > index) {
+      if (includedStocks[i].extras != null &&
+          includedStocks[i].extras!.length > index) {
         if (includedStocks[i].extras?[index].value == includedValue) {
           stocks.add(includedStocks[i]);
         }
@@ -282,7 +287,8 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
       final addon = data[selectIndex];
       if ((addon.product?.maxQty ?? 0) > (addon.quantity ?? 0)) {
         addon.quantity = (addon.quantity ?? 0) + 1;
-        state = state.copyWith(selectedStock: state.selectedStock?.copyWith(addons: data));
+        state = state.copyWith(
+            selectedStock: state.selectedStock?.copyWith(addons: data));
       }
     }
   }
@@ -293,7 +299,8 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
       final addon = data[selectIndex];
       if ((addon.product?.minQty ?? 0) < (addon.quantity ?? 0)) {
         addon.quantity = (addon.quantity ?? 0) - 1;
-        state = state.copyWith(selectedStock: state.selectedStock?.copyWith(addons: data));
+        state = state.copyWith(
+            selectedStock: state.selectedStock?.copyWith(addons: data));
       }
     }
   }
@@ -339,7 +346,7 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
         );
       }
     }
-    
+
     final response = isGroupOrder
         ? await _cartRepository.insertCartWithGroup(
             cart: CartRequest(
@@ -380,9 +387,10 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
 
   void generateShareLink(String? shopId) async {
     if (state.productData?.uuid == null) return;
-    final productLink = '${AppConstants.webUrl}/shop/$shopId?product=${state.productData?.uuid}/';
+    final productLink =
+        '${AppConstants.webUrl}/shop/$shopId?product=${state.productData?.uuid}/';
     // Simplified: in real app, call Firebase API as shown in original
-    shareLink = productLink; 
+    shareLink = productLink;
   }
 
   Future shareProduct() async {

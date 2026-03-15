@@ -15,7 +15,3 @@ class SearchShopModel {
     return map;
   }
 }
-
-
-
-

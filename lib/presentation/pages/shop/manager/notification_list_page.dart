@@ -259,7 +259,3 @@ class _NotificationListPageState extends ConsumerState<NotificationListPage> {
     );
   }
 }
-
-
-
-

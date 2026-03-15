@@ -77,7 +77,3 @@ class SearchResultText extends StatelessWidget {
     );
   }
 }
-
-
-
-

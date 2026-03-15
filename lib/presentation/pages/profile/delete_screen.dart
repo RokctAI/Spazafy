@@ -88,7 +88,3 @@ class DeleteScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-

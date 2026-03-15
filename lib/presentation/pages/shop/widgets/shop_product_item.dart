@@ -187,8 +187,3 @@ class ShopProductItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

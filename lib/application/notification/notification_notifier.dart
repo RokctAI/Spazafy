@@ -131,7 +131,3 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     );
   }
 }
-
-
-
-

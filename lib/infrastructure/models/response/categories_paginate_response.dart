@@ -44,6 +44,3 @@ class CategoriesPaginateResponse {
     return map;
   }
 }
-
-
-

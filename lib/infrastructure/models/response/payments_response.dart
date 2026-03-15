@@ -29,6 +29,3 @@ class PaymentsResponse {
     return map;
   }
 }
-
-
-

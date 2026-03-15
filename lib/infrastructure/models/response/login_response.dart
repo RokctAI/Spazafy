@@ -102,6 +102,3 @@ class UserData {
     return map;
   }
 }
-
-
-

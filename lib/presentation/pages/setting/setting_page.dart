@@ -138,8 +138,3 @@ class _SettingPageState extends ConsumerState<SettingPage>
     );
   }
 }
-
-
-
-
-

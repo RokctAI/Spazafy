@@ -39,6 +39,8 @@ class SubscriptionResponse {
         "timestamp": timestamp?.toIso8601String(),
         "status": status,
         "message": message,
-        "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
+        "data": data == null
+            ? []
+            : List<dynamic>.from(data!.map((x) => x.toJson())),
       };
 }

@@ -443,8 +443,3 @@ class _ShopOrderState extends ConsumerState<CartOrderPage> {
     );
   }
 }
-
-
-
-
-

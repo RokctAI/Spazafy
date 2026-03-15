@@ -14,7 +14,3 @@ abstract class CanceledOrderState with _$CanceledOrderState {
 
   const CanceledOrderState._();
 }
-
-
-
-

@@ -61,6 +61,3 @@ class SearchProductShimmer extends StatelessWidget {
     );
   }
 }
-
-
-

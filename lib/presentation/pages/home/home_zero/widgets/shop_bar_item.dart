@@ -107,8 +107,3 @@ class ShopBarItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

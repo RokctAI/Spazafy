@@ -30,7 +30,3 @@ class NoOrders extends StatelessWidget {
     );
   }
 }
-
-
-
-

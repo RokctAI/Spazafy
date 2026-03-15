@@ -25,6 +25,3 @@ class TimeNotifier extends StateNotifier<TimeState> {
     state = state.copyWith(currentIndexTwo: index);
   }
 }
-
-
-
