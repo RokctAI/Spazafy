@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/infrastructure/repositories/manager/offline/offline_products_repository.dart';
+import 'package:venderfoodyman/infrastructure/repositories/offline/offline_products_repository.dart';
 import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'billing_state.dart';
