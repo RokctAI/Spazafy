@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 // ─── Customer/Shared Pages ──────────────────────────────────────────────────
 import 'package:venderfoodyman/presentation/pages/home/filter/result_filter.dart';
 import 'package:venderfoodyman/presentation/pages/home/home_two/widget/recommended_two_screen.dart';
-import 'package:venderfoodyman/presentation/pages/auth/customer/login/login_page.dart';
-import 'package:venderfoodyman/presentation/pages/auth/customer/confirmation/register_confirmation_page.dart';
-import 'package:venderfoodyman/presentation/pages/auth/customer/register/register_page.dart';
-import 'package:venderfoodyman/presentation/pages/auth/customer/reset/reset_password_page.dart';
+import 'package:venderfoodyman/presentation/pages/auth/login/login_page.dart';
+import 'package:venderfoodyman/presentation/pages/auth/confirmation/register_confirmation_page.dart';
+import 'package:venderfoodyman/presentation/pages/auth/register/register_page.dart';
+import 'package:venderfoodyman/presentation/pages/auth/reset/reset_password_page.dart';
 import 'package:venderfoodyman/presentation/pages/home/home_one/widget/recommended_one_screen.dart';
 import 'package:venderfoodyman/presentation/pages/home/home_three/widgets/recommended_three_screen.dart';
 import 'package:venderfoodyman/presentation/pages/initial/no_connection/no_connection_page.dart';
@@ -55,7 +55,6 @@ import '../../presentation/pages/loans/widgets/loan_eligibility_screen.dart';
 import '../../presentation/pages/loans/loan_screen.dart';
 
 // Note: Ensure PinPageType and other enums are imported if needed
-import 'package:venderfoodyman/presentation/pages/auth/manager/pin/pin_page.dart';
 
 part 'app_router.gr.dart';
 

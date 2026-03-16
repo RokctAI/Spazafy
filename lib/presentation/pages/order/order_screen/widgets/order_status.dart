@@ -3,7 +3,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/enums.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 import 'order_status_item.dart';
@@ -115,7 +115,7 @@ class OrderStatusScreen extends StatelessWidget {
                       duration: const Duration(milliseconds: 500),
                       height: 6.h,
                       width: 12.w,
-                      decoration: const BoxDecoration(color: AppStyle.primary),
+                      decoration: BoxDecoration(color: AppStyle.primary),
                     ),
                     OrderStatusItem(
                       icon: Icon(
@@ -131,7 +131,7 @@ class OrderStatusScreen extends StatelessWidget {
                       duration: const Duration(milliseconds: 500),
                       height: 6.h,
                       width: 12.w,
-                      decoration: const BoxDecoration(color: AppStyle.primary),
+                      decoration: BoxDecoration(color: AppStyle.primary),
                     ),
                     OrderStatusItem(
                       icon: parcel
@@ -148,7 +148,7 @@ class OrderStatusScreen extends StatelessWidget {
                       duration: const Duration(milliseconds: 500),
                       height: 6.h,
                       width: 12.w,
-                      decoration: const BoxDecoration(color: AppStyle.primary),
+                      decoration: BoxDecoration(color: AppStyle.primary),
                     ),
                     OrderStatusItem(
                       icon: Icon(Icons.flag, size: 16.r),
