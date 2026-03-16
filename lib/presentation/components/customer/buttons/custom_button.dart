@@ -9,9 +9,9 @@ class CustomButton extends StatelessWidget {
   final String title;
   final bool isLoading;
   final Function()? onPressed;
-  final Color background;
-  final Color borderColor;
-  final Color textColor;
+  final Color? background;
+  final Color? borderColor;
+  final Color? textColor;
   final double weight;
   final double radius;
 
@@ -20,12 +20,12 @@ class CustomButton extends StatelessWidget {
     required this.title,
     required this.onPressed,
     this.isLoading = false,
-    this.background = AppStyle.primary,
-    this.textColor = AppStyle.black,
+    this.background,
+    this.textColor,
     this.weight = double.infinity,
     this.radius = 8,
     this.icon,
-    this.borderColor = AppStyle.transparent,
+    this.borderColor,
   });
 
   @override

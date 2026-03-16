@@ -6,8 +6,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.1.0+1
 
 environment:
-  sdk: '>=3.10.0 <4.0.0'
-  flutter: '>=3.38.5'
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.24.0'
 
 dependencies:
   flutter:
@@ -61,11 +61,11 @@ dependencies:
   confetti: ^0.7.0
   flutter_html: ^3.0.0-beta.2
   visibility_detector: ^0.4.0+2
-  share_plus: ^10.1.4
-  cloud_firestore: ^5.6.2
-  flutter_rating_bar: ^4.0.1
-  app_tracking_transparency: ^2.0.4
-  flutter_facebook_auth: ^6.1.0
+  share_plus: any
+  cloud_firestore: any
+  flutter_rating_bar: any
+  app_tracking_transparency: any
+  flutter_facebook_auth: any
   remixicon: ^1.0.1
 
   #media:
@@ -99,6 +99,10 @@ dependencies:
       ref: main
 
 
+  payfast:
+    git:
+      url: https://github.com/RendaniSinyage/payfast_flutter.git
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -109,10 +113,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.4
   drift_dev: ^2.20.0
 
-  payfast:
-    git:
-      url: https://github.com/RendaniSinyage/payfast_flutter.git
-      # Use the main branch if ref is omitted, or specify one if needed.
+
 
 flutter_native_splash:
   background_image: 'assets/image/splash.png'

@@ -12,7 +12,7 @@ import 'package:venderfoodyman/infrastructure/models/data/translation.dart';
 import 'package:venderfoodyman/infrastructure/models/data/cashback_model.dart';
 import 'package:venderfoodyman/infrastructure/models/response/coupon_response.dart';
 import 'package:venderfoodyman/infrastructure/models/response/order_paginate_response.dart';
-import 'package:venderfoodyman/infrastructure/services/enums.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 
 class MockOrdersRepository implements OrdersFacade {
   final OrderActiveModel _demoOrder = OrderActiveModel(
