@@ -25,7 +25,9 @@ class OrderStatusItem extends StatelessWidget {
       duration: const Duration(milliseconds: 500),
       padding: EdgeInsets.all(4.r),
       decoration: BoxDecoration(
-        color: isActive ? (bgColor == Colors.transparent ? AppStyle.primary : bgColor) : AppStyle.white,
+        color: isActive
+            ? (bgColor == Colors.transparent ? AppStyle.primary : bgColor)
+            : AppStyle.white,
         shape: BoxShape.circle,
       ),
       child: Stack(
