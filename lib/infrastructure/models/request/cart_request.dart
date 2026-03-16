@@ -1,4 +1,4 @@
-import '../../services/local_storage.dart';
+import '../../services/utils/local_storage.dart';
 
 class CartRequest {
   final String? shopId;

@@ -28,7 +28,7 @@ import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:venderfoodyman/application/map/view_map_notifier.dart';
 import 'package:venderfoodyman/application/map/view_map_provider.dart';
-import 'package:venderfoodyman/application/poidata/poi_data_provider.dart';
+import 'package:venderfoodyman/application/map/poidata/poi_data_provider.dart';
 import 'package:venderfoodyman/infrastructure/models/data/poi_data.dart';
 import 'package:lottie/lottie.dart' as lottie;
 

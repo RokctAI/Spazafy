@@ -16,7 +16,7 @@ import '../../components/buttons/custom_button.dart';
 import '../../components/keyboard_dismisser.dart';
 import '../../components/title_icon.dart';
 import '../../theme/theme.dart';
-import '../chat/chat/chat_page.dart';
+import '../chat/chat_page.dart';
 import 'widgets/loan_contract_screen.dart';
 import 'widgets/loan_eligibility_screen.dart';
 import 'provider/loans_provider.dart';
