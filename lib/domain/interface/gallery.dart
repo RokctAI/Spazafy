@@ -1,6 +1,6 @@
 import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/enums.dart';
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
+import 'package:venderfoodyman/domain/handlers/api_result.dart';
 
 abstract class GalleryFacade {
   Future<ApiResult<GalleryUploadResponse>> uploadImage(

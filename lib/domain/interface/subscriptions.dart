@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/domain/handlers/manager/api_result.dart';
+import 'package:venderfoodyman/domain/handlers/api_result.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 abstract class SubscriptionsFacade {

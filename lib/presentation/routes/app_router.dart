@@ -67,7 +67,6 @@ class AppRouter extends RootStackRouter {
     MaterialRoute(path: '/', page: SplashRoute.page),
     MaterialRoute(path: '/no-connection', page: NoConnectionRoute.page),
     MaterialRoute(path: '/login', page: LoginRoute.page),
-    MaterialRoute(path: '/auth', page: AuthRoute.page), // From Manager
     MaterialRoute(path: '/main', page: MainRoute.page),
     MaterialRoute(path: '/intro', page: IntroRoute.page),
     MaterialRoute(path: '/closed', page: ClosedRoute.page),
@@ -139,13 +138,7 @@ class AppRouter extends RootStackRouter {
     MaterialRoute(path: '/subscription', page: SubscriptionsRoute.page),
     CupertinoRoute(path: '/pos', page: PosRoute.page),
     CupertinoRoute(path: '/pos-checkout', page: PosCheckoutRoute.page),
-    CupertinoRoute(path: '/pin-login', page: PinRoute.page, initial: false),
-    CupertinoRoute(
-      path: '/pin-lock',
-      page: PinRoute.page,
-      initial: false,
-      args: PinRouteArgs(type: PinPageType.lock),
-    ),
+
 
     // ─── Driver Routes ───────────────────────────────────────────────────
     CupertinoRoute(path: '/driver-home', page: HomeRoute.page),

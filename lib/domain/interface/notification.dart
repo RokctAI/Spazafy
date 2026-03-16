@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/domain/handlers/customer/api_result.dart';
+import 'package:venderfoodyman/domain/handlers/api_result.dart';
 import 'package:venderfoodyman/infrastructure/models/data/count_of_notifications_data.dart';
 import 'package:venderfoodyman/infrastructure/models/response/notification_response.dart';
 

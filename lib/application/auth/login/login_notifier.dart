@@ -236,7 +236,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
             } else {
               AppHelpers.goHome(context);
             }
-          } else if (user?.role == 'seller') {
+          } else if (user?.role == 'seller' || user?.role == 'manager') {
             seller?.call() ?? AppHelpers.goHome(context);
           } else if (user?.role == 'admin') {
             admin?.call() ?? accessDenied?.call() ?? AppHelpers.goHome(context);
