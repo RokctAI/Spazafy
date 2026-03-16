@@ -14,7 +14,7 @@ import 'package:venderfoodyman/application/order/order_notifier.dart';
 import 'package:venderfoodyman/application/order/order_provider.dart';
 import 'package:venderfoodyman/application/order/order_state.dart';
 import 'package:venderfoodyman/application/shop_order/shop_order_state.dart';
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';

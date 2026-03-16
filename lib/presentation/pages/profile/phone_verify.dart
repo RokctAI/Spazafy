@@ -14,7 +14,7 @@ import 'package:venderfoodyman/presentation/components/customer/keyboard_dismiss
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
 import 'package:venderfoodyman/presentation/pages/auth/customer/confirmation/register_confirmation_page.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/application/auth/auth.dart';
 
 class PhoneVerify extends ConsumerWidget {

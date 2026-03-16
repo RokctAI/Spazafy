@@ -8,6 +8,7 @@ import 'package:venderfoodyman/presentation/components/customer/badges.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/components/customer/market_item.dart';
 
 class RecommendedItem extends StatelessWidget {
   final ShopData shop;

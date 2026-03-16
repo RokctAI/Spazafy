@@ -10,15 +10,15 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/pages/auth/customer/register/register_page.dart';
+import 'package:venderfoodyman/presentation/pages/auth/register/register_page.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import '../../../../application/auth/login/login_provider.dart';
-import '../../profile/language_page.dart';
+import 'package:venderfoodyman/presentation/pages/profile/language_page.dart';
 import 'login_screen.dart';
 
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/second_button.dart';
-import 'package:venderfoodyman/presentation/pages/intro/intro_page.dart';
+import 'package:venderfoodyman/presentation/pages/intro/customer/intro_page.dart';
 import 'package:venderfoodyman/presentation/pages/policy_term/policy_page.dart';
 import 'package:venderfoodyman/presentation/pages/policy_term/term_page.dart';
 

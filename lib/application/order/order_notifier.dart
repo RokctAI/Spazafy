@@ -22,7 +22,7 @@ import 'package:venderfoodyman/domain/interface/cart.dart';
 import 'package:venderfoodyman/domain/interface/draw.dart';
 import 'package:venderfoodyman/infrastructure/models/data/addons_data.dart';
 import 'package:venderfoodyman/infrastructure/models/data/order_active_model.dart';
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/marker_image_cropper.dart';

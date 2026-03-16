@@ -16,7 +16,7 @@ import 'package:venderfoodyman/presentation/components/customer/buttons/custom_b
 import 'package:venderfoodyman/presentation/components/customer/buttons/social_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:venderfoodyman/application/auth/auth.dart';
 import '../confirmation/register_confirmation_page.dart';

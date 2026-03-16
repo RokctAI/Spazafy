@@ -13,11 +13,11 @@ import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/app_bars/app_bar_bottom_sheet.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
-import 'package:venderfoodyman/presentation/pages/auth/customer/reset/set_password_page.dart';
+import 'package:venderfoodyman/presentation/pages/auth/reset/set_password_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import 'package:venderfoodyman/application/auth/auth.dart';
-import '../register/register_page.dart';
+import 'package:venderfoodyman/presentation/pages/auth/register/register_page.dart';
 
 @RoutePage()
 class RegisterConfirmationPage extends ConsumerStatefulWidget {

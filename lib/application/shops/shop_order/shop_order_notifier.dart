@@ -7,7 +7,7 @@ import 'package:venderfoodyman/domain/interface/cart.dart';
 import 'package:venderfoodyman/infrastructure/models/data/addons_data.dart';
 import 'package:venderfoodyman/infrastructure/models/data/cart_data.dart';
 import 'package:venderfoodyman/infrastructure/models/request/cart_request.dart';
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';

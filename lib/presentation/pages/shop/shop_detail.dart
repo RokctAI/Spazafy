@@ -12,7 +12,7 @@ import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/pages/order/order_type/widgets/order_map.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
 

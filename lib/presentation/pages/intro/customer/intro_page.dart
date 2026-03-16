@@ -288,7 +288,7 @@ class _IntroPageState extends ConsumerState<IntroPage>
                               borderRadius: BorderRadius.circular(122),
                               child: LinearProgressIndicator(
                                 value: controller.value,
-                                valueColor: const AlwaysStoppedAnimation<Color>(
+                                valueColor: AlwaysStoppedAnimation<Color>(
                                   AppStyle.primary,
                                 ),
                                 backgroundColor: AppStyle.white,
@@ -297,7 +297,7 @@ class _IntroPageState extends ConsumerState<IntroPage>
                           : state.currentIndex > index
                           ? ClipRRect(
                               borderRadius: BorderRadius.circular(122),
-                              child: const LinearProgressIndicator(
+                              child: LinearProgressIndicator(
                                 value: 1,
                                 valueColor: AlwaysStoppedAnimation<Color>(
                                   AppStyle.primary,

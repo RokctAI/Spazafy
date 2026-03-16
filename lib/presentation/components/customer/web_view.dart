@@ -14,7 +14,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 import '../../application/webview/preloaded_webview_provider.dart';

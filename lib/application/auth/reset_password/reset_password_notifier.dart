@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:venderfoodyman/domain/interface/auth.dart';
 import 'package:venderfoodyman/domain/interface/user.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_validators.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';

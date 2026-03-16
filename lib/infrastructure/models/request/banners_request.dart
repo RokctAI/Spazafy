@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 
 class BannersRequest {

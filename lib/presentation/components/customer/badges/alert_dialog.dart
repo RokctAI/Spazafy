@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import '../../../package:venderfoodyman/presentation/theme/customer/theme.dart'; // Import your theme file
+import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 class ComingSoonDialog extends StatelessWidget {
   const ComingSoonDialog({super.key});

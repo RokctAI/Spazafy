@@ -235,7 +235,7 @@ class _ClosedPageState extends ConsumerState<ClosedPage>
                           : state.currentIndex > index
                           ? ClipRRect(
                               borderRadius: BorderRadius.circular(122),
-                              child: const LinearProgressIndicator(
+                              child: LinearProgressIndicator(
                                 value: 1,
                                 valueColor: AlwaysStoppedAnimation<Color>(
                                   AppStyle.primary,
