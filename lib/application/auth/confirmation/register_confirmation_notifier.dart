@@ -12,7 +12,7 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.da
 import 'package:venderfoodyman/customer/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/domain/interface/user.dart';
 import '../../main/main_provider.dart';
 import 'register_confirmation_state.dart';

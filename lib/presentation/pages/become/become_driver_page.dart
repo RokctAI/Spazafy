@@ -11,7 +11,7 @@ import 'package:venderfoodyman/application/profile/profile_provider.dart';
 import 'package:venderfoodyman/application/profile/profile_edit_notifier.dart';
 import 'package:venderfoodyman/application/profile/profile_image_notifier.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';

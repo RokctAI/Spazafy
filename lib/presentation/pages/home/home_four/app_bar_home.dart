@@ -7,7 +7,7 @@ import 'package:venderfoodyman/application/home/home_notifier.dart';
 import 'package:venderfoodyman/application/home/home_state.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_assets.dart';
 import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar2.dart';
 import 'package:venderfoodyman/presentation/components/customer/sellect_address_screen.dart';

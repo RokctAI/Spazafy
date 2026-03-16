@@ -9,7 +9,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/application/home/home_provider.dart';
 import 'package:venderfoodyman/infrastructure/models/data/story_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/presentation/components/customer/shop_avarat.dart';
@@ -204,7 +204,7 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
                                     child: LinearProgressIndicator(
                                       value: controller.value,
                                       valueColor:
-                                          const AlwaysStoppedAnimation<Color>(
+                                          AlwaysStoppedAnimation<Color>(
                                             AppStyle.primary,
                                           ),
                                       backgroundColor: AppStyle.white,
@@ -312,7 +312,7 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(122.r),
                                     ),
-                                    child: const LinearProgressIndicator(
+                                    child: LinearProgressIndicator(
                                       value: 1,
                                       valueColor: AlwaysStoppedAnimation<Color>(
                                         AppStyle.primary,

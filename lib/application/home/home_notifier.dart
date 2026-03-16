@@ -25,7 +25,7 @@ import 'package:venderfoodyman/infrastructure/models/data/filter_model.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/marker_image_cropper.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_database.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';

@@ -5,7 +5,7 @@ import 'package:venderfoodyman/application/order/order_provider.dart';
 import 'package:venderfoodyman/application/promo_code/promo_code_state.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';

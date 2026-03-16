@@ -4,7 +4,7 @@ import 'package:venderfoodyman/infrastructure/models/models.dart';
 
 import 'package:intl/intl.dart' as intl;
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/pages/driver/parcel/parcel_order.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 

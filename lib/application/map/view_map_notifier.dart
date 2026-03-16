@@ -8,7 +8,7 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.da
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/domain/interface/shops.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 // Note: Relative import for local components if needed
 import 'view_map_state.dart';
 

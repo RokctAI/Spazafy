@@ -10,7 +10,7 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.da
 import 'package:venderfoodyman/customer/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_validators.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 
 import 'reset_password_state.dart';

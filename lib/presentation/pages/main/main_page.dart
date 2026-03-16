@@ -39,7 +39,7 @@ import 'package:venderfoodyman/infrastructure/models/data/profile_data.dart';
 import 'package:venderfoodyman/infrastructure/models/data/remote_message_data.dart';
 import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart'
     as manager_services;

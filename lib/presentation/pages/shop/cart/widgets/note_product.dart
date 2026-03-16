@@ -5,7 +5,7 @@ import 'package:venderfoodyman/presentation/components/customer/buttons/custom_b
 import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
 
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 
 class NoteProduct extends StatefulWidget {
   final String? comment;

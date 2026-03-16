@@ -6,7 +6,7 @@ import 'package:venderfoodyman/application/payment_methods/payment_provider.dart
 import 'package:venderfoodyman/application/payment_methods/payment_state.dart';
 import 'package:venderfoodyman/infrastructure/models/data/payment_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/presentation/components/customer/select_item.dart';

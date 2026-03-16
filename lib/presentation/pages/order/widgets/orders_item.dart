@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/data/order_active_model.dart';
 import 'package:venderfoodyman/infrastructure/models/data/refund_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
 //import 'package:venderfoodyman/presentation/components/customer/shop_avarat.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';

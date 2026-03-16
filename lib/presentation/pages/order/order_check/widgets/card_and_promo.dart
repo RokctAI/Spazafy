@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/order/order_provider.dart';
 import 'package:venderfoodyman/application/payment_methods/payment_provider.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/pages/order/order_check/widgets/promo_code.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 

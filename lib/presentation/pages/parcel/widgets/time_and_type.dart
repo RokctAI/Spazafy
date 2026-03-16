@@ -11,7 +11,7 @@ import 'package:venderfoodyman/presentation/components/customer/custom_toggle.da
 import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 
 class TypeAndTime extends StatelessWidget {

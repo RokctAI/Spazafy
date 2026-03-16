@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/profile/profile_provider.dart';
 //import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-//import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+//import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
 import 'package:venderfoodyman/presentation/components/customer/loading.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';

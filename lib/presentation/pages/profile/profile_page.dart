@@ -17,7 +17,7 @@ import 'package:venderfoodyman/application/profile/profile_provider.dart';
 import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
 import 'package:venderfoodyman/presentation/components/customer/badges/alert_dialog.dart';
 import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
