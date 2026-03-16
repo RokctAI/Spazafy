@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/main/orders/cooking/cooking_orders_provider.dart';
 import 'package:venderfoodyman/presentation/pages/main/orders/widgets/cooking_orders_body.dart';
 
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'widgets/new_orders_body.dart';
 import 'widgets/ready_orders_body.dart';
 import 'widgets/accepted_orders_body.dart';

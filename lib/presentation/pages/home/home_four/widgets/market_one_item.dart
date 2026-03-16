@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
-import 'package:venderfoodyman/presentation/components/customer/badge_item.dart';
-import 'package:venderfoodyman/presentation/components/customer/bonus_discount_popular.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/components/customer/shop_avarat.dart';
+import 'package:venderfoodyman/presentation/components/badge_item.dart';
+import 'package:venderfoodyman/presentation/components/bonus_discount_popular.dart';
+import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/components/shop_avarat.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 
 import '../../../../theme/theme.dart';

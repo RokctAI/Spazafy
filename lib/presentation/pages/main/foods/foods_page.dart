@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'foods/foods_body.dart';
 import 'extras/extras_body.dart';
 import 'addons/addons_body.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import '../../../component/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';

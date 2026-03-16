@@ -44,11 +44,11 @@ import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart'
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart'
     as manager_services;
 
-import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/components/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/components/keyboard_dismisser.dart';
 import 'package:venderfoodyman/presentation/components/blur_wrap.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 import 'package:venderfoodyman/presentation/pages/home/home_zero/home_page_zero.dart';
 import 'package:venderfoodyman/presentation/pages/home/home_four/home_page_four.dart';

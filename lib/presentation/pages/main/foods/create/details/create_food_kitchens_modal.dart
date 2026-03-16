@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/foods/create/details/kitchens/create_food_kitchens_provider.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/components/customer/components.dart';
+import 'package:venderfoodyman/presentation/components/components.dart';
 
 class CreateFoodKitchensModal extends ConsumerStatefulWidget {
   const CreateFoodKitchensModal({super.key});

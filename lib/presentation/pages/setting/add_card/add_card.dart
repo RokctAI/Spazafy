@@ -8,11 +8,11 @@
 // import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 // import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 // import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-// import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-// import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
-// import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
-// import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
-// import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+// import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+// import 'package:venderfoodyman/presentation/components/keyboard_dismisser.dart';
+// import 'package:venderfoodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
+// import 'package:venderfoodyman/presentation/components/title_icon.dart';
+// import 'package:venderfoodyman/presentation/theme/theme.dart';
 // import 'widgets/add_card.dart';
 // import 'widgets/card_clear_dialog.dart';
 //

@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:venderfoodyman/application/profile/provider/profile_settings_provider.dart';
 
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'widgets/stores.dart';
 
 class BottomSheetScreen extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class LoanIneligibilityDialog extends ConsumerWidget {
   final Map<String, dynamic> eligibilityData;

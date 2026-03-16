@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'stocks/create_food_stocks_body.dart';
 import '../../../../component/components.dart';
 import 'details/create_food_details_body.dart';

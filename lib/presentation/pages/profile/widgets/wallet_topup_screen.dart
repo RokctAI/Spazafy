@@ -6,9 +6,9 @@ import 'package:venderfoodyman/infrastructure/models/data/saved_card.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
-import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/components/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/components/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'package:venderfoodyman/utils/payfast/payfast_webview.dart';
 
 import '../../cards/payment_card.dart';

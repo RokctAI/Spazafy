@@ -10,7 +10,7 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.da
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/marker_image_cropper.dart';
 import 'edit_profile_state.dart';

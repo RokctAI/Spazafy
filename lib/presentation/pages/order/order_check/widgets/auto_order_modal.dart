@@ -14,9 +14,9 @@ import 'package:venderfoodyman/application/save_card/saved_cards_provider.dart';
 import 'package:venderfoodyman/infrastructure/models/data/repeat_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
 
 class AutoOrderModal extends ConsumerStatefulWidget {
   final String orderId;

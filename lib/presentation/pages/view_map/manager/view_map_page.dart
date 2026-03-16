@@ -13,10 +13,10 @@ import 'package:venderfoodyman/application/map/view_map_state.dart';
 import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/theme/manager/app_assets.dart';
-import 'package:venderfoodyman/presentation/components/customer/components.dart';
+import 'package:venderfoodyman/presentation/theme/app_assets.dart';
+import 'package:venderfoodyman/presentation/components/components.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 @RoutePage()
 class ViewMapPage extends ConsumerStatefulWidget {

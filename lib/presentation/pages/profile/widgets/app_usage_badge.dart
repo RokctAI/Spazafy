@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 import '../../../../utils/app_usage_service.dart';
 

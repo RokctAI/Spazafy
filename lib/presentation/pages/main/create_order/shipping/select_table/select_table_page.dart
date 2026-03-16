@@ -7,7 +7,7 @@ import 'package:venderfoodyman/application/order/shipping/table/table_provider.d
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 import 'widgets/table_item.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import '../../../../../component/components.dart';
 
 @RoutePage()

@@ -9,7 +9,7 @@ import '../../../infrastructure/models/data/saved_card.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import '../../../utils/payfast/payfast_webview.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
 import '../../theme/theme.dart';
 import 'payment_card.dart';
 

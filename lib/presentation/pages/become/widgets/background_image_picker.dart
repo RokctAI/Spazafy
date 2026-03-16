@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:venderfoodyman/application/profile/profile_notifier.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class BackgroundImagePicker extends StatelessWidget {
   final String backgroundImage;

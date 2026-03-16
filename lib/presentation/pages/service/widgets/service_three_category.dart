@@ -5,11 +5,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:venderfoodyman/application/home/home_notifier.dart';
 import 'package:venderfoodyman/application/home/home_state.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/buttons/animation_button_effect.dart';
 import 'package:venderfoodyman/presentation/pages/home/filter/filter_page.dart';
 import 'package:venderfoodyman/presentation/pages/home/home_three/shimmer/category_shimmer.dart';
 import 'package:venderfoodyman/presentation/pages/home/home_three/widgets/category_bar_item_three.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class ServiceThreeCategory extends StatelessWidget {
   final HomeState state;

@@ -5,9 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:venderfoodyman/application/home/home_notifier.dart';
 import 'package:venderfoodyman/application/home/home_state.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/buttons/animation_button_effect.dart';
 import 'package:venderfoodyman/presentation/pages/home/filter/filter_page.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 import '../../home/home_one/widget/category_one_item.dart';
 

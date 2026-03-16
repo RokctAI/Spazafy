@@ -1,6 +1,6 @@
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter_remix/flutter_remix.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_assets.dart';
+import 'package:venderfoodyman/presentation/theme/app_assets.dart';
 
 import 'infrastructure/services/constants/enums.dart';
 

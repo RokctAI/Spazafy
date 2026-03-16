@@ -6,8 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:venderfoodyman/application/profile/profile_notifier.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class LogoAndNameSection extends StatelessWidget {
   final String logoImage;

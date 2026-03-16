@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/infrastructure/models/data/story_data.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/components/customer/shop_avarat.dart';
+import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/components/shop_avarat.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class ShopBarItem extends StatelessWidget {
   final RefreshController controller;

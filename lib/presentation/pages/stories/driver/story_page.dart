@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
-import 'package:venderfoodyman/presentation/components/customer/components.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/components.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 @RoutePage()
 class StoryPage extends ConsumerStatefulWidget {

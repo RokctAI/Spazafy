@@ -12,7 +12,7 @@ import 'package:venderfoodyman/presentation/components/manager/custom_app_bar.da
 import 'package:venderfoodyman/presentation/components/manager/helper/no_data_info.dart';
 import 'package:venderfoodyman/presentation/components/manager/loading/loading_grid.dart';
 import 'package:venderfoodyman/presentation/pages/restaurant/subscriptions/widgets/have_subscription.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'widgets/payment_dialog.dart';
 import 'widgets/subscriptions_item.dart';
 

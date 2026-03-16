@@ -5,10 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 import 'notification_page.dart';
 

@@ -1,4 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,10 +8,10 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/application/app/app_provider.dart';
 import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
-import '../../components/customer/custom_range_slider.dart';
-import '../../routes/app_router.dart';
+import '../components/custom_range_slider.dart';
+import '../routes/app_router.dart';
 
 class AppWidget extends ConsumerWidget {
   AppWidget({super.key});
@@ -25,6 +26,7 @@ class AppWidget extends ConsumerWidget {
       settingsRepository.getGlobalSettings();
       await settingsRepository.getLanguages();
       await settingsRepository.getMobileTranslations();
+      await settingsRepository.getTranslations();
     }
   }
 
@@ -34,19 +36,29 @@ class AppWidget extends ConsumerWidget {
     return FutureBuilder(
       future: Future.wait([
         FlutterDisplayMode.setHighRefreshRate(),
+        setUpDependencies(),
+        LocalStorage.init(),
         if (LocalStorage.getTranslations().isEmpty) fetchSetting(),
       ]),
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
         return ScreenUtilInit(
-          useInheritedMediaQuery: false,
+          useInheritedMediaQuery: true,
           designSize: const Size(375, 812),
           builder: (context, child) {
             return RefreshConfiguration(
-              footerBuilder: () =>
-                  const ClassicFooter(idleIcon: SizedBox(), idleText: ""),
+              footerBuilder: () => const ClassicFooter(
+                idleIcon: SizedBox.shrink(),
+                idleText: '',
+                noDataText: '',
+                noMoreIcon: null,
+                loadingText: '',
+                loadingIcon: CupertinoActivityIndicator(),
+                loadStyle: LoadStyle.ShowWhenLoading,
+              ),
               headerBuilder: () => const WaterDropMaterialHeader(
                 backgroundColor: AppStyle.white,
                 color: AppStyle.textGrey,
+                distance: 30,
               ),
               child: MaterialApp.router(
                 debugShowCheckedModeBanner: false,
@@ -63,11 +75,30 @@ class AppWidget extends ConsumerWidget {
                   ),
                 ),
                 themeMode: state.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+                builder: (context, child) => ScrollConfiguration(
+                  behavior: CustomBehavior(),
+                  child: child!,
+                ),
               ),
             );
           },
         );
       },
     );
+  }
+}
+
+class CustomBehavior extends ScrollBehavior {
+  @override
+  Widget buildChildLayout(
+    BuildContext context,
+    Widget child,
+  ) {
+    return child;
+  }
+
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) {
+    return const BouncingScrollPhysics();
   }
 }

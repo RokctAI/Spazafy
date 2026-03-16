@@ -10,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 import 'working_time_modal.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import '../../../component/components.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';

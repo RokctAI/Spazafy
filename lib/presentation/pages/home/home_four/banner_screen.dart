@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
 
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class BannerScreen extends StatelessWidget {
   final String image;

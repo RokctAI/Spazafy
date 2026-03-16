@@ -6,7 +6,7 @@ import 'package:venderfoodyman/infrastructure/models/data/refund_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/time_service.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class RefundInfoScreen extends StatelessWidget {
   final RefundModel? refundModel;

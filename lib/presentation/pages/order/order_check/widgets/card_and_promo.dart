@@ -7,7 +7,7 @@ import 'package:venderfoodyman/application/payment_methods/payment_provider.dart
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/pages/order/order_check/widgets/promo_code.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 import 'payment_method.dart';
 import 'order_payment_container.dart';

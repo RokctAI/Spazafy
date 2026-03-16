@@ -14,16 +14,16 @@ import 'package:venderfoodyman/application/profile/state/profile_image_state.dar
 import 'package:venderfoodyman/infrastructure/services/driver/img_service.dart';
 
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/components/customer/components.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/components.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/presentation/components/customer/keyboard_dismisser.dart';
-import 'package:venderfoodyman/presentation/components/customer/text_fields/underline_bordered_text_field.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/common_image.dart';
+import 'package:venderfoodyman/presentation/components/keyboard_dismisser.dart';
+import 'package:venderfoodyman/presentation/components/text_fields/underline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/common_image.dart';
 
 class EditCar extends ConsumerStatefulWidget {
   const EditCar({super.key});

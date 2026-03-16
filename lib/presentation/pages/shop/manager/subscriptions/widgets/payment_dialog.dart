@@ -6,8 +6,8 @@ import 'package:venderfoodyman/application/subscriptions/subscriptions_provider.
 import 'package:venderfoodyman/infrastructure/services/manager/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/manager/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class PaymentDialog extends ConsumerWidget {
   const PaymentDialog({super.key});

@@ -4,11 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'title_icon.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'helper/modal_drag.dart';
 import 'helper/modal_wrap.dart';
 import 'custom_date_picker.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
 import 'tab_bars/custom_tab_bar.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 

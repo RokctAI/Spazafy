@@ -8,14 +8,14 @@ import 'package:venderfoodyman/application/parcels_list/parcel_list_provider.dar
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_tab_bar.dart';
-import 'package:venderfoodyman/presentation/components/customer/loading.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/custom_tab_bar.dart';
+import 'package:venderfoodyman/presentation/components/loading.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 import 'parcel_item.dart';
-import 'package:venderfoodyman/presentation/components/customer/badges/empty_badge.dart';
+import 'package:venderfoodyman/presentation/components/badges/empty_badge.dart';
 
 @RoutePage()
 class ParcelListPage extends ConsumerStatefulWidget {

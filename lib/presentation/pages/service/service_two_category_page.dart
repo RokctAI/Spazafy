@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:venderfoodyman/application/home/home_provider.dart';
-import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 import 'filter_category_service.dart';
 

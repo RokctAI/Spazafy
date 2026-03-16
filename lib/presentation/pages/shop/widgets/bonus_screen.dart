@@ -5,9 +5,9 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class BonusScreen extends StatelessWidget {
   final BonusModel? bonus;

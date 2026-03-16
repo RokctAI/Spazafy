@@ -14,18 +14,18 @@ import 'package:venderfoodyman/infrastructure/models/data/review_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/components/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/components/title_icon.dart';
 import 'package:venderfoodyman/presentation/pages/product/widgets/w_ingredient.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'package:venderfoodyman/application/shop/shop_state.dart';
 import '../shop/widgets/bonus_screen.dart';
 import 'widgets/images_list_one.dart';
 import 'widgets/p_main_button.dart';
 import 'widgets/w_product_extras.dart';
-import 'package:venderfoodyman/presentation/components/customer/loading.dart';
+import 'package:venderfoodyman/presentation/components/loading.dart';
 
 class ProductScreen extends ConsumerStatefulWidget {
   final ProductData? data;

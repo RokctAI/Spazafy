@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/shop_avarat.dart';
+import 'package:venderfoodyman/presentation/components/shop_avarat.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class RestaurantItem extends StatelessWidget {
   final ShopData shop;

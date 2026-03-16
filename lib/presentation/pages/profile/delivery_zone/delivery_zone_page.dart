@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:venderfoodyman/application/delivery_zone/delivery_zone_provider.dart';
 
-import '../../../../theme/customer/app_style.dart';
-import '../../../../components/customer/buttons/pop_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import '../../../../theme/theme.dart';
+import '../../../../components/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../../infrastructure/services/customer/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';

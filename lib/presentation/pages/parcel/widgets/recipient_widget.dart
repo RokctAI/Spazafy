@@ -6,10 +6,10 @@ import 'package:venderfoodyman/application/parcel/parcel_notifier.dart';
 import 'package:venderfoodyman/application/parcel/parcel_state.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
-import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/components/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'custom_expanded.dart';

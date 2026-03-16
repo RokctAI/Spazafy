@@ -11,14 +11,14 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_validators.dart
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/time_service.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_checkbox.dart';
-import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/components/custom_checkbox.dart';
+import 'package:venderfoodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
 import 'package:venderfoodyman/presentation/pages/profile/phone_verify.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import '../../order_check/widgets/time_delivery.dart';
 import 'order_container.dart';
-import 'package:venderfoodyman/presentation/components/customer/sellect_address_screen.dart';
+import 'package:venderfoodyman/presentation/components/sellect_address_screen.dart';
 
 class OrderDelivery extends StatefulWidget {
   final ValueChanged<bool> onChange;

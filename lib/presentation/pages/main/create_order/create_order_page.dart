@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'details/food_details_modal.dart';
 import '../../../component/components.dart';
 import 'package:venderfoodyman/application/providers/manager/providers.dart';

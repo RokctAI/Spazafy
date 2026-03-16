@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 //import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/components/customer/badges.dart';
+import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/components/badges.dart';
 import 'package:venderfoodyman/presentation/pages/home/home_four/banner_screen.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class BannerItem extends StatelessWidget {
   final BannerData banner;

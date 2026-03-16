@@ -9,15 +9,15 @@ import 'package:venderfoodyman/application/like/like_notifier.dart';
 import 'package:venderfoodyman/application/like/like_provider.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/market_item.dart';
+import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/market_item.dart';
 import 'package:venderfoodyman/presentation/pages/home/shimmer/all_shop_shimmer.dart';
 import '../home/home_four/widgets/market_one_item.dart';
 import '../home/home_four/widgets/market_three_item.dart';
 import '../home/home_four/widgets/market_two_item.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
-import 'package:venderfoodyman/presentation/components/customer/badges/empty_badge.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:venderfoodyman/presentation/components/badges/empty_badge.dart';
 
 import '../../../application/main/main_provider.dart';
 

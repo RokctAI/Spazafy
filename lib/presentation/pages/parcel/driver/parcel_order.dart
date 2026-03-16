@@ -13,10 +13,10 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/driver/marker_image_cropper.dart';
 import 'package:venderfoodyman/presentation/components/driver/maps_list.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
 
 class ParcelOrderPage extends StatelessWidget {
   final ParcelOrder? parcel;

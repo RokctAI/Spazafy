@@ -6,9 +6,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:venderfoodyman/application/order/order_provider.dart';
 import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/components/customer/select_item.dart';
-import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/select_item.dart';
+import 'package:venderfoodyman/presentation/components/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'order_container.dart';
 

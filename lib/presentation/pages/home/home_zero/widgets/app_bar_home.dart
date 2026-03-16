@@ -7,10 +7,10 @@ import 'package:venderfoodyman/application/home/home_state.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
-import 'package:venderfoodyman/presentation/components/customer/sellect_address_screen.dart';
+import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/sellect_address_screen.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class AppBarHome extends StatelessWidget {
   final HomeState state;

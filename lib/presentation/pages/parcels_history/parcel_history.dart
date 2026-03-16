@@ -8,9 +8,9 @@ import 'package:venderfoodyman/application/parcel/parcel_provider.dart';
 import 'package:venderfoodyman/presentation/pages/driver/parcel/parcel_item.dart';
 
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/components/customer/components.dart';
-import 'package:venderfoodyman/presentation/components/customer/loading.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/components.dart';
+import 'package:venderfoodyman/presentation/components/loading.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 @RoutePage()
 class ParcelHistoryPage extends ConsumerStatefulWidget {

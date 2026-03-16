@@ -9,10 +9,10 @@ import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/application/home/home_notifier.dart';
 import 'package:venderfoodyman/application/home/home_provider.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/market_item.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/market_item.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'recommended_item.dart';
 
 @RoutePage()

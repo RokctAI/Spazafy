@@ -1,7 +1,7 @@
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class MakeShimmer extends StatelessWidget {
   final Widget child;

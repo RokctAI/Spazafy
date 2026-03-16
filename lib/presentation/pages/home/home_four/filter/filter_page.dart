@@ -8,12 +8,12 @@ import 'package:venderfoodyman/infrastructure/models/data/take_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_toggle.dart';
-import 'package:venderfoodyman/presentation/components/customer/loading.dart';
-import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/custom_toggle.dart';
+import 'package:venderfoodyman/presentation/components/loading.dart';
+import 'package:venderfoodyman/presentation/components/title_icon.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 import 'package:venderfoodyman/application/filter/filter_provider.dart';
 import 'widgets/filter_item.dart';

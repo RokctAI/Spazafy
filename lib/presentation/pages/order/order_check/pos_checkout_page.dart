@@ -7,8 +7,8 @@ import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:venderfoodyman/application/billing/billing_provider.dart';
 import 'package:venderfoodyman/application/billing/billing_state.dart';
 import 'package:venderfoodyman/application/billing_printer/billing_printer_provider.dart';
-import 'package:venderfoodyman/presentation/components/customer/components.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/components.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 @RoutePage()

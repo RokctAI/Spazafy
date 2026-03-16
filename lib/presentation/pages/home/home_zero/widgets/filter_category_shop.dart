@@ -6,13 +6,13 @@ import 'package:venderfoodyman/application/home/home_notifier.dart';
 import 'package:venderfoodyman/application/home/home_state.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/animation_button_effect.dart';
-import 'package:venderfoodyman/presentation/components/customer/loading.dart';
-import 'package:venderfoodyman/presentation/components/customer/market_item.dart';
-import 'package:venderfoodyman/presentation/components/customer/tab_bar_item.dart';
-import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
+import 'package:venderfoodyman/presentation/components/buttons/animation_button_effect.dart';
+import 'package:venderfoodyman/presentation/components/loading.dart';
+import 'package:venderfoodyman/presentation/components/market_item.dart';
+import 'package:venderfoodyman/presentation/components/tab_bar_item.dart';
+import 'package:venderfoodyman/presentation/components/title_icon.dart';
 import '../filter/filter_page.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class FilterCategoryShop extends StatelessWidget {
   final HomeState state;

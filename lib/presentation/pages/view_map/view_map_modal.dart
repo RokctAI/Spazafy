@@ -12,10 +12,10 @@ import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
-import 'package:venderfoodyman/presentation/components/customer/text_fields/search_text_field.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/components/text_fields/search_text_field.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class ViewMapModal extends ConsumerStatefulWidget {
   final TextEditingController controller;

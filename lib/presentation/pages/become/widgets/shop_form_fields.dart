@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/text_fields/outline_bordered_text_field.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class ShopFormFields extends StatelessWidget {
   final TextEditingController descController;

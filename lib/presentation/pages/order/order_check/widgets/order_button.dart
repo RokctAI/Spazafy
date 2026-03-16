@@ -7,9 +7,9 @@ import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/pages/order/order_check/widgets/refund_screen.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 import 'package:venderfoodyman/application/order/order_provider.dart';
 

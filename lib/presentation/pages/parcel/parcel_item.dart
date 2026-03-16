@@ -8,7 +8,7 @@ import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/time_service.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class ParcelItem extends StatelessWidget {
   final ParcelOrder? parcel;

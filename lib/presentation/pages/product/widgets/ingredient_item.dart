@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/data/addons_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/vibration.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
-import 'package:venderfoodyman/presentation/components/customer/custom_checkbox.dart';
+import 'package:venderfoodyman/presentation/components/custom_checkbox.dart';
 
 class IngredientItem extends ConsumerWidget {
   final VoidCallback onTap;

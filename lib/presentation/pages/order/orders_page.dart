@@ -8,13 +8,13 @@ import 'package:venderfoodyman/application/orders_list/orders_list_provider.dart
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/pop_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_tab_bar.dart';
-import 'package:venderfoodyman/presentation/components/customer/loading.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar.dart';
+import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
+import 'package:venderfoodyman/presentation/components/custom_tab_bar.dart';
+import 'package:venderfoodyman/presentation/components/loading.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'widgets/orders_item.dart';
-import 'package:venderfoodyman/presentation/components/customer/badges.dart';
+import 'package:venderfoodyman/presentation/components/badges.dart';
 
 @RoutePage()
 class OrdersListPage extends ConsumerStatefulWidget {

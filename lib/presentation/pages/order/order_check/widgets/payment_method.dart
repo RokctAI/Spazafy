@@ -7,13 +7,13 @@ import 'package:venderfoodyman/application/payment_methods/payment_state.dart';
 import 'package:venderfoodyman/infrastructure/models/data/payment_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/components/customer/loading.dart';
-import 'package:venderfoodyman/presentation/components/customer/title_icon.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/loading.dart';
+import 'package:venderfoodyman/presentation/components/title_icon.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'package:venderfoodyman/application/payment_methods/payment_notifier.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/presentation/components/customer/select_item.dart';
+import 'package:venderfoodyman/presentation/components/select_item.dart';
 
 class PaymentMethods extends ConsumerStatefulWidget {
   final ValueChanged<PaymentData>? payLater;

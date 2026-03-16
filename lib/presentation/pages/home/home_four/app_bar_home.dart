@@ -9,10 +9,10 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_assets.dart';
-import 'package:venderfoodyman/presentation/components/customer/app_bars/common_app_bar2.dart';
-import 'package:venderfoodyman/presentation/components/customer/sellect_address_screen.dart';
+import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar2.dart';
+import 'package:venderfoodyman/presentation/components/sellect_address_screen.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'package:flutter/gestures.dart';
 import '../../../../app_constants.dart';
 

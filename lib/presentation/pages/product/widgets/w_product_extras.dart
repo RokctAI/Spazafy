@@ -5,10 +5,10 @@ import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 
 import 'package:venderfoodyman/application/product/product_provider.dart';
 import 'package:venderfoodyman/infrastructure/models/data/typed_extra.dart';
-import 'package:venderfoodyman/presentation/components/customer/extras/color_extras.dart';
-import 'package:venderfoodyman/presentation/components/customer/extras/image_extras.dart';
-import 'package:venderfoodyman/presentation/components/customer/extras/text_extras.dart';
-import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
+import 'package:venderfoodyman/presentation/components/extras/color_extras.dart';
+import 'package:venderfoodyman/presentation/components/extras/image_extras.dart';
+import 'package:venderfoodyman/presentation/components/extras/text_extras.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 
 class WProductExtras extends ConsumerWidget {
   const WProductExtras({super.key});

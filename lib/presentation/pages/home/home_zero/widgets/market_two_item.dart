@@ -5,11 +5,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/customer/badge_item.dart';
-import 'package:venderfoodyman/presentation/components/customer/custom_network_image.dart';
+import 'package:venderfoodyman/presentation/components/badge_item.dart';
+import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import 'two_bonus_discount.dart';
 
 class MarketTwoItem extends StatelessWidget {

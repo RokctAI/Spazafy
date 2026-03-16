@@ -7,7 +7,7 @@ import 'package:venderfoodyman/application/order/shipping/section/section_provid
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 import 'widgets/section_item.dart';
-import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
+import 'package:venderfoodyman/presentation/theme/theme.dart';
 import '../../../../../component/components.dart';
 
 @RoutePage()
