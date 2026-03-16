@@ -313,7 +313,7 @@ class _PayFastWebViewState extends State<PayFastWebView> {
           style: AppStyle.interNormal(),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppStyle.black),
+          icon: Icon(Icons.arrow_back, color: AppStyle.black),
           onPressed: () {
             // Confirm before closing the payment
             AppHelpers.showAlertDialog(
