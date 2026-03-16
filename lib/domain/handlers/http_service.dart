@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 
 import 'token_interceptor.dart';
 

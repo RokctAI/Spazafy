@@ -20,7 +20,7 @@ import 'package:venderfoodyman/domain/interface/gallery.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/enums.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 
 class GalleryRepository implements GalleryRepositoryFacade {
   @override

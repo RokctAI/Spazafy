@@ -462,7 +462,7 @@ class WelcomeText extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: 'login',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: AppStyle.primary,
                           decoration: TextDecoration.underline,
                         ),
@@ -474,7 +474,7 @@ class WelcomeText extends StatelessWidget {
                       const TextSpan(text: ' or '),
                       TextSpan(
                         text: 'signup',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: AppStyle.primary,
                           decoration: TextDecoration.underline,
                         ),

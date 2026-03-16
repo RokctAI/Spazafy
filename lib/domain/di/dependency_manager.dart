@@ -60,7 +60,7 @@ import 'package:venderfoodyman/infrastructure/repositories/mock/mock_repositorie
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
 
 // Services
-import 'package:venderfoodyman/customer/app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 
 final GetIt getIt = GetIt.instance;

@@ -33,7 +33,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.red,
                     ),
@@ -47,7 +47,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.primary,
                     ),
@@ -65,7 +65,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.red,
                     ),
@@ -79,7 +79,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.blueBonus,
                     ),
@@ -97,7 +97,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.red,
                     ),
@@ -111,7 +111,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.blueBonus,
                     ),
@@ -125,7 +125,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.primary,
                     ),
@@ -143,7 +143,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.primary,
                     ),
@@ -157,7 +157,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.blueBonus,
                     ),
@@ -292,7 +292,7 @@ class BonusDiscountPopular extends StatelessWidget {
             ? Container(
                 width: 22.w,
                 height: 22.h,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: AppStyle.red,
                 ),
@@ -306,7 +306,7 @@ class BonusDiscountPopular extends StatelessWidget {
             ? Container(
                 width: 22.w,
                 height: 22.h,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: AppStyle.primary,
                 ),
@@ -320,7 +320,7 @@ class BonusDiscountPopular extends StatelessWidget {
             ? Container(
                 width: 22.w,
                 height: 22.h,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: AppStyle.blueBonus,
                 ),
@@ -336,7 +336,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.red,
                     ),
@@ -350,7 +350,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.blueBonus,
                     ),
@@ -364,7 +364,7 @@ class BonusDiscountPopular extends StatelessWidget {
                   Container(
                     width: 22.w,
                     height: 22.h,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: AppStyle.primary,
                     ),

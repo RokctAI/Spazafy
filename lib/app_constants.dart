@@ -1,8 +1,8 @@
-import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_assets.dart';
 
-import 'infrastructure/services/enums.dart';
+import 'infrastructure/services/constants/enums.dart';
 
 abstract class AppConstants {
   AppConstants._();

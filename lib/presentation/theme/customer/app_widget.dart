@@ -4,12 +4,12 @@ import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:venderfoodyman/application/app_widget/app_provider.dart';
+import 'package:venderfoodyman/application/app/app_provider.dart';
 import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
-import 'components/custom_range_slider.dart';
+import '../../components/customer/custom_range_slider.dart';
 import '../../routes/app_router.dart';
 
 class AppWidget extends ConsumerWidget {
