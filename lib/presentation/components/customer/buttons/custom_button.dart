@@ -37,9 +37,7 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           side: BorderSide(
-            color: bColor == AppStyle.transparent
-                ? bgColor
-                : bColor,
+            color: bColor == AppStyle.transparent ? bgColor : bColor,
             width: 2.r,
           ),
           elevation: 0,
