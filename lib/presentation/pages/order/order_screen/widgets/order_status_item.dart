@@ -16,7 +16,7 @@ class OrderStatusItem extends StatelessWidget {
     required this.icon,
     required this.isActive,
     required this.isProgress,
-    this.bgColor = AppStyle.primary,
+    this.bgColor = Colors.transparent,
   });
 
   @override
@@ -25,7 +25,7 @@ class OrderStatusItem extends StatelessWidget {
       duration: const Duration(milliseconds: 500),
       padding: EdgeInsets.all(4.r),
       decoration: BoxDecoration(
-        color: isActive ? bgColor : AppStyle.white,
+        color: isActive ? (bgColor == Colors.transparent ? AppStyle.primary : bgColor) : AppStyle.white,
         shape: BoxShape.circle,
       ),
       child: Stack(
