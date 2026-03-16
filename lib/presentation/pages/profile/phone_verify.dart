@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/enums.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:venderfoodyman/infrastructure/models/data/user.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';

@@ -11,13 +11,13 @@ import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import '../../presentation/components/buttons/custom_button.dart';
-import '../../presentation/theme/app_style.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import '../../app_constants.dart';
+import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'app_connectivity.dart';
-import 'enums.dart';
+import '../constants/enums.dart';
 import 'tr_keys.dart';
 
 abstract class AppHelpers {

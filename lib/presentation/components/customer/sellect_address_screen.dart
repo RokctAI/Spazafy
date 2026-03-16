@@ -10,7 +10,7 @@ import 'package:venderfoodyman/infrastructure/models/data/address_old_data.dart'
 import 'package:venderfoodyman/infrastructure/models/data/location.dart';
 import 'package:venderfoodyman/customer/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/enums.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/tr_keys.dart';
 import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';

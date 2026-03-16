@@ -42,7 +42,7 @@ class EmptyBadge extends StatelessWidget {
                   ? [
                       TextSpan(
                         text: ' $linkText',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: AppStyle.primary,
                           decoration: TextDecoration.underline,
                         ),
