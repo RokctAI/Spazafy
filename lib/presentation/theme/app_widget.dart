@@ -90,10 +90,7 @@ class AppWidget extends ConsumerWidget {
 
 class CustomBehavior extends ScrollBehavior {
   @override
-  Widget buildChildLayout(
-    BuildContext context,
-    Widget child,
-  ) {
+  Widget buildChildLayout(BuildContext context, Widget child) {
     return child;
   }
 
