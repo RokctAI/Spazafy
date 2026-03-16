@@ -155,7 +155,7 @@ class _CustomStatusBarState extends State<CustomStatusBar> {
     }
 
     // Always use white text
-    const Color textColor = AppStyle.white;
+    Color textColor = AppStyle.white;
 
     // Add Directionality widget to fix the error
     return Directionality(
