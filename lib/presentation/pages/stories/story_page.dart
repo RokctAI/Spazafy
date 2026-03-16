@@ -214,7 +214,7 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(122.r),
                                     ),
-                                    child: const LinearProgressIndicator(
+                                    child: LinearProgressIndicator(
                                       value: 1,
                                       valueColor: AlwaysStoppedAnimation<Color>(
                                         AppStyle.primary,
@@ -299,10 +299,9 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
                                     ),
                                     child: LinearProgressIndicator(
                                       value: controller.value,
-                                      valueColor:
-                                          const AlwaysStoppedAnimation<Color>(
-                                            AppStyle.primary,
-                                          ),
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        AppStyle.primary,
+                                      ),
                                       backgroundColor: AppStyle.white,
                                     ),
                                   )

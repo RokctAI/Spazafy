@@ -30,13 +30,16 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bgColor = background ?? AppStyle.primary;
+    final bColor = borderColor ?? AppStyle.transparent;
+    final tColor = textColor ?? AppStyle.black;
     return AnimationButtonEffect(
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           side: BorderSide(
-            color: borderColor == AppStyle.transparent
-                ? background
-                : borderColor,
+            color: bColor == AppStyle.transparent
+                ? bgColor
+                : bColor,
             width: 2.r,
           ),
           elevation: 0,
@@ -45,7 +48,7 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(radius.r),
           ),
           minimumSize: Size(weight, 50.h),
-          backgroundColor: background,
+          backgroundColor: bgColor,
         ),
         onPressed: isLoading ? null : onPressed,
         child: isLoading
@@ -53,7 +56,7 @@ class CustomButton extends StatelessWidget {
                 width: 20.r,
                 height: 20.r,
                 child: CircularProgressIndicator(
-                  color: textColor,
+                  color: tColor,
                   strokeWidth: 2.r,
                 ),
               )
@@ -67,7 +70,7 @@ class CustomButton extends StatelessWidget {
                     title,
                     style: AppStyle.interNormal(
                       size: 15,
-                      color: textColor,
+                      color: tColor,
                       letterSpacing: -14 * 0.01,
                     ),
                   ),
