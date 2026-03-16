@@ -2,14 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 // ─── Customer/Shared Pages ──────────────────────────────────────────────────
-import 'package:venderfoodyman/presentation/pages/home/filter/result_filter.dart';
-import 'package:venderfoodyman/presentation/pages/home/home_two/widget/recommended_two_screen.dart';
+import 'package:venderfoodyman/presentation/pages/home/home_four/filter/result_filter.dart';
+import 'package:venderfoodyman/presentation/pages/home/home_four/widgets/recommended_screen.dart';
 import 'package:venderfoodyman/presentation/pages/auth/login/login_page.dart';
 import 'package:venderfoodyman/presentation/pages/auth/confirmation/register_confirmation_page.dart';
 import 'package:venderfoodyman/presentation/pages/auth/register/register_page.dart';
 import 'package:venderfoodyman/presentation/pages/auth/reset/reset_password_page.dart';
-import 'package:venderfoodyman/presentation/pages/home/home_one/widget/recommended_one_screen.dart';
-import 'package:venderfoodyman/presentation/pages/home/home_three/widgets/recommended_three_screen.dart';
 import 'package:venderfoodyman/presentation/pages/initial/no_connection/no_connection_page.dart';
 import 'package:venderfoodyman/presentation/pages/initial/splash/splash_page.dart';
 import 'package:venderfoodyman/presentation/pages/initial/ui_type/ui_type_page.dart';
@@ -30,7 +28,7 @@ import 'package:venderfoodyman/presentation/pages/shop/shop_page.dart';
 import 'package:venderfoodyman/presentation/pages/view_map/map_search_page.dart';
 import 'package:venderfoodyman/presentation/pages/view_map/view_map_page.dart';
 import 'package:venderfoodyman/presentation/pages/initial/closed/closed_page.dart';
-import 'package:venderfoodyman/presentation/pages/intro/intro_page.dart';
+import 'package:venderfoodyman/presentation/pages/intro/customer/intro_page.dart';
 import 'package:venderfoodyman/presentation/pages/order/orders_main.dart';
 
 // ─── Shared/Manager/Driver Pages ─────────────────────────────────────────────
@@ -43,7 +41,6 @@ import '../pages/home/widgets/shops_banner_page.dart';
 import '../pages/order/order_screen/order_progress_screen.dart';
 import '../pages/parcel/parcel_page.dart';
 import '../pages/profile/help_page.dart';
-import '../pages/home/widgets/recommended_screen.dart';
 import '../pages/profile/share_referral_page.dart';
 import '../pages/profile/wallet_history.dart';
 import '../pages/story_page/story_page.dart';
@@ -84,9 +81,6 @@ class AppRouter extends RootStackRouter {
     MaterialRoute(path: '/map', page: ViewMapRoute.page),
     MaterialRoute(path: "/story-list", page: StoryListRoute.page),
     MaterialRoute(path: '/recommended', page: RecommendedRoute.page),
-    MaterialRoute(path: '/recommended-one', page: RecommendedOneRoute.page),
-    MaterialRoute(path: '/recommended-two', page: RecommendedTwoRoute.page),
-    MaterialRoute(path: '/recommended-three', page: RecommendedThreeRoute.page),
     MaterialRoute(path: '/map-search', page: MapSearchRoute.page),
     MaterialRoute(path: '/help', page: HelpRoute.page),
     MaterialRoute(path: '/order-progress', page: OrderProgressRoute.page),

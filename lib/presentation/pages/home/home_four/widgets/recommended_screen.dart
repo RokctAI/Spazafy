@@ -16,6 +16,7 @@ import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'market_two_item.dart';
 import 'recommended_item.dart';
 
+@RoutePage()
 class RecommendedPage extends ConsumerStatefulWidget {
   final bool isNewsOfPage;
   final bool isShop;

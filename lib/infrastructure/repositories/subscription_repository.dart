@@ -4,7 +4,7 @@ import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/domain/interface/subscription_facade.dart';
+import 'package:venderfoodyman/domain/interface/subscriptions.dart';
 
 class SubscriptionsRepository implements SubscriptionsFacade {
   @override

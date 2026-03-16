@@ -34,3 +34,5 @@ abstract class CategoriesFacade {
   });
   Future<ApiResult> deleteCategory({required String? id});
 }
+
+abstract class CatalogInterface extends CategoriesFacade {}

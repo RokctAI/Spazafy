@@ -7,7 +7,7 @@ import 'package:venderfoodyman/infrastructure/models/response/all_products_respo
 import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/app_database.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_database.dart';
 
 class ProductsRepository implements ProductsFacade {
   // --- Common & Customer ---

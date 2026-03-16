@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:venderfoodyman/domain/di/dependency_manager.dart';
 import 'package:venderfoodyman/domain/interface/categories.dart'; // Ensure correct interface
-import 'package:venderfoodyman/domain/interface/interfaces.dart'; // For CatalogInterface
+import 'package:venderfoodyman/domain/interface/categories.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'package:venderfoodyman/domain/handlers/handlers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
