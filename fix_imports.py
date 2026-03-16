@@ -349,15 +349,17 @@ def main():
     args = parser.parse_args()
     DRY_RUN = args.dry_run
 
-    root = os.path.join(os.path.dirname(__file__), "lib")
+    root = os.path.dirname(__file__) or "."
     if not os.path.isdir(root):
-        print(f"ERROR: Could not find lib/ at {root}")
+        print(f"ERROR: Could not find project root at {root}")
         sys.exit(1)
 
     changed = 0
     scanned = 0
 
-    for dirpath, _, filenames in os.walk(root):
+    for dirpath, dirnames, filenames in os.walk(root):
+        # Skip hidden directories like .git and .dart_tool
+        dirnames[:] = [d for d in dirnames if not d.startswith(".") and d not in ["build", "node_modules", "android", "ios", "web"]]
         for filename in filenames:
             if not filename.endswith(".dart"):
                 continue

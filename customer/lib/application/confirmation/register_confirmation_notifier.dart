@@ -6,19 +6,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:foodyman/domain/handlers/api_result.dart';
-import 'package:foodyman/infrastructure/services/app_connectivity.dart';
-import 'package:foodyman/infrastructure/services/app_helpers.dart';
-import 'package:foodyman/infrastructure/services/local_storage.dart';
-import 'package:foodyman/infrastructure/services/tr_keys.dart';
+import 'package:venderfoodyman/domain/handlers/api_result.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:venderfoodyman/infrastructure/services/tr_keys.dart';
 import '../../domain/interface/auth.dart';
 import '../../domain/interface/user.dart';
 import 'register_confirmation_state.dart';
 
 class RegisterConfirmationNotifier
     extends StateNotifier<RegisterConfirmationState> {
-  final AuthRepositoryFacade _authRepository;
-  final UserRepositoryFacade _userRepositoryFacade;
+  final AuthFacade _authRepository;
+  final UserFacade _userRepositoryFacade;
 
   RegisterConfirmationNotifier(this._authRepository, this._userRepositoryFacade)
       : super(const RegisterConfirmationState());
