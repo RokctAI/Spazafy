@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/application/subscriptions/subscriptions_provider.dart';
 import 'package:venderfoodyman/infrastructure/services/manager/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/manager/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/manager/buttons/custom_button.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class PaymentDialog extends ConsumerWidget {

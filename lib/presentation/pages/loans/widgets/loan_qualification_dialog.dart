@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import '../../../components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import '../../../theme/theme.dart';
 
 class LoanQualificationDialog extends ConsumerWidget {

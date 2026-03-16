@@ -7,7 +7,7 @@ import 'package:venderfoodyman/application/ai_translation/ai_translation_provide
 import 'package:venderfoodyman/infrastructure/manager/models/models.dart';
 import 'package:venderfoodyman/infrastructure/manager/services/services.dart';
 import '../styles/style.dart';
-import 'buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'helper/modal_drag.dart';
 import 'helper/modal_wrap.dart';
 import 'loading/loading.dart';

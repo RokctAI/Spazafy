@@ -7,9 +7,9 @@ import 'package:venderfoodyman/application/statistics/statistics_provider.dart';
 
 import '../../application/order/all_order/order_provider.dart';
 import 'package:venderfoodyman/infrastructure/driver/services/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/driver/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import '../styles/style.dart';
-import 'buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'custom_date_picker.dart';
 import 'tab_bars/custom_tab_bar.dart';
 import 'title_icon.dart';

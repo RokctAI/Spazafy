@@ -12,7 +12,7 @@ import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import '../../application/providers.dart';
 import 'package:venderfoodyman/infrastructure/driver/models/data/order_detail.dart';
 import 'package:venderfoodyman/infrastructure/driver/services/services.dart';
-import 'buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'image_dialog.dart';
 import 'order_item.dart';
 

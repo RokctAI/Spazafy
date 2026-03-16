@@ -12,7 +12,7 @@ import 'package:venderfoodyman/presentation/components/driver/maps_list.dart';
 
 import '../../application/home/home_provider.dart';
 import 'package:venderfoodyman/infrastructure/driver/services/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/driver/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import '../styles/style.dart';
 import 'package:intl/intl.dart' as intl;
 

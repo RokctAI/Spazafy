@@ -7,10 +7,10 @@ import 'package:venderfoodyman/application/delivery_zone/delivery_zone_provider.
 
 import '../../../../theme/customer/app_style.dart';
 import '../../../../components/customer/buttons/pop_button.dart';
-import '../../../../components/customer/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import '../../../../infrastructure/services/customer/app_helpers.dart';
-import '../../../../infrastructure/services/customer/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 
 @RoutePage()
 class DeliveryZonePage extends ConsumerStatefulWidget {

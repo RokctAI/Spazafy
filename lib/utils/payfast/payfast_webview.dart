@@ -6,8 +6,8 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../../app_constants.dart';
 import '../../domain/di/dependency_manager.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import '../../infrastructure/services/tr_keys.dart';
-import '../../presentation/components/buttons/custom_button.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import '../../package:venderfoodyman/presentation/theme/customer/theme.dart';
 
 // Provider for preloaded WebView state

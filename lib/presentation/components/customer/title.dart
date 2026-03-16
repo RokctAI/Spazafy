@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import '../../infrastructure/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'buttons/animation_button_effect2.dart';
 

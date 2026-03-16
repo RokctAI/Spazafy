@@ -6,7 +6,7 @@ import 'title_icon.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'helper/modal_wrap.dart';
 import 'helper/modal_drag.dart';
-import 'buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
 class SelectDateModal extends StatefulWidget {

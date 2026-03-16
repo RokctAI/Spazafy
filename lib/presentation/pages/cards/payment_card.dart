@@ -7,7 +7,7 @@ import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/theme/customer/theme.dart';
 
-import '../../components/buttons/custom_button.dart';
+import 'package:venderfoodyman/presentation/components/customer/buttons/custom_button.dart';
 
 /// A widget for displaying, selecting, and managing saved payment cards
 class SavedCardsWidget extends ConsumerStatefulWidget {

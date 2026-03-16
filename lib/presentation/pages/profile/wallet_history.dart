@@ -8,7 +8,7 @@ import '../../../application/profile/profile_provider.dart';
 import '../../../application/profile/profile_state.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import '../../../infrastructure/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import '../../components/app_bars/common_app_bar.dart';
 import '../../components/badges.dart';
 import 'package:intl/intl.dart' as intl;

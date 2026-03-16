@@ -6,7 +6,7 @@ import 'package:remixicon/remixicon.dart';
 import '../../../app_constants.dart';
 import '../../../infrastructure/models/data/shop_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import '../../../infrastructure/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
 

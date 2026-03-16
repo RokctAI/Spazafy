@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:venderfoodyman/infrastructure/models/data/bonus_data.dart';
 import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
 
-import '../../infrastructure/services/tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 import 'package:venderfoodyman/presentation/theme/customer/app_style.dart';
 
 class CustomTags extends StatelessWidget {

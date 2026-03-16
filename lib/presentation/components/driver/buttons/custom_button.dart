@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
   final double weight;
   final double radius;
 
-  const CustomButton({
+  CustomButton({
     super.key,
     required this.title,
     required this.onPressed,

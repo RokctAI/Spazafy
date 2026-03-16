@@ -18,7 +18,7 @@ import 'package:venderfoodyman/app_constants.dart';
 import 'package:venderfoodyman/infrastructure/models/models.dart';
 import 'app_connectivity.dart';
 import '../constants/enums.dart';
-import 'tr_keys.dart';
+import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
 
 abstract class AppHelpers {
   AppHelpers._();
