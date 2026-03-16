@@ -132,7 +132,6 @@ class AppRouter extends RootStackRouter {
     CupertinoRoute(path: '/pos', page: PosRoute.page),
     CupertinoRoute(path: '/pos-checkout', page: PosCheckoutRoute.page),
 
-
     // ─── Driver Routes ───────────────────────────────────────────────────
     CupertinoRoute(path: '/driver-home', page: HomeRoute.page),
     CupertinoRoute(path: '/driver-story', page: StoryRoute.page),
