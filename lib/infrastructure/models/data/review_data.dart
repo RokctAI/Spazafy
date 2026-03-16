@@ -109,4 +109,3 @@ class ReviewData {
     return map;
   }
 }
-
