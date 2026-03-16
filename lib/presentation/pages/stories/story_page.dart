@@ -203,10 +203,9 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
                                     ),
                                     child: LinearProgressIndicator(
                                       value: controller.value,
-                                      valueColor:
-                                          AlwaysStoppedAnimation<Color>(
-                                            AppStyle.primary,
-                                          ),
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        AppStyle.primary,
+                                      ),
                                       backgroundColor: AppStyle.white,
                                     ),
                                   )
