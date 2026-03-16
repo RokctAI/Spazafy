@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/presentation/pages/initial/no_connection/no_connection_page.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/pages/initial/no_connection/no_connection_page.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 import 'keyboard_dismisser.dart';
 
 class CustomScaffold extends ConsumerStatefulWidget {

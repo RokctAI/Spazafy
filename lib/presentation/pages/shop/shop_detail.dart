@@ -5,16 +5,16 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:venderfoodyman/application/shop/shop_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/pages/order/order_type/widgets/order_map.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/shop/shop_provider.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/pages/order/order_type/widgets/order_map.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:venderfoodyman/app_constants.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 
 @RoutePage()
 class ShopDetailPage extends ConsumerStatefulWidget {

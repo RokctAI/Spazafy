@@ -6,12 +6,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/food_extras.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/food_price_widget.dart';
 import '../../../../component/components.dart';
-import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'widgets/w_ingredient.dart';
 
 class FoodDetailsModal extends ConsumerStatefulWidget {

@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/domain/interface/manager/payment_facade.dart';
-import 'package:venderfoodyman/domain/interface/manager/subscription_facade.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
+import 'package:rokctapp/domain/interface/manager/payment_facade.dart';
+import 'package:rokctapp/domain/interface/manager/subscription_facade.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'subscriptions_state.dart';
 
 class SubscriptionNotifier extends StateNotifier<SubscriptionState> {

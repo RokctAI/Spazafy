@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_place/google_place.dart';
-import 'package:venderfoodyman/domain/di/dependency_manager.dart';
-import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
-import 'package:venderfoodyman/presentation/components/text_fields/search_text_field.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/presentation/components/text_fields/search_text_field.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 @RoutePage()
 class MapSearchPage extends StatefulWidget {

@@ -3,14 +3,14 @@ import 'package:auto_route/auto_route.dart';
 //import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart'; //Changed
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart'; //changed
-import 'package:venderfoodyman/presentation/components/buttons/second_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart'; //Changed
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'; //changed
+import 'package:rokctapp/presentation/components/buttons/second_button.dart';
 //import '../../components/helper/shimmer.dart';
 
 import '../../../application/intro/intro_provider.dart';
 //import '../../component/components.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 //import 'package:shared_preferences/shared_preferences.dart';
 

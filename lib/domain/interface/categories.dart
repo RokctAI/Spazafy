@@ -1,5 +1,5 @@
-import 'package:venderfoodyman/infrastructure/models/response/categories_paginate_response.dart';
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
 
 abstract class CategoriesFacade {
   Future<ApiResult<CategoriesPaginateResponse>> getAllCategories({

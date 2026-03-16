@@ -4,23 +4,23 @@ import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/application/language/language_provider.dart';
+import 'package:rokctapp/application/language/language_provider.dart';
 import '../../../../app_constants.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/pages/auth/register/register_page.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 import '../../../../application/auth/login/login_provider.dart';
-import 'package:venderfoodyman/presentation/pages/profile/language_page.dart';
+import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 import 'login_screen.dart';
 
-import 'package:venderfoodyman/presentation/theme/theme.dart';
-import 'package:venderfoodyman/presentation/components/buttons/second_button.dart';
-import 'package:venderfoodyman/presentation/pages/intro/customer/intro_page.dart';
-import 'package:venderfoodyman/presentation/pages/policy_term/policy_page.dart';
-import 'package:venderfoodyman/presentation/pages/policy_term/term_page.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/components/buttons/second_button.dart';
+import 'package:rokctapp/presentation/pages/intro/customer/intro_page.dart';
+import 'package:rokctapp/presentation/pages/policy_term/policy_page.dart';
+import 'package:rokctapp/presentation/pages/policy_term/term_page.dart';
 
 @RoutePage()
 class LoginPage extends ConsumerStatefulWidget {

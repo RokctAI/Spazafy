@@ -4,11 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/main_group_item.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 import '../../../../component/components.dart';
 import 'details/extras_group_details_modal.dart';
-import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class ExtrasBody extends StatelessWidget {
   final RefreshController refreshController;

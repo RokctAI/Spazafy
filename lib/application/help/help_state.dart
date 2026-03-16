@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:venderfoodyman/infrastructure/models/data/help_data.dart';
+import 'package:rokctapp/infrastructure/models/data/help_data.dart';
 
 part 'help_state.freezed.dart';
 

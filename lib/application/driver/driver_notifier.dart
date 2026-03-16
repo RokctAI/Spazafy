@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:venderfoodyman/infrastructure/driver/models/models.dart';
+import 'package:rokctapp/infrastructure/driver/models/models.dart';
 import 'driver_state.dart';
 
 class DriverNotifier extends StateNotifier<DriverState> {

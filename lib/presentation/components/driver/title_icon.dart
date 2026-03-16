@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/infrastructure/driver/services/local_storage.dart';
+import 'package:rokctapp/infrastructure/driver/services/local_storage.dart';
 import '../styles/style.dart';
 
 // ignore: must_be_immutable

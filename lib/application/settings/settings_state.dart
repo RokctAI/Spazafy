@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:venderfoodyman/infrastructure/models/data/notification_list_data.dart';
+import 'package:rokctapp/infrastructure/models/data/notification_list_data.dart';
 
 part 'settings_state.freezed.dart';
 

@@ -1,15 +1,15 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/application/delivery_points/delivery_points_provider.dart';
-import 'package:venderfoodyman/application/order/order_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/data/delivery_point_data.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/location_service.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/components/loading.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/delivery_points/delivery_points_provider.dart';
+import 'package:rokctapp/application/order/order_provider.dart';
+import 'package:rokctapp/infrastructure/models/data/delivery_point_data.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/location_service.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class OrderPickupPoint extends ConsumerStatefulWidget {

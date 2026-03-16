@@ -1,14 +1,14 @@
-import 'package:venderfoodyman/domain/handlers/api_result.dart';
-import 'package:venderfoodyman/domain/interface/shops.dart';
-import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
-import 'package:venderfoodyman/infrastructure/models/data/translation.dart';
-import 'package:venderfoodyman/infrastructure/models/response/shops_paginate_response.dart';
-import 'package:venderfoodyman/infrastructure/models/response/single_shop_response.dart';
-import 'package:venderfoodyman/infrastructure/models/data/filter_model.dart';
-import 'package:venderfoodyman/infrastructure/models/response/branches_response.dart';
-import 'package:venderfoodyman/infrastructure/models/data/address_new_data.dart';
-import 'package:venderfoodyman/infrastructure/models/data/story_data.dart';
-import 'package:venderfoodyman/infrastructure/models/response/tag_response.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/interface/shops.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/infrastructure/models/response/shops_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
+import 'package:rokctapp/infrastructure/models/data/filter_model.dart';
+import 'package:rokctapp/infrastructure/models/response/branches_response.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/story_data.dart';
+import 'package:rokctapp/infrastructure/models/response/tag_response.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MockShopsRepository implements ShopsFacade {

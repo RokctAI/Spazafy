@@ -1,12 +1,12 @@
-import 'package:venderfoodyman/application/order/progress_ordedr/progress_order_state.dart';
+import 'package:rokctapp/application/order/progress_ordedr/progress_order_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../domain/di/dependency_manager.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
   ProgressOrderNotifier() : super(const ProgressOrderState());

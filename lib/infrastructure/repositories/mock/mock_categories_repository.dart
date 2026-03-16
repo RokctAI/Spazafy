@@ -1,8 +1,8 @@
-import 'package:venderfoodyman/domain/handlers/api_result.dart';
-import 'package:venderfoodyman/domain/interface/categories.dart';
-// import 'package:venderfoodyman/infrastructure/models/data/category_data.dart'; // Removed invalid import
-import 'package:venderfoodyman/infrastructure/models/response/categories_paginate_response.dart';
-import 'package:venderfoodyman/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/interface/categories.dart';
+// import 'package:rokctapp/infrastructure/models/data/category_data.dart'; // Removed invalid import
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class MockCategoriesRepository implements CategoriesFacade {
   final CategoryData _demoCategory = CategoryData(

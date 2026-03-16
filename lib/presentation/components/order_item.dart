@@ -5,14 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:venderfoodyman/application/order/all_order/order_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/presentation/components/components.dart';
-import 'package:venderfoodyman/presentation/components/driver/maps_list.dart';
+import 'package:rokctapp/application/order/all_order/order_provider.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/maps_list.dart';
 
 import '../../application/home/home_provider.dart';
-import 'package:venderfoodyman/infrastructure/driver/services/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/driver/services/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import '../styles/style.dart';
 import 'package:intl/intl.dart' as intl;
 

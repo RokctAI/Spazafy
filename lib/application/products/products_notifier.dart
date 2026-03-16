@@ -5,14 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:share_plus/share_plus.dart';
 
-import 'package:venderfoodyman/domain/interface/products.dart';
-import 'package:venderfoodyman/domain/interface/cart.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/models/request/cart_request.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/app_constants.dart';
+import 'package:rokctapp/domain/interface/products.dart';
+import 'package:rokctapp/domain/interface/cart.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/app_constants.dart';
 
 import 'products_state.dart';
 

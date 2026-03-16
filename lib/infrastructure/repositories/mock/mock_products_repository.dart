@@ -1,12 +1,12 @@
-import 'package:venderfoodyman/domain/handlers/api_result.dart';
-import 'package:venderfoodyman/domain/interface/products.dart';
-import 'package:venderfoodyman/infrastructure/models/data/product_data.dart';
-import 'package:venderfoodyman/infrastructure/models/data/translation.dart';
-import 'package:venderfoodyman/infrastructure/models/response/products_paginate_response.dart';
-import 'package:venderfoodyman/infrastructure/models/response/single_product_response.dart';
-import 'package:venderfoodyman/infrastructure/models/response/product_calculate_response.dart';
-import 'package:venderfoodyman/infrastructure/models/response/all_products_response.dart';
-import 'package:venderfoodyman/infrastructure/models/data/cart_product_data.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/interface/products.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/infrastructure/models/response/products_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/single_product_response.dart';
+import 'package:rokctapp/infrastructure/models/response/product_calculate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
+import 'package:rokctapp/infrastructure/models/data/cart_product_data.dart';
 
 class MockProductsRepository implements ProductsFacade {
   final ProductData _demoProduct = ProductData(

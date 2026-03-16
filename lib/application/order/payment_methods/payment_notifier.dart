@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/domain/interface/payments.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/domain/interface/payments.dart';
 import 'payment_state.dart';
 
 class PaymentNotifier extends StateNotifier<PaymentState> {

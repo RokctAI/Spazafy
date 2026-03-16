@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/pages/home/home_three/widgets/banner_screen.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:rokctapp/presentation/pages/home/home_three/widgets/banner_screen.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class BannerItemThree extends StatelessWidget {
   final BannerData banner;

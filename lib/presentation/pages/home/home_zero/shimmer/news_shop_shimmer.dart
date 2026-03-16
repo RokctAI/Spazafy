@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:venderfoodyman/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/components/title_icon.dart';
 
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'market_shimmer.dart';
 
 class NewsShopShimmer extends StatelessWidget {

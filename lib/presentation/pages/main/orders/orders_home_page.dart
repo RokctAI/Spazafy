@@ -3,17 +3,17 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/application/main/orders/cooking/cooking_orders_provider.dart';
-import 'package:venderfoodyman/presentation/pages/main/orders/widgets/cooking_orders_body.dart';
+import 'package:rokctapp/application/main/orders/cooking/cooking_orders_provider.dart';
+import 'package:rokctapp/presentation/pages/main/orders/widgets/cooking_orders_body.dart';
 
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/new_orders_body.dart';
 import 'widgets/ready_orders_body.dart';
 import 'widgets/accepted_orders_body.dart';
 import 'widgets/on_a_way_orders_body.dart';
 import '../../../component/components.dart';
-import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class OrdersHomePage extends ConsumerStatefulWidget {
   const OrdersHomePage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'app_state.dart';
 
 class AppNotifier extends StateNotifier<AppState> {

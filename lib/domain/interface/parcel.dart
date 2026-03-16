@@ -1,7 +1,7 @@
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
-import 'package:venderfoodyman/infrastructure/models/response/parcel_paginate_response.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/models/response/parcel_paginate_response.dart';
 
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 abstract class ParcelFacade {
   Future<ApiResult<ParcelTypeResponse>> getTypes();

@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 import 'connectors/bluetooth.dart';
 import 'connectors/discovery.dart';
 import 'package:intl/intl.dart';

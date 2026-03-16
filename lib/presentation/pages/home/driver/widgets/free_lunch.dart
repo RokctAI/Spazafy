@@ -1,8 +1,8 @@
-import 'package:venderfoodyman/infrastructure/services/utils/app_assets.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import '../../../styles/style.dart';
 import '../../pages.dart';
 

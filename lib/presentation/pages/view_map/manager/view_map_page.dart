@@ -7,16 +7,16 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
-import 'package:venderfoodyman/application/map/view_map_notifier.dart';
-import 'package:venderfoodyman/application/map/view_map_provider.dart';
-import 'package:venderfoodyman/application/map/view_map_state.dart';
-import 'package:venderfoodyman/domain/di/dependency_manager.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/theme/app_assets.dart';
-import 'package:venderfoodyman/presentation/components/components.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/map/view_map_notifier.dart';
+import 'package:rokctapp/application/map/view_map_provider.dart';
+import 'package:rokctapp/application/map/view_map_state.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/presentation/theme/app_assets.dart';
+import 'package:rokctapp/presentation/components/components.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 @RoutePage()
 class ViewMapPage extends ConsumerStatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:venderfoodyman/infrastructure/models/response/languages_response.dart';
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 
 part 'login_state.freezed.dart';
 

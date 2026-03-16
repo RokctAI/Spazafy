@@ -4,13 +4,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
-import 'package:venderfoodyman/presentation/components/components.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 import 'widgets/chart.dart';
 import 'widgets/statistics_section.dart';
 import 'widgets/order_prices_section.dart';
-import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'app_bar_screen.dart';
 
 @RoutePage()

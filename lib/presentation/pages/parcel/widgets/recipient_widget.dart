@@ -2,16 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/application/parcel/parcel_notifier.dart';
-import 'package:venderfoodyman/application/parcel/parcel_state.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/buttons/animation_button_effect.dart';
-import 'package:venderfoodyman/presentation/components/text_fields/outline_bordered_text_field.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/parcel/parcel_notifier.dart';
+import 'package:rokctapp/application/parcel/parcel_state.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
+import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 import 'custom_expanded.dart';
 
 class RecipientWidget extends StatelessWidget {

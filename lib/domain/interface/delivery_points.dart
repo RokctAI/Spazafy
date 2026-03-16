@@ -1,5 +1,5 @@
-import 'package:venderfoodyman/domain/handlers/api_result.dart';
-import 'package:venderfoodyman/infrastructure/models/data/delivery_point_data.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/data/delivery_point_data.dart';
 
 abstract class DeliveryPointsFacade {
   Future<ApiResult<List<DeliveryPointData>>> getDeliveryPoints({

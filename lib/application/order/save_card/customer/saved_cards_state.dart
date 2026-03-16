@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:venderfoodyman/infrastructure/models/data/saved_card.dart';
+import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
 
 part 'saved_cards_state.freezed.dart';
 

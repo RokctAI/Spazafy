@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/data/repeat_data.dart';
+import 'package:rokctapp/infrastructure/models/data/repeat_data.dart';
 import '../models.dart';
 import 'addons_data.dart';
 

@@ -14,15 +14,14 @@ Spazafy solves the critical pain points of fragmented logistics, lack of financi
 - **AI-Driven Logistics**: Real-time synchronization service with idempotency support, ready for ModelArts demand forecasting.
 - **B2B Resupply Engine**: Automated inventory management, weighted average cost (WAC) valuation, and multi-wholesaler routing logic.
 
-## 🛠 Tech Stack
-Built leveraging modern architectural principles to ensure scalability and extreme performance.
-
-- **Framework**: [Flutter](https://flutter.dev/) (SDK 3.24.4)
+- **Framework**: [Flutter](https://flutter.dev/) (SDK 3.38.5)
+- **Backend Orchestration**: `rPanel` (Unified Web Resource Manager) on Huawei ECS
+- **Core Framework**: `Frappe (v16.10.10)`
 - **State Management**: `Riverpod` (Functional Providers)
 - **Routing**: `AutoRoute` (Strongly-typed routing)
 - **Local Database**: `Drift` (Reactive SQLite)
 - **API Client**: `Dio` (with background sync & idempotency headers)
-- **UI System**: Unified Theme System with support for Admin, Store, Driver, and User modes.
+- **AI Integration**: DeepSeek-V3 on Huawei MaaS (Predictive Logistics)
 
 ## 📁 Architecture Overiew
 Spazafy utilizes a **Flattened Feature Architecture** designed for the SuperApp model:
@@ -42,7 +41,7 @@ lib/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Flutter SDK `3.24.x`
+- Flutter SDK `3.38.5`
 - Dart SDK `3.5.x`
 
 ### Installation
@@ -75,6 +74,12 @@ Spazafy uses compile-time defines to activate different flavours:
 1. **Source of Truth**: The local Drift database is the primary source of truth for the UI; the backend is a sync target.
 2. **Idempotent Sync**: Every outbound request uses `X-Idempotency-Key` to ensure reliable background synchronization.
 3. **Unified Assets**: Role-specific assets are merged into a central registry to minimize binary size and overhead.
+
+## 🌍 Sustainable Development Goals (SDGs)
+Spazafy is architected to address core global challenges in emerging markets:
+- **SDG 1: No Poverty** (Financial inclusion for micro-vendors)
+- **SDG 8: Decent Work & Economic Growth** (Digitizing the informal economy)
+- **SDG 9: Industry, Innovation & Infrastructure** (Last-mile logistics optimization)
 
 ---
 *Spazafy — Technical Architecture — Rokct Holdings*

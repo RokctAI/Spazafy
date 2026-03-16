@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
-import 'package:venderfoodyman/infrastructure/driver/services/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/driver/services/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import '../styles/style.dart';
 
 class ProductItem extends StatelessWidget {

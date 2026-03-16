@@ -3,24 +3,24 @@ import 'package:flutter/material.dart';
 //import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
-//import 'package:venderfoodyman/presentation/pages/auth/customer/reset/set_password_page.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+//import 'package:rokctapp/presentation/pages/auth/customer/reset/set_password_page.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 //import '../../../../application/edit_profile/edit_profile_provider.dart';
-import 'package:venderfoodyman/presentation/components/buttons/button_item.dart';
+import 'package:rokctapp/presentation/components/buttons/button_item.dart';
 import '../edit_profile_page.dart';
-//import 'package:venderfoodyman/application/profile/profile_provider.dart';
-//import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar.dart';
-//import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/presentation/pages/auth/customer/reset/reset_password_page.dart';
+//import 'package:rokctapp/application/profile/profile_provider.dart';
+//import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
+//import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/presentation/pages/auth/customer/reset/reset_password_page.dart';
 import '../currency_page.dart';
 import '../language_page.dart';
 
-//import 'package:venderfoodyman/application/like/like_provider.dart';
+//import 'package:rokctapp/application/like/like_provider.dart';
 class MyAccount extends StatelessWidget {
   final bool isBackButton;
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/components/manager/buttons/buttons_bouncing_effect.dart';
+import 'package:rokctapp/presentation/components/buttons/buttons_bouncing_effect.dart';
 
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class CustomButton extends StatelessWidget {
   final Icon? icon;

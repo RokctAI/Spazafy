@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:venderfoodyman/application/home/home_notifier.dart';
-import 'package:venderfoodyman/application/home/home_state.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/buttons/animation_button_effect.dart';
-import 'package:venderfoodyman/presentation/components/loading.dart';
-import 'package:venderfoodyman/presentation/components/market_item.dart';
-import 'package:venderfoodyman/presentation/components/tab_bar_item.dart';
-import 'package:venderfoodyman/presentation/components/title_icon.dart';
+import 'package:rokctapp/application/home/home_notifier.dart';
+import 'package:rokctapp/application/home/home_state.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/market_item.dart';
+import 'package:rokctapp/presentation/components/tab_bar_item.dart';
+import 'package:rokctapp/presentation/components/title_icon.dart';
 import '../filter/filter_page.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class FilterCategoryShop extends StatelessWidget {
   final HomeState state;

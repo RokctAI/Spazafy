@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'working_days_state.dart';
-import 'package:venderfoodyman/domain/interface/manager/interfaces.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
   final UsersInterface _usersRepository;

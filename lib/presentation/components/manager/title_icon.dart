@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class TitleAndIcon extends StatelessWidget {
   final String title;

@@ -6,17 +6,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:venderfoodyman/application/home/home_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/driver/app_constants.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/driver/marker_image_cropper.dart';
-import 'package:venderfoodyman/presentation/components/driver/maps_list.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/driver/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
+import 'package:rokctapp/presentation/components/maps_list.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 
 class ParcelOrderPage extends StatelessWidget {
   final ParcelOrder? parcel;

@@ -2,16 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/application/order/order_provider.dart';
-import 'package:venderfoodyman/application/shop_order/shop_order_provider.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/enums.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/tpying_delay.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/title_icon.dart';
-import 'package:venderfoodyman/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
-import 'package:venderfoodyman/presentation/pages/shop/cart/widgets/cart_order_item.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/order/order_provider.dart';
+import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/tpying_delay.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';
+import 'package:rokctapp/presentation/pages/shop/cart/widgets/cart_order_item.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class OrderCarts extends StatefulWidget {
   final double lat;

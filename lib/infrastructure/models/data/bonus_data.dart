@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 class BonusModel {
   BonusModel({

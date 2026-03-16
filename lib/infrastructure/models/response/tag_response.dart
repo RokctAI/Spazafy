@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/data/take_data.dart';
+import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 
 class TagResponse {
   TagResponse({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class CategoryBarItem extends StatelessWidget {
   final String image;

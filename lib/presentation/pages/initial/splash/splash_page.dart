@@ -20,9 +20,9 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import '../../../../app_constants.dart';
 import '../../../../application/splash/splash_provider.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import '../../../routes/app_router.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 @RoutePage()
 class SplashPage extends ConsumerStatefulWidget {

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/application/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
+import 'package:rokctapp/application/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
 
 import '../edit/edit_product_modal.dart';
 import '../../../../component/components.dart';
 import '../../../../styles/style.dart';
-import 'package:venderfoodyman/application/providers/manager/providers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FoodsBody extends StatelessWidget {
   final RefreshController categoryController;

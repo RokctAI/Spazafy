@@ -3,14 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:venderfoodyman/presentation/components/loading.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
-import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
-//import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-//import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_assets.dart';
-import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar.dart';
-import 'package:venderfoodyman/application/delivery/delivery_provider.dart';
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+//import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+//import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_assets.dart';
+import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
+import 'package:rokctapp/application/delivery/delivery_provider.dart';
 
 class DeliveryPage extends ConsumerStatefulWidget {
   const DeliveryPage({super.key});

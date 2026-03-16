@@ -1,5 +1,5 @@
-import 'package:venderfoodyman/domain/handlers/api_result.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 abstract class SubscriptionsFacade {
   Future<ApiResult<SubscriptionResponse>> getSubscriptions({required int page});

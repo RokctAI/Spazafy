@@ -1,5 +1,5 @@
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 import '../../infrastructure/models/data/user.dart';
 import '../../infrastructure/models/data/wallet_data.dart';

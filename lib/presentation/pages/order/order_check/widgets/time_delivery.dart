@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/extension.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/time_service.dart';
+import 'package:rokctapp/infrastructure/services/utils/extension.dart';
+import 'package:rokctapp/infrastructure/services/utils/time_service.dart';
 import 'package:intl/intl.dart';
-import 'package:venderfoodyman/application/order/order_provider.dart';
-import 'package:venderfoodyman/application/order/order_state.dart';
-import 'package:venderfoodyman/application/order_time/time_state.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/custom_tab_bar.dart';
-import 'package:venderfoodyman/presentation/components/select_item.dart';
-import 'package:venderfoodyman/presentation/components/title_icon.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/order/order_provider.dart';
+import 'package:rokctapp/application/order/order_state.dart';
+import 'package:rokctapp/application/order_time/time_state.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/custom_tab_bar.dart';
+import 'package:rokctapp/presentation/components/select_item.dart';
+import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:venderfoodyman/application/order_time/time_notifier.dart';
-import 'package:venderfoodyman/application/order_time/time_provider.dart';
+import 'package:rokctapp/application/order_time/time_notifier.dart';
+import 'package:rokctapp/application/order_time/time_provider.dart';
 
 class TimeDelivery extends ConsumerStatefulWidget {
   const TimeDelivery({super.key});

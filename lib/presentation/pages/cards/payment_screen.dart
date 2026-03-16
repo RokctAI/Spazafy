@@ -6,10 +6,10 @@ import '../../../application/shop_order/shop_order_provider.dart';
 import '../../../domain/di/dependency_manager.dart';
 import '../../../infrastructure/models/data/order_body_data.dart';
 import '../../../infrastructure/models/data/saved_card.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import '../../../utils/payfast/payfast_webview.dart';
-import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import '../../theme/theme.dart';
 import 'payment_card.dart';
 

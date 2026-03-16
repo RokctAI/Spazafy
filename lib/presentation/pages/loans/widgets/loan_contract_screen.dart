@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../infrastructure/repositories/customer/loans_repository.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import '../../../theme/theme.dart';
 
 class LoanContractScreen extends ConsumerStatefulWidget {

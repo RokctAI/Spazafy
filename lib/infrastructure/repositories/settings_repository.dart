@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:venderfoodyman/domain/di/dependency_manager.dart';
-import 'package:venderfoodyman/domain/interface/settings.dart';
-import 'package:venderfoodyman/infrastructure/models/data/help_data.dart';
-import 'package:venderfoodyman/infrastructure/models/data/notification_list_data.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/interface/settings.dart';
+import 'package:rokctapp/infrastructure/models/data/help_data.dart';
+import 'package:rokctapp/infrastructure/models/data/notification_list_data.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
 import '../models/data/translation.dart';
 
 class SettingsRepository implements SettingsRepositoryFacade {

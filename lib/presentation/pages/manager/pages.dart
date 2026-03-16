@@ -19,7 +19,7 @@ export 'main/create_order/shipping/select_user/select_user_page.dart';
 export 'main/create_order/shipping/select_section/select_section_page.dart';
 export 'main/create_order/shipping/select_table/select_table_page.dart';
 export 'restaurant/subscriptions/subscriptions_page.dart';
-export 'package:venderfoodyman/presentation/components/manager/web_view_page.dart';
+export 'package:rokctapp/presentation/components/web_view_page.dart';
 export '../home/pos_page.dart';
 export '../order/customer/order_check/pos_checkout_page.dart';
 export 'auth/pin/pin_page.dart';

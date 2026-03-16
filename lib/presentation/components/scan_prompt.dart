@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/application/billing/billing_provider.dart';
-import 'package:venderfoodyman/application/billing/billing_state.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
-import 'package:venderfoodyman/presentation/components/components.dart';
+import 'package:rokctapp/application/billing/billing_provider.dart';
+import 'package:rokctapp/application/billing/billing_state.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/components/components.dart';
 
 class ScanPrompt extends ConsumerWidget {
   const ScanPrompt({super.key});

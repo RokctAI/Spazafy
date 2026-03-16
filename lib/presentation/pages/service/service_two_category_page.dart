@@ -4,10 +4,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:venderfoodyman/application/home/home_provider.dart';
-import 'package:venderfoodyman/presentation/components/app_bars/common_app_bar.dart';
-import 'package:venderfoodyman/presentation/components/buttons/pop_button.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 import 'filter_category_service.dart';
 

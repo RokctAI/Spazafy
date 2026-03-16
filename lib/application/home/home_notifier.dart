@@ -6,31 +6,31 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:auto_route/auto_route.dart';
 
-import 'package:venderfoodyman/domain/interface/banners.dart';
-import 'package:venderfoodyman/domain/interface/categories.dart';
-import 'package:venderfoodyman/domain/interface/shops.dart';
-import 'package:venderfoodyman/domain/interface/brands.dart';
-import 'package:venderfoodyman/domain/interface/products.dart';
-import 'package:venderfoodyman/domain/interface/draw.dart';
-import 'package:venderfoodyman/domain/interface/orders.dart';
-import 'package:venderfoodyman/domain/interface/parcel.dart';
-import 'package:venderfoodyman/domain/interface/settings.dart';
-import 'package:venderfoodyman/domain/interface/user.dart';
+import 'package:rokctapp/domain/interface/banners.dart';
+import 'package:rokctapp/domain/interface/categories.dart';
+import 'package:rokctapp/domain/interface/shops.dart';
+import 'package:rokctapp/domain/interface/brands.dart';
+import 'package:rokctapp/domain/interface/products.dart';
+import 'package:rokctapp/domain/interface/draw.dart';
+import 'package:rokctapp/domain/interface/orders.dart';
+import 'package:rokctapp/domain/interface/parcel.dart';
+import 'package:rokctapp/domain/interface/settings.dart';
+import 'package:rokctapp/domain/interface/user.dart';
 
-import 'package:venderfoodyman/infrastructure/models/models.dart';
-import 'package:venderfoodyman/infrastructure/models/data/address_information.dart';
-import 'package:venderfoodyman/infrastructure/models/data/address_old_data.dart';
-import 'package:venderfoodyman/infrastructure/models/data/filter_model.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/address_information.dart';
+import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
+import 'package:rokctapp/infrastructure/models/data/filter_model.dart';
 
-import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/marker_image_cropper.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_database.dart';
-import 'package:venderfoodyman/app_constants.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 import 'home_state.dart';
 

@@ -1,6 +1,6 @@
-import 'package:venderfoodyman/infrastructure/models/request/edit_profile.dart';
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 abstract class UserFacade {
   Future<ApiResult<ProfileResponse>> getProfileDetails();

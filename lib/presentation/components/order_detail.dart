@@ -6,13 +6,13 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:venderfoodyman/presentation/pages/driver/home/widgets/foods_page.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/pages/driver/home/widgets/foods_page.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 import '../../application/providers.dart';
-import 'package:venderfoodyman/infrastructure/driver/models/data/order_detail.dart';
-import 'package:venderfoodyman/infrastructure/driver/services/services.dart';
-import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/infrastructure/driver/models/data/order_detail.dart';
+import 'package:rokctapp/infrastructure/driver/services/services.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'image_dialog.dart';
 import 'order_item.dart';
 

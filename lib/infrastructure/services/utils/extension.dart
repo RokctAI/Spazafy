@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/time_service.dart';
+import 'package:rokctapp/infrastructure/services/utils/time_service.dart';
 
 extension StringDate on String? {
   String get toTime {

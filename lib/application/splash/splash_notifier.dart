@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/domain/interface/settings.dart';
-import 'package:venderfoodyman/domain/interface/user.dart';
-import 'package:venderfoodyman/domain/interface/driver/interfaces.dart'
+import 'package:rokctapp/domain/interface/settings.dart';
+import 'package:rokctapp/domain/interface/user.dart';
+import 'package:rokctapp/domain/interface/driver/interfaces.dart'
     as driver;
-import 'package:venderfoodyman/domain/interface/manager/interfaces.dart'
+import 'package:rokctapp/domain/interface/manager/interfaces.dart'
     as manager;
-import 'package:venderfoodyman/infrastructure/services/utils/app_connectivity.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 import 'splash_state.dart';
 

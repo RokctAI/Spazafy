@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:venderfoodyman/application/home/home_notifier.dart';
-import 'package:venderfoodyman/application/home/home_state.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/presentation/components/buttons/animation_button_effect.dart';
-import 'package:venderfoodyman/presentation/pages/home/filter/filter_page.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/home/home_notifier.dart';
+import 'package:rokctapp/application/home/home_state.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
+import 'package:rokctapp/presentation/pages/home/filter/filter_page.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 import '../../home/home_two/widget/category_two_item.dart';
 

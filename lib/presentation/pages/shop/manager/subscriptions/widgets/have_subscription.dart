@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/date_service.dart';
-import 'package:venderfoodyman/infrastructure/services/manager/local_storage.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/services/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/manager/date_service.dart';
+import 'package:rokctapp/infrastructure/services/manager/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class HaveSubscription extends StatelessWidget {
   const HaveSubscription({super.key});

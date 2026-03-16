@@ -5,16 +5,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:vibration/vibration.dart';
-import 'package:venderfoodyman/application/billing/billing_provider.dart';
-import 'package:venderfoodyman/application/billing/billing_state.dart';
-import 'package:venderfoodyman/presentation/components/components.dart';
-import 'package:venderfoodyman/presentation/components/manager/billing_browse_modal.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/billing/billing_provider.dart';
+import 'package:rokctapp/application/billing/billing_state.dart';
+import 'package:rokctapp/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/billing_browse_modal.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import '../../component/scan_prompt.dart';
-import 'package:venderfoodyman/application/main/main_provider.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/application/main/main_provider.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 @RoutePage()
 class PosPage extends ConsumerStatefulWidget {

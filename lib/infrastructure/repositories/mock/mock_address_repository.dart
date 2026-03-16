@@ -1,10 +1,10 @@
-import 'package:venderfoodyman/domain/handlers/api_result.dart';
-import 'package:venderfoodyman/domain/interface/address.dart';
-import 'package:venderfoodyman/infrastructure/models/data/address_new_data.dart';
-import 'package:venderfoodyman/infrastructure/models/data/address_information.dart';
-import 'package:venderfoodyman/infrastructure/models/data/local_address_data.dart';
-import 'package:venderfoodyman/infrastructure/models/response/addresses_response.dart';
-import 'package:venderfoodyman/infrastructure/models/response/single_address_response.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/interface/address.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/address_information.dart';
+import 'package:rokctapp/infrastructure/models/data/local_address_data.dart';
+import 'package:rokctapp/infrastructure/models/response/addresses_response.dart';
+import 'package:rokctapp/infrastructure/models/response/single_address_response.dart';
 
 class MockAddressRepository implements AddressRepositoryFacade {
   final AddressNewModel _demoAddress = AddressNewModel(

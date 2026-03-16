@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/services/utils/app_validators.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 
 class LoginModel {
   final String? email;

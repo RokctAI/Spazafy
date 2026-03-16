@@ -1,7 +1,7 @@
 // lib/infrastructure/utils/product_utils.dart
 
 import 'package:flutter/material.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 /// Helper class for size information
 class SizeInfo {

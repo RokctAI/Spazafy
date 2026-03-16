@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:venderfoodyman/presentation/theme/theme.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 class ColorExtras extends StatelessWidget {
   final int groupIndex;

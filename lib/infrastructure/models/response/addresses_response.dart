@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 
 class AddressesResponse {
   AddressesResponse({

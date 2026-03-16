@@ -1,8 +1,8 @@
-import 'package:venderfoodyman/domain/handlers/api_result.dart';
-import 'package:venderfoodyman/domain/interface/banners.dart';
-import 'package:venderfoodyman/infrastructure/models/data/shop_data.dart';
-import 'package:venderfoodyman/infrastructure/models/data/translation.dart';
-import 'package:venderfoodyman/infrastructure/models/response/banners_paginate_response.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/interface/banners.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
 
 class MockBannersRepository implements BannersFacade {
   final BannerData _demoBanner = BannerData(

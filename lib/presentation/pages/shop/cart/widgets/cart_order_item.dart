@@ -3,15 +3,15 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:venderfoodyman/application/order/order_provider.dart';
-import 'package:venderfoodyman/infrastructure/models/data/addons_data.dart';
-import 'package:venderfoodyman/infrastructure/models/data/order_active_model.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/pages/shop/cart/widgets/note_product.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
-import 'package:venderfoodyman/infrastructure/models/data/cart_data.dart';
+import 'package:rokctapp/application/order/order_provider.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:rokctapp/presentation/pages/shop/cart/widgets/note_product.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
 
 class CartOrderItem extends StatelessWidget {
   final CartDetail? cart;

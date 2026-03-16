@@ -1,6 +1,6 @@
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
-import 'package:venderfoodyman/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 
 class CategoryModel {
   final int page;

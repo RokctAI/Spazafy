@@ -3,15 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:venderfoodyman/application/home/home_provider.dart';
-import 'package:venderfoodyman/application/select/select_provider.dart';
-import 'package:venderfoodyman/app_constants.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
-import 'package:venderfoodyman/infrastructure/services/constants/tr_keys.dart';
-import 'package:venderfoodyman/presentation/components/buttons/animation_button_effect.dart';
-import 'package:venderfoodyman/presentation/components/buttons/custom_button.dart';
-import 'package:venderfoodyman/presentation/components/custom_network_image.dart';
-import 'package:venderfoodyman/presentation/theme/theme.dart';
+import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/application/select/select_provider.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ReservationShops extends ConsumerStatefulWidget {

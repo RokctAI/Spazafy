@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:venderfoodyman/domain/interface/products.dart';
-import 'package:venderfoodyman/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/interface/products.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 import 'foods_state.dart';
 
 class FoodsNotifier extends StateNotifier<FoodsState> {

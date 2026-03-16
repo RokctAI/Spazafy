@@ -1,4 +1,4 @@
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 class ProductRequest {
   final String shopId;

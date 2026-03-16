@@ -2,66 +2,66 @@ import 'package:get_it/get_it.dart';
 import 'package:google_place/google_place.dart';
 
 // Handlers
-import 'package:venderfoodyman/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
 
 // Customer Interfaces
-import 'package:venderfoodyman/domain/interface/address.dart';
-import 'package:venderfoodyman/domain/interface/auth.dart';
-import 'package:venderfoodyman/domain/interface/banners.dart';
-import 'package:venderfoodyman/domain/interface/blogs.dart';
-import 'package:venderfoodyman/domain/interface/brands.dart';
-import 'package:venderfoodyman/domain/interface/cart.dart';
-import 'package:venderfoodyman/domain/interface/categories.dart';
-import 'package:venderfoodyman/domain/interface/currencies.dart';
-import 'package:venderfoodyman/domain/interface/draw.dart';
-import 'package:venderfoodyman/domain/interface/gallery.dart';
-import 'package:venderfoodyman/domain/interface/notification.dart';
-import 'package:venderfoodyman/domain/interface/orders.dart';
-import 'package:venderfoodyman/domain/interface/parcel.dart';
-import 'package:venderfoodyman/domain/interface/payments.dart';
-import 'package:venderfoodyman/domain/interface/products.dart';
-import 'package:venderfoodyman/domain/interface/settings.dart';
-import 'package:venderfoodyman/domain/interface/shops.dart';
-import 'package:venderfoodyman/domain/interface/user.dart';
-import 'package:venderfoodyman/domain/interface/loans.dart';
-import 'package:venderfoodyman/domain/interface/wallet.dart';
-import 'package:venderfoodyman/domain/interface/delivery_points.dart';
-import 'package:venderfoodyman/domain/interface/table.dart';
-import 'package:venderfoodyman/domain/interface/subscriptions.dart';
+import 'package:rokctapp/domain/interface/address.dart';
+import 'package:rokctapp/domain/interface/auth.dart';
+import 'package:rokctapp/domain/interface/banners.dart';
+import 'package:rokctapp/domain/interface/blogs.dart';
+import 'package:rokctapp/domain/interface/brands.dart';
+import 'package:rokctapp/domain/interface/cart.dart';
+import 'package:rokctapp/domain/interface/categories.dart';
+import 'package:rokctapp/domain/interface/currencies.dart';
+import 'package:rokctapp/domain/interface/draw.dart';
+import 'package:rokctapp/domain/interface/gallery.dart';
+import 'package:rokctapp/domain/interface/notification.dart';
+import 'package:rokctapp/domain/interface/orders.dart';
+import 'package:rokctapp/domain/interface/parcel.dart';
+import 'package:rokctapp/domain/interface/payments.dart';
+import 'package:rokctapp/domain/interface/products.dart';
+import 'package:rokctapp/domain/interface/settings.dart';
+import 'package:rokctapp/domain/interface/shops.dart';
+import 'package:rokctapp/domain/interface/user.dart';
+import 'package:rokctapp/domain/interface/loans.dart';
+import 'package:rokctapp/domain/interface/wallet.dart';
+import 'package:rokctapp/domain/interface/delivery_points.dart';
+import 'package:rokctapp/domain/interface/table.dart';
+import 'package:rokctapp/domain/interface/subscriptions.dart';
 
 // Customer Repositories
-import 'package:venderfoodyman/infrastructure/repositories/address_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/auth_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/banners_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/blogs_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/brands_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/cart_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/catalog_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/currencies_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/draw_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/gallery_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/notification_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/orders_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/parcel_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/payments_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/products_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/settings_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/shops_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/user_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/loans_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/wallet_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/table_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/subscription_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/delivery_points_repository.dart';
-import 'package:venderfoodyman/infrastructure/repositories/mock/mock_repositories.dart'
+import 'package:rokctapp/infrastructure/repositories/address_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/auth_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/banners_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/blogs_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/brands_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/cart_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/catalog_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/currencies_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/draw_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/gallery_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/notification_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/orders_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/parcel_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/payments_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/products_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/settings_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/shops_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/user_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/loans_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/wallet_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/table_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/subscription_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/delivery_points_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/mock/mock_repositories.dart'
     as mock;
 
 // Router
-import 'package:venderfoodyman/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 // Services
-import 'package:venderfoodyman/app_constants.dart';
-import 'package:venderfoodyman/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 final GetIt getIt = GetIt.instance;
 

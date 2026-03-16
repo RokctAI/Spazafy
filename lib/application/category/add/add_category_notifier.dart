@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:venderfoodyman/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'add_category_state.dart';
-import 'package:venderfoodyman/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/manager/interfaces.dart';
 
 class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
   final CatalogInterface _catalogRepository;
