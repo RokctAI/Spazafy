@@ -3,7 +3,7 @@ set -e
 
 # 1. Create missing file
 mkdir -p lib/presentation/components/buttons
-cat << 'INNER_EOF' > lib/presentation/components/buttons/buttons_bouncing_effect.dart
+cat <<'INNER_EOF' >lib/presentation/components/buttons/buttons_bouncing_effect.dart
 import 'package:flutter/material.dart';
 
 class ButtonsBouncingEffect extends StatefulWidget {
