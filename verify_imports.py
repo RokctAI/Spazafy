@@ -53,6 +53,10 @@ def verify_imports():
                     # External package or dart SDK, skip validation
                     continue
                 
+                # Skip validation for CI-generated files
+                if any(target.endswith(ext) for ext in ['.freezed.dart', '.g.dart', '.gr.dart']):
+                    continue
+
                 # Verify existence
                 if not os.path.exists(target_abs_path):
                     broken_links.append({

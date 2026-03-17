@@ -19,7 +19,7 @@ import '../home/home_four/widgets/market_two_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
 
-import '../../../application/main/main_provider.dart';
+import 'package:rokctapp/application/main/main_provider.dart';
 
 @RoutePage()
 class LikePage extends ConsumerStatefulWidget {

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:collection/collection.dart';
 import 'package:rokctapp/application/ai_translation/ai_translation_provider.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import '../../infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/services.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'buttons/custom_button.dart';
 import 'helper/modal_drag.dart';

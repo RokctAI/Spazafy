@@ -11,7 +11,7 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 
 import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import '../../infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/services.dart';
 import 'buttons/custom_button.dart';
 import 'image_dialog.dart';
 import 'order_item.dart';

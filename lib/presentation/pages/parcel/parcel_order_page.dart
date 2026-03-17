@@ -23,7 +23,7 @@ import 'package:rokctapp/presentation/pages/order/order_screen/widgets/order_sta
 import 'package:rokctapp/presentation/pages/order/order_type/widgets/order_map.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import '../../../infrastructure/services/enums.dart';
+import 'package:rokctapp/infrastructure/services/enums.dart';
 
 @RoutePage()
 class ParcelProgressPage extends ConsumerStatefulWidget {

@@ -32,7 +32,7 @@ import 'package:rokctapp/application/map/poidata/poi_data_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/poi_data.dart';
 import 'package:lottie/lottie.dart' as lottie;
 
-import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 
 @RoutePage()
 class ViewMapPage extends ConsumerStatefulWidget {

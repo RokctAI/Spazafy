@@ -10,9 +10,9 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/presentation/components/components.dart';
 import 'package:rokctapp/presentation/components/maps_list.dart';
 
-import '../../application/home/home_provider.dart';
+import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 

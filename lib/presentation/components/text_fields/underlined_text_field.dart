@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/services.dart';
 
 class UnderlinedTextField extends StatelessWidget {
   final String label;

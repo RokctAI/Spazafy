@@ -9,7 +9,7 @@ import 'package:rokctapp/presentation/components/shop_avarat.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 
 class RecommendedTwoItem extends StatelessWidget {
   final ShopData shop;

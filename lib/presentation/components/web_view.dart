@@ -17,7 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import '../../application/webview/preloaded_webview_provider.dart';
+import 'package:rokctapp/application/webview/preloaded_webview_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class WebViewPage extends StatefulWidget {

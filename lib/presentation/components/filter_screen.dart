@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/parcel/parcel_provider.dart';
 import 'package:rokctapp/application/statistics/statistics_provider.dart';
 
-import '../../application/order/all_order/order_provider.dart';
+import 'package:rokctapp/application/order/all_order/order_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';

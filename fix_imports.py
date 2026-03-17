@@ -36,6 +36,8 @@ IMPORT_REPLACEMENTS = [
     ("/component/text_fields/", "/components/text_fields/"),
     ("tab_bars/custom_tab_bar.dart", "package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart"),
     ("package:rokctapp/presentation/pages/home/widgets/foods_page.dart", "package:rokctapp/presentation/pages/home/driver/widgets/foods_page.dart"),
+    ("package:rokctapp/presentation/app_assets.dart", "package:rokctapp/presentation/theme/app_assets.dart"),
+    ("package:rokctapp/presentation/pages/intro/intro_page.dart", "package:rokctapp/presentation/pages/intro/customer/intro_page.dart"),
 
     # ── Style/Theme Realignment ──
     ("package:rokctapp/presentation/styles/style.dart", "package:rokctapp/presentation/theme/app_style.dart"),
@@ -57,18 +59,21 @@ IMPORT_REPLACEMENTS = [
     ("domain/interface/subscription_facade.dart", "domain/interface/subscriptions.dart"),
     
     # ── Infrastructure/Services Fixes ──
+    ("infrastructure/services/utils/tr_keys.dart", "infrastructure/services/constants/tr_keys.dart"),
+    ("infrastructure/services/tr_keys.dart", "infrastructure/services/constants/tr_keys.dart"),
     ("infrastructure/services/manager/services.dart", "infrastructure/services/utils/services.dart"),
     ("infrastructure/services/driver/services.dart", "infrastructure/services/utils/services.dart"),
     ("infrastructure/services/customer/services.dart", "infrastructure/services/utils/services.dart"),
-    ("infrastructure/services/tr_keys.dart", "infrastructure/services/utils/tr_keys.dart"),
-    ("infrastructure/services/app_constants.dart", "infrastructure/services/utils/app_constants.dart"),
+    ("infrastructure/services/services.dart", "infrastructure/services/utils/services.dart"),
+    ("infrastructure/services/app_constants.dart", "app_constants.dart"),
+    ("infrastructure/services/utils/app_constants.dart", "app_constants.dart"),
+    ("package:rokctapp/infrastructure/services/utils/app_constants.dart", "package:rokctapp/app_constants.dart"),
     
     # ── Utility & Misc Fixes ──
     ("'signature_service.dart'", "'services/signature_service.dart'"),
     ("\"signature_service.dart\"", "\"services/signature_service.dart\""),
     ("'printer_device.dart'", "'../models/printer_device.dart'"),
     ("\"printer_device.dart\"", "\"../models/printer_device.dart\""),
-    ("package:rokctapp/presentation/pages/intro/intro_page.dart", "package:rokctapp/presentation/pages/intro/intro_page.dart"), 
 
     ("package:foodyman/", "package:rokctapp/"),
     ("package:venderfoodyman/", "package:rokctapp/"),
@@ -81,33 +86,64 @@ RELATIVE_FIXES = [
     (r"import\s+['\"](\.\./)+state/profile_edit_state\.dart['\"]", "import 'package:rokctapp/application/profile/profile_state.dart'"),
     (r"import\s+['\"](\.\./)+state/profile_image_state\.dart['\"]", "import 'package:rokctapp/application/profile/profile_state.dart'"),
     (r"import\s+['\"](\.\./)+state/profile_settings_state\.dart['\"]", "import 'package:rokctapp/application/profile/profile_state.dart'"),
-    (r"import\s+['\"](\.\./)+app_constants\.dart['\"]", "import 'package:rokctapp/infrastructure/services/utils/app_constants.dart'"),
     
-    # General package-ify
-    (r"import\s+['\"](\.\./)+domain/di/dependency_manager\.dart['\"]", "import 'package:rokctapp/domain/di/dependency_manager.dart'"),
-    (r"import\s+['\"](\.\./)+infrastructure/models/models\.dart['\"]", "import 'package:rokctapp/infrastructure/models/models.dart'"),
+    # Normalize common broken relative paths to package paths
+    (r"import\s+['\"](\.\./)+app_constants\.dart['\"]", "import 'package:rokctapp/app_constants.dart'"),
+    (r"import\s+['\"](\.\./)+infrastructure/services/utils/app_constants\.dart['\"]", "import 'package:rokctapp/app_constants.dart'"),
+    (r"import\s+['\"](\.\./)+infrastructure/services/utils/tr_keys\.dart['\"]", "import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart'"),
+    (r"import\s+['\"](\.\./)+infrastructure/services/constants/tr_keys\.dart['\"]", "import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart'"),
+    
+    # Broad Package-ification for known top-level dirs
+    (r"import\s+['\"](\.\./)+infrastructure/", "import 'package:rokctapp/infrastructure/"),
+    (r"import\s+['\"](\.\./)+application/", "import 'package:rokctapp/application/"),
+    (r"import\s+['\"](\.\./)+presentation/", "import 'package:rokctapp/presentation/"),
+    (r"import\s+['\"](\.\./)+domain/", "import 'package:rokctapp/domain/"),
+    
+    # Specific missing depth cases
     (r"import\s+['\"](\.\./)+presentation/theme/theme\.dart['\"]", "import 'package:rokctapp/presentation/theme/theme.dart'"),
     (r"import\s+['\"](\.\./)+presentation/theme/app_style\.dart['\"]", "import 'package:rokctapp/presentation/theme/app_style.dart'"),
-    (r"import\s+['\"](\.\./)+application/providers/providers\.dart['\"]", "import 'package:rokctapp/application/providers/providers.dart'"),
-    (r"import\s+['\"](\.\./)+infrastructure/services/utils/tr_keys\.dart['\"]", "import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart'"),
 ]
 
 def fix_file(path: str) -> bool:
     """Returns True if the file was modified."""
     with open(path, "r", encoding="utf-8", errors="ignore") as f:
-        original = f.read()
+        lines = f.readlines()
 
-    content = original
+    modified = False
+    new_lines = []
 
-    # Apply import string replacements
-    for old, new in IMPORT_REPLACEMENTS:
-        content = content.replace(old, new)
+    for line in lines:
+        new_line = line
+        
+        # Only process import lines
+        if line.strip().startswith("import "):
+            replaced = False
+            
+            # 1. Try Regex Relative Fixes first (more specific)
+            for pattern, replacement in RELATIVE_FIXES:
+                temp_line = re.sub(pattern, replacement, new_line)
+                if temp_line != new_line:
+                    new_line = temp_line
+                    replaced = True
+                    break # Stop after first major regex match
+            
+            # 2. Try Exact String Replacements if not already replaced by regex
+            if not replaced:
+                for old, new in IMPORT_REPLACEMENTS:
+                    # Guard: If the line already has the correct "new" path, skip
+                    if new.startswith("package:rokctapp/") and new in line:
+                        continue
+                    
+                    if old in new_line:
+                        new_line = new_line.replace(old, new)
+                        replaced = True
+                        break # IMPORTANT: Prevent chain-reaction replacements
 
-    # Apply regex relative fixes
-    for pattern, replacement in RELATIVE_FIXES:
-        content = re.sub(pattern, replacement, content)
+        if new_line != line:
+            modified = True
+        new_lines.append(new_line)
 
-    if content == original:
+    if not modified:
         return False
 
     if DRY_RUN:
@@ -115,7 +151,7 @@ def fix_file(path: str) -> bool:
         return True
 
     with open(path, "w", encoding="utf-8") as f:
-        f.write(content)
+        f.writelines(new_lines)
     return True
 
 

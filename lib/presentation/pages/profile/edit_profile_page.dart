@@ -20,7 +20,7 @@ import 'package:rokctapp/presentation/components/text_fields/underline_drop_down
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 import 'phone_verify.dart';
 
 class EditProfileScreen extends ConsumerStatefulWidget {

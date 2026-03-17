@@ -67,7 +67,7 @@ import 'package:rokctapp/presentation/pages/main/foods/extras/create/create_extr
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart' as manager_routes;
 import 'package:rokctapp/utils/app_usage_service.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 import 'widgets/bottom_navigator_item.dart';
 
 @RoutePage()

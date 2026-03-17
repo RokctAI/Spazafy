@@ -14,7 +14,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/order/promo_code/promo_code_notifier.dart';
 import 'package:rokctapp/application/order/promo_code/promo_code_provider.dart';
 import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/tpying_delay.dart';
 

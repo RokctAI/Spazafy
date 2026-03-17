@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-import '../../infrastructure/models/data/saved_card.dart';
+import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
 
 abstract class PaymentsFacade {
   Future<ApiResult<PaymentsResponse?>> getPayments();

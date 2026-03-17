@@ -14,7 +14,7 @@ import 'package:rokctapp/presentation/components/sellect_address_screen.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:flutter/gestures.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 
 class AppBarHome extends ConsumerStatefulWidget {
   final HomeState state;

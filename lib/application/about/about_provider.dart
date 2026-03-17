@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 
 final aboutProvider = FutureProvider<Map<String, dynamic>?>((ref) async {
   try {
@@ -13,13 +13,9 @@ final aboutProvider = FutureProvider<Map<String, dynamic>?>((ref) async {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       final translation = data['data']['translation'];
-
-      final imgUrl = data['data']['img'];
-
       return {
-        'title': translation['title'],
+        'img': data['data']['img'],
         'description': translation['description'],
-        'img': imgUrl, // Include the image URL
       };
     } else {
       throw Exception('Failed to fetch about data');

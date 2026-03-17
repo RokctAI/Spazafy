@@ -5,7 +5,7 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import '../helper/common_image.dart';
 import '../buttons/buttons_bouncing_effect.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/services.dart';
 
 class OrderItem extends StatelessWidget {
   final OrderData order;

@@ -28,7 +28,7 @@ import 'package:rokctapp/presentation/pages/shop/shop_page.dart';
 import 'package:rokctapp/presentation/pages/view_map/map_search_page.dart';
 import 'package:rokctapp/presentation/pages/view_map/view_map_page.dart';
 import 'package:rokctapp/presentation/pages/initial/closed/closed_page.dart';
-import 'package:rokctapp/presentation/pages/intro/intro_page.dart';
+import 'package:rokctapp/presentation/pages/intro/customer/intro_page.dart';
 import 'package:rokctapp/presentation/pages/order/orders_main.dart';
 
 // ─── Shared/Manager/Driver Pages ─────────────────────────────────────────────
@@ -47,9 +47,9 @@ import '../pages/stories/story_page.dart';
 import '../pages/become/become_driver_page.dart';
 import '../pages/become/become_seller_page.dart';
 import '../pages/home/pos_page.dart';
-import '../../presentation/pages/loans/widgets/loan_document_upload_screen.dart';
-import '../../presentation/pages/loans/widgets/loan_eligibility_screen.dart';
-import '../../presentation/pages/loans/loan_screen.dart';
+import 'package:rokctapp/presentation/pages/loans/widgets/loan_document_upload_screen.dart';
+import 'package:rokctapp/presentation/pages/loans/widgets/loan_eligibility_screen.dart';
+import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
 
 // Note: Ensure PinPageType and other enums are imported if needed
 

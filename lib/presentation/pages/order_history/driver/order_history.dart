@@ -17,7 +17,7 @@ import 'package:rokctapp/presentation/components/components.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import '../../../application/order/progress_ordedr/progress_order_provider.dart';
+import 'package:rokctapp/application/order/progress_ordedr/progress_order_provider.dart';
 
 @RoutePage()
 class OrderHistoryPage extends ConsumerStatefulWidget {

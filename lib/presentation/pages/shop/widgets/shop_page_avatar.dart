@@ -20,7 +20,7 @@ import 'package:rokctapp/presentation/pages/shop/group_order/group_order.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/badges.dart';
-import '../../../../infrastructure/models/data/bonus_data.dart';
+import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
 import 'bonus_screen.dart';
 //import 'shop_description_item.dart';
 

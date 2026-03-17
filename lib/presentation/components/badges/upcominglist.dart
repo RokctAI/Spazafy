@@ -9,7 +9,7 @@ import 'package:rokctapp/application/orders_list/orders_list_provider.dart';
 import 'package:rokctapp/application/shop/shop_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
-import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';

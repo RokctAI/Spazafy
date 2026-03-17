@@ -23,7 +23,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'dart:math';
 import 'package:payfast/payfast.dart';
-import '../../domain/interface/loans.dart';
+import 'package:rokctapp/domain/interface/loans.dart';
 import '../../utils/payfast/payfast_webview.dart';
 import '../models/data/loans/loan_application.dart';
 

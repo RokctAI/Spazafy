@@ -1,7 +1,7 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import '../../../infrastructure/services/hive_database.dart';
-import '../../../presentation/components/error/failure.dart';
+import 'package:rokctapp/infrastructure/services/hive_database.dart';
+import 'package:rokctapp/presentation/components/error/failure.dart';
 import 'package:billing_app/infrastructure/models/data/product.dart';
 import 'package:billing_app/infrastructure/repository/product_repository.dart';
 import 'package:billing_app/infrastructure/models/product_model.dart';

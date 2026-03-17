@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 //import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
 import '../../theme/app_style.dart';

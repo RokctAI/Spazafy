@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../infrastructure/models/data/loans/loan_application.dart';
-import '../../infrastructure/models/data/loans/loan_contract_model.dart';
+import 'package:rokctapp/infrastructure/models/data/loans/loan_application.dart';
+import 'package:rokctapp/infrastructure/models/data/loans/loan_contract_model.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
 abstract class LoansFacade {

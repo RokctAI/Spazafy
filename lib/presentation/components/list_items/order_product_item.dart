@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import '../loading/text_loading.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/services.dart';
 
 class OrderProductItem extends StatelessWidget {
   final CurrencyData? currencyData;

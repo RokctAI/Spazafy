@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import '../../theme/app_style.dart';
 import '../badge_item.dart';
 import '../shop_avarat.dart';

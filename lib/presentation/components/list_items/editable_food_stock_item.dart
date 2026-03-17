@@ -6,7 +6,7 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import '../buttons/buttons_bouncing_effect.dart';
 import '../text_fields/underlined_text_field.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/services.dart';
 
 class EditableFoodStockItem extends StatelessWidget {
   final Stock stock;

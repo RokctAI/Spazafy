@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../../application/order/all_order/order_provider.dart';
+import 'package:rokctapp/application/order/all_order/order_provider.dart';
 import '../../../components/loading.dart';
 import '../../../component/orders_item.dart';
 
