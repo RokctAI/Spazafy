@@ -65,8 +65,7 @@ import 'package:rokctapp/presentation/pages/main/foods/addons/create/create_addo
 import 'package:rokctapp/presentation/pages/main/foods/extras/create/create_extras_group_modal.dart';
 
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart'
-    as manager_routes;
+import 'package:rokctapp/presentation/routes/app_router.dart' as manager_routes;
 import 'package:rokctapp/utils/app_usage_service.dart';
 import '../../../app_constants.dart';
 import 'widgets/bottom_navigator_item.dart';
