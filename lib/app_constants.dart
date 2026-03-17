@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter_remix/flutter_remix.dart';
-import 'package:rokctapp/presentation/theme/app_assets.dart';
+import 'package:rokctapp/infrastructure/services/app_assets.dart';
 
 import 'infrastructure/services/constants/enums.dart';
 

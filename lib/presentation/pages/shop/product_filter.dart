@@ -9,7 +9,7 @@ import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:rokctapp/application/shop/shop_provider.dart';
+import 'package:rokctapp/application/shops/shop_provider.dart';
 
 class ProductFilter extends ConsumerWidget {
   final String shopId;

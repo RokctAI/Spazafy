@@ -9,7 +9,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/presentation/theme/app_assets.dart';
+import 'package:rokctapp/infrastructure/services/app_assets.dart';
 import '../../../../../components/components.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'searched_location_item.dart';

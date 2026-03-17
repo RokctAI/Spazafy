@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'; //chan
 import 'package:rokctapp/presentation/components/buttons/second_button.dart';
 //import '../../components/helper/shimmer.dart';
 
-import 'package:rokctapp/application/intro/intro_provider.dart';
+import 'package:rokctapp/application/intro/customer/intro_provider.dart';
 //import '../../components/components.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 

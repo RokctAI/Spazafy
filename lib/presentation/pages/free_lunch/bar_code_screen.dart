@@ -1,6 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:rokctapp/infrastructure/services/utils/app_assets.dart';
+import 'package:rokctapp/infrastructure/services/app_assets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';

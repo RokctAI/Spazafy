@@ -12,7 +12,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/market_item.dart';
-import 'package:rokctapp/presentation/pages/home/shimmer/all_shop_shimmer.dart';
+import 'package:rokctapp/presentation/components/loading/all_shop_shimmer.dart';
 import '../home/home_four/widgets/market_one_item.dart';
 import '../home/home_four/widgets/market_three_item.dart';
 import '../home/home_four/widgets/market_two_item.dart';

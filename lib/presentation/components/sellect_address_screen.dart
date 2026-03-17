@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/application/order/order_provider.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
-import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 import 'package:rokctapp/app_constants.dart';

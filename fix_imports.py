@@ -2,11 +2,7 @@
 """
 fix_imports.py — The ultimate rokctapp import unification script.
 
-Resolves the remaining 235 broken links.
-Handles:
-1. Nested driver component paths.
-2. Specific utility relocations (payfast/services).
-3. Relative path normalization for unified application layers.
+Resolves the remaining broken links by normalizing paths to the new unified structure.
 """
 
 import os
@@ -35,46 +31,42 @@ IMPORT_REPLACEMENTS = [
     ("/component/list_items/", "/components/list_items/"),
     ("/component/text_fields/", "/components/text_fields/"),
     ("tab_bars/custom_tab_bar.dart", "package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart"),
-    ("package:rokctapp/presentation/pages/home/widgets/foods_page.dart", "package:rokctapp/presentation/pages/home/driver/widgets/foods_page.dart"),
-    ("package:rokctapp/presentation/app_assets.dart", "package:rokctapp/presentation/theme/app_assets.dart"),
+    ("package:rokctapp/presentation/theme/app_assets.dart", "package:rokctapp/infrastructure/services/app_assets.dart"), # Correction: found in infrastructure
+    ("package:rokctapp/presentation/app_assets.dart", "package:rokctapp/infrastructure/services/app_assets.dart"),
     ("package:rokctapp/presentation/pages/intro/intro_page.dart", "package:rokctapp/presentation/pages/intro/customer/intro_page.dart"),
 
-    # ── Style/Theme Realignment ──
-    ("package:rokctapp/presentation/styles/style.dart", "package:rokctapp/presentation/theme/app_style.dart"),
-    ("package:rokctapp/presentation/styles/", "package:rokctapp/presentation/theme/"),
-    
-    # ── Application Layer Flattening ──
+    # ── Specific Provider Mappings (Flattened and Grouped) ──
+    ("application/delivery/delivery_provider.dart", "application/delivery/unified_delivery_provider.dart"),
+    ("application/shop_order/", "application/shops/shop_order/"),
+    ("application/shop/", "application/shops/"),
+    ("application/shopname/", "application/shops/shopname/"),
+    ("application/filter/", "application/foods/filter/"),
+    ("application/orders_list/", "application/order/orders_list/"),
+    ("application/intro/", "application/intro/customer/"),
     ("application/order/customer/", "application/order/"),
-    ("application/profile/edit_profile_provider.dart", "application/profile/edit_profile/edit_profile_provider.dart"),
-    ("application/profile/notifier/profile_edit_notifier.dart", "application/profile/profile_edit_notifier.dart"),
-    ("application/profile/notifier/profile_image_notifier.dart", "application/profile/profile_image_notifier.dart"),
-    ("application/profile/provider/profile_edit_provider.dart", "application/profile/profile_provider.dart"),
-    ("application/profile/provider/profile_image_provider.dart", "application/profile/profile_provider.dart"),
-    ("application/profile/state/profile_edit_state.dart", "application/profile/profile_state.dart"),
-    ("application/profile/state/profile_image_state.dart", "application/profile/profile_state.dart"),
-    ("application/profile/provider/profile_settings_provider.dart", "application/profile/profile_settings_notifier.dart"),
-    
-    # ── Domain/Interface Renames ──
-    ("domain/interface/payment_facade.dart", "domain/interface/payments.dart"),
-    ("domain/interface/subscription_facade.dart", "domain/interface/subscriptions.dart"),
     
     # ── Infrastructure/Services Fixes ──
     ("infrastructure/services/utils/tr_keys.dart", "infrastructure/services/constants/tr_keys.dart"),
     ("infrastructure/services/tr_keys.dart", "infrastructure/services/constants/tr_keys.dart"),
+    ("infrastructure/services/utils/app_assets.dart", "infrastructure/services/app_assets.dart"),
+    ("infrastructure/services/utils/app_constants.dart", "app_constants.dart"),
+    ("infrastructure/services/app_constants.dart", "app_constants.dart"),
+    ("package:rokctapp/infrastructure/services/utils/app_constants.dart", "package:rokctapp/app_constants.dart"),
     ("infrastructure/services/manager/services.dart", "infrastructure/services/utils/services.dart"),
     ("infrastructure/services/driver/services.dart", "infrastructure/services/utils/services.dart"),
     ("infrastructure/services/customer/services.dart", "infrastructure/services/utils/services.dart"),
     ("infrastructure/services/services.dart", "infrastructure/services/utils/services.dart"),
-    ("infrastructure/services/app_constants.dart", "app_constants.dart"),
-    ("infrastructure/services/utils/app_constants.dart", "app_constants.dart"),
-    ("package:rokctapp/infrastructure/services/utils/app_constants.dart", "package:rokctapp/app_constants.dart"),
     
-    # ── Utility & Misc Fixes ──
-    ("'signature_service.dart'", "'services/signature_service.dart'"),
-    ("\"signature_service.dart\"", "\"services/signature_service.dart\""),
-    ("'printer_device.dart'", "'../models/printer_device.dart'"),
-    ("\"printer_device.dart\"", "\"../models/printer_device.dart\""),
+    # ── Domain/Interface Renames ──
+    ("domain/interface/payment_facade.dart", "domain/interface/payments.dart"),
+    ("domain/interface/subscription_facade.dart", "domain/interface/subscriptions.dart"),
 
+    # ── Style/Theme Realignment ──
+    ("package:rokctapp/presentation/styles/style.dart", "package:rokctapp/presentation/theme/app_style.dart"),
+    ("package:rokctapp/presentation/styles/", "package:rokctapp/presentation/theme/"),
+    ("package:rokctapp/presentation/pages/home/shimmer/", "package:rokctapp/presentation/components/loading/"),
+
+    # ── Legacy Namespace Fixes ──
     ("package:foodyman/", "package:rokctapp/"),
     ("package:venderfoodyman/", "package:rokctapp/"),
 ]
@@ -106,8 +98,11 @@ RELATIVE_FIXES = [
 
 def fix_file(path: str) -> bool:
     """Returns True if the file was modified."""
-    with open(path, "r", encoding="utf-8", errors="ignore") as f:
-        lines = f.readlines()
+    try:
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+    except Exception:
+        return False
 
     modified = False
     new_lines = []
@@ -167,6 +162,7 @@ def main():
     scanned = 0
 
     for dirpath, dirnames, filenames in os.walk(root):
+        # Skip hidden and non-source dirs
         dirnames[:] = [d for d in dirnames if not d.startswith(".") and d not in ["build", "node_modules", "android", "ios", "web"]]
         for filename in filenames:
             if not filename.endswith(".dart"):

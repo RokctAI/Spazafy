@@ -2,366 +2,298 @@
 IMPORT VERIFICATION REPORT
 ------------------------------
 Scanned Files: 1113
-Total Internal Imports: 6855
+Total Internal Imports: 6859
 ------------------------------
-FAILURE: Found 180 broken links:
+FAILURE: Found 146 broken links:
 1. lib\presentation\components\order_detail.dart:13
    Broken Import: package:rokctapp/infrastructure/models/data/order_detail.dart
-2. lib\presentation\components\sellect_address_screen.dart:8
-   Broken Import: package:rokctapp/application/shop_order/shop_order_provider.dart
-3. lib\presentation\components\badges\delivery_fee_badge.dart:8
+2. lib\presentation\components\badges\delivery_fee_badge.dart:8
    Broken Import: ../../../infrastructure/services/utils/app_constants.dart
-4. lib\presentation\components\badges\delivery_fee_badge.dart:10
+3. lib\presentation\components\badges\delivery_fee_badge.dart:10
    Broken Import: package:rokctapp/infrastructure/services/utils/tr_keys.dart
-5. lib\presentation\components\badges\delivery_fee_badge.dart:13
+4. lib\presentation\components\badges\delivery_fee_badge.dart:13
    Broken Import: package:rokctapp/application/shop/shop_provider.dart
-6. lib\presentation\components\badges\rating_badge.dart:9
+5. lib\presentation\components\badges\rating_badge.dart:9
    Broken Import: package:rokctapp/infrastructure/services/utils/tr_keys.dart
-7. lib\presentation\components\badges\upcominglist.dart:8
-   Broken Import: package:rokctapp/application/orders_list/orders_list_provider.dart
-8. lib\presentation\components\badges\upcominglist.dart:9
-   Broken Import: package:rokctapp/application/shop/shop_provider.dart
-9. lib\presentation\components\buttons\forgot_text_button.dart:3
+6. lib\presentation\components\badges\upcominglist.dart:9
+   Broken Import: package:rokctapp/application/shops/shop_provider.dart
+7. lib\presentation\components\buttons\forgot_text_button.dart:3
    Broken Import: package:rokctapp/application/app_widget/app_provider.dart
-10. lib\presentation\components\manager\driver_avatar.dart:5
+8. lib\presentation\components\manager\driver_avatar.dart:5
    Broken Import: helper/common_image.dart
-11. lib\presentation\components\manager\multi_translation_input_modal.dart:13
+9. lib\presentation\components\manager\multi_translation_input_modal.dart:13
    Broken Import: loading/loading.dart
-12. lib\presentation\components\manager\multi_translation_input_modal.dart:14
+10. lib\presentation\components\manager\multi_translation_input_modal.dart:14
    Broken Import: text_fields/underlined_text_field.dart
-13. lib\presentation\components\manager\orders_item.dart:4
+11. lib\presentation\components\manager\orders_item.dart:4
    Broken Import: package:rokctapp/infrastructure/services/utils/enums.dart
-14. lib\presentation\components\manager\extras\image_extras.dart:5
+12. lib\presentation\components\manager\extras\image_extras.dart:5
    Broken Import: ../helper/common_image.dart
-15. lib\presentation\components\manager\extras\text_extras.dart:3
+13. lib\presentation\components\manager\extras\text_extras.dart:3
    Broken Import: ../list_items/text_extras_item.dart
-16. lib\presentation\pages\cards\payment_screen.dart:5
-   Broken Import: package:rokctapp/application/shop_order/shop_order_provider.dart
-17. lib\presentation\pages\chat\chat_page.dart:18
+14. lib\presentation\pages\chat\chat_page.dart:18
    Broken Import: ../../../components/keyboard_dismisser.dart
-18. lib\presentation\pages\free_lunch\bar_code_screen.dart:3
-   Broken Import: package:rokctapp/infrastructure/services/utils/app_assets.dart
-19. lib\presentation\pages\home\driver\bottom_sheet_screen.dart:1
-   Broken Import: package:rokctapp/infrastructure/services/utils/app_assets.dart
-20. lib\presentation\pages\home\driver\home_page.dart:4
-   Broken Import: package:rokctapp/infrastructure/services/utils/app_assets.dart
-21. lib\presentation\pages\home\driver\home_page.dart:20
+15. lib\presentation\pages\home\driver\home_page.dart:20
    Broken Import: package:rokctapp/driver/main.dart
-22. lib\presentation\pages\home\driver\widgets\add_comment.dart:6
+16. lib\presentation\pages\home\driver\widgets\add_comment.dart:6
    Broken Import: ../../../components/components.dart
-23. lib\presentation\pages\home\driver\widgets\approve_dialog.dart:10
+17. lib\presentation\pages\home\driver\widgets\approve_dialog.dart:10
    Broken Import: ../../../components/components.dart
-24. lib\presentation\pages\home\driver\widgets\foods_page.dart:8
+18. lib\presentation\pages\home\driver\widgets\foods_page.dart:8
    Broken Import: ../../../components/components.dart
-25. lib\presentation\pages\home\driver\widgets\foods_page.dart:9
+19. lib\presentation\pages\home\driver\widgets\foods_page.dart:9
    Broken Import: ../../../components/loading.dart
-26. lib\presentation\pages\home\driver\widgets\free_lunch.dart:1
-   Broken Import: package:rokctapp/infrastructure/services/utils/app_assets.dart
-27. lib\presentation\pages\home\driver\widgets\free_lunch.dart:7
+20. lib\presentation\pages\home\driver\widgets\free_lunch.dart:7
    Broken Import: ../../pages.dart
-28. lib\presentation\pages\home\driver\widgets\rate_customer.dart:11
+21. lib\presentation\pages\home\driver\widgets\rate_customer.dart:11
    Broken Import: ../../../components/components.dart
-29. lib\presentation\pages\home\driver\widgets\stores.dart:7
+22. lib\presentation\pages\home\driver\widgets\stores.dart:7
    Broken Import: ../../../components/components.dart
-30. lib\presentation\pages\home\driver\widgets\stores.dart:8
+23. lib\presentation\pages\home\driver\widgets\stores.dart:8
    Broken Import: ../../../routes/app_router.dart
-31. lib\presentation\pages\home\home_four\app_bar_home.dart:11
-   Broken Import: package:rokctapp/infrastructure/services/utils/app_assets.dart
-32. lib\presentation\pages\home\home_four\filter\filter_page.dart:5
-   Broken Import: package:rokctapp/application/filter/filter_notifier.dart
-33. lib\presentation\pages\home\home_four\filter\filter_page.dart:6
-   Broken Import: package:rokctapp/application/filter/filter_state.dart
-34. lib\presentation\pages\home\home_four\filter\filter_page.dart:18
-   Broken Import: package:rokctapp/application/filter/filter_provider.dart
-35. lib\presentation\pages\home\home_four\widgets\banner_item_three.dart:6
+24. lib\presentation\pages\home\home_four\filter\filter_page.dart:5
+   Broken Import: package:rokctapp/application/foods/filter/filter_notifier.dart
+25. lib\presentation\pages\home\home_four\filter\filter_page.dart:6
+   Broken Import: package:rokctapp/application/foods/filter/filter_state.dart
+26. lib\presentation\pages\home\home_four\filter\filter_page.dart:18
+   Broken Import: package:rokctapp/application/foods/filter/filter_provider.dart
+27. lib\presentation\pages\home\home_four\widgets\banner_item_three.dart:6
    Broken Import: package:rokctapp/presentation/pages/home/home_three/widgets/banner_screen.dart
-36. lib\presentation\pages\home\home_zero\filter\filter_page.dart:5
-   Broken Import: package:rokctapp/application/filter/filter_notifier.dart
-37. lib\presentation\pages\home\home_zero\filter\filter_page.dart:6
-   Broken Import: package:rokctapp/application/filter/filter_state.dart
-38. lib\presentation\pages\home\home_zero\filter\filter_page.dart:18
-   Broken Import: package:rokctapp/application/filter/filter_provider.dart
-39. lib\presentation\pages\home\home_zero\filter\result_filter.dart:6
-   Broken Import: package:rokctapp/application/filter/filter_provider.dart
-40. lib\presentation\pages\home\home_zero\filter\result_filter.dart:14
-   Broken Import: package:rokctapp/application/filter/filter_notifier.dart
-41. lib\presentation\pages\home\home_zero\widgets\banner_screen.dart:10
+28. lib\presentation\pages\home\home_zero\filter\filter_page.dart:5
+   Broken Import: package:rokctapp/application/foods/filter/filter_notifier.dart
+29. lib\presentation\pages\home\home_zero\filter\filter_page.dart:6
+   Broken Import: package:rokctapp/application/foods/filter/filter_state.dart
+30. lib\presentation\pages\home\home_zero\filter\filter_page.dart:18
+   Broken Import: package:rokctapp/application/foods/filter/filter_provider.dart
+31. lib\presentation\pages\home\home_zero\filter\result_filter.dart:6
+   Broken Import: package:rokctapp/application/foods/filter/filter_provider.dart
+32. lib\presentation\pages\home\home_zero\filter\result_filter.dart:14
+   Broken Import: package:rokctapp/application/foods/filter/filter_notifier.dart
+33. lib\presentation\pages\home\home_zero\widgets\banner_screen.dart:10
    Broken Import: ../../../routes/app_router.dart
-42. lib\presentation\pages\home\home_zero\widgets\market_two_item.dart:13
+34. lib\presentation\pages\home\home_zero\widgets\market_two_item.dart:13
    Broken Import: two_bonus_discount.dart
-43. lib\presentation\pages\home\home_zero\widgets\shops_banner_page.dart:12
+35. lib\presentation\pages\home\home_zero\widgets\shops_banner_page.dart:12
    Broken Import: package:rokctapp/presentation/pages/home/home_one/widget/market_one_item.dart
-44. lib\presentation\pages\home\home_zero\widgets\shops_banner_page.dart:13
+36. lib\presentation\pages\home\home_zero\widgets\shops_banner_page.dart:13
    Broken Import: package:rokctapp/presentation/pages/home/home_three/widgets/market_three_item.dart
-45. lib\presentation\pages\home\home_zero\widgets\shops_banner_page.dart:19
+37. lib\presentation\pages\home\home_zero\widgets\shops_banner_page.dart:19
    Broken Import: ../home_two/widget/market_two_item.dart
-46. lib\presentation\pages\income\manager\app_bar_screen.dart:4
+38. lib\presentation\pages\income\manager\app_bar_screen.dart:4
    Broken Import: package:rokctapp/application/restaurant/income/statistics/statistics_notifier.dart
-47. lib\presentation\pages\income\manager\app_bar_screen.dart:6
+39. lib\presentation\pages\income\manager\app_bar_screen.dart:6
    Broken Import: ../../components/components.dart
-48. lib\presentation\pages\income\manager\more_orders.dart:6
+40. lib\presentation\pages\income\manager\more_orders.dart:6
    Broken Import: package:rokctapp/application/restaurant/income/statistics/statistics_provider.dart
-49. lib\presentation\pages\income\manager\more_orders.dart:8
+41. lib\presentation\pages\income\manager\more_orders.dart:8
    Broken Import: ../../components/helper/modal_drag.dart
-50. lib\presentation\pages\income\manager\more_orders.dart:9
+42. lib\presentation\pages\income\manager\more_orders.dart:9
    Broken Import: ../../components/helper/modal_wrap.dart
-51. lib\presentation\pages\income\manager\more_orders.dart:10
+43. lib\presentation\pages\income\manager\more_orders.dart:10
    Broken Import: ../../components/loading/loading.dart
-52. lib\presentation\pages\income\manager\widgets\statistics_section.dart:7
+44. lib\presentation\pages\income\manager\widgets\statistics_section.dart:7
    Broken Import: ../../../components/components.dart
-53. lib\presentation\pages\intro\customer\intro_page.dart:9
+45. lib\presentation\pages\intro\customer\intro_page.dart:9
    Broken Import: ../../components/helper/shimmer.dart
-54. lib\presentation\pages\intro\customer\intro_page.dart:11
-   Broken Import: package:rokctapp/application/intro/intro_provider.dart
-55. lib\presentation\pages\intro\customer\intro_page.dart:12
+46. lib\presentation\pages\intro\customer\intro_page.dart:12
    Broken Import: ../../components/components.dart
-56. lib\presentation\pages\like\like_page.dart:15
-   Broken Import: package:rokctapp/presentation/pages/home/shimmer/all_shop_shimmer.dart
-57. lib\presentation\pages\main\foods\foods\foods_body.dart:9
+47. lib\presentation\pages\like\like_page.dart:15
+   Broken Import: package:rokctapp/presentation/components/loading/all_shop_shimmer.dart
+48. lib\presentation\pages\main\foods\foods\foods_body.dart:9
    Broken Import: ../../../../styles/style.dart
-58. lib\presentation\pages\main\orders\orders_home_page.dart:6
+49. lib\presentation\pages\main\orders\orders_home_page.dart:6
    Broken Import: package:rokctapp/application/main/orders/cooking/cooking_orders_provider.dart
-59. lib\presentation\pages\main\orders\details\order_details_modal.dart:8
+50. lib\presentation\pages\main\orders\details\order_details_modal.dart:8
    Broken Import: package:rokctapp/application/main/orders/cooking/cooking_orders_provider.dart
-60. lib\presentation\pages\main\orders\widgets\cooking_orders_body.dart:5
+51. lib\presentation\pages\main\orders\widgets\cooking_orders_body.dart:5
    Broken Import: package:rokctapp/application/main/orders/cooking/cooking_orders_provider.dart
-61. lib\presentation\pages\manager\add_address.dart:8
+52. lib\presentation\pages\manager\add_address.dart:8
    Broken Import: ../components/components.dart
-62. lib\presentation\pages\order\orders_main.dart:6
-   Broken Import: package:rokctapp/application/orders_list/orders_list_notifier.dart
-63. lib\presentation\pages\order\orders_main.dart:7
-   Broken Import: package:rokctapp/application/orders_list/orders_list_provider.dart
-64. lib\presentation\pages\order\orders_main.dart:8
+53. lib\presentation\pages\order\orders_main.dart:8
    Broken Import: package:rokctapp/application/parcels_list/parcel_list_notifier.dart
-65. lib\presentation\pages\order\orders_main.dart:9
+54. lib\presentation\pages\order\orders_main.dart:9
    Broken Import: package:rokctapp/application/parcels_list/parcel_list_provider.dart
-66. lib\presentation\pages\order\orders_page.dart:6
-   Broken Import: package:rokctapp/application/orders_list/orders_list_notifier.dart
-67. lib\presentation\pages\order\orders_page.dart:7
-   Broken Import: package:rokctapp/application/orders_list/orders_list_provider.dart
-68. lib\presentation\pages\order\driver\orders_page.dart:2
-   Broken Import: package:rokctapp/infrastructure/services/utils/app_assets.dart
-69. lib\presentation\pages\order\order_check\order_check.dart:12
-   Broken Import: package:rokctapp/application/orders_list/orders_list_notifier.dart
-70. lib\presentation\pages\order\order_check\order_check.dart:17
-   Broken Import: package:rokctapp/application/shop_order/shop_order_notifier.dart
-71. lib\presentation\pages\order\order_check\order_check.dart:18
-   Broken Import: package:rokctapp/application/shop_order/shop_order_provider.dart
-72. lib\presentation\pages\order\order_check\order_check.dart:19
-   Broken Import: package:rokctapp/application/shop_order/shop_order_state.dart
-73. lib\presentation\pages\order\order_check\order_check.dart:31
-   Broken Import: package:rokctapp/application/orders_list/orders_list_provider.dart
-74. lib\presentation\pages\order\order_check\pos_checkout_page.dart:9
+55. lib\presentation\pages\order\order_check\pos_checkout_page.dart:9
    Broken Import: package:rokctapp/application/billing_printer/billing_printer_provider.dart
-75. lib\presentation\pages\order\order_check\widgets\auto_order_modal.dart:10
+56. lib\presentation\pages\order\order_check\widgets\auto_order_modal.dart:10
    Broken Import: package:rokctapp/application/auto_order/auto_order_notifier.dart
-76. lib\presentation\pages\order\order_check\widgets\auto_order_modal.dart:11
+57. lib\presentation\pages\order\order_check\widgets\auto_order_modal.dart:11
    Broken Import: package:rokctapp/application/auto_order/auto_order_provider.dart
-77. lib\presentation\pages\order\order_check\widgets\auto_order_modal.dart:13
+58. lib\presentation\pages\order\order_check\widgets\auto_order_modal.dart:13
    Broken Import: package:rokctapp/application/order/save_card/saved_cards_provider.dart
-78. lib\presentation\pages\order\order_check\widgets\promo_code.dart:5
+59. lib\presentation\pages\order\order_check\widgets\promo_code.dart:5
    Broken Import: package:rokctapp/application/order/promo_code/promo_code_state.dart
-79. lib\presentation\pages\order\order_check\widgets\promo_code.dart:14
+60. lib\presentation\pages\order\order_check\widgets\promo_code.dart:14
    Broken Import: package:rokctapp/application/order/promo_code/promo_code_notifier.dart
-80. lib\presentation\pages\order\order_check\widgets\promo_code.dart:15
+61. lib\presentation\pages\order\order_check\widgets\promo_code.dart:15
    Broken Import: package:rokctapp/application/order/promo_code/promo_code_provider.dart
-81. lib\presentation\pages\order\order_screen\order_screen.dart:16
-   Broken Import: package:rokctapp/application/shop_order/shop_order_state.dart
-82. lib\presentation\pages\order\order_screen\order_screen.dart:29
-   Broken Import: package:rokctapp/application/shop_order/shop_order_provider.dart
-83. lib\presentation\pages\order\order_type\widgets\order_pickup_point.dart:4
+62. lib\presentation\pages\order\order_type\widgets\order_pickup_point.dart:4
    Broken Import: package:rokctapp/application/delivery_points/delivery_points_provider.dart
-84. lib\presentation\pages\order\widgets\orders_item.dart:15
+63. lib\presentation\pages\order\widgets\orders_item.dart:15
    Broken Import: ../../../../infrastructure/services/utils/app_constants.dart
-85. lib\presentation\pages\order_history\driver\order_history.dart:4
+64. lib\presentation\pages\order_history\driver\order_history.dart:4
    Broken Import: package:rokctapp/presentation/pages/driver/order_history/widgets/all_orders.dart
-86. lib\presentation\pages\order_history\driver\order_history.dart:5
+65. lib\presentation\pages\order_history\driver\order_history.dart:5
    Broken Import: package:rokctapp/presentation/pages/driver/order_history/widgets/canceled_body.dart
-87. lib\presentation\pages\order_history\driver\order_history.dart:6
+66. lib\presentation\pages\order_history\driver\order_history.dart:6
    Broken Import: package:rokctapp/presentation/pages/driver/order_history/widgets/derliverd_body.dart
-88. lib\presentation\pages\order_history\driver\order_history.dart:7
+67. lib\presentation\pages\order_history\driver\order_history.dart:7
    Broken Import: package:rokctapp/presentation/pages/driver/order_history/widgets/progress_body.dart
-89. lib\presentation\pages\order_history\driver\widgets\all_orders.dart:7
+68. lib\presentation\pages\order_history\driver\widgets\all_orders.dart:7
    Broken Import: ../../../components/loading.dart
-90. lib\presentation\pages\order_history\driver\widgets\all_orders.dart:8
+69. lib\presentation\pages\order_history\driver\widgets\all_orders.dart:8
    Broken Import: ../../../component/orders_item.dart
-91. lib\presentation\pages\order_history\driver\widgets\canceled_body.dart:7
+70. lib\presentation\pages\order_history\driver\widgets\canceled_body.dart:7
    Broken Import: ../../../components/loading.dart
-92. lib\presentation\pages\order_history\driver\widgets\canceled_body.dart:8
+71. lib\presentation\pages\order_history\driver\widgets\canceled_body.dart:8
    Broken Import: ../../../component/orders_item.dart
-93. lib\presentation\pages\order_history\driver\widgets\derliverd_body.dart:6
+72. lib\presentation\pages\order_history\driver\widgets\derliverd_body.dart:6
    Broken Import: ../../../components/loading.dart
-94. lib\presentation\pages\order_history\driver\widgets\derliverd_body.dart:7
+73. lib\presentation\pages\order_history\driver\widgets\derliverd_body.dart:7
    Broken Import: ../../../component/orders_item.dart
-95. lib\presentation\pages\order_history\driver\widgets\progress_body.dart:8
+74. lib\presentation\pages\order_history\driver\widgets\progress_body.dart:8
    Broken Import: ../../../components/loading.dart
-96. lib\presentation\pages\order_history\driver\widgets\progress_body.dart:9
+75. lib\presentation\pages\order_history\driver\widgets\progress_body.dart:9
    Broken Import: ../../../component/orders_item.dart
-97. lib\presentation\pages\order_history\manager\canceled_orders_body.dart:8
+76. lib\presentation\pages\order_history\manager\canceled_orders_body.dart:8
    Broken Import: ../../components/list_items/order_item.dart
-98. lib\presentation\pages\order_history\manager\canceled_orders_body.dart:9
+77. lib\presentation\pages\order_history\manager\canceled_orders_body.dart:9
    Broken Import: ../../components/loading/loading_list.dart
-99. lib\presentation\pages\order_history\manager\canceled_orders_body.dart:10
+78. lib\presentation\pages\order_history\manager\canceled_orders_body.dart:10
    Broken Import: ../main/orders/details/order_details_modal.dart
-100. lib\presentation\pages\order_history\manager\canceled_orders_body.dart:11
+79. lib\presentation\pages\order_history\manager\canceled_orders_body.dart:11
    Broken Import: ../main/orders/widgets/no_orders.dart
-101. lib\presentation\pages\order_history\manager\delivered_order_body.dart:8
+80. lib\presentation\pages\order_history\manager\delivered_order_body.dart:8
    Broken Import: ../../components/list_items/order_item.dart
-102. lib\presentation\pages\order_history\manager\delivered_order_body.dart:9
+81. lib\presentation\pages\order_history\manager\delivered_order_body.dart:9
    Broken Import: ../../components/loading/loading_list.dart
-103. lib\presentation\pages\order_history\manager\delivered_order_body.dart:10
+82. lib\presentation\pages\order_history\manager\delivered_order_body.dart:10
    Broken Import: ../main/orders/details/order_details_modal.dart
-104. lib\presentation\pages\order_history\manager\delivered_order_body.dart:11
+83. lib\presentation\pages\order_history\manager\delivered_order_body.dart:11
    Broken Import: ../main/orders/widgets/no_orders.dart
-105. lib\presentation\pages\order_history\manager\order_history.dart:9
+84. lib\presentation\pages\order_history\manager\order_history.dart:9
    Broken Import: ../../components/components.dart
-106. lib\presentation\pages\parcel\parcel_list_page.dart:6
+85. lib\presentation\pages\parcel\parcel_list_page.dart:6
    Broken Import: package:rokctapp/application/parcels_list/parcel_list_notifier.dart
-107. lib\presentation\pages\parcel\parcel_list_page.dart:7
+86. lib\presentation\pages\parcel\parcel_list_page.dart:7
    Broken Import: package:rokctapp/application/parcels_list/parcel_list_provider.dart
-108. lib\presentation\pages\parcel\parcel_order_page.dart:26
+87. lib\presentation\pages\parcel\parcel_order_page.dart:26
    Broken Import: package:rokctapp/infrastructure/services/enums.dart
-109. lib\presentation\pages\parcel\driver\parcel_item.dart:8
+88. lib\presentation\pages\parcel\driver\parcel_item.dart:8
    Broken Import: package:rokctapp/presentation/pages/driver/parcel/parcel_order.dart
-110. lib\presentation\pages\parcel\driver\parcel_order.dart:11
+89. lib\presentation\pages\parcel\driver\parcel_order.dart:11
    Broken Import: package:rokctapp/driver/app_constants.dart
-111. lib\presentation\pages\parcels_history\parcel_history.dart:8
+90. lib\presentation\pages\parcels_history\parcel_history.dart:8
    Broken Import: package:rokctapp/presentation/pages/driver/parcel/parcel_item.dart
-112. lib\presentation\pages\policy_term\policy_page.dart:11
-   Broken Import: package:rokctapp/infrastructure/services/utils/app_assets.dart
-113. lib\presentation\pages\policy_term\term_page.dart:12
-   Broken Import: package:rokctapp/infrastructure/services/utils/app_assets.dart
-114. lib\presentation\pages\product\product_page.dart:6
+91. lib\presentation\pages\product\product_page.dart:6
    Broken Import: package:rokctapp/application/product/product_notifier.dart
-115. lib\presentation\pages\product\product_page.dart:7
+92. lib\presentation\pages\product\product_page.dart:7
    Broken Import: package:rokctapp/application/product/product_provider.dart
-116. lib\presentation\pages\product\product_page.dart:8
+93. lib\presentation\pages\product\product_page.dart:8
    Broken Import: package:rokctapp/application/product/product_state.dart
-117. lib\presentation\pages\product\product_page.dart:9
-   Broken Import: package:rokctapp/application/shop/shop_provider.dart
-118. lib\presentation\pages\product\product_page.dart:10
-   Broken Import: package:rokctapp/application/shop_order/shop_order_notifier.dart
-119. lib\presentation\pages\product\product_page.dart:23
-   Broken Import: package:rokctapp/application/shop/shop_state.dart
-120. lib\presentation\pages\product\widgets\p_main_button.dart:4
+94. lib\presentation\pages\product\product_page.dart:9
+   Broken Import: package:rokctapp/application/shops/shop_provider.dart
+95. lib\presentation\pages\product\product_page.dart:23
+   Broken Import: package:rokctapp/application/shops/shop_state.dart
+96. lib\presentation\pages\product\widgets\p_main_button.dart:4
    Broken Import: package:rokctapp/application/product/product_notifier.dart
-121. lib\presentation\pages\product\widgets\p_main_button.dart:5
+97. lib\presentation\pages\product\widgets\p_main_button.dart:5
    Broken Import: package:rokctapp/application/product/product_state.dart
-122. lib\presentation\pages\product\widgets\p_main_button.dart:6
-   Broken Import: package:rokctapp/application/shop_order/shop_order_notifier.dart
-123. lib\presentation\pages\product\widgets\p_main_button.dart:7
-   Broken Import: package:rokctapp/application/shop_order/shop_order_state.dart
-124. lib\presentation\pages\product\widgets\w_product_extras.dart:6
+98. lib\presentation\pages\product\widgets\w_product_extras.dart:6
    Broken Import: package:rokctapp/application/product/product_provider.dart
-125. lib\presentation\pages\profile\edit_car.dart:10
+99. lib\presentation\pages\profile\edit_car.dart:10
    Broken Import: package:rokctapp/application/profile/profile_edit_provider.dart
-126. lib\presentation\pages\profile\edit_car.dart:11
+100. lib\presentation\pages\profile\edit_car.dart:11
    Broken Import: package:rokctapp/application/profile/profile_image_provider.dart
-127. lib\presentation\pages\profile\edit_car.dart:12
+101. lib\presentation\pages\profile\edit_car.dart:12
    Broken Import: package:rokctapp/application/profile/profile_edit_state.dart
-128. lib\presentation\pages\profile\edit_car.dart:13
+102. lib\presentation\pages\profile\edit_car.dart:13
    Broken Import: package:rokctapp/application/profile/profile_image_state.dart
-129. lib\presentation\pages\profile\profile_page.dart:14
-   Broken Import: package:rokctapp/application/orders_list/orders_list_provider.dart
-130. lib\presentation\pages\profile\profile_page.dart:15
+103. lib\presentation\pages\profile\profile_page.dart:15
    Broken Import: package:rokctapp/application/parcels_list/parcel_list_provider.dart
-131. lib\presentation\pages\profile\profile_page.dart:17
-   Broken Import: package:rokctapp/application/shop_order/shop_order_provider.dart
-132. lib\presentation\pages\profile\delivery_zone\delivery_zone_page.dart:6
+104. lib\presentation\pages\profile\delivery_zone\delivery_zone_page.dart:6
    Broken Import: package:rokctapp/application/delivery_zone/delivery_zone_provider.dart
-133. lib\presentation\pages\profile\delivery_zone\delivery_zone_page.dart:8
+105. lib\presentation\pages\profile\delivery_zone\delivery_zone_page.dart:8
    Broken Import: ../../../../theme/theme.dart
-134. lib\presentation\pages\profile\delivery_zone\delivery_zone_page.dart:9
+106. lib\presentation\pages\profile\delivery_zone\delivery_zone_page.dart:9
    Broken Import: ../../../../components/buttons/pop_button.dart
-135. lib\presentation\pages\profile\widgets\about_page.dart:8
-   Broken Import: package:rokctapp/infrastructure/services/utils/app_assets.dart
-136. lib\presentation\pages\profile\widgets\delivery_page.dart:11
-   Broken Import: package:rokctapp/infrastructure/services/utils/app_assets.dart
-137. lib\presentation\pages\profile\widgets\delivery_page.dart:13
-   Broken Import: package:rokctapp/application/delivery/delivery_provider.dart
-138. lib\presentation\pages\search\widgets\product_item.dart:11
-   Broken Import: package:rokctapp/application/shopname/shop_name_provider.dart
-139. lib\presentation\pages\service\widgets\service_one_category.dart:9
+107. lib\presentation\pages\service\widgets\service_one_category.dart:9
    Broken Import: package:rokctapp/presentation/pages/home/filter/filter_page.dart
-140. lib\presentation\pages\service\widgets\service_one_category.dart:12
+108. lib\presentation\pages\service\widgets\service_one_category.dart:12
    Broken Import: ../../home/home_one/widget/category_one_item.dart
-141. lib\presentation\pages\service\widgets\service_three_category.dart:9
+109. lib\presentation\pages\service\widgets\service_three_category.dart:9
    Broken Import: package:rokctapp/presentation/pages/home/filter/filter_page.dart
-142. lib\presentation\pages\service\widgets\service_three_category.dart:10
+110. lib\presentation\pages\service\widgets\service_three_category.dart:10
    Broken Import: package:rokctapp/presentation/pages/home/home_three/shimmer/category_shimmer.dart
-143. lib\presentation\pages\service\widgets\service_three_category.dart:11
+111. lib\presentation\pages\service\widgets\service_three_category.dart:11
    Broken Import: package:rokctapp/presentation/pages/home/home_three/widgets/category_bar_item_three.dart
-144. lib\presentation\pages\service\widgets\service_two_category.dart:9
+112. lib\presentation\pages\service\widgets\service_two_category.dart:9
    Broken Import: package:rokctapp/presentation/pages/home/filter/filter_page.dart
-145. lib\presentation\pages\service\widgets\service_two_category.dart:12
+113. lib\presentation\pages\service\widgets\service_two_category.dart:12
    Broken Import: ../../home/home_two/widget/category_two_item.dart
-146. lib\presentation\pages\setting\notification_page.dart:4
+114. lib\presentation\pages\setting\notification_page.dart:4
    Broken Import: package:rokctapp/application/setting/setting_notifier.dart
-147. lib\presentation\pages\setting\notification_page.dart:8
+115. lib\presentation\pages\setting\notification_page.dart:8
    Broken Import: package:rokctapp/application/setting/setting_provider.dart
-148. lib\presentation\pages\shop\product_filter.dart:12
-   Broken Import: package:rokctapp/application/shop/shop_provider.dart
-149. lib\presentation\pages\shop\shop_detail.dart:8
-   Broken Import: package:rokctapp/application/shop/shop_provider.dart
-150. lib\presentation\pages\shop\shop_page.dart:6
+116. lib\presentation\pages\shop\product_filter.dart:12
+   Broken Import: package:rokctapp/application/shops/shop_provider.dart
+117. lib\presentation\pages\shop\shop_detail.dart:8
+   Broken Import: package:rokctapp/application/shops/shop_provider.dart
+118. lib\presentation\pages\shop\shop_page.dart:6
+   Broken Import: package:rokctapp/application/shops/shop_notifier.dart
+119. lib\presentation\pages\shop\shop_page.dart:25
+   Broken Import: package:rokctapp/application/shops/shop_provider.dart
+120. lib\presentation\pages\shop\sub_category_screen.dart:8
    Broken Import: package:rokctapp/application/shop/shop_notifier.dart
-151. lib\presentation\pages\shop\shop_page.dart:25
+121. lib\presentation\pages\shop\sub_category_screen.dart:9
    Broken Import: package:rokctapp/application/shop/shop_provider.dart
-152. lib\presentation\pages\shop\sub_category_screen.dart:8
-   Broken Import: package:rokctapp/application/shop/shop_notifier.dart
-153. lib\presentation\pages\shop\sub_category_screen.dart:9
-   Broken Import: package:rokctapp/application/shop/shop_provider.dart
-154. lib\presentation\pages\shop\sub_category_screen.dart:18
+122. lib\presentation\pages\shop\sub_category_screen.dart:18
    Broken Import: package:rokctapp/presentation/pages/shop/widgets/make_tab_bar.dart
-155. lib\presentation\pages\shop\cart\cart_order_page.dart:9
-   Broken Import: package:rokctapp/application/shop/shop_provider.dart
-156. lib\presentation\pages\shop\cart\cart_order_page.dart:10
-   Broken Import: package:rokctapp/application/shop_order/shop_order_notifier.dart
-157. lib\presentation\pages\shop\cart\cart_order_page.dart:11
-   Broken Import: package:rokctapp/application/shop_order/shop_order_state.dart
-158. lib\presentation\pages\shop\group_order\group_order.dart:20
-   Broken Import: package:rokctapp/application/shop/shop_provider.dart
-159. lib\presentation\pages\shop\manager\restaurant_page.dart:13
+123. lib\presentation\pages\shop\cart\cart_order_page.dart:9
+   Broken Import: package:rokctapp/application/shops/shop_provider.dart
+124. lib\presentation\pages\shop\group_order\group_order.dart:20
+   Broken Import: package:rokctapp/application/shops/shop_provider.dart
+125. lib\presentation\pages\shop\manager\restaurant_page.dart:13
    Broken Import: ../../components/components.dart
-160. lib\presentation\pages\shop\manager\restaurant_page.dart:14
+126. lib\presentation\pages\shop\manager\restaurant_page.dart:14
    Broken Import: ../../phoenix_widget.dart
-161. lib\presentation\pages\shop\manager\restaurant_page.dart:15
+127. lib\presentation\pages\shop\manager\restaurant_page.dart:15
    Broken Import: ../auth/languages_modal.dart
-162. lib\presentation\pages\shop\manager\delivery_zone\delivery_zone_page.dart:8
+128. lib\presentation\pages\shop\manager\delivery_zone\delivery_zone_page.dart:8
    Broken Import: ../../../components/components.dart
-163. lib\presentation\pages\shop\manager\subscriptions\subscriptions_page.dart:14
+129. lib\presentation\pages\shop\manager\subscriptions\subscriptions_page.dart:14
    Broken Import: package:rokctapp/presentation/pages/restaurant/subscriptions/widgets/have_subscription.dart
-164. lib\presentation\pages\shop\manager\subscriptions\widgets\have_subscription.dart:4
+130. lib\presentation\pages\shop\manager\subscriptions\widgets\have_subscription.dart:4
    Broken Import: package:rokctapp/infrastructure/services/utils/date_service.dart
-165. lib\presentation\pages\shop\manager\widgets\edit_restaurant_modal.dart:14
+131. lib\presentation\pages\shop\manager\widgets\edit_restaurant_modal.dart:14
    Broken Import: ../../../components/components.dart
-166. lib\presentation\pages\shop\manager\widgets\logout_button.dart:7
+132. lib\presentation\pages\shop\manager\widgets\logout_button.dart:7
    Broken Import: ../../../components/components.dart
-167. lib\presentation\pages\shop\manager\widgets\logout_modal.dart:8
+133. lib\presentation\pages\shop\manager\widgets\logout_modal.dart:8
    Broken Import: ../../../components/components.dart
-168. lib\presentation\pages\shop\manager\widgets\shop_page_banner.dart:6
+134. lib\presentation\pages\shop\manager\widgets\shop_page_banner.dart:6
    Broken Import: ../../../components/components.dart
-169. lib\presentation\pages\shop\manager\widgets\working_time_modal.dart:8
+135. lib\presentation\pages\shop\manager\widgets\working_time_modal.dart:8
    Broken Import: ../../../components/components.dart
-170. lib\presentation\pages\shop\widgets\product_list.dart:10
-   Broken Import: package:rokctapp/application/shop/shop_provider.dart
-171. lib\presentation\pages\shop\widgets\product_list.dart:11
-   Broken Import: package:rokctapp/application/shop/shop_state.dart
-172. lib\presentation\pages\shop\widgets\tab_search.dart:7
-   Broken Import: package:rokctapp/application/shop/shop_provider.dart
-173. lib\presentation\pages\view_map\view_map_page.dart:14
+136. lib\presentation\pages\shop\widgets\product_list.dart:10
+   Broken Import: package:rokctapp/application/shops/shop_provider.dart
+137. lib\presentation\pages\shop\widgets\product_list.dart:11
+   Broken Import: package:rokctapp/application/shops/shop_state.dart
+138. lib\presentation\pages\shop\widgets\tab_search.dart:7
+   Broken Import: package:rokctapp/application/shops/shop_provider.dart
+139. lib\presentation\pages\view_map\view_map_page.dart:14
    Broken Import: package:rokctapp/application/app_widget/app_provider.dart
-174. lib\presentation\pages\view_map\manager\map_search_page.dart:7
+140. lib\presentation\pages\view_map\manager\map_search_page.dart:7
    Broken Import: ../../components/text_fields/search_text_field.dart
-175. lib\printer\connectors\bluetooth.dart:3
+141. lib\printer\connectors\bluetooth.dart:3
    Broken Import: ../models/printer_device.dart
-176. lib\printer\connectors\tcp.dart:1
+142. lib\printer\connectors\tcp.dart:1
    Broken Import: ../models/printer_device.dart
-177. lib\printer\connectors\usb.dart:1
+143. lib\printer\connectors\usb.dart:1
    Broken Import: ../models/printer_device.dart
-178. lib\printer\providers\billing_printer_provider.dart:4
+144. lib\printer\providers\billing_printer_provider.dart:4
    Broken Import: package:rokctapp/infrastructure/services/utils/printer_helper.dart
-179. lib\printer\providers\billing_printer_state.dart:2
+145. lib\printer\providers\billing_printer_state.dart:2
    Broken Import: ../models/printer_device.dart
-180. lib\utils\products\brand_utils.dart:9
-   Broken Import: package:rokctapp/application/shop/shop_provider.dart
+146. lib\utils\products\brand_utils.dart:9
+   Broken Import: package:rokctapp/application/shops/shop_provider.dart
