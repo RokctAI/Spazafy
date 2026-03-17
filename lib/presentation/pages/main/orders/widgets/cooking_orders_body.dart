@@ -6,7 +6,7 @@ import 'package:rokctapp/application/main/orders/cooking/cooking_orders_provider
 
 import 'no_orders.dart';
 import '../details/order_details_modal.dart';
-import '../../../../component/components.dart';
+import '../../../../components/components.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class CookingOrdersBody extends StatefulWidget {

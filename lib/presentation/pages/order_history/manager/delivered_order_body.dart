@@ -5,8 +5,8 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../application/order/order_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../component/list_items/order_item.dart';
-import '../../component/loading/loading_list.dart';
+import '../../components/list_items/order_item.dart';
+import '../../components/loading/loading_list.dart';
 import '../main/orders/details/order_details_modal.dart';
 import '../main/orders/widgets/no_orders.dart';
 

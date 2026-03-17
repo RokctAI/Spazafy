@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-import '../../../../application/providers.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../../component/components.dart';
-import '../../../styles/style.dart';
+import '../../../components/components.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ApproveOrderDialog extends StatelessWidget {
   final OrderDetailData? order;

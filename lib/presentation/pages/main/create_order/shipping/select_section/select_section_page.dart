@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 import 'widgets/section_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import '../../../../../component/components.dart';
+import '../../../../../components/components.dart';
 
 @RoutePage()
 class SelectSectionPage extends ConsumerStatefulWidget {

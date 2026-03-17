@@ -9,7 +9,7 @@ import 'helper/modal_drag.dart';
 import 'helper/modal_wrap.dart';
 import 'custom_date_picker.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'tab_bars/custom_tab_bar.dart';
+import 'package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FilterScreen extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
 
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class SmallWeekdayItem extends StatelessWidget {

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import '../../../component/components.dart';
+import '../../../components/components.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class LogoutModal extends StatelessWidget {

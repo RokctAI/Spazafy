@@ -5,9 +5,9 @@ import 'package:rokctapp/application/order/all_order/order_provider.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../../component/components.dart';
-import '../../../component/loading.dart';
-import '../../../styles/style.dart';
+import '../../../components/components.dart';
+import '../../../components/loading.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class FoodsPage extends ConsumerStatefulWidget {
   final OrderDetailData order;

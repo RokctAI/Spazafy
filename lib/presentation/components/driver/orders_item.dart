@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 
 import 'helper/shimmer.dart';
-import '../styles/style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'order_detail.dart';

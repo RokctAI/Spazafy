@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'create_food_addons_modal.dart';
 import 'create_food_edit_extras_modal.dart';
-import '../../../../../component/components.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import '../../../../../components/components.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class CreateFoodStocksBody extends ConsumerStatefulWidget {

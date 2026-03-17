@@ -7,13 +7,13 @@ import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/application/order/all_order/order_provider.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/presentation/component/components.dart';
-import 'package:rokctapp/presentation/component/maps_list.dart';
+import 'package:rokctapp/presentation/components/components.dart';
+import 'package:rokctapp/presentation/components/maps_list.dart';
 
 import '../../application/home/home_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../infrastructure/services/tr_keys.dart';
-import '../styles/style.dart';
+import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 
 class OrderItem extends StatelessWidget {

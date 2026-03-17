@@ -9,7 +9,7 @@ import 'package:rokctapp/presentation/components/buttons/second_button.dart';
 //import '../../components/helper/shimmer.dart';
 
 import '../../../application/intro/intro_provider.dart';
-//import '../../component/components.dart';
+//import '../../components/components.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 //import 'package:shared_preferences/shared_preferences.dart';

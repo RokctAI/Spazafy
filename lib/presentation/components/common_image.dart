@@ -4,8 +4,8 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:rokctapp/infrastructure/driver/services/services.dart';
-import '../styles/style.dart';
+import 'package:rokctapp/infrastructure/services/utils/services.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class CommonImage extends StatelessWidget {
   final String? imageUrl;

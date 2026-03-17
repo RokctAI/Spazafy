@@ -3,7 +3,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/restaurant/income/statistics/statistics_notifier.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import '../../component/components.dart';
+import '../../components/components.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class AppbarScreen extends StatelessWidget {

@@ -28,7 +28,7 @@ import 'package:rokctapp/presentation/pages/shop/shop_page.dart';
 import 'package:rokctapp/presentation/pages/view_map/map_search_page.dart';
 import 'package:rokctapp/presentation/pages/view_map/view_map_page.dart';
 import 'package:rokctapp/presentation/pages/initial/closed/closed_page.dart';
-import 'package:rokctapp/presentation/pages/intro/customer/intro_page.dart';
+import 'package:rokctapp/presentation/pages/intro/intro_page.dart';
 import 'package:rokctapp/presentation/pages/order/orders_main.dart';
 
 // ─── Shared/Manager/Driver Pages ─────────────────────────────────────────────

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/styles/style.dart';
-import '../../component/components.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import '../../components/components.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/services.dart';
 

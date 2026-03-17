@@ -7,8 +7,8 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import '../../../../component/components.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import '../../../../components/components.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 @RoutePage()

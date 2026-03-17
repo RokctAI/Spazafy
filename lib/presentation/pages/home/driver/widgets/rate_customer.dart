@@ -5,11 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-import '../../../../application/providers.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../../component/components.dart';
-import '../../../styles/style.dart';
+import '../../../components/components.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'add_comment.dart';
 
 class RateCustomer extends StatefulWidget {

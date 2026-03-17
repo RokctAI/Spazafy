@@ -12,7 +12,7 @@ import 'package:rokctapp/presentation/components/billing_browse_modal.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../component/scan_prompt.dart';
+import '../../components/scan_prompt.dart';
 import 'package:rokctapp/application/main/main_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 

@@ -19,7 +19,7 @@ import 'package:rokctapp/application/order/all_order/order_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/driver/main.dart';
 import 'package:rokctapp/presentation/components/components.dart';
-import 'package:rokctapp/presentation/routes/app_router.gr.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'bottom_sheet_screen.dart';
 import 'delivery_bottom_sheet.dart';

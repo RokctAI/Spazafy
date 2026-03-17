@@ -8,7 +8,7 @@ import 'models/billing_types/recurring_billing_types/subscription_payment.dart';
 import 'models/billing_types/recurring_billing_types/tokenization_billing.dart';
 import 'models/billing_types/simple_billing.dart';
 import 'models/merchant_details.dart';
-import 'signature_service.dart';
+import 'services/signature_service.dart';
 
 class Payfast {
   String passphrase;

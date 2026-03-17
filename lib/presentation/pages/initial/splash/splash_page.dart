@@ -17,7 +17,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import '../../../../app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
 import '../../../../application/splash/splash_provider.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';

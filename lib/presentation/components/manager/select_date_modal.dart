@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'title_icon.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'helper/modal_wrap.dart';
 import 'helper/modal_drag.dart';
 import 'buttons/custom_button.dart';

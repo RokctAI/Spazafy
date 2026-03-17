@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/settings.dart';
 import 'package:rokctapp/domain/interface/user.dart';
-import 'package:rokctapp/domain/interface/driver/interfaces.dart' as driver;
-import 'package:rokctapp/domain/interface/manager/interfaces.dart' as manager;
+import 'package:rokctapp/domain/interface/interfaces.dart'
+    as driver;
+import 'package:rokctapp/domain/interface/interfaces.dart'
+    as manager;
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';

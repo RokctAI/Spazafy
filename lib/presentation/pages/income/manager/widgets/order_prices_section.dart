@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../more_orders.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class OrderPricesSection extends StatelessWidget {

@@ -25,7 +25,7 @@ import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/application/payment_methods/payment_provider.dart';
+import 'package:rokctapp/application/order/payment_methods/payment_provider.dart';
 import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import '../order_check/order_check.dart';
 import '../order_type/widgets/order_map.dart';

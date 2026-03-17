@@ -4,8 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:rokctapp/domain/handlers/manager/http_service.dart';
-import 'package:rokctapp/infrastructure/services/manager/app_database.dart';
+import 'package:rokctapp/domain/handlers/http_service.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 
 class BackgroundSyncService {
   final AppDatabase database;

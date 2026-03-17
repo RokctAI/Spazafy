@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/repositories/offline/offline_products_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/products_repository.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'billing_state.dart';

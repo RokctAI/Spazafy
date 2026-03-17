@@ -7,11 +7,11 @@ import 'package:rokctapp/application/statistics/statistics_provider.dart';
 
 import '../../application/order/all_order/order_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../infrastructure/services/tr_keys.dart';
-import '../styles/style.dart';
+import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'buttons/custom_button.dart';
 import 'custom_date_picker.dart';
-import 'tab_bars/custom_tab_bar.dart';
+import 'package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart';
 import 'title_icon.dart';
 
 class FilterScreen extends StatefulWidget {

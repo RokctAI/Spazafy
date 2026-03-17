@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import '../../../../../component/components.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import '../../../../../components/components.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'food_categories_modal.dart';
 

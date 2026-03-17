@@ -9,8 +9,8 @@ import 'foods/foods_body.dart';
 import 'extras/extras_body.dart';
 import 'addons/addons_body.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import '../../../component/components.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import '../../../components/components.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FoodsPage extends ConsumerStatefulWidget {

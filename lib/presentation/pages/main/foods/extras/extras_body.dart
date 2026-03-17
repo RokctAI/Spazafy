@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/main_group_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import '../../../../component/components.dart';
+import '../../../../components/components.dart';
 import 'details/extras_group_details_modal.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class ExtrasBody extends StatelessWidget {

@@ -3,9 +3,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../../../../component/components.dart';
+import '../../../../../components/components.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class EditAddonUnitsModal extends ConsumerStatefulWidget {

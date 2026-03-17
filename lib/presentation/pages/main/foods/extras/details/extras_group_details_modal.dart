@@ -9,9 +9,9 @@ import 'widgets/delete_extras_item_modal.dart';
 import 'widgets/group_detail_extras_item.dart';
 import '../delete/delete_extras_group_modal.dart';
 import '../update/update_extras_group_modal.dart';
-import '../../../../../component/components.dart';
+import '../../../../../components/components.dart';
 import 'widgets/create_new_group_item_modal.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 

@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/profile/notifier/profile_edit_notifier.dart';
-import 'package:rokctapp/application/profile/notifier/profile_image_notifier.dart';
-import 'package:rokctapp/application/profile/provider/profile_edit_provider.dart';
-import 'package:rokctapp/application/profile/provider/profile_image_provider.dart';
-import 'package:rokctapp/application/profile/state/profile_edit_state.dart';
-import 'package:rokctapp/application/profile/state/profile_image_state.dart';
+import 'package:rokctapp/application/profile/profile_edit_notifier.dart';
+import 'package:rokctapp/application/profile/profile_image_notifier.dart';
+import 'package:rokctapp/application/profile/profile_edit_provider.dart';
+import 'package:rokctapp/application/profile/profile_image_provider.dart';
+import 'package:rokctapp/application/profile/profile_edit_state.dart';
+import 'package:rokctapp/application/profile/profile_image_state.dart';
 import 'package:rokctapp/infrastructure/services/utils/img_service.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';

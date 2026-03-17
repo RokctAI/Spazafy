@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/domain/handlers/customer/api_result.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';

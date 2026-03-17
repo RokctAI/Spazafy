@@ -32,7 +32,7 @@ import 'package:rokctapp/application/main/main_provider.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/application/home/home_provider.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 
 import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
@@ -67,7 +67,7 @@ import 'package:rokctapp/presentation/pages/main/foods/extras/create/create_extr
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart' as manager_routes;
 import 'package:rokctapp/utils/app_usage_service.dart';
-import '../../../app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
 import 'widgets/bottom_navigator_item.dart';
 
 @RoutePage()

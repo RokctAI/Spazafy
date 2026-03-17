@@ -10,7 +10,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:rokctapp/application/auto_order/auto_order_notifier.dart';
 import 'package:rokctapp/application/auto_order/auto_order_provider.dart';
 import 'package:rokctapp/application/order/order_provider.dart';
-import 'package:rokctapp/application/save_card/saved_cards_provider.dart';
+import 'package:rokctapp/application/order/save_card/saved_cards_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/repeat_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';

@@ -12,7 +12,7 @@ import 'package:rokctapp/presentation/components/app_bars/app_bar_bottom_sheet.d
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
-import 'package:rokctapp/presentation/pages/auth/customer/confirmation/register_confirmation_page.dart';
+import 'package:rokctapp/presentation/pages/auth/confirmation/register_confirmation_page.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/application/auth/auth.dart';

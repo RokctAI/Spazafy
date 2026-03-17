@@ -8,7 +8,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/application/order/order_notifier.dart';
 import 'package:rokctapp/application/order/order_provider.dart';
-import 'package:rokctapp/application/payment_methods/payment_provider.dart';
+import 'package:rokctapp/application/order/payment_methods/payment_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';

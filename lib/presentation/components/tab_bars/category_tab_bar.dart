@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import '../list_items/shop_tab_bar_item.dart';
 
 class CategoryTabBar extends StatelessWidget {

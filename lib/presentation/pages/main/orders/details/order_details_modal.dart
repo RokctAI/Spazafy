@@ -8,8 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/main/orders/cooking/cooking_orders_provider.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
-import '../../../../component/components.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import '../../../../components/components.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'image_dialog.dart';

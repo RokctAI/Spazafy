@@ -59,7 +59,7 @@ export 'list_items/category_tab_bar_item.dart';
 export 'list_items/selectable_addon_item.dart';
 export 'list_items/editable_food_stock_item.dart';
 export 'bodies/products_body.dart';
-export 'tab_bars/custom_tab_bar.dart';
+export 'package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart';
 export 'tab_bars/category_tab_bar.dart';
 export 'tab_bars/categories_tab_bar.dart';
 export 'text_fields/search_text_field.dart';

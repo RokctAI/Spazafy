@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'saved_cards_state.dart';
 
 class SavedCardsNotifier extends StateNotifier<SavedCardsState> {

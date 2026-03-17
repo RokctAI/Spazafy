@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../../infrastructure/services/tr_keys.dart';
-import '../../../package:rokctapp/presentation/theme/theme.dart'; // Import your theme file
+import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
+import 'package:rokctapp/presentation/theme/theme.dart'; // Import your theme file
 
 class ComingSoonDialog extends StatelessWidget {
   const ComingSoonDialog({super.key});

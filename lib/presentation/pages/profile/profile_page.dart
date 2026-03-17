@@ -32,7 +32,7 @@ import 'package:rokctapp/presentation/pages/policy_term/term_page.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rokctapp/presentation/pages/profile/widgets/my_account.dart';
 
-import '../../app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
 import '../../components/buttons/second_button.dart';
 import '../cards/payment_screen.dart';
 import 'widgets/about_page.dart';

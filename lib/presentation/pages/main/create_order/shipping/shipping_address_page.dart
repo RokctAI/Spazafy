@@ -10,9 +10,9 @@ import 'package:rokctapp/application/order/shipping/table/table_provider.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/delivery_type_item.dart';
-import '../../../../component/components.dart';
+import '../../../../components/components.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 @RoutePage()

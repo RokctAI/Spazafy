@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ShopTabBarItem extends StatelessWidget {
   final String title;

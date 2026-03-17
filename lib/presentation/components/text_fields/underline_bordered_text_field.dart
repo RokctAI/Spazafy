@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class UnderlinedBorderTextField extends StatelessWidget {
   final String label;

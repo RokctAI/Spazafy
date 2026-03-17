@@ -9,7 +9,7 @@ export 'shop_avarat.dart';
 export 'text_fields/underline_bordered_text_field.dart';
 export 'order_detail.dart';
 export 'orders_item.dart';
-export 'tab_bars/custom_tab_bar.dart';
+export 'package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart';
 export 'filter_screen.dart';
 export 'custom_toggle.dart';
 export 'order_item.dart';

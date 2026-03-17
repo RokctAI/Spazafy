@@ -8,8 +8,8 @@ import 'package:rokctapp/application/order/shipping/table/table_provider.dart';
 import 'widgets/payment_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import '../../order/widgets/title_price.dart';
-import '../../../../../component/components.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import '../../../../../components/components.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 @RoutePage()

@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../../application/webview/preloaded_webview_provider.dart';
-import '../../../domain/di/dependency_manager.dart';
-import '../../../domain/handlers/customer/handlers.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import '../../../domain/handlers/handlers.dart';
 import '../../../infrastructure/models/data/saved_card.dart';
-import '../../../infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 /// PayFast integration service

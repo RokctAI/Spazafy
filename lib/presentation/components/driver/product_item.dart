@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../infrastructure/services/tr_keys.dart';
-import '../styles/style.dart';
+import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ProductItem extends StatelessWidget {
   final Product? product;

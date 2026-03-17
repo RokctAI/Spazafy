@@ -9,7 +9,7 @@ import '../../../../theme/theme.dart';
 import '../../../../components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../../../../infrastructure/services/customer/app_helpers.dart';
+import '../../../../infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 @RoutePage()

@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
 import '../application/map/poidata/poi_data_provider.dart';
 import '../infrastructure/models/data/poi_data.dart';
 //import 'package:rokctapp/utils/excluded_product_ids.dart';

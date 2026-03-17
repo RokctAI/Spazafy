@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/domain/interface/driver/interfaces.dart';
-import '../../../../infrastructure/models/models.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../state/profile_edit_state.dart';
+import 'package:rokctapp/application/profile/profile_state.dart';
 
 class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
   final UserRepository _userRepository;

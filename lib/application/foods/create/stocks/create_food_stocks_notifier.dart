@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'create_food_stocks_state.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {

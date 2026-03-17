@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/application/restaurant/income/statistics/statistics_provider.dart';
 import 'package:rokctapp/presentation/components/filter_screen.dart';
-import '../../component/helper/modal_drag.dart';
-import '../../component/helper/modal_wrap.dart';
-import '../../component/loading/loading.dart';
+import '../../components/helper/modal_drag.dart';
+import '../../components/helper/modal_wrap.dart';
+import '../../components/loading/loading.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 

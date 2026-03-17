@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../component/components.dart';
-import '../../../routes/app_router.gr.dart';
-import '../../../styles/style.dart';
+import '../../../components/components.dart';
+import '../../../routes/app_router.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class StoresPage extends StatelessWidget {
   final String image;

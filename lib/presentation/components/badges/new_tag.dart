@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class NewTag extends StatelessWidget {

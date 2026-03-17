@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/foods/edit/details/kitchen/edit_food_kitchens_provider.dart';
 
 import '../edit/edit_product_modal.dart';
-import '../../../../component/components.dart';
+import '../../../../components/components.dart';
 import '../../../../styles/style.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FoodsBody extends StatelessWidget {

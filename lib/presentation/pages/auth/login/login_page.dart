@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/language/language_provider.dart';
-import '../../../../app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -18,7 +18,7 @@ import 'login_screen.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/buttons/second_button.dart';
-import 'package:rokctapp/presentation/pages/intro/customer/intro_page.dart';
+import 'package:rokctapp/presentation/pages/intro/intro_page.dart';
 import 'package:rokctapp/presentation/pages/policy_term/policy_page.dart';
 import 'package:rokctapp/presentation/pages/policy_term/term_page.dart';
 

@@ -11,8 +11,8 @@ import 'widgets/new_orders_body.dart';
 import 'widgets/ready_orders_body.dart';
 import 'widgets/accepted_orders_body.dart';
 import 'widgets/on_a_way_orders_body.dart';
-import '../../../component/components.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import '../../../components/components.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class OrdersHomePage extends ConsumerStatefulWidget {

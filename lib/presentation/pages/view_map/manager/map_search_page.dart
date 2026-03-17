@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_place/google_place.dart';
 
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import '../../component/text_fields/search_text_field.dart';
+import '../../components/text_fields/search_text_field.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 @RoutePage()

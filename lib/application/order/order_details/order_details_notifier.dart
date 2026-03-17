@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_details_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
   final OrdersInterface _ordersRepository;

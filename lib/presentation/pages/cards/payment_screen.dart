@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../application/shop_order/shop_order_provider.dart';
-import '../../../domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 import '../../../infrastructure/models/data/order_body_data.dart';
 import '../../../infrastructure/models/data/saved_card.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';

@@ -10,12 +10,12 @@ import 'widgets/logout_button.dart';
 import 'widgets/logout_modal.dart';
 import 'widgets/sections_item.dart';
 import 'widgets/shop_page_banner.dart';
-import '../../component/components.dart';
+import '../../components/components.dart';
 import '../../phoenix_widget.dart';
 import '../auth/languages_modal.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'widgets/edit_restaurant_modal.dart';
-import 'package:rokctapp/application/providers/manager/providers.dart';
+import 'package:rokctapp/application/providers/providers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class RestaurantPage extends ConsumerStatefulWidget {

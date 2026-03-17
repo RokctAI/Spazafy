@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/domain/interface/driver/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import '../state/profile_image_state.dart';
+import 'package:rokctapp/application/profile/profile_state.dart';
 
 class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
   final UserRepository _userRepository;

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../../application/order/all_order/order_provider.dart';
-import '../../../component/loading.dart';
+import '../../../components/loading.dart';
 import '../../../component/orders_item.dart';
 
 class ProgressOrdersBody extends ConsumerStatefulWidget {

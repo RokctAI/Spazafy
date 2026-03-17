@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
 import 'package:rokctapp/presentation/components/blur_wrap.dart';
 
 class PopButton extends StatelessWidget {
