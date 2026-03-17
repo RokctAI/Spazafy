@@ -1,56 +1,50 @@
-import 'dart:async';
-import 'dart:collection';
+// Copyright (c) 2024 RokctAI
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:auto_route/auto_route.dart';
-
 import 'package:rokctapp/domain/interface/banners.dart';
 import 'package:rokctapp/domain/interface/categories.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
-import 'package:rokctapp/domain/interface/brands.dart';
-import 'package:rokctapp/domain/interface/products.dart';
-import 'package:rokctapp/domain/interface/draw.dart';
-import 'package:rokctapp/domain/interface/orders.dart';
-import 'package:rokctapp/domain/interface/parcel.dart';
-import 'package:rokctapp/domain/interface/settings.dart';
-import 'package:rokctapp/domain/interface/user.dart';
-
-import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'package:rokctapp/infrastructure/models/data/filter_model.dart';
-
+import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
-import 'package:rokctapp/app_constants.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
 
+import 'package:rokctapp/domain/interface/brands.dart';
+import 'package:rokctapp/domain/interface/products.dart';
 import 'home_state.dart';
 
 class HomeNotifier extends StateNotifier<HomeState> {
-  final CategoriesFacade _categoriesRepository;
-  final BannersFacade _bannersRepository;
-  final ShopsFacade _shopsRepository;
-  final ProductsFacade _productsRepository;
-  final BrandsFacade _brandsRepository;
-  final DrawFacade _drawRepository;
-  final OrdersFacade _ordersRepository;
-  final ParcelFacade _parcelRepository;
-  final SettingsFacade _settingsRepository;
-
-  final ImageCropperForMarker _markerImageCropper = ImageCropperForMarker();
+  final CategoriesRepositoryFacade _categoriesRepository;
+  final ShopsRepositoryFacade _shopsRepository;
+  final BannersRepositoryFacade _bannersRepository;
+  final ProductsRepositoryFacade _productsRepository;
+  final BrandsRepositoryFacade _brandsRepository;
 
   // Cache for preloaded category shops
   final Map<String, List<ShopData>> _preloadedCategoryShops = {};
   final Map<String, int> _categoryTotalShops = {};
 
+  // Keep track of navigation state to avoid showing loading screens
   bool _isNavigatingToShop = false;
 
   HomeNotifier(
@@ -59,12 +53,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     this._shopsRepository,
     this._productsRepository,
     this._brandsRepository,
-    this._drawRepository,
-    this._ordersRepository,
-    this._parcelRepository,
-    this._settingsRepository,
   ) : super(const HomeState());
-
   int categoryIndex = 1;
   int shopIndex = 1;
   int newShopIndex = 1;
@@ -76,13 +65,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
   int marketRefreshIndex = 1;
   int discountProductsIndex = 1;
 
-  // --- Customer Methods ---
-
   void setAddress([AddressNewModel? data]) async {
     AddressData? addressData = LocalStorage.getAddressSelected();
     state = state.copyWith(
-      addressData:
-          data ??
+      addressData: data ??
           AddressNewModel(
             title: addressData?.title ?? "",
             address: AddressInformation(address: addressData?.address ?? ""),
@@ -94,110 +80,187 @@ class HomeNotifier extends StateNotifier<HomeState> {
     );
   }
 
-  Future<void> preloadAllCategoryShops() async {
-    for (final category in state.categories) {
-      if (category.id != null) {
-        _preloadShopsForCategory(category.id!);
-        await Future.delayed(const Duration(milliseconds: 100));
-      }
-    }
-  }
-
+  // Function to preload shops for a specific category
   Future<void> _preloadShopsForCategory(String categoryId) async {
-    if (_preloadedCategoryShops.containsKey(categoryId)) return;
+    if (_preloadedCategoryShops.containsKey(categoryId)) {
+      // Already preloaded
+      return;
+    }
+
     try {
       final connected = await AppConnectivity.connectivity();
       if (!connected) return;
+
       final response = await _shopsRepository.getShopFilter(
         categoryId: categoryId,
         page: 1,
       );
+
       response.when(
         success: (data) {
           final shopsList = data.data ?? [];
           _preloadedCategoryShops[categoryId] = shopsList;
           _categoryTotalShops[categoryId] = data.meta?.total ?? 0;
+          debugPrint(
+            '✅ Preloaded ${shopsList.length} shops for category $categoryId',
+          );
         },
-        failure: (_, __) => _preloadedCategoryShops[categoryId] = [],
+        failure: (_, __) {
+          // Silent failure for preloading
+          _preloadedCategoryShops[categoryId] =
+              []; // Store empty list to avoid retrying
+        },
       );
     } catch (e) {
       debugPrint('Error preloading shops for category $categoryId: $e');
+      // Don't store in _preloadedCategoryShops so we might retry later
     }
   }
 
+  // Preload shops for all categories
+  Future<void> preloadAllCategoryShops() async {
+    for (final category in state.categories) {
+      if (category.id != null) {
+        _preloadShopsForCategory(category.id!);
+        // Add small delay to avoid overwhelming the server
+        await Future.delayed(const Duration(milliseconds: 100));
+      }
+    }
+  }
+
+  // Modified to use preloaded shops and handle navigation seamlessly
   void setSelectCategory(int index, BuildContext context) async {
+    // If we're in the process of navigating to a shop, don't change state
     if (_isNavigatingToShop) return;
+
     if (state.selectIndexCategory == index) {
+      // User clicked the already selected category - deselect it
       state = state.copyWith(
         selectIndexCategory: -1,
         isSelectCategoryLoading: 0,
         selectIndexSubCategory: -1,
-        filterShops: [],
+        filterShops: [], // Clear filtered shops when deselecting
         filterMarket: [],
       );
     } else {
       final String? categoryId = index >= 0 && index < state.categories.length
           ? state.categories[index].id
           : null;
-      final bool hasPreloadedShops =
-          categoryId != null && _preloadedCategoryShops.containsKey(categoryId);
 
+      // Check if we have preloaded shops for this category
+      final bool hasPreloadedShops = categoryId != null &&
+          _preloadedCategoryShops.containsKey(categoryId) &&
+          _preloadedCategoryShops[categoryId] != null;
+
+      // Check if there's only one shop and we can navigate directly
       if (hasPreloadedShops &&
           _preloadedCategoryShops[categoryId]!.length == 1) {
+        // We're going to navigate to a shop directly - don't show loading
         _isNavigatingToShop = true;
+
+        // Update the state but keep isSelectCategoryLoading at 1 to indicate it's completed
         state = state.copyWith(
           selectIndexCategory: index,
-          isSelectCategoryLoading: 1,
+          selectIndexSubCategory: -1,
+          isSelectCategoryLoading: 1, // Already loaded
           filterShops: _preloadedCategoryShops[categoryId]!,
+          filterMarket: [],
+          totalShops: _categoryTotalShops[categoryId] ?? 0,
         );
+
+        // Get the shop and navigate
         final shop = _preloadedCategoryShops[categoryId]!.first;
-        context.router
-            .push(ShopRoute(shopId: shop.id.toString()))
-            .then((_) => _isNavigatingToShop = false);
+        if (context.mounted) {
+          // Navigation callback
+          onComplete() {
+            // Reset navigation flag after navigation completes
+            _isNavigatingToShop = false;
+          }
+
+          // Navigate to the shop page
+          context.router
+              .push(ShopRoute(shopId: shop.id.toString()))
+              .then((_) => onComplete());
+        } else {
+          _isNavigatingToShop = false;
+        }
+
         return;
       }
 
+      // Normal category selection - update UI to show loading
       state = state.copyWith(
         selectIndexCategory: index,
         selectIndexSubCategory: -1,
         isSelectCategoryLoading: index,
-        filterShops: hasPreloadedShops
-            ? _preloadedCategoryShops[categoryId]!
-            : [],
+        // If we have preloaded shops, use them immediately to prevent "No stores" flash
+        filterShops:
+            hasPreloadedShops ? _preloadedCategoryShops[categoryId]! : [],
+        filterMarket: [],
+        totalShops:
+            hasPreloadedShops ? _categoryTotalShops[categoryId] ?? 0 : 0,
       );
 
       if (index != -1 && categoryId != null) {
+        // Fetch shops for this category (even if preloaded, to ensure fresh data)
         final response = await _shopsRepository.getShopFilter(
           categoryId: categoryId,
           page: 1,
         );
+
         response.when(
           success: (data) {
             final shopsList = data.data ?? [];
+
+            // Update cache
             _preloadedCategoryShops[categoryId] = shopsList;
             _categoryTotalShops[categoryId] = data.meta?.total ?? 0;
+
+            // If we're not navigating directly to a shop, update the state
             if (!_isNavigatingToShop) {
+              // Update state with the shop list
               state = state.copyWith(
                 filterShops: shopsList,
+                filterMarket: [],
                 isSelectCategoryLoading: 1,
                 totalShops: data.meta?.total ?? 0,
               );
+
+              // If only one shop was found (and not preloaded earlier), navigate to it
               if (shopsList.length == 1) {
                 final shop = shopsList.first;
                 _isNavigatingToShop = true;
-                context.router
-                    .push(ShopRoute(shopId: shop.id.toString()))
-                    .then((_) => _isNavigatingToShop = false);
+
+                // Navigate to the shop page
+                if (context.mounted) {
+                  context.router
+                      .push(ShopRoute(shopId: shop.id.toString()))
+                      .then((_) {
+                    _isNavigatingToShop = false;
+                  });
+                } else {
+                  _isNavigatingToShop = false;
+                }
               }
             }
           },
           failure: (failure, status) {
+            // Update state to show error has completed
             state = state.copyWith(isSelectCategoryLoading: 1);
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
         );
       }
     }
+  }
+
+  void setSelectSubCategory(int index, BuildContext context) {
+    if (state.selectIndexSubCategory == index) {
+      state = state.copyWith(selectIndexSubCategory: -1);
+    } else {
+      state = state.copyWith(selectIndexSubCategory: index);
+    }
+    fetchSubCategoryShops(context, isRefresh: true);
   }
 
   Future<void> fetchCategories(BuildContext context) async {
@@ -207,18 +270,12 @@ class HomeNotifier extends StateNotifier<HomeState> {
       final response = await _categoriesRepository.getAllCategories(page: 1);
       response.when(
         success: (data) async {
-          final categories = data.data ?? [];
           state = state.copyWith(
             isCategoryLoading: false,
-            categories: categories,
+            categories: data.data ?? [],
           );
-          // Cache locally
-          final db = AppDatabase();
-          for (final cat in categories) {
-            try {
-              await db.putItem('categories', cat.id.toString(), cat.toJson());
-            } catch (_) {}
-          }
+
+          // Start preloading shops for all categories
           preloadAllCategoryShops();
         },
         failure: (failure, status) {
@@ -227,17 +284,204 @@ class HomeNotifier extends StateNotifier<HomeState> {
         },
       );
     } else {
-      // Offline: serve from local DB
-      try {
-        final db = AppDatabase();
-        final cached = await db.getAll('categories');
-        final categories = cached.map((e) => CategoryData.fromJson(e)).toList();
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  fetchSubCategoryShops(
+    BuildContext context, {
+    bool? isRefresh,
+    RefreshController? controller,
+  }) async {
+    // Safety check - if no category is selected, don't fetch
+    if (state.selectIndexCategory == -1) {
+      return;
+    }
+
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      // Only clear the list if this is a refresh call
+      if (isRefresh ?? false) {
+        controller?.resetNoData();
+        shopRefreshIndex = 0;
         state = state.copyWith(
-          isCategoryLoading: false,
-          categories: categories,
+          filterShops: [],
+          filterMarket: [],
+          isSelectCategoryLoading: state.isSelectCategoryLoading,
         );
-      } catch (_) {
-        state = state.copyWith(isCategoryLoading: false);
+      }
+
+      // Get category ID and subcategory ID if applicable
+      final String? categoryId = state.selectIndexCategory >= 0 &&
+              state.selectIndexCategory < state.categories.length
+          ? state.categories[state.selectIndexCategory].id
+          : null;
+
+      final String? subCategoryId;
+      if (state.selectIndexSubCategory != -1 &&
+          state.selectIndexCategory >= 0 &&
+          state.selectIndexCategory < state.categories.length &&
+          state.categories[state.selectIndexCategory].children != null &&
+          state.selectIndexSubCategory <
+              (state.categories[state.selectIndexCategory].children?.length ??
+                  0)) {
+        subCategoryId = state.categories[state.selectIndexCategory]
+            .children?[state.selectIndexSubCategory].id;
+      } else {
+        subCategoryId = null;
+      }
+
+      // Return early if we don't have a valid category
+      if (categoryId == null) {
+        state = state.copyWith(isSelectCategoryLoading: 1);
+        return;
+      }
+
+      final response = await _shopsRepository.getShopFilter(
+        categoryId: categoryId,
+        subCategoryId: subCategoryId,
+        page: ++shopRefreshIndex,
+      );
+
+      response.when(
+        success: (data) {
+          // If refreshing, replace the list; otherwise, append to it
+          List<ShopData> list = (isRefresh ?? false)
+              ? (data.data ?? [])
+              : [...state.filterShops, ...(data.data ?? [])];
+
+          // Update preloaded data if this is page 1
+          if (shopRefreshIndex == 1 && subCategoryId == null) {
+            _preloadedCategoryShops[categoryId] = data.data ?? [];
+            _categoryTotalShops[categoryId] = data.meta?.total ?? 0;
+          }
+
+          state = state.copyWith(
+            isSelectCategoryLoading: 1, // Show that loading is complete
+            filterShops: list,
+            totalShops: data.meta?.total ?? 0,
+          );
+
+          if (isRefresh ?? false) {
+            controller?.refreshCompleted();
+          } else if (data.data?.isEmpty ?? true) {
+            controller?.loadNoData();
+          } else {
+            controller?.loadComplete();
+          }
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isSelectCategoryLoading: 1);
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchAdsById(BuildContext context, int bannerId) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isBannerLoading: true);
+      final response = await _bannersRepository.getAdsById(bannerId);
+      response.when(
+        success: (data) async {
+          state = state.copyWith(isBannerLoading: false, banner: data);
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isBannerLoading: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchBannerById(BuildContext context, int bannerId) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isBannerLoading: true);
+      final response = await _bannersRepository.getBannerById(bannerId);
+      response.when(
+        success: (data) async {
+          state = state.copyWith(isBannerLoading: false, banner: data);
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isBannerLoading: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchCategoriesPage(
+    BuildContext context,
+    RefreshController controller, {
+    bool isRefresh = false,
+  }) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      if (isRefresh) {
+        categoryIndex = 1;
+        controller.resetNoData();
+      }
+      final response = await _categoriesRepository.getAllCategories(
+        page: isRefresh ? 1 : ++categoryIndex,
+      );
+      response.when(
+        success: (data) async {
+          if (isRefresh) {
+            state = state.copyWith(categories: data.data ?? []);
+            controller.refreshCompleted();
+
+            // Clear preloaded cache and start fresh on refresh
+            _preloadedCategoryShops.clear();
+            _categoryTotalShops.clear();
+            preloadAllCategoryShops();
+          } else {
+            if (data.data?.isNotEmpty ?? false) {
+              List<CategoryData> list = List.from(state.categories);
+              list.addAll(data.data!);
+              state = state.copyWith(categories: list);
+              controller.loadComplete();
+
+              // Preload shops for new categories
+              for (final category in data.data ?? []) {
+                if (category.id != null) {
+                  _preloadShopsForCategory(category.id!);
+                }
+              }
+            } else {
+              categoryIndex--;
+              controller.loadNoData();
+            }
+          }
+        },
+        failure: (failure, status) {
+          if (!isRefresh) {
+            categoryIndex--;
+            controller.loadNoData();
+          } else {
+            controller.refreshFailed();
+          }
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
       }
     }
   }
@@ -246,17 +490,18 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isShopLoading: true);
-      final response = await _shopsRepository.getAllShops(1, isOpen: true);
+      final response = await _shopsRepository.getAllShops(
+        1,
+        isOpen: true,
+        verify: true,
+      );
       response.when(
         success: (data) async {
-          final shops = data.data ?? [];
-          state = state.copyWith(isShopLoading: false, shops: shops);
-          final db = AppDatabase();
-          for (final shop in shops) {
-            try {
-              await db.putItem('shop', shop.id.toString(), shop.toJson());
-            } catch (_) {}
-          }
+          state = state.copyWith(
+            isShopLoading: false,
+            shops: data.data ?? [],
+            totalShops: data.meta?.total ?? 0,
+          );
         },
         failure: (failure, status) {
           state = state.copyWith(isShopLoading: false);
@@ -264,35 +509,60 @@ class HomeNotifier extends StateNotifier<HomeState> {
         },
       );
     } else {
-      try {
-        final db = AppDatabase();
-        final cached = await db.getAll('shop');
-        final shops = cached.map((e) => ShopData.fromJson(e)).toList();
-        state = state.copyWith(isShopLoading: false, shops: shops);
-      } catch (_) {
-        state = state.copyWith(isShopLoading: false);
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
       }
     }
   }
 
-  Future<void> fetchShopRecommend(BuildContext context) async {
+  Future<void> fetchShopPage(
+    BuildContext context,
+    RefreshController shopController, {
+    bool isRefresh = false,
+  }) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
-      state = state.copyWith(isShopRecommendLoading: true);
-      final response = await _shopsRepository.getShopsRecommend(1);
+      if (isRefresh) {
+        marketIndex = 1;
+        shopController.resetNoData();
+      }
+      final response = await _shopsRepository.getAllShops(
+        isRefresh ? 1 : ++marketIndex,
+        isOpen: true,
+        verify: true,
+      );
       response.when(
-        success: (data) {
-          state = state.copyWith(
-            isShopRecommendLoading: false,
-            shopsRecommend: data.data ?? [],
-          );
+        success: (data) async {
+          if (isRefresh) {
+            state = state.copyWith(shops: data.data ?? []);
+            shopController.refreshCompleted();
+          } else {
+            if (data.data?.isNotEmpty ?? false) {
+              List<ShopData> list = List.from(state.shops);
+              list.addAll(data.data!);
+              state = state.copyWith(shops: list);
+              shopController.loadComplete();
+            } else {
+              marketIndex--;
+
+              shopController.loadNoData();
+            }
+          }
         },
         failure: (failure, status) {
-          state = state.copyWith(isShopRecommendLoading: false);
+          if (!isRefresh) {
+            marketIndex--;
+            shopController.loadFailed();
+          } else {
+            shopController.refreshFailed();
+          }
+          AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
     } else {
-      state = state.copyWith(isShopRecommendLoading: false);
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
     }
   }
 
@@ -300,27 +570,136 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isAllShopsLoading: true);
-      final response = await _shopsRepository.getAllShops(1, isOpen: false);
+      final response = await _shopsRepository.getAllShops(1, isOpen: true);
       response.when(
-        success: (data) {
+        success: (data) async {
           state = state.copyWith(
             isAllShopsLoading: false,
             allShops: data.data ?? [],
-            totalShops: data.meta?.total ?? -1,
           );
         },
         failure: (failure, status) {
           state = state.copyWith(isAllShopsLoading: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
     } else {
-      try {
-        final db = AppDatabase();
-        final cached = await db.getAll('shop');
-        final shops = cached.map((e) => ShopData.fromJson(e)).toList();
-        state = state.copyWith(isAllShopsLoading: false, allShops: shops);
-      } catch (_) {
-        state = state.copyWith(isAllShopsLoading: false);
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchAllShopsPage(
+    BuildContext context,
+    RefreshController shopController, {
+    bool isRefresh = false,
+  }) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      if (isRefresh) {
+        shopIndex = 1;
+        shopController.resetNoData();
+      }
+      final response = await _shopsRepository.getAllShops(
+        isRefresh ? 1 : ++shopIndex,
+        isOpen: true,
+      );
+      response.when(
+        success: (data) async {
+          if (isRefresh) {
+            state = state.copyWith(allShops: data.data ?? []);
+            shopController.refreshCompleted();
+          } else {
+            if (data.data?.isNotEmpty ?? false) {
+              List<ShopData> list = List.from(state.allShops);
+              list.addAll(data.data!);
+              state = state.copyWith(allShops: list);
+              shopController.loadComplete();
+            } else {
+              shopIndex--;
+
+              shopController.loadNoData();
+            }
+          }
+        },
+        failure: (failure, status) {
+          if (!isRefresh) {
+            shopIndex--;
+            shopController.loadFailed();
+          } else {
+            shopController.refreshFailed();
+          }
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchFilterShops(
+    BuildContext context, {
+    RefreshController? controller,
+    bool isRefresh = false,
+  }) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      if (isRefresh) {
+        filterShopIndex = 1;
+        state = state.copyWith(
+          isSelectCategoryLoading: -1,
+          filterShops: [],
+          totalShops: 0,
+          filterMarket: [],
+        );
+      }
+      final categoryId = state.selectIndexSubCategory != -1
+          ? (state.categories[state.selectIndexCategory]
+              .children?[state.selectIndexSubCategory].id)
+          : (state.categories[state.selectIndexCategory].id);
+      final response = await _shopsRepository.getAllShops(
+        isRefresh ? 1 : ++filterShopIndex,
+        categoryId: categoryId,
+        isOpen: true,
+      );
+      response.when(
+        success: (data) async {
+          if (isRefresh) {
+            state = state.copyWith(
+              filterShops: data.data ?? [],
+              isSelectCategoryLoading: 1,
+              totalShops: data.meta?.total ?? 0,
+            );
+            controller?.refreshCompleted();
+          } else {
+            if (data.data?.isNotEmpty ?? false) {
+              List<ShopData> list = List.from(state.filterShops);
+              list.addAll(data.data!);
+              state = state.copyWith(filterShops: list);
+              controller?.loadComplete();
+            } else {
+              filterShopIndex--;
+              controller?.loadNoData();
+            }
+          }
+        },
+        failure: (failure, status) {
+          if (!isRefresh) {
+            filterShopIndex--;
+            controller?.loadFailed();
+          } else {
+            controller?.refreshFailed();
+          }
+          state = state.copyWith(isSelectCategoryLoading: 0);
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
       }
     }
   }
@@ -331,11 +710,11 @@ class HomeNotifier extends StateNotifier<HomeState> {
       state = state.copyWith(isNewShopsLoading: true);
       final response = await _shopsRepository.getAllShops(
         1,
-        isOpen: false,
-        verify: true,
+        filterModel: FilterModel(sort: "new"),
+        isOpen: true,
       );
       response.when(
-        success: (data) {
+        success: (data) async {
           state = state.copyWith(
             isNewShopsLoading: false,
             newShops: data.data ?? [],
@@ -343,10 +722,204 @@ class HomeNotifier extends StateNotifier<HomeState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isNewShopsLoading: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
     } else {
-      state = state.copyWith(isNewShopsLoading: false, newShops: []);
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchNewShopsPage(
+    BuildContext context,
+    RefreshController shopController, {
+    bool isRefresh = false,
+  }) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      if (isRefresh) {
+        newShopIndex = 1;
+      }
+      final response = await _shopsRepository.getAllShops(
+        isRefresh ? 1 : ++newShopIndex,
+        filterModel: FilterModel(sort: "new"),
+        isOpen: true,
+      );
+      response.when(
+        success: (data) async {
+          if (isRefresh) {
+            state = state.copyWith(newShops: data.data ?? []);
+            shopController.refreshCompleted();
+          } else {
+            if (data.data?.isNotEmpty ?? false) {
+              List<ShopData> list = List.from(state.newShops);
+              list.addAll(data.data!);
+              state = state.copyWith(newShops: list);
+              shopController.loadComplete();
+            } else {
+              newShopIndex--;
+              shopController.loadNoData();
+            }
+          }
+        },
+        failure: (failure, status) {
+          if (!isRefresh) {
+            newShopIndex--;
+            shopController.loadFailed();
+          } else {
+            shopController.refreshFailed();
+          }
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchShopRecommend(BuildContext context) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isShopRecommendLoading: true);
+      final response = await _shopsRepository.getShopsRecommend(1);
+      response.when(
+        success: (data) async {
+          state = state.copyWith(
+            isShopRecommendLoading: false,
+            shopsRecommend: data.data ?? [],
+          );
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isShopRecommendLoading: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchStoriesPage(
+    BuildContext context,
+    RefreshController shopController, {
+    bool isRefresh = false,
+  }) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      if (isRefresh) {
+        storyIndex = 1;
+        shopController.resetNoData();
+      }
+      final response = await _shopsRepository.getStory(
+        isRefresh ? 1 : ++storyIndex,
+      );
+      response.when(
+        success: (data) async {
+          if (isRefresh) {
+            state = state.copyWith(story: data ?? []);
+            shopController.refreshCompleted();
+          } else {
+            if (data?.isNotEmpty ?? false) {
+              List<List<StoryModel?>?>? list = state.story;
+              list!.addAll(data!);
+              state = state.copyWith(story: list);
+              shopController.loadComplete();
+            } else {
+              storyIndex--;
+
+              shopController.loadNoData();
+            }
+          }
+        },
+        failure: (failure, status) {
+          if (!isRefresh) {
+            storyIndex--;
+            shopController.loadFailed();
+          } else {
+            shopController.refreshFailed();
+          }
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchStories(BuildContext context) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isStoryLoading: true);
+      final response = await _shopsRepository.getStory(1);
+      response.when(
+        success: (data) async {
+          state = state.copyWith(isStoryLoading: false, story: data ?? []);
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isStoryLoading: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchShopPageRecommend(
+    BuildContext context,
+    RefreshController shopController, {
+    bool isRefresh = false,
+  }) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      if (isRefresh) {
+        shopIndex = 1;
+      }
+      final response = await _shopsRepository.getShopsRecommend(
+        isRefresh ? 1 : ++shopIndex,
+      );
+      response.when(
+        success: (data) async {
+          if (isRefresh) {
+            state = state.copyWith(shopsRecommend: data.data ?? []);
+            shopController.refreshCompleted();
+          } else {
+            if (data.data?.isNotEmpty ?? false) {
+              List<ShopData> list = List.from(state.shopsRecommend);
+              list.addAll(data.data!);
+              state = state.copyWith(shopsRecommend: list);
+              shopController.loadComplete();
+            } else {
+              shopIndex--;
+
+              shopController.loadNoData();
+            }
+          }
+        },
+        failure: (failure, status) {
+          if (!isRefresh) {
+            shopIndex--;
+            shopController.loadFailed();
+          } else {
+            shopController.refreshFailed();
+          }
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
     }
   }
 
@@ -356,7 +929,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       state = state.copyWith(isBannerLoading: true);
       final response = await _bannersRepository.getBannersPaginate(page: 1);
       response.when(
-        success: (data) {
+        success: (data) async {
           state = state.copyWith(
             isBannerLoading: false,
             banners: data.data ?? [],
@@ -364,334 +937,185 @@ class HomeNotifier extends StateNotifier<HomeState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isBannerLoading: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
     } else {
-      state = state.copyWith(isBannerLoading: false);
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
     }
   }
 
   Future<void> fetchAds(BuildContext context) async {
-    if (!await AppConnectivity.connectivity()) return;
-    final response = await _bannersRepository.getAdsPaginate(page: 1);
-    response.when(
-      success: (data) => state = state.copyWith(ads: data.data ?? []),
-      failure: (_, __) {},
-    );
-  }
-
-  Future<void> fetchStories(BuildContext context) async {
-    if (!await AppConnectivity.connectivity()) {
-      state = state.copyWith(isStoryLoading: false);
-      return;
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      final response = await _bannersRepository.getAdsPaginate(page: 1);
+      response.when(
+        success: (data) async {
+          state = state.copyWith(ads: data.data ?? []);
+        },
+        failure: (failure, status) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
     }
-    state = state.copyWith(isStoryLoading: true);
-    final response = await _shopsRepository.getStory(1);
-    response.when(
-      success: (data) {
-        state = state.copyWith(isStoryLoading: false, story: data);
-      },
-      failure: (_, __) {
-        state = state.copyWith(isStoryLoading: false);
-      },
-    );
-  }
-
-  Future<void> fetchDiscountProducts(BuildContext context) async {
-    if (!await AppConnectivity.connectivity()) {
-      state = state.copyWith(isDiscountProductsLoading: false);
-      return;
-    }
-    state = state.copyWith(isDiscountProductsLoading: true);
-    final response = await _productsRepository.getDiscountProducts(page: 1);
-    response.when(
-      success: (data) {
-        state = state.copyWith(
-          isDiscountProductsLoading: false,
-          discountProducts: data.data ?? [],
-        );
-      },
-      failure: (_, __) {
-        state = state.copyWith(isDiscountProductsLoading: false);
-      },
-    );
-  }
-
-  Future<void> fetchFilterShops(
-    BuildContext context, {
-    RefreshController? controller,
-    bool isRefresh = false,
-  }) async {
-    if (!await AppConnectivity.connectivity()) return;
-    final catId =
-        state.selectIndexCategory >= 0 &&
-            state.selectIndexCategory < state.categories.length
-        ? state.categories[state.selectIndexCategory].id
-        : null;
-    if (catId == null) return;
-    final response = await _shopsRepository.getShopFilter(
-      categoryId: catId,
-      page: isRefresh ? 1 : filterShopIndex,
-    );
-    response.when(
-      success: (data) {
-        if (isRefresh) filterShopIndex = 1;
-        filterShopIndex++;
-        final shops = data.data ?? [];
-        state = state.copyWith(
-          filterShops: isRefresh ? shops : [...state.filterShops, ...shops],
-        );
-        controller?.refreshCompleted();
-        controller?.loadComplete();
-      },
-      failure: (failure, status) {
-        controller?.refreshFailed();
-        AppHelpers.showCheckTopSnackBar(context, failure);
-      },
-    );
-  }
-
-  // ─── Paginated variants ───
-
-  Future<void> fetchAllShopsPage(
-    BuildContext context,
-    RefreshController? controller, {
-    bool isRefresh = false,
-  }) async {
-    if (!await AppConnectivity.connectivity()) {
-      controller?.refreshCompleted();
-      return;
-    }
-    if (isRefresh) shopIndex = 1;
-    final response = await _shopsRepository.getAllShops(
-      shopIndex,
-      isOpen: false,
-    );
-    response.when(
-      success: (data) {
-        shopIndex++;
-        final shops = data.data ?? [];
-        state = state.copyWith(
-          allShops: isRefresh ? shops : [...state.allShops, ...shops],
-          totalShops: data.meta?.total ?? -1,
-        );
-        controller?.refreshCompleted();
-        controller?.loadComplete();
-      },
-      failure: (_, __) {
-        controller?.refreshFailed();
-      },
-    );
   }
 
   Future<void> fetchBannerPage(
     BuildContext context,
-    RefreshController? controller, {
+    RefreshController controller, {
     bool isRefresh = false,
   }) async {
-    if (isRefresh) bannerIndex = 1;
-    await fetchBanner(context);
-    controller?.refreshCompleted();
-  }
-
-  Future<void> fetchCategoriesPage(
-    BuildContext context,
-    RefreshController? controller, {
-    bool isRefresh = false,
-  }) async {
-    if (isRefresh) categoryIndex = 1;
-    await fetchCategories(context);
-    controller?.refreshCompleted();
-  }
-
-  Future<void> fetchStoriesPage(
-    BuildContext context,
-    RefreshController? controller, {
-    bool isRefresh = false,
-  }) async {
-    if (isRefresh) storyIndex = 1;
-    await fetchStories(context);
-    controller?.refreshCompleted();
-  }
-
-  Future<void> fetchShopPage(
-    BuildContext context,
-    RefreshController? controller, {
-    bool isRefresh = false,
-  }) async {
-    if (isRefresh) shopRefreshIndex = 1;
-    await fetchShop(context);
-    controller?.refreshCompleted();
-  }
-
-  Future<void> fetchShopPageRecommend(
-    BuildContext context,
-    RefreshController? controller, {
-    bool isRefresh = false,
-  }) async {
-    await fetchShopRecommend(context);
-    controller?.refreshCompleted();
-  }
-
-  Future<void> fetchNewShopsPage(
-    BuildContext context,
-    RefreshController? controller, {
-    bool isRefresh = false,
-  }) async {
-    if (isRefresh) newShopIndex = 1;
-    await fetchNewShops(context);
-    controller?.refreshCompleted();
-  }
-
-  // --- Driver Methods (Unified) ---
-
-  Future<void> fetchDeliveryZone({bool isFetch = false}) async {
-    if (isFetch) {
-      final userRepo = GetIt.instance.get<UserFacade>();
-      final response = await userRepo.getDeliveryZone();
-      response.when(
-        success: (data) => setDeliveryZone(data.data?.first.address),
-        failure: (failure, status) =>
-            debugPrint('==> get delivery zone failure: $failure'),
-      );
-    } else {
-      setDeliveryZone(LocalStorage.getUser()?.deliveryZone);
-    }
-  }
-
-  void setDeliveryZone(List<List<double>>? address) {
-    if (address?.isNotEmpty ?? false) {
-      final Set<Polygon> polygon = HashSet<Polygon>();
-      List<LatLng> points = [];
-      for (final addr in address!) {
-        points.add(LatLng(addr[0], addr[1]));
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      if (isRefresh) {
+        bannerIndex = 1;
+        controller.resetNoData();
       }
-      polygon.add(
-        Polygon(
-          polygonId: const PolygonId("zone"),
-          points: points,
-          fillColor: AppStyle.primary.withOpacity(0.01),
-          strokeColor: AppStyle.primary,
-          geodesic: false,
-          strokeWidth: 8,
-        ),
+      final response = await _bannersRepository.getBannersPaginate(
+        page: isRefresh ? 1 : ++bannerIndex,
       );
-      state = state.copyWith(
-        polygon: polygon,
-        isLoading: false,
-        deliveryZone: points,
-      );
-    }
-  }
-
-  Future<void> getRoutingAll({
-    required BuildContext context,
-    required LatLng start,
-    required LatLng end,
-    required Marker market,
-  }) async {
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(
-        polylineCoordinates: [],
-        markers: {},
-        isLoading: true,
-      );
-      final response = await _drawRepository.getRouting(start: start, end: end);
-      response.when(
-        success: (data) {
-          List<LatLng> list = [];
-          List ls = data.features[0].geometry.coordinates;
-          for (int i = 0; i < ls.length; i++) {
-            list.add(LatLng(ls[i][1], ls[i][0]));
-          }
-          state = state.copyWith(
-            polylineCoordinates: list,
-            markers: {market},
-            isLoading: false,
-          );
-        },
-        failure: (failure, status) => state = state.copyWith(
-          polylineCoordinates: [],
-          markers: {},
-          isLoading: false,
-        ),
-      );
-    } else if (context.mounted) {
-      AppHelpers.showNoConnectionSnackBar(context);
-    }
-  }
-
-  Future<void> fetchCurrentOrder(BuildContext context) async {
-    fetchDeliveryZone();
-    state = state.copyWith(isGoRestaurant: false, isGoUser: false);
-    if (await AppConnectivity.connectivity()) {
-      final response = await _ordersRepository.fetchCurrentOrder();
       response.when(
         success: (data) async {
-          if (data.data?.isNotEmpty ?? false) {
-            state = state.copyWith(orderDetail: data.data?.first);
-            final order = data.data!.first;
-            final dest = order.status == "on_a_way"
-                ? LatLng(
-                    double.parse(order.location?.latitude ?? "0"),
-                    double.parse(order.location?.longitude ?? "0"),
-                  )
-                : LatLng(
-                    double.parse(order.shop?.location?.latitude ?? "0"),
-                    double.parse(order.shop?.location?.longitude ?? "0"),
-                  );
-
-            final markerIcon = order.status == "on_a_way"
-                ? await _markerImageCropper.resizeAndCircle(
-                    order.user?.img ?? "",
-                    100,
-                  )
-                : await _markerImageCropper.resizeAndCircle(
-                    order.shop?.logoImg ?? "",
-                    120,
-                  );
-
-            getRoutingAll(
-              context: context,
-              start: LatLng(
-                LocalStorage.getAddressSelected()?.location?.latitude ??
-                    AppConstants.demoLatitude,
-                LocalStorage.getAddressSelected()?.location?.longitude ??
-                    AppConstants.demoLongitude,
-              ),
-              end: dest,
-              market: Marker(
-                markerId: MarkerId(
-                  order.status == "on_a_way" ? "User" : "Shop",
-                ),
-                position: dest,
-                icon: markerIcon,
-              ),
-            );
-            state = state.copyWith(
-              isGoRestaurant: order.status != "on_a_way",
-              isGoUser: order.status == "on_a_way",
-              isLoading: false,
-            );
+          if (isRefresh) {
+            state = state.copyWith(banners: data.data ?? []);
+            controller.refreshCompleted();
+          } else {
+            if (data.data?.isNotEmpty ?? false) {
+              List<BannerData> list = List.from(state.banners);
+              list.addAll(data.data!);
+              state = state.copyWith(banners: list);
+              controller.loadComplete();
+            } else {
+              bannerIndex--;
+              controller.loadNoData();
+            }
           }
         },
         failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
+          if (!isRefresh) {
+            bannerIndex--;
+            controller.loadFailed();
+          } else {
+            controller.refreshFailed();
+          }
+
           AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
     }
   }
 
-  Future<void> setOnline({required BuildContext context}) async {
-    if (await AppConnectivity.connectivity()) {
-      final userRepo = GetIt.instance.get<UserFacade>();
-      final response = await userRepo.setOnline();
-      response.when(
-        success: (data) => LocalStorage.setOnline(!LocalStorage.getOnline()),
-        failure: (failure, status) =>
-            AppHelpers.showCheckTopSnackBar(context, failure),
-      );
+  // Enhanced fetchDiscountProducts method for HomeNotifier class
+  Future<void> fetchDiscountProducts(BuildContext context) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isDiscountProductsLoading: true);
+
+      try {
+        // Get all discount products
+        final response = await _productsRepository.getDiscountProducts(page: 1);
+
+        response.when(
+          success: (data) async {
+            final List<ProductData> products = data.data ?? [];
+
+            // Step 1: Extract all brand IDs from the products
+            final Set<String> brandIds = {};
+            for (final product in products) {
+              if (product.brandId != null) {
+                brandIds.add(product.brandId!);
+              }
+            }
+
+            // Step 2: Get existing cached brands
+            final Set<String> cachedBrandIds =
+                state.brands.map((b) => b.id).whereType<String>().toSet();
+
+            // Step 3: Determine which brands we need to fetch
+            final Set<String> missingBrandIds = brandIds.difference(
+              cachedBrandIds,
+            );
+
+            // Step 4: Prefetch all missing brands before updating the UI
+            List<BrandData> newBrands = [];
+            List<Future> brandFutures = [];
+
+            // Create a future for each brand fetch operation
+            for (final brandId in missingBrandIds) {
+              final future = _brandsRepository
+                  .getSingleBrand(brandId.toString())
+                  .then((response) {
+                response.when(
+                  success: (data) {
+                    if (data.data != null) {
+                      newBrands.add(data.data!);
+                      debugPrint(
+                        "✅ Fetched brand: ${data.data!.title} (ID: $brandId)",
+                      );
+                    }
+                  },
+                  failure: (failure, status) {
+                    debugPrint(
+                      "❌ Failed to fetch brand ID $brandId: $failure",
+                    );
+                  },
+                );
+              }).catchError((e) {
+                debugPrint("❌ Exception fetching brand ID $brandId: $e");
+              });
+
+              brandFutures.add(future);
+            }
+
+            // Wait for all brand fetches to complete
+            if (brandFutures.isNotEmpty) {
+              await Future.wait(brandFutures);
+              debugPrint("✅ All brand fetches completed");
+            }
+
+            // Combine existing brands with new brands
+            final List<BrandData> allBrands = [...state.brands, ...newBrands];
+
+            // Finally update the state with both products and brands
+            state = state.copyWith(
+              isDiscountProductsLoading: false,
+              discountProducts: products,
+              brands: allBrands,
+            );
+
+            debugPrint(
+              "✅ Updated state with ${products.length} products and ${allBrands.length} brands",
+            );
+          },
+          failure: (failure, status) {
+            state = state.copyWith(isDiscountProductsLoading: false);
+            AppHelpers.showCheckTopSnackBar(context, failure);
+          },
+        );
+      } catch (e) {
+        debugPrint("❌ Exception in fetchDiscountProducts: $e");
+        state = state.copyWith(isDiscountProductsLoading: false);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            "Failed to load discount products: $e",
+          );
+        }
+      }
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
     }
   }
 }

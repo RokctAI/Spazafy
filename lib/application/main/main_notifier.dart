@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+
 import 'package:rokctapp/app_constants.dart';
 import 'main_state.dart';
 
@@ -10,7 +11,9 @@ class MainNotifier extends StateNotifier<MainState> {
     state = state.copyWith(selectIndex: index);
   }
 
+  // Add this method to reset to the initial page
   void resetToInitialPage() {
+    // Assuming index 0 is the home/main page
     state = state.copyWith(selectIndex: 0);
   }
 

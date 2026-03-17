@@ -6,7 +6,7 @@ import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
-class BannersRepository implements BannersFacade {
+class BannersRepository implements BannersRepositoryFacade {
   @override
   Future<ApiResult<BannersPaginateResponse>> getBannersPaginate({
     required int page,

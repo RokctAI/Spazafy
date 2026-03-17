@@ -3,7 +3,7 @@ import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 
-class MockAuthRepository implements AuthFacade {
+class MockAuthRepository implements AuthRepositoryFacade {
   final UserModel _demoUser = UserModel(
     id: "1",
     uuid: "demo_uuid",

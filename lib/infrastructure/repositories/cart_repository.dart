@@ -9,7 +9,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 
-class CartRepository implements CartFacade {
+class CartRepository implements CartRepositoryFacade {
   @override
   Future<ApiResult<CartModel>> getCart(String shopId) async {
     try {

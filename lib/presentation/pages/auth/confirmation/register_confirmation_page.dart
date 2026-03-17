@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/profile/edit_profile/edit_profile_provider.dart';
+import 'package:rokctapp/application/edit_profile/edit_profile_provider.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
@@ -153,8 +153,8 @@ class _RegisterConfirmationPageState
                                   state.isCodeError
                                       ? AppStyle.red
                                       : isDarkMode
-                                      ? AppStyle.borderDark
-                                      : AppStyle.outlineButtonBorder,
+                                          ? AppStyle.borderDark
+                                          : AppStyle.outlineButtonBorder,
                                 ),
                               ),
                             ),
@@ -224,11 +224,11 @@ class _RegisterConfirmationPageState
                                             widget.userModel.email ?? "",
                                           )
                                         : notifier
-                                              .confirmCodeResetPasswordWithPhone(
-                                                context,
-                                                widget.userModel.email ?? "",
-                                                widget.verificationId,
-                                              );
+                                            .confirmCodeResetPasswordWithPhone(
+                                            context,
+                                            widget.userModel.email ?? "",
+                                            widget.verificationId,
+                                          );
                                   } else {
                                     widget.verificationId.isEmpty
                                         ? notifier.confirmCode(
@@ -254,8 +254,7 @@ class _RegisterConfirmationPageState
                                                               phone: widget
                                                                   .userModel
                                                                   .email,
-                                                              firstname:
-                                                                  ref
+                                                              firstname: ref
                                                                       .watch(
                                                                         profileProvider,
                                                                       )
@@ -272,8 +271,7 @@ class _RegisterConfirmationPageState
                                   }
                                 }
                               },
-                              weight:
-                                  2 *
+                              weight: 2 *
                                   (MediaQuery.sizeOf(context).width - 40) /
                                   3,
                               background: state.isConfirm

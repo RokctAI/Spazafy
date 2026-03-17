@@ -4,13 +4,10 @@ import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import '../models/data/filter_model.dart';
+import 'package:rokctapp/infrastructure/models/data/filter_model.dart';
 
-class ShopsRepository implements ShopsFacade {
-  // --- Common & Customer (Frappe/ERPNext) ---
-
+class ShopsRepository implements ShopsRepositoryFacade {
   @override
   Future<ApiResult<ShopsPaginateResponse>> searchShops({
     required String text,
@@ -30,7 +27,11 @@ class ShopsRepository implements ShopsFacade {
         data: ShopsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> search shops failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -39,7 +40,7 @@ class ShopsRepository implements ShopsFacade {
     int page, {
     String? categoryId,
     FilterModel? filterModel,
-    required bool isOpen,
+    bool? isOpen,
     bool? verify,
   }) async {
     final params = {
@@ -47,7 +48,7 @@ class ShopsRepository implements ShopsFacade {
       'limit_page_length': 10,
       if (categoryId != null) 'category_id': categoryId,
       if (filterModel?.sort != null) 'order_by': filterModel!.sort,
-      if (isOpen) 'open': 1,
+      if (isOpen ?? false) 'open': 1,
       if (verify ?? false) 'verify': 1,
     };
     try {
@@ -60,7 +61,11 @@ class ShopsRepository implements ShopsFacade {
         data: ShopsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get all shops failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -78,7 +83,10 @@ class ShopsRepository implements ShopsFacade {
         data: SingleShopResponse.fromJson(response.data),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -89,96 +97,59 @@ class ShopsRepository implements ShopsFacade {
   }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
+      final data = {
+        'latitude': location.latitude,
+        'longitude': location.longitude,
+        if (shopId != null) 'shop_id': shopId,
+      };
       final response = await client.get(
         '/api/method/paas.api.shop.shop.check_delivery_zone',
-        queryParameters: {
-          'latitude': location.latitude,
-          'longitude': location.longitude,
-          if (shopId != null) 'shop_id': shopId,
-        },
+        queryParameters: data,
       );
       return ApiResult.success(data: response.data["status"] == "success");
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get delivery zone failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
-  @override
-  Future<ApiResult<void>> createShop({
-    required double tax,
-    required List<String> documents,
-    required double deliveryTo,
-    required double deliveryFrom,
-    required String deliveryType,
-    required String phone,
-    required String name,
-    required String category,
-    required String description,
-    required double startPrice,
-    required double perKm,
-    required AddressNewModel address,
-    String? logoImage,
-    String? backgroundImage,
-  }) async {
-    final data = {
-      'tax': tax,
-      'documents': documents,
-      'delivery_to': deliveryTo,
-      'delivery_from': deliveryFrom,
-      'delivery_type': deliveryType,
-      'phone': phone.replaceAll('+', ""),
-      'name': name,
-      'category': category,
-      'description': description,
-      'start_price': startPrice,
-      'per_km': perKm,
-      'address': address.toJson(),
-      'title': {LocalStorage.getLanguage()?.locale ?? "en": name},
-      'location': {
-        'latitude': address.latitude,
-        'longitude': address.longitude,
-      },
-      if (logoImage != null) 'logo': logoImage,
-      if (backgroundImage != null) 'background': backgroundImage,
-      if (logoImage != null) 'images': [logoImage, backgroundImage],
-    };
-    try {
-      final client = dioHttp.client(requireAuth: true);
-      // Try PaaS endpoint
-      try {
-        await client.post(
-          '/api/method/paas.api.shop.shop.create_shop',
-          data: data,
-        );
-        return const ApiResult.success(data: null);
-      } catch (e) {
-        // Fallback to V1
-        await client.post('/api/v1/dashboard/user/shops', data: data);
-        return const ApiResult.success(data: null);
-      }
-    } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
-    }
-  }
-
-  // --- Helpers & Proxies ---
+  // NOTE: The following methods are not supported by the new backend or have been consolidated.
+  // - getNearbyShops
+  // - getShopBranch
+  // - joinOrder
+  // - getShopFilter
+  // - getPickupShops
+  // - getShopsByIds
+  // - createShop
+  // - getShopsRecommend
+  // - getStory
+  // - getTags
+  // - getSuggestPrice
 
   @override
   Future<ApiResult<ShopsPaginateResponse>> getNearbyShops(
     double latitude,
     double longitude,
   ) async {
+    final params = {'latitude': latitude, 'longitude': longitude};
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
         '/api/method/paas.api.shop.shop.get_nearby_shops',
-        queryParameters: {'latitude': latitude, 'longitude': longitude},
+        queryParameters: params,
       );
       return ApiResult.success(
         data: ShopsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get nearby shops failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -194,7 +165,11 @@ class ShopsRepository implements ShopsFacade {
       );
       return ApiResult.success(data: BranchResponse.fromJson(response.data));
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get shop branch failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -212,7 +187,11 @@ class ShopsRepository implements ShopsFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> join order failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -221,7 +200,9 @@ class ShopsRepository implements ShopsFacade {
     String? categoryId,
     required int page,
     String? subCategoryId,
-  }) => getAllShops(page, categoryId: categoryId, isOpen: false);
+  }) async {
+    return getAllShops(page, categoryId: categoryId);
+  }
 
   @override
   Future<ApiResult<ShopsPaginateResponse>> getPickupShops() async {
@@ -234,7 +215,11 @@ class ShopsRepository implements ShopsFacade {
         data: ShopsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get pickup shops failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -252,7 +237,60 @@ class ShopsRepository implements ShopsFacade {
         data: ShopsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get shops by ids failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<void>> createShop({
+    required double tax,
+    required List<String> documents,
+    required double deliveryTo,
+    required double deliveryFrom,
+    required String deliveryType,
+    required String phone,
+    required String name,
+    required String category,
+    required String description,
+    required double startPrice,
+    required double perKm,
+    AddressNewModel? address,
+    String? logoImage,
+    String? backgroundImage,
+  }) async {
+    final data = {
+      'tax': tax,
+      'documents': documents,
+      'delivery_to': deliveryTo,
+      'delivery_from': deliveryFrom,
+      'delivery_type': deliveryType,
+      'phone': phone,
+      'name': name,
+      'category': category,
+      'description': description,
+      'start_price': startPrice,
+      'per_km': perKm,
+      if (address != null) 'address': address.toJson(),
+      if (logoImage != null) 'logo': logoImage,
+      if (backgroundImage != null) 'background': backgroundImage,
+    };
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      await client.post(
+        '/api/method/paas.api.shop.shop.create_shop',
+        data: data,
+      );
+      return const ApiResult.success(data: null);
+    } catch (e) {
+      debugPrint('==> create shop failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -268,7 +306,11 @@ class ShopsRepository implements ShopsFacade {
         data: ShopsPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get recommended shops failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -284,7 +326,11 @@ class ShopsRepository implements ShopsFacade {
         data: storyModelFromJson(response.data['message']),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get story failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -298,7 +344,11 @@ class ShopsRepository implements ShopsFacade {
       );
       return ApiResult.success(data: TagResponse.fromJson(response.data));
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get tags failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -313,7 +363,11 @@ class ShopsRepository implements ShopsFacade {
         data: PriceModel.fromJson(response.data['message']),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get suggest price failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 }

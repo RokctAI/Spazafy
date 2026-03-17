@@ -4,8 +4,10 @@ import 'package:dio/dio.dart';
 import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:rokctapp/domain/handlers/http_service.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 class BackgroundSyncService {
   final AppDatabase database;
@@ -95,9 +97,27 @@ class BackgroundSyncService {
 
       final statusCode = response.statusCode ?? 0;
       // 2xx indicates success. 4xx indicates client error (e.g. invalid data) which won't succeed on retry
-      if ((statusCode >= 200 && statusCode < 300) ||
-          (statusCode >= 400 && statusCode < 500)) {
+      if (statusCode >= 200 && statusCode < 300) {
+        // Special handling for auth requests to save token
+        if (request.url.contains('/auth/')) {
+          final data = response.data;
+          // Depending on actual response structure for login/register
+          final token = data['data']?['access_token'] ?? data['token'];
+          if (token != null) {
+            await LocalStorage.setToken(token);
+            LocalStorage.setIsGuest(false);
+            LocalStorage.deleteOfflineUser();
+            
+            // If it's a login, we might also get user data
+            final userData = data['data']?['user'] ?? data['user'];
+            if (userData != null) {
+              await LocalStorage.setUser(ProfileData.fromJson(userData));
+            }
+          }
+        }
         return true;
+      } else if (statusCode >= 400 && statusCode < 500) {
+        return true; // Don't retry client errors
       }
       return false; // 5xx or other errors -> retry later
     } on DioException catch (e) {

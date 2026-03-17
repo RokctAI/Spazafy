@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/order/order_provider.dart';
-import 'package:rokctapp/application/order/promo_code/promo_code_state.dart';
+import 'package:rokctapp/application/promo_code/promo_code_state.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -11,9 +11,9 @@ import 'package:rokctapp/presentation/components/text_fields/outline_bordered_te
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:rokctapp/application/order/promo_code/promo_code_notifier.dart';
-import 'package:rokctapp/application/order/promo_code/promo_code_provider.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/application/promo_code/promo_code_notifier.dart';
+import 'package:rokctapp/application/promo_code/promo_code_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/tpying_delay.dart';
@@ -113,7 +113,7 @@ class _PromoCodeState extends ConsumerState<PromoCodeScreen> {
                         ? Container(
                             width: 30.w,
                             height: 30.h,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               color: AppStyle.primary,
                             ),
@@ -135,29 +135,24 @@ class _PromoCodeState extends ConsumerState<PromoCodeScreen> {
                       background: state.isActive
                           ? AppStyle.primary
                           : AppStyle.borderColor,
-                      textColor: state.isActive
-                          ? AppStyle.black
-                          : AppStyle.textGrey,
+                      textColor:
+                          state.isActive ? AppStyle.black : AppStyle.textGrey,
                       title: AppHelpers.getTranslation(TrKeys.save),
                       onPressed: () {
                         if (state.isActive) {
                           ref
                               .read(orderProvider.notifier)
                               .setPromoCode(promoCodeController.text);
-                          ref
-                              .read(orderProvider.notifier)
-                              .getCalculate(
+                          ref.read(orderProvider.notifier).getCalculate(
                                 context: context,
                                 isLoading: false,
                                 cartId:
                                     ref.read(shopOrderProvider).cart?.id ?? "",
-                                long:
-                                    LocalStorage.getAddressSelected()
+                                long: LocalStorage.getAddressSelected()
                                         ?.location
                                         ?.longitude ??
                                     AppConstants.demoLongitude,
-                                lat:
-                                    LocalStorage.getAddressSelected()
+                                lat: LocalStorage.getAddressSelected()
                                         ?.location
                                         ?.latitude ??
                                     AppConstants.demoLatitude,

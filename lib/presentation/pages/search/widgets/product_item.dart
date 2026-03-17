@@ -7,8 +7,8 @@ import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import '../../product/product_page.dart';
-import 'package:rokctapp/application/shops/shopname/shop_name_provider.dart';
+import 'package:rokctapp/presentation/pages/product/product_page.dart';
+import 'package:rokctapp/application/shopname/shop_name_provider.dart';
 
 class ProductItem extends ConsumerWidget {
   final ProductData product;

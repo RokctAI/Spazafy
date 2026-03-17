@@ -1,4 +1,4 @@
-import '../data/shop_delivery.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_delivery.dart';
 
 class ShopDeliveriesResponse {
   ShopDeliveriesResponse({List<ShopDelivery>? data}) {

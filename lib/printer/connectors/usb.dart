@@ -1,4 +1,4 @@
-import '../models/printer_device.dart';
+import 'package:rokctapp/printer/models/data/printer_device.dart';
 
 class UsbConnector {
   static final UsbConnector _instance = UsbConnector._internal();

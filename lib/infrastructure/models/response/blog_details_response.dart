@@ -1,4 +1,4 @@
-import '../data/blog_data.dart';
+import 'package:rokctapp/infrastructure/models/data/blog_data.dart';
 
 class BlogDetailsResponse {
   BlogDetailsResponse({
@@ -30,12 +30,13 @@ class BlogDetailsResponse {
     bool? status,
     String? message,
     BlogData? data,
-  }) => BlogDetailsResponse(
-    timestamp: timestamp ?? _timestamp,
-    status: status ?? _status,
-    message: message ?? _message,
-    data: data ?? _data,
-  );
+  }) =>
+      BlogDetailsResponse(
+        timestamp: timestamp ?? _timestamp,
+        status: status ?? _status,
+        message: message ?? _message,
+        data: data ?? _data,
+      );
 
   String? get timestamp => _timestamp;
 

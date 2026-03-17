@@ -1,4 +1,4 @@
-import '../data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 
 class SingleShopResponse {
   SingleShopResponse({
@@ -30,12 +30,13 @@ class SingleShopResponse {
     bool? status,
     String? message,
     ShopData? data,
-  }) => SingleShopResponse(
-    timestamp: timestamp ?? _timestamp,
-    status: status ?? _status,
-    message: message ?? _message,
-    data: data ?? _data,
-  );
+  }) =>
+      SingleShopResponse(
+        timestamp: timestamp ?? _timestamp,
+        status: status ?? _status,
+        message: message ?? _message,
+        data: data ?? _data,
+      );
 
   String? get timestamp => _timestamp;
 

@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/printer_helper.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/printer/printer.dart';
 import 'billing_printer_state.dart';
 
 class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
-  final PrinterHelper _printerHelper = PrinterHelper();
+  final PrinterManager _printerManager = PrinterManager();
 
   BillingPrinterNotifier() : super(const BillingPrinterState()) {
     init();
@@ -24,8 +24,8 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
   Future<void> scanPrinters() async {
     state = state.copyWith(status: PrinterStatus.scanning, errorMessage: null);
     try {
-      if (await _printerHelper.checkPermission()) {
-        final devices = await _printerHelper.getBondedDevices();
+      if (await _printerManager.checkPermission()) {
+        final devices = await _printerManager.discoverPrinters();
         state = state.copyWith(
           status: PrinterStatus.scanSuccess,
           devices: devices,
@@ -49,8 +49,8 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
       status: PrinterStatus.connecting,
       errorMessage: null,
     );
-    final success = await _printerHelper.connect(mac);
-    if (success) {
+    final response = await _printerManager.connect(mac);
+    if (response.isSuccess) {
       LocalStorage.setPrinterMac(mac);
       LocalStorage.setPrinterName(name);
       state = state.copyWith(
@@ -61,24 +61,26 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
     } else {
       state = state.copyWith(
         status: PrinterStatus.connectionFailure,
-        errorMessage: 'Failed to connect to printer',
+        errorMessage: response.message,
       );
     }
   }
 
   Future<void> disconnect() async {
-    await _printerHelper.disconnect();
-    LocalStorage.removePrinterMac();
-    LocalStorage.removePrinterName();
-    state = state.copyWith(
-      status: PrinterStatus.disconnected,
-      connectedMac: null,
-      connectedName: null,
-    );
+    final response = await _printerManager.disconnect();
+    if (response.isSuccess) {
+      LocalStorage.removePrinterMac();
+      LocalStorage.removePrinterName();
+      state = state.copyWith(
+        status: PrinterStatus.disconnected,
+        connectedMac: null,
+        connectedName: null,
+      );
+    }
   }
 
   Future<void> testPrint(String shopName) async {
-    if (!_printerHelper.isConnected) {
+    if (!_printerManager.isConnected) {
       state = state.copyWith(
         status: PrinterStatus.connectionFailure,
         errorMessage: 'Printer not connected',
@@ -86,7 +88,7 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
       return;
     }
     state = state.copyWith(status: PrinterStatus.testPrinting);
-    await _printerHelper.printText(
+    await _printerManager.printText(
       "Test Print\n\n$shopName\n\n----------------\n\n",
     );
     state = state.copyWith(status: PrinterStatus.connected);
@@ -101,16 +103,18 @@ class BillingPrinterNotifier extends StateNotifier<BillingPrinterState> {
     required double total,
     required String footer,
   }) async {
-    if (!_printerHelper.isConnected) return;
+    if (!_printerManager.isConnected) return;
 
-    await _printerHelper.printReceipt(
-      shopName: shopName,
-      address1: address1,
-      address2: address2,
-      phone: phone,
-      items: items,
-      total: total,
-      footer: footer,
+    await _printerManager.printReceipt(
+      PrintReceiptRequest(
+        shopName: shopName,
+        address1: address1,
+        address2: address2,
+        phone: phone,
+        items: items,
+        total: total,
+        footer: footer,
+      ),
     );
   }
 }

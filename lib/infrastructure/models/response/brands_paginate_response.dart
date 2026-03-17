@@ -1,5 +1,5 @@
-import '../data/brand_data.dart';
-import '../data/meta.dart';
+import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
+import 'package:rokctapp/infrastructure/models/data/meta.dart';
 
 class BrandsPaginateResponse {
   BrandsPaginateResponse({
@@ -32,11 +32,12 @@ class BrandsPaginateResponse {
     List<BrandData>? data,
     // Links? links,
     Meta? meta,
-  }) => BrandsPaginateResponse(
-    data: data ?? _data,
-    // links: links ?? _links,
-    meta: meta ?? _meta,
-  );
+  }) =>
+      BrandsPaginateResponse(
+        data: data ?? _data,
+        // links: links ?? _links,
+        meta: meta ?? _meta,
+      );
 
   List<BrandData>? get data => _data;
 

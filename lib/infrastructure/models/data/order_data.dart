@@ -20,22 +20,6 @@ class OrderData {
     UserModel? user,
     List<ShopOrderDetails>? details,
     ReviewData? review,
-    String? status,
-    num? tips,
-    num? commissionFee,
-    String? deliveryType,
-    num? deliveryFee,
-    num? otp,
-    dynamic deliveryman,
-    String? deliveryDate,
-    String? deliveryTime,
-    Transaction? transaction,
-    OrderAddress? orderAddress,
-    String? note,
-    String? afterDeliveredImage,
-    bool? seen,
-    num? distance,
-    bool? current,
   }) {
     _id = id;
     _userId = userId;
@@ -49,22 +33,6 @@ class OrderData {
     _user = user;
     _details = details;
     _review = review;
-    _status = status;
-    _tips = tips;
-    _commissionFee = commissionFee;
-    _deliveryType = deliveryType;
-    _deliveryFee = deliveryFee;
-    _otp = otp;
-    _deliveryman = deliveryman;
-    _deliveryDate = deliveryDate;
-    _deliveryTime = deliveryTime;
-    _transaction = transaction;
-    _orderAddress = orderAddress;
-    _note = note;
-    _afterDeliveredImage = afterDeliveredImage;
-    _seen = seen;
-    _distance = distance;
-    _current = current;
   }
 
   OrderData.fromJson(dynamic json) {
@@ -79,44 +47,15 @@ class OrderData {
     _currency = json['currency'] != null
         ? CurrencyData.fromJson(json['currency'])
         : null;
-    _user = json['user'] != null
-        ? UserModel.fromJson(json['user'])
-        : json['user_id'] != null
-        ? UserModel(id: json['user_id']?.toString())
-        : null;
+    _user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
     if (json['details'] != null) {
       _details = [];
       json['details'].forEach((v) {
         _details?.add(ShopOrderDetails.fromJson(v));
       });
     }
-    _review = json['review'] != null
-        ? ReviewData.fromJson(json['review'])
-        : null;
-    _status = json['status'];
-    _tips = json['tips'];
-    _commissionFee = json['commission_fee'];
-    _deliveryType = json['delivery_type'];
-    _deliveryFee = json['delivery_fee'];
-    _otp = json['otp'];
-    _deliveryman = json['deliveryman'];
-    _deliveryDate = json['delivery_date'];
-    _deliveryTime = json['delivery_time'];
-    _transaction = json['transaction'] != null
-        ? Transaction.fromJson(json['transaction'])
-        : null;
-    _orderAddress = json['address'] != null
-        ? OrderAddress.fromJson(json['address'])
-        : null;
-    _note = json['note'];
-    _afterDeliveredImage = json['image_after_delivered'];
-    _seen = json['seen'];
-    _distance = json['km'];
-    _current = json["current"] == null
-        ? false
-        : ((json["current"].runtimeType == int)
-              ? (json["current"] == 0 ? false : true)
-              : json["current"]);
+    _review =
+        json['review'] != null ? ReviewData.fromJson(json['review']) : null;
   }
 
   String? _id;
@@ -131,22 +70,6 @@ class OrderData {
   UserModel? _user;
   List<ShopOrderDetails>? _details;
   ReviewData? _review;
-  String? _status;
-  num? _tips;
-  num? _commissionFee;
-  String? _deliveryType;
-  num? _deliveryFee;
-  num? _otp;
-  dynamic _deliveryman;
-  String? _deliveryDate;
-  String? _deliveryTime;
-  Transaction? _transaction;
-  OrderAddress? _orderAddress;
-  String? _note;
-  String? _afterDeliveredImage;
-  bool? _seen;
-  num? _distance;
-  bool? _current;
 
   OrderData copyWith({
     String? id,
@@ -161,52 +84,21 @@ class OrderData {
     UserModel? user,
     List<ShopOrderDetails>? details,
     ReviewData? review,
-    String? status,
-    num? tips,
-    num? commissionFee,
-    String? deliveryType,
-    num? deliveryFee,
-    num? otp,
-    dynamic deliveryman,
-    String? deliveryDate,
-    String? deliveryTime,
-    Transaction? transaction,
-    OrderAddress? orderAddress,
-    String? note,
-    String? afterDeliveredImage,
-    bool? seen,
-    num? distance,
-    bool? current,
-  }) => OrderData(
-    id: id ?? _id,
-    userId: userId ?? _userId,
-    price: price ?? _price,
-    currencyPrice: currencyPrice ?? _currencyPrice,
-    rate: rate ?? _rate,
-    orderDetailsCount: orderDetailsCount ?? _orderDetailsCount,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    currency: currency ?? _currency,
-    user: user ?? _user,
-    details: details ?? _details,
-    review: review ?? _review,
-    status: status ?? _status,
-    tips: tips ?? _tips,
-    commissionFee: commissionFee ?? _commissionFee,
-    deliveryType: deliveryType ?? _deliveryType,
-    deliveryFee: deliveryFee ?? _deliveryFee,
-    otp: otp ?? _otp,
-    deliveryman: deliveryman ?? _deliveryman,
-    deliveryDate: deliveryDate ?? _deliveryDate,
-    deliveryTime: deliveryTime ?? _deliveryTime,
-    transaction: transaction ?? _transaction,
-    orderAddress: orderAddress ?? _orderAddress,
-    note: note ?? _note,
-    afterDeliveredImage: afterDeliveredImage ?? _afterDeliveredImage,
-    seen: seen ?? _seen,
-    distance: distance ?? _distance,
-    current: current ?? _current,
-  );
+  }) =>
+      OrderData(
+        id: id ?? _id,
+        userId: userId ?? _userId,
+        price: price ?? _price,
+        currencyPrice: currencyPrice ?? _currencyPrice,
+        rate: rate ?? _rate,
+        orderDetailsCount: orderDetailsCount ?? _orderDetailsCount,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        currency: currency ?? _currency,
+        user: user ?? _user,
+        details: details ?? _details,
+        review: review ?? _review,
+      );
 
   String? get id => _id;
   String? get userId => _userId;
@@ -220,22 +112,6 @@ class OrderData {
   UserModel? get user => _user;
   List<ShopOrderDetails>? get details => _details;
   ReviewData? get review => _review;
-  String? get status => _status;
-  num? get tips => _tips;
-  num? get commissionFee => _commissionFee;
-  String? get deliveryType => _deliveryType;
-  num? get deliveryFee => _deliveryFee;
-  num? get otp => _otp;
-  dynamic get deliveryman => _deliveryman;
-  String? get deliveryDate => _deliveryDate;
-  String? get deliveryTime => _deliveryTime;
-  Transaction? get transaction => _transaction;
-  OrderAddress? get orderAddress => _orderAddress;
-  String? get note => _note;
-  String? get afterDeliveredImage => _afterDeliveredImage;
-  bool? get seen => _seen;
-  num? get distance => _distance;
-  bool? get current => _current;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -259,26 +135,6 @@ class OrderData {
     if (_review != null) {
       map['review'] = _review?.toJson();
     }
-    map['status'] = _status;
-    map['tips'] = _tips;
-    map['commission_fee'] = _commissionFee;
-    map['delivery_type'] = _deliveryType;
-    map['delivery_fee'] = _deliveryFee;
-    map['otp'] = _otp;
-    map['deliveryman'] = _deliveryman;
-    map['delivery_date'] = _deliveryDate;
-    map['delivery_time'] = _deliveryTime;
-    if (_transaction != null) {
-      map['transaction'] = _transaction?.toJson();
-    }
-    if (_orderAddress != null) {
-      map['address'] = _orderAddress?.toJson();
-    }
-    map['note'] = _note;
-    map['image_after_delivered'] = _afterDeliveredImage;
-    map['seen'] = _seen;
-    map['km'] = _distance;
-    map['current'] = _current;
     return map;
   }
 }
@@ -337,13 +193,18 @@ class ShopOrderDetails {
         _orderStocks?.add(OrderStocks.fromJson(v));
       });
     }
-    _coupon = json['coupon'] != null
-        ? CouponData.fromJson(json['coupon'])
-        : null;
+    _coupon =
+        json['coupon'] != null ? CouponData.fromJson(json['coupon']) : null;
     _deliveryman = json['deliveryman'];
     _deliveryType = json['delivery_type'] != null
         ? DeliveryType.fromJson(json['delivery_type'])
         : null;
+    // if (json['transactions'] != null) {
+    //   _transactions = [];
+    //   json['transactions'].forEach((v) {
+    //     _transactions?.add(Dynamic.fromJson(v));
+    //   });
+    // }
     _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
   }
 
@@ -361,6 +222,8 @@ class ShopOrderDetails {
   CouponData? _coupon;
   dynamic _deliveryman;
   DeliveryType? _deliveryType;
+
+  // List<dynamic>? _transactions;
   ShopData? _shop;
 
   ShopOrderDetails copyWith({
@@ -378,39 +241,56 @@ class ShopOrderDetails {
     CouponData? coupon,
     dynamic deliveryman,
     DeliveryType? deliveryType,
+    // List<dynamic>? transactions,
     ShopData? shop,
-  }) => ShopOrderDetails(
-    id: id ?? _id,
-    shopId: shopId ?? _shopId,
-    deliveryFee: deliveryFee ?? _deliveryFee,
-    price: price ?? _price,
-    tax: tax ?? _tax,
-    status: status ?? _status,
-    deliveryDate: deliveryDate ?? _deliveryDate,
-    deliveryTime: deliveryTime ?? _deliveryTime,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    orderStocks: orderStocks ?? _orderStocks,
-    coupon: coupon ?? _coupon,
-    deliveryman: deliveryman ?? _deliveryman,
-    deliveryType: deliveryType ?? _deliveryType,
-    shop: shop ?? _shop,
-  );
+  }) =>
+      ShopOrderDetails(
+        id: id ?? _id,
+        shopId: shopId ?? _shopId,
+        deliveryFee: deliveryFee ?? _deliveryFee,
+        price: price ?? _price,
+        tax: tax ?? _tax,
+        status: status ?? _status,
+        deliveryDate: deliveryDate ?? _deliveryDate,
+        deliveryTime: deliveryTime ?? _deliveryTime,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        orderStocks: orderStocks ?? _orderStocks,
+        coupon: coupon ?? _coupon,
+        deliveryman: deliveryman ?? _deliveryman,
+        deliveryType: deliveryType ?? _deliveryType,
+        // transactions: transactions ?? _transactions,
+        shop: shop ?? _shop,
+      );
 
   String? get id => _id;
   String? get shopId => _shopId;
+
   num? get deliveryFee => _deliveryFee;
+
   num? get price => _price;
+
   num? get tax => _tax;
+
   String? get status => _status;
+
   String? get deliveryDate => _deliveryDate;
+
   String? get deliveryTime => _deliveryTime;
+
   String? get createdAt => _createdAt;
+
   String? get updatedAt => _updatedAt;
+
   List<OrderStocks>? get orderStocks => _orderStocks;
+
   CouponData? get coupon => _coupon;
+
   dynamic get deliveryman => _deliveryman;
+
   DeliveryType? get deliveryType => _deliveryType;
+
+  // List<dynamic>? get transactions => _transactions;
   ShopData? get shop => _shop;
 
   Map<String, dynamic> toJson() {
@@ -432,6 +312,9 @@ class ShopOrderDetails {
     if (_deliveryType != null) {
       map['delivery_type'] = _deliveryType?.toJson();
     }
+    // if (_transactions != null) {
+    //   map['transactions'] = _transactions?.map((v) => v.toJson()).toList();
+    // }
     if (_shop != null) {
       map['shop'] = _shop?.toJson();
     }
@@ -451,12 +334,6 @@ class OrderStocks {
     String? createdAt,
     String? updatedAt,
     Stocks? stock,
-    String? status,
-    bool? bonus,
-    bool? shopBonus,
-    dynamic kitchen,
-    List<AddonData>? addons,
-    String? note,
   }) {
     _id = id;
     _stockId = stockId;
@@ -468,12 +345,6 @@ class OrderStocks {
     _createdAt = createdAt;
     _updatedAt = updatedAt;
     _stock = stock;
-    _status = status;
-    _bonus = bonus;
-    _shopBonus = shopBonus;
-    _kitchen = kitchen;
-    _addons = addons;
-    _note = note;
   }
 
   OrderStocks.fromJson(dynamic json) {
@@ -487,19 +358,6 @@ class OrderStocks {
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
     _stock = json['stock'] != null ? Stocks.fromJson(json['stock']) : null;
-    _status = json['status'];
-    _bonus = json['bonus'] is int ? (json['bonus'] != 0) : json['bonus'];
-    _shopBonus = json['bonus_shop'] is int
-        ? (json['bonus_shop'] != 0)
-        : json['bonus_shop'];
-    _kitchen = json['kitchen'];
-    if (json['addons'] != null) {
-      _addons = [];
-      json['addons'].forEach((v) {
-        _addons?.add(AddonData.fromJson(v));
-      });
-    }
-    _note = json['note'];
   }
 
   String? _id;
@@ -512,12 +370,6 @@ class OrderStocks {
   String? _createdAt;
   String? _updatedAt;
   Stocks? _stock;
-  String? _status;
-  bool? _bonus;
-  bool? _shopBonus;
-  dynamic _kitchen;
-  List<AddonData>? _addons;
-  String? _note;
 
   OrderStocks copyWith({
     String? id,
@@ -530,47 +382,39 @@ class OrderStocks {
     String? createdAt,
     String? updatedAt,
     Stocks? stock,
-    String? status,
-    bool? bonus,
-    bool? shopBonus,
-    dynamic kitchen,
-    List<AddonData>? addons,
-    String? note,
-  }) => OrderStocks(
-    id: id ?? _id,
-    stockId: stockId ?? _stockId,
-    originPrice: originPrice ?? _originPrice,
-    tax: tax ?? _tax,
-    discount: discount ?? _discount,
-    quantity: quantity ?? _quantity,
-    totalPrice: totalPrice ?? _totalPrice,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    stock: stock ?? _stock,
-    status: status ?? _status,
-    bonus: bonus ?? _bonus,
-    shopBonus: shopBonus ?? _shopBonus,
-    kitchen: kitchen ?? _kitchen,
-    addons: addons ?? _addons,
-    note: note ?? _note,
-  );
+  }) =>
+      OrderStocks(
+        id: id ?? _id,
+        stockId: stockId ?? _stockId,
+        originPrice: originPrice ?? _originPrice,
+        tax: tax ?? _tax,
+        discount: discount ?? _discount,
+        quantity: quantity ?? _quantity,
+        totalPrice: totalPrice ?? _totalPrice,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        stock: stock ?? _stock,
+      );
 
   String? get id => _id;
+
   String? get stockId => _stockId;
+
   num? get originPrice => _originPrice;
+
   num? get tax => _tax;
+
   num? get discount => _discount;
+
   int? get quantity => _quantity;
+
   num? get totalPrice => _totalPrice;
+
   String? get createdAt => _createdAt;
+
   String? get updatedAt => _updatedAt;
+
   Stocks? get stock => _stock;
-  String? get status => _status;
-  bool? get bonus => _bonus;
-  bool? get shopBonus => _shopBonus;
-  dynamic get kitchen => _kitchen;
-  List<AddonData>? get addons => _addons;
-  String? get note => _note;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -586,14 +430,6 @@ class OrderStocks {
     if (_stock != null) {
       map['stock'] = _stock?.toJson();
     }
-    map['status'] = _status;
-    map['bonus'] = _bonus;
-    map['bonus_shop'] = _shopBonus;
-    map['kitchen'] = _kitchen;
-    if (_addons != null) {
-      map['addons'] = _addons?.map((v) => v.toJson()).toList();
-    }
-    map['note'] = _note;
     return map;
   }
 }
@@ -660,18 +496,19 @@ class DeliveryType {
     String? createdAt,
     String? updatedAt,
     Translation? translation,
-  }) => DeliveryType(
-    id: id ?? _id,
-    shopId: shopId ?? _shopId,
-    type: type ?? _type,
-    price: price ?? _price,
-    times: times ?? _times,
-    note: note ?? _note,
-    active: active ?? _active,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    translation: translation ?? _translation,
-  );
+  }) =>
+      DeliveryType(
+        id: id ?? _id,
+        shopId: shopId ?? _shopId,
+        type: type ?? _type,
+        price: price ?? _price,
+        times: times ?? _times,
+        note: note ?? _note,
+        active: active ?? _active,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        translation: translation ?? _translation,
+      );
 
   String? get id => _id;
 

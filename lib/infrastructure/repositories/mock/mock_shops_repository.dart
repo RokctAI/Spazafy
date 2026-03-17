@@ -11,7 +11,7 @@ import 'package:rokctapp/infrastructure/models/data/story_data.dart';
 import 'package:rokctapp/infrastructure/models/response/tag_response.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MockShopsRepository implements ShopsFacade {
+class MockShopsRepository implements ShopsRepositoryFacade {
   final ShopData _demoShop = ShopData(
     id: "1",
     userId: "1",

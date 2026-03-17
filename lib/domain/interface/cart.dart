@@ -1,8 +1,8 @@
 import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
 import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
-import '../handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
 
-abstract class CartFacade {
+abstract class CartRepositoryFacade {
   Future<ApiResult<CartModel>> getCart(String shopId);
 
   Future<ApiResult<CartModel>> getCartInGroup(

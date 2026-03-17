@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
-import '../theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 // ignore: must_be_immutable
 class TitleAndIcon extends StatelessWidget {
   final String? title;
   final dynamic
-  secondTitle; // Changed to dynamic to support both String and IconData
+      secondTitle; // Changed to dynamic to support both String and IconData
   final double titleSize;
   final String? rightTitle;
   final bool isIcon;
@@ -71,15 +71,15 @@ class TitleAndIcon extends StatelessWidget {
                                   ),
                                 )
                               : secondTitle is IconData
-                              ? Padding(
-                                  padding: EdgeInsets.only(left: 4.w),
-                                  child: Icon(
-                                    secondTitle,
-                                    color: secondTitleColor,
-                                    size: titleSize.sp,
-                                  ),
-                                )
-                              : const SizedBox.shrink(),
+                                  ? Padding(
+                                      padding: EdgeInsets.only(left: 4.w),
+                                      child: Icon(
+                                        secondTitle,
+                                        color: secondTitleColor,
+                                        size: titleSize.sp,
+                                      ),
+                                    )
+                                  : const SizedBox.shrink(),
                         ),
                     ],
                   ),

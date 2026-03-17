@@ -13,7 +13,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/application/order/order_notifier.dart';
 import 'package:rokctapp/application/order/order_provider.dart';
 import 'package:rokctapp/application/order/order_state.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_state.dart';
+import 'package:rokctapp/application/shop_order/shop_order_state.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -25,12 +25,12 @@ import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/application/order/payment_methods/payment_provider.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
-import '../order_check/order_check.dart';
-import '../order_type/widgets/order_map.dart';
-import '../order_type/order_type.dart';
-import '../order_check/widgets/rating_page.dart';
+import 'package:rokctapp/application/payment_methods/payment_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/order_check.dart';
+import 'package:rokctapp/presentation/pages/order/order_type/widgets/order_map.dart';
+import 'package:rokctapp/presentation/pages/order/order_type/order_type.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/rating_page.dart';
 import 'widgets/order_carts.dart';
 import 'widgets/order_status.dart';
 
@@ -54,25 +54,21 @@ class _OrderPageState extends ConsumerState<OrderPage>
   bool check = false;
 
   void getAddress() {
-    long =
-        LocalStorage.getAddressSelected()?.location?.longitude ??
+    long = LocalStorage.getAddressSelected()?.location?.longitude ??
         AppConstants.demoLongitude;
-    lat =
-        LocalStorage.getAddressSelected()?.location?.latitude ??
+    lat = LocalStorage.getAddressSelected()?.location?.latitude ??
         AppConstants.demoLatitude;
   }
 
   checkCart(ShopOrderState stateShopOrder, OrderState state) {
     final cart = stateShopOrder.cart;
-    check =
-        !(!(cart == null ||
-                (cart.userCarts?.isEmpty ?? true) ||
-                ((cart.userCarts?.isEmpty ?? true)
-                        ? true
-                        : (cart.userCarts?.first.cartDetails?.isEmpty ??
-                              true)) &&
-                    !(cart.group ?? false)) ||
-            state.orderData != null);
+    check = !(!(cart == null ||
+            (cart.userCarts?.isEmpty ?? true) ||
+            ((cart.userCarts?.isEmpty ?? true)
+                    ? true
+                    : (cart.userCarts?.first.cartDetails?.isEmpty ?? true)) &&
+                !(cart.group ?? false)) ||
+        state.orderData != null);
   }
 
   @override
@@ -87,9 +83,7 @@ class _OrderPageState extends ConsumerState<OrderPage>
         ref.read(orderProvider.notifier).changeTabIndex(_tabController.index);
         if (_tabController.index == 1) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            ref
-                .read(orderProvider.notifier)
-                .getCalculate(
+            ref.read(orderProvider.notifier).getCalculate(
                   isLoading: false,
                   context: context,
                   cartId: ref.read(shopOrderProvider).cart?.id ?? "",
@@ -100,9 +94,7 @@ class _OrderPageState extends ConsumerState<OrderPage>
           });
         } else {
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            ref
-                .read(orderProvider.notifier)
-                .getCalculate(
+            ref.read(orderProvider.notifier).getCalculate(
                   isLoading: false,
                   context: context,
                   cartId: ref.read(shopOrderProvider).cart?.id ?? "",
@@ -169,9 +161,7 @@ class _OrderPageState extends ConsumerState<OrderPage>
 
     ref.listen(orderProvider, (previous, next) {
       if (next.shopData != null && (previous?.shopData != next.shopData)) {
-        ref
-            .read(paymentProvider.notifier)
-            .fetchPayments(
+        ref.read(paymentProvider.notifier).fetchPayments(
               context,
               shopEnableCod: next.shopData?.enableCod ?? true,
             );
@@ -191,14 +181,13 @@ class _OrderPageState extends ConsumerState<OrderPage>
           displayTarget: true,
           child: Scaffold(
             resizeToAvoidBottomInset: false,
-            backgroundColor: isDarkMode
-                ? AppStyle.mainBackDark
-                : AppStyle.bgGrey,
+            backgroundColor:
+                isDarkMode ? AppStyle.mainBackDark : AppStyle.bgGrey,
             body: check
                 ? _resultEmpty()
                 : state.isLoading
-                ? const Loading()
-                : _orderScreen(context, state, event),
+                    ? const Loading()
+                    : _orderScreen(context, state, event),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,
             floatingActionButton: _bottom(state, context),
@@ -353,7 +342,7 @@ class _OrderPageState extends ConsumerState<OrderPage>
                       state.orderData == null
                           ? (state.shopData?.translation?.description ?? "")
                           : (state.orderData?.shop?.translation?.description ??
-                                ""),
+                              ""),
                       style: AppStyle.interNormal(
                         size: 12,
                         color: AppStyle.black,

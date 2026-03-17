@@ -1,7 +1,7 @@
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/data/delivery_point_data.dart';
 
-abstract class DeliveryPointsFacade {
+abstract class DeliveryPointsRepositoryFacade {
   Future<ApiResult<List<DeliveryPointData>>> getDeliveryPoints({
     required double latitude,
     required double longitude,

@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 part 'home_state.freezed.dart';
@@ -7,11 +6,6 @@ part 'home_state.freezed.dart';
 @freezed
 class HomeState with _$HomeState {
   const factory HomeState({
-    // Initial/Base
-    @Default(false) bool isLoading,
-    @Default(false) bool isScrolling,
-
-    // Customer specific
     @Default(true) bool isCategoryLoading,
     @Default(true) bool isBannerLoading,
     @Default(true) bool isShopLoading,
@@ -38,17 +32,6 @@ class HomeState with _$HomeState {
     @Default([]) List<ShopData> filterShops,
     @Default([]) List<ShopData> filterMarket,
     @Default([]) List<BrandData> brands,
-
-    // Driver specific
-    @Default(false) bool isGoUser,
-    @Default(false) bool isGoRestaurant,
-    @Default([]) List<LatLng> polylineCoordinates,
-    @Default([]) List<LatLng> endPolylineCoordinates,
-    @Default({}) Set<Marker> markers,
-    @Default(null) OrderDetailData? orderDetail,
-    @Default(null) ParcelOrder? parcelDetail,
-    @Default({}) Set<Polygon> polygon,
-    @Default([]) List<LatLng> deliveryZone,
   }) = _HomeState;
 
   const HomeState._();

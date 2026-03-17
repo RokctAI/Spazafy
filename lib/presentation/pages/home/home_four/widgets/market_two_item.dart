@@ -6,8 +6,8 @@ import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/components/badges.dart';
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/presentation/components/market_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
+//import 'package:rokctapp/presentation/pages/home_two/widget/two_bonus_discount.dart';
 
 class MarketTwoItem extends StatelessWidget {
   final ShopData shop;
@@ -44,8 +44,8 @@ class MarketTwoItem extends StatelessWidget {
                   margin: isFilter
                       ? const EdgeInsets.symmetric(horizontal: 16)
                       : isSimpleShop
-                      ? EdgeInsets.all(8.r)
-                      : EdgeInsets.only(right: 8.r),
+                          ? EdgeInsets.all(8.r)
+                          : EdgeInsets.only(right: 8.r),
                   width: 268.r,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(24.r)),

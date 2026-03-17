@@ -1,6 +1,6 @@
 class Translation {
   Translation({
-    dynamic id,
+    int? id,
     String? locale,
     String? title,
     String? description,
@@ -18,16 +18,20 @@ class Translation {
   }
 
   Translation.fromJson(dynamic json) {
-    _id = json?['id']?.toString();
+    _id = json?['id'];
     _locale = json?['locale'];
     _title = json?['title'];
     _description = json?['description'];
     _shortDesc = json?['short_desc'] ?? json?['faq'];
     _address = json?['address'];
     _buttonText = json?['button_text'];
+
+    // Add debug print
+    // print("Raw translation JSON: $json");
+    // print("Button text extracted in Translation.fromJson: ${json?['button_text']}");
   }
 
-  dynamic _id;
+  int? _id;
   String? _locale;
   String? _title;
   String? _description;
@@ -36,30 +40,34 @@ class Translation {
   String? _buttonText;
 
   Translation copyWith({
-    dynamic id,
+    int? id,
     String? locale,
     String? title,
     String? description,
     String? shortDesc,
     String? address,
     String? buttonText,
-  }) => Translation(
-    id: id ?? _id,
-    locale: locale ?? _locale,
-    title: title ?? _title,
-    description: description ?? _description,
-    shortDesc: shortDesc ?? _shortDesc,
-    address: address ?? _address,
-    buttonText: buttonText ?? _buttonText,
-  );
+  }) =>
+      Translation(
+        id: id ?? _id,
+        locale: locale ?? _locale,
+        title: title ?? _title,
+        description: description ?? _description,
+        shortDesc: shortDesc ?? _shortDesc,
+        address: address ?? _address,
+        buttonText: buttonText ?? _buttonText,
+      );
 
-  dynamic get id => _id;
+  int? get id => _id;
   String? get locale => _locale;
   String? get title => _title;
   String? get description => _description;
   String? get shortDesc => _shortDesc;
   String? get address => _address;
-  String? get buttonText => _buttonText;
+  String? get buttonText {
+    // print("Translation.buttonText getter called, returning: $_buttonText");
+    return _buttonText;
+  }
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

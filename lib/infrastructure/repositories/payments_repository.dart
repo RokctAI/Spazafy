@@ -1,39 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/domain/interface/payments.dart'; // Ensure correct interface name
+import 'package:rokctapp/domain/interface/payments.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import '../models/data/saved_card.dart';
+import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
 
-class PaymentsRepository implements PaymentsFacade {
-  // --- Common & Customer (Frappe/PaaS) ---
-
+class PaymentsRepository implements PaymentsRepositoryFacade {
   @override
   Future<ApiResult<PaymentsResponse>> getPayments() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      // Try PaaS first
-      try {
-        final response = await client.get(
-          '/api/method/paas.api.payment.payment.get_payment_gateways',
-        );
-        return ApiResult.success(
-          data: PaymentsResponse.fromJson(response.data),
-        );
-      } catch (e) {
-        // Fallback to V1
-        final response = await client.get(
-          '/api/v1/rest/payments',
-          queryParameters: {"lang": LocalStorage.getLanguage()?.locale ?? 'en'},
-        );
-        return ApiResult.success(
-          data: PaymentsResponse.fromJson(response.data),
-        );
-      }
+      debugPrint('==> Getting payments');
+      final response = await client.get(
+        '/api/method/paas.api.payment.payment.get_payment_gateways',
+      );
+      debugPrint('==> Payments response: ${response.data}');
+      return ApiResult.success(data: PaymentsResponse.fromJson(response.data));
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get payments failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -52,7 +41,11 @@ class PaymentsRepository implements PaymentsFacade {
         data: TransactionsResponse.fromJson(response.data),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> create transaction failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -63,16 +56,22 @@ class PaymentsRepository implements PaymentsFacade {
       final response = await client.get(
         '/api/method/paas.api.payment.payment.get_saved_cards',
       );
+
       return ApiResult.success(
         data: (response.data['data'] as List)
             .map((e) => SavedCardModel.fromJson(e))
             .toList(),
       );
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> get saved cards failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
+  // Implementing Card specific methods first
   @override
   Future<ApiResult<String>> tokenizeCard({
     required String cardNumber,
@@ -93,8 +92,33 @@ class PaymentsRepository implements PaymentsFacade {
       );
       return ApiResult.success(data: response.data['data']['token']);
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> tokenize card failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
+  }
+
+  @override
+  Future<ApiResult<String>> tokenizeAfterPayment(
+    String cardNumber,
+    String cardName,
+    String expiryDate,
+    String cvc, [
+    String? token,
+    String? lastFour,
+    String? cardType,
+  ]) async {
+    // Backend actually handles saving if save_card=True.
+    // But we have a specific endpoint save_payfast_card (or generic)
+    // Let's use the tokenize_card endpoint which returns a token and saves it.
+    return tokenizeCard(
+      cardNumber: cardNumber,
+      cardName: cardName,
+      expiryDate: expiryDate,
+      cvc: cvc,
+    );
   }
 
   @override
@@ -107,12 +131,18 @@ class PaymentsRepository implements PaymentsFacade {
       );
       return const ApiResult.success(data: true);
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      debugPrint('==> delete card failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
   @override
   Future<ApiResult<bool>> setDefaultCard(String cardId) async {
+    // Logic typically involves local storage or backend flag?
+    // Assuming backend for now or simple return if not needed.
     return const ApiResult.success(data: true);
   }
 
@@ -129,7 +159,10 @@ class PaymentsRepository implements PaymentsFacade {
       );
       return const ApiResult.success(data: "Success");
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
     }
   }
 
@@ -155,91 +188,10 @@ class PaymentsRepository implements PaymentsFacade {
       );
       return ApiResult.success(data: response.data['message']);
     } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
-    }
-  }
-
-  // --- Manager/Seller Specific (V1) ---
-
-  @override
-  Future<ApiResult<NonExistPaymentResponse>> getNonExistPayments() async {
-    try {
-      final client = dioHttp.client(requireAuth: true);
-      final response = await client.get(
-        '/api/v1/dashboard/seller/shop-payments/shop-non-exist',
-        queryParameters: {"lang": LocalStorage.getLanguage()?.locale ?? 'en'},
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
       );
-      return ApiResult.success(
-        data: NonExistPaymentResponse.fromJson(response.data),
-      );
-    } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
-    }
-  }
-
-  @override
-  Future<ApiResult<String>> paymentWalletWebView({
-    required String name,
-    required num price,
-  }) async {
-    try {
-      final data = {
-        'wallet_id': LocalStorage.getUser()?.wallet?.uuid ?? '',
-        'total_price': price,
-        "currency_id": LocalStorage.getSelectedCurrency()?.id,
-      };
-      final client = dioHttp.client(requireAuth: true);
-      final res = await client.post(
-        '/api/v1/dashboard/user/$name-process',
-        data: data,
-      );
-      return ApiResult.success(data: res.data["data"]["data"]["url"] ?? "");
-    } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
-    }
-  }
-
-  @override
-  Future<ApiResult<MaksekeskusResponse>> paymentMaksekeskusView({
-    num? price,
-  }) async {
-    try {
-      final data = {
-        'wallet_id': LocalStorage.getUser()?.wallet?.uuid,
-        'total_price': price ?? 0,
-        "currency_id": LocalStorage.getSelectedCurrency()?.id,
-      };
-      final client = dioHttp.client(requireAuth: true);
-      final res = await client.post(
-        '/api/v1/dashboard/user/maksekeskus-process',
-        data: data,
-      );
-      return ApiResult.success(
-        data: MaksekeskusResponse.fromJson(res.data["data"]),
-      );
-    } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
-    }
-  }
-
-  @override
-  Future<ApiResult<String>> paymentSubscriptionWebView({
-    required String name,
-    required String? subscriptionId,
-  }) async {
-    try {
-      final data = {
-        'subscription_id': subscriptionId,
-        "currency_id": LocalStorage.getSelectedCurrency()?.id,
-      };
-      final client = dioHttp.client(requireAuth: true);
-      final res = await client.post(
-        '/api/v1/dashboard/user/$name-process',
-        data: data,
-      );
-      return ApiResult.success(data: res.data["data"]["data"]["url"] ?? "");
-    } catch (e) {
-      return ApiResult.failure(error: AppHelpers.errorHandler(e));
     }
   }
 }

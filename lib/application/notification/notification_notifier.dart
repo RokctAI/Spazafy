@@ -14,7 +14,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
   int _notificationPage = 0;
 
   NotificationNotifier(this._notificationRepository)
-    : super(const NotificationState());
+      : super(const NotificationState());
 
   Future<void> fetchAllNotifications(BuildContext context) async {
     state = state.copyWith(isAllNotificationsLoading: true);
@@ -98,7 +98,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
 
   Future<void> readOne(
     BuildContext context, {
-    dynamic id,
+    int? id,
     required int index,
   }) async {
     List<NotificationModel> notif = List.from(state.notifications);

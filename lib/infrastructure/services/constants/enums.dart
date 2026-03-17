@@ -9,7 +9,6 @@ enum UploadType {
   products,
   reviews,
   users,
-  deliveryCar,
 }
 
 enum PriceFilter { byLow, byHigh }

@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-abstract class BannersFacade {
+abstract class BannersRepositoryFacade {
   Future<ApiResult<BannersPaginateResponse>> getBannersPaginate({
     required int page,
   });

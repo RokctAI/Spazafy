@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import '../../../theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class LoanQualificationDialog extends ConsumerWidget {
   final Map<String, dynamic> eligibilityData;

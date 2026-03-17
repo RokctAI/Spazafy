@@ -12,10 +12,10 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/market_item.dart';
-import 'package:rokctapp/presentation/components/loading/all_shop_shimmer.dart';
-import '../home/home_four/widgets/market_one_item.dart';
-import '../home/home_four/widgets/market_three_item.dart';
-import '../home/home_four/widgets/market_two_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/shimmer/all_shop_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_four/widgets/market_one_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_four/widgets/market_three_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_four/widgets/market_two_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
 
@@ -101,36 +101,36 @@ class _LikePageState extends ConsumerState<LikePage> {
                     state.isShopLoading
                         ? const AllShopShimmer(isTitle: false)
                         : state.shops.isEmpty
-                        ? _resultEmpty()
-                        : ListView.builder(
-                            padding: AppHelpers.getType() == 2
-                                ? EdgeInsets.symmetric(horizontal: 16.r)
-                                : EdgeInsets.only(top: 6.h),
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            scrollDirection: Axis.vertical,
-                            itemCount: state.shops.length,
-                            itemBuilder: (context, index) =>
-                                AppHelpers.getType() == 0
-                                ? MarketItem(
-                                    shop: state.shops[index],
-                                    isSimpleShop: true,
-                                  )
-                                : AppHelpers.getType() == 1
-                                ? MarketOneItem(
-                                    shop: state.shops[index],
-                                    isSimpleShop: true,
-                                  )
-                                : AppHelpers.getType() == 2
-                                ? MarketTwoItem(
-                                    shop: state.shops[index],
-                                    isSimpleShop: true,
-                                  )
-                                : MarketThreeItem(
-                                    shop: state.shops[index],
-                                    isSimpleShop: true,
-                                  ),
-                          ),
+                            ? _resultEmpty()
+                            : ListView.builder(
+                                padding: AppHelpers.getType() == 2
+                                    ? EdgeInsets.symmetric(horizontal: 16.r)
+                                    : EdgeInsets.only(top: 6.h),
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                scrollDirection: Axis.vertical,
+                                itemCount: state.shops.length,
+                                itemBuilder: (context, index) =>
+                                    AppHelpers.getType() == 0
+                                        ? MarketItem(
+                                            shop: state.shops[index],
+                                            isSimpleShop: true,
+                                          )
+                                        : AppHelpers.getType() == 1
+                                            ? MarketOneItem(
+                                                shop: state.shops[index],
+                                                isSimpleShop: true,
+                                              )
+                                            : AppHelpers.getType() == 2
+                                                ? MarketTwoItem(
+                                                    shop: state.shops[index],
+                                                    isSimpleShop: true,
+                                                  )
+                                                : MarketThreeItem(
+                                                    shop: state.shops[index],
+                                                    isSimpleShop: true,
+                                                  ),
+                              ),
                   ],
                 ),
               ),

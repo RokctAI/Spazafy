@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/application/foods/filter/filter_provider.dart';
+import 'package:rokctapp/application/filter/filter_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
-import '../widgets/market_one_item.dart';
-import '../widgets/market_three_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/market_one_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/market_three_item.dart';
 
-import 'package:rokctapp/application/foods/filter/filter_notifier.dart';
+import 'package:rokctapp/application/filter/filter_notifier.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/market_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import '../widgets/market_two_item.dart';
-import '../shimmer/all_shop_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/market_two_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/shimmer/all_shop_shimmer.dart';
 
 @RoutePage()
 class ResultFilterPage extends ConsumerStatefulWidget {
@@ -110,25 +110,25 @@ class _ResultFilterState extends ConsumerState<ResultFilterPage> {
                                 itemCount: state.allShops.length,
                                 itemBuilder: (context, index) =>
                                     AppHelpers.getType() == 0
-                                    ? MarketItem(
-                                        shop: state.allShops[index],
-                                        isSimpleShop: true,
-                                      )
-                                    : AppHelpers.getType() == 1
-                                    ? MarketOneItem(
-                                        shop: state.allShops[index],
-                                        isSimpleShop: true,
-                                      )
-                                    : AppHelpers.getType() == 2
-                                    ? MarketTwoItem(
-                                        shop: state.allShops[index],
-                                        isSimpleShop: true,
-                                        isFilter: true,
-                                      )
-                                    : MarketThreeItem(
-                                        shop: state.allShops[index],
-                                        isSimpleShop: true,
-                                      ),
+                                        ? MarketItem(
+                                            shop: state.allShops[index],
+                                            isSimpleShop: true,
+                                          )
+                                        : AppHelpers.getType() == 1
+                                            ? MarketOneItem(
+                                                shop: state.allShops[index],
+                                                isSimpleShop: true,
+                                              )
+                                            : AppHelpers.getType() == 2
+                                                ? MarketTwoItem(
+                                                    shop: state.allShops[index],
+                                                    isSimpleShop: true,
+                                                    isFilter: true,
+                                                  )
+                                                : MarketThreeItem(
+                                                    shop: state.allShops[index],
+                                                    isSimpleShop: true,
+                                                  ),
                               ),
                             ],
                           ),

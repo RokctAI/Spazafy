@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-abstract class CategoriesFacade {
+abstract class CategoriesRepositoryFacade {
   Future<ApiResult<CategoriesPaginateResponse>> getAllCategories({
     required int page,
   });
@@ -13,26 +13,4 @@ abstract class CategoriesFacade {
   Future<ApiResult<CategoriesPaginateResponse>> getCategoriesByShop({
     required String shopId,
   });
-
-  // Manager Methods
-  Future<ApiResult<UnitsPaginateResponse>> getUnits();
-  Future<ApiResult<KitchensPaginateResponse>> getKitchens();
-  Future<ApiResult<void>> createCategory({required String title, int? input});
-  Future<ApiResult<CategoriesPaginateResponse>> getCategories({
-    int? page,
-    String? query,
-    String? type,
-    bool hasProducts = false,
-  });
-  Future<ApiResult<CategoriesPaginateResponse>> getShopCategories({
-    int? page,
-    String? query,
-  });
-  Future<ApiResult<CategoriesPaginateResponse>> getCategoriesSub({
-    int? page,
-    String? query,
-  });
-  Future<ApiResult> deleteCategory({required String? id});
 }
-
-abstract class CatalogInterface extends CategoriesFacade {}

@@ -4,7 +4,7 @@ import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
 
-class MockBannersRepository implements BannersFacade {
+class MockBannersRepository implements BannersRepositoryFacade {
   final BannerData _demoBanner = BannerData(
     id: 1,
     shops: [

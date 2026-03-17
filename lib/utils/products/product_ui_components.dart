@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:remixicon/remixicon.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 
 import 'product_utils.dart';
 
@@ -46,11 +46,9 @@ class ProductUIComponents {
 
                   if (shopOrderState.cart != null && cartQuantity > 0) {
                     for (var userCart in shopOrderState.cart!.userCarts ?? []) {
-                      for (
-                        int i = 0;
-                        i < (userCart.cartDetails?.length ?? 0);
-                        i++
-                      ) {
+                      for (int i = 0;
+                          i < (userCart.cartDetails?.length ?? 0);
+                          i++) {
                         final cartDetail = userCart.cartDetails?[i];
                         if (cartDetail?.stock?.id == stockId) {
                           shopOrderNotifier.removeCount(context, i);
@@ -90,11 +88,9 @@ class ProductUIComponents {
 
                   if (shopOrderState.cart != null) {
                     for (var userCart in shopOrderState.cart!.userCarts ?? []) {
-                      for (
-                        int i = 0;
-                        i < (userCart.cartDetails?.length ?? 0);
-                        i++
-                      ) {
+                      for (int i = 0;
+                          i < (userCart.cartDetails?.length ?? 0);
+                          i++) {
                         final cartDetail = userCart.cartDetails?[i];
                         if (cartDetail?.stock?.id == stockId) {
                           shopOrderNotifier.addCount(context, i);

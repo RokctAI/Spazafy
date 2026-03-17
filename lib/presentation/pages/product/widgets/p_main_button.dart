@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/product/product_notifier.dart';
 import 'package:rokctapp/application/product/product_state.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_notifier.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_state.dart';
+import 'package:rokctapp/application/shop_order/shop_order_notifier.dart';
+import 'package:rokctapp/application/shop_order/shop_order_state.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -37,8 +37,7 @@ class ProductMainButton extends StatelessWidget {
     num sumTotalPrice = 0;
     state.selectedStock?.addons?.forEach((element) {
       if (element.active ?? false) {
-        sumTotalPrice +=
-            ((element.product?.stock?.totalPrice ?? 0) *
+        sumTotalPrice += ((element.product?.stock?.totalPrice ?? 0) *
             (element.quantity ?? 1));
       }
     });

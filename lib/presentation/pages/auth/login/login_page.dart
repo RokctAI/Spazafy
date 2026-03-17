@@ -18,7 +18,7 @@ import 'login_screen.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/buttons/second_button.dart';
-import 'package:rokctapp/presentation/pages/intro/customer/intro_page.dart';
+import 'package:rokctapp/presentation/pages/intro/intro_page.dart';
 import 'package:rokctapp/presentation/pages/policy_term/policy_page.dart';
 import 'package:rokctapp/presentation/pages/policy_term/term_page.dart';
 
@@ -61,26 +61,24 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Future<void> initDynamicLinks() async {
-    dynamicLinks.onLink
-        .listen((dynamicLinkData) {
-          String link = dynamicLinkData.link.toString().substring(
+    dynamicLinks.onLink.listen((dynamicLinkData) {
+      String link = dynamicLinkData.link.toString().substring(
             dynamicLinkData.link.toString().indexOf("shop") + 4,
           );
-          if (link.toString().contains("product") ||
-              link.toString().contains("shop")) {
-            if (AppConstants.isDemo) {
-              context.replaceRoute(UiTypeRoute());
-              return;
-            }
-            AppHelpers.goHome(context);
-          }
-        })
-        .onError((error) {
-          debugPrint(error.message);
-        });
+      if (link.toString().contains("product") ||
+          link.toString().contains("shop")) {
+        if (AppConstants.isDemo) {
+          context.replaceRoute(UiTypeRoute());
+          return;
+        }
+        AppHelpers.goHome(context);
+      }
+    }).onError((error) {
+      debugPrint(error.message);
+    });
 
-    final PendingDynamicLinkData? data = await FirebaseDynamicLinks.instance
-        .getInitialLink();
+    final PendingDynamicLinkData? data =
+        await FirebaseDynamicLinks.instance.getInitialLink();
     final Uri? deepLink = data?.link;
 
     if (deepLink.toString().contains("product") ||
@@ -143,9 +141,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: isDarkMode
-            ? AppStyle.dontHaveAnAccBackDark
-            : AppStyle.white,
+        backgroundColor:
+            isDarkMode ? AppStyle.dontHaveAnAccBackDark : AppStyle.white,
         body: _showIntro
             ? _introPage // Show preloaded IntroPage if _showIntro is true
             : Container(
@@ -189,9 +186,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                                               "®",
                                               style:
                                                   AppStyle.logoFontBoldItalic(
-                                                    color: AppStyle.white,
-                                                    size: 12.sp,
-                                                  ),
+                                                color: AppStyle.white,
+                                                size: 12.sp,
+                                              ),
                                             ),
                                           ),
                                         ),

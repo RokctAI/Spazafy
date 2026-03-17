@@ -234,11 +234,11 @@ class _AppBarHomeState extends ConsumerState<AppBarHome>
                                                 ?.isEmpty ??
                                             true)
                                         ? LocalStorage.getAddressSelected()
-                                                  ?.address ??
-                                              ''
+                                                ?.address ??
+                                            ''
                                         : LocalStorage.getAddressSelected()
-                                                  ?.title ??
-                                              "",
+                                                ?.title ??
+                                            "",
                                     style: AppStyle.interBold(
                                       size: 14,
                                       color: AppStyle.black,
@@ -462,7 +462,7 @@ class WelcomeText extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: 'login',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: AppStyle.primary,
                           decoration: TextDecoration.underline,
                         ),
@@ -474,7 +474,7 @@ class WelcomeText extends StatelessWidget {
                       const TextSpan(text: ' or '),
                       TextSpan(
                         text: 'signup',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: AppStyle.primary,
                           decoration: TextDecoration.underline,
                         ),

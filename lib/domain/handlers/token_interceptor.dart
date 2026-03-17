@@ -17,7 +17,7 @@ class TokenInterceptor extends Interceptor {
     // Add authentication token if needed
     final String token = LocalStorage.getToken();
     if (token.isNotEmpty && requireAuth) {
-      options.headers.addAll({'Authorization': 'Bearer $token'});
+      options.headers.addAll({'Authorization': 'Bearer  $token'});
     }
 
     handler.next(options);

@@ -23,14 +23,19 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/background_sync_service.dart';
 import 'register_state.dart';
 
 class RegisterNotifier extends StateNotifier<RegisterState> {
-  final AuthFacade _authRepository;
-  final UserFacade _userRepositoryFacade;
+  final AuthRepositoryFacade _authRepository;
+  final UserRepositoryFacade _userRepositoryFacade;
+  final BackgroundSyncService _backgroundSyncService;
 
-  RegisterNotifier(this._authRepository, this._userRepositoryFacade)
-    : super(const RegisterState());
+  RegisterNotifier(
+    this._authRepository,
+    this._userRepositoryFacade,
+    this._backgroundSyncService,
+  ) : super(const RegisterState());
 
   void setPassword(String password) {
     state = state.copyWith(password: password.trim(), isPasswordInvalid: false);
@@ -104,9 +109,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         },
       );
     } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
+      // Offline: Skip OTP and go to next screen (handled by UI calling onSuccess)
+      onSuccess();
     }
   }
 
@@ -166,7 +170,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
     }
   }
 
-  Future<void> register(BuildContext context, {String? role}) async {
+  Future<void> register(BuildContext context) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       if (!AppValidators.isValidPassword(state.password)) {
@@ -197,18 +201,51 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         success: (data) async {
           state = state.copyWith(isLoading: false);
           LocalStorage.setToken(data.token);
-
-          // Role-specific redirection
-          if (role == 'deliveryman') {
-            context.replaceRoute(const HomeRoute());
-          } else if (role == 'seller') {
-            context.replaceRoute(const MainRoute());
+          LocalStorage.setAddressSelected(
+            AddressData(
+              title: data.user?.addresses?.firstWhere(
+                    (element) => element.active ?? false,
+                    orElse: () {
+                      return AddressNewModel();
+                    },
+                  ).title ??
+                  "",
+              address: data.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .address
+                      ?.address ??
+                  "",
+              location: LocationModel(
+                longitude: data.user?.addresses
+                    ?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    )
+                    .location
+                    ?.last,
+                latitude: data.user?.addresses
+                    ?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    )
+                    .location
+                    ?.first,
+              ),
+            ),
+          );
+          if (AppConstants.isDemo) {
+            context.replaceRoute(UiTypeRoute());
           } else {
-            if (AppConstants.isDemo) {
-              context.replaceRoute(UiTypeRoute());
-            } else {
-              AppHelpers.goHome(context);
-            }
+            AppHelpers.goHome(context);
           }
           String? fcmToken = await FirebaseMessaging.instance.getToken();
           _userRepositoryFacade.updateFirebaseToken(fcmToken);
@@ -228,16 +265,52 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         },
       );
     } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
+      // Offline: Guest mode and queue request
+      if (!AppValidators.isValidPassword(state.password)) {
+        state = state.copyWith(isPasswordInvalid: true);
+        return;
       }
+      if (!AppValidators.isValidConfirmPassword(
+        state.password,
+        state.confirmPassword,
+      )) {
+        state = state.copyWith(isConfirmPasswordInvalid: true);
+        return;
+      }
+
+      // 1. Set as Guest
+      LocalStorage.setIsGuest(true);
+      // 2. Save offline user details
+      LocalStorage.setOfflineUser({
+        'email': state.email,
+        'firstname': state.firstName,
+        'lastname': state.lastName,
+        'phone': state.phone,
+        'password': state.password,
+        'confirmPassword': state.confirmPassword,
+        'referral': state.referral,
+        'type': 'register',
+      });
+      // 3. Queue the request
+      _backgroundSyncService.enqueueRequest(
+        '${AppConstants.baseUrl}/auth/register',
+        'POST',
+        {
+          'email': state.email,
+          'firstname': state.firstName,
+          'lastname': state.lastName,
+          'phone': state.phone,
+          'password': state.password,
+          'password_confirmation': state.confirmPassword,
+          'referral': state.referral,
+        },
+      );
+      // 4. Go Home
+      AppHelpers.goHome(context);
     }
   }
 
-  Future<void> registerWithFirebase(
-    BuildContext context, {
-    String? role,
-  }) async {
+  Future<void> registerWithFirebase(BuildContext context) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       if (!AppValidators.isValidPassword(state.password)) {
@@ -268,18 +341,51 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         success: (data) async {
           state = state.copyWith(isLoading: false);
           LocalStorage.setToken(data.token);
-
-          // Role-specific redirection
-          if (role == 'deliveryman') {
-            context.replaceRoute(const BecomeDriverRoute());
-          } else if (role == 'seller') {
-            context.replaceRoute(const BecomeSellerRoute());
+          LocalStorage.setAddressSelected(
+            AddressData(
+              title: data.user?.addresses?.firstWhere(
+                    (element) => element.active ?? false,
+                    orElse: () {
+                      return AddressNewModel();
+                    },
+                  ).title ??
+                  "",
+              address: data.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .address
+                      ?.address ??
+                  "",
+              location: LocationModel(
+                longitude: data.user?.addresses
+                    ?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    )
+                    .location
+                    ?.last,
+                latitude: data.user?.addresses
+                    ?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    )
+                    .location
+                    ?.first,
+              ),
+            ),
+          );
+          if (AppConstants.isDemo) {
+            context.replaceRoute(UiTypeRoute());
           } else {
-            if (AppConstants.isDemo) {
-              context.replaceRoute(UiTypeRoute());
-            } else {
-              AppHelpers.goHome(context);
-            }
+            AppHelpers.goHome(context);
           }
           String? fcmToken = await FirebaseMessaging.instance.getToken();
           _userRepositoryFacade.updateFirebaseToken(fcmToken);
@@ -305,7 +411,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
     }
   }
 
-  Future<void> registerWithPhone(BuildContext context, {String? role}) async {
+  Future<void> registerWithPhone(BuildContext context) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       if (!AppValidators.isValidPassword(state.password)) {
@@ -322,6 +428,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       state = state.copyWith(isLoading: true);
       final response = await _userRepositoryFacade.editProfile(
         user: EditProfile(
+          // email: state.email,
           firstname: state.firstName,
           lastname: state.lastName,
           phone: state.email,
@@ -334,18 +441,10 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       response.when(
         success: (data) async {
           state = state.copyWith(isLoading: false);
-
-          // Role-specific redirection
-          if (role == 'deliveryman') {
-            context.replaceRoute(const HomeRoute());
-          } else if (role == 'seller') {
-            context.replaceRoute(const MainRoute());
+          if (AppConstants.isDemo) {
+            context.replaceRoute(UiTypeRoute());
           } else {
-            if (AppConstants.isDemo) {
-              context.replaceRoute(UiTypeRoute());
-            } else {
-              AppHelpers.goHome(context);
-            }
+            AppHelpers.goHome(context);
           }
           String? fcmToken = await FirebaseMessaging.instance.getToken();
           _userRepositoryFacade.updateFirebaseToken(fcmToken);
@@ -405,18 +504,14 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           LocalStorage.setToken(data.data?.accessToken ?? '');
           LocalStorage.setAddressSelected(
             AddressData(
-              title:
-                  data.data?.user?.addresses
-                      ?.firstWhere(
-                        (element) => element.active ?? false,
-                        orElse: () {
-                          return AddressNewModel();
-                        },
-                      )
-                      .title ??
+              title: data.data?.user?.addresses?.firstWhere(
+                    (element) => element.active ?? false,
+                    orElse: () {
+                      return AddressNewModel();
+                    },
+                  ).title ??
                   "",
-              address:
-                  data.data?.user?.addresses
+              address: data.data?.user?.addresses
                       ?.firstWhere(
                         (element) => element.active ?? false,
                         orElse: () {
@@ -496,15 +591,15 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         final rawNonce = AppHelpers.generateNonce();
         final OAuthCredential credential =
             user.accessToken?.type == AccessTokenType.limited
-            ? OAuthCredential(
-                providerId: 'facebook.com',
-                signInMethod: 'oauth',
-                idToken: user.accessToken!.tokenString,
-                rawNonce: rawNonce,
-              )
-            : FacebookAuthProvider.credential(
-                user.accessToken?.tokenString ?? "",
-              );
+                ? OAuthCredential(
+                    providerId: 'facebook.com',
+                    signInMethod: 'oauth',
+                    idToken: user.accessToken!.tokenString,
+                    rawNonce: rawNonce,
+                  )
+                : FacebookAuthProvider.credential(
+                    user.accessToken?.tokenString ?? "",
+                  );
 
         final userObj = await FirebaseAuth.instance.signInWithCredential(
           credential,
@@ -523,18 +618,14 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
               LocalStorage.setToken(data.data?.accessToken ?? '');
               LocalStorage.setAddressSelected(
                 AddressData(
-                  title:
-                      data.data?.user?.addresses
-                          ?.firstWhere(
-                            (element) => element.active ?? false,
-                            orElse: () {
-                              return AddressNewModel();
-                            },
-                          )
-                          .title ??
+                  title: data.data?.user?.addresses?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      ).title ??
                       "",
-                  address:
-                      data.data?.user?.addresses
+                  address: data.data?.user?.addresses
                           ?.firstWhere(
                             (element) => element.active ?? false,
                             orElse: () {
@@ -631,18 +722,14 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
             LocalStorage.setToken(data.data?.accessToken ?? '');
             LocalStorage.setAddressSelected(
               AddressData(
-                title:
-                    data.data?.user?.addresses
-                        ?.firstWhere(
-                          (element) => element.active ?? false,
-                          orElse: () {
-                            return AddressNewModel();
-                          },
-                        )
-                        .title ??
+                title: data.data?.user?.addresses?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    ).title ??
                     "",
-                address:
-                    data.data?.user?.addresses
+                address: data.data?.user?.addresses
                         ?.firstWhere(
                           (element) => element.active ?? false,
                           orElse: () {

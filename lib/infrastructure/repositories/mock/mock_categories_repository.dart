@@ -4,7 +4,7 @@ import 'package:rokctapp/domain/interface/categories.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
-class MockCategoriesRepository implements CategoriesFacade {
+class MockCategoriesRepository implements CategoriesRepositoryFacade {
   final CategoryData _demoCategory = CategoryData(
     id: "1",
     uuid: "demo_cat_1",

@@ -1,4 +1,4 @@
-import '../data/order_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 
 class SingleOrderResponse {
   SingleOrderResponse({
@@ -30,12 +30,13 @@ class SingleOrderResponse {
     bool? status,
     String? message,
     OrderData? data,
-  }) => SingleOrderResponse(
-    timestamp: timestamp ?? _timestamp,
-    status: status ?? _status,
-    message: message ?? _message,
-    data: data ?? _data,
-  );
+  }) =>
+      SingleOrderResponse(
+        timestamp: timestamp ?? _timestamp,
+        status: status ?? _status,
+        message: message ?? _message,
+        data: data ?? _data,
+      );
 
   String? get timestamp => _timestamp;
 

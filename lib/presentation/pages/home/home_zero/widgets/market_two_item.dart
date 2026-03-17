@@ -9,7 +9,7 @@ import 'package:rokctapp/presentation/components/badge_item.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'two_bonus_discount.dart';
 
 class MarketTwoItem extends StatelessWidget {
@@ -40,8 +40,8 @@ class MarketTwoItem extends StatelessWidget {
               margin: isFilter
                   ? REdgeInsets.symmetric(horizontal: 16)
                   : isSimpleShop
-                  ? EdgeInsets.all(8.r)
-                  : EdgeInsets.only(right: 8.r),
+                      ? EdgeInsets.all(8.r)
+                      : EdgeInsets.only(right: 8.r),
               width: 268.r,
               decoration: BoxDecoration(
                 color: AppStyle.white,
@@ -174,8 +174,8 @@ class MarketTwoItem extends StatelessWidget {
                         Text(
                           shop.bonus != null
                               ? ((shop.bonus?.type ?? "sum") == "sum")
-                                    ? "${AppHelpers.getTranslation(TrKeys.under)} ${AppHelpers.numberFormat(number: shop.bonus?.value)} + ${shop.bonus?.bonusStock?.product?.translation?.title ?? ""}"
-                                    : "${AppHelpers.getTranslation(TrKeys.under)} ${shop.bonus?.value ?? 0} + ${shop.bonus?.bonusStock?.product?.translation?.title ?? ""}"
+                                  ? "${AppHelpers.getTranslation(TrKeys.under)} ${AppHelpers.numberFormat(number: shop.bonus?.value)} + ${shop.bonus?.bonusStock?.product?.translation?.title ?? ""}"
+                                  : "${AppHelpers.getTranslation(TrKeys.under)} ${shop.bonus?.value ?? 0} + ${shop.bonus?.bonusStock?.product?.translation?.title ?? ""}"
                               : shop.translation?.description ?? "",
                           style: AppStyle.interNormal(
                             size: 12,

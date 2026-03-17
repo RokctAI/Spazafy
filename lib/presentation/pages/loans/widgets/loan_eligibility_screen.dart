@@ -9,10 +9,10 @@ import 'package:rokctapp/infrastructure/repositories/loans_repository.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import '../../../components/text_fields/outline_bordered_text_field.dart';
-import '../../../components/title_icon.dart';
-import '../../../theme/theme.dart';
-import '../provider/loans_provider.dart';
+import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
+import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/pages/loans/provider/loans_provider.dart';
 import 'loan_document_upload_screen.dart';
 import 'loan_ineligibility_dialog.dart';
 import 'loan_qualification_dialog.dart';
@@ -49,8 +49,7 @@ class _LoanEligibilityScreenState extends ConsumerState<LoanEligibilityScreen> {
     super.initState();
 
     // Check if financial details exist
-    _fieldsReadOnly =
-        widget.financialDetails != null &&
+    _fieldsReadOnly = widget.financialDetails != null &&
         (widget.financialDetails!['monthly_income'] != null ||
             widget.financialDetails!['grocery_expenses'] != null ||
             widget.financialDetails!['other_expenses'] != null ||
@@ -245,8 +244,8 @@ class _LoanEligibilityScreenState extends ConsumerState<LoanEligibilityScreen> {
   ) async {
     try {
       // Pass the financial details to the repository method
-      final preApprovalResult = await _loansRepository
-          .calculatePreApprovalAmount(financialDetails);
+      final preApprovalResult =
+          await _loansRepository.calculatePreApprovalAmount(financialDetails);
 
       preApprovalResult.when(
         success: (amount) {
@@ -540,23 +539,19 @@ class _LoanEligibilityScreenState extends ConsumerState<LoanEligibilityScreen> {
         'id_number': ref.read(idNumberProvider),
         'loan_amount': ref.read(loanAmountProvider),
         'financial_details': {
-          'monthly_income':
-              double.tryParse(
+          'monthly_income': double.tryParse(
                 _monthlyIncomeController.text.replaceAll(',', ''),
               ) ??
               0,
-          'grocery_expenses':
-              double.tryParse(
+          'grocery_expenses': double.tryParse(
                 _groceryExpensesController.text.replaceAll(',', ''),
               ) ??
               0,
-          'other_expenses':
-              double.tryParse(
+          'other_expenses': double.tryParse(
                 _otherExpensesController.text.replaceAll(',', ''),
               ) ??
               0,
-          'existing_credits':
-              double.tryParse(
+          'existing_credits': double.tryParse(
                 _existingCreditsController.text.replaceAll(',', ''),
               ) ??
               0,

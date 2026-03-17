@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/order/payment_methods/payment_provider.dart';
-import 'package:rokctapp/application/order/payment_methods/payment_state.dart';
+import 'package:rokctapp/application/payment_methods/payment_provider.dart';
+import 'package:rokctapp/application/payment_methods/payment_state.dart';
 import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -12,7 +12,7 @@ import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/select_item.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/application/order/payment_methods/payment_notifier.dart';
+import 'package:rokctapp/application/payment_methods/payment_notifier.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 class ParcelPayments extends ConsumerStatefulWidget {

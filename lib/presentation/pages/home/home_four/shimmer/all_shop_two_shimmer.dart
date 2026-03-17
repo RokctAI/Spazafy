@@ -5,7 +5,7 @@ import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'market_two_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_four/shimmer/market_two_shimmer.dart';
 
 class AllShopTwoShimmer extends StatelessWidget {
   final bool isTitle;
@@ -44,15 +44,15 @@ class AllShopTwoShimmer extends StatelessWidget {
             itemCount: 2,
             itemBuilder: (context, index) =>
                 AnimationConfiguration.staggeredList(
-                  position: index,
-                  duration: const Duration(milliseconds: 375),
-                  child: SlideAnimation(
-                    verticalOffset: 50.0,
-                    child: FadeInAnimation(
-                      child: MarketTwoShimmer(isSimpleShop: true, index: index),
-                    ),
-                  ),
+              position: index,
+              duration: const Duration(milliseconds: 375),
+              child: SlideAnimation(
+                verticalOffset: 50.0,
+                child: FadeInAnimation(
+                  child: MarketTwoShimmer(isSimpleShop: true, index: index),
                 ),
+              ),
+            ),
           ),
         ),
       ],

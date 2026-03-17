@@ -6,10 +6,10 @@ import 'package:rokctapp/application/home/home_notifier.dart';
 import 'package:rokctapp/application/home/home_state.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
-import 'package:rokctapp/presentation/pages/home/filter/filter_page.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/filter/filter_page.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import '../../home/home_two/widget/category_two_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/category_two_item.dart';
 
 class ServiceTwoCategory extends StatelessWidget {
   final HomeState state;
@@ -57,20 +57,20 @@ class ServiceTwoCategory extends StatelessWidget {
                                   context: context,
                                   modal: (c) => FilterPage(
                                     controller: c,
-                                    categoryId:
-                                        (state.selectIndexSubCategory != -1
+                                    categoryId: (state.selectIndexSubCategory !=
+                                                -1
                                             ? (state
-                                                  .categories[state
-                                                      .selectIndexCategory]
-                                                  .children?[state
-                                                      .selectIndexSubCategory]
-                                                  .id
-                                                  ?.toString())
+                                                .categories[
+                                                    state.selectIndexCategory]
+                                                .children?[state
+                                                    .selectIndexSubCategory]
+                                                .id
+                                                ?.toString())
                                             : state
-                                                  .categories[state
-                                                      .selectIndexCategory]
-                                                  .id
-                                                  ?.toString()) ??
+                                                .categories[
+                                                    state.selectIndexCategory]
+                                                .id
+                                                ?.toString()) ??
                                         "",
                                   ),
                                   isDarkMode: false,
@@ -109,11 +109,8 @@ class ServiceTwoCategory extends StatelessWidget {
                       : CategoryTwoItem(
                           index: index - 1,
                           image: category.children?[index - 1].img ?? "",
-                          title:
-                              category
-                                  .children?[index - 1]
-                                  .translation
-                                  ?.title ??
+                          title: category
+                                  .children?[index - 1].translation?.title ??
                               "",
                           isActive: index - 1 == state.selectIndexSubCategory,
                           onTap: () {

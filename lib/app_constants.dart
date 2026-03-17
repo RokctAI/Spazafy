@@ -1,8 +1,8 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter_remix/flutter_remix.dart';
-import 'package:rokctapp/infrastructure/services/app_assets.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
 
-import 'infrastructure/services/constants/enums.dart';
+import 'infrastructure/services/enums.dart';
 
 abstract class AppConstants {
   AppConstants._();
@@ -137,32 +137,4 @@ abstract class AppConstants {
   /// Marketplace Settings
   static bool enableMarketplace = true;
   static String defaultShopId = "";
-
-  /// Manager & Driver uniquely merged
-  static const bool autoTrn = bool.fromEnvironment('AUTO_TRN');
-  static const Duration animationDuration = Duration(milliseconds: 375);
-  static const String chatGpt = '';
-  static bool playMusicOnOrderStatusChange = true;
-  static bool keepPlayingOnNewOrder = false;
-  static const bool isSpecificNumberEnabled = bool.fromEnvironment(
-    'IS_SPECIFIC_NUMBER_ENABLED',
-  );
-  static const String demoSellerLogin = String.fromEnvironment(
-    'DEMO_SELLER_LOGIN',
-  );
-  static const String demoSellerPassword = String.fromEnvironment(
-    'DEMO_SELLER_PASSWORD',
-  );
-  static const String demoDriverLogin = String.fromEnvironment(
-    'DEMO_DRIVER_LOGIN',
-  );
-  static const String demoDriverPassword = String.fromEnvironment(
-    'DEMO_DRIVER_PASSWORD',
-  );
-
-  /// hero tags extension
-  static const String heroTagAddOrderButton = 'heroTagAddOrderButton';
-  static const String heroTagOrderHistory = 'heroTagOrderHistory';
-  static const String heroTagIncomePage = 'heroTagIncomePage';
-  static const String heroTagProfileAvatar = 'heroTagProfileAvatar';
 }

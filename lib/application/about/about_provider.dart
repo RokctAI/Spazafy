@@ -13,9 +13,13 @@ final aboutProvider = FutureProvider<Map<String, dynamic>?>((ref) async {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       final translation = data['data']['translation'];
+
+      final imgUrl = data['data']['img'];
+
       return {
-        'img': data['data']['img'],
+        'title': translation['title'],
         'description': translation['description'],
+        'img': imgUrl, // Include the image URL
       };
     } else {
       throw Exception('Failed to fetch about data');

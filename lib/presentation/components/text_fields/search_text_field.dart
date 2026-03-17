@@ -3,7 +3,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import '../../theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class SearchTextField extends StatelessWidget {
   final String? hintText;

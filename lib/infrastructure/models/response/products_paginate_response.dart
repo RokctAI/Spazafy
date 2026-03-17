@@ -1,5 +1,5 @@
-import '../data/meta.dart';
-import '../data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/meta.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 class ProductsPaginateResponse {
   ProductsPaginateResponse({
@@ -31,11 +31,12 @@ class ProductsPaginateResponse {
     List<ProductData>? data,
     // Links? links,
     Meta? meta,
-  }) => ProductsPaginateResponse(
-    data: data ?? _data,
-    // links: links ?? _links,
-    meta: meta ?? _meta,
-  );
+  }) =>
+      ProductsPaginateResponse(
+        data: data ?? _data,
+        // links: links ?? _links,
+        meta: meta ?? _meta,
+      );
 
   List<ProductData>? get data => _data;
 

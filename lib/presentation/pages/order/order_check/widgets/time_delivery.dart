@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/services/utils/time_service.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/application/order/order_provider.dart';
 import 'package:rokctapp/application/order/order_state.dart';
-import 'package:rokctapp/application/order/order_time/time_state.dart';
+import 'package:rokctapp/application/order_time/time_state.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/custom_tab_bar.dart';
@@ -14,8 +14,8 @@ import 'package:rokctapp/presentation/components/select_item.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'package:rokctapp/application/order/order_time/time_notifier.dart';
-import 'package:rokctapp/application/order/order_time/time_provider.dart';
+import 'package:rokctapp/application/order_time/time_notifier.dart';
+import 'package:rokctapp/application/order_time/time_provider.dart';
 
 class TimeDelivery extends ConsumerStatefulWidget {
   const TimeDelivery({super.key});
@@ -129,9 +129,8 @@ class _TimeDeliveryState extends ConsumerState<TimeDelivery>
                   ? ""
                   : AppHelpers.getTranslation(TrKeys.clear),
               rightTitleColor: AppStyle.red,
-              onRightTap: state.currentIndexOne == 0
-                  ? () {}
-                  : () => event.changeOne(0),
+              onRightTap:
+                  state.currentIndexOne == 0 ? () {} : () => event.changeOne(0),
             ),
             24.verticalSpace,
             state.currentIndexOne == 0 && stateOrder.todayTimes.isNotEmpty
@@ -172,8 +171,7 @@ class _TimeDeliveryState extends ConsumerState<TimeDelivery>
                                             ref
                                                 .read(orderProvider.notifier)
                                                 .setTimeAndDay(
-                                                  stateOrder
-                                                      .todayTimes[index]
+                                                  stateOrder.todayTimes[index]
                                                       .toNextTime,
                                                   DateTime.now(),
                                                 );
@@ -219,8 +217,7 @@ class _TimeDeliveryState extends ConsumerState<TimeDelivery>
                                           bottom: 16.h,
                                         ),
                                         itemCount: stateOrder
-                                            .dailyTimes[indexTab]
-                                            .length,
+                                            .dailyTimes[indexTab].length,
                                         itemBuilder: (context, index) {
                                           return SelectItem(
                                             onTap: () {
@@ -240,7 +237,8 @@ class _TimeDeliveryState extends ConsumerState<TimeDelivery>
                                                   .read(orderProvider.notifier)
                                                   .setTimeAndDay(
                                                     stateOrder
-                                                        .dailyTimes[indexTab][index]
+                                                        .dailyTimes[indexTab]
+                                                            [index]
                                                         .toNextTime,
                                                     day,
                                                   );

@@ -8,7 +8,7 @@ import 'package:rokctapp/app_constants.dart';
 
 import 'package:rokctapp/domain/handlers/api_result.dart';
 
-class DrawRepository implements DrawFacade {
+class DrawRepository implements DrawRepositoryFacade {
   @override
   Future<ApiResult<DrawRouting>> getRouting({
     required LatLng start,

@@ -9,7 +9,7 @@ import 'package:rokctapp/presentation/components/bonus_discount_popular.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class MarketThreeItem extends StatelessWidget {
   final ShopData shop;
@@ -40,7 +40,7 @@ class MarketThreeItem extends StatelessWidget {
               width: 268.w,
               height: 280.h,
               // foregroundDecoration: BoxDecoration(
-              //   color: !(shop.open ?? true) ? AppStyle.white.withOpacity(0.5) : Style.transparent
+              //   color: !(shop.open ?? true) ? AppStyle.white.withOpacity(0.5) : AppStyle.transparent
               // ),
               decoration: BoxDecoration(
                 color: AppStyle.bgGrey,
@@ -117,8 +117,8 @@ class MarketThreeItem extends StatelessWidget {
                                   child: Text(
                                     shop.bonus != null
                                         ? ((shop.bonus?.type ?? "sum") == "sum")
-                                              ? "${AppHelpers.getTranslation(TrKeys.under)} ${AppHelpers.numberFormat(number: shop.bonus?.value)} + ${shop.bonus?.bonusStock?.product?.translation?.title ?? ""}"
-                                              : "${AppHelpers.getTranslation(TrKeys.under)} ${shop.bonus?.value ?? 0} + ${shop.bonus?.bonusStock?.product?.translation?.title ?? ""}"
+                                            ? "${AppHelpers.getTranslation(TrKeys.under)} ${AppHelpers.numberFormat(number: shop.bonus?.value)} + ${shop.bonus?.bonusStock?.product?.translation?.title ?? ""}"
+                                            : "${AppHelpers.getTranslation(TrKeys.under)} ${shop.bonus?.value ?? 0} + ${shop.bonus?.bonusStock?.product?.translation?.title ?? ""}"
                                         : shop.translation?.description ?? "",
                                     style: AppStyle.interNormal(
                                       size: 12,

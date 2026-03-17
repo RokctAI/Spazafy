@@ -28,11 +28,11 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import '../../../components/keyboard_dismisser.dart';
-import '../../../components/text_fields/outline_bordered_text_field.dart';
-import '../../../components/title_icon.dart';
-import '../../../theme/theme.dart';
-import '../provider/loans_provider.dart';
+import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
+import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
+import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/pages/loans/provider/loans_provider.dart';
 
 @RoutePage()
 class LoanDocumentUploadScreen extends ConsumerStatefulWidget {
@@ -78,8 +78,7 @@ class _LoanDocumentUploadScreenState
     );
 
     // If ID number is prefilled, make it read-only
-    _idNumberReadOnly =
-        widget.prefilledIdNumber != null &&
+    _idNumberReadOnly = widget.prefilledIdNumber != null &&
         widget.prefilledIdNumber!.isNotEmpty;
 
     // Set initial ID number in provider
@@ -374,9 +373,8 @@ class _LoanDocumentUploadScreenState
     debugPrint("Building UI with ${uploadedDocs.length} uploaded documents");
 
     return Directionality(
-      textDirection: LocalStorage.getLangLtr()
-          ? TextDirection.ltr
-          : TextDirection.rtl,
+      textDirection:
+          LocalStorage.getLangLtr() ? TextDirection.ltr : TextDirection.rtl,
       child: KeyboardDismisser(
         child: Container(
           decoration: BoxDecoration(
@@ -388,8 +386,7 @@ class _LoanDocumentUploadScreenState
           ),
           width: double.infinity,
           constraints: BoxConstraints(
-            maxHeight:
-                MediaQuery.of(context).size.height *
+            maxHeight: MediaQuery.of(context).size.height *
                 0.85, // Use 85% of screen height
           ),
           child: Padding(

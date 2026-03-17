@@ -14,7 +14,7 @@ import 'package:rokctapp/infrastructure/models/response/coupon_response.dart';
 import 'package:rokctapp/infrastructure/models/response/order_paginate_response.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
-class MockOrdersRepository implements OrdersFacade {
+class MockOrdersRepository implements OrdersRepositoryFacade {
   final OrderActiveModel _demoOrder = OrderActiveModel(
     id: "1",
     status: "delivered",

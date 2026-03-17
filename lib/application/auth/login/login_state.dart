@@ -14,8 +14,6 @@ class LoginState with _$LoginState {
     @Default(false) bool isLoginError,
     @Default(false) bool isEmailNotValid,
     @Default(false) bool isPasswordNotValid,
-    @Default(false) bool isPhoneNotValid,
-    @Default(false) bool isGoogleLoading,
     @Default(true) bool isSelectLanguage,
     @Default([]) List<LanguageData> list,
     @Default('') String email,

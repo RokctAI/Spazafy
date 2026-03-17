@@ -1,4 +1,4 @@
-import '../data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 class SingleProductResponse {
   SingleProductResponse({
@@ -30,12 +30,13 @@ class SingleProductResponse {
     bool? status,
     String? message,
     ProductData? data,
-  }) => SingleProductResponse(
-    timestamp: timestamp ?? _timestamp,
-    status: status ?? _status,
-    message: message ?? _message,
-    data: data ?? _data,
-  );
+  }) =>
+      SingleProductResponse(
+        timestamp: timestamp ?? _timestamp,
+        status: status ?? _status,
+        message: message ?? _message,
+        data: data ?? _data,
+      );
 
   String? get timestamp => _timestamp;
 

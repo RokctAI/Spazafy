@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'like_state.dart';
 
 class LikeNotifier extends StateNotifier<LikeState> {
-  final ShopsFacade _shopsRepository;
+  final ShopsRepositoryFacade _shopsRepository;
 
   LikeNotifier(this._shopsRepository) : super(const LikeState());
 

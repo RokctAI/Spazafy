@@ -8,10 +8,7 @@ part 'parcel_state.freezed.dart';
 @freezed
 class ParcelState with _$ParcelState {
   const factory ParcelState({
-    // Common
     @Default(false) bool isLoading,
-
-    // Customer specific
     @Default(false) bool isButtonLoading,
     @Default(false) bool isMapLoading,
     @Default(false) bool error,
@@ -29,19 +26,6 @@ class ParcelState with _$ParcelState {
     @Default(null) PaymentData? selectPayment,
     @Default({}) Map<MarkerId, Marker> markers,
     @Default([]) List<LatLng> polylineCoordinates,
-
-    // Driver specific
-    @Default(false) bool isActiveLoading,
-    @Default(false) bool isAvailableLoading,
-    @Default(false) bool isHistoryLoading,
-    @Default(false) bool paymentType,
-    @Default(null) ParcelOrder? order,
-    @Default([]) List<ParcelOrder> activeOrders,
-    @Default([]) List<ParcelOrder> availableOrders,
-    @Default([]) List<ParcelOrder> historyOrders,
-    @Default(0) num totalActiveOrder,
-    @Default(0) int deliveryTime,
-    @Default(0) int deliveryType,
   }) = _ParcelState;
 
   const ParcelState._();

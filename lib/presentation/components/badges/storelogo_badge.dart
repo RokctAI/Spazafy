@@ -3,9 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
-import '../../theme/app_style.dart';
-import '../badge_item.dart';
-import '../shop_avarat.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/components/badge_item.dart';
+import 'package:rokctapp/presentation/components/shop_avarat.dart';
 
 class ShopBadge extends StatefulWidget {
   final ShopData shop;

@@ -4,7 +4,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rokctapp/application/profile/edit_profile/edit_profile_provider.dart';
+import 'package:rokctapp/application/edit_profile/edit_profile_provider.dart';
 import 'package:rokctapp/application/order/order_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
@@ -16,7 +16,7 @@ import 'package:rokctapp/presentation/components/text_fields/outline_bordered_te
 import 'package:rokctapp/presentation/pages/profile/phone_verify.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import '../../order_check/widgets/time_delivery.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/time_delivery.dart';
 import 'order_container.dart';
 import 'package:rokctapp/presentation/components/sellect_address_screen.dart';
 
@@ -117,9 +117,9 @@ class _OrderDeliveryState extends State<OrderDelivery> {
                   title: AppHelpers.getTranslation(TrKeys.deliveryAddress),
                   description:
                       (LocalStorage.getAddressSelected()?.title?.isEmpty ??
-                          true)
-                      ? LocalStorage.getAddressSelected()?.address ?? ''
-                      : LocalStorage.getAddressSelected()?.title ?? "",
+                              true)
+                          ? LocalStorage.getAddressSelected()?.address ?? ''
+                          : LocalStorage.getAddressSelected()?.title ?? "",
                 ),
                 10.verticalSpace,
                 OrderContainer(

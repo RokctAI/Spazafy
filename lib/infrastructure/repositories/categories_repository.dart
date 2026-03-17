@@ -4,7 +4,7 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
-class CategoriesRepository implements CategoriesFacade {
+class CategoriesRepository implements CategoriesRepositoryFacade {
   @override
   Future<ApiResult<CategoriesPaginateResponse>> getAllCategories({
     required int page,

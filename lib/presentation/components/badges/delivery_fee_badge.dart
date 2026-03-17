@@ -5,13 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:remixicon/remixicon.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
-//import '../../../infrastructure/services/utils/app_constants.dart';
+//import '../../../infrastructure/services/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-//import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
+//import '../../../infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import '../../theme/app_style.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 //import 'package:rokctapp/application/shop/shop_provider.dart';
-//import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+//import '../../../infrastructure/services/local_storage.dart';
 //import '../../../utils/utils.dart';
 
 class DeliveryFeeBadge extends StatelessWidget {
@@ -52,8 +52,7 @@ class DeliveryFeeBadge extends StatelessWidget {
               color: color,
               borderRadius: BorderRadius.circular(10.r),
             ),
-            child:
-                shop.open ==
+            child: shop.open ==
                     false //&& AppHelpers.getTranslation(TrKeys.close) == workTime
                 ? Row(
                     children: [

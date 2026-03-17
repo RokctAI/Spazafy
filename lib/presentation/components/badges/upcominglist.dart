@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
-import 'package:rokctapp/application/order/orders_list/orders_list_provider.dart';
-import 'package:rokctapp/application/shops/shop_provider.dart';
+import 'package:rokctapp/application/orders_list/orders_list_provider.dart';
+import 'package:rokctapp/application/shop/shop_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -15,8 +15,8 @@ import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import '../../routes/app_router.dart';
-import '../buttons/animation_button_effect2.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/components/buttons/animation_button_effect2.dart';
 
 class UpComingList extends ConsumerStatefulWidget {
   const UpComingList({super.key});
@@ -73,7 +73,8 @@ class _UpComingListState extends ConsumerState<UpComingList> {
       valueListenable: _currentOrderNotifier,
       builder: (context, currentOrder, child) {
         if (currentOrder == null) {
-          return const SizedBox.shrink(); // Hide the widget when there's no order
+          return const SizedBox
+              .shrink(); // Hide the widget when there's no order
         }
 
         return Column(
@@ -202,7 +203,7 @@ class UpcomingOrderWidget extends StatelessWidget {
                               TextSpan(
                                 text: (order.status ?? "").isNotEmpty
                                     ? order.status![0].toUpperCase() +
-                                          order.status!.substring(1)
+                                        order.status!.substring(1)
                                     : "",
                                 style: AppStyle.interBold(
                                   color: AppStyle.white,

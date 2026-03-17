@@ -1,83 +1,61 @@
 import 'translation.dart';
 
-class UnitData {
-  UnitData({
-    String? id,
+// ProductUnit class to handle unit data from API
+class ProductUnit {
+  final int? id;
+  final bool? active;
+  final String? position;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
+  final Translation? translation;
+
+  ProductUnit({
+    this.id,
+    this.active,
+    this.position,
+    this.createdAt,
+    this.updatedAt,
+    this.translation,
+  });
+
+  ProductUnit copyWith({
+    int? id,
     bool? active,
     String? position,
+    DateTime? createdAt,
+    DateTime? updatedAt,
     Translation? translation,
-    List<String>? locales,
-    String? createdAt,
-    String? updatedAt,
-  }) {
-    _id = id;
-    _active = active;
-    _position = position;
-    _translation = translation;
-    _locales = locales;
-    _createdAt = createdAt;
-    _updatedAt = updatedAt;
-  }
+  }) =>
+      ProductUnit(
+        id: id ?? this.id,
+        active: active ?? this.active,
+        position: position ?? this.position,
+        createdAt: createdAt ?? this.createdAt,
+        updatedAt: updatedAt ?? this.updatedAt,
+        translation: translation ?? this.translation,
+      );
 
-  UnitData.fromJson(dynamic json) {
-    _id = json['id']?.toString();
-    _active = json['active'] is bool ? json['active'] : (json['active'] == 1);
-    _position = json['position']?.toString();
-    _translation = json['translation'] != null
-        ? Translation.fromJson(json['translation'])
-        : null;
-    _locales = json['locales'] != null
-        ? List<String>.from(json['locales'])
-        : [];
-    _createdAt = json['created_at'];
-    _updatedAt = json['updated_at'];
-  }
+  factory ProductUnit.fromJson(Map<String, dynamic> json) => ProductUnit(
+        id: json["id"],
+        active: json["active"],
+        position: json["position"],
+        createdAt: json["created_at"] == null
+            ? null
+            : DateTime.parse(json["created_at"]),
+        updatedAt: json["updated_at"] == null
+            ? null
+            : DateTime.parse(json["updated_at"]),
+        translation: json["translation"] == null
+            ? null
+            : Translation.fromJson(json["translation"]),
+      );
 
-  String? _id;
-  bool? _active;
-  String? _position;
-  Translation? _translation;
-  List<String>? _locales;
-  String? _createdAt;
-  String? _updatedAt;
-
-  UnitData copyWith({
-    String? id,
-    bool? active,
-    String? position,
-    Translation? translation,
-    List<String>? locales,
-    String? createdAt,
-    String? updatedAt,
-  }) => UnitData(
-    id: id ?? _id,
-    active: active ?? _active,
-    position: position ?? _position,
-    translation: translation ?? _translation,
-    locales: locales ?? _locales,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-  );
-
-  String? get id => _id;
-  bool? get active => _active;
-  String? get position => _position;
-  Translation? get translation => _translation;
-  List<String>? get locales => _locales;
-  String? get createdAt => _createdAt;
-  String? get updatedAt => _updatedAt;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = _id;
-    map['active'] = _active;
-    map['position'] = _position;
-    if (_translation != null) {
-      map['translation'] = _translation?.toJson();
-    }
-    map['locales'] = _locales;
-    map['created_at'] = _createdAt;
-    map['updated_at'] = _updatedAt;
-    return map;
-  }
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "active": active,
+        "position": position,
+        "created_at": createdAt?.toIso8601String(),
+        "updated_at": updatedAt?.toIso8601String(),
+        "translation": translation?.toJson(),
+      };
 }

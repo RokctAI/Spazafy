@@ -1,4 +1,4 @@
-import '../models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 class DeliveriesData {
   final int shopId;

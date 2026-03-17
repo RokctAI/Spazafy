@@ -6,9 +6,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/application/product/product_notifier.dart';
 import 'package:rokctapp/application/product/product_provider.dart';
 import 'package:rokctapp/application/product/product_state.dart';
-import 'package:rokctapp/application/shops/shop_provider.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_notifier.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/application/shop/shop_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_notifier.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/infrastructure/models/data/review_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
@@ -20,8 +20,8 @@ import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/pages/product/widgets/w_ingredient.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/application/shops/shop_state.dart';
-import '../shop/widgets/bonus_screen.dart';
+import 'package:rokctapp/application/shop/shop_state.dart';
+import 'package:rokctapp/presentation/pages/shop/widgets/bonus_screen.dart';
 import 'widgets/images_list_one.dart';
 import 'widgets/p_main_button.dart';
 import 'widgets/w_product_extras.dart';
@@ -56,9 +56,7 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
     controller = PageController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (widget.productId != null) {
-        ref
-            .read(productProvider.notifier)
-            .getProductDetailsById(
+        ref.read(productProvider.notifier).getProductDetailsById(
               context,
               widget.productId ?? "",
               ref.watch(shopProvider).shopData?.type,
@@ -66,9 +64,7 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
               isLoading: true,
             );
       } else {
-        ref
-            .read(productProvider.notifier)
-            .getProductDetails(
+        ref.read(productProvider.notifier).getProductDetails(
               context,
               widget.data!,
               ref.watch(shopProvider).shopData?.type,
@@ -226,7 +222,7 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
                                 child: TitleAndIcon(
                                   title:
                                       state.productData?.translation?.title ??
-                                      "",
+                                          "",
                                   paddingHorizontalSize: 0,
                                 ),
                               ),
@@ -264,8 +260,7 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
                                   },
                                   itemBuilder: (context, index) {
                                     return CustomNetworkImage(
-                                      url:
-                                          state.selectImage?.path ??
+                                      url: state.selectImage?.path ??
                                           state.activeImageUrl,
                                       height: 200,
                                       fit: BoxFit.contain,
@@ -294,7 +289,8 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
                                       AnimationButtonEffect(
                                         child: InkWell(
                                           onTap: () {
-                                            AppHelpers.showCustomModalBottomSheet(
+                                            AppHelpers
+                                                .showCustomModalBottomSheet(
                                               context: context,
                                               modal: BonusScreen(
                                                 bonus:
@@ -345,9 +341,7 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
                               children: [
                                 Expanded(
                                   child: Text(
-                                    state
-                                            .productData
-                                            ?.translation
+                                    state.productData?.translation
                                             ?.description ??
                                         "",
                                     style: AppStyle.interRegular(
@@ -362,16 +356,16 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
                                       AppHelpers.numberFormat(
                                         number:
                                             (state.selectedStock?.price ?? 0) +
-                                            (state.selectedStock?.tax ?? 0),
+                                                (state.selectedStock?.tax ?? 0),
                                       ),
                                       style: AppStyle.interRegular(
                                         size: 14.sp,
                                         color: AppStyle.black,
                                         textDecoration:
                                             state.selectedStock?.discount ==
-                                                null
-                                            ? TextDecoration.none
-                                            : TextDecoration.lineThrough,
+                                                    null
+                                                ? TextDecoration.none
+                                                : TextDecoration.lineThrough,
                                       ),
                                     ),
                                     state.selectedStock?.discount == null
@@ -392,8 +386,7 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
                                                 8.horizontalSpace,
                                                 Text(
                                                   AppHelpers.numberFormat(
-                                                    number: state
-                                                        .selectedStock
+                                                    number: state.selectedStock
                                                         ?.totalPrice,
                                                   ),
                                                   style: AppStyle.interNoSemi(

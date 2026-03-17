@@ -1,8 +1,8 @@
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
 
-abstract class GalleryFacade {
+abstract class GalleryRepositoryFacade {
   Future<ApiResult<GalleryUploadResponse>> uploadImage(
     String file,
     UploadType uploadType,

@@ -1,94 +1,144 @@
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
+
 import 'product_data.dart';
 
-class AddonData {
-  AddonData({
-    String? id,
-    String? stockId,
-    String? addonId,
-    int? quantity,
-    num? totalPrice,
-    ProductData? product,
-    Stocks? stock,
-    bool? active,
-  }) {
-    _id = id;
-    _stockId = stockId;
-    _addonId = addonId;
-    _totalPrice = totalPrice;
-    _quantity = quantity;
-    _product = product;
-    _stock = stock;
-    _active = active;
+// To parse this JSON data, do
+//
+//     final addons = addonsFromJson(jsonString);
+
+import 'dart:convert';
+
+Addons addonsFromJson(String str) => Addons.fromJson(json.decode(str));
+
+String addonsToJson(Addons data) => json.encode(data.toJson());
+
+class Addons {
+  Addons({
+    required this.id,
+    required this.stockId,
+    required this.addonId,
+    required this.product,
+    required this.price,
+    required this.quantity,
+    required this.stocks,
+    this.active,
+  });
+
+  int? id;
+  int? stockId;
+  int? addonId;
+  int? quantity;
+  num? price;
+  bool? active;
+  Product? product;
+  Stocks? stocks;
+
+  factory Addons.fromJson(Map<String, dynamic>? json) {
+    return Addons(
+      id: json?["id"],
+      stockId: json?["stock_id"],
+      addonId: json?["addon_id"],
+      active: false,
+      product: (json?["product"] == null)
+          ? null
+          : Product.fromJson(json?["product"]),
+      stocks: json?["stock"] == null ? null : Stocks.fromJson(json?["stock"]),
+      quantity: json?["quantity"] ?? json?["product"]["min_qty"] ?? 0,
+      price: json?["price"] ?? json?["total_price"],
+    );
   }
 
-  AddonData.fromJson(dynamic json) {
-    _id = json['id']?.toString();
-    _stockId = json['stock_id']?.toString();
-    _addonId = json['addon_id']?.toString() ?? json['product_id']?.toString();
-    _quantity = json['quantity'] ?? 0;
-    _totalPrice = json["total_price"] ?? json['price'];
-    _stock = json['stock'] != null ? Stocks.fromJson(json['stock']) : null;
-    _product = json['product'] != null
-        ? ProductData.fromJson(json['product'])
-        : null;
-    _active = json['active'] is bool ? json['active'] : false;
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "stock_id": stockId,
+        "addon_id": addonId,
+        "product": product?.toJson(),
+      };
+}
+
+class Product {
+  Product({
+    this.id,
+    this.uuid,
+    this.shopId,
+    this.categoryId,
+    this.brandId,
+    this.tax,
+    this.barCode,
+    this.status,
+    this.active,
+    this.addon,
+    this.img,
+    this.minQty,
+    this.maxQty,
+    this.createdAt,
+    this.updatedAt,
+    this.ratingPercent,
+    this.translation,
+    this.locales,
+    this.stock,
+    this.reviews,
+  });
+
+  int? id;
+  String? uuid;
+  int? shopId;
+  int? categoryId;
+  int? brandId;
+  num? tax;
+  String? barCode;
+  String? status;
+  bool? active;
+  bool? addon;
+  String? img;
+  int? minQty;
+  int? maxQty;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+  dynamic ratingPercent;
+  Translation? translation;
+  List<String>? locales;
+  Stocks? stock;
+  List<dynamic>? reviews;
+
+  factory Product.fromJson(Map<String, dynamic>? json) {
+    return Product(
+      id: json?["id"],
+      uuid: json?["uuid"],
+      shopId: json?["shop_id"],
+      categoryId: json?["category_id"],
+      brandId: json?["brand_id"],
+      tax: json?["tax"],
+      barCode: json?["bar_code"],
+      status: json?["status"],
+      active: json?["active"],
+      addon: json?["addon"],
+      img: json?["img"],
+      minQty: json?["min_qty"],
+      maxQty: json?["max_qty"],
+      translation: Translation.fromJson(json?["translation"]),
+      stock: json?["stock"] == null ? null : Stocks.fromJson(json?["stock"]),
+      reviews: [],
+    );
   }
 
-  String? _id;
-  String? _stockId;
-  String? _addonId;
-  int? _quantity;
-  bool? _active;
-  num? _totalPrice;
-  ProductData? _product;
-  Stocks? _stock;
-
-  AddonData copyWith({
-    String? id,
-    String? stockId,
-    String? addonId,
-    int? quantity,
-    bool? active,
-    num? totalPrice,
-    Stocks? stock,
-    ProductData? product,
-  }) => AddonData(
-    id: id ?? _id,
-    stockId: stockId ?? _stockId,
-    addonId: addonId ?? _addonId,
-    quantity: quantity ?? _quantity,
-    totalPrice: totalPrice ?? _totalPrice,
-    stock: stock ?? _stock,
-    active: active ?? _active,
-    product: product ?? _product,
-  );
-
-  String? get id => _id;
-  String? get stockId => _stockId;
-  String? get addonId => _addonId;
-  int? get quantity => _quantity;
-  bool? get active => _active;
-  num? get totalPrice => _totalPrice;
-  ProductData? get product => _product;
-  Stocks? get stock => _stock;
-
-  set setActive(bool active) => _active = active;
-  set setCount(int count) => _quantity = count;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = _id;
-    map['stock_id'] = _stockId;
-    map['addon_id'] = _addonId;
-    map['quantity'] = _quantity;
-    map['total_price'] = _totalPrice;
-    if (_product != null) {
-      map['product'] = _product?.toJson();
-    }
-    if (_stock != null) {
-      map['stock'] = _stock?.toJson();
-    }
-    map['active'] = _active;
-    return map;
-  }
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "uuid": uuid,
+        "shop_id": shopId,
+        "category_id": categoryId,
+        "brand_id": brandId,
+        "tax": tax,
+        "bar_code": barCode,
+        "status": status,
+        "active": active,
+        "addon": addon,
+        "img": img,
+        "min_qty": minQty,
+        "max_qty": maxQty,
+        "created_at": createdAt?.toIso8601String(),
+        "updated_at": updatedAt?.toIso8601String(),
+        "rating_percent": ratingPercent,
+        "translation": translation?.toJson(),
+      };
 }

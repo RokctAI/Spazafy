@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 //import 'package:remixicon/remixicon.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
@@ -177,12 +177,12 @@ class ShopPageAvatar extends StatelessWidget {
                             .read(shopOrderProvider.notifier)
                             .deleteCart(context)
                             .then((value) async {
-                              if (context.mounted) {
-                                ref
-                                    .read(shopOrderProvider.notifier)
-                                    .createCart(context, (shop.id ?? ""));
-                              }
-                            });
+                          if (context.mounted) {
+                            ref
+                                .read(shopOrderProvider.notifier)
+                                .createCart(context, (shop.id ?? ""));
+                          }
+                        });
                       },
                     );
                   },
@@ -215,10 +215,9 @@ class ShopPageAvatar extends StatelessWidget {
         });
         bool isStartOrder =
             (ref.watch(shopOrderProvider).cart?.group ?? false) &&
-            (ref.watch(shopOrderProvider).cart?.shopId == shop.id);
+                (ref.watch(shopOrderProvider).cart?.shopId == shop.id);
         return CustomButton(
-          isLoading:
-              ref.watch(shopOrderProvider).isStartGroupLoading ||
+          isLoading: ref.watch(shopOrderProvider).isStartGroupLoading ||
               ref.watch(shopOrderProvider).isCheckShopOrder,
           icon: Icon(
             isStartOrder
@@ -229,17 +228,16 @@ class ShopPageAvatar extends StatelessWidget {
           title: isStartOrder
               ? AppHelpers.getTranslation(TrKeys.manageOrder)
               : AppHelpers.getTranslation(TrKeys.startGroupOrder),
-          background: isStartOrder
-              ? AppStyle.primary
-              : AppStyle.orderButtonColor,
+          background:
+              isStartOrder ? AppStyle.primary : AppStyle.orderButtonColor,
           textColor: isStartOrder ? AppStyle.black : AppStyle.white,
           radius: 10,
           onPressed: () {
             if (LocalStorage.getToken().isNotEmpty) {
               !isStartOrder
                   ? ref
-                        .read(shopOrderProvider.notifier)
-                        .createCart(context, shop.id ?? "")
+                      .read(shopOrderProvider.notifier)
+                      .createCart(context, shop.id ?? "")
                   : AppHelpers.showCustomModalBottomSheet(
                       paddingTop: MediaQuery.paddingOf(context).top + 160.h,
                       context: context,
@@ -459,8 +457,8 @@ class ShopPageAvatar extends StatelessWidget {
                 child: Text(
                   bonus != null
                       ? ((bonus?.type ?? "sum") == "sum")
-                            ? "${AppHelpers.getTranslation(TrKeys.under)} ${AppHelpers.numberFormat(number: bonus?.value)} + ${bonus?.bonusStock?.product?.translation?.title ?? ""}"
-                            : "${AppHelpers.getTranslation(TrKeys.under)} ${bonus?.value ?? 0} + ${bonus?.bonusStock?.product?.translation?.title ?? ""}"
+                          ? "${AppHelpers.getTranslation(TrKeys.under)} ${AppHelpers.numberFormat(number: bonus?.value)} + ${bonus?.bonusStock?.product?.translation?.title ?? ""}"
+                          : "${AppHelpers.getTranslation(TrKeys.under)} ${bonus?.value ?? 0} + ${bonus?.bonusStock?.product?.translation?.title ?? ""}"
                       : "",
                   style: AppStyle.interNormal(size: 14, color: AppStyle.black),
                   textAlign: TextAlign.start,

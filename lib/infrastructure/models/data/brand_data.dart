@@ -1,7 +1,6 @@
 class BrandData {
   BrandData({
     String? id,
-    String? uuid,
     String? title,
     bool? active,
     String? img,
@@ -10,7 +9,6 @@ class BrandData {
     String? updatedAt,
   }) {
     _id = id;
-    _uuid = uuid;
     _title = title;
     _active = active;
     _img = img;
@@ -21,7 +19,6 @@ class BrandData {
 
   BrandData.fromJson(dynamic json) {
     _id = json['id']?.toString();
-    _uuid = json['uuid'];
     _title = json['title'];
     _active = json['active'];
     _img = json['img'];
@@ -31,7 +28,6 @@ class BrandData {
   }
 
   String? _id;
-  String? _uuid;
   String? _title;
   bool? _active;
   String? _img;
@@ -41,37 +37,40 @@ class BrandData {
 
   BrandData copyWith({
     String? id,
-    String? uuid,
     String? title,
     bool? active,
     String? img,
     int? productsCount,
     String? createdAt,
     String? updatedAt,
-  }) => BrandData(
-    id: id ?? _id,
-    uuid: uuid ?? _uuid,
-    title: title ?? _title,
-    active: active ?? _active,
-    img: img ?? _img,
-    productsCount: productsCount ?? _productsCount,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-  );
+  }) =>
+      BrandData(
+        id: id ?? _id,
+        title: title ?? _title,
+        active: active ?? _active,
+        img: img ?? _img,
+        productsCount: productsCount ?? _productsCount,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+      );
 
   String? get id => _id;
-  String? get uuid => _uuid;
+
   String? get title => _title;
+
   bool? get active => _active;
+
   String? get img => _img;
+
   int? get productsCount => _productsCount;
+
   String? get createdAt => _createdAt;
+
   String? get updatedAt => _updatedAt;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = _id;
-    map['uuid'] = _uuid;
     map['title'] = _title;
     map['active'] = _active;
     map['img'] = _img;

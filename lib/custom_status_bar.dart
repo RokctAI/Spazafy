@@ -5,7 +5,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:remixicon/remixicon.dart';
 
-import 'package:rokctapp/presentation/theme/theme.dart';
+import 'presentation/theme/theme.dart';
 
 class CustomStatusBar extends StatefulWidget {
   final Widget child;
@@ -155,7 +155,7 @@ class _CustomStatusBarState extends State<CustomStatusBar> {
     }
 
     // Always use white text
-    Color textColor = AppStyle.white;
+    const Color textColor = AppStyle.white;
 
     // Add Directionality widget to fix the error
     return Directionality(

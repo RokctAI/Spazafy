@@ -12,7 +12,7 @@ import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-//import '../../../../infrastructure/services/utils/app_constants.dart';
+//import '../../../../infrastructure/services/app_constants.dart';
 import 'package:intl/intl.dart' as intl;
 
 class OrdersItem extends StatelessWidget {
@@ -181,8 +181,8 @@ class OrdersItem extends StatelessWidget {
                                 number: isRefund
                                     ? 0
                                     : (order?.totalPrice?.isNegative ?? true)
-                                    ? 0
-                                    : (order?.totalPrice ?? 0),
+                                        ? 0
+                                        : (order?.totalPrice ?? 0),
                               ),
                         style: AppStyle.interBold(size: 14),
                         maxLines: 1,

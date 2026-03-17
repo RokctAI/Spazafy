@@ -9,14 +9,14 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
-import 'package:rokctapp/presentation/pages/home/home_one/widget/market_one_item.dart';
-import 'package:rokctapp/presentation/pages/home/home_three/widgets/market_three_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/market_one_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/market_three_item.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/components/market_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import '../home_two/widget/market_two_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/market_two_item.dart';
 
 @RoutePage()
 class ShopsBannerPage extends ConsumerStatefulWidget {
@@ -43,11 +43,11 @@ class _ShopsBannerPageState extends ConsumerState<ShopsBannerPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       widget.isAds
           ? ref
-                .read(homeProvider.notifier)
-                .fetchAdsById(context, widget.bannerId)
+              .read(homeProvider.notifier)
+              .fetchAdsById(context, widget.bannerId)
           : ref
-                .read(homeProvider.notifier)
-                .fetchBannerById(context, widget.bannerId);
+              .read(homeProvider.notifier)
+              .fetchBannerById(context, widget.bannerId);
     });
     super.initState();
   }
@@ -82,32 +82,30 @@ class _ShopsBannerPageState extends ConsumerState<ShopsBannerPage> {
                                 : EdgeInsets.symmetric(vertical: 24.h),
                             itemBuilder: (context, index) =>
                                 AppHelpers.getType() == 0
-                                ? MarketItem(
-                                    shop:
-                                        state.banner?.shops?[index] ??
-                                        ShopData(),
-                                    isSimpleShop: true,
-                                  )
-                                : AppHelpers.getType() == 1
-                                ? MarketOneItem(
-                                    shop:
-                                        state.banner?.shops?[index] ??
-                                        ShopData(),
-                                    isSimpleShop: true,
-                                  )
-                                : AppHelpers.getType() == 2
-                                ? MarketTwoItem(
-                                    shop:
-                                        state.banner?.shops?[index] ??
-                                        ShopData(),
-                                    isSimpleShop: true,
-                                  )
-                                : MarketThreeItem(
-                                    shop:
-                                        state.banner?.shops?[index] ??
-                                        ShopData(),
-                                    isSimpleShop: true,
-                                  ),
+                                    ? MarketItem(
+                                        shop: state.banner?.shops?[index] ??
+                                            ShopData(),
+                                        isSimpleShop: true,
+                                      )
+                                    : AppHelpers.getType() == 1
+                                        ? MarketOneItem(
+                                            shop: state.banner?.shops?[index] ??
+                                                ShopData(),
+                                            isSimpleShop: true,
+                                          )
+                                        : AppHelpers.getType() == 2
+                                            ? MarketTwoItem(
+                                                shop: state.banner
+                                                        ?.shops?[index] ??
+                                                    ShopData(),
+                                                isSimpleShop: true,
+                                              )
+                                            : MarketThreeItem(
+                                                shop: state.banner
+                                                        ?.shops?[index] ??
+                                                    ShopData(),
+                                                isSimpleShop: true,
+                                              ),
                           )
                         : Column(
                             children: [

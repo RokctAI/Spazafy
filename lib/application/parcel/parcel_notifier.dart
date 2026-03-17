@@ -2,34 +2,26 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/interface/parcel.dart';
-import 'package:rokctapp/domain/interface/draw.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'package:rokctapp/domain/interface/draw.dart';
 import 'parcel_state.dart';
 
 class ParcelNotifier extends StateNotifier<ParcelState> {
-  final ParcelFacade _parcelRepository;
-  final DrawFacade _drawRouting;
+  final ParcelRepositoryFacade _parcelRepository;
+  final DrawRepositoryFacade _drawRouting;
 
   ParcelNotifier(this._parcelRepository, this._drawRouting)
-    : super(const ParcelState());
-
-  // Pagination for driver orders
-  int activeOrderPage = 1;
-  int historyOrderPage = 1;
-  int availableOrderPage = 1;
-
-  // --- Customer Methods ---
+      : super(const ParcelState());
 
   Future<void> addReview(
     BuildContext context,
@@ -63,15 +55,15 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     }
   }
 
-  void changeExpand() {
+  changeExpand() {
     state = state.copyWith(expand: !state.expand);
   }
 
-  void setPayment(PaymentData selectPayment) {
+  setPayment(PaymentData selectPayment) {
     state = state.copyWith(selectPayment: selectPayment);
   }
 
-  void changeAnonymous() {
+  changeAnonymous() {
     state = state.copyWith(anonymous: !state.anonymous);
   }
 
@@ -86,7 +78,10 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            AppHelpers.getTranslation(status.toString()),
+          );
         },
       );
     } else {
@@ -121,32 +116,93 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     }
   }
 
-  // --- Driver Methods ---
-
-  void changeDeliveryType(int index) {
-    state = state.copyWith(deliveryType: index);
-  }
-
-  void changeDeliveryTime(int index) {
-    state = state.copyWith(deliveryTime: index);
-  }
-
-  void changePaymentType(bool isActive) {
-    state = state.copyWith(paymentType: isActive);
-  }
-
-  Future<void> showOrder(BuildContext context, int orderId) async {
+  Future<void> orderParcel({
+    required BuildContext context,
+    required String note,
+    required String usernameTo,
+    required String usernameFrom,
+    required String phoneTo,
+    required String phoneFrom,
+    required String houseFrom,
+    required String houseTo,
+    required String floorTo,
+    required String floorFrom,
+    required String comment,
+    required String value,
+    required String instruction,
+    required num totalPrice,
+  }) async {
+    if (state.selectPayment == null) {
+      AppHelpers.showCheckTopSnackBar(context, TrKeys.selectPaymentMethod);
+      return;
+    }
+    final num wallet = LocalStorage.getWalletData()?.price ?? 0;
+    if (state.selectPayment?.tag == "wallet" && wallet < totalPrice) {
+      AppHelpers.showCheckTopSnackBarInfo(
+        context,
+        AppHelpers.getTranslation(TrKeys.notEnoughMoney),
+      );
+      return;
+    }
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isLoading: true);
-      final response = await _parcelRepository.showParcel(orderId);
+      final response = await _parcelRepository.orderParcel(
+        typeId: state.types[state.selectType]?.id ?? "",
+        from: state.locationFrom ?? LocationModel(),
+        to: state.locationTo ?? LocationModel(),
+        fromTitle: state.addressFrom ?? "",
+        toTitle: state.addressTo ?? "",
+        time:
+            "${(state.time ?? TimeOfDay.now()).hour} : ${(state.time ?? TimeOfDay.now()).minute}",
+        note: note,
+        phoneFrom: phoneFrom,
+        phoneTo: phoneTo,
+        usernameTo: usernameTo,
+        usernameFrom: usernameFrom,
+        notify: state.anonymous,
+        floorTo: floorTo,
+        floorFrom: floorFrom,
+        houseFrom: houseFrom,
+        houseTo: houseTo,
+        comment: comment,
+        value: value,
+        instruction: instruction,
+      );
       response.when(
-        success: (data) {
-          state = state.copyWith(order: data, isLoading: false);
+        success: (data) async {
+          state = state.copyWith(isLoading: false);
+          String id = state.selectPayment?.id ??
+              (LocalStorage.getSelectedCurrency()?.id ?? "").toString();
+          switch (state.selectPayment?.tag) {
+            case 'cash':
+            case 'wallet':
+              _parcelRepository.createTransaction(
+                orderId: data ?? 0,
+                paymentId: id,
+              );
+              context.replaceRoute(const ParcelListRoute());
+              break;
+            default:
+              _parcelRepository.createTransaction(
+                orderId: data ?? 0,
+                paymentId: id,
+              );
+              context.replaceRoute(const ParcelListRoute());
+              await makePayment(
+                context,
+                state.selectPayment?.tag ?? 'cash',
+                data.toString(),
+              );
+              break;
+          }
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            AppHelpers.getTranslation(status.toString()),
+          );
         },
       );
     } else {
@@ -156,33 +212,40 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     }
   }
 
-  Future<void> fetchActiveOrders(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isActiveLoading: true, activeOrders: []);
-      final response = await _parcelRepository.getActiveParcel(1);
+  Future<void> makePayment(
+    BuildContext context,
+    String name,
+    String? orderId,
+  ) async {
+    try {
+      final response = await _parcelRepository.process(
+        (orderId ?? "").toString(),
+        name,
+      );
       response.when(
-        success: (data) {
-          state = state.copyWith(
-            activeOrders: data.data ?? [],
-            isActiveLoading: false,
-          );
+        success: (data) async {
+          // ignore: deprecated_member_use
+          await launch(data, enableJavaScript: true);
         },
         failure: (failure, status) {
-          state = state.copyWith(isActiveLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
+          state = state.copyWith(isButtonLoading: false);
+          if (context.mounted) {
+            AppHelpers.showCheckTopSnackBar(context, failure);
+          }
         },
       );
+    } catch (e) {
+      if (context.mounted) {
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(TrKeys.paymentMethodFailed),
+        );
+      }
     }
   }
 
-  // Common helper for routing (from customer)
-  void setFromAddress({
-    required String? title,
-    required LocationModel? location,
-    required BuildContext context,
-  }) {
-    state = state.copyWith(addressFrom: title, locationFrom: location);
+  void selectType({required int index, required BuildContext context}) {
+    state = state.copyWith(selectType: index);
     if (state.types.isNotEmpty &&
         state.addressFrom != null &&
         state.addressTo != null) {
@@ -200,6 +263,158 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         state.addressFrom != null &&
         state.addressTo != null) {
       getCalculate(context);
+    }
+  }
+
+  void setFromAddress({
+    required String? title,
+    required LocationModel? location,
+    required BuildContext context,
+  }) {
+    state = state.copyWith(addressFrom: title, locationFrom: location);
+    if (state.types.isNotEmpty &&
+        state.addressFrom != null &&
+        state.addressTo != null) {
+      getCalculate(context);
+    }
+  }
+
+  void switchAddress({required BuildContext context}) {
+    state = state.copyWith(
+      addressFrom: state.addressTo,
+      locationFrom: state.locationTo,
+      addressTo: state.addressFrom,
+      locationTo: state.locationFrom,
+    );
+    if (state.types.isNotEmpty &&
+        state.addressFrom != null &&
+        state.addressTo != null) {
+      getCalculate(context);
+    }
+  }
+
+  void setTime({required TimeOfDay time}) {
+    state = state.copyWith(time: time);
+  }
+
+  Future<void> showParcel(
+    BuildContext context,
+    String orderId,
+    bool isRefresh,
+  ) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      if (!isRefresh) {
+        state = state.copyWith(isLoading: true);
+      }
+
+      final response = await _parcelRepository.getSingleParcel(orderId);
+      response.when(
+        success: (data) async {
+          final ImageCropperForMarker image = ImageCropperForMarker();
+          if (!isRefresh) {
+            state = state.copyWith(
+              parcel: data,
+              isLoading: false,
+              isMapLoading: true,
+            );
+            Map<MarkerId, Marker> list = {
+              const MarkerId("Shop"): Marker(
+                markerId: const MarkerId("Shop"),
+                position: LatLng(
+                  data.addressFrom?.latitude ?? AppConstants.demoLatitude,
+                  data.addressFrom?.longitude ?? AppConstants.demoLongitude,
+                ),
+                icon: await image.resizeAndCircle(data.user?.img ?? "", 120),
+              ),
+              const MarkerId("User"): Marker(
+                markerId: const MarkerId("User"),
+                position: LatLng(
+                  data.addressTo?.latitude ?? AppConstants.demoLatitude,
+                  data.addressTo?.longitude ?? AppConstants.demoLongitude,
+                ),
+                icon: await image.resizeAndCircle("", 120),
+              ),
+            };
+            state = state.copyWith(markers: list, isMapLoading: false);
+            if (context.mounted) {
+              getRoutingAll(
+                context: context,
+                end: LatLng(
+                  data.addressTo?.latitude ?? AppConstants.demoLatitude,
+                  data.addressTo?.longitude ?? AppConstants.demoLongitude,
+                ),
+                start: LatLng(
+                  data.addressFrom?.latitude ?? AppConstants.demoLatitude,
+                  data.addressFrom?.longitude ?? AppConstants.demoLongitude,
+                ),
+              );
+            }
+          } else {
+            state = state.copyWith(parcel: data);
+            Map<MarkerId, Marker> list = {
+              const MarkerId("Shop"): Marker(
+                markerId: const MarkerId("Shop"),
+                position: LatLng(
+                  data.addressFrom?.latitude ?? AppConstants.demoLatitude,
+                  data.addressFrom?.longitude ?? AppConstants.demoLongitude,
+                ),
+                icon: await image.resizeAndCircle(data.user?.img ?? "", 120),
+              ),
+              const MarkerId("User"): Marker(
+                markerId: const MarkerId("User"),
+                position: LatLng(
+                  data.addressTo?.latitude ?? AppConstants.demoLatitude,
+                  data.addressTo?.longitude ?? AppConstants.demoLongitude,
+                ),
+                icon: await image.resizeAndCircle("", 120),
+              ),
+            };
+
+            state = state.copyWith(markers: list);
+          }
+        },
+        failure: (failure, status) {
+          if (!isRefresh) {
+            state = state.copyWith(isLoading: false);
+          }
+          if (context.mounted) {
+            AppHelpers.showCheckTopSnackBar(context, failure);
+          }
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> getRoutingAll({
+    required BuildContext context,
+    required LatLng start,
+    required LatLng end,
+  }) async {
+    if (await AppConnectivity.connectivity()) {
+      state = state.copyWith(polylineCoordinates: []);
+      final response = await _drawRouting.getRouting(start: start, end: end);
+      response.when(
+        success: (data) {
+          List<LatLng> list = [];
+          List ls = data.features[0].geometry.coordinates;
+          for (int i = 0; i < ls.length; i++) {
+            list.add(LatLng(ls[i][1], ls[i][0]));
+          }
+          state = state.copyWith(polylineCoordinates: list);
+        },
+        failure: (failure, status) {
+          state = state.copyWith(polylineCoordinates: []);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
     }
   }
 }

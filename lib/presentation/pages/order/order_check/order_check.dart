@@ -9,32 +9,34 @@ import 'package:rokctapp/application/map/view_map_state.dart';
 import 'package:rokctapp/application/order/order_notifier.dart';
 import 'package:rokctapp/application/order/order_provider.dart';
 import 'package:rokctapp/application/order/order_state.dart';
-import 'package:rokctapp/application/order/orders_list/orders_list_notifier.dart';
-import 'package:rokctapp/application/order/payment_methods/payment_provider.dart';
-import 'package:rokctapp/application/order/payment_methods/payment_state.dart';
+import 'package:rokctapp/application/orders_list/orders_list_notifier.dart';
+import 'package:rokctapp/application/payment_methods/payment_provider.dart';
+import 'package:rokctapp/application/payment_methods/payment_state.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/application/profile/profile_state.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_notifier.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_state.dart';
+import 'package:rokctapp/application/shop_order/shop_order_notifier.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_state.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/price_information.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/auto_order_modal.dart';
+import 'package:rokctapp/presentation/pages/order/order_screen/widgets/image_dialog.dart';
+import 'package:rokctapp/presentation/pages/profile/phone_verify.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
-import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
-import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:rokctapp/application/order/orders_list/orders_list_provider.dart';
+import 'package:rokctapp/application/orders_list/orders_list_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import '../../cards/payment_screen.dart';
+import 'package:rokctapp/presentation/pages/cards/payment_screen.dart';
 import 'widgets/card_and_promo.dart';
 import 'widgets/delivery_info.dart';
 import 'widgets/order_button.dart';
@@ -109,10 +111,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
         return false;
       }
       return state
-              .shopData
-              ?.shopPayments?[paymentState.currentIndex]
-              ?.payment
-              ?.tag
+              .shopData?.shopPayments?[paymentState.currentIndex]?.payment?.tag
               ?.toLowerCase() ==
           "pay-fast";
     }
@@ -183,10 +182,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
       paymentId: ((AppHelpers.getPaymentType() == "admin")
           ? (paymentState.payments[paymentState.currentIndex].id)
           : state
-                .shopData
-                ?.shopPayments?[paymentState.currentIndex]
-                ?.payment
-                ?.id),
+              .shopData?.shopPayments?[paymentState.currentIndex]?.payment?.id),
       username: state.username,
       phone: state.phoneNumber ?? LocalStorage.getUser()?.phone,
       email: LocalStorage.getUser()?.email,
@@ -199,15 +195,13 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
       deliveryType: state.tabIndex == 0
           ? DeliveryTypeEnum.delivery
           : (state.tabIndex == 1
-                ? DeliveryTypeEnum.pickup
-                : DeliveryTypeEnum.pickupPoint),
+              ? DeliveryTypeEnum.pickup
+              : DeliveryTypeEnum.pickupPoint),
       location: Location(
-        longitude:
-            stateMap.place?.location?.last ??
+        longitude: stateMap.place?.location?.last ??
             LocalStorage.getAddressSelected()?.location?.longitude ??
             AppConstants.demoLongitude,
-        latitude:
-            stateMap.place?.location?.first ??
+        latitude: stateMap.place?.location?.first ??
             LocalStorage.getAddressSelected()?.location?.latitude ??
             AppConstants.demoLatitude,
       ),
@@ -267,9 +261,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
         payment: ((AppHelpers.getPaymentType() == "admin")
             ? (paymentState.payments[paymentState.currentIndex])
             : state
-                  .shopData
-                  ?.shopPayments?[paymentState.currentIndex]
-                  ?.payment),
+                .shopData?.shopPayments?[paymentState.currentIndex]?.payment),
         onSuccess: () {
           widget.controllerCenter?.play();
           eventShopOrder.getCart(context, () {});
@@ -348,14 +340,12 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
                         ref
                             .read(shopOrderProvider.notifier)
                             .deleteCart(context);
-                        ref
-                            .read(orderProvider.notifier)
-                            .repeatOrder(
+                        ref.read(orderProvider.notifier).repeatOrder(
                               context: context,
                               shopId: "",
                               listOfProduct:
                                   ref.watch(orderProvider).orderData?.details ??
-                                  [],
+                                      [],
                               onSuccess: () {
                                 ref.read(shopOrderProvider.notifier).getCart(
                                   context,
@@ -449,7 +439,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
                   isRepeatLoading: state.isAddLoading,
                   isLoading:
                       ref.watch(shopOrderProvider).isAddAndRemoveLoading ||
-                      state.isButtonLoading,
+                          state.isButtonLoading,
                   isOrder: widget.isOrder,
                   isAutoLoading: state.isButtonLoading,
                   orderStatus: widget.orderStatus,
@@ -513,8 +503,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
                       );
                     }
                   },
-                  isRefund:
-                      (state.orderData?.refunds?.isEmpty ?? true) ||
+                  isRefund: (state.orderData?.refunds?.isEmpty ?? true) ||
                       state.orderData?.refunds?.last.status == "canceled",
                   repeatOrder: () {
                     event.repeatOrder(
@@ -671,14 +660,12 @@ class _WebViewPageState extends State<WebViewPage> {
     // Don't process if already detected payment completion
     if (isPaymentComplete) return false;
 
-    final isSuccess =
-        url.contains('order-stripe-success') ||
+    final isSuccess = url.contains('order-stripe-success') ||
         url.contains('payment-success') ||
         url.contains('redirect-success') ||
         url.contains(AppConstants.baseUrl);
 
-    final isFailure =
-        url.contains('payment-cancel') ||
+    final isFailure = url.contains('payment-cancel') ||
         url.contains('payment-failed') ||
         url.contains('redirect-cancel');
 
@@ -970,9 +957,8 @@ class _PayFastPaymentScreenState extends ConsumerState<PayFastPaymentScreen> {
                           margin: EdgeInsets.only(right: 12.w),
                           padding: EdgeInsets.all(12.r),
                           decoration: BoxDecoration(
-                            color: isSelected
-                                ? AppStyle.primary
-                                : AppStyle.white,
+                            color:
+                                isSelected ? AppStyle.primary : AppStyle.white,
                             borderRadius: BorderRadius.circular(12.r),
                             border: Border.all(
                               color: isSelected

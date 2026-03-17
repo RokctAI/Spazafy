@@ -98,8 +98,10 @@ class _RatingPageState extends ConsumerState<RatingPage> {
             ),
             24.verticalSpace,
             RatingBar.builder(
-              itemBuilder: (context, index) =>
-                  Icon(FlutterRemix.star_smile_fill, color: AppStyle.primary),
+              itemBuilder: (context, index) => const Icon(
+                FlutterRemix.star_smile_fill,
+                color: AppStyle.primary,
+              ),
               itemCount: 5,
               itemPadding: EdgeInsets.symmetric(horizontal: 14.h),
               direction: Axis.horizontal,
@@ -231,12 +233,10 @@ class _RatingPageState extends ConsumerState<RatingPage> {
                           modal: PaymentMethods(
                             shopEnableCod:
                                 ref.watch(orderProvider).shopData?.enableCod ??
-                                true,
+                                    true,
                             tipPrice: price,
                             tips: (payment, price) {
-                              ref
-                                  .read(orderProvider.notifier)
-                                  .sendTips(
+                              ref.read(orderProvider.notifier).sendTips(
                                     context: context,
                                     payment: payment,
                                     price: price,
@@ -281,17 +281,13 @@ class _RatingPageState extends ConsumerState<RatingPage> {
                         );
                       } else {
                         if (widget.parcel) {
-                          ref
-                              .read(parcelProvider.notifier)
-                              .addReview(
+                          ref.read(parcelProvider.notifier).addReview(
                                 context,
                                 textEditingController.text,
                                 rating,
                               );
                         } else {
-                          ref
-                              .read(orderProvider.notifier)
-                              .addReview(
+                          ref.read(orderProvider.notifier).addReview(
                                 context,
                                 textEditingController.text,
                                 rating,

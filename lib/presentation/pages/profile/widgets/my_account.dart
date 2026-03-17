@@ -10,15 +10,15 @@ import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 //import 'package:rokctapp/presentation/pages/auth/reset/set_password_page.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-//import '../../../../application/profile/edit_profile/edit_profile_provider.dart';
+//import '../../../../application/edit_profile/edit_profile_provider.dart';
 import 'package:rokctapp/presentation/components/buttons/button_item.dart';
-import '../edit_profile_page.dart';
+import 'package:rokctapp/presentation/pages/profile/edit_profile_page.dart';
 //import 'package:rokctapp/application/profile/profile_provider.dart';
 //import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 //import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/pages/auth/reset/reset_password_page.dart';
-import '../currency_page.dart';
-import '../language_page.dart';
+import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
+import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 
 //import 'package:rokctapp/application/like/like_provider.dart';
 class MyAccount extends StatelessWidget {
@@ -127,7 +127,7 @@ class MyAccount extends StatelessWidget {
 
         floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
         floatingActionButton: //isBackButton ?
-        Padding(
+            Padding(
           padding: EdgeInsets.only(left: 16.w),
           child: const PopButton(),
         ),

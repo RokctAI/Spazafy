@@ -1,31 +1,26 @@
-// import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/application/map/poidata/poi_data_provider.dart';
+import 'package:rokctapp/application/poidata/poi_data_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/poi_data.dart';
-//import 'package:rokctapp/utils/excluded_product_ids.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 class AppInitializer extends StatefulWidget {
   final ProviderContainer providerContainer;
-  //final List<int> excludedProductIds = [];
-  //final List<int> excludedCategoryIds = [];
 
   const AppInitializer({super.key, required this.providerContainer});
 
   Future<void> initializeApp() async {
-    await _initializeRemoteConfigWithoutAPICallStatic(providerContainer);
+    await _loadCachedPOIData(providerContainer);
+    await _fetchPOIDataStatic(providerContainer);
     await _checkAppStatusFromAPIStatic();
-    // Add other app initialization tasks here
   }
 
-  Future<void> initializeRemoteConfigWithoutAPICall() async {
-    await _initializeRemoteConfigWithoutAPICallStatic(providerContainer);
+  Future<void> fetchPOIData() async {
+    await _fetchPOIDataStatic(providerContainer);
   }
 
   Future<void> checkAppStatusFromAPI() async {
@@ -35,15 +30,12 @@ class AppInitializer extends StatefulWidget {
   @override
   State<AppInitializer> createState() => _AppInitializerState();
 
-  static Future<void> _initializeRemoteConfigWithoutAPICallStatic(
+  static Future<void> _fetchPOIDataStatic(
     ProviderContainer providerContainer,
   ) async {
-    // Use AppConstants.baseUrl as the site identifier (Tenant Site Name)
-    // This assumes AppConstants.baseUrl is pre-configured with the tenant's site domain (e.g. juvo.tenant.rokct.ai)
     final String tenantSite = AppConstants.baseUrl;
 
     try {
-      // Fetch remote config for 'Customer' app type
       final response = await http.get(
         Uri.parse(
           '$tenantSite/api/method/paas.api.remote_config.get_remote_config?app_type=Customer',
@@ -52,101 +44,26 @@ class AppInitializer extends StatefulWidget {
 
       if (response.statusCode == 200) {
         final responseData = jsonDecode(response.body);
-        // Frappe 'whitelist' responses wrap data in 'message'
         final config = responseData['message'];
 
-        if (config != null) {
-          // Helper functions to safely extract types from the JSON map
-          String? getString(String key) => config[key]?.toString();
-          // Frappe Check fields are returned as 0 or 1 (int)
-          bool? getBool(String key) =>
-              config[key] == 1 || config[key] == true || config[key] == "true";
-          int? getInt(String key) =>
-              int.tryParse(config[key]?.toString() ?? "");
-
-          // Update AppConstants with behavioral values from Remote Config
-          if (getString('isOpen') != null)
-            AppConstants.isOpen = getString('isOpen')!;
-          if (getString('adminPageUrl') != null)
-            AppConstants.adminPageUrl = getString('adminPageUrl')!;
-          if (getString('isClosed') != null)
-            AppConstants.isClosed = getString('isClosed')!;
-          if (getBool('showGooglePOILayer') != null)
-            AppConstants.showGooglePOILayer = getBool('showGooglePOILayer')!;
-          if (getString('localeCodeEn') != null)
-            AppConstants.localeCodeEn = getString('localeCodeEn')!;
-          if (getInt('newShopDays') != null)
-            AppConstants.newShopDays = getInt('newShopDays')!;
-          if (getBool('cardDirect') != null)
-            AppConstants.cardDirect = getBool('cardDirect')!;
-          if (getBool('isNumberLengthAlwaysSame') != null)
-            AppConstants.isNumberLengthAlwaysSame = getBool(
-              'isNumberLengthAlwaysSame',
-            )!;
-          if (getBool('showFlag') != null)
-            AppConstants.showFlag = getBool('showFlag')!;
-          if (getBool('showArrowIcon') != null)
-            AppConstants.showArrowIcon = getBool('showArrowIcon')!;
-
-          if (getBool('enableMarketplace') != null)
-            AppConstants.enableMarketplace = getBool('enableMarketplace')!;
-          if (getString('defaultShopId') != null)
-            AppConstants.defaultShopId = getString('defaultShopId')!;
-
-          // Handle POI Data
-          if (config['poiData'] != null) {
-            try {
-              String poiDataString = config['poiData'];
-              List<dynamic> poiDataJson = jsonDecode(poiDataString);
-
-              if (kDebugMode) {
-                print("poiDataJson: $poiDataJson");
-              }
-
-              List<POIData> poiDataList = [];
-              for (var poiDataMap in poiDataJson) {
-                poiDataList.add(
-                  POIData(
-                    name: poiDataMap['name'],
-                    latitude: poiDataMap['latitude'].toDouble(),
-                    longitude: poiDataMap['longitude'].toDouble(),
-                    titleColor: Color(
-                      int.parse(
-                            poiDataMap['titleColor'].substring(2),
-                            radix: 16,
-                          ) +
-                          0xFF000000,
-                    ),
-                    pin: poiDataMap['pin'],
-                  ),
-                );
-              }
-              providerContainer
-                  .read(poiDataProvider.notifier)
-                  .updatePOIData(poiDataList);
-            } catch (e) {
-              if (kDebugMode) {
-                print("Error processing poiData: $e");
-              }
-            }
-          }
+        if (config != null && config['poiData'] != null) {
+          // Cache the fresh POI data locally
+          await LocalStorage.setRemoteConfig({'poiData': config['poiData']});
+          _applyPOIData(config['poiData'], providerContainer);
         }
       } else {
         if (kDebugMode) {
-          print(
-            "Failed to fetch remote config. Status: ${response.statusCode}",
-          );
+          debugPrint("Failed to fetch POI data. Status: ${response.statusCode}");
         }
       }
     } catch (e) {
       if (kDebugMode) {
-        print("Error fetching remote config: $e");
+        debugPrint("Error fetching POI data: $e");
       }
     }
   }
 
   static Future<void> _checkAppStatusFromAPIStatic() async {
-    // Check the app status from the API with a 5-second timeout
     try {
       final response = await http
           .get(Uri.parse('${AppConstants.baseUrl}/public/api/v1/rest/status'))
@@ -155,29 +72,65 @@ class AppInitializer extends StatefulWidget {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         AppConstants.isMaintain = data['status'] != 'OK';
-      } else {
-        AppConstants.isMaintain =
-            true; // Set isMaintain to true if API response is not successful
       }
-    } on TimeoutException {
-      AppConstants.isMaintain =
-          true; // Set isMaintain to true if the API call times out
     } catch (e) {
-      AppConstants.isMaintain =
-          true; // Set isMaintain to true if an exception occurs
+      debugPrint("App status check failed (likely offline): $e");
+    }
+  }
+
+  static Future<void> _loadCachedPOIData(
+    ProviderContainer providerContainer,
+  ) async {
+    final cachedConfig = LocalStorage.getRemoteConfig();
+    if (cachedConfig != null && cachedConfig['poiData'] != null) {
+      _applyPOIData(cachedConfig['poiData'], providerContainer);
+    }
+  }
+
+  static void _applyPOIData(
+    dynamic poiDataRaw,
+    ProviderContainer providerContainer,
+  ) {
+    try {
+      List<dynamic> poiDataJson;
+      if (poiDataRaw is String) {
+        poiDataJson = jsonDecode(poiDataRaw);
+      } else {
+        poiDataJson = poiDataRaw;
+      }
+
+      List<POIData> poiDataList = [];
+      for (var poiDataMap in poiDataJson) {
+        poiDataList.add(
+          POIData(
+            name: poiDataMap['name'],
+            latitude: poiDataMap['latitude'].toDouble(),
+            longitude: poiDataMap['longitude'].toDouble(),
+            titleColor: Color(
+              int.parse(
+                    poiDataMap['titleColor'].substring(2),
+                    radix: 16,
+                  ) +
+                  0xFF000000,
+            ),
+            pin: poiDataMap['pin'],
+          ),
+        );
+      }
+      providerContainer
+          .read(poiDataProvider.notifier)
+          .updatePOIData(poiDataList);
+    } catch (e) {
+      if (kDebugMode) {
+        debugPrint("Error processing poiData: $e");
+      }
     }
   }
 }
 
 class _AppInitializerState extends State<AppInitializer> {
   @override
-  void initState() {
-    super.initState();
-    // You can perform additional setup here if needed
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Container(); // No UI needed here
+    return Container();
   }
 }

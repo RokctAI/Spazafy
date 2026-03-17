@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/application/currency/currency_provider.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -58,8 +58,7 @@ class _LanguagePageState extends ConsumerState<CurrencyScreen> {
           ),
           width: double.infinity,
           constraints: BoxConstraints(
-            maxHeight:
-                MediaQuery.of(context).size.height *
+            maxHeight: MediaQuery.of(context).size.height *
                 0.3, // Use only 30% of screen height
           ),
           child: Padding(

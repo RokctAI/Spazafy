@@ -3,7 +3,7 @@ import 'package:rokctapp/infrastructure/models/data/loans/loan_application.dart'
 import 'package:rokctapp/infrastructure/models/data/loans/loan_contract_model.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-abstract class LoansFacade {
+abstract class LoansRepositoryFacade {
   /// Submit a new loan application
   ///
   /// [applicationData] contains all details of the loan application

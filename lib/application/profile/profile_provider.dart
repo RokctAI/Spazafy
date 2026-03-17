@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'profile_notifier.dart';
+import 'package:rokctapp/application/profile/profile_notifier.dart';
 import 'profile_state.dart';
 
 final profileProvider = StateNotifierProvider<ProfileNotifier, ProfileState>(
-  (ref) => ProfileNotifier(settingsRepository, userRepository, shopsRepository),
+  (ref) => ProfileNotifier(userRepository, shopsRepository, galleryRepository),
 );

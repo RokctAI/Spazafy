@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/application/order/payment_methods/payment_provider.dart';
-import 'package:rokctapp/application/shops/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/application/payment_methods/payment_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -177,13 +177,13 @@ class OrderButton extends ConsumerWidget {
           // Check if cart is not empty
           final isNotEmptyCart =
               (shopOrderState.cart?.userCarts?.first.cartDetails?.isNotEmpty ??
-              false);
+                  false);
 
           // Check if payment methods are available
           final isNotEmptyPaymentType =
               ((AppHelpers.getPaymentType() == "admin")
-              ? (paymentState.payments.isNotEmpty)
-              : (orderState.shopData?.shopPayments?.isNotEmpty ?? false));
+                  ? (paymentState.payments.isNotEmpty)
+                  : (orderState.shopData?.shopPayments?.isNotEmpty ?? false));
 
           // Check if PayFast is selected
 

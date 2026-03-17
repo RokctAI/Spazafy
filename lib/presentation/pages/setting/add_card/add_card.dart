@@ -77,7 +77,7 @@
 //                       width: 48.w,
 //                       decoration: BoxDecoration(
 // <<<<<<< Updated upstream
-//                           color: Style.dragElement,
+//                           color: AppStyle.dragElement,
 //                           borderRadius: BorderRadius.all(Radius.circular(40.r))),
 // =======
 //                           color: AppStyle.dragElement,
@@ -158,11 +158,11 @@
 //                     child: CustomButton(
 // <<<<<<< Updated upstream
 //                       background: state.isActiveCard
-//                           ? Style.brandGreen
+//                           ? AppStyle.brandGreen
 //                           : AppStyle.white,
 //                       textColor: state.isActiveCard
-//                           ? AppStyle.blackColor
-//                           : Style.textGrey,
+//                           ? AppStyle.black
+//                           : AppStyle.textGrey,
 // =======
 //                       background:
 //                           state.isActiveCard ? AppStyle.primary : AppStyle.white,

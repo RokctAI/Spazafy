@@ -11,7 +11,7 @@ import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/utils/payfast/payfast_webview.dart';
 
-import '../../cards/payment_card.dart';
+import 'package:rokctapp/presentation/pages/cards/payment_card.dart';
 
 class WalletTopUpScreen extends ConsumerStatefulWidget {
   const WalletTopUpScreen({super.key});

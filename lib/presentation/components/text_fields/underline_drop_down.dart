@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class UnderlineDropDown extends StatelessWidget {
   final String? value;
@@ -48,9 +48,8 @@ class UnderlineDropDown extends StatelessWidget {
       style: AppStyle.interNormal(),
       decoration: InputDecoration(
         contentPadding: REdgeInsets.symmetric(horizontal: 2),
-        labelText: label != null
-            ? "${AppHelpers.getTranslation(label!)}*"
-            : null,
+        labelText:
+            label != null ? "${AppHelpers.getTranslation(label!)}*" : null,
         labelStyle: AppStyle.interNormal(
           size: 14,
           color: AppStyle.black.withOpacity(0.9),

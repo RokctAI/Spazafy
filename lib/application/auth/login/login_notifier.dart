@@ -22,17 +22,21 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:rokctapp/domain/interface/settings.dart';
 
+import 'package:rokctapp/infrastructure/services/utils/background_sync_service.dart';
+
 import 'login_state.dart';
 
 class LoginNotifier extends StateNotifier<LoginState> {
-  final AuthFacade _authRepository;
+  final AuthRepositoryFacade _authRepository;
   final SettingsRepositoryFacade _settingsRepository;
-  final UserFacade _userRepositoryFacade;
+  final UserRepositoryFacade _userRepositoryFacade;
+  final BackgroundSyncService _backgroundSyncService;
 
   LoginNotifier(
     this._authRepository,
     this._settingsRepository,
     this._userRepositoryFacade,
+    this._backgroundSyncService,
   ) : super(const LoginState());
 
   void setPassword(String text) {
@@ -156,51 +160,10 @@ class LoginNotifier extends StateNotifier<LoginState> {
     return AppValidators.checkEmail(state.email);
   }
 
-  Future<void> getProfileDetails(BuildContext context) async {
-    state = state.copyWith(isProfileDetailsLoading: true);
-    final response = await _userRepositoryFacade.getProfileDetails();
-    response.when(
-      success: (data) async {
-        final user = data.data;
-        LocalStorage.setUser(user);
-        if (user?.wallet != null) {
-          LocalStorage.setWallet(user?.wallet);
-        }
-
-        // Driver specific: online status
-        if (user?.role == 'deliveryman') {
-          // We can also trigger the driver user repo fetch if needed,
-          // but for now, we ensure the basic user is set.
-        }
-
-        state = state.copyWith(isProfileDetailsLoading: false);
-      },
-      failure: (failure, status) {
-        state = state.copyWith(isProfileDetailsLoading: false);
-        debugPrint('==> get profile details failure: $failure');
-      },
-    );
-  }
-
-  Future<void> login({
-    required BuildContext context,
-    VoidCallback? loginSuccess,
-    VoidCallback? youAreNotDeliveryman,
-    VoidCallback? seller,
-    VoidCallback? admin,
-    VoidCallback? accessDenied,
-    int index =
-        0, // 0 for phone, 1 for email (standardizing role-specific inputs)
-  }) async {
+  Future<void> login(BuildContext context) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
-      // Validate inputs based on role-specific patterns
-      if (index == 0 && AppConstants.isPhoneFirebase) {
-        if (!AppValidators.isValidPhone(state.email)) {
-          state = state.copyWith(isPhoneNotValid: true);
-          return;
-        }
-      } else {
+      if (checkEmail()) {
         if (!AppValidators.isValidEmail(state.email)) {
           state = state.copyWith(isEmailNotValid: true);
           return;
@@ -211,47 +174,63 @@ class LoginNotifier extends StateNotifier<LoginState> {
         state = state.copyWith(isPasswordNotValid: true);
         return;
       }
-
       state = state.copyWith(isLoading: true);
       final response = await _authRepository.login(
         email: state.email,
         password: state.password,
       );
-
       response.when(
         success: (data) async {
-          final accessToken = data.data?.accessToken ?? '';
-          LocalStorage.setToken(accessToken);
-
-          // Hydrate user and wallet
-          await getProfileDetails(context);
-
-          final user = data.data?.user;
-
-          // Role-specific redirection logic
-          if (user?.role == 'deliveryman') {
-            if (youAreNotDeliveryman != null) {
-              // Custom redirection for driver entry point
-              loginSuccess?.call();
-            } else {
-              AppHelpers.goHome(context);
-            }
-          } else if (user?.role == 'seller' || user?.role == 'manager') {
-            seller?.call() ?? AppHelpers.goHome(context);
-          } else if (user?.role == 'admin') {
-            admin?.call() ?? accessDenied?.call() ?? AppHelpers.goHome(context);
+          LocalStorage.setToken(data.data?.accessToken ?? '');
+          LocalStorage.setAddressSelected(
+            AddressData(
+              title: data.data?.user?.addresses?.firstWhere(
+                    (element) => element.active ?? false,
+                    orElse: () {
+                      return AddressNewModel();
+                    },
+                  ).title ??
+                  "",
+              address: data.data?.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .address
+                      ?.address ??
+                  "",
+              location: LocationModel(
+                longitude: data.data?.user?.addresses
+                    ?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    )
+                    .location
+                    ?.last,
+                latitude: data.data?.user?.addresses
+                    ?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    )
+                    .location
+                    ?.first,
+              ),
+            ),
+          );
+          if (AppConstants.isDemo) {
+            context.replaceRoute(UiTypeRoute());
           } else {
-            if (AppConstants.isDemo) {
-              context.replaceRoute(UiTypeRoute());
-            } else {
-              AppHelpers.goHome(context);
-            }
+            AppHelpers.goHome(context);
           }
-
           String? fcmToken = await FirebaseMessaging.instance.getToken();
           _userRepositoryFacade.updateFirebaseToken(fcmToken);
           state = state.copyWith(isLoading: false);
-          loginSuccess?.call();
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false, isLoginError: true);
@@ -259,9 +238,37 @@ class LoginNotifier extends StateNotifier<LoginState> {
         },
       );
     } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
+      // Offline: Guest mode and queue request
+      if (checkEmail()) {
+        if (!AppValidators.isValidEmail(state.email)) {
+          state = state.copyWith(isEmailNotValid: true);
+          return;
+        }
       }
+      if (!AppValidators.isValidPassword(state.password)) {
+        state = state.copyWith(isPasswordNotValid: true);
+        return;
+      }
+
+      // 1. Set as Guest
+      LocalStorage.setIsGuest(true);
+      // 2. Save offline user details
+      LocalStorage.setOfflineUser({
+        'email': state.email,
+        'password': state.password,
+        'type': 'login',
+      });
+      // 3. Queue the request
+      _backgroundSyncService.enqueueRequest(
+        '${AppConstants.baseUrl}/auth/login',
+        'POST',
+        {
+          'email': state.email,
+          'password': state.password,
+        },
+      );
+      // 4. Go Home
+      AppHelpers.goHome(context);
     }
   }
 
@@ -292,18 +299,14 @@ class LoginNotifier extends StateNotifier<LoginState> {
           LocalStorage.setToken(data.data?.accessToken ?? '');
           LocalStorage.setAddressSelected(
             AddressData(
-              title:
-                  data.data?.user?.addresses
-                      ?.firstWhere(
-                        (element) => element.active ?? false,
-                        orElse: () {
-                          return AddressNewModel();
-                        },
-                      )
-                      .title ??
+              title: data.data?.user?.addresses?.firstWhere(
+                    (element) => element.active ?? false,
+                    orElse: () {
+                      return AddressNewModel();
+                    },
+                  ).title ??
                   "",
-              address:
-                  data.data?.user?.addresses
+              address: data.data?.user?.addresses
                       ?.firstWhere(
                         (element) => element.active ?? false,
                         orElse: () {
@@ -383,15 +386,15 @@ class LoginNotifier extends StateNotifier<LoginState> {
         final rawNonce = AppHelpers.generateNonce();
         final OAuthCredential credential =
             user.accessToken?.type == AccessTokenType.limited
-            ? OAuthCredential(
-                providerId: 'facebook.com',
-                signInMethod: 'oauth',
-                idToken: user.accessToken!.tokenString,
-                rawNonce: rawNonce,
-              )
-            : FacebookAuthProvider.credential(
-                user.accessToken?.tokenString ?? "",
-              );
+                ? OAuthCredential(
+                    providerId: 'facebook.com',
+                    signInMethod: 'oauth',
+                    idToken: user.accessToken!.tokenString,
+                    rawNonce: rawNonce,
+                  )
+                : FacebookAuthProvider.credential(
+                    user.accessToken?.tokenString ?? "",
+                  );
 
         final userObj = await FirebaseAuth.instance.signInWithCredential(
           credential,
@@ -410,18 +413,14 @@ class LoginNotifier extends StateNotifier<LoginState> {
               LocalStorage.setToken(data.data?.accessToken ?? '');
               LocalStorage.setAddressSelected(
                 AddressData(
-                  title:
-                      data.data?.user?.addresses
-                          ?.firstWhere(
-                            (element) => element.active ?? false,
-                            orElse: () {
-                              return AddressNewModel();
-                            },
-                          )
-                          .title ??
+                  title: data.data?.user?.addresses?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      ).title ??
                       "",
-                  address:
-                      data.data?.user?.addresses
+                  address: data.data?.user?.addresses
                           ?.firstWhere(
                             (element) => element.active ?? false,
                             orElse: () {
@@ -522,18 +521,14 @@ class LoginNotifier extends StateNotifier<LoginState> {
             LocalStorage.setToken(data.data?.accessToken ?? '');
             LocalStorage.setAddressSelected(
               AddressData(
-                title:
-                    data.data?.user?.addresses
-                        ?.firstWhere(
-                          (element) => element.active ?? false,
-                          orElse: () {
-                            return AddressNewModel();
-                          },
-                        )
-                        .title ??
+                title: data.data?.user?.addresses?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    ).title ??
                     "",
-                address:
-                    data.data?.user?.addresses
+                address: data.data?.user?.addresses
                         ?.firstWhere(
                           (element) => element.active ?? false,
                           orElse: () {

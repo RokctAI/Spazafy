@@ -4,7 +4,7 @@ import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 
-class MockCartRepository implements CartFacade {
+class MockCartRepository implements CartRepositoryFacade {
   final UserCart _demoUserCart = UserCart(
     id: "1",
     cartId: "1",

@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/models/response/product_calculate_respon
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
 import 'package:rokctapp/infrastructure/models/data/cart_product_data.dart';
 
-class MockProductsRepository implements ProductsFacade {
+class MockProductsRepository implements ProductsRepositoryFacade {
   final ProductData _demoProduct = ProductData(
     id: "1",
     uuid: "demo_product_uuid",
@@ -228,7 +228,7 @@ class MockProductsRepository implements ProductsFacade {
 
   @override
   Future<ApiResult<ProductsPaginateResponse>>
-  getProductsShopByCategoryPaginate({
+      getProductsShopByCategoryPaginate({
     String? shopId,
     List<String>? brands,
     int? sortIndex,

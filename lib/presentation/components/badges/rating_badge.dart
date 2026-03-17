@@ -6,8 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-//import 'package:rokctapp/infrastructure/services/utils/tr_keys.dart';
-import '../../theme/app_style.dart';
+//import '../../../infrastructure/services/tr_keys.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class RatingBadge extends StatelessWidget {
   final ShopData shop;

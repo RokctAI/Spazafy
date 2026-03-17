@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'; //chan
 import 'package:rokctapp/presentation/components/helper/shimmer.dart';
 
 import 'package:rokctapp/application/closed/closed_provider.dart';
-//import 'package:rokctapp/presentation/components/components.dart';
+//import 'package:rokctapp/presentation/component/components.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 @RoutePage()
@@ -233,17 +233,17 @@ class _ClosedPageState extends ConsumerState<ClosedPage>
                               ),
                             )
                           : state.currentIndex > index
-                          ? ClipRRect(
-                              borderRadius: BorderRadius.circular(122),
-                              child: LinearProgressIndicator(
-                                value: 1,
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  AppStyle.primary,
-                                ),
-                                backgroundColor: AppStyle.white,
-                              ),
-                            )
-                          : SizedBox.shrink(),
+                              ? ClipRRect(
+                                  borderRadius: BorderRadius.circular(122),
+                                  child: const LinearProgressIndicator(
+                                    value: 1,
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      AppStyle.primary,
+                                    ),
+                                    backgroundColor: AppStyle.white,
+                                  ),
+                                )
+                              : SizedBox.shrink(),
                     );
                   },
                 ),

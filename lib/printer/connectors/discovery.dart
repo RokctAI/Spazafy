@@ -1,4 +1,4 @@
-import '../models/data/printer_device.dart';
+import 'package:rokctapp/printer/models/data/printer_device.dart';
 import 'bluetooth.dart';
 import 'tcp.dart';
 import 'usb.dart';

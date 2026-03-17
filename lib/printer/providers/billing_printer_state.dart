@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../models/printer_device.dart';
+import 'package:rokctapp/printer/models/data/printer_device.dart';
 
 part 'billing_printer_state.freezed.dart';
 

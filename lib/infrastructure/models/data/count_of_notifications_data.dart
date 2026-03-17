@@ -12,16 +12,12 @@ class CountNotificationModel {
 
   factory CountNotificationModel.fromJson(Map<String, dynamic> json) =>
       CountNotificationModel(
-        notification: (json["notification"] is String)
-            ? int.tryParse(json["notification"])
-            : json["notification"],
-        transaction: (json["transaction"] is String)
-            ? int.tryParse(json["transaction"])
-            : json["transaction"],
+        notification: json["notification"],
+        transaction: json["transaction"],
       );
 
   Map<String, dynamic> toJson() => {
-    "notification": notification,
-    "transaction": transaction,
-  };
+        "notification": notification,
+        "transaction": transaction,
+      };
 }

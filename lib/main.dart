@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -7,55 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'domain/di/dependency_manager.dart';
+import 'presentation/app_widget.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:rokctapp/utils/app_initializer_widget.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
-import 'package:workmanager/workmanager.dart';
-import 'package:geolocator/geolocator.dart';
-import 'app_constants.dart';
-
-late final AppDatabase appDatabase;
-
-const fetchBackground = "fetchBackground";
-
-@pragma('vm:entry-point')
-void callbackDispatcher() {
-  Workmanager().executeTask((task, inputData) async {
-    switch (task) {
-      case fetchBackground:
-        await LocalStorage.init();
-        try {
-          Position userLocation = await Geolocator.getCurrentPosition(
-            desiredAccuracy: LocationAccuracy.high,
-          );
-          final Dio client = Dio(
-            BaseOptions(
-              headers: {
-                'Accept':
-                    'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
-                'Content-type': 'application/json',
-                "Authorization": "Bearer ${LocalStorage.getToken()}",
-              },
-            ),
-          );
-          await client.post(
-            '${AppConstants.baseUrl}/api/v1/dashboard/deliveryman/settings/location',
-            data: {
-              "location": {
-                "latitude": userLocation.latitude,
-                "longitude": userLocation.longitude,
-              },
-            },
-          );
-        } catch (e) {
-          debugPrint('Background location update failed: $e');
-        }
-        break;
-    }
-    return Future.value(true);
-  });
-}
+import 'utils/app_initializer_widget.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -64,26 +17,15 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-  // Initialize Drift database
-  appDatabase = AppDatabase();
-
-  // Firebase — graceful offline boot
-  try {
-    await Firebase.initializeApp();
-    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  } catch (_) {
-    // Firebase unavailable offline — app continues
-  }
-
-  // System UI Mode
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: AppStyle.transparent,
@@ -94,26 +36,7 @@ void main() async {
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
   );
-
   await LocalStorage.init();
-
-  // Workmanager for Driver tracking
-  try {
-    await Workmanager().initialize(callbackDispatcher);
-    Workmanager().registerPeriodicTask(
-      'location_update',
-      fetchBackground,
-      frequency: const Duration(minutes: 15),
-    );
-  } catch (e) {
-    debugPrint('Workmanager check: $e');
-  }
-
   setUpDependencies();
-
-  runApp(
-    ProviderScope(
-      child: Phoenix(child: AppInitializerWidget(child: AppWidget())),
-    ),
-  );
+  runApp(ProviderScope(child: AppInitializerWidget(child: AppWidget())));
 }

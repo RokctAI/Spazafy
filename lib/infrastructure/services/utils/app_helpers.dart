@@ -15,10 +15,10 @@ import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'app_connectivity.dart';
-import '../constants/enums.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'enums.dart';
+import 'tr_keys.dart';
 
 abstract class AppHelpers {
   AppHelpers._();
@@ -172,9 +172,8 @@ abstract class AppHelpers {
     return showTopSnackBar(
       Overlay.of(context),
       CustomSnackBar.error(
-        message: text.isEmpty
-            ? "Please check your credentials and try again"
-            : text,
+        message:
+            text.isEmpty ? "Please check your credentials and try again" : text,
       ),
       animationDuration: const Duration(milliseconds: 700),
       reverseAnimationDuration: const Duration(milliseconds: 700),
@@ -369,24 +368,12 @@ abstract class AppHelpers {
 
   static String getTranslation(String trKey) {
     final Map<String, dynamic> translations = LocalStorage.getTranslations();
-    String? translation = translations[trKey];
-
-    if (translation == null && (trKey.contains('.') || trKey.contains('_'))) {
-      String alternativeKey = trKey.contains('.')
-          ? trKey.replaceAll('.', '_')
-          : trKey.replaceAll('_', '.');
-      translation = translations[alternativeKey];
-    }
-
-    return translation ??
+    return translations[trKey] ??
         (trKey.isNotEmpty
-            ? trKey
-                  .replaceAll(".", " ")
-                  .replaceAll("_", " ")
-                  .replaceFirst(
-                    trKey.substring(0, 1),
-                    trKey.substring(0, 1).toUpperCase(),
-                  )
+            ? trKey.replaceAll(".", " ").replaceAll("_", " ").replaceFirst(
+                  trKey.substring(0, 1),
+                  trKey.substring(0, 1).toUpperCase(),
+                )
             : '');
   }
 
@@ -543,22 +530,22 @@ abstract class AppHelpers {
     try {
       return (e.runtimeType == DioException)
           ? ((e as DioException).response?.data["message"] == "Bad request."
-                ? (e.response?.data["params"] as Map).values.first[0]
-                : e.response?.data["message"])
+              ? (e.response?.data["params"] as Map).values.first[0]
+              : e.response?.data["message"])
           : e.toString();
     } catch (s) {
       try {
         return (e.runtimeType == DioException)
             ? ((e as DioException).response?.data.toString().substring(
-                (e.response?.data.toString().indexOf("<title>") ?? 0) + 7,
-                e.response?.data.toString().indexOf("</title") ?? 0,
-              )).toString()
+                  (e.response?.data.toString().indexOf("<title>") ?? 0) + 7,
+                  e.response?.data.toString().indexOf("</title") ?? 0,
+                )).toString()
             : e.toString();
       } catch (r) {
         try {
           return (e.runtimeType == DioException)
               ? ((e as DioException).response?.data["error"]["message"])
-                    .toString()
+                  .toString()
               : e.toString();
         } catch (f) {
           return e.toString();
@@ -746,44 +733,6 @@ abstract class AppHelpers {
       context.router.replace(const MainRoute());
     } else {
       context.router.replace(ShopRoute(shopId: AppConstants.defaultShopId));
-    }
-  }
-
-  static SignUpType getAuthOption() {
-    final List<SettingsData> settings = LocalStorage.getSettingsList();
-    for (final setting in settings) {
-      if (setting.key == 'auth_option') {
-        switch (setting.value) {
-          case 'phone':
-            return SignUpType.phone;
-          case 'email':
-            return SignUpType.email;
-          default:
-            return SignUpType.both;
-        }
-      }
-    }
-    return SignUpType.both;
-  }
-
-  static String truncate(String value, int length) {
-    return value.length > length ? value.substring(0, length) : value;
-  }
-
-  static OrderStatus getUpdatableStatus(String? value) {
-    switch (value) {
-      case 'new':
-        return OrderStatus.accepted;
-      case 'accepted':
-        return OrderStatus.ready;
-      case 'ready':
-        return OrderStatus.onWay;
-      case 'on_a_way':
-        return OrderStatus.delivered;
-      case 'delivered':
-        return OrderStatus.accepted; // Based on manager logic
-      default:
-        return OrderStatus.accepted;
     }
   }
 }

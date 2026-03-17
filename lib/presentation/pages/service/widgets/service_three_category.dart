@@ -6,9 +6,9 @@ import 'package:rokctapp/application/home/home_notifier.dart';
 import 'package:rokctapp/application/home/home_state.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
-import 'package:rokctapp/presentation/pages/home/filter/filter_page.dart';
-import 'package:rokctapp/presentation/pages/home/home_three/shimmer/category_shimmer.dart';
-import 'package:rokctapp/presentation/pages/home/home_three/widgets/category_bar_item_three.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/filter/filter_page.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/shimmer/category_shimmer_three.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/category_bar_item_three.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class ServiceThreeCategory extends StatelessWidget {
@@ -53,20 +53,20 @@ class ServiceThreeCategory extends StatelessWidget {
                                   context: context,
                                   modal: (c) => FilterPage(
                                     controller: c,
-                                    categoryId:
-                                        (state.selectIndexSubCategory != -1
+                                    categoryId: (state.selectIndexSubCategory !=
+                                                -1
                                             ? (state
-                                                  .categories[state
-                                                      .selectIndexCategory]
-                                                  .children?[state
-                                                      .selectIndexSubCategory]
-                                                  .id
-                                                  ?.toString())
+                                                .categories[
+                                                    state.selectIndexCategory]
+                                                .children?[state
+                                                    .selectIndexSubCategory]
+                                                .id
+                                                ?.toString())
                                             : state
-                                                  .categories[state
-                                                      .selectIndexCategory]
-                                                  .id
-                                                  ?.toString()) ??
+                                                .categories[
+                                                    state.selectIndexCategory]
+                                                .id
+                                                ?.toString()) ??
                                         "",
                                   ),
                                   isDarkMode: false,
@@ -102,10 +102,7 @@ class ServiceThreeCategory extends StatelessWidget {
                             child: FadeInAnimation(
                               child: CategoryBarItemThree(
                                 image: category.children?[index - 1].img ?? "",
-                                title:
-                                    category
-                                        .children?[index - 1]
-                                        .translation
+                                title: category.children?[index - 1].translation
                                         ?.title ??
                                     "",
                                 isActive:

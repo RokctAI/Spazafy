@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class ButtonEffectAnimation extends StatefulWidget {
   final bool disabled;

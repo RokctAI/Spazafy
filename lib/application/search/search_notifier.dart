@@ -10,11 +10,11 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'search_state.dart';
 
 class SearchNotifier extends StateNotifier<SearchState> {
-  final ShopsFacade _shopsRepository;
-  final ProductsFacade _productsRepository;
+  final ShopsRepositoryFacade _shopsRepository;
+  final ProductsRepositoryFacade _productsRepository;
 
   SearchNotifier(this._shopsRepository, this._productsRepository)
-    : super(const SearchState());
+      : super(const SearchState());
   int productIndex = 1;
 
   init() {

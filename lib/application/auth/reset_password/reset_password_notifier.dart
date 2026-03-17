@@ -16,11 +16,11 @@ import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'reset_password_state.dart';
 
 class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
-  final AuthFacade _authRepository;
-  final UserFacade _userRepositoryFacade;
+  final AuthRepositoryFacade _authRepository;
+  final UserRepositoryFacade _userRepositoryFacade;
 
   ResetPasswordNotifier(this._authRepository, this._userRepositoryFacade)
-    : super(const ResetPasswordState());
+      : super(const ResetPasswordState());
 
   void setEmail(String text) {
     state = state.copyWith(email: text.trim(), isEmailError: false);

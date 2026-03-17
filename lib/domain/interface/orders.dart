@@ -5,7 +5,7 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-abstract class OrdersFacade {
+abstract class OrdersRepositoryFacade {
   Future<ApiResult<GetCalculateModel>> getCalculate({
     required String cartId,
     required double lat,
@@ -86,31 +86,4 @@ abstract class OrdersFacade {
     required String shopId,
     required double amount,
   });
-
-  // Driver Methods
-  Future<ApiResult<OrderDetailModel>> showOrders(int id);
-  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId);
-  Future<ApiResult<OrderPaginateResponse>> getProgressOrders(int page);
-  Future<ApiResult<List<OrderDetailData>>> getAvailableOrders(int page);
-  Future<ApiResult<dynamic>> updateOrder(int? orderId, String? status);
-  Future<ApiResult<dynamic>> uploadImage(int? orderId, String? image);
-  Future<ApiResult<OrderPaginateResponse>> fetchCurrentOrder();
-  Future<ApiResult<OrderDetailModel>> setOrder(String orderId);
-
-  // Manager Methods
-  Future<ApiResult<TransactionsResponse>> createTransaction({
-    required String? orderId,
-    required String? paymentId,
-  });
-  Future<ApiResult<OrderStatusResponse>> updateOrderStatus({
-    required OrderStatus status,
-    String? orderId,
-  });
-  Future<ApiResult<OrdersPaginateResponse>> getOrders({
-    OrderStatus? status,
-    int? page,
-    String? from,
-    String? to,
-  });
-  Future<ApiResult<PaymentsResponse>> getPayments();
 }

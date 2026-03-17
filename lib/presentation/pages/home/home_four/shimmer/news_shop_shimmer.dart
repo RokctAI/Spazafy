@@ -5,7 +5,7 @@ import 'package:rokctapp/presentation/components/title_icon.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'market_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_four/shimmer/market_shimmer_three.dart';
 
 class NewsShopShimmer extends StatelessWidget {
   final String title;
@@ -32,15 +32,13 @@ class NewsShopShimmer extends StatelessWidget {
               itemCount: 4,
               itemBuilder: (context, index) =>
                   AnimationConfiguration.staggeredList(
-                    position: index,
-                    duration: const Duration(milliseconds: 375),
-                    child: SlideAnimation(
-                      verticalOffset: 50.0,
-                      child: FadeInAnimation(
-                        child: MarketShimmer(index: index),
-                      ),
-                    ),
-                  ),
+                position: index,
+                duration: const Duration(milliseconds: 375),
+                child: const SlideAnimation(
+                  verticalOffset: 50.0,
+                  child: FadeInAnimation(child: MarketShimmerThree()),
+                ),
+              ),
             ),
           ),
         ),

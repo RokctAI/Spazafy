@@ -114,8 +114,8 @@ class _SettingPageState extends ConsumerState<SettingPage>
                 //         child: Padding(
                 //           padding: EdgeInsets.only(left: 10.w),
                 //           child: CustomButton(
-                //             background: Style.brandGreen,
-                //             textColor: AppStyle.blackColor,
+                //             background: AppStyle.brandGreen,
+                //             textColor: AppStyle.black,
                 //             title: AppHelpers.getTranslation(TrKeys.addNewCart),
                 //             onPressed: () {
                 //               AppHelpers.showCustomModalBottomSheet(

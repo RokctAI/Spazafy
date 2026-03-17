@@ -8,7 +8,6 @@ import 'package:rokctapp/presentation/components/badges.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/presentation/components/market_item.dart';
 
 class RecommendedItem extends StatelessWidget {
   final ShopData shop;
@@ -57,12 +56,10 @@ class RecommendedItem extends StatelessWidget {
                   top: 8.h,
                   left: 8.w,
                   iconSize: itemCount == 1 ? 40 : (isNarrow ? 22 : 22),
-                  containerHeight: itemCount == 1
-                      ? 40.h
-                      : (isNarrow ? 30 : 30.h),
-                  containerWidth: itemCount == 1
-                      ? 170.w
-                      : (isNarrow ? 130.w : 100.w),
+                  containerHeight:
+                      itemCount == 1 ? 40.h : (isNarrow ? 30 : 30.h),
+                  containerWidth:
+                      itemCount == 1 ? 170.w : (isNarrow ? 130.w : 100.w),
                   fontSize: itemCount == 1 ? 18 : (isNarrow ? 10 : 8),
                   maxTextLength: 12,
                 ),

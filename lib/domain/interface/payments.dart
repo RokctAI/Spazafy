@@ -3,7 +3,7 @@ import 'package:rokctapp/domain/handlers/handlers.dart';
 
 import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
 
-abstract class PaymentsFacade {
+abstract class PaymentsRepositoryFacade {
   Future<ApiResult<PaymentsResponse?>> getPayments();
 
   Future<ApiResult<TransactionsResponse>> createTransaction({
@@ -46,20 +46,4 @@ abstract class PaymentsFacade {
   Future<ApiResult<bool>> deleteCard(String cardId);
 
   Future<ApiResult<bool>> setDefaultCard(String cardId);
-
-  // Manager Methods
-  Future<ApiResult<NonExistPaymentResponse>> getNonExistPayments();
-  Future<ApiResult<String>> paymentWalletWebView({
-    required String name,
-    required num price,
-  });
-  Future<ApiResult<MaksekeskusResponse>> paymentMaksekeskusView({num? price});
-  Future<ApiResult<String>> paymentSubscriptionWebView({
-    required String name,
-    required String? subscriptionId,
-  });
-  Future<ApiResult<bool>> sendWallet({
-    required String uuid,
-    required num price,
-  });
 }

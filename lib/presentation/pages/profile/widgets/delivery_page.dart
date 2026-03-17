@@ -6,11 +6,11 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
-//import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-//import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+//import '../../../../infrastructure/services/app_helpers.dart';
+//import '../../../../infrastructure/services/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/app_assets.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
-import 'package:rokctapp/application/delivery/unified_delivery_provider.dart';
+import 'package:rokctapp/application/delivery/delivery_provider.dart';
 
 class DeliveryPage extends ConsumerStatefulWidget {
   const DeliveryPage({super.key});
@@ -29,78 +29,84 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
       body: deliveryState.isLoading
           ? const Loading()
           : deliveryState.value == null
-          ? Column(
-              children: [
-                CommonAppBar(
-                  child: Row(
-                    children: [
-                      Image.asset(AppAssets.pngLogo, width: 40, height: 40),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: Text(
-                            "Looking for delivery driver jobs?",
-                            style: AppStyle.interSemi(color: AppStyle.primary),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            )
-          : SingleChildScrollView(
-              child: Column(
-                children: [
-                  CommonAppBar(
-                    child: Row(
-                      children: [
-                        Image.asset(AppAssets.pngLogo, width: 40, height: 40),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: Text(
-                              "Looking for delivery driver jobs?",
-                              style: AppStyle.interSemi(
-                                color: AppStyle.primary,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  if (deliveryState.hasValue)
-                    Padding(
-                      padding: EdgeInsets.all(16.w),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+              ? Column(
+                  children: [
+                    CommonAppBar(
+                      child: Row(
                         children: [
-                          Container(
-                            margin: EdgeInsets.only(bottom: 8.h),
-                            padding: EdgeInsets.all(16.r),
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: AppStyle.white,
-                              borderRadius: BorderRadius.circular(10.r),
-                            ),
-                            child: Html(
-                              data: deliveryState.value?['description'] ?? '',
-                              style: {
-                                'body': Style(
-                                  fontSize: FontSize(16.sp),
-                                  color: AppStyle.textGrey,
-                                ),
-                                'strong': Style(fontWeight: FontWeight.bold),
-                              },
+                          Image.asset(AppAssets.pngLogo, width: 40, height: 40),
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: Text(
+                                "Looking for delivery driver jobs?",
+                                style:
+                                    AppStyle.interSemi(color: AppStyle.primary),
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                ],
-              ),
-            ),
+                  ],
+                )
+              : SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      CommonAppBar(
+                        child: Row(
+                          children: [
+                            Image.asset(AppAssets.pngLogo,
+                                width: 40, height: 40),
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: Text(
+                                  "Looking for delivery driver jobs?",
+                                  style: AppStyle.interSemi(
+                                    color: AppStyle.primary,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      if (deliveryState.hasValue)
+                        Padding(
+                          padding: EdgeInsets.all(16.w),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(bottom: 8.h),
+                                padding: EdgeInsets.all(16.r),
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: AppStyle.white,
+                                  borderRadius: BorderRadius.circular(10.r),
+                                ),
+                                child: Html(
+                                  data:
+                                      deliveryState.value?['description'] ?? '',
+                                  style: {
+                                    'body': Style(
+                                      fontSize: FontSize(16.sp),
+                                      color: AppStyle.textGrey,
+                                    ),
+                                    'strong':
+                                        Style(fontWeight: FontWeight.bold),
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: Visibility(
         visible: MediaQuery.of(context).viewInsets.bottom == 0.0,

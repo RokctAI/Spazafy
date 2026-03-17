@@ -3,7 +3,7 @@ import 'package:rokctapp/infrastructure/models/response/draw_routing_response.da
 
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-abstract class DrawFacade {
+abstract class DrawRepositoryFacade {
   Future<ApiResult<DrawRouting>> getRouting({
     required LatLng start,
     required LatLng end,

@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-abstract class AuthFacade {
+abstract class AuthRepositoryFacade {
   Future<ApiResult<LoginResponse>> login({
     required String email,
     required String password,
@@ -42,12 +42,4 @@ abstract class AuthFacade {
   Future<ApiResult<VerifyData>> forgotPasswordConfirmWithPhone({
     required String phone,
   });
-
-  Future<ApiResult<LoginResponse>> loginWithSocial({
-    String? email,
-    String? displayName,
-    String? id,
-  });
-
-  Future<ApiResult<CheckPhoneResponse>> checkPhone({required String phone});
 }

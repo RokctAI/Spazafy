@@ -3,7 +3,7 @@ import 'package:rokctapp/infrastructure/models/response/parcel_paginate_response
 
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-abstract class ParcelFacade {
+abstract class ParcelRepositoryFacade {
   Future<ApiResult<ParcelTypeResponse>> getTypes();
 
   Future<ApiResult<ParcelCalculateResponse>> getCalculate({
@@ -52,16 +52,4 @@ abstract class ParcelFacade {
     required String orderId,
     required String paymentId,
   });
-
-  // Driver Methods
-  Future<ApiResult<ParcelOrder>> showParcel(int id);
-  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId);
-  Future<ApiResult<List<ParcelOrder>>> getAvailableOrders(int page);
-  Future<ApiResult<dynamic>> updateParcel(int? parcelId, String? status);
-  Future<ApiResult<void>> addReviewParcel(
-    num orderId, {
-    required double rating,
-    required String comment,
-  });
-  Future<ApiResult<ParcelOrder>> setParcel(String orderId);
 }

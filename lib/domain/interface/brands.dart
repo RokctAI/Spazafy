@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-abstract class BrandsFacade {
+abstract class BrandsRepositoryFacade {
   Future<ApiResult<BrandsPaginateResponse>> getBrandsPaginate(int page);
 
   Future<ApiResult<BrandsPaginateResponse>> searchBrands(String query);

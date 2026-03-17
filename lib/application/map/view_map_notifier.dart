@@ -4,20 +4,22 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-// Note: Relative import for local components if needed
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/add_address.dart';
 import 'view_map_state.dart';
 
 class ViewMapNotifier extends StateNotifier<ViewMapState> {
-  final ShopsFacade _shopsRepository;
-  final UserFacade _userRepository;
+  final ShopsRepositoryFacade _shopsRepository;
+  final UserRepositoryFacade _userRepository;
 
   ViewMapNotifier(this._shopsRepository, this._userRepository)
-    : super(const ViewMapState());
+      : super(const ViewMapState());
 
   void scrolling(bool scroll) {
     state = state.copyWith(isScrolling: scroll);
@@ -27,26 +29,21 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     state = state.copyWith(place: place, isSetAddress: true);
   }
 
-  void checkAddress(BuildContext context, {Widget? addAddressWidget}) {
+  void checkAddress(BuildContext context) {
     AddressData? data = LocalStorage.getAddressSelected();
     if (data?.location?.latitude == null) {
       state = state.copyWith(isSetAddress: false);
-      if (addAddressWidget != null) {
-        AppHelpers.showAlertDialog(context: context, child: addAddressWidget);
-      }
+      AppHelpers.showAlertDialog(context: context, child: const AddAddress());
     } else {
       state = state.copyWith(isSetAddress: true);
     }
   }
 
-  void updateActive() {
+  updateActive() {
     state = state.copyWith(isLoading: true);
   }
 
-  Future<void> saveLocation(
-    BuildContext context, {
-    VoidCallback? onSuccess,
-  }) async {
+  saveLocation(BuildContext context, {VoidCallback? onSuccess}) async {
     final connected = await AppConnectivity.connectivity();
     if (connected) {
       state = state.copyWith(isLoading: true);
@@ -71,7 +68,7 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     }
   }
 
-  Future<void> updateLocation(
+  updateLocation(
     BuildContext context,
     String? id, {
     VoidCallback? onSuccess,

@@ -3,7 +3,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/order/order_provider.dart';
-import 'package:rokctapp/application/order/payment_methods/payment_provider.dart';
+import 'package:rokctapp/application/payment_methods/payment_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/promo_code.dart';
@@ -40,52 +40,47 @@ class CardAndPromo extends StatelessWidget {
                 },
                 icon: Icon(
                   FlutterRemix.bank_card_fill,
-                  color:
-                      ((AppHelpers.getPaymentType() == "admin")
+                  color: ((AppHelpers.getPaymentType() == "admin")
                           ? (ref.watch(paymentProvider).payments.isNotEmpty)
                           : (ref
-                                    .watch(orderProvider)
-                                    .shopData
-                                    ?.shopPayments
-                                    ?.isNotEmpty ??
-                                false))
-                      ? AppStyle.primary
-                      : AppStyle.black,
-                ),
-                title:
-                    ((AppHelpers.getPaymentType() == "admin")
-                        ? (ref.watch(paymentProvider).payments.isNotEmpty)
-                        : (ref
                                   .watch(orderProvider)
                                   .shopData
                                   ?.shopPayments
                                   ?.isNotEmpty ??
                               false))
+                      ? AppStyle.primary
+                      : AppStyle.black,
+                ),
+                title: ((AppHelpers.getPaymentType() == "admin")
+                        ? (ref.watch(paymentProvider).payments.isNotEmpty)
+                        : (ref
+                                .watch(orderProvider)
+                                .shopData
+                                ?.shopPayments
+                                ?.isNotEmpty ??
+                            false))
                     ? ((AppHelpers.getPaymentType() == "admin")
-                          ? (ref
-                                .watch(paymentProvider)
-                                .payments[ref
-                                    .watch(paymentProvider)
-                                    .currentIndex]
-                                .tag)
-                          : (ref
-                                    .watch(orderProvider)
-                                    .shopData
-                                    ?.shopPayments?[ref
-                                        .watch(paymentProvider)
-                                        .currentIndex]
-                                    ?.payment
-                                    ?.tag ??
-                                ""))
+                        ? (ref
+                            .watch(paymentProvider)
+                            .payments[ref.watch(paymentProvider).currentIndex]
+                            .tag)
+                        : (ref
+                                .watch(orderProvider)
+                                .shopData
+                                ?.shopPayments?[
+                                    ref.watch(paymentProvider).currentIndex]
+                                ?.payment
+                                ?.tag ??
+                            ""))
                     : AppHelpers.getTranslation(TrKeys.noPaymentType),
                 isActive: ((AppHelpers.getPaymentType() == "admin")
                     ? (ref.watch(paymentProvider).payments.isNotEmpty)
                     : (ref
-                              .watch(orderProvider)
-                              .shopData
-                              ?.shopPayments
-                              ?.isNotEmpty ??
-                          false)),
+                            .watch(orderProvider)
+                            .shopData
+                            ?.shopPayments
+                            ?.isNotEmpty ??
+                        false)),
               );
             },
           ),
@@ -108,8 +103,7 @@ class CardAndPromo extends StatelessWidget {
                       ? AppStyle.black
                       : AppStyle.primary,
                 ),
-                title:
-                    ref.watch(orderProvider).promoCode ??
+                title: ref.watch(orderProvider).promoCode ??
                     AppHelpers.getTranslation(TrKeys.youHavePromoCode),
               );
             },

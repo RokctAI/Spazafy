@@ -3,8 +3,8 @@ import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import '../constants/storage_keys.dart';
+import 'package:rokctapp/infrastructure/models/response/driver_show_response.dart';
+import 'storage_keys.dart';
 
 abstract class LocalStorage {
   LocalStorage._();
@@ -116,8 +116,8 @@ abstract class LocalStorage {
             .map((part) => part.trim())
             .toList(); // Use null-aware operator
         if (addressParts.length >= 3) {
-          String postalCode = addressParts
-              .removeLast(); // Remove and store postal code
+          String postalCode =
+              addressParts.removeLast(); // Remove and store postal code
           addressParts.insert(
             0,
             postalCode,
@@ -215,9 +215,8 @@ abstract class LocalStorage {
       _preferences?.remove(StorageKeys.keyWalletData);
 
   static Future<void> setSettingsList(List<SettingsData> settings) async {
-    final List<String> strings = settings
-        .map((setting) => jsonEncode(setting.toJson()))
-        .toList();
+    final List<String> strings =
+        settings.map((setting) => jsonEncode(setting.toJson())).toList();
     await _preferences?.setStringList(StorageKeys.keyGlobalSettings, strings);
   }
 
@@ -252,6 +251,34 @@ abstract class LocalStorage {
 
   static void deleteTranslations() =>
       _preferences?.remove(StorageKeys.keyTranslations);
+      
+  static Future<void> setIsGuest(bool isGuest) async {
+    await _preferences?.setBool(StorageKeys.keyIsGuest, isGuest);
+  }
+
+  static bool getIsGuest() => _preferences?.getBool(StorageKeys.keyIsGuest) ?? false;
+
+  static void deleteIsGuest() => _preferences?.remove(StorageKeys.keyIsGuest);
+
+  static Future<void> setOfflineUser(Map<String, dynamic>? data) async {
+    await _preferences?.setString(StorageKeys.keyOfflineUser, jsonEncode(data));
+  }
+
+  static Map<String, dynamic>? getOfflineUser() {
+    final data = _preferences?.getString(StorageKeys.keyOfflineUser);
+    return data != null ? jsonDecode(data) : null;
+  }
+
+  static void deleteOfflineUser() => _preferences?.remove(StorageKeys.keyOfflineUser);
+
+  static Future<void> setRemoteConfig(Map<String, dynamic>? data) async {
+    await _preferences?.setString(StorageKeys.keyRemoteConfig, jsonEncode(data));
+  }
+
+  static Map<String, dynamic>? getRemoteConfig() {
+    final data = _preferences?.getString(StorageKeys.keyRemoteConfig);
+    return data != null ? jsonDecode(data) : null;
+  }
 
   static Future<void> setAppThemeMode(bool isDarkMode) async {
     await _preferences?.setBool(StorageKeys.keyAppThemeMode, isDarkMode);
@@ -327,79 +354,7 @@ abstract class LocalStorage {
     deleteAddressSelected();
     deleteAddressInformation();
     deleteBoard();
-    removePrinterName();
-    removePrinterMac();
-    removeAppPin();
-    deleteShop();
-    deleteOnline();
-  }
-
-  /// Manager & Driver specific persistence
-  static Future<void> setShop(dynamic shop) async {
-    if (_preferences != null) {
-      final String shopString = shop != null ? jsonEncode(shop.toJson()) : '';
-      await _preferences!.setString(StorageKeys.keyShop, shopString);
-    }
-  }
-
-  static dynamic getShop() {
-    final savedString = _preferences?.getString(StorageKeys.keyShop);
-    if (savedString == null) {
-      return null;
-    }
-    return jsonDecode(savedString);
-  }
-
-  static void deleteShop() => _preferences?.remove(StorageKeys.keyShop);
-
-  static Future<void> setOnline(bool online) async {
-    await _preferences?.setBool(StorageKeys.keyOnline, online);
-  }
-
-  static bool getOnline() =>
-      _preferences?.getBool(StorageKeys.keyOnline) ?? false;
-
-  static void deleteOnline() => _preferences?.remove(StorageKeys.keyOnline);
-
-  static Future<void> setPrinterMac(String? mac) async {
-    await _preferences?.setString(StorageKeys.keyPrinterMac, mac ?? '');
-  }
-
-  static String? getPrinterMac() =>
-      _preferences?.getString(StorageKeys.keyPrinterMac);
-
-  static void removePrinterMac() =>
-      _preferences?.remove(StorageKeys.keyPrinterMac);
-
-  static Future<void> setPrinterName(String? name) async {
-    await _preferences?.setString(StorageKeys.keyPrinterName, name ?? '');
-  }
-
-  static String? getPrinterName() =>
-      _preferences?.getString(StorageKeys.keyPrinterName);
-
-  static void removePrinterName() =>
-      _preferences?.remove(StorageKeys.keyPrinterName);
-
-  static Future<void> setAppPin(String? pin) async {
-    await _preferences?.setString(StorageKeys.keyAppPin, pin ?? '');
-  }
-
-  static String getAppPin() =>
-      _preferences?.getString(StorageKeys.keyAppPin) ?? '';
-
-  static void removeAppPin() => _preferences?.remove(StorageKeys.keyAppPin);
-
-  static Future<void> setActiveLanguages(List<dynamic> languages) async {
-    final List<String> strings = languages
-        .map((l) => jsonEncode(l.toJson()))
-        .toList();
-    await _preferences?.setStringList(StorageKeys.keyActiveLanguages, strings);
-  }
-
-  static List<dynamic> getActiveLanguages() {
-    final List<String> languages =
-        _preferences?.getStringList(StorageKeys.keyActiveLanguages) ?? [];
-    return languages.map((l) => jsonDecode(l)).toList();
+    deleteIsGuest();
+    deleteOfflineUser();
   }
 }

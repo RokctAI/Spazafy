@@ -29,12 +29,6 @@ abstract class StorageKeys {
   static const String keyAuthenticatedWithSocial = 'keyAuthenticatedWithSocial';
   static const String keyLangLtr = 'keyLangLtr';
   static const String keyCarInfo = 'keyCarInfo';
-  static const String keyActiveLanguages = 'keyActiveLanguages';
-  static const String keyWallet = 'keyWallet';
-  static const String keyShop = 'keyShop';
-  static const String keySystemLanguage = 'keySystemLanguage';
-  static const String keyPrinterMac = 'keyPrinterMac';
-  static const String keyPrinterName = 'keyPrinterName';
-  static const String keyAppPin = 'keyAppPin';
-  static const String keyOnline = 'keyOnline';
+  static const String keyOfflineUser = 'keyOfflineUser';
+  static const String keyRemoteConfig = 'keyRemoteConfig';
 }

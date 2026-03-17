@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-abstract class AddressFacade {
+abstract class AddressRepositoryFacade {
   Future<ApiResult<AddressesResponse>> getUserAddresses();
 
   Future<ApiResult<void>> deleteAddress(int addressId);

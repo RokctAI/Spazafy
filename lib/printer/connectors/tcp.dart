@@ -1,4 +1,4 @@
-import '../models/printer_device.dart';
+import 'package:rokctapp/printer/models/data/printer_device.dart';
 
 class TcpConnector {
   static final TcpConnector _instance = TcpConnector._internal();

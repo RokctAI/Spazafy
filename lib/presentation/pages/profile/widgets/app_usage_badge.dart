@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-import '../../../../utils/app_usage_service.dart';
+import 'package:rokctapp/utils/app_usage_service.dart';
 
 class AppUsageBadge extends StatefulWidget {
   const AppUsageBadge({super.key});
