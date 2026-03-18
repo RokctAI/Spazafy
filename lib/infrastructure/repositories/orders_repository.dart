@@ -6,6 +6,7 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'dart:convert';
 
 class OrdersRepository implements OrdersRepositoryFacade {
   @override
@@ -42,11 +43,36 @@ class OrdersRepository implements OrdersRepositoryFacade {
         '/api/method/paas.api.order.order.list_orders',
         queryParameters: data,
       );
-      return ApiResult.success(
-        data: OrderPaginateResponse.fromJson(response.data),
-      );
+
+      final responseData = OrderPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache orders locally on success
+      if (responseData.data != null) {
+        for (final order in responseData.data!) {
+          await appDatabase.upsertOrder(order.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get orders failure: $e');
+
+      // Fallback: If network fails, try fetching from local DB
+      try {
+        final localOrders = await appDatabase.getOrdersLocally(status: status);
+        if (localOrders.isNotEmpty) {
+          return ApiResult.success(
+            data: OrderPaginateResponse(
+              data: localOrders
+                  .map((e) => OrderActiveModel.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

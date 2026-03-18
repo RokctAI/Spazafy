@@ -24,17 +24,22 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/background_sync_service.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
+import 'package:flutter/cupertino.dart';
+import 'dart:convert';
 import 'register_state.dart';
 
 class RegisterNotifier extends StateNotifier<RegisterState> {
   final AuthRepositoryFacade _authRepository;
   final UserRepositoryFacade _userRepositoryFacade;
   final BackgroundSyncService _backgroundSyncService;
+  final AppDatabase _appDatabase;
 
   RegisterNotifier(
     this._authRepository,
     this._userRepositoryFacade,
     this._backgroundSyncService,
+    this._appDatabase,
   ) : super(const RegisterState());
 
   void setPassword(String password) {
@@ -199,6 +204,19 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
 
       response.when(
         success: (data) async {
+          // Persist user to local DB for future offline login
+          await _appDatabase.upsertUser(
+            {
+              'uuid': data.user?.id?.toString() ?? '',
+              'email': state.email,
+              'phone': state.phone,
+              'role': 'seller',
+              'firstname': state.firstName,
+              'lastname': state.lastName,
+            },
+            password: state.password,
+          );
+
           state = state.copyWith(isLoading: false);
           LocalStorage.setToken(data.token);
           LocalStorage.setAddressSelected(
@@ -278,6 +296,32 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         return;
       }
 
+      final hasExistingManager = await _appDatabase.hasManagerAccount();
+      if (hasExistingManager) {
+        if (!context.mounted) return;
+        final bool? override = await showCupertinoDialog<bool>(
+          context: context,
+          builder: (context) => CupertinoAlertDialog(
+            title: Text(AppHelpers.getTranslation(TrKeys.warning)),
+            content: Text(
+              "A manager account already exists on this device. Continuing will override their local data. Proceed?",
+            ),
+            actions: [
+              CupertinoDialogAction(
+                child: Text(AppHelpers.getTranslation(TrKeys.cancel)),
+                onPressed: () => Navigator.pop(context, false),
+              ),
+              CupertinoDialogAction(
+                isDestructiveAction: true,
+                child: Text(AppHelpers.getTranslation(TrKeys.confirm)),
+                onPressed: () => Navigator.pop(context, true),
+              ),
+            ],
+          ),
+        );
+        if (override != true) return;
+      }
+
       // 1. Set as Guest
       LocalStorage.setIsGuest(true);
       // 2. Save offline user details
@@ -339,6 +383,19 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
 
       response.when(
         success: (data) async {
+          // Persist user to local DB for future offline login
+          await _appDatabase.upsertUser(
+            {
+              'uuid': data.user?.id?.toString() ?? '',
+              'email': state.email,
+              'phone': state.phone,
+              'role': 'seller',
+              'firstname': state.firstName,
+              'lastname': state.lastName,
+            },
+            password: state.password,
+          );
+
           state = state.copyWith(isLoading: false);
           LocalStorage.setToken(data.token);
           LocalStorage.setAddressSelected(

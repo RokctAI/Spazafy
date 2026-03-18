@@ -4,10 +4,10 @@ import 'dart:ui';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as img;
 import 'dart:async';
-import 'dart:math';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:dio/dio.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
 
@@ -35,8 +35,14 @@ class ImageCropperForMarker {
     final String tempPath = tempDir.path;
     try {
       final File file = File('$tempPath${rd.nextInt(100)}.png');
-      final http.Response response = await http.get(Uri.parse(imageUrl ?? ''));
-      await file.writeAsBytes(response.bodyBytes);
+      final client = dioHttp.client(requireAuth: false);
+      final response = await client.get<List<int>>(
+        imageUrl ?? '',
+        options: Options(responseType: ResponseType.bytes),
+      );
+      if (response.data != null) {
+        await file.writeAsBytes(response.data!);
+      }
       return file;
     } catch (e) {
       return await imageToFile(imageName: "images/app_logo", ext: "png");

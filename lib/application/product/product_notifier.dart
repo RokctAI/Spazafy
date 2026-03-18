@@ -69,47 +69,37 @@ class ProductNotifier extends StateNotifier<ProductState> {
     String? shopId, {
     bool isLoading = true,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      if (isLoading) {
-        state = state.copyWith(
-          isLoading: true,
-          productData: null,
-          activeImageUrl: '',
-        );
-      }
-      final response = await _productsRepository.getProductDetails(productId);
-      response.when(
-        success: (data) async {
-          final List<Stocks> stocks = data.data?.stocks ?? <Stocks>[];
-          state = state.copyWith(
-            count: state.count == 1 ? data.data?.minQty ?? 1 : state.count,
-            productData: data.data,
-            activeImageUrl: '${data.data?.img}',
-            initialStocks: stocks,
-            isLoading: false,
-          );
-          generateShareLink(shopType, shopId);
-          if (stocks.isNotEmpty) {
-            final int groupsCount = stocks[0].extras?.length ?? 0;
-            final List<int> selectedIndexes = List.filled(groupsCount, 0);
-            initialSetSelectedIndexes(context, selectedIndexes);
-          }
-        },
-        failure: (failure, s) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-          debugPrint('==> get product details failure: $failure');
-        },
+    if (isLoading) {
+      state = state.copyWith(
+        isLoading: true,
+        productData: null,
+        activeImageUrl: '',
       );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-        );
-      }
     }
+    final response = await _productsRepository.getProductDetails(productId);
+    response.when(
+      success: (data) async {
+        final List<Stocks> stocks = data.data?.stocks ?? <Stocks>[];
+        state = state.copyWith(
+          count: state.count == 1 ? data.data?.minQty ?? 1 : state.count,
+          productData: data.data,
+          activeImageUrl: '${data.data?.img}',
+          initialStocks: stocks,
+          isLoading: false,
+        );
+        generateShareLink(shopType, shopId);
+        if (stocks.isNotEmpty) {
+          final int groupsCount = stocks[0].extras?.length ?? 0;
+          final List<int> selectedIndexes = List.filled(groupsCount, 0);
+          initialSetSelectedIndexes(context, selectedIndexes);
+        }
+      },
+      failure: (failure, s) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+        debugPrint('==> get product details failure: $failure');
+      },
+    );
   }
 
   void addCount(BuildContext context) {
@@ -149,64 +139,57 @@ class ProductNotifier extends StateNotifier<ProductState> {
   }) async {
     state = state.copyWith(isCheckShopOrder: false);
     if (shopId == state.productData?.shopId) {
-      final connected = await AppConnectivity.connectivity();
-      if (connected) {
-        state = state.copyWith(isAddLoading: true);
-        List<CartRequest> list = [
-          CartRequest(
-            stockId: stockId ?? state.selectedStock?.id ?? "",
-            quantity: count ?? state.count,
-          ),
-        ];
-        for (Addons element in state.selectedStock?.addons ?? []) {
-          list.add(
-            CartRequest(
-              stockId: element.product?.stock?.id,
-              quantity: (element.active ?? false) ? element.quantity : 0,
-              parentId: stockId ?? state.selectedStock?.id ?? "",
+    state = state.copyWith(isAddLoading: true);
+    List<CartRequest> list = [
+      CartRequest(
+        stockId: stockId ?? state.selectedStock?.id ?? "",
+        quantity: count ?? state.count,
+      ),
+    ];
+    for (Addons element in state.selectedStock?.addons ?? []) {
+      list.add(
+        CartRequest(
+          stockId: element.product?.stock?.id,
+          quantity: (element.active ?? false) ? element.quantity : 0,
+          parentId: stockId ?? state.selectedStock?.id ?? "",
+        ),
+      );
+    }
+    final response = isGroupOrder
+        ? await _cartRepository.insertCartWithGroup(
+            cart: CartRequest(
+              shopId: state.productData?.shopId ?? "",
+              cartId: cartId,
+              userUuid: userUuid,
+              productId: state.productData?.uuid,
+              stockId: stockId ?? state.selectedStock?.id ?? "",
+              quantity: count ?? state.count,
+              carts: list,
+            ),
+          )
+        : await _cartRepository.insertCart(
+            cart: CartRequest(
+              shopId: state.productData?.shopId ?? "",
+              productId: state.productData?.uuid,
+              stockId: stockId ?? state.selectedStock?.id ?? "",
+              quantity: count ?? state.count,
+              carts: list,
             ),
           );
+    response.when(
+      success: (data) {
+        state = state.copyWith(isAddLoading: false);
+        onSuccess();
+      },
+      failure: (failure, status) {
+        if (status != 400) {
+          state = state.copyWith(isAddLoading: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        } else {
+          onError?.call();
         }
-        final response = isGroupOrder
-            ? await _cartRepository.insertCartWithGroup(
-                cart: CartRequest(
-                  shopId: state.productData?.shopId ?? "",
-                  cartId: cartId,
-                  userUuid: userUuid,
-                  productId: state.productData?.uuid,
-                  stockId: stockId ?? state.selectedStock?.id ?? "",
-                  quantity: count ?? state.count,
-                  carts: list,
-                ),
-              )
-            : await _cartRepository.insertCart(
-                cart: CartRequest(
-                  shopId: state.productData?.shopId ?? "",
-                  productId: state.productData?.uuid,
-                  stockId: stockId ?? state.selectedStock?.id ?? "",
-                  quantity: count ?? state.count,
-                  carts: list,
-                ),
-              );
-        response.when(
-          success: (data) {
-            state = state.copyWith(isAddLoading: false);
-            onSuccess();
-          },
-          failure: (failure, status) {
-            if (status != 400) {
-              state = state.copyWith(isAddLoading: false);
-              AppHelpers.showCheckTopSnackBar(context, failure);
-            } else {
-              onError?.call();
-            }
-          },
-        );
-      } else {
-        if (context.mounted) {
-          AppHelpers.showNoConnectionSnackBar(context);
-        }
-      }
+      },
+    );
     } else {
       state = state.copyWith(isCheckShopOrder: true);
     }

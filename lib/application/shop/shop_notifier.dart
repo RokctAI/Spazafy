@@ -12,8 +12,7 @@ import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:http/http.dart' as http;
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
 import 'package:rokctapp/domain/interface/draw.dart';
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
@@ -64,27 +63,21 @@ class ShopNotifier extends StateNotifier<ShopState> {
     required LatLng start,
     required LatLng end,
   }) async {
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(polylineCoordinates: []);
+    state = state.copyWith(polylineCoordinates: []);
       final response = await _drawRouting.getRouting(start: start, end: end);
       response.when(
         success: (data) {
-          List<LatLng> list = [];
-          List ls = data.features[0].geometry.coordinates;
-          for (int i = 0; i < ls.length; i++) {
-            list.add(LatLng(ls[i][1], ls[i][0]));
-          }
-          state = state.copyWith(polylineCoordinates: list);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(polylineCoordinates: []);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+        List<LatLng> list = [];
+        List ls = data.features[0].geometry.coordinates;
+        for (int i = 0; i < ls.length; i++) {
+          list.add(LatLng(ls[i][1], ls[i][0]));
+        }
+        state = state.copyWith(polylineCoordinates: list);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(polylineCoordinates: []);
+      },
+    );
   }
 
   changeMap({required LatLng shopLocation}) async {
@@ -301,9 +294,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
     String name,
     VoidCallback onSuccess,
   ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isJoinOrder: true);
+    state = state.copyWith(isJoinOrder: true);
       final response = await _shopsRepository.joinOrder(
         shopId: shopId,
         name: name,
@@ -311,83 +302,62 @@ class ShopNotifier extends StateNotifier<ShopState> {
       );
       response.when(
         success: (data) async {
-          state = state.copyWith(
-            isJoinOrder: false,
-            isGroupOrder: true,
-            userUuid: data,
-          );
-          onSuccess();
-        },
-        failure: (failure, status) {
-          state = state.copyWith(
-            isJoinOrder: false,
-            userUuid: "",
-            isGroupOrder: false,
-          );
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+        state = state.copyWith(
+          isJoinOrder: false,
+          isGroupOrder: true,
+          userUuid: data,
+        );
+        onSuccess();
+      },
+      failure: (failure, status) {
+        state = state.copyWith(
+          isJoinOrder: false,
+          userUuid: "",
+          isGroupOrder: false,
+        );
+      },
+    );
   }
 
   Future<void> fetchShop(BuildContext context, String uuid) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true);
+    state = state.copyWith(isLoading: true);
       final response = await _shopsRepository.getSingleShop(uuid: uuid);
       response.when(
         success: (data) async {
-          _list = LocalStorage.getSavedShopsList();
-          for (String e in _list) {
-            if (e == data.data?.id) {
-              state = state.copyWith(isLike: true);
-              break;
-            }
+        _list = LocalStorage.getSavedShopsList();
+        for (String e in _list) {
+          if (e == data.data?.id) {
+            state = state.copyWith(isLike: true);
+            break;
           }
-          state = state.copyWith(isLoading: false, shopData: data.data);
-          generateShareLink();
-          checkWorkingDay();
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+        }
+        state = state.copyWith(isLoading: false, shopData: data.data);
+        generateShareLink();
+        checkWorkingDay();
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   Future<bool> fetchCategory(BuildContext context, String shopId) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isCategoryLoading: true);
+    state = state.copyWith(isCategoryLoading: true);
       final response = await _categoriesRepository.getCategoriesByShop(
         shopId: shopId,
       );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(category: data.data, isCategoryLoading: false);
-          return true;
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isCategoryLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-          return false;
-        },
-      );
-      return false;
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-      return false;
-    }
+    return response.when(
+      success: (data) async {
+        state = state.copyWith(category: data.data, isCategoryLoading: false);
+        return true;
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isCategoryLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+        return false;
+      },
+    );
   }
 
   // At the end of the fetchProducts method in ShopNotifier, add this code
@@ -398,9 +368,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
     String shopId,
     ValueChanged<int> onSuccess,
   ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      page = 1;
+    page = 1;
       state = state.copyWith(
         isProductLoading: true,
         isCategoryLoading: true,
@@ -432,77 +400,62 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
       productsResponse.when(
         success: (data) {
-          List<All> allList = data.data?.all ?? [];
-          for (int i = 0; i < allList.length; i++) {
-            allList[i] = allList[i].copyWith(key: GlobalKey());
+        List<All> allList = data.data?.all ?? [];
+        for (int i = 0; i < allList.length; i++) {
+          allList[i] = allList[i].copyWith(key: GlobalKey());
+        }
+
+        if (data.data?.recommended?.isNotEmpty ?? false) {
+          final Map<String, Product> productsById = {};
+          for (final category in allList) {
+            for (final product in category.products ?? []) {
+              if (product.id != null) {
+                productsById[product.id!] = product;
+              }
+            }
           }
 
-          // Get recommended products
-          if (data.data?.recommended?.isNotEmpty ?? false) {
-            // Create a map of regular products by ID for fast lookup
-            final Map<String, Product> productsById = {};
-            for (final category in allList) {
-              for (final product in category.products ?? []) {
-                if (product.id != null) {
-                  productsById[product.id!] = product;
-                }
-              }
+          final List<Product> recommendedWithBrands = [];
+          for (final recProduct in data.data?.recommended ?? []) {
+            if (recProduct.id != null &&
+                productsById.containsKey(recProduct.id)) {
+              final regularProduct = productsById[recProduct.id]!;
+              recommendedWithBrands.add(
+                recProduct.copyWith(brandId: regularProduct.brandId),
+              );
+            } else {
+              recommendedWithBrands.add(recProduct);
             }
+          }
 
-            // Copy brand_id from regular products to corresponding recommended products
-            final List<Product> recommendedWithBrands = [];
-            for (final recProduct in data.data?.recommended ?? []) {
-              if (recProduct.id != null &&
-                  productsById.containsKey(recProduct.id)) {
-                // Copy the brand_id from the regular product to the recommended product
-                final regularProduct = productsById[recProduct.id]!;
-                recommendedWithBrands.add(
-                  recProduct.copyWith(brandId: regularProduct.brandId),
-                );
-              } else {
-                recommendedWithBrands.add(recProduct);
-              }
-            }
-
-            // Insert the popular category with updated products that have brand IDs
-            allList.insert(
-              0,
-              All(
-                translation: Translation(
-                  title: AppHelpers.getTranslation(TrKeys.popular),
-                ),
-                key: GlobalKey(),
-                products: recommendedWithBrands,
+          allList.insert(
+            0,
+            All(
+              translation: Translation(
+                title: AppHelpers.getTranslation(TrKeys.popular),
               ),
-            );
-          }
-
-          state = state.copyWith(
-            allData: allList,
-            isProductLoading: false,
-            isCategoryLoading: false,
+              key: GlobalKey(),
+              products: recommendedWithBrands,
+            ),
           );
+        }
 
-          onSuccess.call(allList.length);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(
-            isProductLoading: false,
-            isCategoryLoading: false,
-          );
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-      state = state.copyWith(
-        isProductLoading: false,
-        isCategoryLoading: false,
-        isBrandsLoading: false,
-      );
-    }
+        state = state.copyWith(
+          allData: allList,
+          isProductLoading: false,
+          isCategoryLoading: false,
+        );
+
+        onSuccess.call(allList.length);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(
+          isProductLoading: false,
+          isCategoryLoading: false,
+        );
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   // Modified fetchBrands method - only used as a fallback
@@ -511,33 +464,23 @@ class ShopNotifier extends StateNotifier<ShopState> {
     String? categoryId,
     String? shopId,
   }) async {
-    // If we already have brands, don't fetch again
     if (state.brands != null && state.brands!.isNotEmpty) {
       return;
     }
-
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isBrandsLoading: true);
+    state = state.copyWith(isBrandsLoading: true);
       final response = await _brandsRepository.getAllBrands(
         categoryId: categoryId,
         shopId: shopId,
       );
       response.when(
         success: (data) {
-          state = state.copyWith(brands: data.data, isBrandsLoading: false);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isBrandsLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      state = state.copyWith(isBrandsLoading: false);
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+        state = state.copyWith(brands: data.data, isBrandsLoading: false);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isBrandsLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   // ignore: unused_element
@@ -564,28 +507,21 @@ class ShopNotifier extends StateNotifier<ShopState> {
   }
 
   Future<void> checkProductsPopular(BuildContext context, String shopId) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      page = 1;
+    page = 1;
       final response = await _productsRepository.getProductsPopularPaginate(
         page: 1,
         shopId: shopId,
       );
       response.when(
         success: (data) {
-          state = state.copyWith(
-            isPopularProduct: (data.data ?? []).isNotEmpty,
-          );
-        },
-        failure: (failure, status) {
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+        state = state.copyWith(
+          isPopularProduct: (data.data ?? []).isNotEmpty,
+        );
+      },
+      failure: (failure, status) {
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   // Future<void> fetchProductsPopular(BuildContext context, String shopId) async {
@@ -629,9 +565,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
     String shopId,
     String categoryId,
   ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isProductCategoryLoading: true);
+    state = state.copyWith(isProductCategoryLoading: true);
       page = 1;
       final response =
           await _productsRepository.getProductsShopByCategoryPaginate(
@@ -643,21 +577,16 @@ class ShopNotifier extends StateNotifier<ShopState> {
       );
       response.when(
         success: (data) {
-          state = state.copyWith(
-            categoryProducts: data.data ?? [],
-            isProductCategoryLoading: false,
-          );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isProductCategoryLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+        state = state.copyWith(
+          categoryProducts: data.data ?? [],
+          isProductCategoryLoading: false,
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isProductCategoryLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   Future<void> fetchProductsByCategoryPage(
@@ -666,9 +595,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
     String categoryId, {
     RefreshController? controller,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      final response =
+    final response =
           await _productsRepository.getProductsShopByCategoryPaginate(
         page: ++page,
         shopId: shopId,
@@ -676,26 +603,20 @@ class ShopNotifier extends StateNotifier<ShopState> {
       );
       response.when(
         success: (data) {
-          List<ProductData> list = List.from(state.categoryProducts);
-          list.addAll(data.data!.toList());
-          state = state.copyWith(categoryProducts: list);
-          if (data.data?.isEmpty ?? true) {
-            controller?.loadNoData();
-            return;
-          }
-          controller?.loadComplete();
-        },
-        failure: (failure, status) {
-          controller?.loadComplete();
-
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+        List<ProductData> list = List.from(state.categoryProducts);
+        list.addAll(data.data!.toList());
+        state = state.copyWith(categoryProducts: list);
+        if (data.data?.isEmpty ?? true) {
+          controller?.loadNoData();
+          return;
+        }
+        controller?.loadComplete();
+      },
+      failure: (failure, status) {
+        controller?.loadComplete();
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   // Future<void> fetchProductsPage(BuildContext context, String shopId,
@@ -816,38 +737,34 @@ class ShopNotifier extends StateNotifier<ShopState> {
         },
       },
     };
-    debugPrint("share link data: $shareLink");
-    final res = await http.post(
-      Uri.parse(dynamicLink),
-      body: jsonEncode(dataShare),
+    final client = dioHttp.client(requireAuth: false);
+    final res = await client.post(
+      'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=${AppConstants.firebaseWebKey}',
+      data: dataShare,
     );
 
-    shareLink = jsonDecode(res.body)['shortLink'];
-    debugPrint("share link: shop_notifier $shareLink \n$dataShare");
+    state = state.copyWith(shareLink: res.data['shortLink']);
+
+    debugPrint(
+      'share link shop_notifier: ${state.shareLink}\n$dataShare',
+    );
   }
 
   onShare() async {
     await Share.share(
-      shareLink ?? '',
+      state.shareLink ?? '',
       subject: state.shopData?.translation?.title ?? "Juvo",
       // title: state.shopData?.translation?.description ?? "",
     );
   }
 
   Future<ShopData?> fetchShopData(String shopId) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      final response = await _shopsRepository.getSingleShop(uuid: shopId);
-      return response.when(
-        success: (data) => data.data,
-        failure: (failure, status) {
-          // Handle error
-          return null;
-        },
-      );
-    } else {
-      // Handle no connection
-      return null;
-    }
+    final response = await _shopsRepository.getSingleShop(uuid: shopId);
+    return response.when(
+      success: (data) => data.data,
+      failure: (failure, status) {
+        return null;
+      },
+    );
   }
 }

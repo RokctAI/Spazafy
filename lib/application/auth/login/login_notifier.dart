@@ -23,6 +23,8 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:rokctapp/domain/interface/settings.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/background_sync_service.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
+import 'dart:convert';
 
 import 'login_state.dart';
 
@@ -31,12 +33,14 @@ class LoginNotifier extends StateNotifier<LoginState> {
   final SettingsRepositoryFacade _settingsRepository;
   final UserRepositoryFacade _userRepositoryFacade;
   final BackgroundSyncService _backgroundSyncService;
+  final AppDatabase _appDatabase;
 
   LoginNotifier(
     this._authRepository,
     this._settingsRepository,
     this._userRepositoryFacade,
     this._backgroundSyncService,
+    this._appDatabase,
   ) : super(const LoginState());
 
   void setPassword(String text) {
@@ -181,6 +185,14 @@ class LoginNotifier extends StateNotifier<LoginState> {
       );
       response.when(
         success: (data) async {
+          // Persist user to local DB for future offline login
+          if (data.data?.user != null) {
+            await _appDatabase.upsertUser(
+              data.data!.user!.toJson(),
+              password: state.password,
+            );
+          }
+
           LocalStorage.setToken(data.data?.accessToken ?? '');
           LocalStorage.setAddressSelected(
             AddressData(
@@ -250,15 +262,44 @@ class LoginNotifier extends StateNotifier<LoginState> {
         return;
       }
 
-      // 1. Set as Guest
+      state = state.copyWith(isLoading: true);
+      
+      // 1. Check Local DB for offline re-login
+      final localUser = await _appDatabase.getLocalUser(state.email);
+      if (localUser != null && localUser.password == state.password) {
+        // Success: Found matching local credentials
+        final profileMap = jsonDecode(localUser.data);
+        final profile = ProfileData.fromJson(profileMap);
+        
+        // Use cached token if available, or a placeholder
+        LocalStorage.setToken(profile.accessToken ?? 'offline_session');
+        LocalStorage.setUser(profile);
+        
+        if (profile.addresses?.isNotEmpty ?? false) {
+          final addr = profile.addresses!.first;
+          LocalStorage.setAddressSelected(AddressData(
+            title: addr.title ?? "",
+            address: addr.address?.address ?? "",
+            location: LocationModel(
+              latitude: addr.location?.first,
+              longitude: addr.location?.last,
+            ),
+          ));
+        }
+
+        state = state.copyWith(isLoading: false);
+        AppHelpers.goHome(context);
+        return;
+      }
+
+      // 2. If no local user but they want to login, queue as Guest/Pending
+      state = state.copyWith(isLoading: false);
       LocalStorage.setIsGuest(true);
-      // 2. Save offline user details
       LocalStorage.setOfflineUser({
         'email': state.email,
         'password': state.password,
         'type': 'login',
       });
-      // 3. Queue the request
       _backgroundSyncService.enqueueRequest(
         '${AppConstants.baseUrl}/auth/login',
         'POST',
@@ -267,7 +308,6 @@ class LoginNotifier extends StateNotifier<LoginState> {
           'password': state.password,
         },
       );
-      // 4. Go Home
       AppHelpers.goHome(context);
     }
   }

@@ -45,6 +45,7 @@ import 'package:rokctapp/domain/interface/loans.dart';
 import 'package:rokctapp/domain/interface/wallet.dart';
 import 'package:rokctapp/domain/interface/delivery_points.dart';
 import 'package:rokctapp/infrastructure/repositories/delivery_points_repository.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 
 import 'package:rokctapp/infrastructure/repositories/mock/mock_auth_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/mock/mock_settings_repository.dart';
@@ -60,6 +61,7 @@ import 'package:rokctapp/infrastructure/repositories/mock/mock_brands_repository
 final GetIt getIt = GetIt.instance;
 
 Future<void> setUpDependencies() async {
+  getIt.registerSingleton<AppDatabase>(AppDatabase());
   getIt.registerLazySingleton<HttpService>(() => HttpService());
 
   if (AppConstants.isDemo) {
@@ -108,6 +110,7 @@ Future<void> setUpDependencies() async {
 }
 
 final dioHttp = getIt.get<HttpService>();
+final appDatabase = getIt.get<AppDatabase>();
 final notificationRepo = getIt.get<NotificationRepositoryFacade>();
 final drawRepository = getIt.get<DrawRepositoryFacade>();
 final settingsRepository = getIt.get<SettingsRepositoryFacade>();

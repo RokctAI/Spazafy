@@ -124,3 +124,17 @@ class BillingCartTable extends Table {
   @override
   Set<Column> get primaryKey => {id};
 }
+
+@DataClassName('UserEntity')
+class UserTable extends Table {
+  TextColumn get id => text()(); // UUID from backend
+  TextColumn get email => text().nullable()();
+  TextColumn get phone => text().nullable()();
+  TextColumn get role => text().nullable()(); // 'seller', 'customer', etc.
+  TextColumn get password => text().nullable()(); // Stored hashed/encrypted for offline re-login
+  TextColumn get data => text()(); // Full ProfileData JSON
+  DateTimeColumn get lastLogin => dateTime().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}

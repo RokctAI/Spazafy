@@ -10,5 +10,6 @@ final loginProvider =
     settingsRepository,
     userRepository,
     ref.watch(backgroundSyncServiceProvider),
+    ref.watch(appDatabaseProvider),
   ),
 );

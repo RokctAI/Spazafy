@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:http/http.dart' as http;
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/application/language/language_provider.dart';
@@ -60,10 +60,13 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
   late Timer time;
 
   Future<bool> checkApiStatus() async {
-    final response = await http.get(
-      Uri.parse('${AppConstants.baseUrl}/api/v1/rest/status'),
-    );
-    return response.statusCode == 200;
+    try {
+      final client = dioHttp.client(requireAuth: false);
+      final response = await client.get('/api/v1/rest/status');
+      return response.statusCode == 200;
+    } catch (e) {
+      return false;
+    }
   }
 
   @override

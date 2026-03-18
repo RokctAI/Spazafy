@@ -190,6 +190,28 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: CartModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> insertCart failure: $e');
+
+      // Persistence: If network fails, queue the request for later
+      try {
+        final params = cart.toJson();
+        if (cart.productId != null) params['item_code'] = cart.productId;
+        if (cart.quantity != null) params['qty'] = cart.quantity;
+        if (cart.carts != null) {
+          params['addons'] = jsonEncode(cart.toJsonCart());
+        }
+
+        await appDatabase.insertSyncRequest(
+          '/api/method/paas.api.cart.cart.add_to_cart',
+          'POST',
+          params,
+        );
+
+        // Return a dummy success to keep UI flow moving (it will sync later)
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -210,6 +232,21 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: CartModel.fromJson(response.data));
     } catch (e) {
       debugPrint('==> insertCartWithGroup failure: $e');
+
+      // Persistence: If network fails, queue the request for later
+      try {
+        await appDatabase.insertSyncRequest(
+          '/api/method/paas.api.add_to_cart_group',
+          'POST',
+          cart.toJson(),
+        );
+
+        // Return a dummy success to keep UI flow moving (it will sync later)
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

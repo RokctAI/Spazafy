@@ -5,6 +5,7 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'dart:convert';
 
 class ProductsRepository implements ProductsRepositoryFacade {
   @override
@@ -19,14 +20,33 @@ class ProductsRepository implements ProductsRepositoryFacade {
     };
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get(
-        '/api/method/paas.api.product.product.get_products',
-        queryParameters: params,
-      );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ProductsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache products locally on success
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
+      // Fallback: Try searching locally
+      try {
+        final localProducts = await appDatabase.searchProducts(query: text);
+        if (localProducts.isNotEmpty) {
+          return ApiResult.success(
+            data: ProductsPaginateResponse(
+              data: localProducts
+                  .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local search fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -74,15 +94,37 @@ class ProductsRepository implements ProductsRepositoryFacade {
     };
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get(
-        '/api/method/paas.api.product.product.get_products',
-        queryParameters: params,
-      );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ProductsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache products locally on success
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> getProductsPaginate failure: $e');
+
+      // Fallback: Try fetching locally by category
+      try {
+        final localProducts = await appDatabase.searchProducts(
+          categoryId: categoryId,
+        );
+        if (localProducts.isNotEmpty) {
+          return ApiResult.success(
+            data: ProductsPaginateResponse(
+              data: localProducts
+                  .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local pagination fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

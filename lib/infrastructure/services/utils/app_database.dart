@@ -24,13 +24,14 @@ part 'app_database.g.dart';
     SettingsTable,
     BillingCartTable,
     SyncQueueTable,
+    UserTable,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration {
@@ -89,6 +90,9 @@ class AppDatabase extends _$AppDatabase {
           await m.addColumn(ordersTable, ordersTable.synced);
 
           await m.createTable(orderItemsTable);
+        }
+        if (from < 5) {
+          await m.createTable(userTable);
         }
       },
     );
@@ -339,7 +343,42 @@ class AppDatabase extends _$AppDatabase {
     if (row is CategoryEntity) return row.data;
     if (row is SettingEntity) return row.data;
     if (row is BillingCartEntity) return row.data;
+    if (row is UserEntity) return row.data;
     throw ArgumentError('Unknown row type');
+  }
+
+  // ─── User Helpers ───
+
+  Future<void> upsertUser(Map<String, dynamic> json, {String? password}) async {
+    final id = json['uuid'] ?? json['id']?.toString() ?? '';
+    if (id.isEmpty) return;
+
+    await into(userTable).insertOnConflictUpdate(
+      UserTableCompanion.insert(
+        id: Value(id),
+        email: Value(json['email']?.toString()),
+        phone: Value(json['phone']?.toString()),
+        role: Value(json['role']?.toString() ?? 'customer'),
+        password: Value(password),
+        data: jsonEncode(json),
+        lastLogin: Value(DateTime.now()),
+      ),
+    );
+  }
+
+  Future<UserEntity?> getLocalUser(String identifier) async {
+    return (select(userTable)
+          ..where(
+            (t) => t.email.equals(identifier) | t.phone.equals(identifier),
+          ))
+        .getSingleOrNull();
+  }
+
+  Future<bool> hasManagerAccount() async {
+    final manager = await (select(userTable)
+          ..where((t) => t.role.equals('seller') | t.role.equals('manager')))
+        .get();
+    return manager.isNotEmpty;
   }
 }
 

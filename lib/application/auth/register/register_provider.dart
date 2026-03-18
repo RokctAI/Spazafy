@@ -11,5 +11,6 @@ final registerProvider =
     authRepository,
     userRepository,
     ref.watch(backgroundSyncServiceProvider),
+    ref.watch(appDatabaseProvider),
   ),
 );

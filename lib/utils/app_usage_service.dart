@@ -2,8 +2,8 @@
 
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
@@ -32,23 +32,20 @@ class AppUsageService {
         final buildNumber = packageInfo.buildNumber;
 
         debugPrint('AppUsageService: Recording app usage for today: $today');
-        final response = await http.post(
-          Uri.parse('${AppConstants.baseUrl}/api/v1/rest/app-usage/record'),
-          headers: {
-            'Authorization': 'Bearer $token',
-            'Content-Type': 'application/json',
-          },
-          body: jsonEncode({
+        final client = dioHttp.client(requireAuth: true);
+        final response = await client.post(
+          '/api/v1/rest/app-usage/record',
+          data: {
             'platform': Platform.isAndroid ? 'Android' : 'iOS',
             'app_version': appVersion,
             'build_number': buildNumber,
-          }),
+          },
         );
 
         if (response.statusCode == 200) {
           // Save that we've recorded today
           await prefs.setString('last_usage_recorded', today);
-          final responseData = jsonDecode(response.body);
+          final responseData = response.data;
 
           // Cache the stats
           await _cacheStats(
@@ -86,16 +83,11 @@ class AppUsageService {
         return {'days_in_app_this_year': 0}; // Not logged in
       }
 
-      final response = await http.get(
-        Uri.parse('${AppConstants.baseUrl}/api/v1/rest/app-usage/stats'),
-        headers: {
-          'Authorization': 'Bearer $token',
-          'Content-Type': 'application/json',
-        },
-      );
+      final client = dioHttp.client(requireAuth: true);
+      final response = await client.get('/api/v1/rest/app-usage/stats');
 
       if (response.statusCode == 200) {
-        final responseData = jsonDecode(response.body);
+        final responseData = response.data;
         final stats = responseData['data'] ?? {'days_in_app_this_year': 0};
 
         // Cache the stats
