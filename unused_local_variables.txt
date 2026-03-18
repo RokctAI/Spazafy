@@ -1,9 +1,0 @@
-warning - lib/application/shop/shop_notifier.dart:716:11 - The value of the local variable 'dynamicLink' isn't used. Try removing the variable or using it. - unused_local_variable
-warning - lib/application/shop_order/shop_order_notifier.dart:610:11 - The value of the local variable 'dynamicLink' isn't used. Try removing the variable or using it. - unused_local_variable
-warning - lib/infrastructure/repositories/parcel_repository.dart:236:11 - The value of the local variable 'data' isn't used. Try removing the variable or using it. - unused_local_variable
-warning - lib/infrastructure/repositories/products_repository.dart:16:11 - The value of the local variable 'params' isn't used. Try removing the variable or using it. - unused_local_variable
-warning - lib/infrastructure/repositories/products_repository.dart:22:13 - The value of the local variable 'client' isn't used. Try removing the variable or using it. - unused_local_variable
-warning - lib/infrastructure/repositories/products_repository.dart:87:11 - The value of the local variable 'params' isn't used. Try removing the variable or using it. - unused_local_variable
-warning - lib/infrastructure/repositories/products_repository.dart:96:13 - The value of the local variable 'client' isn't used. Try removing the variable or using it. - unused_local_variable
-warning - lib/presentation/pages/main/main_page.dart:240:15 - The value of the local variable 'offlineUser' isn't used. Try removing the variable or using it. - unused_local_variable
-warning - lib/utils/app_initializer.dart:36:18 - The value of the local variable 'tenantSite' isn't used. Try removing the variable or using it. - unused_local_variable

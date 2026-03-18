@@ -1,8 +1,0 @@
-warning - lib/application/billing/billing_state.freezed.dart:237:5 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
-warning - lib/domain/handlers/network_exceptions.dart:89:16 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
-warning - lib/domain/handlers/network_exceptions.dart:167:16 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
-warning - lib/infrastructure/repositories/wallet_repository.dart:116:14 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
-warning - lib/infrastructure/services/utils/app_database.dart:330:5 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
-warning - lib/infrastructure/services/utils/app_database.dart:341:5 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
-warning - lib/presentation/components/title_icon.dart:82:37 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
-warning - lib/printer/providers/billing_printer_state.freezed.dart:184:5 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
