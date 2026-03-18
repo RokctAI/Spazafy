@@ -44,28 +44,21 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
   }
 
   saveLocation(BuildContext context, {VoidCallback? onSuccess}) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true);
-      final response = await _userRepository.saveLocation(
-        address: state.place?.copyWith(
-          title: LocalStorage.getAddressSelected()?.title,
-        ),
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isLoading: false);
-          onSuccess?.call();
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isLoading: true);
+    final response = await _userRepository.saveLocation(
+      address: state.place?.copyWith(
+        title: LocalStorage.getAddressSelected()?.title,
+      ),
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isLoading: false);
+        onSuccess?.call();
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+      },
+    );
   }
 
   updateLocation(
@@ -73,29 +66,22 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     String? id, {
     VoidCallback? onSuccess,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true);
-      final response = await _userRepository.updateLocation(
-        address: state.place?.copyWith(
-          title: LocalStorage.getAddressSelected()?.title,
-        ),
-        addressId: id,
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isLoading: false);
-          onSuccess?.call();
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isLoading: true);
+    final response = await _userRepository.updateLocation(
+      address: state.place?.copyWith(
+        title: LocalStorage.getAddressSelected()?.title,
+      ),
+      addressId: id,
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isLoading: false);
+        onSuccess?.call();
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+      },
+    );
   }
 
   Future<void> checkDriverZone({

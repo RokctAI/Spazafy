@@ -313,7 +313,8 @@ class _MainPageState extends State<MainPage> {
           shopId: deepLink?.pathSegments.last ?? "",
           productId: deepLink?.queryParameters['product'],
         ),
-      }
+      );
+    }
     } catch (e) {
       debugPrint('Error initializing Dynamic Links: $e');
     }

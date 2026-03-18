@@ -28,31 +28,24 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     String comment,
     double rating,
   ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isButtonLoading: true);
-      final response = await _parcelRepository.addReview(
-        (state.parcel?.id ?? "").toString(),
-        rating: rating,
-        comment: comment,
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isButtonLoading: false);
-          context.maybePop(context);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isButtonLoading: false);
-          if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          }
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isButtonLoading: true);
+    final response = await _parcelRepository.addReview(
+      (state.parcel?.id ?? "").toString(),
+      rating: rating,
+      comment: comment,
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isButtonLoading: false);
+        context.maybePop(context);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isButtonLoading: false);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        }
+      },
+    );
   }
 
   changeExpand() {
@@ -68,27 +61,20 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
   }
 
   Future<void> fetchTypes(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true);
-      final response = await _parcelRepository.getTypes();
-      response.when(
-        success: (data) {
-          state = state.copyWith(isLoading: false, types: data.data ?? []);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isLoading: true);
+    final response = await _parcelRepository.getTypes();
+    response.when(
+      success: (data) {
+        state = state.copyWith(isLoading: false, types: data.data ?? []);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+      },
+    );
   }
 
   Future<void> getCalculate(BuildContext context) async {
@@ -144,72 +130,65 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       );
       return;
     }
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true);
-      final response = await _parcelRepository.orderParcel(
-        typeId: state.types[state.selectType]?.id ?? "",
-        from: state.locationFrom ?? LocationModel(),
-        to: state.locationTo ?? LocationModel(),
-        fromTitle: state.addressFrom ?? "",
-        toTitle: state.addressTo ?? "",
-        time:
-            "${(state.time ?? TimeOfDay.now()).hour} : ${(state.time ?? TimeOfDay.now()).minute}",
-        note: note,
-        phoneFrom: phoneFrom,
-        phoneTo: phoneTo,
-        usernameTo: usernameTo,
-        usernameFrom: usernameFrom,
-        notify: state.anonymous,
-        floorTo: floorTo,
-        floorFrom: floorFrom,
-        houseFrom: houseFrom,
-        houseTo: houseTo,
-        comment: comment,
-        value: value,
-        instruction: instruction,
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isLoading: false);
-          String id = state.selectPayment?.id ??
-              (LocalStorage.getSelectedCurrency()?.id ?? "").toString();
-          switch (state.selectPayment?.tag) {
-            case 'cash':
-            case 'wallet':
-              _parcelRepository.createTransaction(
-                orderId: data ?? 0,
-                paymentId: id,
-              );
-              context.replaceRoute(const ParcelListRoute());
-              break;
-            default:
-              _parcelRepository.createTransaction(
-                orderId: data ?? 0,
-                paymentId: id,
-              );
-              context.replaceRoute(const ParcelListRoute());
-              await makePayment(
-                context,
-                state.selectPayment?.tag ?? 'cash',
-                data.toString(),
-              );
-              break;
-          }
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isLoading: true);
+    final response = await _parcelRepository.orderParcel(
+      typeId: state.types[state.selectType]?.id ?? "",
+      from: state.locationFrom ?? LocationModel(),
+      to: state.locationTo ?? LocationModel(),
+      fromTitle: state.addressFrom ?? "",
+      toTitle: state.addressTo ?? "",
+      time:
+          "${(state.time ?? TimeOfDay.now()).hour} : ${(state.time ?? TimeOfDay.now()).minute}",
+      note: note,
+      phoneFrom: phoneFrom,
+      phoneTo: phoneTo,
+      usernameTo: usernameTo,
+      usernameFrom: usernameFrom,
+      notify: state.anonymous,
+      floorTo: floorTo,
+      floorFrom: floorFrom,
+      houseFrom: houseFrom,
+      houseTo: houseTo,
+      comment: comment,
+      value: value,
+      instruction: instruction,
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isLoading: false);
+        String id = state.selectPayment?.id ??
+            (LocalStorage.getSelectedCurrency()?.id ?? "").toString();
+        switch (state.selectPayment?.tag) {
+          case 'cash':
+          case 'wallet':
+            _parcelRepository.createTransaction(
+              orderId: data ?? 0,
+              paymentId: id,
+            );
+            context.replaceRoute(const ParcelListRoute());
+            break;
+          default:
+            _parcelRepository.createTransaction(
+              orderId: data ?? 0,
+              paymentId: id,
+            );
+            context.replaceRoute(const ParcelListRoute());
+            await makePayment(
+              context,
+              state.selectPayment?.tag ?? 'cash',
+              data.toString(),
+            );
+            break;
+        }
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+      },
+    );
   }
 
   Future<void> makePayment(
@@ -302,92 +281,85 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     String orderId,
     bool isRefresh,
   ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      if (!isRefresh) {
-        state = state.copyWith(isLoading: true);
-      }
-
-      final response = await _parcelRepository.getSingleParcel(orderId);
-      response.when(
-        success: (data) async {
-          final ImageCropperForMarker image = ImageCropperForMarker();
-          if (!isRefresh) {
-            state = state.copyWith(
-              parcel: data,
-              isLoading: false,
-              isMapLoading: true,
-            );
-            Map<MarkerId, Marker> list = {
-              const MarkerId("Shop"): Marker(
-                markerId: const MarkerId("Shop"),
-                position: LatLng(
-                  data.addressFrom?.latitude ?? AppConstants.demoLatitude,
-                  data.addressFrom?.longitude ?? AppConstants.demoLongitude,
-                ),
-                icon: await image.resizeAndCircle(data.user?.img ?? "", 120),
-              ),
-              const MarkerId("User"): Marker(
-                markerId: const MarkerId("User"),
-                position: LatLng(
-                  data.addressTo?.latitude ?? AppConstants.demoLatitude,
-                  data.addressTo?.longitude ?? AppConstants.demoLongitude,
-                ),
-                icon: await image.resizeAndCircle("", 120),
-              ),
-            };
-            state = state.copyWith(markers: list, isMapLoading: false);
-            if (context.mounted) {
-              getRoutingAll(
-                context: context,
-                end: LatLng(
-                  data.addressTo?.latitude ?? AppConstants.demoLatitude,
-                  data.addressTo?.longitude ?? AppConstants.demoLongitude,
-                ),
-                start: LatLng(
-                  data.addressFrom?.latitude ?? AppConstants.demoLatitude,
-                  data.addressFrom?.longitude ?? AppConstants.demoLongitude,
-                ),
-              );
-            }
-          } else {
-            state = state.copyWith(parcel: data);
-            Map<MarkerId, Marker> list = {
-              const MarkerId("Shop"): Marker(
-                markerId: const MarkerId("Shop"),
-                position: LatLng(
-                  data.addressFrom?.latitude ?? AppConstants.demoLatitude,
-                  data.addressFrom?.longitude ?? AppConstants.demoLongitude,
-                ),
-                icon: await image.resizeAndCircle(data.user?.img ?? "", 120),
-              ),
-              const MarkerId("User"): Marker(
-                markerId: const MarkerId("User"),
-                position: LatLng(
-                  data.addressTo?.latitude ?? AppConstants.demoLatitude,
-                  data.addressTo?.longitude ?? AppConstants.demoLongitude,
-                ),
-                icon: await image.resizeAndCircle("", 120),
-              ),
-            };
-
-            state = state.copyWith(markers: list);
-          }
-        },
-        failure: (failure, status) {
-          if (!isRefresh) {
-            state = state.copyWith(isLoading: false);
-          }
-          if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          }
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
+    if (!isRefresh) {
+      state = state.copyWith(isLoading: true);
     }
+
+    final response = await _parcelRepository.getSingleParcel(orderId);
+    response.when(
+      success: (data) async {
+        final ImageCropperForMarker image = ImageCropperForMarker();
+        if (!isRefresh) {
+          state = state.copyWith(
+            parcel: data,
+            isLoading: false,
+            isMapLoading: true,
+          );
+          Map<MarkerId, Marker> list = {
+            const MarkerId("Shop"): Marker(
+              markerId: const MarkerId("Shop"),
+              position: LatLng(
+                data.addressFrom?.latitude ?? AppConstants.demoLatitude,
+                data.addressFrom?.longitude ?? AppConstants.demoLongitude,
+              ),
+              icon: await image.resizeAndCircle(data.user?.img ?? "", 120),
+            ),
+            const MarkerId("User"): Marker(
+              markerId: const MarkerId("User"),
+              position: LatLng(
+                data.addressTo?.latitude ?? AppConstants.demoLatitude,
+                data.addressTo?.longitude ?? AppConstants.demoLongitude,
+              ),
+              icon: await image.resizeAndCircle("", 120),
+            ),
+          };
+          state = state.copyWith(markers: list, isMapLoading: false);
+          if (context.mounted) {
+            getRoutingAll(
+              context: context,
+              end: LatLng(
+                data.addressTo?.latitude ?? AppConstants.demoLatitude,
+                data.addressTo?.longitude ?? AppConstants.demoLongitude,
+              ),
+              start: LatLng(
+                data.addressFrom?.latitude ?? AppConstants.demoLatitude,
+                data.addressFrom?.longitude ?? AppConstants.demoLongitude,
+              ),
+            );
+          }
+        } else {
+          state = state.copyWith(parcel: data);
+          Map<MarkerId, Marker> list = {
+            const MarkerId("Shop"): Marker(
+              markerId: const MarkerId("Shop"),
+              position: LatLng(
+                data.addressFrom?.latitude ?? AppConstants.demoLatitude,
+                data.addressFrom?.longitude ?? AppConstants.demoLongitude,
+              ),
+              icon: await image.resizeAndCircle(data.user?.img ?? "", 120),
+            ),
+            const MarkerId("User"): Marker(
+              markerId: const MarkerId("User"),
+              position: LatLng(
+                data.addressTo?.latitude ?? AppConstants.demoLatitude,
+                data.addressTo?.longitude ?? AppConstants.demoLongitude,
+              ),
+              icon: await image.resizeAndCircle("", 120),
+            ),
+          };
+
+          state = state.copyWith(markers: list);
+        }
+      },
+      failure: (failure, status) {
+        if (!isRefresh) {
+          state = state.copyWith(isLoading: false);
+        }
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        }
+      },
+    );
   }
 
   Future<void> getRoutingAll({

@@ -20,43 +20,36 @@ class SettingNotifier extends StateNotifier<SettingState> {
   }
 
   getNotificationList(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true);
-      final response = await _settingsRepository.getNotificationList();
+    state = state.copyWith(isLoading: true);
+    final response = await _settingsRepository.getNotificationList();
 
-      response.when(
-        success: (data) async {
-          state = state.copyWith(notifications: data.data);
-          final res = await _userRepository.getProfileDetails();
-          res.when(
-            success: (d) {
-              for (int i = 0; i < data.data!.length; i++) {
-                d.data?.notifications?.forEach((element) {
-                  if (data.data?[i].id == element.id) {
-                    updateData(context, i, element.active ?? false);
-                  }
-                });
-              }
+    response.when(
+      success: (data) async {
+        state = state.copyWith(notifications: data.data);
+        final res = await _userRepository.getProfileDetails();
+        res.when(
+          success: (d) {
+            for (int i = 0; i < data.data!.length; i++) {
+              d.data?.notifications?.forEach((element) {
+                if (data.data?[i].id == element.id) {
+                  updateData(context, i, element.active ?? false);
+                }
+              });
+            }
 
-              state = state.copyWith(isLoading: false);
-            },
-            failure: (failure, status) {
-              state = state.copyWith(isLoading: false);
-              AppHelpers.showCheckTopSnackBar(context, failure);
-            },
-          );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+            state = state.copyWith(isLoading: false);
+          },
+          failure: (failure, status) {
+            state = state.copyWith(isLoading: false);
+            AppHelpers.showCheckTopSnackBar(context, failure);
+          },
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   updateData(BuildContext context, int index, bool active) async {

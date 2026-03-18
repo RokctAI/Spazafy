@@ -64,79 +64,58 @@ class SearchNotifier extends StateNotifier<SearchState> {
     String text, {
     String? categoryId,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isShopLoading: true);
-      final response = await _shopsRepository.searchShops(
-        text: text,
-        categoryId: categoryId,
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isShopLoading: false, shops: data.data ?? []);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isShopLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isShopLoading: true);
+    final response = await _shopsRepository.searchShops(
+      text: text,
+      categoryId: categoryId,
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isShopLoading: false, shops: data.data ?? []);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isShopLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   Future<void> searchProduct(BuildContext context, String text) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isProductLoading: true);
-      final response = await _productsRepository.searchProducts(text: text);
-      response.when(
-        success: (data) async {
-          state = state.copyWith(
-            isProductLoading: false,
-            products: data.data ?? [],
-          );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isProductLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isProductLoading: true);
+    final response = await _productsRepository.searchProducts(text: text);
+    response.when(
+      success: (data) async {
+        state = state.copyWith(
+          isProductLoading: false,
+          products: data.data ?? [],
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isProductLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   Future<void> searchProductPage(BuildContext context, String text) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      final response = await _productsRepository.searchProducts(
-        text: text,
-        page: ++productIndex,
-      );
-      response.when(
-        success: (data) async {
-          if (data.data != null) {
-            List<ProductData> list = List.from(state.products);
-            list.addAll(data.data!);
-            state = state.copyWith(products: list);
-          } else {
-            productIndex--;
-          }
-        },
-        failure: (failure, status) {
+    final response = await _productsRepository.searchProducts(
+      text: text,
+      page: ++productIndex,
+    );
+    response.when(
+      success: (data) async {
+        if (data.data != null) {
+          List<ProductData> list = List.from(state.products);
+          list.addAll(data.data!);
+          state = state.copyWith(products: list);
+        } else {
           productIndex--;
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+        }
+      },
+      failure: (failure, status) {
+        productIndex--;
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 }

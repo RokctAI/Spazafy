@@ -380,40 +380,48 @@ class ProductNotifier extends StateNotifier<ProductState> {
   }
 
   generateShareLink(String? shopType, String? shopId) async {
-    final productLink =
-        '${AppConstants.webUrl}/shop/$shopId?product=${state.productData?.uuid}/';
+    if (!(await AppConnectivity.connectivity())) {
+      debugPrint("Offline: Skipping dynamic link generation");
+      return;
+    }
+    try {
+      final productLink =
+          '${AppConstants.webUrl}/shop/$shopId?product=${state.productData?.uuid}/';
 
-    final dynamicLink =
-        'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=${AppConstants.firebaseWebKey}';
+      final dynamicLink =
+          'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=${AppConstants.firebaseWebKey}';
 
-    final dataShare = {
-      "dynamicLinkInfo": {
-        "domainUriPrefix": AppConstants.uriPrefix,
-        "link": productLink,
-        "androidInfo": {
-          "androidPackageName": AppConstants.androidPackageName,
-          "androidFallbackLink":
-              "${AppConstants.webUrl}/shop/$shopId?product=${state.productData?.uuid}",
+      final dataShare = {
+        "dynamicLinkInfo": {
+          "domainUriPrefix": AppConstants.uriPrefix,
+          "link": productLink,
+          "androidInfo": {
+            "androidPackageName": AppConstants.androidPackageName,
+            "androidFallbackLink":
+                "${AppConstants.webUrl}/shop/$shopId?product=${state.productData?.uuid}",
+          },
+          "iosInfo": {
+            "iosBundleId": AppConstants.iosPackageName,
+            "iosFallbackLink":
+                "${AppConstants.webUrl}/shop/$shopId?product=${state.productData?.uuid}",
+          },
+          "socialMetaTagInfo": {
+            "socialTitle": "${state.productData?.translation?.title}",
+            "socialDescription": "${state.productData?.translation?.description}",
+            "socialImageLink": '${state.productData?.img}',
+          },
         },
-        "iosInfo": {
-          "iosBundleId": AppConstants.iosPackageName,
-          "iosFallbackLink":
-              "${AppConstants.webUrl}/shop/$shopId?product=${state.productData?.uuid}",
-        },
-        "socialMetaTagInfo": {
-          "socialTitle": "${state.productData?.translation?.title}",
-          "socialDescription": "${state.productData?.translation?.description}",
-          "socialImageLink": '${state.productData?.img}',
-        },
-      },
-    };
+      };
 
-    final res = await http.post(
-      Uri.parse(dynamicLink),
-      body: jsonEncode(dataShare),
-    );
-    shareLink = jsonDecode(res.body)['shortLink'];
-    debugPrint("share link product_notifier: $shareLink \n$dataShare");
+      final res = await http.post(
+        Uri.parse(dynamicLink),
+        body: jsonEncode(dataShare),
+      );
+      shareLink = jsonDecode(res.body)['shortLink'];
+      debugPrint("share link product_notifier: $shareLink \n$dataShare");
+    } catch (e) {
+      debugPrint("Error generating share link: $e");
+    }
   }
 
   Future shareProduct() async {

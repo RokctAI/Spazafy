@@ -13,13 +13,12 @@ class ProductsRepository implements ProductsRepositoryFacade {
     required String text,
     int? page,
   }) async {
-    final params = {
-      'search': text,
-      'limit_start': ((page ?? 1) - 1) * 14,
-      'limit_page_length': 14,
-    };
     try {
       final client = dioHttp.client(requireAuth: false);
+      final response = await client.get(
+        '/api/method/paas.api.product.product.search_products',
+        queryParameters: params,
+      );
       final responseData = ProductsPaginateResponse.fromJson(response.data);
 
       // Persistence: Cache products locally on success
@@ -104,16 +103,12 @@ class ProductsRepository implements ProductsRepositoryFacade {
     int? page,
     String? orderBy,
   }) async {
-    final params = {
-      'limit_start': ((page ?? 1) - 1) * 14,
-      'limit_page_length': 14,
-      if (shopId != null) 'shop_id': shopId,
-      if (categoryId != null) 'category_id': categoryId,
-      if (brandId != null) 'brand_id': brandId,
-      if (orderBy != null) 'order_by': orderBy,
-    };
     try {
       final client = dioHttp.client(requireAuth: false);
+      final response = await client.get(
+        '/api/method/paas.api.product.product.get_products',
+        queryParameters: params,
+      );
       final responseData = ProductsPaginateResponse.fromJson(response.data);
 
       // Persistence: Cache products locally on success
@@ -303,6 +298,19 @@ class ProductsRepository implements ProductsRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> add review failure: $e');
+
+      // Persistence: Queue for background sync
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.product.product.add_product_review',
+          method: 'POST',
+          payload: data,
+        );
+        return const ApiResult.success(data: null);
+      } catch (localError) {
+        debugPrint('==> local review queue failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

@@ -37,6 +37,20 @@ class UserRepository implements UserRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
+      debugPrint('==> save location failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.add_user_address',
+          method: 'POST',
+          payload: address?.toJson(),
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -57,6 +71,20 @@ class UserRepository implements UserRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
+      debugPrint('==> update location failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.update_user_address',
+          method: 'PUT',
+          payload: {'name': addressId, 'address_data': address?.toJson()},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -74,6 +102,20 @@ class UserRepository implements UserRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
+      debugPrint('==> delete address failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.delete_user_address',
+          method: 'POST',
+          payload: {'name': id},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -110,6 +152,20 @@ class UserRepository implements UserRepositoryFacade {
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> update profile details failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.update_user_profile',
+          method: 'PUT',
+          payload: {'profile_data': data},
+        );
+        // Return dummy response for offline success
+        return ApiResult.success(data: ProfileResponse(data: UserData()));
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -155,6 +211,19 @@ class UserRepository implements UserRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update firebase token failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.register_device_token',
+          method: 'POST',
+          payload: data,
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -199,6 +268,20 @@ class UserRepository implements UserRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
+      debugPrint('==> set active address failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.set_active_address',
+          method: 'POST',
+          payload: {'address_id': id},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -234,6 +317,20 @@ class UserRepository implements UserRepositoryFacade {
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
+      debugPrint('==> update profile image failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.update_profile_image',
+          method: 'PUT',
+          payload: {'image_url': imageUrl},
+        );
+        return ApiResult.success(data: ProfileResponse(data: UserData()));
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -254,6 +351,20 @@ class UserRepository implements UserRepositoryFacade {
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
+      debugPrint('==> update password failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.update_password',
+          method: 'POST',
+          payload: {'password': password},
+        );
+        return ApiResult.success(data: ProfileResponse(data: UserData()));
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

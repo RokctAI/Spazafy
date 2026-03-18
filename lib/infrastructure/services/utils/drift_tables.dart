@@ -162,3 +162,12 @@ class UserTable extends Table {
   @override
   Set<Column> get primaryKey => {id};
 }
+@DataClassName('NotificationEntity')
+class NotificationsTable extends Table {
+  IntColumn get id => integer()(); // Notification ID
+  TextColumn get data => text()(); // Full JSON
+  DateTimeColumn get readAt => dateTime().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}

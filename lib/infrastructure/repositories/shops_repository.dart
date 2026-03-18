@@ -351,11 +351,37 @@ class ShopsRepository implements ShopsRepositoryFacade {
         '/api/method/paas.api.shop.shop.get_shops_by_ids',
         queryParameters: {'ids': shopIds},
       );
-      return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ShopsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache these shops
+      if (responseData.data != null) {
+        for (final shop in responseData.data!) {
+          await appDatabase.upsertShop(shop.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get shops by ids failure: $e');
+
+      // Fallback: Fetch from local DB
+      try {
+        List<ShopData> localShops = [];
+        for (final id in shopIds) {
+          final data = await appDatabase.getItem('shop', id);
+          if (data != null) {
+            localShops.add(ShopData.fromJson(data));
+          }
+        }
+        if (localShops.isNotEmpty) {
+          return ApiResult.success(
+            data: ShopsPaginateResponse(data: localShops),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

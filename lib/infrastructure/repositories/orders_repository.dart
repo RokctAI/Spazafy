@@ -30,10 +30,10 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
       // Persistence: Queue the checkout request for background sync
       try {
-        await appDatabase.insertSyncRequest(
-          '/api/method/paas.api.order.order.create_order',
-          'POST',
-          orderBody.toJson(),
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.order.order.create_order',
+          method: 'POST',
+          payload: orderBody.toJson(),
         );
 
         // Return a dummy success to keep UI moving. 
@@ -163,6 +163,19 @@ class OrdersRepository implements OrdersRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> add order review failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.order.order.add_order_review',
+          method: 'POST',
+          payload: data,
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -208,10 +221,10 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
       // Sync Queue fallback
       try {
-        await appDatabase.insertSyncRequest(
-          '/api/method/paas.api.order.order.cancel_order',
-          'POST',
-          {'order_id': orderId},
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.order.order.cancel_order',
+          method: 'POST',
+          payload: {'order_id': orderId},
         );
         return const ApiResult.success(data: null);
       } catch (syncError) {
@@ -240,10 +253,10 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
       // Sync Queue fallback
       try {
-        await appDatabase.insertSyncRequest(
-          '/api/method/paas.api.user.user.create_order_refund',
-          'POST',
-          {"order": orderId, "cause": title},
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.create_order_refund',
+          method: 'POST',
+          payload: {"order": orderId, "cause": title},
         );
         return const ApiResult.success(data: null);
       } catch (syncError) {
@@ -306,6 +319,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
+  Future<ApiResult> resumeAutoOrder(String autoOrderId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -318,10 +332,10 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
       // Sync Queue fallback
       try {
-        await appDatabase.insertSyncRequest(
-          '/api/method/paas.api.repeating_order.resume_repeating_order',
-          'POST',
-          {'repeating_order_id': autoOrderId},
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.repeating_order.resume_repeating_order',
+          method: 'POST',
+          payload: {'repeating_order_id': autoOrderId},
         );
         return const ApiResult.success(data: null);
       } catch (syncError) {
@@ -452,10 +466,10 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
       // Sync Queue fallback
       try {
-        await appDatabase.insertSyncRequest(
-          '/api/method/paas.api.repeating_order.create_repeating_order',
-          'POST',
-          {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.repeating_order.create_repeating_order',
+          method: 'POST',
+          payload: {
             'original_order': orderId,
             'start_date': startDate,
             'cron_pattern': cronPattern,
@@ -490,10 +504,10 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
       // Sync Queue fallback
       try {
-        await appDatabase.insertSyncRequest(
-          '/api/method/paas.api.repeating_order.delete_repeating_order',
-          'POST',
-          {'repeating_order_id': repeatingOrderId},
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.repeating_order.delete_repeating_order',
+          method: 'POST',
+          payload: {'repeating_order_id': repeatingOrderId},
         );
         return const ApiResult.success(data: null);
       } catch (syncError) {

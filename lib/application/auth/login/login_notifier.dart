@@ -73,67 +73,53 @@ class LoginNotifier extends StateNotifier<LoginState> {
     final lang = LocalStorage.getLanguage();
     if (lang == null) {
       // No language selected yet, check available languages
-      final connect = await AppConnectivity.connectivity();
-      if (connect) {
-        final response = await _settingsRepository.getLanguages();
-        response.when(
-          success: (data) {
-            final List<LanguageData> languages = data.data ?? [];
-            state = state.copyWith(list: languages);
+      final response = await _settingsRepository.getLanguages();
+      response.when(
+        success: (data) {
+          final List<LanguageData> languages = data.data ?? [];
+          state = state.copyWith(list: languages);
 
-            // Auto-select if there's only one language
-            if (languages.length == 1) {
-              // Set as selected language
-              LocalStorage.setLanguageData(languages[0]);
-              LocalStorage.setLangLtr(languages[0].backward);
-              LocalStorage.setLanguageSelected(true);
+          // Auto-select if there's only one language
+          if (languages.length == 1) {
+            // Set as selected language
+            LocalStorage.setLanguageData(languages[0]);
+            LocalStorage.setLangLtr(languages[0].backward);
+            LocalStorage.setLanguageSelected(true);
 
-              // Get translations for this language
-              _getTranslations(context, languages[0]);
+            // Get translations for this language
+            _getTranslations(context, languages[0]);
 
-              // Update state to skip language selection screen
-              state = state.copyWith(isSelectLanguage: true);
-            } else {
-              // Multiple languages available, show selection screen
-              state = state.copyWith(isSelectLanguage: false);
-            }
-          },
-          failure: (failure, status) {
+            // Update state to skip language selection screen
+            state = state.copyWith(isSelectLanguage: true);
+          } else {
+            // Multiple languages available, show selection screen
             state = state.copyWith(isSelectLanguage: false);
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          },
-        );
-      } else {
-        if (context.mounted) {
-          AppHelpers.showNoConnectionSnackBar(context);
-        }
-      }
+          }
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isSelectLanguage: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
     } else {
       // Language already selected, verify it exists in available languages
-      final connect = await AppConnectivity.connectivity();
-      if (connect) {
-        final response = await _settingsRepository.getLanguages();
-        response.when(
-          success: (data) {
-            state = state.copyWith(list: data.data ?? []);
-            final List<LanguageData> languages = data.data ?? [];
-            for (int i = 0; i < languages.length; i++) {
-              if (languages[i].id == lang.id) {
-                state = state.copyWith(isSelectLanguage: true);
-                break;
-              }
+      final response = await _settingsRepository.getLanguages();
+      response.when(
+        success: (data) {
+          state = state.copyWith(list: data.data ?? []);
+          final List<LanguageData> languages = data.data ?? [];
+          for (int i = 0; i < languages.length; i++) {
+            if (languages[i].id == lang.id) {
+              state = state.copyWith(isSelectLanguage: true);
+              break;
             }
-          },
-          failure: (failure, status) {
-            state = state.copyWith(isSelectLanguage: false);
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          },
-        );
-      } else {
-        if (context.mounted) {
-          AppHelpers.showNoConnectionSnackBar(context);
-        }
-      }
+          }
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isSelectLanguage: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
     }
   }
 
@@ -142,22 +128,15 @@ class LoginNotifier extends StateNotifier<LoginState> {
     BuildContext context,
     LanguageData language,
   ) async {
-    final connect = await AppConnectivity.connectivity();
-    if (connect) {
-      final response = await _settingsRepository.getMobileTranslations();
-      response.when(
-        success: (data) {
-          LocalStorage.setTranslations(data.data);
-        },
-        failure: (failure, status) {
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    final response = await _settingsRepository.getMobileTranslations();
+    response.when(
+      success: (data) {
+        LocalStorage.setTranslations(data.data);
+      },
+      failure: (failure, status) {
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   checkEmail() {

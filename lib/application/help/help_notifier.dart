@@ -12,23 +12,16 @@ class HelpNotifier extends StateNotifier<HelpState> {
   HelpNotifier(this._settingsRepository) : super(const HelpState());
 
   Future<void> fetchHelp(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true);
-      final response = await _settingsRepository.getFaq();
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isLoading: false, data: data);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isLoading: true);
+    final response = await _settingsRepository.getFaq();
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isLoading: false, data: data);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 }

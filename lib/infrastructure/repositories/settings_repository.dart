@@ -17,11 +17,25 @@ class SettingsRepository implements SettingsRepositoryFacade {
       final response = await client.get(
         '/api/method/paas.api.system.system.get_global_settings',
       );
-      return ApiResult.success(
-        data: GlobalSettingsResponse.fromJson(response.data),
-      );
+      final responseData = GlobalSettingsResponse.fromJson(response.data);
+
+      // Persistence: Cache settings
+      await appDatabase.putItem('settings', 'global_settings', responseData.toJson());
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get settings failure: $e');
+
+      // Fallback
+      try {
+        final localData = await appDatabase.getItem('settings', 'global_settings');
+        if (localData != null) {
+          return ApiResult.success(data: GlobalSettingsResponse.fromJson(localData));
+        }
+      } catch (localError) {
+        debugPrint('==> local settings fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -32,17 +46,41 @@ class SettingsRepository implements SettingsRepositoryFacade {
   @override
   Future<ApiResult<MobileTranslationsResponse>> getMobileTranslations() async {
     final data = {'lang': LocalStorage.getLanguage()?.locale ?? 'en'};
+    final data = {'lang': LocalStorage.getLanguage()?.locale ?? 'en'};
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
         '/api/method/paas.api.translation.get_mobile_translations',
         queryParameters: data,
       );
-      return ApiResult.success(
-        data: MobileTranslationsResponse.fromJson(response.data),
+      final responseData = MobileTranslationsResponse.fromJson(response.data);
+
+      // Persistence: Cache translations per language
+      await appDatabase.putItem(
+        'settings',
+        'translations_${data['lang']}',
+        responseData.toJson(),
       );
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get translations failure: $e');
+
+      // Fallback
+      try {
+        final localData = await appDatabase.getItem(
+          'settings',
+          'translations_${data['lang']}',
+        );
+        if (localData != null) {
+          return ApiResult.success(
+            data: MobileTranslationsResponse.fromJson(localData),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local translations fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -57,21 +95,34 @@ class SettingsRepository implements SettingsRepositoryFacade {
       final response = await client.get(
         '/api/method/paas.api.system.system.get_languages',
       );
+      final responseData = LanguagesResponse.fromJson(response.data);
+
+      // Persistence: Cache languages
+      await appDatabase.putItem('settings', 'languages', responseData.toJson());
+
       if (LocalStorage.getLanguage() == null ||
-          !(LanguagesResponse.fromJson(response.data)
-                  .data
-                  ?.map((e) => e.id)
-                  .contains(LocalStorage.getLanguage()?.id) ??
+          !(responseData.data?.map((e) => e.id).contains(LocalStorage.getLanguage()?.id) ??
               true)) {
-        LanguagesResponse.fromJson(response.data).data?.forEach((element) {
+        responseData.data?.forEach((element) {
           if (element.isDefault ?? false) {
             LocalStorage.setLanguageData(element);
           }
         });
       }
-      return ApiResult.success(data: LanguagesResponse.fromJson(response.data));
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get languages failure: $e');
+
+      // Fallback
+      try {
+        final localData = await appDatabase.getItem('settings', 'languages');
+        if (localData != null) {
+          return ApiResult.success(data: LanguagesResponse.fromJson(localData));
+        }
+      } catch (localError) {
+        debugPrint('==> local languages fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -86,9 +137,25 @@ class SettingsRepository implements SettingsRepositoryFacade {
       final response = await client.get(
         '/api/method/paas.api.admin_content.admin_content.get_admin_faqs',
       );
-      return ApiResult.success(data: HelpModel.fromJson(response.data));
+      final responseData = HelpModel.fromJson(response.data);
+
+      // Persistence: Cache FAQ
+      await appDatabase.putItem('settings', 'faq', responseData.toJson());
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get faq failure: $e');
+
+      // Fallback
+      try {
+        final localData = await appDatabase.getItem('settings', 'faq');
+        if (localData != null) {
+          return ApiResult.success(data: HelpModel.fromJson(localData));
+        }
+      } catch (localError) {
+        debugPrint('==> local FAQ fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -172,7 +239,24 @@ class SettingsRepository implements SettingsRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      debugPrint('==> get languages failure: $e');
+      debugPrint('==> update notification settings failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.notification.notification.update_notification_settings',
+          method: 'POST',
+          payload: {
+            'notifications': notifications
+                ?.map((n) => {'notification_id': n.id, 'active': n.active})
+                .toList(),
+          },
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

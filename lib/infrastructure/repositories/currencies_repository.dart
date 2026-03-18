@@ -13,11 +13,25 @@ class CurrenciesRepository implements CurrenciesRepositoryFacade {
       final response = await client.get(
         '/api/method/paas.api.system.system.get_currencies',
       );
-      return ApiResult.success(
-        data: CurrenciesResponse.fromJson(response.data),
-      );
+      final responseData = CurrenciesResponse.fromJson(response.data);
+
+      // Persistence: Cache currencies
+      await appDatabase.putItem('settings', 'currencies', responseData.toJson());
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get currencies failure: $e');
+
+      // Fallback: Try local cache
+      try {
+        final localData = await appDatabase.getItem('settings', 'currencies');
+        if (localData != null) {
+          return ApiResult.success(data: CurrenciesResponse.fromJson(localData));
+        }
+      } catch (localError) {
+        debugPrint('==> local currency fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

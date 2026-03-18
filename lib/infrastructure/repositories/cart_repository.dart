@@ -266,10 +266,10 @@ class CartRepository implements CartRepositoryFacade {
           params['addons'] = jsonEncode(cart.toJsonCart());
         }
 
-        await appDatabase.insertSyncRequest(
-          '/api/method/paas.api.cart.cart.add_to_cart',
-          'POST',
-          params,
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.cart.cart.add_to_cart',
+          method: 'POST',
+          payload: params,
         );
 
         // Return a dummy success to keep UI flow moving (it will sync later)
@@ -301,10 +301,10 @@ class CartRepository implements CartRepositoryFacade {
 
       // Persistence: If network fails, queue the request for later
       try {
-        await appDatabase.insertSyncRequest(
-          '/api/method/paas.api.add_to_cart_group',
-          'POST',
-          cart.toJson(),
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.cart.cart.insert_cart',
+          method: 'POST',
+          payload: cart.toJson(),
         );
 
         // Return a dummy success to keep UI flow moving (it will sync later)

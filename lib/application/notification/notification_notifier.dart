@@ -38,39 +38,38 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     RefreshController? refreshController,
     bool isRefresh = false,
   }) async {
-    final connected = await AppConnectivity.connectivity();
     if (isRefresh) {
       _notificationPage = 0;
     }
-    if (connected) {
-      final response = await _notificationRepository.getNotifications(
-        page: ++_notificationPage,
-      );
-      response.when(
-        success: (data) async {
-          final List<NotificationModel> newList = List.from(
-            state.notifications,
-          );
-          newList.addAll(data.data ?? []);
-          state = state.copyWith(
-            notifications: isRefresh ? (data.data ?? []) : newList,
-          );
-          if (data.data?.isEmpty ?? true) {
-            refreshController?.loadNoData();
-          }
-          if (isRefresh) {
-            refreshController?.refreshCompleted();
-          } else {
-            refreshController?.loadComplete();
-          }
-        },
-        failure: (failure, s) {
-          debugPrint('==> get notifications more failure: $failure');
-        },
-      );
-    } else {
-      checkYourNetwork?.call();
-    }
+    final response = await _notificationRepository.getNotifications(
+      page: ++_notificationPage,
+    );
+    response.when(
+      success: (data) async {
+        final List<NotificationModel> newList = List.from(
+          state.notifications,
+        );
+        newList.addAll(data.data ?? []);
+        state = state.copyWith(
+          notifications: isRefresh ? (data.data ?? []) : newList,
+        );
+        if (data.data?.isEmpty ?? true) {
+          refreshController?.loadNoData();
+        }
+        if (isRefresh) {
+          refreshController?.refreshCompleted();
+        } else {
+          refreshController?.loadComplete();
+        }
+      },
+      failure: (failure, s) {
+        debugPrint('==> get notifications more failure: $failure');
+        refreshController?.loadFailed();
+        if (isRefresh) {
+          refreshController?.refreshFailed();
+        }
+      },
+    );
   }
 
   Future<void> readAll(BuildContext context) async {

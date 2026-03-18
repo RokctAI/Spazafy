@@ -8,6 +8,7 @@ import 'package:path/path.dart' as p;
 import 'package:sqlite3/sqlite3.dart';
 import 'package:sqlite3_flutter_libs/sqlite3_flutter_libs.dart';
 
+import 'package:uuid/uuid.dart';
 import 'drift_tables.dart';
 
 part 'app_database.g.dart';
@@ -27,13 +28,14 @@ part 'app_database.g.dart';
     AbandonedSyncQueueTable,
     UserTable,
     BannersTable,
+    NotificationsTable,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 8;
+  int get schemaVersion => 9;
 
   @override
   MigrationStrategy get migration {
@@ -105,6 +107,9 @@ class AppDatabase extends _$AppDatabase {
         if (from < 8) {
           await m.createTable(abandonedSyncQueueTable);
         }
+        if (from < 9) {
+          await m.createTable(notificationsTable);
+        }
       },
     );
   }
@@ -130,6 +135,8 @@ class AppDatabase extends _$AppDatabase {
         return eventQueueTable;
       case 'banners':
         return bannersTable;
+      case 'notifications':
+        return notificationsTable;
       default:
         throw ArgumentError('Unknown box name: $boxName');
     }
@@ -196,6 +203,22 @@ class AppDatabase extends _$AppDatabase {
   // ─── Sync Queue Helpers ───
   Future<int> insertSyncRequest(SyncQueueTableCompanion request) {
     return into(syncQueueTable).insert(request);
+  }
+
+  Future<int> enqueueSyncRequest({
+    required String url,
+    required String method,
+    required Map<String, dynamic> payload,
+  }) {
+    return insertSyncRequest(
+      SyncQueueTableCompanion.insert(
+        id: Value(const Uuid().v4()),
+        url: url,
+        method: method,
+        payload: jsonEncode(payload),
+        createdAt: DateTime.now(),
+      ),
+    );
   }
 
   Future<List<SyncQueueEntity>> getPendingSyncRequests() {
@@ -411,6 +434,11 @@ class AppDatabase extends _$AppDatabase {
         return BillingCartTableCompanion.insert(id: id, data: data);
       case 'banners':
         return BannersTableCompanion.insert(id: id, data: data);
+      case 'notifications':
+        return NotificationsTableCompanion.insert(
+          id: Value(int.tryParse(id) ?? 0),
+          data: data,
+        );
       default:
         throw ArgumentError('Unknown box name: $boxName');
     }
@@ -425,6 +453,7 @@ class AppDatabase extends _$AppDatabase {
     if (table is $BillingCartTableTable) return table.id;
     if (table is $OrderItemsTableTable) return table.id;
     if (table is $BannersTableTable) return table.id;
+    if (table is $NotificationsTableTable) return table.id.cast<String>();
     throw ArgumentError('Unknown table type');
   }
 
@@ -437,7 +466,30 @@ class AppDatabase extends _$AppDatabase {
     if (row is BillingCartEntity) return row.data;
     if (row is UserEntity) return row.data;
     if (row is BannerEntity) return row.data;
+    if (row is NotificationEntity) return row.data;
     throw ArgumentError('Unknown row type');
+  }
+
+  // ─── High-Quality Notification Helpers ───
+
+  Future<void> upsertNotification(Map<String, dynamic> json) async {
+    final id = json['notification_id'] ?? json['id'] ?? 0;
+    if (id == 0) return;
+
+    await into(notificationsTable).insertOnConflictUpdate(
+      NotificationsTableCompanion.insert(
+        id: Value(id),
+        data: jsonEncode(json),
+        readAt: Value(DateTime.tryParse(json['read_at'] ?? '')),
+      ),
+    );
+  }
+
+  Future<List<NotificationEntity>> getNotificationsLocally() async {
+    return (select(notificationsTable)..orderBy([
+          (t) => OrderingTerm(expression: t.id, mode: OrderingMode.desc),
+        ]))
+        .get();
   }
 
   // ─── User Helpers ───

@@ -90,52 +90,48 @@ class EditProfileNotifier extends StateNotifier<EditProfileState> {
   }
 
   Future<void> editProfile(BuildContext context, ProfileData user) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true, isSuccess: false);
-      if (state.imagePath.isNotEmpty) {
+    state = state.copyWith(isLoading: true, isSuccess: false);
+    if (state.imagePath.isNotEmpty) {
+      final connected = await AppConnectivity.connectivity();
+      if (connected) {
         if (context.mounted) {
           await updateProfileImage(context, state.imagePath);
         }
-      }
-      final response = await _userRepository.editProfile(
-        user: EditProfile(
-          firstname: state.firstName.isEmpty ? user.firstname : state.firstName,
-          lastname: state.lastName.isEmpty ? user.lastname : state.lastName,
-          birthday: state.birth.isEmpty ? user.birthday : state.birth,
-          phone: state.phone.isEmpty ? user.phone : state.phone,
-          email: state.email.isEmpty ? user.email : state.email,
-          secondPhone: state.secondPhone,
-          images: state.url.isEmpty ? user.img ?? "" : state.url,
-          gender: state.gender.isEmpty ? user.gender : state.gender,
-        ),
-      );
-      response.when(
-        success: (data) {
-          LocalStorage.setUser(data.data);
-          Navigator.pop(context);
-          state = state.copyWith(
-            userData: data.data,
-            isLoading: false,
-            isSuccess: true,
-          );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-        );
+      } else {
+        debugPrint('==> skip image upload: offline');
+        // We might want to notify the user that the image won't be updated offline
       }
     }
+    final response = await _userRepository.editProfile(
+      user: EditProfile(
+        firstname: state.firstName.isEmpty ? user.firstname : state.firstName,
+        lastname: state.lastName.isEmpty ? user.lastname : state.lastName,
+        birthday: state.birth.isEmpty ? user.birthday : state.birth,
+        phone: state.phone.isEmpty ? user.phone : state.phone,
+        email: state.email.isEmpty ? user.email : state.email,
+        secondPhone: state.secondPhone,
+        images: state.url.isEmpty ? user.img ?? "" : state.url,
+        gender: state.gender.isEmpty ? user.gender : state.gender,
+      ),
+    );
+    response.when(
+      success: (data) {
+        LocalStorage.setUser(data.data);
+        Navigator.pop(context);
+        state = state.copyWith(
+          userData: data.data,
+          isLoading: false,
+          isSuccess: true,
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+      },
+    );
   }
 
   Future<void> updateProfileImage(BuildContext context, String path) async {

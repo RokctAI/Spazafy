@@ -34,6 +34,19 @@ class AddressRepository implements AddressRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> delete address failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.delete_user_address',
+          method: 'POST',
+          payload: {'name': addressId.toString()},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -56,6 +69,20 @@ class AddressRepository implements AddressRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> create address failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.add_user_address',
+          method: 'POST',
+          payload: {'address_data': address.toJson()},
+        );
+        // Return dummy response for offline success
+        return ApiResult.success(data: SingleAddressResponse(data: address));
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

@@ -25,6 +25,19 @@ class ParcelRepository implements ParcelRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> add parcel review failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.parcel.parcel.add_parcel_review',
+          method: 'POST',
+          payload: data,
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -41,11 +54,25 @@ class ParcelRepository implements ParcelRepositoryFacade {
         '/api/method/paas.api.parcel.parcel.get_types',
         data: data,
       );
-      return ApiResult.success(
-        data: ParcelTypeResponse.fromJson(response.data),
-      );
+      final responseData = ParcelTypeResponse.fromJson(response.data);
+
+      // Persistence: Cache types
+      await appDatabase.putItem('settings', 'parcel_types', responseData.toJson());
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get parcel type failure: $e');
+
+      // Fallback
+      try {
+        final localData = await appDatabase.getItem('settings', 'parcel_types');
+        if (localData != null) {
+          return ApiResult.success(data: ParcelTypeResponse.fromJson(localData));
+        }
+      } catch (localError) {
+        debugPrint('==> local parcel types fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -148,6 +175,22 @@ class ParcelRepository implements ParcelRepositoryFacade {
       return ApiResult.success(data: res.data["data"]["id"]);
     } catch (e) {
       debugPrint('==> get parcel order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.parcel.parcel.create_parcel_order',
+          method: 'POST',
+          payload: {'order_data': data},
+        );
+        // Return dummy success ID
+        return ApiResult.success(
+          data: 'OFFLINE-PARCEL-${DateTime.now().millisecondsSinceEpoch}',
+        );
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -185,11 +228,31 @@ class ParcelRepository implements ParcelRepositoryFacade {
         '/api/method/paas.api.parcel.parcel.get_parcel_orders',
         data: data,
       );
-      return ApiResult.success(
-        data: ParcelPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ParcelPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache active parcels (only page 1 for simplicity)
+      if (page == 1) {
+        await appDatabase.putItem('settings', 'active_parcels', responseData.toJson());
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get open parcel failure: $e');
+
+      // Fallback (page 1 only)
+      if (page == 1) {
+        try {
+          final localData = await appDatabase.getItem('settings', 'active_parcels');
+          if (localData != null) {
+            return ApiResult.success(
+              data: ParcelPaginateResponse.fromJson(localData),
+            );
+          }
+        } catch (localError) {
+          debugPrint('==> local active parcels fallback failure: $localError');
+        }
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -219,16 +282,37 @@ class ParcelRepository implements ParcelRepositoryFacade {
         '/api/method/paas.api.parcel.parcel.get_parcel_orders',
         data: data,
       );
-      return ApiResult.success(
-        data: ParcelPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ParcelPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache history parcels
+      if (page == 1) {
+        await appDatabase.putItem('settings', 'history_parcels', responseData.toJson());
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get canceled parcel failure: $e');
+
+      // Fallback
+      if (page == 1) {
+        try {
+          final localData = await appDatabase.getItem('settings', 'history_parcels');
+          if (localData != null) {
+            return ApiResult.success(
+              data: ParcelPaginateResponse.fromJson(localData),
+            );
+          }
+        } catch (localError) {
+          debugPrint('==> local history parcels fallback failure: $localError');
+        }
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
+鼓
   }
 
   @override
@@ -249,6 +333,15 @@ class ParcelRepository implements ParcelRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> get single parcel failure: $e');
+
+      // Sync Queue check: if the orderId is an offline ID, return the queued request payload or a placeholder
+      if (orderId.startsWith('OFFLINE-PARCEL-')) {
+        return const ApiResult.failure(
+          error: 'Order is pending synchronization...',
+          statusCode: 202, // Accepted/Pending
+        );
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -290,10 +383,24 @@ class ParcelRepository implements ParcelRepositoryFacade {
       );
     } catch (e) {
       debugPrint('==> create transaction failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/v1/payments/parcel-order/$orderId/transactions',
+          method: 'POST',
+          payload: data,
+        );
+        return ApiResult.success(data: TransactionsResponse());
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
+鼓
   }
 }

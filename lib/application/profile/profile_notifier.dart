@@ -129,82 +129,77 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     VoidCallback? onSuccess,
   }) async {
     if (LocalStorage.getToken().isNotEmpty) {
-      final connected = await AppConnectivity.connectivity();
-      if (connected) {
-        if (refreshController == null) {
-          state = state.copyWith(isLoading: true);
-        }
-        final response = await _userRepository.getProfileDetails();
-        response.when(
-          success: (data) async {
-            LocalStorage.setWalletData(data.data?.wallet);
-            LocalStorage.setUser(data.data);
-            LocalStorage.setAddressSelected(
-              AddressData(
-                title: data.data?.addresses?.firstWhere(
+    if (LocalStorage.getToken().isNotEmpty) {
+      if (refreshController == null) {
+        state = state.copyWith(isLoading: true);
+      }
+      final response = await _userRepository.getProfileDetails();
+      response.when(
+        success: (data) async {
+          LocalStorage.setWalletData(data.data?.wallet);
+          LocalStorage.setUser(data.data);
+          LocalStorage.setAddressSelected(
+            AddressData(
+              title: data.data?.addresses?.firstWhere(
+                    (element) => element.active ?? false,
+                    orElse: () {
+                      return AddressNewModel();
+                    },
+                  ).title ??
+                  "",
+              address: data.data?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .address
+                      ?.address ??
+                  "",
+              location: LocationModel(
+                longitude: data.data?.addresses
+                    ?.firstWhere(
                       (element) => element.active ?? false,
                       orElse: () {
                         return AddressNewModel();
                       },
-                    ).title ??
-                    "",
-                address: data.data?.addresses
-                        ?.firstWhere(
-                          (element) => element.active ?? false,
-                          orElse: () {
-                            return AddressNewModel();
-                          },
-                        )
-                        .address
-                        ?.address ??
-                    "",
-                location: LocationModel(
-                  longitude: data.data?.addresses
-                      ?.firstWhere(
-                        (element) => element.active ?? false,
-                        orElse: () {
-                          return AddressNewModel();
-                        },
-                      )
-                      .location
-                      ?.last,
-                  latitude: data.data?.addresses
-                      ?.firstWhere(
-                        (element) => element.active ?? false,
-                        orElse: () {
-                          return AddressNewModel();
-                        },
-                      )
-                      .location
-                      ?.first,
-                ),
+                    )
+                    .location
+                    ?.last,
+                latitude: data.data?.addresses
+                    ?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    )
+                    .location
+                    ?.first,
               ),
-            );
-            if (refreshController == null) {
-              state = state.copyWith(isLoading: false, userData: data.data);
-            } else {
-              state = state.copyWith(userData: data.data);
-            }
-            refreshController?.refreshCompleted();
-            onSuccess?.call();
-            findSelectIndex();
-          },
-          failure: (failure, status) {
-            if (refreshController == null) {
-              state = state.copyWith(isLoading: false);
-            }
-            if (status == 401) {
-              context.router.popUntilRoot();
-              context.replaceRoute(const LoginRoute());
-            }
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          },
-        );
-      } else {
-        if (context.mounted) {
-          AppHelpers.showNoConnectionSnackBar(context);
-        }
-      }
+            ),
+          );
+          if (refreshController == null) {
+            state = state.copyWith(isLoading: false, userData: data.data);
+          } else {
+            state = state.copyWith(userData: data.data);
+          }
+          refreshController?.refreshCompleted();
+          onSuccess?.call();
+          findSelectIndex();
+        },
+        failure: (failure, status) {
+          if (refreshController == null) {
+            state = state.copyWith(isLoading: false);
+          }
+          if (status == 401) {
+            context.router.popUntilRoot();
+            context.replaceRoute(const LoginRoute());
+          }
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    }
     }
   }
 
@@ -213,36 +208,31 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     RefreshController? refreshController,
   }) async {
     if (LocalStorage.getToken().isNotEmpty) {
-      final connected = await AppConnectivity.connectivity();
-      if (connected) {
-        if (refreshController == null) {
-          state = state.copyWith(isReferralLoading: true);
-        }
-        final response = await _userRepository.getReferralDetails();
-        response.when(
-          success: (data) async {
-            if (refreshController == null) {
-              state = state.copyWith(
-                isReferralLoading: false,
-                referralData: data,
-              );
-            } else {
-              state = state.copyWith(referralData: data);
-            }
-            refreshController?.refreshCompleted();
-          },
-          failure: (failure, status) {
-            if (refreshController == null) {
-              state = state.copyWith(isReferralLoading: false);
-            }
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          },
-        );
-      } else {
-        if (context.mounted) {
-          AppHelpers.showNoConnectionSnackBar(context);
-        }
+    if (LocalStorage.getToken().isNotEmpty) {
+      if (refreshController == null) {
+        state = state.copyWith(isReferralLoading: true);
       }
+      final response = await _userRepository.getReferralDetails();
+      response.when(
+        success: (data) async {
+          if (refreshController == null) {
+            state = state.copyWith(
+              isReferralLoading: false,
+              referralData: data,
+            );
+          } else {
+            state = state.copyWith(referralData: data);
+          }
+          refreshController?.refreshCompleted();
+        },
+        failure: (failure, status) {
+          if (refreshController == null) {
+            state = state.copyWith(isReferralLoading: false);
+          }
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    }
     }
   }
 
@@ -283,36 +273,31 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
   }) async {
     page = 1;
     if (LocalStorage.getToken().isNotEmpty) {
-      final connected = await AppConnectivity.connectivity();
-      if (connected) {
-        if (refreshController == null) {
-          state = state.copyWith(isLoadingHistory: true);
-        }
-        final response = await _userRepository.getWalletHistories(1);
-        response.when(
-          success: (data) async {
-            if (refreshController == null) {
-              state = state.copyWith(
-                isLoadingHistory: false,
-                walletHistory: data.data,
-              );
-            } else {
-              state = state.copyWith(walletHistory: data.data);
-            }
-            refreshController?.refreshCompleted();
-          },
-          failure: (failure, status) {
-            if (refreshController == null) {
-              state = state.copyWith(isLoadingHistory: false);
-            }
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          },
-        );
-      } else {
-        if (context.mounted) {
-          AppHelpers.showNoConnectionSnackBar(context);
-        }
+    if (LocalStorage.getToken().isNotEmpty) {
+      if (refreshController == null) {
+        state = state.copyWith(isLoadingHistory: true);
       }
+      final response = await _userRepository.getWalletHistories(1);
+      response.when(
+        success: (data) async {
+          if (refreshController == null) {
+            state = state.copyWith(
+              isLoadingHistory: false,
+              walletHistory: data.data,
+            );
+          } else {
+            state = state.copyWith(walletHistory: data.data);
+          }
+          refreshController?.refreshCompleted();
+        },
+        failure: (failure, status) {
+          if (refreshController == null) {
+            state = state.copyWith(isLoadingHistory: false);
+          }
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    }
     }
   }
 
@@ -321,32 +306,27 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     RefreshController refreshController,
   ) async {
     if (LocalStorage.getToken().isNotEmpty) {
-      final connected = await AppConnectivity.connectivity();
-      if (connected) {
-        final response = await _userRepository.getWalletHistories(++page);
-        response.when(
-          success: (data) async {
-            List<WalletData> list = List.from(state.walletHistory ?? []);
-            list.addAll(data.data ?? []);
-            state = state.copyWith(walletHistory: list);
-            refreshController.loadComplete();
-            if (data.data?.isEmpty ?? true) {
-              refreshController.loadNoData();
-            } else {
-              refreshController.loadComplete();
-            }
-          },
-          failure: (failure, status) {
+    if (LocalStorage.getToken().isNotEmpty) {
+      final response = await _userRepository.getWalletHistories(++page);
+      response.when(
+        success: (data) async {
+          List<WalletData> list = List.from(state.walletHistory ?? []);
+          list.addAll(data.data ?? []);
+          state = state.copyWith(walletHistory: list);
+          refreshController.loadComplete();
+          if (data.data?.isEmpty ?? true) {
             refreshController.loadNoData();
-            --page;
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          },
-        );
-      } else {
-        if (context.mounted) {
-          AppHelpers.showNoConnectionSnackBar(context);
-        }
-      }
+          } else {
+            refreshController.loadComplete();
+          }
+        },
+        failure: (failure, status) {
+          refreshController.loadNoData();
+          --page;
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    }
     }
   }
 
