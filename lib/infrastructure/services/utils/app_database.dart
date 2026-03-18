@@ -24,14 +24,16 @@ part 'app_database.g.dart';
     SettingsTable,
     BillingCartTable,
     SyncQueueTable,
+    AbandonedSyncQueueTable,
     UserTable,
+    BannersTable,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 8;
 
   @override
   MigrationStrategy get migration {
@@ -94,6 +96,15 @@ class AppDatabase extends _$AppDatabase {
         if (from < 5) {
           await m.createTable(userTable);
         }
+        if (from < 6) {
+          await m.createTable(bannersTable);
+        }
+        if (from < 7) {
+          await m.addColumn(syncQueueTable, syncQueueTable.retryCount);
+        }
+        if (from < 8) {
+          await m.createTable(abandonedSyncQueueTable);
+        }
       },
     );
   }
@@ -117,6 +128,8 @@ class AppDatabase extends _$AppDatabase {
         return stocksTable;
       case 'events':
         return eventQueueTable;
+      case 'banners':
+        return bannersTable;
       default:
         throw ArgumentError('Unknown box name: $boxName');
     }
@@ -196,6 +209,40 @@ class AppDatabase extends _$AppDatabase {
     return (delete(syncQueueTable)..where((t) => t.id.equals(id))).go();
   }
 
+  Future<void> abandonSyncRequest(SyncQueueEntity request,
+      {String? error}) async {
+    await transaction(() async {
+      // 1. Insert into abandoned table
+      await into(abandonedSyncQueueTable).insert(
+        AbandonedSyncQueueTableCompanion.insert(
+          id: request.id,
+          url: request.url,
+          method: request.method,
+          payload: request.payload,
+          createdAt: request.createdAt,
+          abandonedAt: DateTime.now(),
+          lastError: Value(error),
+        ),
+      );
+      // 2. Remove from active queue
+      await removeSyncRequest(request.id);
+    });
+  }
+
+  Future<List<SyncQueueEntity>> getSyncRequestsByMethod(String method) {
+    return (select(syncQueueTable)..where((t) => t.method.equals(method))).get();
+  }
+
+  Future<void> incrementSyncRetry(String id) async {
+    final query = select(syncQueueTable)..where((t) => t.id.equals(id));
+    final request = await query.getSingleOrNull();
+    if (request != null) {
+      await (update(syncQueueTable)..where((t) => t.id.equals(id))).write(
+        SyncQueueTableCompanion(retryCount: Value(request.retryCount + 1)),
+      );
+    }
+  }
+
   // ─── High-Quality Product Helpers ───
 
   /// Search products locally using flattened columns
@@ -235,6 +282,48 @@ class AppDatabase extends _$AppDatabase {
         data: jsonEncode(json),
       ),
     );
+  }
+
+  // ─── High-Quality Category Helpers ───
+
+  Future<void> upsertCategory(Map<String, dynamic> json) async {
+    final id = json['name'] ?? json['id']?.toString() ?? '';
+    if (id.isEmpty) return;
+    await putItem('categories', id, json);
+  }
+
+  Future<List<Map<String, dynamic>>> getCategoriesLocally() async {
+    return getAll('categories');
+  }
+
+  // ─── High-Quality Shop Helpers ───
+
+  Future<void> upsertShop(Map<String, dynamic> json) async {
+    final id = json['id']?.toString() ?? json['uuid'] ?? '';
+    if (id.isEmpty) return;
+    await putItem('shop', id, json);
+  }
+
+  Future<List<Map<String, dynamic>>> getShopsLocally({
+    String? categoryId,
+  }) async {
+    final allShops = await getAll('shop');
+    if (categoryId != null) {
+      return allShops.where((shop) => shop['category_id'] == categoryId).toList();
+    }
+    return allShops;
+  }
+
+  // ─── High-Quality Banner Helpers ───
+
+  Future<void> upsertBanner(Map<String, dynamic> json) async {
+    final id = json['name'] ?? json['id']?.toString() ?? '';
+    if (id.isEmpty) return;
+    await putItem('banners', id, json);
+  }
+
+  Future<List<Map<String, dynamic>>> getBannersLocally() async {
+    return getAll('banners');
   }
 
   // ─── High-Quality Order Helpers ───
@@ -320,6 +409,8 @@ class AppDatabase extends _$AppDatabase {
         return SettingsTableCompanion.insert(id: id, data: data);
       case 'billing_cart':
         return BillingCartTableCompanion.insert(id: id, data: data);
+      case 'banners':
+        return BannersTableCompanion.insert(id: id, data: data);
       default:
         throw ArgumentError('Unknown box name: $boxName');
     }
@@ -333,6 +424,7 @@ class AppDatabase extends _$AppDatabase {
     if (table is $SettingsTableTable) return table.id;
     if (table is $BillingCartTableTable) return table.id;
     if (table is $OrderItemsTableTable) return table.id;
+    if (table is $BannersTableTable) return table.id;
     throw ArgumentError('Unknown table type');
   }
 
@@ -344,6 +436,7 @@ class AppDatabase extends _$AppDatabase {
     if (row is SettingEntity) return row.data;
     if (row is BillingCartEntity) return row.data;
     if (row is UserEntity) return row.data;
+    if (row is BannerEntity) return row.data;
     throw ArgumentError('Unknown row type');
   }
 

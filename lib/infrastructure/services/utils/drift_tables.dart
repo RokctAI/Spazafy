@@ -53,6 +53,21 @@ class SyncQueueTable extends Table {
   TextColumn get method => text()();
   TextColumn get payload => text()();
   DateTimeColumn get createdAt => dateTime()();
+  IntColumn get retryCount => integer().withDefault(const Constant(0))();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DataClassName('AbandonedSyncQueueEntity')
+class AbandonedSyncQueueTable extends Table {
+  TextColumn get id => text()(); // UUID from original request
+  TextColumn get url => text()();
+  TextColumn get method => text()();
+  TextColumn get payload => text()();
+  DateTimeColumn get createdAt => dateTime()();
+  DateTimeColumn get abandonedAt => dateTime()();
+  TextColumn get lastError => text().nullable()();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -118,6 +133,15 @@ class SettingsTable extends Table {
 
 @DataClassName('BillingCartEntity')
 class BillingCartTable extends Table {
+  TextColumn get id => text()();
+  TextColumn get data => text()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DataClassName('BannerEntity')
+class BannersTable extends Table {
   TextColumn get id => text()();
   TextColumn get data => text()();
 

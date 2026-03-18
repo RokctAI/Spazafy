@@ -12,20 +12,86 @@ import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 class CartRepository implements CartRepositoryFacade {
   @override
   Future<ApiResult<CartModel>> getCart(String shopId) async {
+    CartModel? cart;
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
         '/api/method/paas.api.cart.cart.get_cart',
         queryParameters: {'shop_id': shopId},
       );
-      return ApiResult.success(data: CartModel.fromJson(response.data));
+      cart = CartModel.fromJson(response.data);
+
+      // Persistence: Cache the cart details
+      await appDatabase.putItem('billing_cart', shopId, cart.toJson());
     } catch (e) {
       debugPrint('==> getCart failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
+
+      // Fallback to local cache
+      try {
+        final localCart = await appDatabase.getItem('billing_cart', shopId);
+        if (localCart != null) {
+          cart = CartModel.fromJson(localCart);
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
     }
+
+    // Merge logic: If we have a cart (online or cached), merge pending sync requests
+    if (cart != null) {
+      try {
+        final pendingAddRequests = await appDatabase.getSyncRequestsByMethod(
+          '/api/method/paas.api.cart.cart.add_to_cart',
+        );
+
+        for (final request in pendingAddRequests) {
+          final requestData = jsonDecode(request.data);
+          // Only merge if it belongs to the current shop
+          if (requestData['shop_id'] == shopId) {
+            final String itemCode = requestData['item_code'];
+            final int qty = requestData['qty'];
+
+            // Find if item already exists in cart, then update qty; else add new
+            bool found = false;
+            final List<CartDetail> details =
+                List.from(cart.data?.cartDetails ?? []);
+
+            for (int i = 0; i < details.length; i++) {
+              if (details[i].itemCode == itemCode) {
+                details[i] = details[i].copyWith(
+                  qty: (details[i].qty ?? 0) + qty,
+                );
+                found = true;
+                break;
+              }
+            }
+
+            if (!found) {
+              details.add(
+                CartDetail(
+                  itemCode: itemCode,
+                  qty: qty,
+                  // Note: title/image might be missing if we only have the itemCode
+                  // but we want the user to at least see the count update.
+                ),
+              );
+            }
+
+            cart = cart.copyWith(
+              data: cart.data?.copyWith(cartDetails: details),
+            );
+          }
+        }
+      } catch (mergeError) {
+        debugPrint('==> sync merge failure: $mergeError');
+      }
+      return ApiResult.success(data: cart);
+    }
+
+    return ApiResult.failure(
+      error: "Could not retrieve cart data",
+      statusCode: 404,
+    );
   }
 
   Future<ApiResult<CartModel>> addToCart({

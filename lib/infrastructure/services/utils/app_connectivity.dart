@@ -31,6 +31,17 @@ abstract class AppConnectivity {
     return hasConnection;
   }
 
+  // Stream for connectivity changes
+  static Stream<List<ConnectivityResult>> get onConnectivityChanged =>
+      Connectivity().onConnectivityChanged;
+
+  // Convenience stream that emits true if connected, false otherwise
+  static Stream<bool> get onConnectionChangedBool =>
+      onConnectivityChanged.map((results) =>
+          results.contains(ConnectivityResult.mobile) ||
+          results.contains(ConnectivityResult.ethernet) ||
+          results.contains(ConnectivityResult.wifi));
+
   // Alternative: Replace the existing method to always show dialog
   static Future<bool> connectivityAndShowDialog(BuildContext context) async {
     var connectivityResult = await (Connectivity().checkConnectivity());

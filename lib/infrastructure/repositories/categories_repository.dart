@@ -22,10 +22,35 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
         '/api/method/paas.api.get_categories',
         queryParameters: params,
       );
-      return ApiResult.success(
-        data: CategoriesPaginateResponse.fromJson(response.data),
-      );
+      final responseData = CategoriesPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache categories locally on success (first page mainly)
+      if (responseData.data != null && page == 1) {
+        for (final category in responseData.data!) {
+          await appDatabase.upsertCategory(category.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
+      debugPrint('==> get categories failure: $e');
+
+      // Fallback: If network fails, try fetching from local DB
+      try {
+        final localCategories = await appDatabase.getCategoriesLocally();
+        if (localCategories.isNotEmpty) {
+          return ApiResult.success(
+            data: CategoriesPaginateResponse(
+              data: localCategories
+                  .map((e) => CategoryData.fromJson(e))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -48,6 +73,27 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
         data: CategoriesPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
+      debugPrint('==> search categories failure: $e');
+
+      // Fallback: search locally
+      try {
+        final localCategories = await appDatabase.getCategoriesLocally();
+        if (localCategories.isNotEmpty) {
+          final filtered = localCategories
+              .map((e) => CategoryData.fromJson(e))
+              .where((c) =>
+                  (c.title?.toLowerCase().contains(text.toLowerCase()) ??
+                      false))
+              .toList();
+
+          return ApiResult.success(
+            data: CategoriesPaginateResponse(data: filtered),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

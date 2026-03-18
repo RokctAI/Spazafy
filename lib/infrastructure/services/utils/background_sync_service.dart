@@ -63,11 +63,23 @@ class BackgroundSyncService {
       final pendingRequests = await database.getPendingSyncRequests();
 
       for (final request in pendingRequests) {
+        // If request has failed too many times, move to abandoned table for manual review
+        if (request.retryCount >= 5) {
+          debugPrint('==> request ${request.id} abandoned after 5 retries');
+          await database.abandonSyncRequest(
+            request,
+            error: 'Abandoned after 5 retries due to persistent failures',
+          );
+          continue;
+        }
+
         final success = await _sendRequest(request);
         if (success) {
           await database.removeSyncRequest(request.id);
         } else {
-          // If a request fails, we stop processing the rest of the queue to maintain order.
+          // Increment retry count if it was a server/network error
+          await database.incrementSyncRetry(request.id);
+          // Maintain order by breaking queue processing on first failure
           break;
         }
       }

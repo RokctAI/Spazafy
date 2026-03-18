@@ -23,11 +23,42 @@ class ShopsRepository implements ShopsRepositoryFacade {
         '/api/method/paas.api.shop.shop.search_shops',
         queryParameters: params,
       );
-      return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ShopsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache searched shops
+      if (responseData.data != null) {
+        for (final shop in responseData.data!) {
+          await appDatabase.upsertShop(shop.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> search shops failure: $e');
+
+      // Fallback: search locally
+      try {
+        final localShops = await appDatabase.getShopsLocally(
+          categoryId: categoryId,
+        );
+        if (localShops.isNotEmpty) {
+          final filtered = localShops
+              .map((e) => ShopData.fromJson(e))
+              .where((s) =>
+                  (s.translation?.title
+                          ?.toLowerCase()
+                          .contains(text.toLowerCase()) ??
+                      false))
+              .toList();
+
+          return ApiResult.success(
+            data: ShopsPaginateResponse(data: filtered),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -57,11 +88,35 @@ class ShopsRepository implements ShopsRepositoryFacade {
         '/api/method/paas.api.shop.shop.get_shops',
         queryParameters: params,
       );
-      return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ShopsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache shops locally on success (first page)
+      if (responseData.data != null && page == 1) {
+        for (final shop in responseData.data!) {
+          await appDatabase.upsertShop(shop.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get all shops failure: $e');
+
+      // Fallback: If network fails, try fetching from local DB
+      try {
+        final localShops = await appDatabase.getShopsLocally(
+          categoryId: categoryId,
+        );
+        if (localShops.isNotEmpty) {
+          return ApiResult.success(
+            data: ShopsPaginateResponse(
+              data: localShops.map((e) => ShopData.fromJson(e)).toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -79,10 +134,29 @@ class ShopsRepository implements ShopsRepositoryFacade {
         '/api/method/paas.api.shop.shop.get_shop_by_uuid',
         queryParameters: {'uuid': uuid},
       );
-      return ApiResult.success(
-        data: SingleShopResponse.fromJson(response.data),
-      );
+      final responseData = SingleShopResponse.fromJson(response.data);
+
+      // Persistence: Cache single shop info
+      if (responseData.data != null) {
+        await appDatabase.upsertShop(responseData.data!.toJson());
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
+      debugPrint('==> get single shop failure: $e');
+
+      // Fallback
+      try {
+        final localShop = await appDatabase.getItem('shop', uuid);
+        if (localShop != null) {
+          return ApiResult.success(
+            data: SingleShopResponse(data: ShopData.fromJson(localShop)),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -141,11 +215,33 @@ class ShopsRepository implements ShopsRepositoryFacade {
         '/api/method/paas.api.shop.shop.get_nearby_shops',
         queryParameters: params,
       );
-      return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ShopsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache nearby shops
+      if (responseData.data != null) {
+        for (final shop in responseData.data!) {
+          await appDatabase.upsertShop(shop.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get nearby shops failure: $e');
+
+      // Fallback: Show all local shops since we can't easily do geo-filtering here
+      try {
+        final localShops = await appDatabase.getShopsLocally();
+        if (localShops.isNotEmpty) {
+          return ApiResult.success(
+            data: ShopsPaginateResponse(
+              data: localShops.map((e) => ShopData.fromJson(e)).toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -211,11 +307,33 @@ class ShopsRepository implements ShopsRepositoryFacade {
       final response = await client.get(
         '/api/method/paas.api.shop.shop.get_pickup_shops',
       );
-      return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ShopsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache pickup shops
+      if (responseData.data != null) {
+        for (final shop in responseData.data!) {
+          await appDatabase.upsertShop(shop.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get pickup shops failure: $e');
+
+      // Fallback
+      try {
+        final localShops = await appDatabase.getShopsLocally();
+        if (localShops.isNotEmpty) {
+          return ApiResult.success(
+            data: ShopsPaginateResponse(
+              data: localShops.map((e) => ShopData.fromJson(e)).toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -302,11 +420,33 @@ class ShopsRepository implements ShopsRepositoryFacade {
         '/api/method/paas.api.shop.shop.get_shops_recommend',
         queryParameters: {'page': page},
       );
-      return ApiResult.success(
-        data: ShopsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ShopsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache recommended shops (first page)
+      if (responseData.data != null && page == 1) {
+        for (final shop in responseData.data!) {
+          await appDatabase.upsertShop(shop.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get recommended shops failure: $e');
+
+      // Fallback
+      try {
+        final localShops = await appDatabase.getShopsLocally();
+        if (localShops.isNotEmpty) {
+          return ApiResult.success(
+            data: ShopsPaginateResponse(
+              data: localShops.map((e) => ShopData.fromJson(e)).toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

@@ -19,8 +19,35 @@ class OrdersRepository implements OrdersRepositoryFacade {
         '/api/method/paas.api.order.order.create_order',
         data: orderBody.toJson(),
       );
-      return ApiResult.success(data: OrderActiveModel.fromJson(response.data));
+      final responseData = OrderActiveModel.fromJson(response.data);
+
+      // Cache the newly created order
+      await appDatabase.upsertOrder(responseData.toJson());
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
+      debugPrint('==> create order failure: $e');
+
+      // Persistence: Queue the checkout request for background sync
+      try {
+        await appDatabase.insertSyncRequest(
+          '/api/method/paas.api.order.order.create_order',
+          'POST',
+          orderBody.toJson(),
+        );
+
+        // Return a dummy success to keep UI moving. 
+        // BackgroundSyncService will finalize it.
+        return ApiResult.success(
+          data: OrderActiveModel(
+            id: 'OFFLINE-${DateTime.now().millisecondsSinceEpoch}',
+            status: 'pending_sync',
+          ),
+        );
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -88,9 +115,27 @@ class OrdersRepository implements OrdersRepositoryFacade {
         '/api/method/paas.api.order.order.get_order_details',
         queryParameters: {'order_id': orderId},
       );
-      return ApiResult.success(data: OrderActiveModel.fromJson(response.data));
+      final responseData = OrderActiveModel.fromJson(response.data);
+
+      // Persistence: Cache order details
+      await appDatabase.upsertOrder(responseData.toJson());
+
+      return ApiResult.success(data: responseData);
     } catch (e, s) {
       debugPrint('==> get single order failure: $e,$s');
+
+      // Fallback
+      try {
+        final localOrder = await appDatabase.getItem('orders', orderId);
+        if (localOrder != null) {
+          return ApiResult.success(
+            data: OrderActiveModel.fromJson(localOrder),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -159,7 +204,20 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      debugPrint('==> get cancel order failure: $e');
+      debugPrint('==> cancel order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.insertSyncRequest(
+          '/api/method/paas.api.order.order.cancel_order',
+          'POST',
+          {'order_id': orderId},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -179,6 +237,19 @@ class OrdersRepository implements OrdersRepositoryFacade {
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> refund order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.insertSyncRequest(
+          '/api/method/paas.api.user.user.create_order_refund',
+          'POST',
+          {"order": orderId, "cause": title},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -235,7 +306,6 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult> resumeAutoOrder(String autoOrderId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -244,6 +314,20 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
+      debugPrint('==> resume repeating order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.insertSyncRequest(
+          '/api/method/paas.api.repeating_order.resume_repeating_order',
+          'POST',
+          {'repeating_order_id': autoOrderId},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -351,18 +435,38 @@ class OrdersRepository implements OrdersRepositoryFacade {
     String? endDate,
   }) async {
     try {
+      final data = {
+        'original_order': orderId,
+        'start_date': startDate,
+        'cron_pattern': cronPattern,
+        if (endDate != null) 'end_date': endDate,
+      };
       final client = dioHttp.client(requireAuth: true);
       await client.post(
         '/api/method/paas.api.repeating_order.create_repeating_order',
-        data: {
-          'original_order': orderId,
-          'start_date': startDate,
-          'cron_pattern': cronPattern,
-          if (endDate != null) 'end_date': endDate,
-        },
+        data: data,
       );
       return const ApiResult.success(data: null);
     } catch (e) {
+      debugPrint('==> create repeating order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.insertSyncRequest(
+          '/api/method/paas.api.repeating_order.create_repeating_order',
+          'POST',
+          {
+            'original_order': orderId,
+            'start_date': startDate,
+            'cron_pattern': cronPattern,
+            if (endDate != null) 'end_date': endDate,
+          },
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -382,6 +486,20 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
       return const ApiResult.success(data: null);
     } catch (e) {
+      debugPrint('==> delete repeating order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.insertSyncRequest(
+          '/api/method/paas.api.repeating_order.delete_repeating_order',
+          'POST',
+          {'repeating_order_id': repeatingOrderId},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

@@ -64,11 +64,31 @@ class ProductsRepository implements ProductsRepositoryFacade {
         '/api/method/paas.api.product.product.get_product_by_uuid',
         queryParameters: {'uuid': uuid},
       );
-      return ApiResult.success(
-        data: SingleProductResponse.fromJson(response.data),
-      );
+      final responseData = SingleProductResponse.fromJson(response.data);
+
+      // Persistence: Cache product detail
+      if (responseData.data != null) {
+        await appDatabase.upsertProduct(responseData.data!.toJson());
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get product details failure: $e');
+
+      // Fallback
+      try {
+        final localProduct = await appDatabase.searchProducts(query: uuid);
+        if (localProduct.isNotEmpty) {
+          return ApiResult.success(
+            data: SingleProductResponse(
+              data: ProductData.fromJson(jsonDecode(localProduct.first.data)),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local details fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -150,11 +170,37 @@ class ProductsRepository implements ProductsRepositoryFacade {
         '/api/method/paas.api.product.product.most_sold_products',
         queryParameters: params,
       );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ProductsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache most sold
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get most sold products failure: $e');
+
+      // Fallback
+      try {
+        final localProducts = await appDatabase.searchProducts(
+          categoryId: categoryId,
+        );
+        if (localProducts.isNotEmpty) {
+          return ApiResult.success(
+            data: ProductsPaginateResponse(
+              data: localProducts
+                  .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local most sold fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -198,11 +244,37 @@ class ProductsRepository implements ProductsRepositoryFacade {
         '/api/method/paas.api.product.product.get_products_by_ids',
         queryParameters: {'ids': ids},
       );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ProductsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache products
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get products by ids failure: $e');
+
+      // Fallback: Fetch what we have from local DB
+      try {
+        final List<ProductData> locals = [];
+        for (final id in ids) {
+          final local = await appDatabase.searchProducts(query: id);
+          if (local.isNotEmpty) {
+            locals.add(ProductData.fromJson(jsonDecode(local.first.data)));
+          }
+        }
+        if (locals.isNotEmpty) {
+          return ApiResult.success(
+            data: ProductsPaginateResponse(data: locals),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local batch fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -258,11 +330,37 @@ class ProductsRepository implements ProductsRepositoryFacade {
         '/api/method/paas.api.product.product.get_discounted_products',
         queryParameters: params,
       );
-      return ApiResult.success(
-        data: ProductsPaginateResponse.fromJson(response.data),
-      );
+      final responseData = ProductsPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache discounted products
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get discount products failure: $e');
+
+      // Fallback
+      try {
+        final localProducts = await appDatabase.searchProducts(
+          categoryId: categoryId,
+        );
+        if (localProducts.isNotEmpty) {
+          return ApiResult.success(
+            data: ProductsPaginateResponse(
+              data: localProducts
+                  .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local discount fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
