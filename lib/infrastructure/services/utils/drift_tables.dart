@@ -54,6 +54,7 @@ class SyncQueueTable extends Table {
   TextColumn get payload => text()();
   DateTimeColumn get createdAt => dateTime()();
   IntColumn get retryCount => integer().withDefault(const Constant(0))();
+  TextColumn get lastError => text().nullable()();
 
   @override
   Set<Column> get primaryKey => {id};

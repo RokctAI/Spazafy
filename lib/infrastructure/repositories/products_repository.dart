@@ -397,11 +397,35 @@ class ProductsRepository implements ProductsRepositoryFacade {
         '/api/method/paas.api.product.product.get_products',
         queryParameters: {'shop_id': shopId, 'limit_page_length': 100},
       );
-      return ApiResult.success(
-        data: AllProductsResponse.fromJson(response.data),
-      );
+      final responseData = AllProductsResponse.fromJson(response.data);
+
+      // Persistence: Cache these products
+      if (responseData.data != null) {
+        for (final product in responseData.data!) {
+          await appDatabase.upsertProduct(product.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> get all products failure: $e');
+
+      // Fallback: Fetch from local DB
+      try {
+        final localProducts = await appDatabase.searchProducts(shopId: shopId);
+        if (localProducts.isNotEmpty) {
+          return ApiResult.success(
+            data: AllProductsResponse(
+              data: localProducts
+                  .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local all products fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

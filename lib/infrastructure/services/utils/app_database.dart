@@ -35,7 +35,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 9;
+  int get schemaVersion => 10;
 
   @override
   MigrationStrategy get migration {
@@ -109,6 +109,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 9) {
           await m.createTable(notificationsTable);
+        }
+        if (from < 10) {
+          await m.addColumn(syncQueueTable, syncQueueTable.lastError);
         }
       },
     );
@@ -256,12 +259,15 @@ class AppDatabase extends _$AppDatabase {
     return (select(syncQueueTable)..where((t) => t.method.equals(method))).get();
   }
 
-  Future<void> incrementSyncRetry(String id) async {
+  Future<void> incrementSyncRetry(String id, {String? error}) async {
     final query = select(syncQueueTable)..where((t) => t.id.equals(id));
     final request = await query.getSingleOrNull();
     if (request != null) {
       await (update(syncQueueTable)..where((t) => t.id.equals(id))).write(
-        SyncQueueTableCompanion(retryCount: Value(request.retryCount + 1)),
+        SyncQueueTableCompanion(
+          retryCount: Value(request.retryCount + 1),
+          lastError: Value(error),
+        ),
       );
     }
   }

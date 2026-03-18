@@ -322,10 +322,13 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         if (override != true) return;
       }
 
-      // 1. Set as Guest
+      // 1. Set as Guest and provide stable offline identity
       LocalStorage.setIsGuest(true);
-      // 2. Save offline user details
+      final offlineUuid = 'OFFLINE-USER-${const Uuid().v4()}';
+      
+      // 2. Save offline user details with stable UUID
       LocalStorage.setOfflineUser({
+        'uuid': offlineUuid,
         'email': state.email,
         'firstname': state.firstName,
         'lastname': state.lastName,
@@ -335,9 +338,13 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         'referral': state.referral,
         'type': 'register',
       });
+
+      // Provide a placeholder token to stabilize state-dependent plugins
+      LocalStorage.setToken('OFFLINE_DUMMY_TOKEN_${const Uuid().v4()}');
+
       // 3. Queue the request
       _backgroundSyncService.enqueueRequest(
-        '${AppConstants.baseUrl}/auth/register',
+        '${AppConstants.baseUrl}/api/method/paas.api.auth.register',
         'POST',
         {
           'email': state.email,

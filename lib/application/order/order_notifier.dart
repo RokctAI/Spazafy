@@ -360,8 +360,17 @@ class OrderNotifier extends StateNotifier<OrderState> {
         },
       );
     } else {
+      // Offline: Provide an estimate to unblock checkout flow
+      final estimate = ProductCalculateResponse(
+        totalPrice: 0.0, // UI will interpret 0.0 + note as "Estimated"
+        isEstimated: true,
+      );
+      state = state.copyWith(calculateData: estimate);
       if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
+         AppHelpers.showCheckTopSnackBarInfo(
+           context, 
+           AppHelpers.getTranslation("Pricing is estimated while offline and will be finalized on sync."),
+         );
       }
     }
   }
@@ -429,109 +438,159 @@ class OrderNotifier extends StateNotifier<OrderState> {
     Function(String, bool)? onWebview,
   }) async {
     state = state.copyWith(isButtonLoading: true);
+    final connected = await AppConnectivity.connectivity();
+
     if (data.deliveryType == DeliveryTypeEnum.delivery) {
-      final res = await _shopsRepository.checkDriverZone(
-        LatLng(data.location.latitude ?? 0, data.location.longitude ?? 0),
-        shopId: data.shopId,
-      );
-      res.when(
-        success: (s) async {
-          final num wallet = LocalStorage.getWalletData()?.price ?? 0;
-          if (payment.tag == "wallet" &&
-              wallet < (state.calculateData?.totalPrice ?? 0)) {
-            AppHelpers.showCheckTopSnackBarInfo(
-              context,
-              AppHelpers.getTranslation(TrKeys.notEnoughMoney),
+      if (connected) {
+        final res = await _shopsRepository.checkDriverZone(
+          LatLng(data.location.latitude ?? 0, data.location.longitude ?? 0),
+          shopId: data.shopId,
+        );
+        res.when(
+          success: (s) async {
+            await _proceedToCreateOrder(
+              context: context, 
+              data: data, 
+              payment: payment, 
+              onWebview: onWebview,
             );
+          },
+          failure: (failure, e) {
             state = state.copyWith(isButtonLoading: false);
-            return;
-          }
-          if (payment.tag != "cash" && payment.tag != "wallet") {
-            final res = await _orderRepository.process(
-              data,
-              payment.tag ?? '',
-              context: context,
-            );
-            res.map(
-              success: (key) {
-                onWebview?.call(key.data, payment.tag == 'pay-fast');
-              },
-              failure: (e) {
-                state = state.copyWith(isButtonLoading: false);
-                if (context.mounted) {
-                  AppHelpers.showCheckTopSnackBar(context, e.error);
-                }
-              },
-            );
-            return;
-          }
-          final response = await _orderRepository.createOrder(data);
-          response.when(
-            success: (data) async {
-              final ImageCropperForMarker image = ImageCropperForMarker();
-
-              state = state.copyWith(
-                orderData: data,
-                isButtonLoading: false,
-                isMapLoading: true,
-              );
-
-              Map<MarkerId, Marker> list = {
-                const MarkerId("Shop"): Marker(
-                  markerId: const MarkerId("Shop"),
-                  position: LatLng(
-                    data.shop?.location?.latitude ?? AppConstants.demoLatitude,
-                    data.shop?.location?.longitude ?? AppConstants.demoLongitude,
-                  ),
-                  icon: await image.resizeAndCircle(
-                    data.shop?.logoImg ?? "",
-                    120,
-                  ),
-                ),
-                const MarkerId("User"): Marker(
-                  markerId: const MarkerId("User"),
-                  position: LatLng(
-                    data.location?.latitude ?? AppConstants.demoLatitude,
-                    data.location?.longitude ?? AppConstants.demoLongitude,
-                  ),
-                  icon: await image.resizeAndCircle(
-                    data.user?.img ?? "",
-                    120,
-                  ),
-                ),
-              };
-              state = state.copyWith(markers: list, isMapLoading: false);
-              if (context.mounted) {
-                getRoutingAll(
-                  context: context,
-                  end: LatLng(
-                    data.location?.latitude ?? 0,
-                    data.location?.longitude ?? 0,
-                  ),
-                  start: LatLng(
-                    data.shop?.location?.latitude ?? 0,
-                    data.shop?.location?.longitude ?? 0,
-                  ),
-                );
-              }
-            },
-            failure: (failure, status) {
-              state = state.copyWith(isButtonLoading: false);
-              if (context.mounted) {
-                AppHelpers.showCheckTopSnackBar(context, failure);
-              }
-            },
-          );
-        },
-        failure: (failure, e) {
-          state = state.copyWith(isButtonLoading: false);
-          if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          }
-        },
-      );
+            if (context.mounted) {
+              AppHelpers.showCheckTopSnackBar(context, failure);
+            }
+          },
+        );
+      } else {
+        // Offline: Optimistically proceed without zone check
+        await _proceedToCreateOrder(
+          context: context, 
+          data: data, 
+          payment: payment, 
+          onWebview: onWebview,
+        );
+      }
       return;
     }
+
+    await _proceedToCreateOrder(
+      context: context, 
+      data: data, 
+      payment: payment, 
+      onWebview: onWebview,
+    );
+  }
+
+  Future<void> _proceedToCreateOrder({
+    required BuildContext context,
+    required OrderBodyData data,
+    required PaymentData payment,
+    Function(String, bool)? onWebview,
+  }) async {
+    final num wallet = LocalStorage.getWalletData()?.price ?? 0;
+    if (payment.tag == "wallet" &&
+        wallet < (state.calculateData?.totalPrice ?? 0)) {
+      if (context.mounted) {
+        AppHelpers.showCheckTopSnackBarInfo(
+          context,
+          AppHelpers.getTranslation(TrKeys.notEnoughMoney),
+        );
+      }
+      state = state.copyWith(isButtonLoading: false);
+      return;
+    }
+
+    if (payment.tag != "cash" && payment.tag != "wallet") {
+      final connected = await AppConnectivity.connectivity();
+      if (connected) {
+        final res = await _orderRepository.process(
+          data,
+          payment.tag ?? '',
+          context: context,
+        );
+        res.map(
+          success: (key) {
+            onWebview?.call(key.data, payment.tag == 'pay-fast');
+          },
+          failure: (e) {
+            state = state.copyWith(isButtonLoading: false);
+            if (context.mounted) {
+              AppHelpers.showCheckTopSnackBar(context, e.error);
+            }
+          },
+        );
+      } else {
+        // Online payments cannot be processed offline
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBarInfo(
+            context,
+            AppHelpers.getTranslation("Online payments are not available offline. Please use Cash/Wallet or connect to internet."),
+          );
+        }
+        state = state.copyWith(isButtonLoading: false);
+      }
+      return;
+    }
+
+    final response = await _orderRepository.createOrder(data);
+    response.when(
+      success: (data) async {
+        final ImageCropperForMarker image = ImageCropperForMarker();
+
+        state = state.copyWith(
+          orderData: data,
+          isButtonLoading: false,
+          isMapLoading: true,
+        );
+
+        Map<MarkerId, Marker> list = {
+          const MarkerId("Shop"): Marker(
+            markerId: const MarkerId("Shop"),
+            position: LatLng(
+              data.shop?.location?.latitude ?? AppConstants.demoLatitude,
+              data.shop?.location?.longitude ?? AppConstants.demoLongitude,
+            ),
+            icon: await image.resizeAndCircle(
+              data.shop?.logoImg ?? "",
+              120,
+            ),
+          ),
+          const MarkerId("User"): Marker(
+            markerId: const MarkerId("User"),
+            position: LatLng(
+              data.location?.latitude ?? AppConstants.demoLatitude,
+              data.location?.longitude ?? AppConstants.demoLongitude,
+            ),
+            icon: await image.resizeAndCircle(
+              data.user?.img ?? "",
+              120,
+            ),
+          ),
+        };
+        state = state.copyWith(markers: list, isMapLoading: false);
+        if (context.mounted) {
+          getRoutingAll(
+            context: context,
+            end: LatLng(
+              data.location?.latitude ?? 0,
+              data.location?.longitude ?? 0,
+            ),
+            start: LatLng(
+              data.shop?.location?.latitude ?? 0,
+              data.shop?.location?.longitude ?? 0,
+            ),
+          );
+        }
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isButtonLoading: false);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        }
+      },
+    );
+  }
 
     final num wallet = LocalStorage.getWalletData()?.price ?? 0;
     if (payment.tag == "wallet" &&

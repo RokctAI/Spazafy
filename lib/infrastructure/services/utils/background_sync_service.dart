@@ -68,19 +68,26 @@ class BackgroundSyncService {
           debugPrint('==> request ${request.id} abandoned after 5 retries');
           await database.abandonSyncRequest(
             request,
-            error: 'Abandoned after 5 retries due to persistent failures',
+            error: request.lastError ?? 'Abandoned after 5 retries due to persistent failures',
           );
           continue;
         }
 
-        final success = await _sendRequest(request);
-        if (success) {
+        final result = await _sendRequestWithStatus(request);
+        if (result.success) {
           await database.removeSyncRequest(request.id);
+        } else if (result.remove) {
+          // If it's a permanent client error (4xx), move to abandoned for review if payload is important
+          // or just remove. Let's move to abandoned.
+          await database.abandonSyncRequest(
+            request,
+            error: 'Permanent Failure (4xx): ${result.error}',
+          );
         } else {
           // Increment retry count if it was a server/network error
-          await database.incrementSyncRetry(request.id);
-          // Maintain order by breaking queue processing on first failure
-          break;
+          await database.incrementSyncRetry(request.id, error: result.error);
+          // Optimization: Continue to next item instead of breaking
+          continue;
         }
       }
     } finally {
@@ -88,14 +95,11 @@ class BackgroundSyncService {
     }
   }
 
-  Future<bool> _sendRequest(SyncQueueEntity request) async {
+  Future<SyncResult> _sendRequestWithStatus(SyncQueueEntity request) async {
     try {
-      final client = httpService.client(
-        requireAuth: true,
-      ); // Queue needs auth generally
+      final client = httpService.client(requireAuth: true);
       final data = jsonDecode(request.payload);
 
-      // Add idempotency key to headers to prevent duplicate processing on backend
       final options = Options(
         method: request.method,
         headers: {'X-Idempotency-Key': request.id},
@@ -108,39 +112,43 @@ class BackgroundSyncService {
       );
 
       final statusCode = response.statusCode ?? 0;
-      // 2xx indicates success. 4xx indicates client error (e.g. invalid data) which won't succeed on retry
       if (statusCode >= 200 && statusCode < 300) {
         // Special handling for auth requests to save token
-        if (request.url.contains('/auth/')) {
-          final data = response.data;
-          // Depending on actual response structure for login/register
-          final token = data['data']?['access_token'] ?? data['token'];
+        if (request.url.contains('/auth/register') || request.url.contains('/auth/login')) {
+          final responseData = response.data;
+          final token = responseData['data']?['access_token'] ?? responseData['token'];
           if (token != null) {
             await LocalStorage.setToken(token);
             LocalStorage.setIsGuest(false);
             LocalStorage.deleteOfflineUser();
             
-            // If it's a login, we might also get user data
-            final userData = data['data']?['user'] ?? data['user'];
+            final userData = responseData['data']?['user'] ?? responseData['user'];
             if (userData != null) {
               await LocalStorage.setUser(ProfileData.fromJson(userData));
             }
           }
         }
-        return true;
+        return const SyncResult(success: true);
       } else if (statusCode >= 400 && statusCode < 500) {
-        return true; // Don't retry client errors
+        return SyncResult(success: false, remove: true, error: 'Status: $statusCode, ${response.data}');
       }
-      return false; // 5xx or other errors -> retry later
+      return SyncResult(success: false, error: 'Server Error: $statusCode');
     } on DioException catch (e) {
       final statusCode = e.response?.statusCode ?? 0;
       if (statusCode >= 400 && statusCode < 500) {
-        // Client errors (4xx) should be removed from queue, as they will continually fail
-        return true;
+        return SyncResult(success: false, remove: true, error: 'Client Error: $statusCode, ${e.message}');
       }
-      return false; // Network errors or 5xx -> retain in queue
+      return SyncResult(success: false, error: 'Network Error: ${e.message}');
     } catch (e) {
-      return false;
+      return SyncResult(success: false, error: 'Unexpected Error: $e');
     }
   }
+}
+
+class SyncResult {
+  final bool success;
+  final bool remove;
+  final String? error;
+
+  const SyncResult({required this.success, this.remove = false, this.error});
 }
