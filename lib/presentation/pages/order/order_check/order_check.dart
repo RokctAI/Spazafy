@@ -225,6 +225,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
       deliveryTime: state.selectTime.hour.toString().length == 2
           ? "${state.selectTime.hour}:${state.selectTime.minute.toString().padLeft(2, '0')}"
           : "0${state.selectTime.hour}:${state.selectTime.minute.toString().padLeft(2, '0')}",
+      quotedTotal: state.calculateData?.totalPrice,
     );
 
     // Check if PayFast is the selected payment method
