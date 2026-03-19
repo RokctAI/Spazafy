@@ -1,5 +1,5 @@
-class MobileTranslationsResponse {
-  MobileTranslationsResponse({
+class TranslationsResponse {
+  TranslationsResponse({
     String? timestamp,
     bool? status,
     String? message,
@@ -11,7 +11,7 @@ class MobileTranslationsResponse {
     _data = data;
   }
 
-  MobileTranslationsResponse.fromJson(dynamic json) {
+  TranslationsResponse.fromJson(dynamic json) {
     _timestamp = json['timestamp'];
     _status = json['status'];
     _message = json['message'];
@@ -23,12 +23,12 @@ class MobileTranslationsResponse {
   String? _message;
   Map<String, dynamic>? _data;
 
-  MobileTranslationsResponse copyWith({
+  TranslationsResponse copyWith({
     String? timestamp,
     bool? status,
     String? message,
     Map<String, dynamic>? data,
-  }) => MobileTranslationsResponse(
+  }) => TranslationsResponse(
     timestamp: timestamp ?? _timestamp,
     status: status ?? _status,
     message: message ?? _message,

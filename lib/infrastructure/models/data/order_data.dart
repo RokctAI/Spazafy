@@ -1,278 +1,200 @@
-import 'currency_data.dart';
-import 'user.dart';
-import 'product_data.dart';
+import 'addon_data.dart';
+import 'order_detail.dart';
+import 'payment_data.dart';
+import 'user_data.dart';
 import 'shop_data.dart';
-import 'translation.dart';
-import 'review_data.dart';
-import 'coupon_data.dart';
+import 'currency_data.dart';
 
 class OrderData {
   OrderData({
-    String? id,
-    String? userId,
-    num? price,
-    num? currencyPrice,
+    int? id,
+    int? userId,
+    num? totalPrice,
     num? rate,
-    int? orderDetailsCount,
-    String? createdAt,
-    String? updatedAt,
-    CurrencyData? currency,
-    UserModel? user,
-    List<ShopOrderDetails>? details,
-    ReviewData? review,
-  }) {
-    _id = id;
-    _userId = userId;
-    _price = price;
-    _currencyPrice = currencyPrice;
-    _rate = rate;
-    _orderDetailsCount = orderDetailsCount;
-    _createdAt = createdAt;
-    _updatedAt = updatedAt;
-    _currency = currency;
-    _user = user;
-    _details = details;
-    _review = review;
-  }
-
-  OrderData.fromJson(dynamic json) {
-    _id = json['id']?.toString();
-    _userId = json['user_id']?.toString();
-    _price = json['price'] ?? json['total_price'];
-    _currencyPrice = json['currency_price'];
-    _rate = json['rate'];
-    _orderDetailsCount = json['order_details_count'];
-    _createdAt = json['created_at'];
-    _updatedAt = json['updated_at'];
-    _currency = json['currency'] != null
-        ? CurrencyData.fromJson(json['currency'])
-        : null;
-    _user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
-    if (json['details'] != null) {
-      _details = [];
-      json['details'].forEach((v) {
-        _details?.add(ShopOrderDetails.fromJson(v));
-      });
-    }
-    _review = json['review'] != null
-        ? ReviewData.fromJson(json['review'])
-        : null;
-  }
-
-  String? _id;
-  String? _userId;
-  num? _price;
-  num? _currencyPrice;
-  num? _rate;
-  int? _orderDetailsCount;
-  String? _createdAt;
-  String? _updatedAt;
-  CurrencyData? _currency;
-  UserModel? _user;
-  List<ShopOrderDetails>? _details;
-  ReviewData? _review;
-
-  OrderData copyWith({
-    String? id,
-    String? userId,
-    num? price,
-    num? currencyPrice,
-    num? rate,
-    int? orderDetailsCount,
-    String? createdAt,
-    String? updatedAt,
-    CurrencyData? currency,
-    UserModel? user,
-    List<ShopOrderDetails>? details,
-    ReviewData? review,
-  }) => OrderData(
-    id: id ?? _id,
-    userId: userId ?? _userId,
-    price: price ?? _price,
-    currencyPrice: currencyPrice ?? _currencyPrice,
-    rate: rate ?? _rate,
-    orderDetailsCount: orderDetailsCount ?? _orderDetailsCount,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    currency: currency ?? _currency,
-    user: user ?? _user,
-    details: details ?? _details,
-    review: review ?? _review,
-  );
-
-  String? get id => _id;
-  String? get userId => _userId;
-  num? get price => _price;
-  num? get currencyPrice => _currencyPrice;
-  num? get rate => _rate;
-  int? get orderDetailsCount => _orderDetailsCount;
-  String? get createdAt => _createdAt;
-  String? get updatedAt => _updatedAt;
-  CurrencyData? get currency => _currency;
-  UserModel? get user => _user;
-  List<ShopOrderDetails>? get details => _details;
-  ReviewData? get review => _review;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = _id;
-    map['user_id'] = _userId;
-    map['price'] = _price;
-    map['currency_price'] = _currencyPrice;
-    map['rate'] = _rate;
-    map['order_details_count'] = _orderDetailsCount;
-    map['created_at'] = _createdAt;
-    map['updated_at'] = _updatedAt;
-    if (_currency != null) {
-      map['currency'] = _currency?.toJson();
-    }
-    if (_user != null) {
-      map['user'] = _user?.toJson();
-    }
-    if (_details != null) {
-      map['details'] = _details?.map((v) => v.toJson()).toList();
-    }
-    if (_review != null) {
-      map['review'] = _review?.toJson();
-    }
-    return map;
-  }
-}
-
-class ShopOrderDetails {
-  ShopOrderDetails({
-    String? id,
-    String? shopId,
-    num? deliveryFee,
-    num? price,
     num? tax,
+    num? commissionFee,
     String? status,
+    Location? location,
+    String? deliveryType,
+    num? deliveryFee,
+    dynamic deliveryman,
     String? deliveryDate,
     String? deliveryTime,
     String? createdAt,
     String? updatedAt,
-    List<OrderStocks>? orderStocks,
-    CouponData? coupon,
-    dynamic deliveryman,
-    DeliveryType? deliveryType,
-    // List<dynamic>? transactions,
     ShopData? shop,
+    CurrencyData? currency,
+    UserData? user,
+    List<OrderDetail>? details,
+    Transaction? transaction,
+    OrderAddress? orderAddress,
+    dynamic review,
+    String? note,
+    bool? seen,
   }) {
     _id = id;
-    _shopId = shopId;
-    _deliveryFee = deliveryFee;
-    _price = price;
+    _userId = userId;
+    _totalPrice = totalPrice;
+    _rate = rate;
     _tax = tax;
+    _commissionFee = commissionFee;
     _status = status;
+    _location = location;
+    _deliveryType = deliveryType;
+    _deliveryFee = deliveryFee;
+    _deliveryman = deliveryman;
     _deliveryDate = deliveryDate;
     _deliveryTime = deliveryTime;
     _createdAt = createdAt;
     _updatedAt = updatedAt;
-    _orderStocks = orderStocks;
-    _coupon = coupon;
-    _deliveryman = deliveryman;
-    _deliveryType = deliveryType;
-    // _transactions = transactions;
     _shop = shop;
+    _currency = currency;
+    _user = user;
+    _details = details;
+    _transaction = transaction;
+    _orderAddress = orderAddress;
+    _review = review;
+    _note = note;
+    _seen = seen;
   }
 
-  ShopOrderDetails.fromJson(dynamic json) {
-    _id = json['id']?.toString();
-    _shopId = json['shop_id']?.toString();
-    _deliveryFee = json['delivery_fee'];
-    _price = json['price'];
+  OrderData.fromJson(dynamic json) {
+    _id = json['id'];
+    _userId = json['user_id'];
+    _totalPrice = json['total_price'];
+    _rate = json['rate'];
     _tax = json['tax'];
+    _commissionFee = json['commission_fee'];
     _status = json['status'];
+    _location = json['location'] != null
+        ? Location.fromJson(json['location'])
+        : null;
+    _deliveryType = json['delivery_type'];
+    _deliveryFee = json['delivery_fee'];
+    _deliveryman = json['deliveryman'];
     _deliveryDate = json['delivery_date'];
     _deliveryTime = json['delivery_time'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
-    if (json['order_stocks'] != null) {
-      _orderStocks = [];
-      json['order_stocks'].forEach((v) {
-        _orderStocks?.add(OrderStocks.fromJson(v));
+    _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
+    _currency = json['currency'] != null
+        ? CurrencyData.fromJson(json['currency'])
+        : null;
+    _user = json['user'] != null ? UserData.fromJson(json['user']) : null;
+    if (json['details'] != null) {
+      _details = [];
+      json['details'].forEach((v) {
+        _details?.add(OrderDetail.fromJson(v));
       });
     }
-    _coupon = json['coupon'] != null
-        ? CouponData.fromJson(json['coupon'])
+    _transaction = json['transaction'] != null
+        ? Transaction.fromJson(json['transaction'])
         : null;
-    _deliveryman = json['deliveryman'];
-    _deliveryType = json['delivery_type'] != null
-        ? DeliveryType.fromJson(json['delivery_type'])
+    _orderAddress = json['address'] != null
+        ? OrderAddress.fromJson(json['address'])
         : null;
-    // if (json['transactions'] != null) {
-    //   _transactions = [];
-    //   json['transactions'].forEach((v) {
-    //     _transactions?.add(Dynamic.fromJson(v));
-    //   });
-    // }
-    _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
+    _review = json['review'];
+    _note = json['note'];
+    _seen = false;
   }
 
-  String? _id;
-  String? _shopId;
-  num? _deliveryFee;
-  num? _price;
+  int? _id;
+  int? _userId;
+  num? _totalPrice;
+  num? _rate;
   num? _tax;
+  num? _commissionFee;
   String? _status;
+  Location? _location;
+  String? _deliveryType;
+  num? _deliveryFee;
+  dynamic _deliveryman;
   String? _deliveryDate;
   String? _deliveryTime;
   String? _createdAt;
   String? _updatedAt;
-  List<OrderStocks>? _orderStocks;
-  CouponData? _coupon;
-  dynamic _deliveryman;
-  DeliveryType? _deliveryType;
-
-  // List<dynamic>? _transactions;
   ShopData? _shop;
+  CurrencyData? _currency;
+  UserData? _user;
+  List<OrderDetail>? _details;
+  Transaction? _transaction;
+  OrderAddress? _orderAddress;
+  dynamic _review;
+  String? _note;
+  bool? _seen;
 
-  ShopOrderDetails copyWith({
-    String? id,
-    String? shopId,
-    num? deliveryFee,
-    num? price,
+  OrderData copyWith({
+    int? id,
+    int? userId,
+    num? totalPrice,
+    num? rate,
     num? tax,
+    num? commissionFee,
     String? status,
+    Location? location,
+    String? deliveryType,
+    num? deliveryFee,
+    dynamic deliveryman,
     String? deliveryDate,
     String? deliveryTime,
     String? createdAt,
     String? updatedAt,
-    List<OrderStocks>? orderStocks,
-    CouponData? coupon,
-    dynamic deliveryman,
-    DeliveryType? deliveryType,
-    // List<dynamic>? transactions,
     ShopData? shop,
-  }) => ShopOrderDetails(
+    CurrencyData? currency,
+    UserData? user,
+    List<OrderDetail>? details,
+    Transaction? transaction,
+    OrderAddress? orderAddress,
+    dynamic review,
+    String? note,
+    bool? seen,
+  }) => OrderData(
     id: id ?? _id,
-    shopId: shopId ?? _shopId,
-    deliveryFee: deliveryFee ?? _deliveryFee,
-    price: price ?? _price,
+    userId: userId ?? _userId,
+    totalPrice: totalPrice ?? _totalPrice,
+    rate: rate ?? _rate,
     tax: tax ?? _tax,
+    commissionFee: commissionFee ?? _commissionFee,
     status: status ?? _status,
+    location: location ?? _location,
+    deliveryType: deliveryType ?? _deliveryType,
+    deliveryFee: deliveryFee ?? _deliveryFee,
+    deliveryman: deliveryman ?? _deliveryman,
     deliveryDate: deliveryDate ?? _deliveryDate,
     deliveryTime: deliveryTime ?? _deliveryTime,
     createdAt: createdAt ?? _createdAt,
     updatedAt: updatedAt ?? _updatedAt,
-    orderStocks: orderStocks ?? _orderStocks,
-    coupon: coupon ?? _coupon,
-    deliveryman: deliveryman ?? _deliveryman,
-    deliveryType: deliveryType ?? _deliveryType,
-    // transactions: transactions ?? _transactions,
     shop: shop ?? _shop,
+    currency: currency ?? _currency,
+    user: user ?? _user,
+    details: details ?? _details,
+    transaction: transaction ?? _transaction,
+    review: review ?? _review,
+    note: note ?? _note,
+    seen: seen ?? _seen,
   );
 
-  String? get id => _id;
-  String? get shopId => _shopId;
+  int? get id => _id;
 
-  num? get deliveryFee => _deliveryFee;
+  int? get userId => _userId;
 
-  num? get price => _price;
+  num? get totalPrice => _totalPrice;
+
+  num? get rate => _rate;
 
   num? get tax => _tax;
 
+  num? get commissionFee => _commissionFee;
+
   String? get status => _status;
+
+  Location? get location => _location;
+
+  String? get deliveryType => _deliveryType;
+
+  num? get deliveryFee => _deliveryFee;
+
+  dynamic get deliveryman => _deliveryman;
 
   String? get deliveryDate => _deliveryDate;
 
@@ -282,124 +204,177 @@ class ShopOrderDetails {
 
   String? get updatedAt => _updatedAt;
 
-  List<OrderStocks>? get orderStocks => _orderStocks;
-
-  CouponData? get coupon => _coupon;
-
-  dynamic get deliveryman => _deliveryman;
-
-  DeliveryType? get deliveryType => _deliveryType;
-
-  // List<dynamic>? get transactions => _transactions;
   ShopData? get shop => _shop;
+
+  CurrencyData? get currency => _currency;
+
+  UserData? get user => _user;
+
+  List<OrderDetail>? get details => _details;
+
+  Transaction? get transaction => _transaction;
+
+  OrderAddress? get orderAddress => _orderAddress;
+
+  dynamic get review => _review;
+
+  String? get note => _note;
+
+  bool? get seen => _seen;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = _id;
-    map['shop_id'] = _shopId;
-    map['delivery_fee'] = _deliveryFee;
-    map['price'] = _price;
+    map['user_id'] = _userId;
+    map['total_price'] = _totalPrice;
+    map['rate'] = _rate;
     map['tax'] = _tax;
+    map['commission_fee'] = _commissionFee;
     map['status'] = _status;
+    if (_location != null) {
+      map['location'] = _location?.toJson();
+    }
+    map['delivery_type'] = _deliveryType;
+    map['delivery_fee'] = _deliveryFee;
+    map['deliveryman'] = _deliveryman;
     map['delivery_date'] = _deliveryDate;
     map['delivery_time'] = _deliveryTime;
     map['created_at'] = _createdAt;
     map['updated_at'] = _updatedAt;
-    if (_orderStocks != null) {
-      map['order_stocks'] = _orderStocks?.map((v) => v.toJson()).toList();
-    }
-    map['deliveryman'] = _deliveryman;
-    if (_deliveryType != null) {
-      map['delivery_type'] = _deliveryType?.toJson();
-    }
-    // if (_transactions != null) {
-    //   map['transactions'] = _transactions?.map((v) => v.toJson()).toList();
-    // }
     if (_shop != null) {
       map['shop'] = _shop?.toJson();
     }
+    if (_currency != null) {
+      map['currency'] = _currency?.toJson();
+    }
+    if (_user != null) {
+      map['user'] = _user?.toJson();
+    }
+    if (_details != null) {
+      map['details'] = _details?.map((v) => v.toJson()).toList();
+    }
+    if (_transaction != null) {
+      map['transaction'] = _transaction?.toJson();
+    }
+    map['review'] = _review;
+    map['seen'] = _seen;
     return map;
   }
 }
 
-class OrderStocks {
-  OrderStocks({
-    String? id,
-    String? stockId,
+class OrderDetail {
+  OrderDetail({
+    int? id,
+    int? orderId,
+    int? stockId,
     num? originPrice,
+    num? totalPrice,
     num? tax,
     num? discount,
     int? quantity,
-    num? totalPrice,
+    bool? bonus,
     String? createdAt,
     String? updatedAt,
-    Stocks? stock,
+    Stock? stock,
+    List<AddonData>? addons,
+    bool? isChecked,
   }) {
     _id = id;
+    _orderId = orderId;
     _stockId = stockId;
     _originPrice = originPrice;
+    _totalPrice = totalPrice;
     _tax = tax;
     _discount = discount;
     _quantity = quantity;
-    _totalPrice = totalPrice;
+    _bonus = bonus;
     _createdAt = createdAt;
     _updatedAt = updatedAt;
     _stock = stock;
+    _addons = addons;
+    _isChecked = isChecked;
   }
 
-  OrderStocks.fromJson(dynamic json) {
-    _id = json['id']?.toString();
-    _stockId = json['stock_id']?.toString();
+  OrderDetail.fromJson(dynamic json) {
+    _id = json['id'];
+    _orderId = json['order_id'];
+    _stockId = json['stock_id'];
     _originPrice = json['origin_price'];
+    _totalPrice = json['total_price'];
     _tax = json['tax'];
     _discount = json['discount'];
     _quantity = json['quantity'];
-    _totalPrice = json['total_price'];
+    _bonus = json['bonus'].runtimeType == int
+        ? (json['bonus'] != 0)
+        : json['bonus'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
-    _stock = json['stock'] != null ? Stocks.fromJson(json['stock']) : null;
+    _stock = json['stock'] != null ? Stock.fromJson(json['stock']) : null;
+    if (json['addons'] != null) {
+      _addons = [];
+      json['addons'].forEach((v) {
+        _addons?.add(AddonData.fromJson(v));
+      });
+    }
+    _isChecked = false;
   }
 
-  String? _id;
-  String? _stockId;
+  int? _id;
+  int? _orderId;
+  int? _stockId;
   num? _originPrice;
+  num? _totalPrice;
   num? _tax;
   num? _discount;
   int? _quantity;
-  num? _totalPrice;
+  bool? _bonus;
   String? _createdAt;
   String? _updatedAt;
-  Stocks? _stock;
+  Stock? _stock;
+  List<AddonData>? _addons;
+  bool? _isChecked;
 
-  OrderStocks copyWith({
-    String? id,
-    String? stockId,
+  OrderDetail copyWith({
+    int? id,
+    int? orderId,
+    int? stockId,
     num? originPrice,
+    num? totalPrice,
     num? tax,
     num? discount,
     int? quantity,
-    num? totalPrice,
+    bool? bonus,
     String? createdAt,
     String? updatedAt,
-    Stocks? stock,
-  }) => OrderStocks(
+    Stock? stock,
+    List<AddonData>? addons,
+    bool? isChecked,
+  }) => OrderDetail(
     id: id ?? _id,
+    orderId: orderId ?? _orderId,
     stockId: stockId ?? _stockId,
     originPrice: originPrice ?? _originPrice,
+    totalPrice: totalPrice ?? _totalPrice,
     tax: tax ?? _tax,
     discount: discount ?? _discount,
     quantity: quantity ?? _quantity,
-    totalPrice: totalPrice ?? _totalPrice,
+    bonus: bonus ?? _bonus,
     createdAt: createdAt ?? _createdAt,
     updatedAt: updatedAt ?? _updatedAt,
     stock: stock ?? _stock,
+    addons: addons ?? _addons,
+    isChecked: isChecked ?? _isChecked,
   );
 
-  String? get id => _id;
+  int? get id => _id;
 
-  String? get stockId => _stockId;
+  int? get orderId => _orderId;
+
+  int? get stockId => _stockId;
 
   num? get originPrice => _originPrice;
+
+  num? get totalPrice => _totalPrice;
 
   num? get tax => _tax;
 
@@ -407,23 +382,29 @@ class OrderStocks {
 
   int? get quantity => _quantity;
 
-  num? get totalPrice => _totalPrice;
+  bool? get bonus => _bonus;
 
   String? get createdAt => _createdAt;
 
   String? get updatedAt => _updatedAt;
 
-  Stocks? get stock => _stock;
+  Stock? get stock => _stock;
+
+  List<AddonData>? get addons => _addons;
+
+  bool? get isChecked => _isChecked;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = _id;
+    map['order_id'] = _orderId;
     map['stock_id'] = _stockId;
     map['origin_price'] = _originPrice;
+    map['total_price'] = _totalPrice;
     map['tax'] = _tax;
     map['discount'] = _discount;
     map['quantity'] = _quantity;
-    map['total_price'] = _totalPrice;
+    map['bonus'] = _bonus;
     map['created_at'] = _createdAt;
     map['updated_at'] = _updatedAt;
     if (_stock != null) {
@@ -433,122 +414,179 @@ class OrderStocks {
   }
 }
 
-class DeliveryType {
-  DeliveryType({
-    String? id,
-    String? shopId,
-    String? type,
-    int? price,
-    List<String>? times,
+class Transaction {
+  Transaction({
+    int? id,
+    int? payableId,
+    num? price,
+    String? paymentTrxId,
     String? note,
-    bool? active,
+    dynamic performTime,
+    String? status,
+    String? statusDescription,
     String? createdAt,
     String? updatedAt,
-    Translation? translation,
+    PaymentData? paymentSystem,
   }) {
     _id = id;
-    _shopId = shopId;
-    _type = type;
+    _payableId = payableId;
     _price = price;
-    _times = times;
+    _paymentTrxId = paymentTrxId;
     _note = note;
-    _active = active;
+    _performTime = performTime;
+    _status = status;
+    _statusDescription = statusDescription;
     _createdAt = createdAt;
     _updatedAt = updatedAt;
-    _translation = translation;
+    _paymentSystem = paymentSystem;
   }
 
-  DeliveryType.fromJson(dynamic json) {
-    _id = json['id']?.toString();
-    _shopId = json['shop_id']?.toString();
-    _type = json['type'];
+  Transaction.fromJson(dynamic json) {
+    _id = json['id'];
+    _payableId = json['payable_id'];
     _price = json['price'];
-    _times = json['times'] != null ? json['times'].cast<String>() : [];
+    _paymentTrxId = json['payment_trx_id'];
     _note = json['note'];
-    _active = json['active'];
+    _performTime = json['perform_time'];
+    _status = json['status'];
+    _statusDescription = json['status_description'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
-    _translation = json['translation'] != null
-        ? Translation.fromJson(json['translation'])
+    _paymentSystem = json['payment_system'] != null
+        ? PaymentData.fromJson(json['payment_system'])
         : null;
   }
 
-  String? _id;
-  String? _shopId;
-  String? _type;
-  int? _price;
-  List<String>? _times;
+  int? _id;
+  int? _payableId;
+  num? _price;
+  String? _paymentTrxId;
   String? _note;
-  bool? _active;
+  dynamic _performTime;
+  String? _status;
+  String? _statusDescription;
   String? _createdAt;
   String? _updatedAt;
-  Translation? _translation;
+  PaymentData? _paymentSystem;
 
-  DeliveryType copyWith({
-    String? id,
-    String? shopId,
-    String? type,
-    int? price,
-    List<String>? times,
+  Transaction copyWith({
+    int? id,
+    int? payableId,
+    num? price,
+    String? paymentTrxId,
     String? note,
-    bool? active,
+    dynamic performTime,
+    String? status,
+    String? statusDescription,
     String? createdAt,
     String? updatedAt,
-    Translation? translation,
-  }) => DeliveryType(
+    PaymentData? paymentSystem,
+  }) => Transaction(
     id: id ?? _id,
-    shopId: shopId ?? _shopId,
-    type: type ?? _type,
+    payableId: payableId ?? _payableId,
     price: price ?? _price,
-    times: times ?? _times,
+    paymentTrxId: paymentTrxId ?? _paymentTrxId,
     note: note ?? _note,
-    active: active ?? _active,
+    performTime: performTime ?? _performTime,
+    status: status ?? _status,
+    statusDescription: statusDescription ?? _statusDescription,
     createdAt: createdAt ?? _createdAt,
     updatedAt: updatedAt ?? _updatedAt,
-    translation: translation ?? _translation,
+    paymentSystem: paymentSystem ?? _paymentSystem,
   );
 
-  String? get id => _id;
+  int? get id => _id;
 
-  String? get shopId => _shopId;
+  int? get payableId => _payableId;
 
-  String? get type => _type;
+  num? get price => _price;
 
-  int? get price => _price;
-
-  List<String>? get times => _times;
+  String? get paymentTrxId => _paymentTrxId;
 
   String? get note => _note;
 
-  bool? get active => _active;
+  dynamic get performTime => _performTime;
+
+  String? get status => _status;
+
+  String? get statusDescription => _statusDescription;
 
   String? get createdAt => _createdAt;
 
   String? get updatedAt => _updatedAt;
 
-  Translation? get translation => _translation;
+  PaymentData? get paymentSystem => _paymentSystem;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = _id;
-    map['shop_id'] = _shopId;
-    map['type'] = _type;
+    map['payable_id'] = _payableId;
     map['price'] = _price;
-    map['times'] = _times;
+    map['payment_trx_id'] = _paymentTrxId;
     map['note'] = _note;
-    map['active'] = _active;
+    map['perform_time'] = _performTime;
+    map['status'] = _status;
+    map['status_description'] = _statusDescription;
     map['created_at'] = _createdAt;
     map['updated_at'] = _updatedAt;
-    if (_translation != null) {
-      map['translation'] = _translation?.toJson();
+    if (_paymentSystem != null) {
+      map['payment_system'] = _paymentSystem?.toJson();
     }
     return map;
   }
 }
 
-class ProductNote {
-  String stockId;
-  String comment;
+class OrderAddress {
+  OrderAddress({
+    String? address,
+    String? office,
+    String? house,
+    String? floor,
+  }) {
+    _address = address;
+    _office = office;
+    _house = house;
+    _floor = floor;
+  }
 
-  ProductNote({required this.stockId, required this.comment});
+  OrderAddress.fromJson(dynamic json) {
+    _address = json['address'];
+    _office = json['office'];
+    _house = json['house'];
+    _floor = json['floor'];
+  }
+
+  String? _address;
+  String? _office;
+  String? _house;
+  String? _floor;
+
+  OrderAddress copyWith({
+    String? address,
+    String? office,
+    String? house,
+    String? floor,
+  }) => OrderAddress(
+    address: address ?? _address,
+    office: office ?? _office,
+    house: house ?? _house,
+    floor: floor ?? _floor,
+  );
+
+  String? get address => _address;
+
+  String? get office => _office;
+
+  String? get house => _house;
+
+  String? get floor => _floor;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['address'] = _address;
+    map['office'] = _office;
+    map['house'] = _house;
+    map['floor'] = _floor;
+    return map;
+  }
 }

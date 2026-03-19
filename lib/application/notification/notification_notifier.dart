@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/interface/notification.dart';
-import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 import 'notification_state.dart';
 
@@ -28,7 +27,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
         );
       },
       failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, failure.toString());
+        AppHelpers.showCheckTopSnackBar(context, failure);
       },
     );
   }
@@ -38,36 +37,39 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     RefreshController? refreshController,
     bool isRefresh = false,
   }) async {
+    final connected = await AppConnectivity.connectivity();
     if (isRefresh) {
       _notificationPage = 0;
     }
-    final response = await _notificationRepository.getNotifications(
-      page: ++_notificationPage,
-    );
-    response.when(
-      success: (data) async {
-        final List<NotificationModel> newList = List.from(state.notifications);
-        newList.addAll(data.data ?? []);
-        state = state.copyWith(
-          notifications: isRefresh ? (data.data ?? []) : newList,
-        );
-        if (data.data?.isEmpty ?? true) {
-          refreshController?.loadNoData();
-        }
-        if (isRefresh) {
-          refreshController?.refreshCompleted();
-        } else {
-          refreshController?.loadComplete();
-        }
-      },
-      failure: (failure, s) {
-        debugPrint('==> get notifications more failure: $failure');
-        refreshController?.loadFailed();
-        if (isRefresh) {
-          refreshController?.refreshFailed();
-        }
-      },
-    );
+    if (connected) {
+      final response = await _notificationRepository.getNotifications(
+        page: ++_notificationPage,
+      );
+      response.when(
+        success: (data) async {
+          final List<NotificationModel> newList = List.from(
+            state.notifications,
+          );
+          newList.addAll(data.data ?? []);
+          state = state.copyWith(
+            notifications: isRefresh ? (data.data ?? []) : newList,
+          );
+          if (data.data?.isEmpty ?? true) {
+            refreshController?.loadNoData();
+          }
+          if (isRefresh) {
+            refreshController?.refreshCompleted();
+          } else {
+            refreshController?.loadComplete();
+          }
+        },
+        failure: (failure, s) {
+          debugPrint('==> get notifications more failure: $failure');
+        },
+      );
+    } else {
+      checkYourNetwork?.call();
+    }
   }
 
   Future<void> readAll(BuildContext context) async {
@@ -88,7 +90,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     response.when(
       success: (data) {},
       failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, failure.toString());
+        AppHelpers.showCheckTopSnackBar(context, failure);
       },
     );
   }
@@ -111,7 +113,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     response.when(
       success: (data) {},
       failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, failure.toString());
+        AppHelpers.showCheckTopSnackBar(context, failure);
       },
     );
   }
@@ -123,7 +125,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
         state = state.copyWith(countOfNotifications: data);
       },
       failure: (failure, s) {
-        AppHelpers.showCheckTopSnackBar(context, failure.toString());
+        AppHelpers.showCheckTopSnackBar(context, failure);
       },
     );
   }

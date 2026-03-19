@@ -1,68 +1,49 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/application/app_widget/app_provider.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
 
-import 'components/custom_range_slider.dart';
-import 'routes/app_router.dart';
+import 'package:rokctapp/application/providers.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/services/services.dart';
 
 class AppWidget extends ConsumerWidget {
-  AppWidget({super.key});
-
-  final appRouter = AppRouter();
+  const AppWidget({super.key});
 
   Future fetchSetting() async {
     final connect = await Connectivity().checkConnectivity();
-    if (connect.contains(ConnectivityResult.mobile) ||
-        connect.contains(ConnectivityResult.ethernet) ||
-        connect.contains(ConnectivityResult.wifi)) {
-      settingsRepository.getGlobalSettings();
+    if (!connect.contains(ConnectivityResult.none)) {
+      await settingsRepository.getGlobalSettings();
       await settingsRepository.getLanguages();
-      await settingsRepository.getMobileTranslations();
+      await settingsRepository.getTranslations();
     }
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.refresh(appProvider);
     return FutureBuilder(
       future: Future.wait([
-        FlutterDisplayMode.setHighRefreshRate(),
+        setUpDependencies(),
         if (LocalStorage.getTranslations().isEmpty) fetchSetting(),
       ]),
-      builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+      builder: (context, AsyncSnapshot<List<dynamic>> snap) {
         return ScreenUtilInit(
-          useInheritedMediaQuery: false,
+          useInheritedMediaQuery: true,
           designSize: const Size(375, 812),
           builder: (context, child) {
             return RefreshConfiguration(
               footerBuilder: () =>
-                  const ClassicFooter(idleIcon: SizedBox(), idleText: ""),
-              headerBuilder: () => const WaterDropMaterialHeader(
-                backgroundColor: AppStyle.white,
-                color: AppStyle.textGrey,
-              ),
+                  const ClassicFooter(idleIcon: SizedBox(), idleText: ''),
               child: MaterialApp.router(
+                theme: ThemeData(useMaterial3: false),
                 debugShowCheckedModeBanner: false,
                 routerDelegate: appRouter.delegate(),
                 routeInformationParser: appRouter.defaultRouteParser(),
-                locale: Locale(state.activeLanguage?.locale ?? 'en'),
-                theme: ThemeData(
-                  useMaterial3: false,
-                  sliderTheme: SliderThemeData(
-                    overlayShape: SliderComponentShape.noOverlay,
-                    rangeThumbShape: CustomRoundRangeSliderThumbShape(
-                      enabledThumbRadius: 12.r,
-                    ),
-                  ),
+                locale: Locale(
+                  ref.watch(appProvider).activeLanguage?.locale ?? 'en',
                 ),
-                themeMode: state.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+                themeMode: ThemeMode.light,
               ),
             );
           },

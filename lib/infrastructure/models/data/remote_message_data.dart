@@ -1,15 +1,13 @@
 class RemoteMessageData {
-  final String? id;
+  final num? id;
   final String? status;
-  final String? type;
 
-  RemoteMessageData({this.id, this.status, this.type});
+  RemoteMessageData({this.id, this.status});
 
   factory RemoteMessageData.fromJson(Map data) {
     return RemoteMessageData(
-      id: data["id"]?.toString(),
+      id: int.tryParse(data["id"]),
       status: data["status"],
-      type: data["type"],
     );
   }
 }

@@ -1,11 +1,11 @@
-import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user_data.dart';
 
 class ProfileResponse {
   ProfileResponse({
     String? timestamp,
     bool? status,
     String? message,
-    ProfileData? data,
+    UserData? data,
   }) {
     _timestamp = timestamp;
     _status = status;
@@ -14,19 +14,22 @@ class ProfileResponse {
   }
 
   ProfileResponse.fromJson(dynamic json) {
-    _data = json['data'] != null ? ProfileData.fromJson(json['data']) : null;
+    _timestamp = json['timestamp'];
+    _status = json['status'];
+    _message = json['message'];
+    _data = json['data'] != null ? UserData.fromJson(json['data']) : null;
   }
 
   String? _timestamp;
   bool? _status;
   String? _message;
-  ProfileData? _data;
+  UserData? _data;
 
   ProfileResponse copyWith({
     String? timestamp,
     bool? status,
     String? message,
-    ProfileData? data,
+    UserData? data,
   }) => ProfileResponse(
     timestamp: timestamp ?? _timestamp,
     status: status ?? _status,
@@ -40,7 +43,7 @@ class ProfileResponse {
 
   String? get message => _message;
 
-  ProfileData? get data => _data;
+  UserData? get data => _data;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

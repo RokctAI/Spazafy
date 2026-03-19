@@ -6,7 +6,6 @@ class Translation {
     String? description,
     String? shortDesc,
     String? address,
-    String? buttonText,
   }) {
     _id = id;
     _locale = locale;
@@ -14,21 +13,15 @@ class Translation {
     _description = description;
     _shortDesc = shortDesc;
     _address = address;
-    _buttonText = buttonText;
   }
 
   Translation.fromJson(dynamic json) {
-    _id = json?['id'];
-    _locale = json?['locale'];
-    _title = json?['title'];
-    _description = json?['description'];
-    _shortDesc = json?['short_desc'] ?? json?['faq'];
-    _address = json?['address'];
-    _buttonText = json?['button_text'];
-
-    // Add debug print
-    // print("Raw translation JSON: $json");
-    // print("Button text extracted in Translation.fromJson: ${json?['button_text']}");
+    _id = json['id'];
+    _locale = json['locale'];
+    _title = json['title'];
+    _description = json['description'];
+    _shortDesc = json['short_desc'];
+    _address = json['address'];
   }
 
   int? _id;
@@ -37,7 +30,6 @@ class Translation {
   String? _description;
   String? _shortDesc;
   String? _address;
-  String? _buttonText;
 
   Translation copyWith({
     int? id,
@@ -46,7 +38,6 @@ class Translation {
     String? description,
     String? shortDesc,
     String? address,
-    String? buttonText,
   }) => Translation(
     id: id ?? _id,
     locale: locale ?? _locale,
@@ -54,19 +45,19 @@ class Translation {
     description: description ?? _description,
     shortDesc: shortDesc ?? _shortDesc,
     address: address ?? _address,
-    buttonText: buttonText ?? _buttonText,
   );
 
   int? get id => _id;
+
   String? get locale => _locale;
+
   String? get title => _title;
+
   String? get description => _description;
+
   String? get shortDesc => _shortDesc;
+
   String? get address => _address;
-  String? get buttonText {
-    // print("Translation.buttonText getter called, returning: $_buttonText");
-    return _buttonText;
-  }
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -76,7 +67,6 @@ class Translation {
     map['description'] = _description;
     map['short_desc'] = _shortDesc;
     map['address'] = _address;
-    map['button_text'] = _buttonText;
     return map;
   }
 }

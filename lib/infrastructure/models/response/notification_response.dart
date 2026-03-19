@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/blog_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 
 class NotificationResponse {
   List<NotificationModel>? data;
@@ -29,7 +30,7 @@ class NotificationModel {
   String? type;
   String? title;
   String? body;
-  Data? data;
+  NotificationData? data;
   int? userId;
   DateTime? createdAt;
   DateTime? updatedAt;
@@ -58,7 +59,7 @@ class NotificationModel {
     String? type,
     String? title,
     String? body,
-    Data? data,
+    NotificationData? data,
     int? userId,
     DateTime? createdAt,
     DateTime? updatedAt,
@@ -81,29 +82,28 @@ class NotificationModel {
     blogData: blogData ?? this.blogData,
   );
 
-  factory NotificationModel.fromJson(Map<String, dynamic> json) =>
-      NotificationModel(
-        id: json["id"],
-        type: json["type"],
-        title: json["title"],
-        body: json["body"],
-        data: json["data"] == null ? null : Data.fromJson(json["data"]),
-        userId: json["user_id"],
-        createdAt: json["created_at"] == null
-            ? null
-            : DateTime.tryParse(json["created_at"])?.toLocal(),
-        updatedAt: json["updated_at"] == null
-            ? null
-            : DateTime.tryParse(json["updated_at"])?.toLocal(),
-        readAt: json["read_at"] == null
-            ? null
-            : DateTime.tryParse(json["read_at"])?.toUtc().toLocal(),
-        client: json["client"] == null ? null : Client.fromJson(json["client"]),
-        orderData: json["order"] == null
-            ? null
-            : OrderData.fromJson(json["order"]),
-        blogData: json["blog"] == null ? null : BlogData.fromJson(json["blog"]),
-      );
+  factory NotificationModel.fromJson(
+    Map<String, dynamic> json,
+  ) => NotificationModel(
+    id: json["id"],
+    type: json["type"],
+    title: json["title"],
+    body: json["body"],
+    data: json["data"] == null ? null : NotificationData.fromJson(json["data"]),
+    userId: json["user_id"],
+    createdAt: json["created_at"] == null
+        ? null
+        : DateTime.tryParse(json["created_at"])?.toLocal(),
+    updatedAt: json["updated_at"] == null
+        ? null
+        : DateTime.tryParse(json["updated_at"])?.toLocal(),
+    readAt: json["read_at"] == null
+        ? null
+        : DateTime.tryParse(json["read_at"])?.toUtc().toLocal(),
+    client: json["client"] == null ? null : Client.fromJson(json["client"]),
+    orderData: json["order"] == null ? null : OrderData.fromJson(json["order"]),
+    blogData: json["blog"] == null ? null : BlogData.fromJson(json["blog"]),
+  );
 
   Map<String, dynamic> toJson() => {
     "id": id,
@@ -178,21 +178,26 @@ class Client {
   };
 }
 
-class Data {
+class NotificationData {
   int? id;
   String? type;
   String? status;
 
-  Data({this.id, this.type, this.status});
+  NotificationData({this.id, this.type, this.status});
 
-  Data copyWith({int? id, String? type, String? status}) => Data(
-    id: id ?? this.id,
-    type: type ?? this.type,
-    status: status ?? this.status,
-  );
+  NotificationData copyWith({int? id, String? type, String? status}) =>
+      NotificationData(
+        id: id ?? this.id,
+        type: type ?? this.type,
+        status: status ?? this.status,
+      );
 
-  factory Data.fromJson(Map<String, dynamic> json) =>
-      Data(id: json["id"], type: json["type"], status: json["status"]);
+  factory NotificationData.fromJson(Map<String, dynamic> json) =>
+      NotificationData(
+        id: int.tryParse(json["id"].toString()),
+        type: json["type"],
+        status: json["status"],
+      );
 
   Map<String, dynamic> toJson() => {"id": id, "type": type, "status": status};
 }

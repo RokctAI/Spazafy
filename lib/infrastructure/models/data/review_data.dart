@@ -1,4 +1,4 @@
-import 'user.dart';
+import 'user_data.dart';
 
 class ReviewData {
   ReviewData({
@@ -10,7 +10,7 @@ class ReviewData {
     String? createdAt,
     String? updatedAt,
     List<Galleries>? galleries,
-    UserModel? user,
+    UserData? user,
   }) {
     _id = id;
     _reviewableId = reviewableId;
@@ -37,7 +37,7 @@ class ReviewData {
         _galleries?.add(Galleries.fromJson(v));
       });
     }
-    _user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
+    _user = json['user'] != null ? UserData.fromJson(json['user']) : null;
   }
 
   int? _id;
@@ -48,7 +48,7 @@ class ReviewData {
   String? _createdAt;
   String? _updatedAt;
   List<Galleries>? _galleries;
-  UserModel? _user;
+  UserData? _user;
 
   ReviewData copyWith({
     int? id,
@@ -59,7 +59,7 @@ class ReviewData {
     String? createdAt,
     String? updatedAt,
     List<Galleries>? galleries,
-    UserModel? user,
+    UserData? user,
   }) => ReviewData(
     id: id ?? _id,
     reviewableId: reviewableId ?? _reviewableId,
@@ -88,7 +88,7 @@ class ReviewData {
 
   List<Galleries>? get galleries => _galleries;
 
-  UserModel? get user => _user;
+  UserData? get user => _user;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

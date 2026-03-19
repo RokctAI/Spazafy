@@ -1,17 +1,13 @@
-import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
-
-import 'notification_data.dart';
-import 'shop_data.dart';
+import 'address_data.dart';
 import 'currency_data.dart';
-import 'membership_data.dart';
+import 'shop_data.dart';
 
 class ProfileData {
   ProfileData({
-    String? id,
+    int? id,
     String? uuid,
     String? firstname,
     String? lastname,
-    String? referral,
     String? email,
     String? phone,
     String? secondPhone,
@@ -19,30 +15,17 @@ class ProfileData {
     String? gender,
     String? emailVerifiedAt,
     String? registeredAt,
-    num? referralFromPrice,
-    num? referralFromWithdrawPrice,
-    num? referralFromWithdrawCount,
-    num? referralFromCount,
     bool? active,
     String? img,
     String? role,
-    MembershipData? membership,
-    List<AddressNewModel>? addresses,
-    List<NotificationsModel>? notifications,
+    List<AddressData>? addresses,
     ShopData? shop,
     Wallet? wallet,
-    num? ringfencedBalance,
   }) {
-    _notifications = notifications;
     _id = id;
     _uuid = uuid;
     _firstname = firstname;
     _lastname = lastname;
-    _referralFromPrice = referralFromPrice;
-    _referralFromCount = referralFromCount;
-    _referralFromWithdrawPrice = referralFromWithdrawPrice;
-    _referralFromWithdrawCount = referralFromWithdrawCount;
-    _referral = referral;
     _email = email;
     _phone = phone;
     _birthday = birthday;
@@ -52,23 +35,16 @@ class ProfileData {
     _active = active;
     _img = img;
     _role = role;
-    _membership = membership;
     _addresses = addresses;
     _shop = shop;
     _wallet = wallet;
-    _ringfencedBalance = ringfencedBalance;
   }
 
   ProfileData.fromJson(dynamic json) {
-    _id = json['id']?.toString();
+    _id = json['id'];
     _uuid = json['uuid'];
     _firstname = json['firstname'];
     _lastname = json['lastname'];
-    _referral = json["my_referral"];
-    _referralFromPrice = json["referral_from_topup_price"];
-    _referralFromCount = json["referral_from_topup_count"];
-    _referralFromWithdrawCount = json["referral_from_withdraw_count"];
-    _referralFromWithdrawPrice = json["referral_from_withdraw_price"];
     _email = json['email'];
     _phone = json['phone'];
     _birthday = json['birthday'];
@@ -76,39 +52,26 @@ class ProfileData {
     _emailVerifiedAt = json['email_verified_at'];
     _registeredAt = json['registered_at'];
     _active = json['active'].runtimeType == int
-        ? (json['active'] == 1)
+        ? json['active'] == 1
+              ? true
+              : false
         : json['active'];
     _role = json['role'];
-    _membership = json['membership'] != null
-        ? MembershipData.fromJson(json['membership'])
-        : null;
     _img = json['img'];
     if (json['addresses'] != null) {
       _addresses = [];
       json['addresses'].forEach((v) {
-        _addresses?.add(AddressNewModel.fromJson(v));
-      });
-    }
-    if (json['notifications'] != null) {
-      _notifications = [];
-      json['notifications'].forEach((v) {
-        _notifications?.add(NotificationsModel.fromJson(v));
+        _addresses?.add(AddressData.fromJson(v));
       });
     }
     _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
     _wallet = json['wallet'] != null ? Wallet.fromJson(json['wallet']) : null;
-    _ringfencedBalance = json['ringfenced_balance'];
   }
 
-  String? _id;
+  int? _id;
   String? _uuid;
   String? _firstname;
   String? _lastname;
-  num? _referralFromPrice;
-  num? _referralFromCount;
-  num? _referralFromWithdrawCount;
-  num? _referralFromWithdrawPrice;
-  String? _referral;
   String? _email;
   String? _phone;
   String? _secondPhone;
@@ -119,19 +82,15 @@ class ProfileData {
   bool? _active;
   String? _img;
   String? _role;
-  MembershipData? _membership;
-  List<AddressNewModel>? _addresses;
-  List<NotificationsModel>? _notifications;
+  List<AddressData>? _addresses;
   ShopData? _shop;
   Wallet? _wallet;
-  num? _ringfencedBalance;
 
   ProfileData copyWith({
-    String? id,
+    int? id,
     String? uuid,
     String? firstname,
     String? lastname,
-    String? referral,
     String? email,
     String? phone,
     String? secondPhone,
@@ -142,17 +101,14 @@ class ProfileData {
     bool? active,
     String? img,
     String? role,
-    MembershipData? membership,
-    List<AddressNewModel>? addresses,
+    List<AddressData>? addresses,
     ShopData? shop,
     Wallet? wallet,
-    num? ringfencedBalance,
   }) => ProfileData(
     id: id ?? _id,
     uuid: uuid ?? _uuid,
     firstname: firstname ?? _firstname,
     lastname: lastname ?? _lastname,
-    referral: referral ?? _referral,
     email: email ?? _email,
     phone: phone ?? _phone,
     secondPhone: secondPhone ?? _secondPhone,
@@ -163,30 +119,18 @@ class ProfileData {
     active: active ?? _active,
     img: img ?? _img,
     role: role ?? _role,
-    membership: membership ?? _membership,
     addresses: addresses ?? _addresses,
     shop: shop ?? _shop,
     wallet: wallet ?? _wallet,
-    ringfencedBalance: ringfencedBalance ?? _ringfencedBalance,
   );
 
-  String? get id => _id;
+  int? get id => _id;
 
   String? get uuid => _uuid;
 
   String? get firstname => _firstname;
 
   String? get lastname => _lastname;
-
-  num? get referralFromCount => _referralFromCount;
-
-  num? get referralFromPrice => _referralFromPrice;
-
-  num? get referralFromWithdrawCount => _referralFromWithdrawCount;
-
-  num? get referralFromWithdrawPrice => _referralFromWithdrawPrice;
-
-  String? get referral => _referral;
 
   String? get email => _email;
 
@@ -206,48 +150,29 @@ class ProfileData {
 
   String? get role => _role;
 
-  MembershipData? get membership => _membership;
-
   String? get secondPhone => _secondPhone;
 
-  List<AddressNewModel>? get addresses => _addresses;
-
-  List<NotificationsModel>? get notifications => _notifications;
+  List<AddressData>? get addresses => _addresses;
 
   ShopData? get shop => _shop;
 
   Wallet? get wallet => _wallet;
 
-  num? get ringfencedBalance => _ringfencedBalance;
-
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
-    if (_firstname != null) {
-      map['firstname'] = _firstname;
-    }
-    if (_lastname != null) {
-      map['lastname'] = _lastname;
-    }
-
+    map['firstname'] = _firstname;
+    map['lastname'] = _lastname;
     map['email'] = _email;
     map['phone'] = _phone;
-    if (_birthday != null) {
-      map['birthday'] = _birthday;
-    }
-    if (_gender != null) {
-      map['gender'] = _gender;
-    }
-
+    map['birthday'] = _birthday;
+    map['gender'] = _gender;
     map['email_verified_at'] = _emailVerifiedAt;
     map['registered_at'] = _registeredAt;
     map['active'] = _active;
     map['img'] = _img;
     map['role'] = _role;
-    if (_membership != null) {
-      map['membership'] = _membership?.toJson();
-    }
     map['secondPhone'] = _secondPhone;
     if (_addresses != null) {
       map['addresses'] = _addresses?.map((v) => v.toJson()).toList();
@@ -258,7 +183,6 @@ class ProfileData {
     if (_wallet != null) {
       map['wallet'] = _wallet?.toJson();
     }
-    map['ringfenced_balance'] = _ringfencedBalance;
     return map;
   }
 }
@@ -267,7 +191,6 @@ class Wallet {
   Wallet({
     String? uuid,
     int? userId,
-    int? id,
     int? currencyId,
     num? price,
     String? createdAt,
@@ -276,7 +199,6 @@ class Wallet {
   }) {
     _uuid = uuid;
     _userId = userId;
-    _id = id;
     _currencyId = currencyId;
     _price = price;
     _createdAt = createdAt;
@@ -287,7 +209,6 @@ class Wallet {
   Wallet.fromJson(dynamic json) {
     _uuid = json['uuid'];
     _userId = json['user_id'];
-    _id = json['id'];
     _currencyId = json['currency_id'];
     _price = json['price'];
     _createdAt = json['created_at'];
@@ -299,7 +220,6 @@ class Wallet {
 
   String? _uuid;
   int? _userId;
-  int? _id;
   int? _currencyId;
   num? _price;
   String? _createdAt;
@@ -309,7 +229,6 @@ class Wallet {
   Wallet copyWith({
     String? uuid,
     int? userId,
-    int? id,
     int? currencyId,
     num? price,
     String? createdAt,
@@ -318,7 +237,6 @@ class Wallet {
   }) => Wallet(
     uuid: uuid ?? _uuid,
     userId: userId ?? _userId,
-    id: id ?? _id,
     currencyId: currencyId ?? _currencyId,
     price: price ?? _price,
     createdAt: createdAt ?? _createdAt,
@@ -329,7 +247,6 @@ class Wallet {
   String? get uuid => _uuid;
 
   int? get userId => _userId;
-  int? get id => _id;
 
   int? get currencyId => _currencyId;
 
@@ -345,7 +262,6 @@ class Wallet {
     final map = <String, dynamic>{};
     map['uuid'] = _uuid;
     map['user_id'] = _userId;
-    map['id'] = _id;
     map['currency_id'] = _currencyId;
     map['price'] = _price;
     map['created_at'] = _createdAt;

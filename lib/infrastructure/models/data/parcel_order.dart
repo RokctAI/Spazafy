@@ -2,13 +2,12 @@
 //
 //     final parcelOrder = parcelOrderFromJson(jsonString);
 
-import 'package:rokctapp/infrastructure/models/data/review_data.dart';
-import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/response/parcel_response.dart';
 
 class ParcelOrder {
-  String? id;
-  String? userId;
+  int? id;
+  int? userId;
   num? totalPrice;
   num? rate;
   String? status;
@@ -17,7 +16,7 @@ class ParcelOrder {
   String? note;
   Address? addressFrom;
   Address? addressTo;
-  String? typeId;
+  int? typeId;
   num? deliveryFee;
   DateTime? deliveryDate;
   String? deliveryTime;
@@ -29,8 +28,7 @@ class ParcelOrder {
   num? km;
   dynamic deliveryman;
   Currency? currency;
-  UserModel? user;
-  ReviewData? review;
+  User? user;
   dynamic transaction;
   TypeModel? type;
 
@@ -50,7 +48,6 @@ class ParcelOrder {
     this.deliveryDate,
     this.deliveryTime,
     this.phoneFrom,
-    this.review,
     this.usernameFrom,
     this.current,
     this.createdAt,
@@ -64,8 +61,8 @@ class ParcelOrder {
   });
 
   ParcelOrder copyWith({
-    String? id,
-    String? userId,
+    int? id,
+    int? userId,
     num? totalPrice,
     num? rate,
     String? status,
@@ -74,20 +71,19 @@ class ParcelOrder {
     String? usernameTo,
     Address? addressFrom,
     Address? addressTo,
-    String? typeId,
+    int? typeId,
     num? deliveryFee,
     DateTime? deliveryDate,
     String? deliveryTime,
     String? phoneFrom,
     String? usernameFrom,
-    ReviewData? review,
     bool? current,
     DateTime? createdAt,
     DateTime? updatedAt,
     num? km,
     dynamic deliveryman,
     Currency? currency,
-    UserModel? user,
+    User? user,
     dynamic transaction,
     TypeModel? type,
   }) => ParcelOrder(
@@ -107,7 +103,6 @@ class ParcelOrder {
     deliveryTime: deliveryTime ?? this.deliveryTime,
     phoneFrom: phoneFrom ?? this.phoneFrom,
     usernameFrom: usernameFrom ?? this.usernameFrom,
-    review: review ?? this.review,
     current: current ?? this.current,
     createdAt: createdAt ?? this.createdAt,
     updatedAt: updatedAt ?? this.updatedAt,
@@ -121,8 +116,8 @@ class ParcelOrder {
 
   factory ParcelOrder.fromJson(Map<String, dynamic> json) {
     return ParcelOrder(
-      id: json["id"]?.toString(),
-      userId: json["userId"]?.toString() ?? json["user_id"]?.toString(),
+      id: json["id"],
+      userId: json["user_id"],
       totalPrice: json["total_price"],
       rate: json["rate"],
       status: json["status"],
@@ -135,10 +130,7 @@ class ParcelOrder {
       addressTo: json["address_to"] == null
           ? null
           : Address.fromJson(json["address_to"]),
-      review: json["review"] == null
-          ? null
-          : ReviewData.fromJson(json["review"]),
-      typeId: json["type_id"]?.toString(),
+      typeId: json["type_id"],
       deliveryFee: json["delivery_fee"],
       deliveryDate: json["delivery_date"] == null
           ? null
@@ -158,7 +150,7 @@ class ParcelOrder {
       currency: json["currency"] == null
           ? null
           : Currency.fromJson(json["currency"]),
-      user: json["user"] == null ? null : UserModel.fromJson(json["user"]),
+      user: json["user"] == null ? null : User.fromJson(json["user"]),
       transaction: json["transaction"],
       type: json["type"] == null ? null : TypeModel.fromJson(json["type"]),
     );
@@ -222,7 +214,7 @@ class Address {
 }
 
 class Currency {
-  String? id;
+  int? id;
   String? symbol;
   String? title;
   num? rate;
@@ -245,7 +237,7 @@ class Currency {
   });
 
   Currency copyWith({
-    String? id,
+    int? id,
     String? symbol,
     String? title,
     num? rate,
@@ -267,7 +259,7 @@ class Currency {
   );
 
   factory Currency.fromJson(Map<String, dynamic> json) => Currency(
-    id: json["id"]?.toString(),
+    id: json["id"],
     symbol: json["symbol"],
     title: json["title"],
     rate: json["rate"],
