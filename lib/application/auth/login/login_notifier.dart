@@ -378,6 +378,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
         },
       );
     } else {
+      state = state.copyWith(isLoading: false);
       if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
       }
@@ -505,6 +506,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
         debugPrint('===> login with face exception: $e');
       }
     } else {
+      state = state.copyWith(isLoading: false);
       if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
       }
@@ -604,6 +606,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
         debugPrint('===> login with apple exception: $e');
       }
     } else {
+      state = state.copyWith(isLoading: false);
       if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
       }

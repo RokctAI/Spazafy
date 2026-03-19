@@ -77,6 +77,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
 
   Future<void> fetchDriver(BuildContext context) async {
     final connected = await AppConnectivity.connectivity();
+    state = state.copyWith(isDriverOffline: !connected);
     if (connected) {
       if (state.orderData?.deliveryMan?.id == null) {
         return;
@@ -463,13 +464,10 @@ class OrderNotifier extends StateNotifier<OrderState> {
           },
         );
       } else {
-        // Offline: Optimistically proceed without zone check
-        await _proceedToCreateOrder(
-          context: context, 
-          data: data, 
-          payment: payment, 
-          onWebview: onWebview,
-        );
+        state = state.copyWith(isButtonLoading: false);
+        if (context.mounted) {
+          AppHelpers.showNoConnectionSnackBar(context);
+        }
       }
       return;
     }

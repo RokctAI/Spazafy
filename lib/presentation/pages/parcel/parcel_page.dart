@@ -222,6 +222,13 @@ class _ParcelPageState extends ConsumerState<ParcelPage> {
                         event.changeExpand();
                       } else {
                         if (formKey.currentState?.validate() ?? false) {
+                          final connected = await AppConnectivity.connectivity();
+                          if (!connected) {
+                            if (context.mounted) {
+                              AppHelpers.showNoConnectionSnackBar(context);
+                            }
+                            return;
+                          }
                           event.orderParcel(
                             context: context,
                             note: note.text,

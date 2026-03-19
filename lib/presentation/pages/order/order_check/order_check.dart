@@ -126,7 +126,15 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
     required PaymentState paymentState,
     required ProfileState stateProfile,
     required OrdersListNotifier eventOrderList,
-  }) {
+  }) async {
+    final connected = await AppConnectivity.connectivity();
+    if (!connected) {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+      return;
+    }
+
     // Validation checks
     if ((state.shopData?.minAmount ?? 0) > (state.calculateData?.price ?? 0)) {
       AppHelpers.showCheckTopSnackBarInfo(

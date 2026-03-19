@@ -28,26 +28,6 @@ class OrdersRepository implements OrdersRepositoryFacade {
     } catch (e) {
       debugPrint('==> create order failure: $e');
 
-      // Persistence: Queue the checkout request for background sync
-      try {
-        await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.order.order.create_order',
-          method: 'POST',
-          payload: orderBody.toJson(),
-        );
-
-        // Return a dummy success to keep UI moving. 
-        // BackgroundSyncService will finalize it.
-        return ApiResult.success(
-          data: OrderActiveModel(
-            id: 'OFFLINE-${DateTime.now().millisecondsSinceEpoch}',
-            status: 'pending_sync',
-          ),
-        );
-      } catch (syncError) {
-        debugPrint('==> sync queue failure: $syncError');
-      }
-
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

@@ -118,7 +118,10 @@ class BackgroundSyncService {
       final statusCode = response.statusCode ?? 0;
       if (statusCode >= 200 && statusCode < 300) {
         // Special handling for auth requests to save token
-        if (request.url.contains('/auth/register') || request.url.contains('/auth/login')) {
+        if (request.url.contains('/auth/register') || 
+            request.url.contains('/auth/login') ||
+            request.url.contains('auth.signup') ||
+            request.url.contains('auth.create')) {
           final responseData = response.data;
           final token = responseData['data']?['access_token'] ?? responseData['token'];
           if (token != null) {

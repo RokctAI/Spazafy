@@ -107,6 +107,14 @@ class _WalletTopUpScreenState extends ConsumerState<WalletTopUpScreen> {
       return;
     }
 
+    final connected = await AppConnectivity.connectivity();
+    if (!connected) {
+      if (mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+      return;
+    }
+
     setState(() {
       _isLoading = true;
     });
@@ -160,6 +168,14 @@ class _WalletTopUpScreenState extends ConsumerState<WalletTopUpScreen> {
         context,
         AppHelpers.getTranslation(TrKeys.pleaseEnterValidAmount),
       );
+      return;
+    }
+
+    final connected = await AppConnectivity.connectivity();
+    if (!connected) {
+      if (mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
       return;
     }
 

@@ -92,7 +92,14 @@ class _WalletHistoryState extends ConsumerState<WalletHistoryPage> {
                         bgColor: AppStyle.primary,
                         titleColor: AppStyle.white,
                         titleSize: 12.sp,
-                        onTap: () {
+                        onTap: () async {
+                          final connected = await AppConnectivity.connectivity();
+                          if (!connected) {
+                            if (context.mounted) {
+                              AppHelpers.showNoConnectionSnackBar(context);
+                            }
+                            return;
+                          }
                           AppHelpers.showCustomModalBottomSheet(
                             context: context,
                             modal: ProviderScope(
@@ -111,7 +118,14 @@ class _WalletHistoryState extends ConsumerState<WalletHistoryPage> {
                         bgColor: AppStyle.primary,
                         titleColor: AppStyle.white,
                         titleSize: 12.sp,
-                        onTap: () {
+                        onTap: () async {
+                          final connected = await AppConnectivity.connectivity();
+                          if (!connected) {
+                            if (context.mounted) {
+                              AppHelpers.showNoConnectionSnackBar(context);
+                            }
+                            return;
+                          }
                           AppHelpers.showCustomModalBottomSheet(
                             context: context,
                             modal: ProviderScope(
@@ -131,7 +145,14 @@ class _WalletHistoryState extends ConsumerState<WalletHistoryPage> {
                           bgColor: AppStyle.primary,
                           titleColor: AppStyle.white,
                           titleSize: 12.sp,
-                          onTap: () {
+                          onTap: () async {
+                            final connected = await AppConnectivity.connectivity();
+                            if (!connected) {
+                              if (context.mounted) {
+                                AppHelpers.showNoConnectionSnackBar(context);
+                              }
+                              return;
+                            }
                             AppHelpers.showCustomModalBottomSheet(
                               context: context,
                               modal: ProviderScope(

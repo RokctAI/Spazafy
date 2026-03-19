@@ -191,7 +191,7 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                           ),
                         ),
                         InkWell(
-                          onTap: notifier.sendMessage,
+                          onTap: () => notifier.sendMessage(context),
                           child: Container(
                             width: 37,
                             height: 37,

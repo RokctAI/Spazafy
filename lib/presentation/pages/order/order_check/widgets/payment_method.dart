@@ -120,7 +120,20 @@ class _PaymentMethodsState extends ConsumerState<PaymentMethods> {
                                             ?.toLowerCase() ==
                                         "payfast";
                                     return SelectItem(
-                                      onTap: () {
+                                      onTap: () async {
+                                        final tag = state.payments[index].tag?.toLowerCase() ?? "";
+                                        final isOnlineOnly = tag == "wallet" || tag == "payfast" || tag == "pay-fast";
+                                        
+                                        if (isOnlineOnly) {
+                                          final connected = await AppConnectivity.connectivity();
+                                          if (!connected) {
+                                            if (context.mounted) {
+                                              AppHelpers.showNoConnectionSnackBar(context);
+                                            }
+                                            return;
+                                          }
+                                        }
+
                                         event.change(index);
                                         if (isPayfast) {
                                           _checkIfPayfast(index);

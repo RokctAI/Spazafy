@@ -14,6 +14,7 @@ class OrderState with _$OrderState {
   const factory OrderState({
     @Default(false) bool isActive,
     @Default(false) bool isOrder,
+    @Default(false) bool isDriverOffline,
     @Default(false) bool isLoading,
     @Default(false) bool isMapLoading,
     @Default(false) bool isButtonLoading,

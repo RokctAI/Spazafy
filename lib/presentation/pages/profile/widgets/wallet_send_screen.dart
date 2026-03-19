@@ -73,6 +73,14 @@ class _WalletSendScreenState extends ConsumerState<WalletSendScreen> {
       }
     }
 
+    final connected = await AppConnectivity.connectivity();
+    if (!connected) {
+      if (mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+      return;
+    }
+
     // Only proceed with search if we have a valid complete input
     if (!isValidInput) {
       // Update UI to show waiting for complete input
@@ -137,6 +145,14 @@ class _WalletSendScreenState extends ConsumerState<WalletSendScreen> {
         context,
         AppHelpers.getTranslation(TrKeys.pleaseEnterValidAmount),
       );
+      return;
+    }
+
+    final connected = await AppConnectivity.connectivity();
+    if (!connected) {
+      if (mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
       return;
     }
 

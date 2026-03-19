@@ -59,14 +59,16 @@ class ChatNotifier extends StateNotifier<ChatState> {
   }
 
   // Method to send a new message or update the latest message
-  Future<void> sendMessage() async {
+  Future<void> sendMessage(BuildContext context) async {
     final text = state.textController?.text.trim();
     if (text != null && text.isNotEmpty) {
       debugPrint('===> send message chat id ${state.chatId}');
       try {
         final connected = await AppConnectivity.connectivity();
         if (!connected) {
-          debugPrint('==> chat offline, blocking send');
+          if (context.mounted) {
+            AppHelpers.showNoConnectionSnackBar(context);
+          }
           return;
         }
         CollectionReference message = _fireStore.collection('messages');

@@ -371,8 +371,15 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                     top: 5,
                                     right: 5,
                                     child: GestureDetector(
-                                      onTap: () {
-                                        context.pushRoute(WalletHistoryRoute());
+                                      onTap: () async {
+                                        final connected = await AppConnectivity.connectivity();
+                                        if (connected) {
+                                          context.pushRoute(WalletHistoryRoute());
+                                        } else {
+                                          if (context.mounted) {
+                                            AppHelpers.showNoConnectionSnackBar(context);
+                                          }
+                                        }
                                       },
                                       child: Icon(Remix.arrow_right_up_line),
                                     ),
@@ -428,9 +435,15 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                 ),
                                                 bgColor: AppStyle.primary,
                                                 titleColor: AppStyle.white,
-                                                onTap: () {
-                                                  AppHelpers
-                                                      .showCustomModalBottomSheet(
+                                                onTap: () async {
+                                                  final connected = await AppConnectivity.connectivity();
+                                                  if (!connected) {
+                                                    if (context.mounted) {
+                                                      AppHelpers.showNoConnectionSnackBar(context);
+                                                    }
+                                                    return;
+                                                  }
+                                                  AppHelpers.showCustomModalBottomSheet(
                                                     context: context,
                                                     modal: ProviderScope(
                                                       child: Consumer(
@@ -453,9 +466,15 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                 ),
                                                 bgColor: AppStyle.primary,
                                                 titleColor: AppStyle.white,
-                                                onTap: () {
-                                                  AppHelpers
-                                                      .showCustomModalBottomSheet(
+                                                onTap: () async {
+                                                  final connected = await AppConnectivity.connectivity();
+                                                  if (!connected) {
+                                                    if (context.mounted) {
+                                                      AppHelpers.showNoConnectionSnackBar(context);
+                                                    }
+                                                    return;
+                                                  }
+                                                  AppHelpers.showCustomModalBottomSheet(
                                                     context: context,
                                                     modal: ProviderScope(
                                                       child: Consumer(
@@ -480,9 +499,15 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                   ),
                                                   bgColor: AppStyle.primary,
                                                   titleColor: AppStyle.white,
-                                                  onTap: () {
-                                                    AppHelpers
-                                                        .showCustomModalBottomSheet(
+                                                  onTap: () async {
+                                                    final connected = await AppConnectivity.connectivity();
+                                                    if (!connected) {
+                                                      if (context.mounted) {
+                                                        AppHelpers.showNoConnectionSnackBar(context);
+                                                      }
+                                                      return;
+                                                    }
+                                                    AppHelpers.showCustomModalBottomSheet(
                                                       context: context,
                                                       modal: ProviderScope(
                                                         child: Consumer(

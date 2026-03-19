@@ -114,7 +114,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         },
       );
     } else {
-      // Offline: Skip OTP and go to next screen (handled by UI calling onSuccess)
+      // Restoration: Allow proceeding to OTP verification or next step while offline
+      state = state.copyWith(isLoading: false, isSuccess: true);
       onSuccess();
     }
   }
@@ -283,81 +284,54 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         },
       );
     } else {
-      // Offline: Guest mode and queue request
-      if (!AppValidators.isValidPassword(state.password)) {
-        state = state.copyWith(isPasswordInvalid: true);
-        return;
-      }
-      if (!AppValidators.isValidConfirmPassword(
-        state.password,
-        state.confirmPassword,
-      )) {
-        state = state.copyWith(isConfirmPasswordInvalid: true);
-        return;
-      }
-
-      final hasExistingManager = await _appDatabase.hasManagerAccount();
-      if (hasExistingManager) {
-        if (!context.mounted) return;
-        final bool? override = await showCupertinoDialog<bool>(
-          context: context,
-          builder: (context) => CupertinoAlertDialog(
-            title: Text(AppHelpers.getTranslation(TrKeys.warning)),
-            content: Text(
-              "A manager account already exists on this device. Continuing will override their local data. Proceed?",
-            ),
-            actions: [
-              CupertinoDialogAction(
-                child: Text(AppHelpers.getTranslation(TrKeys.cancel)),
-                onPressed: () => Navigator.pop(context, false),
-              ),
-              CupertinoDialogAction(
-                isDestructiveAction: true,
-                child: Text(AppHelpers.getTranslation(TrKeys.confirm)),
-                onPressed: () => Navigator.pop(context, true),
-              ),
-            ],
-          ),
-        );
-        if (override != true) return;
-      }
-
-      // 1. Set as Guest and provide stable offline identity
-      LocalStorage.setIsGuest(true);
-      final offlineUuid = 'OFFLINE-USER-${const Uuid().v4()}';
-      
-      // 2. Save offline user details with stable UUID
-      LocalStorage.setOfflineUser({
-        'uuid': offlineUuid,
-        'email': state.email,
-        'firstname': state.firstName,
-        'lastname': state.lastName,
-        'phone': state.phone,
-        'password': state.password,
-        'confirmPassword': state.confirmPassword,
-        'referral': state.referral,
-        'type': 'register',
-      });
-
-      // Provide a placeholder token to stabilize state-dependent plugins
-      LocalStorage.setToken('OFFLINE_DUMMY_TOKEN_${const Uuid().v4()}');
-
-      // 3. Queue the request
-      _backgroundSyncService.enqueueRequest(
-        '${AppConstants.baseUrl}/api/method/paas.api.auth.register',
-        'POST',
-        {
+      // Restoration: Re-enable offline registration queuing
+      state = state.copyWith(isLoading: true);
+      try {
+        final payload = {
           'email': state.email,
           'firstname': state.firstName,
           'lastname': state.lastName,
           'phone': state.phone,
           'password': state.password,
-          'password_confirmation': state.confirmPassword,
+          'confirm_password': state.confirmPassword,
           'referral': state.referral,
-        },
-      );
-      // 4. Go Home
-      AppHelpers.goHome(context);
+        };
+        
+        await _appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.auth.signup',
+          method: 'POST',
+          payload: payload,
+        );
+
+        // Persist temp user locally
+        await _appDatabase.upsertUser(
+          {
+            'uuid': "temp_${DateTime.now().millisecondsSinceEpoch}",
+            'email': state.email,
+            'phone': state.phone,
+            'role': 'seller',
+            'firstname': state.firstName,
+            'lastname': state.lastName,
+          },
+          password: state.password,
+        );
+
+        state = state.copyWith(isLoading: false);
+        LocalStorage.setToken("temp_token");
+        
+        if (context.mounted) {
+          if (AppConstants.isDemo) {
+            context.replaceRoute(UiTypeRoute());
+          } else {
+            AppHelpers.goHome(context);
+          }
+        }
+      } catch (e) {
+        state = state.copyWith(isLoading: false);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(context, e.toString());
+        }
+      }
     }
   }
 
