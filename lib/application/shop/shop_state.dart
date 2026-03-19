@@ -46,6 +46,7 @@ class ShopState with _$ShopState {
     @Default([]) List<BranchModel>? branches,
     @Default([]) List<String> brandIds,
     @Default(0) int sortIndex,
+    @Default(false) bool isDataUnavailableOffline,
   }) = _ShopState;
 
   const ShopState._();

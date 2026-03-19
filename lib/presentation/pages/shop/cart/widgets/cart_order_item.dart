@@ -22,7 +22,8 @@ class CartOrderItem extends StatelessWidget {
   final bool isActive;
   final bool isOwn;
   final bool isAddComment;
-
+  final VoidCallback? onChooseAlternative;
+ 
   const CartOrderItem({
     super.key,
     required this.add,
@@ -33,6 +34,7 @@ class CartOrderItem extends StatelessWidget {
     this.isOwn = true,
     this.symbol,
     this.isAddComment = false,
+    this.onChooseAlternative,
   });
 
   @override
@@ -221,6 +223,43 @@ class CartOrderItem extends StatelessWidget {
                                 ],
                               ),
                             ),
+                            16.verticalSpace,
+                            if (isOwn && onChooseAlternative != null)
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.h),
+                                child: InkWell(
+                                  onTap: onChooseAlternative,
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        cart?.alternativeStock != null
+                                            ? FlutterRemix.checkbox_circle_fill
+                                            : FlutterRemix.add_circle_line,
+                                        size: 16.r,
+                                        color: cart?.alternativeStock != null
+                                            ? AppStyle.primary
+                                            : AppStyle.red,
+                                      ),
+                                      8.horizontalSpace,
+                                      Expanded(
+                                        child: Text(
+                                          cart?.alternativeStock != null
+                                              ? "${AppHelpers.getTranslation(TrKeys.alternative)}: ${cart?.alternativeStock?.product?.translation?.title}"
+                                              : AppHelpers.getTranslation(TrKeys.chooseAlternative),
+                                          style: AppStyle.interNormal(
+                                            size: 12,
+                                            color: cart?.alternativeStock != null
+                                                ? AppStyle.primary
+                                                : AppStyle.red,
+                                          ),
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             16.verticalSpace,
                             !(cart?.bonus ?? false)
                                 ? Column(

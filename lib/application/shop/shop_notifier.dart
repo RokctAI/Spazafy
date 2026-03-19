@@ -448,12 +448,16 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
         onSuccess.call(allList.length);
       },
-      failure: (failure, status) {
+      failure: (failure, status) async {
+        final connected = await AppConnectivity.connectivity();
         state = state.copyWith(
           isProductLoading: false,
           isCategoryLoading: false,
+          isDataUnavailableOffline: !connected,
         );
-        AppHelpers.showCheckTopSnackBar(context, failure);
+        if (connected && context.mounted) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        }
       },
     );
   }

@@ -624,4 +624,7 @@ class TrKeys {
   static const String insufficientBalance = 'insufficient_balance';
   static const String areYouOnline = 'are_you_online';
   static const String proceedToLinkDevice = 'proceed_to_link_device';
+  static const String chooseAlternative = 'choose_alternative';
+  static const String alternative = 'alternative';
+  static const String noAlternativesFound = 'no_alternatives_found';
 }

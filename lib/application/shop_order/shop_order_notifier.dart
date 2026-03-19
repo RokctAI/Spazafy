@@ -64,6 +64,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
             newDate.userCarts?.first.cartDetails?[index].stock?.id ?? "",
         quantity:
             newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
+        alternativeStockId:
+            newDate.userCarts?.first.cartDetails?[index].alternativeStock?.id,
       ),
     ];
     for (Addons element
@@ -84,6 +86,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
             newDate.userCarts?.first.cartDetails?[index].stock?.id ?? "",
         quantity:
             newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
+        alternativeStockId:
+            newDate.userCarts?.first.cartDetails?[index].alternativeStock?.id,
         carts: list,
       ),
     );
@@ -132,6 +136,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
                   "",
           quantity:
               newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
+          alternativeStockId:
+              newDate.userCarts?.first.cartDetails?[index].alternativeStock?.id,
         ),
       ];
       for (Addons element
@@ -154,6 +160,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
                   "",
           quantity:
               newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
+          alternativeStockId:
+              newDate.userCarts?.first.cartDetails?[index].alternativeStock?.id,
           carts: list,
         ),
       );
@@ -267,6 +275,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           quantity: newDate.userCarts?[userIndex].cartDetails?[productIndex]
                   .quantity ??
               1,
+          alternativeStockId: newDate.userCarts?[userIndex]
+              .cartDetails?[productIndex].alternativeStock?.id,
         ),
       ];
       for (Addons element in newDate.userCarts?[userIndex]
@@ -293,6 +303,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           quantity: newDate.userCarts?[userIndex].cartDetails?[productIndex]
                   .quantity ??
               1,
+          alternativeStockId: newDate.userCarts?[userIndex]
+              .cartDetails?[productIndex].alternativeStock?.id,
           carts: list,
         ),
       );
@@ -359,6 +371,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
             quantity: newDate.userCarts?[userIndex]
                     .cartDetails?[productIndex].quantity ??
                 1,
+            alternativeStockId: newDate.userCarts?[userIndex]
+                .cartDetails?[productIndex].alternativeStock?.id,
           ),
         ];
         for (Addons element in newDate.userCarts?[userIndex]
@@ -385,6 +399,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
             quantity: newDate.userCarts?[userIndex]
                     .cartDetails?[productIndex].quantity ??
                 1,
+            alternativeStockId: newDate.userCarts?[userIndex]
+                .cartDetails?[productIndex].alternativeStock?.id,
             carts: list,
           ),
         );
@@ -695,5 +711,65 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     );
 
     state = state.copyWith(shareLink: res.data['shortLink']);
+  }
+
+  void setAlternativeStock({
+    required String shopId,
+    required String stockId,
+    required Stocks alternativeStock,
+  }) {
+    final currentCart = state.carts[shopId];
+    if (currentCart == null) return;
+
+    List<UserCart> newUserCarts = List.from(currentCart.userCarts ?? []);
+    bool found = false;
+
+    for (int i = 0; i < newUserCarts.length; i++) {
+      List<CartDetail> newDetails =
+          List.from(newUserCarts[i].cartDetails ?? []);
+      for (int j = 0; j < newDetails.length; j++) {
+        if (newDetails[j].stock?.id == stockId) {
+          newDetails[j] =
+              newDetails[j].copyWith(alternativeStock: alternativeStock);
+          newUserCarts[i] = newUserCarts[i].copyWith(cartDetails: newDetails);
+          found = true;
+          break;
+        }
+      }
+      if (found) break;
+    }
+
+    if (found) {
+      final newCarts = Map<String, Cart?>.from(state.carts);
+      newCarts[shopId] = currentCart.copyWith(userCarts: newUserCarts);
+      state = state.copyWith(carts: newCarts);
+
+      // Sync with backend immediately
+      int? userIndex;
+      int? productIndex;
+      for (int i = 0; i < newUserCarts.length; i++) {
+        for (int j = 0; j < newUserCarts[i].cartDetails!.length; j++) {
+          if (newUserCarts[i].cartDetails![j].stock?.id == stockId) {
+            userIndex = i;
+            productIndex = j;
+            break;
+          }
+        }
+        if (userIndex != null) break;
+      }
+
+      if (userIndex != null && productIndex != null) {
+        if (newUserCarts.length > 1 || (userIndex > 0)) {
+          addCountWithGroup(
+            context: AppHelpers.getContext()!,
+            productIndex: productIndex,
+            userIndex: userIndex,
+            shopId: shopId,
+          );
+        } else {
+          addCount(AppHelpers.getContext()!, productIndex, shopId);
+        }
+      }
+    }
   }
 }

@@ -610,6 +610,57 @@ class _ShopPageState extends ConsumerState<ShopPage>
 
   Widget contentList() {
     final state = ref.watch(shopProvider);
+    if (state.isDataUnavailableOffline) {
+      return Container(
+        padding: EdgeInsets.only(top: 100.h),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Remix.wifi_off_line,
+                size: 80.r,
+                color: AppStyle.textGrey.withOpacity(0.5),
+              ),
+              24.verticalSpace,
+              Text(
+                AppHelpers.getTranslation(TrKeys.dataNotAvailableOffline),
+                style: AppStyle.interSemi(
+                  size: 16,
+                  color: AppStyle.textGrey,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              8.verticalSpace,
+              Text(
+                AppHelpers.getTranslation(TrKeys.pleaseGoOnlineToFetch),
+                style: AppStyle.interRegular(
+                  size: 14,
+                  color: AppStyle.textGrey,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              32.verticalSpace,
+              SizedBox(
+                width: 200.w,
+                child: CustomButton(
+                  title: AppHelpers.getTranslation(TrKeys.retry),
+                  onPressed: () {
+                    ref.read(shopProvider.notifier).fetchProducts(
+                      context,
+                      widget.shopId,
+                      (i) {
+                        _tabController = TabController(length: i, vsync: this);
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     return SingleChildScrollView(
       child: (state.isProductLoading || state.isBrandsLoading)
           ? const ShimmerProductList()
@@ -622,7 +673,7 @@ class _ShopPageState extends ConsumerState<ShopPage>
                     double screenHeight = MediaQuery.sizeOf(context).height;
                     double visibleAreaOnScreen =
                         info.visibleBounds.bottom - info.visibleBounds.top;
-
+ 
                     if (info.visibleFraction > 0.5 ||
                         visibleAreaOnScreen > screenHeight * 0.5) {
                       _tabController.animateTo(index);

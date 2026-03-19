@@ -23,6 +23,7 @@ import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'widgets/cart_clear_dialog.dart';
 import 'widgets/cart_order_description.dart';
 import 'widgets/cart_order_item.dart';
+import '../widgets/alternative_item_sheet.dart';
 
 class CartOrderPage extends ConsumerStatefulWidget {
   final bool isGroupOrder;
@@ -188,6 +189,19 @@ class _ShopOrderState extends ConsumerState<CartOrderPage> {
                                               event.removeCount(context, index, widget.shopId ?? ""),
                                           cart: currentCart.userCarts?.first
                                               .cartDetails?[index],
+                                          onChooseAlternative: () {
+                                            AppHelpers.showCustomModalBottomDragSheet(
+                                              context: context,
+                                              modal: (c) => AlternativeItemSheet(
+                                                shopId: widget.shopId ?? "",
+                                                stockId: currentCart.userCarts?.first.cartDetails?[index].stock?.id ?? "",
+                                                controller: c,
+                                              ),
+                                              isDarkMode: false,
+                                              isDrag: true,
+                                              radius: 12,
+                                            );
+                                          },
                                         );
                                       },
                                     ),
@@ -256,6 +270,21 @@ class _ShopOrderState extends ConsumerState<CartOrderPage> {
                                     shopId: widget.shopId ?? "",
                                   ),
                         cart: currentCart.userCarts?[index].cartDetails?[indexCart],
+                        onChooseAlternative: () {
+                          AppHelpers.showCustomModalBottomDragSheet(
+                            context: context,
+                            modal: (c) => AlternativeItemSheet(
+                              shopId: widget.shopId ?? "",
+                              stockId: currentCart.userCarts?[index]
+                                      .cartDetails?[indexCart].stock?.id ??
+                                  "",
+                              controller: c,
+                            ),
+                            isDarkMode: false,
+                            isDrag: true,
+                            radius: 12,
+                          );
+                        },
                       );
                     },
                   ),

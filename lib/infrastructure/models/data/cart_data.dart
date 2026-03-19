@@ -219,6 +219,7 @@ class CartDetail {
     this.updatedAt,
     this.stock,
     this.addons,
+    this.alternativeStock,
   });
 
   String? id;
@@ -229,6 +230,7 @@ class CartDetail {
   DateTime? updatedAt;
   Stocks? stock;
   List<Addons>? addons;
+  Stocks? alternativeStock;
 
   CartDetail copyWith({
     String? id,
@@ -238,6 +240,7 @@ class CartDetail {
     DateTime? updatedAt,
     Stocks? stock,
     List<Addons>? addons,
+    Stocks? alternativeStock,
   }) =>
       CartDetail(
         id: id ?? this.id,
@@ -247,6 +250,7 @@ class CartDetail {
         updatedAt: updatedAt ?? this.updatedAt,
         stock: stock ?? this.stock,
         addons: addons ?? this.addons,
+        alternativeStock: alternativeStock ?? this.alternativeStock,
       );
 
   factory CartDetail.fromJson(Map<String, dynamic> json) => CartDetail(
@@ -268,6 +272,9 @@ class CartDetail {
               )
             : null,
         stock: json["stock"] != null ? Stocks.fromJson(json["stock"]) : null,
+        alternativeStock: json["alternative_stock"] != null
+            ? Stocks.fromJson(json["alternative_stock"])
+            : null,
       );
 
   Map<String, dynamic> toJson() => {
@@ -277,5 +284,6 @@ class CartDetail {
         "price": price,
         "updated_at": updatedAt?.toIso8601String(),
         "stock": stock?.toJson(),
+        "alternative_stock": alternativeStock?.toJson(),
       };
 }

@@ -8,6 +8,7 @@ class CartRequest {
   final String? productId;
   final String? parentId;
   final int? quantity;
+  final String? alternativeStockId;
   final List<CartRequest>? carts;
 
   CartRequest({
@@ -19,6 +20,7 @@ class CartRequest {
     this.carts,
     this.cartId,
     this.userUuid,
+    this.alternativeStockId,
   });
 
   Map<String, dynamic> toJson() {
@@ -28,6 +30,9 @@ class CartRequest {
     if (cartId != null) map["cart_id"] = cartId;
     if (userUuid != null) map["user_cart_uuid"] = userUuid;
     if (stockId != null) map["stock_id"] = stockId;
+    if (alternativeStockId != null) {
+      map["alternative_product"] = alternativeStockId;
+    }
     if (parentId != null) map["parent_id"] = parentId;
     if (quantity != null) map["quantity"] = quantity;
     map["rate"] = LocalStorage.getSelectedCurrency()?.rate ?? 1;
@@ -53,6 +58,9 @@ class CartRequest {
       final map = <String, dynamic>{};
       map["stock_id"] = element.stockId;
       map["quantity"] = element.quantity;
+      if (element.alternativeStockId != null) {
+        map["alternative_product"] = element.alternativeStockId;
+      }
       if (element.parentId != null) map["parent_id"] = element.parentId;
       if (cartId != null) map["cart_id"] = cartId;
       if (userUuid != null) map["user_cart_uuid"] = userUuid;
