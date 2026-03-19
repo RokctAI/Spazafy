@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+
+class IncomeItem extends StatelessWidget {
+  final String title;
+  final String price;
+  final bool isBlack;
+
+  const IncomeItem({
+    super.key,
+    required this.title,
+    required this.price,
+    this.isBlack = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 4.h),
+      decoration: BoxDecoration(
+        color: isBlack ? AppStyle.black : AppStyle.white,
+        borderRadius: BorderRadius.circular(10.r),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 16.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: AppStyle.interNormal(
+              size: 14.sp,
+              letterSpacing: -0.3,
+              color: isBlack ? AppStyle.white : AppStyle.black,
+            ),
+          ),
+          6.horizontalSpace,
+          Expanded(
+            child: Text(
+              price,
+              style: AppStyle.interSemi(
+                size: 14.sp,
+                letterSpacing: -0.3,
+                color: isBlack ? AppStyle.white : AppStyle.black,
+              ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

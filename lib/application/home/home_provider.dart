@@ -1,8 +1,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 import 'home_notifier.dart';
 import 'home_state.dart';
 
-final homeProvider = StateNotifierProvider<HomeNotifier, HomeState>(
-  (ref) => HomeNotifier(),
+final homeProvider = StateNotifierProvider.autoDispose<HomeNotifier, HomeState>(
+  (ref) => HomeNotifier(
+    categoriesRepository,
+    bannersRepository,
+    shopsRepository,
+    productsRepository,
+    brandsRepository,
+  ),
 );

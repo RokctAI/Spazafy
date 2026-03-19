@@ -1,19 +1,25 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/presentation/routes/app_router.gr.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
+import 'package:rokctapp/domain/interface/auth.dart';
+import 'package:rokctapp/domain/interface/user.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'reset_password_state.dart';
 
 class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
-  final AuthRepository _authRepository;
-  final UserRepository _usersRepository;
+  final AuthRepositoryFacade _authRepository;
+  final UserRepositoryFacade _userRepositoryFacade;
 
-  ResetPasswordNotifier(this._authRepository, this._usersRepository)
+  ResetPasswordNotifier(this._authRepository, this._userRepositoryFacade)
     : super(const ResetPasswordState());
 
   void setEmail(String text) {
@@ -43,7 +49,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
     state = state.copyWith(showConfirmPassword: !state.showConfirmPassword);
   }
 
-  bool checkEmail() {
+  checkEmail() {
     return AppValidators.isValidEmail(state.email);
   }
 
@@ -61,7 +67,9 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
         verificationFailed: (FirebaseAuthException e) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(e.message ?? ""),
+            AppHelpers.getTranslation(
+              AppHelpers.getTranslation(e.message ?? ""),
+            ),
           );
           state = state.copyWith(isLoading: false, isSuccess: false);
         },
@@ -69,7 +77,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
           state = state.copyWith(
             phone: state.email,
             isLoading: false,
-            verificationId: verificationId,
+            verifyId: verificationId,
             isSuccess: true,
           );
         },
@@ -105,7 +113,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
           );
           AppHelpers.showCheckTopSnackBar(
             context,
-            AppHelpers.getTranslation(failure),
+            AppHelpers.getTranslation(status.toString()),
           );
           debugPrint('==> send otp failure: $failure');
         },
@@ -135,26 +143,32 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
         return;
       }
       state = state.copyWith(isLoading: true, isSuccess: false);
-      final response = await _usersRepository.updatePassword(
+      final response = await _userRepositoryFacade.updatePassword(
         password: state.password,
         passwordConfirmation: state.confirmPassword,
       );
       response.when(
         success: (data) async {
           state = state.copyWith(isLoading: false, isSuccess: true);
-          context.replaceRoute(const HomeRoute());
+          if (AppConstants.isDemo) {
+            context.replaceRoute(UiTypeRoute());
+          } else {
+            AppHelpers.goHome(context);
+          }
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           if (status == 400) {
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(TrKeys.emailIsNotValid),
+              AppHelpers.getTranslation(
+                AppHelpers.getTranslation(TrKeys.emailAlreadyExists),
+              ),
             );
           } else {
             AppHelpers.showCheckTopSnackBar(
               context,
-              AppHelpers.getTranslation(failure),
+              AppHelpers.getTranslation(status.toString()),
             );
           }
         },

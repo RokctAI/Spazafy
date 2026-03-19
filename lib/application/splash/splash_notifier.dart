@@ -1,153 +1,83 @@
-// ignore_for_file: use_build_context_synchronously
-
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/presentation/routes/app_router.gr.dart';
+import 'package:rokctapp/domain/interface/settings.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
 import 'splash_state.dart';
 
 class SplashNotifier extends StateNotifier<SplashState> {
-  final SettingsRepository _settingsRepository;
-  final UserRepository _userRepository;
+  final SettingsRepositoryFacade _settingsRepository;
 
-  SplashNotifier(this._settingsRepository, this._userRepository)
-    : super(const SplashState());
+  SplashNotifier(this._settingsRepository) : super(const SplashState());
 
-  Future<void> fetchDriverDetails({required BuildContext context}) async {
-    final response = await _userRepository.getDriverDetails();
-    response.when(
-      success: (data) {
-        LocalStorage.setDeliveryInfo(data);
-        LocalStorage.setOnline(data.data?.online ?? false);
-      },
-      failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(failure),
-        );
-        debugPrint('==> error with fetching profile $failure');
-      },
-    );
-  }
-
-  Future<void> fetchGlobalSettings(BuildContext context) async {
-    final response = await _settingsRepository.getGlobalSettings();
-    response.when(
-      success: (data) {
-        LocalStorage.setSettingsList(data.data ?? []);
-      },
-      failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(failure),
-        );
-        debugPrint('==> error with fetching settings $failure');
-      },
-    );
-  }
-
-  Future<void> fetchCurrencies(BuildContext context) async {
-    final response = await _settingsRepository.getCurrencies();
-    response.when(
-      success: (data) {
-        int defaultCurrencyIndex = 0;
-        final List<CurrencyData> currencies = data.data ?? [];
-        for (int i = 0; i < currencies.length; i++) {
-          if (currencies[i].isDefault ?? false) {
-            defaultCurrencyIndex = i;
-            break;
-          }
-        }
-        LocalStorage.setSelectedCurrency(currencies[defaultCurrencyIndex]);
-      },
-      failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(failure),
-        );
-        debugPrint('==> error with fetching currencies $failure');
-      },
-    );
-  }
-
-  Future<void> fetchProfileDetails(
+  Future<void> getToken(
     BuildContext context, {
-    VoidCallback? onMain,
-    VoidCallback? onBecome,
-    VoidCallback? onLogin,
-  }) async {
-    final response = await _userRepository.getProfileDetails();
-    response.when(
-      success: (data) {
-        if (data.data?.role == "deliveryman") {
-          onMain?.call();
-          LocalStorage.setUser(data.data);
-          if (data.data?.wallet != null) {
-            LocalStorage.setWallet(data.data?.wallet);
-          }
-          fetchDriverDetails(context: context);
-        } else {
-          onBecome?.call();
-        }
-      },
-      failure: (failure, status) {
-        if (status == 401) {
-          onLogin?.call();
-          LocalStorage.logout();
-          context.replaceRoute(const SplashRoute());
-          return;
-        }
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(failure),
-        );
-        debugPrint('==> error fetching profile details $failure');
-      },
-    );
-  }
-
-  Future<void> fetchTranslations({
-    required BuildContext context,
-    VoidCallback? noConnection,
     VoidCallback? goMain,
     VoidCallback? goLogin,
-    VoidCallback? onBecome,
-    Function(DeliveryResponse?)? setDriverData,
+    VoidCallback? goNoInternet,
   }) async {
-    if (await AppConnectivity.connectivity()) {
-      final response = await _settingsRepository.getTranslations();
+    // This will automatically show dialog if no connection
+    final connect = await AppConnectivity.connectivity();
+
+    if (connect) {
+      if (LocalStorage.getSettingsFetched()) {
+        final response = await _settingsRepository.getGlobalSettings();
+        response.when(
+          success: (data) {
+            LocalStorage.setSettingsList(data.data ?? []);
+            LocalStorage.setSettingsFetched(true);
+          },
+          failure: (failure, status) {
+            debugPrint('==> error with settings fetched');
+          },
+        );
+      }
+
+      if (LocalStorage.getToken().isEmpty) {
+        goLogin?.call();
+      } else {
+        goMain?.call();
+      }
+
+      if (!LocalStorage.getSettingsFetched()) {
+        final response = await _settingsRepository.getGlobalSettings();
+        response.when(
+          success: (data) {
+            LocalStorage.setSettingsList(data.data ?? []);
+            LocalStorage.setSettingsFetched(true);
+          },
+          failure: (failure, status) {
+            debugPrint('==> error with settings fetched');
+          },
+        );
+      }
+    } else {
+      // Offline: Allow proceeding to main page as guest if no token
+      if (LocalStorage.getToken().isEmpty) {
+        LocalStorage.setIsGuest(true);
+      }
+      goMain?.call();
+    }
+  }
+
+  Future<void> getTranslations(BuildContext context) async {
+    // This will automatically show dialog if no connection
+    final connect = await AppConnectivity.connectivityWithDialog(context);
+
+    if (connect) {
+      final response = await _settingsRepository.getMobileTranslations();
       response.when(
         success: (data) {
           LocalStorage.setTranslations(data.data);
         },
         failure: (failure, status) {
           debugPrint('==> error with fetching translations $failure');
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(failure),
-          );
+          // Could show dialog here for API failures even with connection
+          // AppHelpers.showNoConnectionDialog(context);
         },
       );
-      fetchGlobalSettings(context);
-      if (LocalStorage.getToken().isNotEmpty) {
-        fetchProfileDetails(
-          context,
-          onMain: goMain,
-          onBecome: onBecome,
-          onLogin: goLogin,
-        );
-      } else {
-        goLogin?.call();
-      }
-      if (LocalStorage.getSelectedCurrency() == null) {
-        fetchCurrencies(context);
-      }
-    } else {
-      noConnection?.call();
     }
+    // No else block needed - dialog is automatically shown by connectivityWithDialog
   }
 }

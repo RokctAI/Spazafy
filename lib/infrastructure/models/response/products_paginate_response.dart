@@ -2,8 +2,13 @@ import 'package:rokctapp/infrastructure/models/data/meta.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 class ProductsPaginateResponse {
-  ProductsPaginateResponse({List<ProductData>? data, Meta? meta}) {
+  ProductsPaginateResponse({
+    List<ProductData>? data,
+    // Links? links,
+    Meta? meta,
+  }) {
     _data = data;
+    // _links = links;
     _meta = meta;
   }
 
@@ -19,7 +24,6 @@ class ProductsPaginateResponse {
   }
 
   List<ProductData>? _data;
-
   // Links? _links;
   Meta? _meta;
 

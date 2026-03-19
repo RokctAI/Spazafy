@@ -1,10 +1,15 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rokctapp/infrastructure/services/utils/sync_provider.dart';
 
-import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'login_notifier.dart';
 import 'login_state.dart';
 
 final loginProvider =
     StateNotifierProvider.autoDispose<LoginNotifier, LoginState>(
-      (ref) => LoginNotifier(authRepository, userRepository),
+      (ref) => LoginNotifier(
+        authRepository,
+        settingsRepository,
+        userRepository,
+        ref.watch(backgroundSyncServiceProvider),
+        ref.watch(appDatabaseProvider),
+      ),
     );

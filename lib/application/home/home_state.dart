@@ -1,24 +1,37 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 
 part 'home_state.freezed.dart';
 
 @freezed
-abstract class HomeState with _$HomeState {
+class HomeState with _$HomeState {
   const factory HomeState({
-    @Default(false) bool isLoading,
-    @Default(false) bool isGoUser,
-    @Default(false) bool isGoRestaurant,
-    @Default(false) bool isScrolling,
-    @Default([]) List<LatLng> polylineCoordinates,
-    @Default([]) List<LatLng> endPolylineCoordinates,
-    @Default({}) Set<Marker> markers,
-    @Default(null) OrderDetailData? orderDetail,
-    @Default(null) ParcelOrder? parcelDetail,
-    @Default({}) Set<Polygon> polygon,
-    @Default([]) List<LatLng> deliveryZone,
+    @Default(true) bool isCategoryLoading,
+    @Default(true) bool isBannerLoading,
+    @Default(true) bool isShopLoading,
+    @Default(true) bool isAllShopsLoading,
+    @Default(true) bool isNewShopsLoading,
+    @Default(true) bool isStoryLoading,
+    @Default(true) bool isShopRecommendLoading,
+    @Default([]) List<ProductData> discountProducts,
+    @Default(true) bool isDiscountProductsLoading,
+    @Default(-1) int totalShops,
+    @Default(-1) int selectIndexCategory,
+    @Default(-1) int selectIndexSubCategory,
+    @Default(0) int isSelectCategoryLoading,
+    @Default(null) AddressNewModel? addressData,
+    @Default([]) List<CategoryData> categories,
+    @Default([]) List<BannerData> banners,
+    @Default([]) List<BannerData> ads,
+    @Default(null) BannerData? banner,
+    @Default([]) List<ShopData> shops,
+    @Default([]) List<ShopData> allShops,
+    @Default([]) List<ShopData> newShops,
+    @Default([]) List<List<StoryModel?>?>? story,
+    @Default([]) List<ShopData> shopsRecommend,
+    @Default([]) List<ShopData> filterShops,
+    @Default([]) List<ShopData> filterMarket,
+    @Default([]) List<BrandData> brands,
   }) = _HomeState;
 
   const HomeState._();

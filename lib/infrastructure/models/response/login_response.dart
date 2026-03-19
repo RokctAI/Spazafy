@@ -1,11 +1,11 @@
-import 'package:rokctapp/infrastructure/models/data/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
 
 class LoginResponse {
   LoginResponse({
     String? timestamp,
     bool? status,
     String? message,
-    LoginData? data,
+    UserData? data,
   }) {
     _timestamp = timestamp;
     _status = status;
@@ -17,19 +17,19 @@ class LoginResponse {
     _timestamp = json['timestamp'];
     _status = json['status'];
     _message = json['message'];
-    _data = json['data'] != null ? LoginData.fromJson(json['data']) : null;
+    _data = json['data'] != null ? UserData.fromJson(json['data']) : null;
   }
 
   String? _timestamp;
   bool? _status;
   String? _message;
-  LoginData? _data;
+  UserData? _data;
 
   LoginResponse copyWith({
     String? timestamp,
     bool? status,
     String? message,
-    LoginData? data,
+    UserData? data,
   }) => LoginResponse(
     timestamp: timestamp ?? _timestamp,
     status: status ?? _status,
@@ -43,7 +43,7 @@ class LoginResponse {
 
   String? get message => _message;
 
-  LoginData? get data => _data;
+  UserData? get data => _data;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -57,28 +57,28 @@ class LoginResponse {
   }
 }
 
-class LoginData {
-  LoginData({String? accessToken, String? tokenType, UserData? user}) {
+class UserData {
+  UserData({String? accessToken, String? tokenType, UserModel? user}) {
     _accessToken = accessToken;
     _tokenType = tokenType;
     _user = user;
   }
 
-  LoginData.fromJson(dynamic json) {
+  UserData.fromJson(dynamic json) {
     _accessToken = json['access_token'];
     _tokenType = json['token_type'];
-    _user = json['user'] != null ? UserData.fromJson(json['user']) : null;
+    _user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
   }
 
   String? _accessToken;
   String? _tokenType;
-  UserData? _user;
+  UserModel? _user;
 
-  LoginData copyWith({
+  UserData copyWith({
     String? accessToken,
     String? tokenType,
-    UserData? user,
-  }) => LoginData(
+    UserModel? user,
+  }) => UserData(
     accessToken: accessToken ?? _accessToken,
     tokenType: tokenType ?? _tokenType,
     user: user ?? _user,
@@ -88,7 +88,7 @@ class LoginData {
 
   String? get tokenType => _tokenType;
 
-  UserData? get user => _user;
+  UserModel? get user => _user;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

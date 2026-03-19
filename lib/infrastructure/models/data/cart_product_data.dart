@@ -2,12 +2,16 @@ import 'product_data.dart';
 
 class CartProductData {
   CartProductData({
-    double? price,
+    num? shopId,
+    num? id,
+    num? price,
     int? quantity,
     String? imageUrl,
     String? title,
     Stocks? selectedStock,
   }) {
+    _shopId = shopId;
+    _id = id;
     _price = price;
     _quantity = quantity;
     _imageUrl = imageUrl;
@@ -16,6 +20,8 @@ class CartProductData {
   }
 
   CartProductData.fromJson(dynamic json) {
+    _shopId = json["shop_id"];
+    _id = json["id"];
     _price = json["price"];
     _quantity = json['quantity'];
     _imageUrl = json['image_url'];
@@ -25,25 +31,38 @@ class CartProductData {
         : null;
   }
 
-  double? _price;
+  num? _price;
   int? _quantity;
+  num? _shopId;
+  num? _id;
   String? _imageUrl;
   String? _title;
   Stocks? _selectedStock;
 
   CartProductData copyWith({
+    num? shopId,
+    num? id,
     int? quantity,
     String? imageUrl,
     String? title,
     Stocks? selectedStock,
-  }) => CartProductData(
-    quantity: quantity ?? _quantity,
-    imageUrl: imageUrl ?? _imageUrl,
-    title: title ?? _title,
-    selectedStock: selectedStock ?? _selectedStock,
-  );
+  }) {
+    return CartProductData(
+      shopId: shopId ?? _shopId,
+      quantity: quantity ?? _quantity,
+      imageUrl: imageUrl ?? _imageUrl,
+      title: title ?? _title,
+      selectedStock: selectedStock ?? _selectedStock,
+      price: price ?? _price,
+      id: id ?? _id,
+    );
+  }
 
-  double? get price => _price;
+  num? get price => _price;
+
+  num? get id => _id;
+
+  num? get shopId => _shopId;
 
   int? get quantity => _quantity;
 
@@ -55,6 +74,8 @@ class CartProductData {
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map["shop_id"] = _shopId;
+    map['id'] = _id;
     map['price'] = _price;
     map['quantity'] = _quantity;
     map['image_url'] = _imageUrl;

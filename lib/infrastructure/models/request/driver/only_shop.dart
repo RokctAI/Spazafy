@@ -1,0 +1,13 @@
+import 'package:rokctapp/infrastructure/services/utils/driver/local_storage.dart';
+
+class OnlyShopRequest {
+  final String? lan;
+
+  OnlyShopRequest({this.lan});
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map["lang"] = LocalStorage.getLanguage()?.locale ?? "en";
+    return map;
+  }
+}

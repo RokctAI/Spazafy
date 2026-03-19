@@ -1,36 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/orders.dart';
-import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import '../../../domain/handlers/handlers.dart';
-import 'package:rokctapp/infrastructure/models/data/order_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'dart:convert';
 
 class OrdersRepository implements OrdersRepositoryFacade {
   @override
-  Future<ApiResult<OrderPaginateResponse>> getActiveOrders(int page) async {
-    final data = {
-      'currency_id': LocalStorage.getSelectedCurrency()!.id,
-      'lang': LocalStorage.getLanguage()?.locale ?? 'en',
-      'page': page,
-      "statuses[1]": "accepted",
-      "statuses[2]": "ready",
-      "statuses[3]": "on_a_way",
-      "perPage": 10,
-      "delivery_type": "delivery",
-    };
+  Future<ApiResult<OrderActiveModel>> createOrder(
+    OrderBodyData orderBody,
+  ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/paginate',
-        queryParameters: data,
+      final response = await client.post(
+        '/api/method/paas.api.order.order.create_order',
+        data: orderBody.toJson(),
       );
-      return ApiResult.success(
-        data: OrderPaginateResponse.fromJson(response.data),
-      );
+      final responseData = OrderActiveModel.fromJson(response.data);
+
+      // Cache the newly created order
+      await appDatabase.upsertOrder(responseData.toJson());
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
-      debugPrint('==> get active orders failure: $e');
+      debugPrint('==> create order failure: $e');
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -38,124 +35,51 @@ class OrdersRepository implements OrdersRepositoryFacade {
     }
   }
 
-  @override
-  Future<ApiResult<OrderPaginateResponse>> getProgressOrders(int page) async {
-    final data = {
-      'currency_id': LocalStorage.getSelectedCurrency()!.id,
-      'lang': LocalStorage.getLanguage()?.locale ?? 'en',
-      'page': page,
-      // "statuses[1]": "accepted",
-      "statuses[2]": "ready",
-      "statuses[3]": "on_a_way",
-      "perPage": 10,
-      "delivery_type": "delivery",
-    };
-    try {
-      final client = dioHttp.client(requireAuth: true);
-      final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/paginate',
-        queryParameters: data,
-      );
-      return ApiResult.success(
-        data: OrderPaginateResponse.fromJson(response.data),
-      );
-    } catch (e) {
-      debugPrint('==> get active orders failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
-  }
-
-  @override
-  Future<ApiResult<List<OrderDetailData>>> getAvailableOrders(int page) async {
-    final data = {
-      'currency_id': LocalStorage.getSelectedCurrency()!.id,
-      'lang': LocalStorage.getLanguage()?.locale ?? 'en',
-      'page': page,
-      "status": "ready",
-      "empty-deliveryman": 1,
-      "perPage": 10,
-      "delivery_type": "delivery",
-      "address": {
-        "latitude":
-            LocalStorage.getAddressSelected()?.latitude ??
-            AppConstants.demoLatitude,
-        "longitude":
-            LocalStorage.getAddressSelected()?.longitude ??
-            AppConstants.demoLongitude,
-      },
-    };
-    try {
-      final client = dioHttp.client(requireAuth: true);
-      final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/paginate',
-        queryParameters: data,
-      );
-      return ApiResult.success(
-        data: OrderPaginateResponse.fromJson(response.data).data ?? [],
-      );
-    } catch (e) {
-      debugPrint('==> get canceled orders failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
-  }
-
-  @override
-  Future<ApiResult<OrderDetailModel>> showOrders(int id) async {
-    final data = {
-      'currency_id': LocalStorage.getSelectedCurrency()?.id,
-      'lang': LocalStorage.getLanguage()?.locale ?? 'en',
-    };
-    try {
-      final client = dioHttp.client(requireAuth: true);
-      final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/$id',
-        queryParameters: data,
-      );
-      return ApiResult.success(data: OrderDetailModel.fromJson(response.data));
-    } catch (e) {
-      debugPrint('==> get single order failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
-  }
-
-  @override
-  Future<ApiResult<List<OrderDetailData>>> getHistoryOrders(
-    int page, {
-    DateTime? start,
-    DateTime? end,
-    List<String>? status,
+  Future<ApiResult<OrderPaginateResponse>> getOrders({
+    required int page,
+    String? status,
   }) async {
     final data = {
-      'currency_id': LocalStorage.getSelectedCurrency()!.id,
-      'lang': LocalStorage.getLanguage()?.locale ?? 'en',
       'page': page,
-      "status": status ?? ["ready", "on_a_way", "delivered", "canceled"],
-      "perPage": 10,
-      if (start != null)
-        "delivery_date_from": DateFormat("yyyy-MM-dd").format(start),
-      if (end != null) "delivery_date_to": DateFormat("yyyy-MM-dd").format(end),
+      'limit_page_length': 10,
+      if (status != null) 'status': status,
     };
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/paginate',
+        '/api/method/paas.api.order.order.list_orders',
         queryParameters: data,
       );
 
-      return ApiResult.success(
-        data: OrderPaginateResponse.fromJson(response.data).data ?? [],
-      );
+      final responseData = OrderPaginateResponse.fromJson(response.data);
+
+      // Persistence: Cache orders locally on success
+      if (responseData.data != null) {
+        for (final order in responseData.data!) {
+          await appDatabase.upsertOrder(order.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
     } catch (e) {
-      debugPrint('==> get delivered orders failure: $e');
+      debugPrint('==> get orders failure: $e');
+
+      // Fallback: If network fails, try fetching from local DB
+      try {
+        final localOrders = await appDatabase.getOrdersLocally(status: status);
+        if (localOrders.isNotEmpty) {
+          return ApiResult.success(
+            data: OrderPaginateResponse(
+              data: localOrders
+                  .map((e) => OrderActiveModel.fromJson(jsonDecode(e.data)))
+                  .toList(),
+            ),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -164,70 +88,32 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId) async {
-    try {
-      final client = dioHttp.client(requireAuth: true);
-      await client.post(
-        '/api/v1/dashboard/deliveryman/orders/$orderId/current',
-      );
-      return const ApiResult.success(data: null);
-    } catch (e) {
-      debugPrint('==> get delivered orders failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
-  }
-
-  @override
-  Future<ApiResult<OrderPaginateResponse>> fetchCurrentOrder() async {
+  Future<ApiResult<OrderActiveModel>> getSingleOrder(String orderId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/paginate?perPage=1&lang=en&current=1',
+        '/api/method/paas.api.order.order.get_order_details',
+        queryParameters: {'order_id': orderId},
       );
-      return ApiResult.success(
-        data: OrderPaginateResponse.fromJson(response.data),
-      );
-    } catch (e) {
-      debugPrint('===> error current order settings $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
-  }
+      final responseData = OrderActiveModel.fromJson(response.data);
 
-  @override
-  Future<ApiResult<dynamic>> updateOrder(int? orderId, String? status) async {
-    try {
-      final client = dioHttp.client(requireAuth: true);
-      await client.post(
-        '/api/v1/dashboard/deliveryman/order/$orderId/status/update',
-        data: {"status": status},
-      );
-      return const ApiResult.success(data: null);
-    } catch (e) {
-      debugPrint('===> error statistics settings $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
-  }
+      // Persistence: Cache order details
+      await appDatabase.upsertOrder(responseData.toJson());
 
-  @override
-  Future<ApiResult<dynamic>> uploadImage(int? orderId, String? image) async {
-    try {
-      final client = dioHttp.client(requireAuth: true);
-      await client.post(
-        'https://api.foodyman.org/api/v1/dashboard/deliveryman/orders/$orderId/image',
-        data: {"img": image},
-      );
-      return const ApiResult.success(data: null);
-    } catch (e) {
-      debugPrint('===> error statistics settings $e');
+      return ApiResult.success(data: responseData);
+    } catch (e, s) {
+      debugPrint('==> get single order failure: $e,$s');
+
+      // Fallback
+      try {
+        final localOrder = await appDatabase.getItem('orders', orderId);
+        if (localOrder != null) {
+          return ApiResult.success(data: OrderActiveModel.fromJson(localOrder));
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -237,20 +123,37 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
   @override
   Future<ApiResult<void>> addReview(
-    num orderId, {
+    String orderId, {
     required double rating,
     required String comment,
   }) async {
-    final data = {'rating': rating, if (comment.isNotEmpty) 'comment': comment};
+    final data = {
+      'order_id': orderId,
+      'rating': rating,
+      if (comment.isNotEmpty) 'comment': comment,
+    };
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/orders/$orderId/review',
+        '/api/method/paas.api.order.order.add_order_review',
         data: data,
       );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> add order review failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.order.order.add_order_review',
+          method: 'POST',
+          payload: data,
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -259,15 +162,22 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<OrderDetailModel>> setOrder(String orderId) async {
+  Future<ApiResult<String>> process(
+    OrderBodyData orderBody,
+    String name, {
+    BuildContext? context,
+    bool forceCardPayment = false,
+    bool enableTokenization = false,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.post(
-        '/api/v1/dashboard/deliveryman/order/$orderId/attach/me',
+      var res = await client.post(
+        '/api/method/paas.api.payment.payment.initiate_${name.toLowerCase()}_payment',
+        data: {'order_id': orderBody.cartId},
       );
-      return ApiResult.success(data: OrderDetailModel.fromJson(response.data));
-    } catch (e) {
-      debugPrint('===> error statistics settings $e');
+      return ApiResult.success(data: res.data["redirect_url"]);
+    } catch (e, s) {
+      debugPrint('==> order process failure: $e, $s');
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -276,16 +186,373 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<void>> cancelOrder(int orderId, String note) async {
+  Future<ApiResult<void>> cancelOrder(String orderId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/order/$orderId/status/update?status=canceled',
-        data: {"note": note},
+        '/api/method/paas.api.order.order.cancel_order',
+        data: {'order_id': orderId},
       );
       return const ApiResult.success(data: null);
     } catch (e) {
-      debugPrint('==> post cancel order failure: $e');
+      debugPrint('==> cancel order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.order.order.cancel_order',
+          method: 'POST',
+          payload: {'order_id': orderId},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<void>> refundOrder(String orderId, String title) async {
+    try {
+      final data = {"order": orderId, "cause": title};
+      final client = dioHttp.client(requireAuth: true);
+      await client.post(
+        '/api/method/paas.api.user.user.create_order_refund',
+        data: data,
+      );
+      return const ApiResult.success(data: null);
+    } catch (e) {
+      debugPrint('==> refund order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.user.user.create_order_refund',
+          method: 'POST',
+          payload: {"order": orderId, "cause": title},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult> createAutoOrder({
+    required String from,
+    required String orderId,
+    String? to,
+    String? cronPattern,
+    String? paymentMethod,
+    String? savedCardId,
+  }) async {
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      await client.post(
+        '/api/method/paas.api.repeating_order.create_repeating_order',
+        data: {
+          'original_order': orderId,
+          'start_date': from,
+          'cron_pattern': cronPattern ?? '0 0 * * *',
+          if (to != null) 'end_date': to,
+          if (paymentMethod != null) 'payment_method': paymentMethod,
+          if (savedCardId != null) 'saved_card': savedCardId,
+        },
+      );
+      return const ApiResult.success(data: null);
+    } catch (e) {
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult> pauseAutoOrder(String autoOrderId) async {
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      await client.post(
+        '/api/method/paas.api.repeating_order.pause_repeating_order',
+        data: {'repeating_order_id': autoOrderId},
+      );
+      return const ApiResult.success(data: null);
+    } catch (e) {
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult> resumeAutoOrder(String autoOrderId) async {
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      await client.post(
+        '/api/method/paas.api.repeating_order.resume_repeating_order',
+        data: {'repeating_order_id': autoOrderId},
+      );
+      return const ApiResult.success(data: null);
+    } catch (e) {
+      debugPrint('==> resume repeating order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.repeating_order.resume_repeating_order',
+          method: 'POST',
+          payload: {'repeating_order_id': autoOrderId},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult> deleteAutoOrder(String orderId) async {
+    return deleteRepeatingOrder(repeatingOrderId: orderId);
+  }
+
+  @override
+  Future<ApiResult<RefundOrdersModel>> getRefundOrders(int page) async {
+    final data = {'page': page};
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      final response = await client.get(
+        '/api/method/paas.api.user.user.get_user_order_refunds',
+        queryParameters: data,
+      );
+      return ApiResult.success(data: RefundOrdersModel.fromJson(response.data));
+    } catch (e) {
+      debugPrint('==> get refund orders failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<GetCalculateModel>> getCalculate({
+    required String cartId,
+    required double lat,
+    required double long,
+    required DeliveryTypeEnum type,
+    String? coupon,
+  }) async {
+    final data = {
+      'cart_id': cartId,
+      'address': {'latitude': lat, 'longitude': long},
+      if (coupon != null) 'coupon': coupon,
+    };
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      final response = await client.post(
+        '/api/method/paas.api.order.order.get_calculate',
+        data: data,
+      );
+      return ApiResult.success(
+        data: GetCalculateModel.fromJson(response.data["message"]),
+      );
+    } catch (e) {
+      debugPrint('==> get calculate failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<CouponResponse>> checkCoupon({
+    required String coupon,
+    required String shopId,
+  }) async {
+    final data = {'coupon': coupon, 'shop': shopId};
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      final response = await client.post(
+        '/api/method/paas.api.coupon.coupon.check_coupon',
+        data: data,
+      );
+      return ApiResult.success(data: CouponResponse.fromJson(response.data));
+    } catch (e) {
+      debugPrint('==> check coupon failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<OrderPaginateResponse>> getCompletedOrders(int page) {
+    return getOrders(page: page, status: 'delivered');
+  }
+
+  @override
+  Future<ApiResult<OrderPaginateResponse>> getActiveOrders(int page) {
+    return getOrders(page: page, status: 'accepted');
+  }
+
+  @override
+  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page) {
+    return getOrders(page: page);
+  }
+
+  @override
+  Future<ApiResult<void>> createRepeatingOrder({
+    required String orderId,
+    required String startDate,
+    required String cronPattern,
+    String? endDate,
+  }) async {
+    try {
+      final data = {
+        'original_order': orderId,
+        'start_date': startDate,
+        'cron_pattern': cronPattern,
+        if (endDate != null) 'end_date': endDate,
+      };
+      final client = dioHttp.client(requireAuth: true);
+      await client.post(
+        '/api/method/paas.api.repeating_order.create_repeating_order',
+        data: data,
+      );
+      return const ApiResult.success(data: null);
+    } catch (e) {
+      debugPrint('==> create repeating order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.repeating_order.create_repeating_order',
+          method: 'POST',
+          payload: {
+            'original_order': orderId,
+            'start_date': startDate,
+            'cron_pattern': cronPattern,
+            if (endDate != null) 'end_date': endDate,
+          },
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<void>> deleteRepeatingOrder({
+    required String repeatingOrderId,
+  }) async {
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      await client.post(
+        '/api/method/paas.api.repeating_order.delete_repeating_order',
+        data: {'repeating_order_id': repeatingOrderId},
+      );
+      return const ApiResult.success(data: null);
+    } catch (e) {
+      debugPrint('==> delete repeating order failure: $e');
+
+      // Sync Queue fallback
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.repeating_order.delete_repeating_order',
+          method: 'POST',
+          payload: {'repeating_order_id': repeatingOrderId},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> sync queue failure: $syncError');
+      }
+
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<String>> tipProcess({
+    required String orderId,
+    required double tip,
+  }) async {
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      final response = await client.post(
+        '/api/method/paas.api.tip_process',
+        data: {'order_id': orderId, 'tip': tip},
+      );
+      return ApiResult.success(data: response.data['redirect_url']);
+    } catch (e) {
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<CashbackModel>> checkCashback({
+    required String shopId,
+    required double amount,
+  }) async {
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      final response = await client.post(
+        '/api/method/paas.api.check_cashback',
+        data: {'shop_id': shopId, 'amount': amount},
+      );
+      return ApiResult.success(
+        data: CashbackModel.fromJson(response.data['message']),
+      );
+    } catch (e) {
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<LocalLocation>> getDriverLocation(String deliveryId) async {
+    try {
+      final client = dioHttp.client(requireAuth: true);
+      final response = await client.get(
+        '/api/method/paas.api.get_driver_location',
+        queryParameters: {'order_id': deliveryId},
+      );
+      return ApiResult.success(
+        data: LocalLocation.fromJson(response.data['message']),
+      );
+    } catch (e) {
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),

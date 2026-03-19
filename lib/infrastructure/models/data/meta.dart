@@ -1,5 +1,5 @@
 class Meta {
-  Meta({num? total}) {
+  Meta({int? total}) {
     _total = total;
   }
 
@@ -7,11 +7,11 @@ class Meta {
     _total = json['total'];
   }
 
-  num? _total;
+  int? _total;
 
-  Meta copyWith({num? total}) => Meta(total: total ?? _total);
+  Meta copyWith({int? total}) => Meta(total: total ?? _total);
 
-  num? get total => _total;
+  int? get total => _total;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

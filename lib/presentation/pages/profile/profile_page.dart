@@ -1,464 +1,1169 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
-import 'package:rokctapp/presentation/app_assets.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:rokctapp/presentation/pages/profile/widgets/edit_profile_modal.dart';
-import 'package:rokctapp/application/providers.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/presentation/component/components.dart';
-import 'package:rokctapp/presentation/routes/app_router.gr.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
-import 'package:rokctapp/presentation/pages/auth/login/widgets/languages_modal.dart';
-import 'widgets/logout_modal.dart';
-import 'widgets/sections_item.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:remixicon/remixicon.dart';
+import 'package:rokctapp/application/home/home_provider.dart';
+import 'package:rokctapp/application/language/language_provider.dart';
+import 'package:rokctapp/application/notification/notification_provider.dart';
+import 'package:rokctapp/application/orders_list/orders_list_provider.dart';
+import 'package:rokctapp/application/parcels_list/parcel_list_provider.dart';
+import 'package:rokctapp/application/profile/profile_provider.dart';
+import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
+import 'package:rokctapp/presentation/components/badges.dart';
+import 'package:rokctapp/presentation/components/badges/alert_dialog.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/application/like/like_provider.dart';
+import 'package:rokctapp/presentation/pages/profile/delete_screen.dart';
+import 'package:rokctapp/presentation/pages/profile/help_page.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/pages/policy_term/policy_page.dart';
+import 'package:rokctapp/presentation/pages/policy_term/term_page.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/presentation/components/buttons/second_button.dart';
+import 'package:rokctapp/presentation/pages/cards/payment_screen.dart';
+import 'package:rokctapp/presentation/pages/become/become_driver.dart';
+import 'widgets/about_page.dart';
+import 'widgets/app_usage_badge.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:rokctapp/presentation/pages/profile/widgets/my_account.dart';
+import 'reservation_shops.dart';
+import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
+import 'widgets/wallet_topup_screen.dart';
+import 'widgets/wallet_send_screen.dart';
 
 @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {
-  const ProfilePage({super.key});
+  final bool isBackButton;
+  final Function()? onCardAdded;
+  const ProfilePage({super.key, this.onCardAdded, this.isBackButton = true});
 
   @override
   ConsumerState<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends ConsumerState<ProfilePage> {
-  final bool isLtr = LocalStorage.getLangLtr();
+class _ProfilePageState extends ConsumerState<ProfilePage>
+    with SingleTickerProviderStateMixin {
+  late RefreshController refreshController;
+  late Timer time;
+
+  Future<bool> checkApiStatus() async {
+    try {
+      final client = dioHttp.client(requireAuth: false);
+      final response = await client.get('/api/v1/rest/status');
+      return response.statusCode == 200;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  @override
+  void initState() {
+    refreshController = RefreshController();
+    if (LocalStorage.getToken().isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        ref.read(profileProvider.notifier).fetchUser(context);
+        ref.read(ordersListProvider.notifier).fetchActiveOrders(context);
+        ref.read(parcelListProvider.notifier).fetchActiveOrders(context);
+      });
+      time = Timer.periodic(AppConstants.timeRefresh, (timer) {
+        ref.read(notificationProvider.notifier).fetchCount(context);
+      });
+    }
+
+    super.initState();
+  }
+
+  getAllInformation() {
+    ref.read(homeProvider.notifier)
+      ..setAddress()
+      ..fetchBanner(context)
+      ..fetchAllShops(context)
+      ..fetchShopRecommend(context)
+      ..fetchShop(context)
+      ..fetchStories(context)
+      ..fetchNewShops(context)
+      ..fetchCategories(context);
+    ref.read(shopOrderProvider.notifier).getCart(context, () {});
+
+    ref.read(likeProvider.notifier).fetchLikeShop(context);
+
+    ref.read(profileProvider.notifier).fetchUser(context);
+  }
+
+  @override
+  void dispose() {
+    refreshController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(profileSettingsProvider);
-    ref.watch(appProvider);
+    final bool isDarkMode = LocalStorage.getAppThemeMode();
+    final bool isLtr = LocalStorage.getLangLtr();
+    final state = ref.watch(profileProvider);
+    // Dynamically check membership status
+    final bool hasMembership = LocalStorage.getUser()?.membership != null;
+
+    ref.listen(languageProvider, (previous, next) {
+      if (next.isSuccess && next.isSuccess != previous!.isSuccess) {
+        getAllInformation();
+      }
+    });
+
     return Directionality(
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
         resizeToAvoidBottomInset: false,
-        body: Column(
-          children: [
-            CustomAppBar(
-              bottomPadding: 4.h,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.start,
+        backgroundColor: isDarkMode ? AppStyle.mainBackDark : AppStyle.bgGrey,
+        body: state.isLoading
+            ? const Loading()
+            : Column(
                 children: [
-                  Hero(
-                    tag: AppConstants.heroTagProfileAvatar,
-                    child: Consumer(
-                      builder: (context, ref, child) {
-                        ref.watch(profileImageProvider);
-                        return DriverAvatar(
-                          imageUrl: LocalStorage.getUser()?.img,
-                          rate: LocalStorage.getUser()?.rate,
-                        );
-                      },
-                    ),
-                  ),
-                  10.horizontalSpace,
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 24.h),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.end,
+                  CommonAppBar(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '${LocalStorage.getUser()?.firstname ?? ''} ${LocalStorage.getUser()?.lastname ?? ''}',
-                          style: AppStyle.interSemi(size: 16.sp),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            SizedBox(
+                              height: 40.r,
+                              width: 40.r,
+                              child: CustomNetworkImage(
+                                profile: true,
+                                url: state.userData?.img ?? "",
+                                height: 40.r,
+                                width: 40.r,
+                                radius: 30.r,
+                              ),
+                            ),
+                            12.horizontalSpace,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                SizedBox(
+                                  width:
+                                      MediaQuery.sizeOf(context).width - 280.w,
+                                  child: Text(
+                                    state.userData?.firstname != null &&
+                                            state.userData!.firstname!.length >
+                                                10
+                                        ? "${state.userData!.firstname![0]}."
+                                        : state.userData?.firstname ?? "",
+                                    style: AppStyle.interBold(
+                                      size: 16.sp,
+                                      color: AppStyle.black,
+                                    ),
+                                    maxLines: 1,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.sizeOf(context).width - 280.w,
+                                  child: Text(
+                                    state.userData?.lastname ?? "",
+                                    style: AppStyle.interBold(
+                                      size: 16.sp,
+                                      color: AppStyle.black,
+                                    ),
+                                    maxLines: 1,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        Text(
-                          LocalStorage.getUser()?.phone ?? '',
-                          style: AppStyle.interRegular(size: 12.sp),
+                        IconButton(
+                          onPressed: () {
+                            context.pushRoute(LikeRoute());
+                          },
+                          icon: Badge(
+                            label: Text(
+                              (ref.watch(likeProvider).likedShopsCount)
+                                  .toString(),
+                            ),
+                            child: const Icon(
+                              Remix.heart_3_line,
+                              color: AppStyle.black,
+                              size: 20,
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            context.pushRoute(const NotificationListRoute());
+                          },
+                          icon: Badge(
+                            label: Text(
+                              (ref
+                                          .watch(notificationProvider)
+                                          .countOfNotifications
+                                          ?.notification ??
+                                      0)
+                                  .toString(),
+                            ),
+                            child: const Icon(
+                              Remix.notification_line,
+                              color: AppStyle.black,
+                              size: 20,
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const MyAccount(isBackButton: false),
+                              ),
+                            );
+                          },
+                          icon: const Icon(
+                            Remix.settings_3_line,
+                            color: AppStyle.black,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            AppHelpers.showAlertDialog(
+                              context: context,
+                              child: DeleteScreen(
+                                onDelete: () => time.cancel(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(
+                            Remix.logout_circle_r_line,
+                            color: AppStyle.black,
+                          ),
                         ),
                       ],
                     ),
                   ),
-                  const Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 24.h),
-                    child: ButtonsBouncingEffect(
-                      child: GestureDetector(
-                        onTap: () {
-                          AppHelpers.showCustomModalBottomSheet(
-                            context: context,
-                            modal: const LogoutModal(),
-                            isDarkMode: LocalStorage.getAppThemeMode(),
-                          );
-                        },
-                        child: Icon(
-                          FlutterRemix.logout_circle_r_line,
-                          size: 24.r,
-                          color: AppStyle.black,
+                  Expanded(
+                    child: SmartRefresher(
+                      onRefresh: () {
+                        ref
+                            .read(profileProvider.notifier)
+                            .fetchUser(
+                              context,
+                              refreshController: refreshController,
+                            );
+                        ref
+                            .read(ordersListProvider.notifier)
+                            .fetchActiveOrders(context);
+                      },
+                      controller: refreshController,
+                      child: SingleChildScrollView(
+                        padding: EdgeInsets.only(
+                          top: 24.h,
+                          right: 16.w,
+                          left: 16.w,
+                          bottom: 120.h,
                         ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: ListView(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
-                shrinkWrap: true,
-                physics: const BouncingScrollPhysics(),
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: AppStyle.white,
-                      borderRadius: BorderRadius.circular(10.r),
-                    ),
-                    padding: EdgeInsets.all(12.r),
-                    child: IntrinsicHeight(
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(Assets.svgBalance),
-                          10.horizontalSpace,
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  AppHelpers.getTranslation(TrKeys.balance),
-                                  style: AppStyle.interNormal(
-                                    size: 12.sp,
-                                    letterSpacing: -0.3,
-                                  ),
-                                ),
-                                Text(
-                                  AppHelpers.numberFormat(
-                                    number:
-                                        LocalStorage.getUser()?.wallet?.price,
-                                    maxLength: 8,
-                                  ),
-                                  style: AppStyle.interSemi(
-                                    size: 14.sp,
-                                    letterSpacing: -0.3,
-                                  ),
-                                  maxLines: 2,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const VerticalDivider(color: AppStyle.borderColor),
-                          10.horizontalSpace,
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  AppHelpers.getTranslation(TrKeys.lastProfit),
-                                  style: AppStyle.interNormal(
-                                    size: 12.sp,
-                                    letterSpacing: -0.3,
-                                  ),
-                                ),
-                                Text(
-                                  AppHelpers.numberFormat(
-                                    number:
-                                        ref
-                                            .watch(profileSettingsProvider)
-                                            .statistics
-                                            ?.data
-                                            ?.totalPrice ??
-                                        0,
-                                  ),
-                                  style: AppStyle.interSemi(
-                                    size: 14.sp,
-                                    letterSpacing: -0.3,
-                                    color: AppStyle.primary,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          32.horizontalSpace,
-                        ],
-                      ),
-                    ),
-                  ),
-                  10.verticalSpace,
-                  Container(
-                    decoration: BoxDecoration(
-                      color: AppStyle.white,
-                      borderRadius: BorderRadius.circular(10.r),
-                    ),
-                    padding: EdgeInsets.all(12.r),
-                    child: Row(
-                      children: [
-                        Icon(FlutterRemix.checkbox_circle_fill, size: 30.r),
-                        10.horizontalSpace,
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Column(
                           children: [
-                            Text(
-                              AppHelpers.getTranslation(TrKeys.deliveredOrder),
-                              style: AppStyle.interNormal(
-                                size: 12.sp,
-                                letterSpacing: -0.3,
+                            if (hasMembership)
+                              Column(
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width - 40.w,
+                                    decoration: BoxDecoration(
+                                      color: AppStyle.primary.withOpacity(0.3),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            AppHelpers.getTranslation(
+                                              TrKeys.plan,
+                                            ),
+                                            style: AppStyle.interBold(
+                                              size: 24,
+                                              color: AppStyle.black,
+                                            ),
+                                          ),
+                                          5.verticalSpace,
+                                          GestureDetector(
+                                            onTap: () {
+                                              showDialog(
+                                                context: context,
+                                                builder: (BuildContext context) {
+                                                  return const ComingSoonDialog();
+                                                },
+                                              );
+                                            },
+                                            child: Row(
+                                              children: [
+                                                Text(
+                                                  '${LocalStorage.getUser()?.membership?.title ?? ''} ${AppHelpers.getTranslation(TrKeys.benefits)}',
+                                                  style: AppStyle.interNormal(
+                                                    size: 16,
+                                                    color: AppStyle.black,
+                                                  ),
+                                                ),
+                                                const Icon(
+                                                  Icons
+                                                      .keyboard_arrow_right_sharp,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                AppHelpers.getTranslation(
+                                                  TrKeys.expire,
+                                                ),
+                                                style: AppStyle.interNormal(
+                                                  size: 12,
+                                                  color: AppStyle.textGrey,
+                                                ),
+                                              ),
+                                              Text(
+                                                ' ${(LocalStorage.getUser()?.membership?.endDate ?? '').substring(0, 10)}',
+                                                style: AppStyle.interNormal(
+                                                  size: 12,
+                                                  color: AppStyle.textGrey,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10.h,
+                                  ), // Add this line for spacing
+                                ],
+                              ),
+                            Container(
+                              width: MediaQuery.sizeOf(context).width - 40.w,
+                              decoration: BoxDecoration(
+                                color: AppStyle.primary.withOpacity(0.25),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Stack(
+                                children: [
+                                  // Positioned arrow icon
+                                  Positioned(
+                                    top: 5,
+                                    right: 5,
+                                    child: GestureDetector(
+                                      onTap: () async {
+                                        final connected =
+                                            await AppConnectivity.connectivity();
+                                        if (connected) {
+                                          context.pushRoute(
+                                            WalletHistoryRoute(),
+                                          );
+                                        } else {
+                                          if (context.mounted) {
+                                            AppHelpers.showNoConnectionSnackBar(
+                                              context,
+                                            );
+                                          }
+                                        }
+                                      },
+                                      child: Icon(Remix.arrow_right_up_line),
+                                    ),
+                                  ),
+
+                                  Column(
+                                    children: [
+                                      // Top section with wallet info
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          left: 16.0,
+                                          right: 16.0,
+                                          top: 16.0,
+                                          bottom: 8.0,
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            const Icon(Remix.wallet_3_line),
+                                            16.horizontalSpace,
+                                            Text(
+                                              "${AppHelpers.getTranslation(TrKeys.wallet)}: ${AppHelpers.numberFormat(number: state.userData?.wallet?.price)}",
+                                              style: AppStyle.interNoSemi(
+                                                size: 16,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+
+                                      // Bottom section with buttons - half height
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: AppStyle.red.withOpacity(0.3),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(20.r),
+                                            bottomRight: Radius.circular(20.r),
+                                          ),
+                                        ),
+                                        width: double.infinity,
+                                        padding: EdgeInsets.symmetric(
+                                          vertical: 12.0,
+                                          horizontal: 16.0,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Expanded(
+                                              child: SecondButton(
+                                                title:
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys.topup,
+                                                    ),
+                                                bgColor: AppStyle.primary,
+                                                titleColor: AppStyle.white,
+                                                onTap: () async {
+                                                  final connected =
+                                                      await AppConnectivity.connectivity();
+                                                  if (!connected) {
+                                                    if (context.mounted) {
+                                                      AppHelpers.showNoConnectionSnackBar(
+                                                        context,
+                                                      );
+                                                    }
+                                                    return;
+                                                  }
+                                                  AppHelpers.showCustomModalBottomSheet(
+                                                    context: context,
+                                                    modal: ProviderScope(
+                                                      child: Consumer(
+                                                        builder:
+                                                            (context, ref, _) =>
+                                                                const WalletTopUpScreen(),
+                                                      ),
+                                                    ),
+                                                    isDarkMode: false,
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                            12.horizontalSpace,
+                                            Expanded(
+                                              child: SecondButton(
+                                                title:
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys.send,
+                                                    ),
+                                                bgColor: AppStyle.primary,
+                                                titleColor: AppStyle.white,
+                                                onTap: () async {
+                                                  final connected =
+                                                      await AppConnectivity.connectivity();
+                                                  if (!connected) {
+                                                    if (context.mounted) {
+                                                      AppHelpers.showNoConnectionSnackBar(
+                                                        context,
+                                                      );
+                                                    }
+                                                    return;
+                                                  }
+                                                  AppHelpers.showCustomModalBottomSheet(
+                                                    context: context,
+                                                    modal: ProviderScope(
+                                                      child: Consumer(
+                                                        builder:
+                                                            (context, ref, _) =>
+                                                                const WalletSendScreen(),
+                                                      ),
+                                                    ),
+                                                    isDarkMode: false,
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                            if (AppHelpers.getLendingEnabled()) ...[
+                                              12.horizontalSpace,
+                                              Expanded(
+                                                child: SecondButton(
+                                                  title:
+                                                      AppHelpers.getTranslation(
+                                                        TrKeys.loan,
+                                                      ),
+                                                  bgColor: AppStyle.primary,
+                                                  titleColor: AppStyle.white,
+                                                  onTap: () async {
+                                                    final connected =
+                                                        await AppConnectivity.connectivity();
+                                                    if (!connected) {
+                                                      if (context.mounted) {
+                                                        AppHelpers.showNoConnectionSnackBar(
+                                                          context,
+                                                        );
+                                                      }
+                                                      return;
+                                                    }
+                                                    AppHelpers.showCustomModalBottomSheet(
+                                                      context: context,
+                                                      modal: ProviderScope(
+                                                        child: Consumer(
+                                                          builder:
+                                                              (
+                                                                context,
+                                                                ref,
+                                                                _,
+                                                              ) =>
+                                                                  const LoanScreen(),
+                                                        ),
+                                                      ),
+                                                      isDarkMode: false,
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                            ],
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
-                            Text(
-                              (state.statistics?.data?.deliveredOrdersCount ??
-                                      0)
-                                  .toString(),
-                              style: AppStyle.interSemi(
-                                size: 14.sp,
-                                letterSpacing: -0.3,
+                            15.verticalSpace,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                (AppHelpers.getParcel())
+                                    ? _buildSquareButton(
+                                        context,
+                                        icon: Remix.instance_line,
+                                        title: AppHelpers.getTranslation(
+                                          TrKeys.parcels,
+                                        ),
+                                        onTap: () => context.pushRoute(
+                                          const ParcelListRoute(),
+                                        ),
+                                        badgeText: ref
+                                            .watch(parcelListProvider)
+                                            .totalActiveCount
+                                            .toString(),
+                                      )
+                                    : _buildSquareButton(
+                                        context,
+                                        icon: Remix.file_list_3_line,
+                                        title: AppHelpers.getTranslation(
+                                          TrKeys.order,
+                                        ),
+                                        onTap: () => context.pushRoute(
+                                          const OrdersListRoute(),
+                                        ),
+                                        badgeText: ref
+                                            .watch(ordersListProvider)
+                                            .totalActiveCount
+                                            .toString(),
+                                      ),
+                                (AppHelpers.getParcel())
+                                    ? _buildSquareButton(
+                                        context,
+                                        icon: Remix.file_list_3_line,
+                                        title: AppHelpers.getTranslation(
+                                          TrKeys.order,
+                                        ),
+                                        onTap: () => context.pushRoute(
+                                          const OrdersListRoute(),
+                                        ),
+                                        badgeText: ref
+                                            .watch(ordersListProvider)
+                                            .totalActiveCount
+                                            .toString(),
+                                      )
+                                    : _buildSquareButton(
+                                        context,
+                                        icon: Remix.bank_card_2_line,
+                                        title: AppHelpers.getTranslation(
+                                          TrKeys.cards,
+                                        ),
+                                        onTap: () {
+                                          AppHelpers.showCustomModalBottomSheet(
+                                            isDismissible: true,
+                                            context: context,
+                                            modal: PaymentScreen(
+                                              tokenizeOnly: true,
+                                              onPaymentComplete: (success) {
+                                                // Close the bottom sheet
+                                                Navigator.pop(context);
+
+                                                if (success &&
+                                                    widget.onCardAdded !=
+                                                        null) {
+                                                  widget.onCardAdded!();
+                                                }
+
+                                                if (success) {
+                                                  AppHelpers.showCheckTopSnackBarDone(
+                                                    context,
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys
+                                                          .cardAddedSuccessfully,
+                                                    ),
+                                                  );
+                                                } else {
+                                                  // Handle failure
+                                                  AppHelpers.showCheckTopSnackBarInfo(
+                                                    context,
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys.paymentRejected,
+                                                    ),
+                                                  );
+                                                }
+                                              },
+                                            ),
+                                            isDarkMode: isDarkMode,
+                                          );
+                                        },
+                                      ),
+                                _buildSquareButton(
+                                  context,
+                                  icon: Remix.hand_coin_line,
+                                  title: AppHelpers.getTranslation(
+                                    TrKeys.inviteFriend,
+                                  ),
+                                  onTap: () => context.pushRoute(
+                                    const ShareReferralRoute(),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            10.verticalSpace,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                _buildSquareButton(
+                                  context,
+                                  icon: Remix.walk_line,
+                                  title: AppHelpers.getTranslation(
+                                    TrKeys.signUpToDeliver,
+                                  ),
+                                  onTap: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const BecomeDriverPage(),
+                                    ),
+                                  ),
+                                ),
+                                _buildSquareButton(
+                                  context,
+                                  icon: Remix.store_fill,
+                                  title: AppHelpers.getTranslation(
+                                    TrKeys.becomeSeller,
+                                  ),
+                                  onTap: () => context.pushRoute(
+                                    const CreateShopRoute(),
+                                  ),
+                                ),
+                                _buildSquareButton(
+                                  context,
+                                  icon: Remix.lightbulb_flash_fill,
+                                  iconColor: AppStyle.starColor,
+                                  title: AppHelpers.getTranslation(
+                                    TrKeys.about,
+                                  ),
+                                  onTap: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const AboutPage(),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            10.verticalSpace,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                if (!hasMembership)
+                                  _buildSquareButton(
+                                    context,
+                                    icon: Remix.questionnaire_line,
+                                    title: AppHelpers.getTranslation(
+                                      TrKeys.help,
+                                    ),
+                                    onTap: () =>
+                                        context.pushRoute(const HelpRoute()),
+                                  ),
+                                if (!hasMembership)
+                                  _buildSquareButton(
+                                    context,
+                                    icon: Remix.contract_fill,
+                                    title: AppHelpers.getTranslation(
+                                      TrKeys.terms,
+                                    ),
+                                    onTap: () => context.pushRoute(
+                                      const TermPage() as PageRouteInfo,
+                                    ),
+                                  ),
+                                if (!hasMembership)
+                                  _buildSquareButton(
+                                    context,
+                                    icon: Remix.mail_forbid_fill,
+                                    // iconColor: AppStyle.starColor,
+                                    title: AppHelpers.getTranslation(
+                                      TrKeys.privacyPolicy,
+                                    ),
+                                    onTap: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const PolicyPage(),
+                                      ),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                            10.verticalSpace,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                AppHelpers.getReservationEnable()
+                                    ? _buildSquareButton(
+                                        context,
+                                        icon: Remix.reserved_line,
+                                        title: AppHelpers.getTranslation(
+                                          TrKeys.reservation,
+                                        ),
+                                        onTap: () {
+                                          AppHelpers.showAlertDialog(
+                                            context: context,
+                                            child: const SizedBox(
+                                              child: ReservationShops(),
+                                            ),
+                                          );
+                                        },
+                                      )
+                                    : (AppHelpers.getParcel())
+                                    ? _buildSquareButton(
+                                        context,
+                                        icon: Remix.bank_card_2_line,
+                                        title: AppHelpers.getTranslation(
+                                          TrKeys.cards,
+                                        ),
+                                        onTap: () {
+                                          AppHelpers.showCustomModalBottomSheet(
+                                            isDismissible: true,
+                                            context: context,
+                                            modal: PaymentScreen(
+                                              tokenizeOnly: true,
+                                              onPaymentComplete: (success) {
+                                                // Close the bottom sheet
+                                                Navigator.pop(context);
+
+                                                if (success &&
+                                                    widget.onCardAdded !=
+                                                        null) {
+                                                  widget.onCardAdded!();
+                                                }
+
+                                                if (success) {
+                                                  AppHelpers.showCheckTopSnackBarDone(
+                                                    context,
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys
+                                                          .cardAddedSuccessfully,
+                                                    ),
+                                                  );
+                                                } else {
+                                                  // Handle failure
+                                                  AppHelpers.showCheckTopSnackBarInfo(
+                                                    context,
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys.paymentRejected,
+                                                    ),
+                                                  );
+                                                }
+                                              },
+                                            ),
+                                            isDarkMode: isDarkMode,
+                                          );
+                                        },
+                                      )
+                                    : _buildSquareButton(
+                                        context,
+                                        borderColor: AppStyle.white,
+                                        backgroundColor: Colors.transparent,
+                                      ),
+                                AppHelpers.getReservationEnable()
+                                    ? _buildSquareButton(
+                                        context,
+                                        icon: Remix.bank_card_2_line,
+                                        title: AppHelpers.getTranslation(
+                                          TrKeys.cards,
+                                        ),
+                                        onTap: () {
+                                          AppHelpers.showCustomModalBottomSheet(
+                                            isDismissible: true,
+                                            context: context,
+                                            modal: PaymentScreen(
+                                              tokenizeOnly: true,
+                                              onPaymentComplete: (success) {
+                                                // Close the bottom sheet
+                                                Navigator.pop(context);
+
+                                                if (success &&
+                                                    widget.onCardAdded !=
+                                                        null) {
+                                                  widget.onCardAdded!();
+                                                }
+
+                                                if (success) {
+                                                  AppHelpers.showCheckTopSnackBarDone(
+                                                    context,
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys
+                                                          .cardAddedSuccessfully,
+                                                    ),
+                                                  );
+                                                } else {
+                                                  // Handle failure
+                                                  AppHelpers.showCheckTopSnackBarInfo(
+                                                    context,
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys.paymentRejected,
+                                                    ),
+                                                  );
+                                                }
+                                              },
+                                            ),
+                                            isDarkMode: isDarkMode,
+                                          );
+                                        },
+                                      )
+                                    : _buildSquareButton(
+                                        context,
+                                        borderColor: AppStyle.white,
+                                        backgroundColor: Colors.transparent,
+                                      ),
+                                _buildSquareButton(
+                                  context,
+                                  icon: Remix.logout_box_r_line,
+                                  title: AppHelpers.getTranslation(
+                                    TrKeys.deleteAccount,
+                                  ),
+                                  onTap: () {
+                                    AppHelpers.showAlertDialog(
+                                      context: context,
+                                      child: DeleteScreen(
+                                        isDeleteAccount: true,
+                                        onDelete: () {
+                                          time.cancel();
+                                        },
+                                      ),
+                                    );
+                                  },
+                                  backgroundColor: Colors.pink[50],
+                                  iconColor: Colors.red,
+                                  textColor: Colors.pink[700],
+                                ),
+                              ],
+                            ),
+                            10.verticalSpace,
+                            Container(
+                              decoration: BoxDecoration(
+                                color: AppStyle.transparent,
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      if (hasMembership)
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const HelpPage(),
+                                                  ),
+                                                );
+                                              },
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Text(
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys.help,
+                                                    ),
+                                                    style: const TextStyle(
+                                                      color: AppStyle.black,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(width: 12),
+                                                  const Icon(
+                                                    Icons.circle_rounded,
+                                                    color: AppStyle.black,
+                                                    size: 7,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const TermPage(),
+                                                  ),
+                                                );
+                                              },
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Text(
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys.terms,
+                                                    ),
+                                                    style: const TextStyle(
+                                                      color: AppStyle.black,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(width: 12),
+                                                  const Icon(
+                                                    Icons.circle_rounded,
+                                                    color: AppStyle.black,
+                                                    size: 7,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const PolicyPage(),
+                                                  ),
+                                                );
+                                              },
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Text(
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys.privacyPolicy,
+                                                    ),
+                                                    style: const TextStyle(
+                                                      color: AppStyle.black,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            AppHelpers.getAppName() ?? "",
+                                            style: AppStyle.interBold(
+                                              color: AppStyle.primary,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 4),
+                                          const Icon(
+                                            Remix.checkbox_blank_circle_fill,
+                                            size: 8,
+                                            color: AppStyle.black,
+                                          ),
+                                          FutureBuilder<bool>(
+                                            future: checkApiStatus(),
+                                            builder: (context, snapshot) {
+                                              if (snapshot.hasData) {
+                                                bool isOnline = snapshot.data!;
+                                                return Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    FutureBuilder<PackageInfo>(
+                                                      future:
+                                                          PackageInfo.fromPlatform(),
+                                                      builder: (context, packageSnapshot) {
+                                                        if (packageSnapshot
+                                                            .hasData) {
+                                                          String versionDisplay;
+                                                          if (kDebugMode) {
+                                                            // This code runs in debug mode
+                                                            versionDisplay =
+                                                                " App Version ${packageSnapshot.data!.version}+${packageSnapshot.data!.buildNumber}";
+                                                          } else {
+                                                            // This code runs in release mode
+                                                            versionDisplay =
+                                                                " App Version ${packageSnapshot.data!.version}";
+                                                          }
+
+                                                          return Text(
+                                                            versionDisplay,
+                                                            style:
+                                                                AppStyle.interNormal(
+                                                                  color: AppStyle
+                                                                      .black,
+                                                                ),
+                                                          );
+                                                        } else {
+                                                          return const SizedBox.shrink();
+                                                        }
+                                                      },
+                                                    ),
+                                                    const SizedBox(width: 8),
+                                                    Icon(
+                                                      Remix
+                                                          .checkbox_blank_circle_fill,
+                                                      size: 20,
+                                                      color: isOnline
+                                                          ? Colors.green
+                                                          : Colors.red,
+                                                    ),
+                                                    Text(
+                                                      isOnline
+                                                          ? 'Online'
+                                                          : 'Offline',
+                                                      style: TextStyle(
+                                                        color: isOnline
+                                                            ? Colors.green
+                                                            : Colors.red,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                );
+                                              } else {
+                                                return const SizedBox.shrink();
+                                              }
+                                            },
+                                          ),
+                                          // Add the app usage badge
+                                          SizedBox(width: 16.w),
+                                          const AppUsageBadge(),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
-                        const Spacer(),
-                        10.horizontalSpace,
-                        // if( state.requestData?.status ==
-                        //     TrKeys.canceled)
-                        // ButtonsBouncingEffect(
-                        //   child: InkWell(
-                        //     onTap: () {
-                        //       AppHelpers.showAlertDialog(
-                        //         context: context,
-                        //         child:  CancelDialog(note: state.requestData?.statusNote ?? "",),
-                        //       );
-                        //     },
-                        //     child: Row(
-                        //       children: [
-                        //         Icon(
-                        //           FlutterRemix.close_circle_line,
-                        //           size: 30.r,
-                        //           color: Style.redColor,
-                        //         ),
-                        //         10.horizontalSpace,
-                        //         Column(
-                        //           crossAxisAlignment: CrossAxisAlignment.start,
-                        //           children: [
-                        //             Text(
-                        //               AppHelpers.getTranslation(
-                        //                   TrKeys.youStatus),
-                        //               style: Style.interNormal(
-                        //                 size: 12.sp,
-                        //                 letterSpacing: -0.3,
-                        //               ),
-                        //             ),
-                        //             Text(
-                        //               state.requestData?.status ?? '',
-                        //               style: Style.interSemi(
-                        //                 size: 13.sp,
-                        //                 letterSpacing: -0.3,
-                        //                 color: state.requestData?.status ==
-                        //                         TrKeys.canceled
-                        //                     ? Style.redColor
-                        //                     : Style.primaryColor,
-                        //               ),
-                        //             ),
-                        //           ],
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ),
-                        // ),
-                        24.horizontalSpace,
-                      ],
+                      ),
                     ),
                   ),
-                  // _notifications(context),
-                  20.verticalSpace,
-                  SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.profileSettings),
-                    icon: FlutterRemix.user_settings_line,
-                    onTap: () {
-                      AppHelpers.showCustomModalBottomSheet(
-                        paddingTop: MediaQuery.paddingOf(context).top + 32.h,
-                        context: context,
-                        modal: const EditProfileModal(),
-                        isDarkMode: false,
-                        isExpanded: true,
-                      );
-                    },
-                  ),
-                  SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.deliveryZone),
-                    icon: FlutterRemix.navigation_fill,
-                    onTap: () async {
-                      await context.pushRoute(const DeliveryZoneRoute());
-                      ref
-                          .read(homeProvider.notifier)
-                          .fetchDeliveryZone(isFetch: true);
-                    },
-                  ),
-                  SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.orders),
-                    icon: FlutterRemix.order_play_line,
-                    onTap: () {
-                      context.pushRoute(const OrdersRoute());
-                    },
-                  ),
-                  SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.parcels),
-                    icon: FlutterRemix.archive_line,
-                    onTap: () {
-                      context.pushRoute(const ParcelsRoute());
-                    },
-                  ),
-                  SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.notifications),
-                    icon: FlutterRemix.notification_2_line,
-                    onTap: () =>
-                        context.pushRoute(const NotificationListRoute()),
-                  ),
-                  SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.orderHistory),
-                    icon: FlutterRemix.history_line,
-                    onTap: () {
-                      context.pushRoute(const OrderHistoryRoute());
-                    },
-                  ),
-                  SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.parcelHistory),
-                    icon: FlutterRemix.folder_history_fill,
-                    onTap: () {
-                      context.pushRoute(const ParcelHistoryRoute());
-                    },
-                  ),
-                  SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.income),
-                    icon: FlutterRemix.line_chart_line,
-                    onTap: () {
-                      context.pushRoute(const IncomeRoute());
-                    },
-                  ),
-                  Consumer(
-                    builder: (context, ref, child) {
-                      return SectionsItem(
-                        title: AppHelpers.getTranslation(TrKeys.language),
-                        icon: FlutterRemix.global_line,
-                        onTap: () {
-                          AppHelpers.showCustomModalBottomSheet(
-                            isDismissible: true,
-                            isDrag: false,
-                            context: context,
-                            modal: LanguageScreen(
-                              afterUpdate: (lang) {
-                                ref
-                                    .read(appProvider.notifier)
-                                    .changeLanguage(lang);
-                              },
-                            ),
-                            isDarkMode: false,
-                          );
-                        },
-                      );
-                    },
-                  ),
-                  if (!AppConstants.isDemo)
-                    SectionsItem(
-                      title: AppHelpers.getTranslation(TrKeys.deleteAccount),
-                      icon: FlutterRemix.logout_box_r_line,
-                      onTap: () {
-                        AppHelpers.showCustomModalBottomSheet(
-                          context: context,
-                          modal: const LogoutModal(isDeleteAccount: true),
-                          isDarkMode: false,
-                        );
-                      },
-                    ),
-                  100.verticalSpace,
                 ],
               ),
-            ),
-          ],
-        ),
-        floatingActionButtonLocation:
-            FloatingActionButtonLocation.miniCenterFloat,
-        floatingActionButton: Padding(
-          padding: REdgeInsets.only(left: 16, right: 16, bottom: 16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const PopButton(),
-              10.horizontalSpace,
-              Expanded(
-                child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.onlineHelper),
-                  onPressed: () async {
-                    final Uri launchUri = Uri(
-                      scheme: 'tel',
-                      path: AppHelpers.getAppPhone(),
-                    );
-                    await launchUrl(launchUri);
-                  },
-                  icon: Icon(
-                    FlutterRemix.chat_smile_2_fill,
-                    color: AppStyle.buttonFontColor,
-                    size: 20.r,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+        floatingActionButton: widget.isBackButton
+            ? Padding(
+                padding: EdgeInsets.only(left: 16.w),
+                child: const PopButton(),
+              )
+            : const SizedBox.shrink(),
       ),
     );
   }
 
-  // Widget _notifications(BuildContext context) {
-  //   return Column(
-  //     children: [
-  //       24.verticalSpace,
-  //       Row(
-  //         children: [
-  //           Container(
-  //             decoration: const BoxDecoration(
-  //               color: Style.primaryColor,
-  //               shape: BoxShape.circle,
-  //             ),
-  //             height: 30.h,
-  //             width: 30.w,
-  //             child: Center(
-  //               child: Text(
-  //                 "4",
-  //                 style: Style.interSemi(size: 14.sp, color: Style.blackColor),
-  //               ),
-  //             ),
-  //           ),
-  //           12.horizontalSpace,
-  //           Text(
-  //             AppHelpers.getTranslation(TrKeys.notifications),
-  //             style: Style.interSemi(size: 18.sp, color: Style.blackColor),
-  //           ),
-  //           const Spacer(),
-  //           GestureDetector(
-  //             onTap: () {
-  //               context.pushRoute(const ListNotificationRoute());
-  //             },
-  //             child: Padding(
-  //               padding: const EdgeInsets.all(4.0),
-  //               child: Text(
-  //                 AppHelpers.getTranslation(TrKeys.seeAll),
-  //                 style: Style.interNormal(size: 14.sp, color: Style.blueColor),
-  //               ),
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //       16.verticalSpace,
-  //       SizedBox(
-  //         height: 136.h,
-  //         child: ListView.builder(
-  //           scrollDirection: Axis.horizontal,
-  //           itemCount: 4,
-  //           physics: const BouncingScrollPhysics(),
-  //           itemBuilder: (context, index) {
-  //             return const NotificationItem(
-  //               date: "June 24",
-  //               text: "Check your settings you have notifications turned off",
-  //             );
-  //           },
-  //         ),
-  //       ),
-  //       40.verticalSpace,
-  //     ],
-  //   );
-  // }
+  Widget _buildSquareButton(
+    BuildContext context, {
+    IconData? icon,
+    String? title,
+    VoidCallback? onTap,
+    Color? backgroundColor,
+    Color? iconColor,
+    Color? textColor,
+    Color? borderColor,
+    String? badgeText,
+    double width = 100,
+    double height = 100,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: width.w,
+        height: height.w,
+        decoration: BoxDecoration(
+          color: backgroundColor ?? AppStyle.white,
+          borderRadius: BorderRadius.circular(20.r),
+          border: borderColor != null ? Border.all(color: borderColor) : null,
+          boxShadow: [
+            if (backgroundColor != Colors.transparent)
+              BoxShadow(
+                color: AppStyle.black.withOpacity(0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+          ],
+        ),
+        child: (icon != null || title != null)
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (icon != null)
+                    Badge(
+                      isLabelVisible: badgeText != null,
+                      label: Text(badgeText ?? ''),
+                      child: Icon(
+                        icon,
+                        size: 30.r,
+                        color: iconColor ?? AppStyle.black,
+                      ),
+                    ),
+                  if (icon != null && title != null) 8.verticalSpace,
+                  if (title != null)
+                    Text(
+                      title,
+                      style: AppStyle.interNormal(
+                        size: 14.sp,
+                        color: textColor ?? AppStyle.black,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                ],
+              )
+            : null, // If no icon or title, don't create the Column
+      ),
+    );
+  }
 }

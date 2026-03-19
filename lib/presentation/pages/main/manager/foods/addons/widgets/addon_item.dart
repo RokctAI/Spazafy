@@ -1,0 +1,125 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_remix/flutter_remix.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/components/components_manager.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
+class AddonItem extends StatelessWidget {
+  final ProductData addon;
+  final VoidCallback onTap;
+
+  const AddonItem({super.key, required this.addon, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final bool isOutOfStock = addon.stock == null;
+    return Container(
+      color: addon.status == 'pending' ? AppStyle.pending : AppStyle.white,
+      margin: REdgeInsets.only(bottom: 10),
+      padding: REdgeInsets.symmetric(vertical: 18, horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '${addon.translation?.title}',
+            style: AppStyle.interNormal(
+              size: 14,
+              color: AppStyle.blackColor,
+              letterSpacing: -0.3,
+            ),
+          ),
+          8.verticalSpace,
+          Text(
+            '${addon.translation?.description}',
+            maxLines: 4,
+            overflow: TextOverflow.ellipsis,
+            style: AppStyle.interNormal(
+              size: 12,
+              color: AppStyle.textColor,
+              letterSpacing: -0.3,
+            ),
+          ),
+          8.verticalSpace,
+          Text(
+            isOutOfStock
+                ? AppHelpers.getTranslation(TrKeys.outOfStock)
+                : AppHelpers.numberFormat(addon.stock?.price ?? 0),
+            style: AppStyle.interSemi(
+              size: 14,
+              color: isOutOfStock ? AppStyle.red : AppStyle.blackColor,
+              letterSpacing: -0.3,
+            ),
+          ),
+          20.verticalSpace,
+          Divider(
+            thickness: 1.r,
+            height: 1.r,
+            color: AppStyle.tabBarBorderColor,
+          ),
+          14.verticalSpace,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: onTap,
+                child: ButtonsBouncingEffect(
+                  child: Row(
+                    children: [
+                      Text(
+                        AppHelpers.getTranslation(TrKeys.parameters),
+                        style: AppStyle.interNormal(size: 13),
+                      ),
+                      6.horizontalSpace,
+                      Icon(
+                        FlutterRemix.arrow_down_s_line,
+                        size: 18.r,
+                        color: AppStyle.blackColor,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                height: 30.r,
+                alignment: Alignment.center,
+                padding: REdgeInsets.symmetric(horizontal: 12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.r),
+                  color: addon.status == 'pending'
+                      ? AppStyle.pendingDark
+                      : AppStyle.primary,
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      addon.status == 'pending'
+                          ? FlutterRemix.time_fill
+                          : FlutterRemix.check_double_line,
+                      size: 20.r,
+                      color: AppStyle.white,
+                    ),
+                    6.horizontalSpace,
+                    Text(
+                      addon.status == 'pending'
+                          ? AppHelpers.getTranslation(TrKeys.pending)
+                          : AppHelpers.getTranslation(TrKeys.published),
+                      style: AppStyle.interNormal(
+                        size: 14,
+                        color: AppStyle.white,
+                        letterSpacing: -0.3,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

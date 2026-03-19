@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/app_constants.dart';
+
 import 'token_interceptor.dart';
 
 class HttpService {
@@ -20,6 +21,7 @@ class HttpService {
           ),
         )
         ..interceptors.add(TokenInterceptor(requireAuth: requireAuth))
+        ..interceptors.add(const FrappeResponseInterceptor())
         ..interceptors.add(
           LogInterceptor(
             responseHeader: false,
@@ -28,4 +30,16 @@ class HttpService {
             requestBody: true,
           ),
         );
+}
+
+class FrappeResponseInterceptor extends Interceptor {
+  const FrappeResponseInterceptor();
+
+  @override
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
+    if (response.data is Map && response.data.containsKey('message')) {
+      response.data = response.data['message'];
+    }
+    handler.next(response);
+  }
 }

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
-
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 class TokenInterceptor extends Interceptor {
   final bool requireAuth;
@@ -12,10 +11,15 @@ class TokenInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
+    // Always add the mobile client header
+    options.headers.addAll({'X-Client-Type': 'mobile'});
+
+    // Add authentication token if needed
     final String token = LocalStorage.getToken();
     if (token.isNotEmpty && requireAuth) {
-      options.headers.addAll({'Authorization': 'Bearer $token'});
+      options.headers.addAll({'Authorization': 'Bearer  $token'});
     }
+
     handler.next(options);
   }
 }

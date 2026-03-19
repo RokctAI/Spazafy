@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/presentation/component/components.dart';
-
-import 'package:rokctapp/application/providers.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
-import 'package:rokctapp/presentation/styles/style.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/app_bars/app_bar_bottom_sheet.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/application/auth/auth.dart';
+import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 
 class SetPasswordPage extends ConsumerWidget {
   const SetPasswordPage({super.key});
@@ -20,11 +24,11 @@ class SetPasswordPage extends ConsumerWidget {
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
       child: AbsorbPointer(
         absorbing: state.isLoading,
-        child: KeyboardDisable(
+        child: KeyboardDismisser(
           child: Container(
-            padding: MediaQuery.viewInsetsOf(context),
+            padding: MediaQuery.of(context).viewInsets,
             decoration: BoxDecoration(
-              color: AppStyle.black.withValues(alpha: 0.5),
+              color: AppStyle.bgGrey.withOpacity(0.96),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(16.r),
                 topRight: Radius.circular(16.r),
@@ -66,7 +70,7 @@ class SetPasswordPage extends ConsumerWidget {
                           descriptionText: state.isPasswordInvalid
                               ? AppHelpers.getTranslation(
                                   TrKeys
-                                      .passwordShouldContainMinimum6Characters,
+                                      .passwordShouldContainMinimum8Characters,
                                 )
                               : null,
                         ),
@@ -109,7 +113,7 @@ class SetPasswordPage extends ConsumerWidget {
                         onPressed: () {
                           notifier.setResetPassword(context);
                         },
-                        background: AppStyle.greenColor,
+                        background: AppStyle.primary,
                         textColor: AppStyle.black,
                       ),
                     ),

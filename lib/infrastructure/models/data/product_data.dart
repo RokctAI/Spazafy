@@ -1,15 +1,16 @@
-import 'review_data.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
+import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 import 'translation.dart';
-import 'local_location_data.dart';
 
 class ProductData {
   ProductData({
-    int? id,
+    String? id,
     String? uuid,
-    int? shopId,
-    int? categoryId,
+    String? shopId,
+    String? categoryId,
     String? keywords,
-    int? brandId,
+    String? brandId,
     num? tax,
     num? interval,
     int? minQty,
@@ -23,12 +24,14 @@ class ProductData {
     Translation? translation,
     List<Properties>? properties,
     List<Stocks>? stocks,
-    Shop? shop,
+    ShopData? shop,
     Category? category,
     Brand? brand,
+    Stocks? stock,
     Unit? unit,
     List<ReviewData>? reviews,
     List<Galleries>? galleries,
+    List<DiscountData>? discounts,
     int? count,
   }) {
     _id = id;
@@ -57,51 +60,42 @@ class ProductData {
     _reviews = reviews;
     _galleries = galleries;
     _count = count;
+    _stock = stock;
+    _discounts = discounts;
   }
 
   ProductData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _uuid = json['uuid'];
-    _shopId = json['shop_id'];
-    _categoryId = json['category_id'];
+    _shopId = json['shop_id']?.toString();
+    _categoryId = json['category_id']?.toString();
     _keywords = json['keywords'];
-    _brandId = json['brand_id'];
+    _brandId = json['brand_id']?.toString();
     _tax = json['tax'];
     _interval = json['interval'];
     _minQty = json['min_qty'];
     _maxQty = json['max_qty'];
-    _active = json['active'];
-    _img = json['img'];
+    _img = json['img'] ?? json['image'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
     _ratingAvg = json['rating_avg'];
     _ordersCount = json['orders_count'];
     _count = 0;
+    _unit = json['unit'] != null ? Unit.fromJson(json['unit']) : null;
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
         : null;
-    if (json['properties'] != null) {
-      _properties = [];
-      json['properties'].forEach((v) {
-        _properties?.add(Properties.fromJson(v));
-      });
-    }
+    _stock = json['stock'] != null ? Stocks.fromJson(json['stock']) : null;
     if (json['stocks'] != null) {
       _stocks = [];
       json['stocks'].forEach((v) {
         _stocks?.add(Stocks.fromJson(v));
       });
     }
-    _shop = json['shop'] != null ? Shop.fromJson(json['shop']) : null;
-    _category = json['category'] != null
-        ? Category.fromJson(json['category'])
-        : null;
-    _brand = json['brand'] != null ? Brand.fromJson(json['brand']) : null;
-    _unit = json['unit'] != null ? Unit.fromJson(json['unit']) : null;
-    if (json['reviews'] != null) {
-      _reviews = [];
-      json['reviews'].forEach((v) {
-        _reviews?.add(ReviewData.fromJson(v));
+    if (json['discounts'] != null) {
+      _discounts = [];
+      json['discounts'].forEach((v) {
+        _discounts?.add(DiscountData.fromJson(v));
       });
     }
     if (json['galleries'] != null) {
@@ -112,12 +106,12 @@ class ProductData {
     }
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
-  int? _shopId;
-  int? _categoryId;
+  String? _shopId;
+  String? _categoryId;
   String? _keywords;
-  int? _brandId;
+  String? _brandId;
   num? _tax;
   num? _interval;
   int? _minQty;
@@ -131,21 +125,24 @@ class ProductData {
   Translation? _translation;
   List<Properties>? _properties;
   List<Stocks>? _stocks;
-  Shop? _shop;
+  ShopData? _shop;
   Category? _category;
   Brand? _brand;
   Unit? _unit;
+  Stocks? _stock;
   List<ReviewData>? _reviews;
   List<Galleries>? _galleries;
+  List<DiscountData>? _discounts;
+
   int? _count;
 
   ProductData copyWith({
-    int? id,
+    String? id,
     String? uuid,
-    int? shopId,
-    int? categoryId,
+    String? shopId,
+    String? categoryId,
     String? keywords,
-    int? brandId,
+    String? brandId,
     num? tax,
     num? interval,
     int? minQty,
@@ -159,7 +156,8 @@ class ProductData {
     Translation? translation,
     List<Properties>? properties,
     List<Stocks>? stocks,
-    Shop? shop,
+    ShopData? shop,
+    Stocks? stock,
     Category? category,
     Brand? brand,
     Unit? unit,
@@ -168,6 +166,7 @@ class ProductData {
   }) => ProductData(
     id: id ?? _id,
     uuid: uuid ?? _uuid,
+    stock: stock ?? _stock,
     shopId: shopId ?? _shopId,
     categoryId: categoryId ?? _categoryId,
     keywords: keywords ?? _keywords,
@@ -193,17 +192,17 @@ class ProductData {
     galleries: galleries ?? _galleries,
   );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get uuid => _uuid;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
-  int? get categoryId => _categoryId;
+  String? get categoryId => _categoryId;
 
   String? get keywords => _keywords;
 
-  int? get brandId => _brandId;
+  String? get brandId => _brandId;
 
   num? get tax => _tax;
 
@@ -227,11 +226,15 @@ class ProductData {
 
   Translation? get translation => _translation;
 
+  Stocks? get stock => _stock;
+
   List<Properties>? get properties => _properties;
 
   List<Stocks>? get stocks => _stocks;
 
-  Shop? get shop => _shop;
+  List<DiscountData>? get discounts => _discounts;
+
+  ShopData? get shop => _shop;
 
   Category? get category => _category;
 
@@ -254,12 +257,14 @@ class ProductData {
     map['keywords'] = _keywords;
     map['brand_id'] = _brandId;
     map['tax'] = _tax;
+    map['interval'] = _interval;
     map['min_qty'] = _minQty;
     map['max_qty'] = _maxQty;
     map['active'] = _active;
     map['img'] = _img;
     map['created_at'] = _createdAt;
     map['updated_at'] = _updatedAt;
+    map['stock'] = _stock?.toJson();
     map['rating_avg'] = _ratingAvg;
     map['orders_count'] = _ordersCount;
     if (_translation != null) {
@@ -289,13 +294,16 @@ class ProductData {
     if (_galleries != null) {
       map['galleries'] = _galleries?.map((v) => v.toJson()).toList();
     }
+    if (_discounts != null) {
+      map['discounts'] = _discounts?.map((v) => v.toJson()).toList();
+    }
     return map;
   }
 }
 
 class Unit {
   Unit({
-    int? id,
+    String? id,
     bool? active,
     String? position,
     String? createdAt,
@@ -311,7 +319,7 @@ class Unit {
   }
 
   Unit.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _active = json['active'];
     _position = json['position'];
     _createdAt = json['created_at'];
@@ -321,7 +329,7 @@ class Unit {
         : null;
   }
 
-  int? _id;
+  String? _id;
   bool? _active;
   String? _position;
   String? _createdAt;
@@ -329,7 +337,7 @@ class Unit {
   Translation? _translation;
 
   Unit copyWith({
-    int? id,
+    String? id,
     bool? active,
     String? position,
     String? createdAt,
@@ -344,16 +352,11 @@ class Unit {
     translation: translation ?? _translation,
   );
 
-  int? get id => _id;
-
+  String? get id => _id;
   bool? get active => _active;
-
   String? get position => _position;
-
   String? get createdAt => _createdAt;
-
   String? get updatedAt => _updatedAt;
-
   Translation? get translation => _translation;
 
   Map<String, dynamic> toJson() {
@@ -371,29 +374,27 @@ class Unit {
 }
 
 class Brand {
-  Brand({int? id, String? uuid, String? title}) {
+  Brand({String? id, String? uuid, String? title}) {
     _id = id;
     _uuid = uuid;
     _title = title;
   }
 
   Brand.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _uuid = json['uuid'];
     _title = json['title'];
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
   String? _title;
 
-  Brand copyWith({int? id, String? uuid, String? title}) =>
+  Brand copyWith({String? id, String? uuid, String? title}) =>
       Brand(id: id ?? _id, uuid: uuid ?? _uuid, title: title ?? _title);
 
-  int? get id => _id;
-
+  String? get id => _id;
   String? get uuid => _uuid;
-
   String? get title => _title;
 
   Map<String, dynamic> toJson() {
@@ -406,7 +407,12 @@ class Brand {
 }
 
 class Category {
-  Category({int? id, String? uuid, int? parentId, Translation? translation}) {
+  Category({
+    String? id,
+    String? uuid,
+    String? parentId,
+    Translation? translation,
+  }) {
     _id = id;
     _uuid = uuid;
     _parentId = parentId;
@@ -414,23 +420,23 @@ class Category {
   }
 
   Category.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _uuid = json['uuid'];
-    _parentId = json['parent_id'];
+    _parentId = json['parent_id']?.toString();
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
         : null;
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
-  int? _parentId;
+  String? _parentId;
   Translation? _translation;
 
   Category copyWith({
-    int? id,
+    String? id,
     String? uuid,
-    int? parentId,
+    String? parentId,
     Translation? translation,
   }) => Category(
     id: id ?? _id,
@@ -439,12 +445,9 @@ class Category {
     translation: translation ?? _translation,
   );
 
-  int? get id => _id;
-
+  String? get id => _id;
   String? get uuid => _uuid;
-
-  int? get parentId => _parentId;
-
+  String? get parentId => _parentId;
   Translation? get translation => _translation;
 
   Map<String, dynamic> toJson() {
@@ -459,234 +462,21 @@ class Category {
   }
 }
 
-class Shop {
-  Shop({
-    int? id,
-    String? uuid,
-    int? userId,
-    num? tax,
-    num? deliveryRange,
-    num? percentage,
-    LocalLocationData? location,
-    String? phone,
-    bool? showType,
-    bool? open,
-    bool? visibility,
-    String? openTime,
-    String? closeTime,
-    String? backgroundImg,
-    String? logoImg,
-    int? minAmount,
-    String? status,
-    String? statusNote,
-    String? createdAt,
-    String? updatedAt,
-    Translation? translation,
-  }) {
-    _id = id;
-    _uuid = uuid;
-    _userId = userId;
-    _tax = tax;
-    _deliveryRange = deliveryRange;
-    _percentage = percentage;
-    _location = location;
-    _phone = phone;
-    _showType = showType;
-    _open = open;
-    _visibility = visibility;
-    _openTime = openTime;
-    _closeTime = closeTime;
-    _backgroundImg = backgroundImg;
-    _logoImg = logoImg;
-    _minAmount = minAmount;
-    _status = status;
-    _statusNote = statusNote;
-    _createdAt = createdAt;
-    _updatedAt = updatedAt;
-    _translation = translation;
-  }
-
-  Shop.fromJson(dynamic json) {
-    _id = json['id'];
-    _uuid = json['uuid'];
-    _userId = json['user_id'];
-    _tax = json['tax'];
-    _deliveryRange = json['delivery_range'];
-    _percentage = json['percentage'];
-    _location = json['location'] != null
-        ? LocalLocationData.fromJson(json['location'])
-        : null;
-    _phone = json['phone'];
-    _showType = json['show_type'];
-    _open = json['open'];
-    _visibility = json['visibility'];
-    _openTime = json['open_time'];
-    _closeTime = json['close_time'];
-    _backgroundImg = json['background_img'];
-    _logoImg = json['logo_img'];
-    _minAmount = json['min_amount'];
-    _status = json['status'];
-    _statusNote = json['status_note'];
-    _createdAt = json['created_at'];
-    _updatedAt = json['updated_at'];
-    _translation = json['translation'] != null
-        ? Translation.fromJson(json['translation'])
-        : null;
-  }
-
-  int? _id;
-  String? _uuid;
-  int? _userId;
-  num? _tax;
-  num? _deliveryRange;
-  num? _percentage;
-  LocalLocationData? _location;
-  String? _phone;
-  bool? _showType;
-  bool? _open;
-  bool? _visibility;
-  String? _openTime;
-  String? _closeTime;
-  String? _backgroundImg;
-  String? _logoImg;
-  int? _minAmount;
-  String? _status;
-  String? _statusNote;
-  String? _createdAt;
-  String? _updatedAt;
-  Translation? _translation;
-
-  Shop copyWith({
-    int? id,
-    String? uuid,
-    int? userId,
-    num? tax,
-    num? deliveryRange,
-    num? percentage,
-    LocalLocationData? location,
-    String? phone,
-    bool? showType,
-    bool? open,
-    bool? visibility,
-    String? openTime,
-    String? closeTime,
-    String? backgroundImg,
-    String? logoImg,
-    int? minAmount,
-    String? status,
-    String? statusNote,
-    String? createdAt,
-    String? updatedAt,
-    Translation? translation,
-  }) => Shop(
-    id: id ?? _id,
-    uuid: uuid ?? _uuid,
-    userId: userId ?? _userId,
-    tax: tax ?? _tax,
-    deliveryRange: deliveryRange ?? _deliveryRange,
-    percentage: percentage ?? _percentage,
-    location: location ?? _location,
-    phone: phone ?? _phone,
-    showType: showType ?? _showType,
-    open: open ?? _open,
-    visibility: visibility ?? _visibility,
-    openTime: openTime ?? _openTime,
-    closeTime: closeTime ?? _closeTime,
-    backgroundImg: backgroundImg ?? _backgroundImg,
-    logoImg: logoImg ?? _logoImg,
-    minAmount: minAmount ?? _minAmount,
-    status: status ?? _status,
-    statusNote: statusNote ?? _statusNote,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    translation: translation ?? _translation,
-  );
-
-  int? get id => _id;
-
-  String? get uuid => _uuid;
-
-  int? get userId => _userId;
-
-  num? get tax => _tax;
-
-  num? get deliveryRange => _deliveryRange;
-
-  num? get percentage => _percentage;
-
-  LocalLocationData? get location => _location;
-
-  String? get phone => _phone;
-
-  bool? get showType => _showType;
-
-  bool? get open => _open;
-
-  bool? get visibility => _visibility;
-
-  String? get openTime => _openTime;
-
-  String? get closeTime => _closeTime;
-
-  String? get backgroundImg => _backgroundImg;
-
-  String? get logoImg => _logoImg;
-
-  int? get minAmount => _minAmount;
-
-  String? get status => _status;
-
-  String? get statusNote => _statusNote;
-
-  String? get createdAt => _createdAt;
-
-  String? get updatedAt => _updatedAt;
-
-  Translation? get translation => _translation;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = _id;
-    map['uuid'] = _uuid;
-    map['user_id'] = _userId;
-    map['tax'] = _tax;
-    map['delivery_range'] = _deliveryRange;
-    map['percentage'] = _percentage;
-    if (_location != null) {
-      map['location'] = _location?.toJson();
-    }
-    map['phone'] = _phone;
-    map['show_type'] = _showType;
-    map['open'] = _open;
-    map['visibility'] = _visibility;
-    map['open_time'] = _openTime;
-    map['close_time'] = _closeTime;
-    map['background_img'] = _backgroundImg;
-    map['logo_img'] = _logoImg;
-    map['min_amount'] = _minAmount;
-    map['status'] = _status;
-    map['status_note'] = _statusNote;
-    map['created_at'] = _createdAt;
-    map['updated_at'] = _updatedAt;
-    if (_translation != null) {
-      map['translation'] = _translation?.toJson();
-    }
-    return map;
-  }
-}
-
 class Stocks {
   Stocks({
-    int? id,
-    int? countableId,
+    String? id,
+    String? countableId,
     num? price,
     int? quantity,
     num? discount,
     num? tax,
     num? totalPrice,
+    BonusModel? bonus,
     List<Extras>? extras,
+    List<Addons>? addons,
     ProductData? product,
   }) {
+    _bonus = bonus;
     _id = id;
     _countableId = countableId;
     _price = price;
@@ -695,12 +485,14 @@ class Stocks {
     _tax = tax;
     _totalPrice = totalPrice;
     _extras = extras;
+    _addons = addons;
     _product = product;
   }
 
-  Stocks.fromJson(dynamic json) {
-    _id = json['id'];
-    _countableId = json['countable_id'];
+  Stocks.fromJson(Map<String, dynamic> json) {
+    _bonus = json["bonus"] == null ? null : BonusModel.fromJson(json["bonus"]);
+    _id = json['id']?.toString();
+    _countableId = json['countable_id']?.toString();
     _price = json['price'];
     _quantity = json['quantity'];
     _discount = json['discount'];
@@ -708,8 +500,19 @@ class Stocks {
     _totalPrice = json['total_price'];
     if (json['extras'] != null) {
       _extras = [];
-      json['extras'].forEach((v) {
-        _extras?.add(Extras.fromJson(v));
+      if (json['extras'].runtimeType != bool) {
+        json['extras'].forEach((v) {
+          _extras?.add(Extras.fromJson(v));
+        });
+      }
+    }
+    if (json['addons'] != null) {
+      _addons = [];
+      json['addons'].forEach((v) {
+        if ((v["product"]?['stock'] != null && v["product"] != null) ||
+            v["stock"] != null) {
+          _addons?.add(Addons.fromJson(v));
+        }
       });
     }
     _product = json['product'] != null
@@ -717,27 +520,32 @@ class Stocks {
         : null;
   }
 
-  int? _id;
-  int? _countableId;
+  String? _id;
+  String? _countableId;
   num? _price;
   int? _quantity;
   num? _discount;
   num? _tax;
+  BonusModel? _bonus;
   num? _totalPrice;
   List<Extras>? _extras;
   ProductData? _product;
+  List<Addons>? _addons;
 
   Stocks copyWith({
-    int? id,
-    int? countableId,
+    String? id,
+    String? countableId,
     num? price,
     int? quantity,
     num? discount,
     num? tax,
+    BonusModel? bonus,
     num? totalPrice,
     List<Extras>? extras,
+    List<Addons>? addons,
     ProductData? product,
   }) => Stocks(
+    bonus: bonus ?? _bonus,
     id: id ?? _id,
     countableId: countableId ?? _countableId,
     price: price ?? _price,
@@ -747,11 +555,12 @@ class Stocks {
     totalPrice: totalPrice ?? _totalPrice,
     extras: extras ?? _extras,
     product: product ?? _product,
+    addons: addons ?? _addons,
   );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get countableId => _countableId;
+  String? get countableId => _countableId;
 
   num? get price => _price;
 
@@ -762,6 +571,10 @@ class Stocks {
   num? get tax => _tax;
 
   num? get totalPrice => _totalPrice;
+
+  BonusModel? get bonus => _bonus;
+
+  List<Addons>? get addons => _addons;
 
   List<Extras>? get extras => _extras;
 
@@ -787,13 +600,7 @@ class Stocks {
 }
 
 class Extras {
-  Extras({
-    int? id,
-    int? extraGroupId,
-    String? value,
-    bool? active,
-    Group? group,
-  }) {
+  Extras({int? id, int? extraGroupId, String? value, Group? group}) {
     _id = id;
     _extraGroupId = extraGroupId;
     _value = value;
@@ -804,8 +611,7 @@ class Extras {
   Extras.fromJson(dynamic json) {
     _id = json['id'];
     _extraGroupId = json['extra_group_id'];
-    _value = json['value'];
-    _active = json['active'];
+    _value = json["value"] ?? "";
     _group = json['group'] != null ? Group.fromJson(json['group']) : null;
   }
 
@@ -825,7 +631,6 @@ class Extras {
     id: id ?? _id,
     extraGroupId: extraGroupId ?? _extraGroupId,
     value: value ?? _value,
-    active: active ?? _active,
     group: group ?? _group,
   );
 
@@ -863,7 +668,6 @@ class Group {
   Group.fromJson(dynamic json) {
     _id = json['id'];
     _type = json['type'];
-    _active = json['active'];
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
         : null;
@@ -943,4 +747,86 @@ class Properties {
     map['value'] = _value;
     return map;
   }
+}
+
+class DiscountData {
+  String? id;
+  String? shopId;
+  String? type;
+  num? price;
+  DateTime? start;
+  DateTime? end;
+  int? active;
+  String? img;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+
+  DiscountData({
+    this.id,
+    this.shopId,
+    this.type,
+    this.price,
+    this.start,
+    this.end,
+    this.active,
+    this.img,
+    this.createdAt,
+    this.updatedAt,
+  });
+
+  DiscountData copyWith({
+    String? id,
+    String? shopId,
+    String? type,
+    num? price,
+    DateTime? start,
+    DateTime? end,
+    int? active,
+    String? img,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => DiscountData(
+    id: id ?? this.id,
+    shopId: shopId ?? this.shopId,
+    type: type ?? this.type,
+    price: price ?? this.price,
+    start: start ?? this.start,
+    end: end ?? this.end,
+    active: active ?? this.active,
+    img: img ?? this.img,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+
+  factory DiscountData.fromJson(Map<String, dynamic> json) => DiscountData(
+    id: json["id"]?.toString(),
+    shopId: json["shop_id"]?.toString(),
+    type: json["type"],
+    price: json["price"],
+    start: json["start"] == null ? null : DateTime.parse(json["start"]),
+    end: json["end"] == null ? null : DateTime.parse(json["end"]),
+    active: json["active"],
+    img: json["img"],
+    createdAt: json["created_at"] == null
+        ? null
+        : DateTime.parse(json["created_at"]),
+    updatedAt: json["updated_at"] == null
+        ? null
+        : DateTime.parse(json["updated_at"]),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "shop_id": shopId,
+    "type": type,
+    "price": price,
+    "start":
+        "${start!.year.toString().padLeft(4, '0')}-${start!.month.toString().padLeft(2, '0')}-${start!.day.toString().padLeft(2, '0')}",
+    "end":
+        "${end!.year.toString().padLeft(4, '0')}-${end!.month.toString().padLeft(2, '0')}-${end!.day.toString().padLeft(2, '0')}",
+    "active": active,
+    "img": img,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+  };
 }

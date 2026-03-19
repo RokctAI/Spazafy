@@ -1,10 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/count_of_notifications_data.dart';
+import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
 
 part 'notification_state.freezed.dart';
 
 @freezed
-abstract class NotificationState with _$NotificationState {
+class NotificationState with _$NotificationState {
   const factory NotificationState({
     @Default([]) List<NotificationModel> notifications,
     @Default(null) CountNotificationModel? countOfNotifications,

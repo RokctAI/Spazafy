@@ -1,31 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/domain/interface/notification.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/services.dart';
+import 'package:rokctapp/infrastructure/models/data/count_of_notifications_data.dart';
+import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class NotificationRepositoryImpl extends NotificationRepositoryFacade {
   @override
   Future<ApiResult<NotificationResponse>> getNotifications({int? page}) async {
-    final data = {
-      if (page != null) 'page': page,
-      'column': 'created_at',
-      'sort': 'desc',
-      'perPage': 7,
-      'lang': LocalStorage.getLanguage()?.locale,
-    };
+    final data = {'limit_start': ((page ?? 1) - 1) * 7, 'limit_page_length': 7};
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/notifications',
+        '/api/method/paas.api.user.user.get_user_notifications',
         queryParameters: data,
       );
-      return ApiResult.success(
-        data: NotificationResponse.fromJson(response.data),
-      );
-    } catch (e, s) {
-      debugPrint('==> get notification failure: $e,$s');
+      final responseData = NotificationResponse.fromJson(response.data);
+
+      // Persistence: Cache notifications
+      if (responseData.data != null) {
+        for (final notification in responseData.data!) {
+          await appDatabase.upsertNotification(notification.toJson());
+        }
+      }
+
+      return ApiResult.success(data: responseData);
+    } catch (e) {
+      debugPrint('==> get notification failure: $e');
+
+      // Fallback
+      try {
+        final localData = await appDatabase.getNotificationsLocally();
+        if (localData.isNotEmpty) {
+          final notifications = localData
+              .map((e) => NotificationModel.fromJson(jsonDecode(e.data)))
+              .toList();
+          return ApiResult.success(
+            data: NotificationResponse(data: notifications),
+          );
+        }
+      } catch (localError) {
+        debugPrint('==> local fallback failure: $localError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -35,63 +54,46 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
 
   @override
   Future<ApiResult<NotificationResponse>> readAll() async {
+    const url = '/api/method/paas.api.read_all_notifications';
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.post(
-        '/api/v1/dashboard/notifications/read-all',
-      );
-      return ApiResult.success(
-        data: NotificationResponse.fromJson(response.data),
-      );
+      await client.post(url);
+      return ApiResult.success(data: NotificationResponse());
     } catch (e) {
-      debugPrint('==> get notification failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
+      debugPrint('==> read all notifications failure: $e');
+
+      // Queue the request
+      await appDatabase.enqueueSyncRequest(
+        url: url,
+        method: 'POST',
+        payload: {},
       );
+
+      return ApiResult.success(data: NotificationResponse());
     }
   }
 
   @override
   Future<ApiResult<dynamic>> readOne({int? id}) async {
-    final data = {
-      if (id != null) '$id': id,
-      'lang': LocalStorage.getLanguage()?.locale,
-    };
+    const url = '/api/method/paas.api.read_one_notification';
+    final payload = {'notification_id': id};
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post(
-        '/api/v1/dashboard/notifications/$id/read-at',
-        queryParameters: data,
-      );
-      return const ApiResult.success(data: true);
+      await client.post(url, data: payload);
+      return const ApiResult.success(data: null);
     } catch (e) {
-      debugPrint('==> get notification failure: $e');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
-    }
-  }
+      debugPrint('==> read one notification failure: $e');
 
-  @override
-  Future<ApiResult<NotificationResponse>> getAllNotifications() async {
-    final data = {'lang': LocalStorage.getLanguage()?.locale};
-    try {
-      final client = dioHttp.client(requireAuth: true);
-      final response = await client.get(
-        '/api/v1/dashboard/notifications',
-        queryParameters: data,
-      );
-      return ApiResult.success(
-        data: NotificationResponse.fromJson(response.data),
-      );
-    } catch (e, s) {
-      debugPrint('==> get notification failure: $e,$s');
-      return ApiResult.failure(
-        error: AppHelpers.errorHandler(e),
-        statusCode: NetworkExceptions.getDioStatus(e),
-      );
+      // Queue the request
+      if (id != null) {
+        await appDatabase.enqueueSyncRequest(
+          url: url,
+          method: 'POST',
+          payload: payload,
+        );
+      }
+
+      return const ApiResult.success(data: null);
     }
   }
 
@@ -100,13 +102,12 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/user/profile/notifications-statistic',
+        '/api/method/paas.api.get_notification_count',
       );
       return ApiResult.success(
-        data: CountNotificationModel.fromJson(response.data),
+        data: CountNotificationModel.fromJson(response.data['message']),
       );
     } catch (e) {
-      debugPrint('==> get notification failure: $e');
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
