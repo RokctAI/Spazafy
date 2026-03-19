@@ -57,11 +57,7 @@ class LanguageNotifier extends StateNotifier<LanguageState> {
           }
         }
 
-        state = state.copyWith(
-          isLoading: false,
-          list: languages,
-          index: index,
-        );
+        state = state.copyWith(isLoading: false, list: languages, index: index);
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);

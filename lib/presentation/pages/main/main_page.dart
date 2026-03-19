@@ -173,8 +173,9 @@ class _MainPageState extends State<MainPage> {
   }
 
   void initConnectivityListener() {
-    _connectivitySubscription =
-        Connectivity().onConnectivityChanged.listen(_handleConnectivityChange);
+    _connectivitySubscription = Connectivity().onConnectivityChanged.listen(
+      _handleConnectivityChange,
+    );
   }
 
   Future<void> _handleConnectivityChange(
@@ -238,8 +239,8 @@ class _MainPageState extends State<MainPage> {
       if (mounted) {
         // Navigate to OTP/PIN screen if it was a registration
         final offlineUser = LocalStorage.getOfflineUser();
-        // Since syncService.processQueue() deletes offline user on success, 
-        // we should have checked type before. 
+        // Since syncService.processQueue() deletes offline user on success,
+        // we should have checked type before.
         // But the user said: "confirm you send him to pin input screen"
         context.pushRoute(const PinCodeRoute());
       }
@@ -255,66 +256,69 @@ class _MainPageState extends State<MainPage> {
 
   Future<void> initDynamicLinks() async {
     try {
-      dynamicLinks.onLink.listen((dynamicLinkData) {
-      Uri link = dynamicLinkData.link;
-      if (link.queryParameters.keys.contains('group')) {
-        if (!mounted) return;
+      dynamicLinks.onLink
+          .listen((dynamicLinkData) {
+            Uri link = dynamicLinkData.link;
+            if (link.queryParameters.keys.contains('group')) {
+              if (!mounted) return;
+              context.router.popUntilRoot();
+              if (!mounted) return;
+              context.pushRoute(
+                ShopRoute(
+                  shopId: link.pathSegments.last,
+                  cartId: link.queryParameters['group'],
+                  ownerId: link.queryParameters['owner_id'] ?? '',
+                ),
+              );
+            } else if (!link.queryParameters.keys.contains("product") &&
+                link.pathSegments.contains("shop")) {
+              if (!mounted) return;
+              context.router.popUntilRoot();
+              context.pushRoute(ShopRoute(shopId: link.pathSegments.last));
+            } else if (link.pathSegments.contains("shop")) {
+              if (!mounted) return;
+              context.router.popUntilRoot();
+              if (!mounted) return;
+              context.pushRoute(
+                ShopRoute(
+                  shopId: link.pathSegments.last,
+                  productId: link.queryParameters['product'],
+                ),
+              );
+            }
+          })
+          .onError((error) {
+            debugPrint(error.message);
+          });
+
+      final PendingDynamicLinkData? data = await FirebaseDynamicLinks.instance
+          .getInitialLink();
+      if (!mounted) return;
+      final Uri? deepLink = data?.link;
+      if (deepLink?.queryParameters.keys.contains("group") ?? false) {
+        if (!context.mounted) return;
         context.router.popUntilRoot();
         if (!mounted) return;
         context.pushRoute(
           ShopRoute(
-            shopId: link.pathSegments.last,
-            cartId: link.queryParameters['group'],
-            ownerId: link.queryParameters['owner_id'] ?? '',
+            shopId: deepLink?.pathSegments.last ?? '',
+            cartId: deepLink?.queryParameters['group'],
+            ownerId: deepLink?.queryParameters['owner_id'] ?? "",
           ),
         );
-      } else if (!link.queryParameters.keys.contains("product") &&
-          link.pathSegments.contains("shop")) {
-        if (!mounted) return;
-        context.router.popUntilRoot();
-        context.pushRoute(ShopRoute(shopId: link.pathSegments.last));
-      } else if (link.pathSegments.contains("shop")) {
-        if (!mounted) return;
-        context.router.popUntilRoot();
-        if (!mounted) return;
+      } else if (!(deepLink?.queryParameters.keys.contains("product") ??
+              false) &&
+          (deepLink?.pathSegments.contains("shop") ?? false)) {
+        if (!context.mounted) return;
+        context.pushRoute(ShopRoute(shopId: deepLink?.pathSegments.last ?? ""));
+      } else if (deepLink?.pathSegments.contains("shop") ?? false) {
         context.pushRoute(
           ShopRoute(
-            shopId: link.pathSegments.last,
-            productId: link.queryParameters['product'],
+            shopId: deepLink?.pathSegments.last ?? "",
+            productId: deepLink?.queryParameters['product'],
           ),
         );
       }
-    }).onError((error) {
-      debugPrint(error.message);
-    });
-
-    final PendingDynamicLinkData? data =
-        await FirebaseDynamicLinks.instance.getInitialLink();
-    if (!mounted) return;
-    final Uri? deepLink = data?.link;
-    if (deepLink?.queryParameters.keys.contains("group") ?? false) {
-      if (!context.mounted) return;
-      context.router.popUntilRoot();
-      if (!mounted) return;
-      context.pushRoute(
-        ShopRoute(
-          shopId: deepLink?.pathSegments.last ?? '',
-          cartId: deepLink?.queryParameters['group'],
-          ownerId: deepLink?.queryParameters['owner_id'] ?? "",
-        ),
-      );
-    } else if (!(deepLink?.queryParameters.keys.contains("product") ?? false) &&
-        (deepLink?.pathSegments.contains("shop") ?? false)) {
-      if (!context.mounted) return;
-      context.pushRoute(ShopRoute(shopId: deepLink?.pathSegments.last ?? ""));
-    } else if (deepLink?.pathSegments.contains("shop") ?? false) {
-      context.pushRoute(
-        ShopRoute(
-          shopId: deepLink?.pathSegments.last ?? "",
-          productId: deepLink?.queryParameters['product'],
-        ),
-      );
-    }
     } catch (e) {
       debugPrint('Error initializing Dynamic Links: $e');
     }
@@ -337,7 +341,8 @@ class _MainPageState extends State<MainPage> {
           },
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: (AppHelpers.getType() == 0 || AppHelpers.getType() == 4)
+        floatingActionButton:
+            (AppHelpers.getType() == 0 || AppHelpers.getType() == 4)
             ? Consumer(
                 builder: (context, ref, child) {
                   final index = ref.watch(mainProvider).selectIndex;
@@ -361,7 +366,8 @@ class _MainPageState extends State<MainPage> {
     Cart? orders,
   ) {
     final orders = ref.watch(shopOrderProvider).cart;
-    final bool isCartEmpty = orders == null ||
+    final bool isCartEmpty =
+        orders == null ||
         (orders.userCarts?.isEmpty ?? true) ||
         ((orders.userCarts?.isEmpty ?? true)
             ? true
@@ -372,8 +378,9 @@ class _MainPageState extends State<MainPage> {
     final bool isFixed = AppConstants.fixed;
 
     // If fixed is true, always pass false for isScrolling
-    final bool isScrollingValue =
-        isFixed ? false : ref.watch(mainProvider).isScrolling;
+    final bool isScrollingValue = isFixed
+        ? false
+        : ref.watch(mainProvider).isScrolling;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -421,10 +428,13 @@ class _MainPageState extends State<MainPage> {
                       Consumer(
                         builder: (context, ref, child) {
                           // Check if currency is loaded
-                          final isLoading =
-                              ref.watch(shopOrderProvider).isLoading;
-                          final totalPrice =
-                              ref.watch(shopOrderProvider).cart?.totalPrice;
+                          final isLoading = ref
+                              .watch(shopOrderProvider)
+                              .isLoading;
+                          final totalPrice = ref
+                              .watch(shopOrderProvider)
+                              .cart
+                              ?.totalPrice;
                           final currency = LocalStorage.getSelectedCurrency();
 
                           if (isLoading) {
@@ -614,14 +624,14 @@ class _MainPageState extends State<MainPage> {
                                   isCartEmpty
                                       ? "0"
                                       : (ref
-                                                  .watch(shopOrderProvider)
-                                                  .cart
-                                                  ?.userCarts
-                                                  ?.first
-                                                  .cartDetails
-                                                  ?.length ??
-                                              0)
-                                          .toString(),
+                                                    .watch(shopOrderProvider)
+                                                    .cart
+                                                    ?.userCarts
+                                                    ?.first
+                                                    .cartDetails
+                                                    ?.length ??
+                                                0)
+                                            .toString(),
                                   style: const TextStyle(color: AppStyle.white),
                                 ),
                               ),

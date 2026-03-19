@@ -111,7 +111,10 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
         return false;
       }
       return state
-              .shopData?.shopPayments?[paymentState.currentIndex]?.payment?.tag
+              .shopData
+              ?.shopPayments?[paymentState.currentIndex]
+              ?.payment
+              ?.tag
               ?.toLowerCase() ==
           "pay-fast";
     }
@@ -190,7 +193,10 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
       paymentId: ((AppHelpers.getPaymentType() == "admin")
           ? (paymentState.payments[paymentState.currentIndex].id)
           : state
-              .shopData?.shopPayments?[paymentState.currentIndex]?.payment?.id),
+                .shopData
+                ?.shopPayments?[paymentState.currentIndex]
+                ?.payment
+                ?.id),
       username: state.username,
       phone: state.phoneNumber ?? LocalStorage.getUser()?.phone,
       email: LocalStorage.getUser()?.email,
@@ -203,13 +209,15 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
       deliveryType: state.tabIndex == 0
           ? DeliveryTypeEnum.delivery
           : (state.tabIndex == 1
-              ? DeliveryTypeEnum.pickup
-              : DeliveryTypeEnum.pickupPoint),
+                ? DeliveryTypeEnum.pickup
+                : DeliveryTypeEnum.pickupPoint),
       location: Location(
-        longitude: stateMap.place?.location?.last ??
+        longitude:
+            stateMap.place?.location?.last ??
             LocalStorage.getAddressSelected()?.location?.longitude ??
             AppConstants.demoLongitude,
-        latitude: stateMap.place?.location?.first ??
+        latitude:
+            stateMap.place?.location?.first ??
             LocalStorage.getAddressSelected()?.location?.latitude ??
             AppConstants.demoLatitude,
       ),
@@ -225,7 +233,6 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
       deliveryTime: state.selectTime.hour.toString().length == 2
           ? "${state.selectTime.hour}:${state.selectTime.minute.toString().padLeft(2, '0')}"
           : "0${state.selectTime.hour}:${state.selectTime.minute.toString().padLeft(2, '0')}",
-      quotedTotal: state.calculateData?.totalPrice,
     );
 
     // Check if PayFast is the selected payment method
@@ -270,7 +277,9 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
         payment: ((AppHelpers.getPaymentType() == "admin")
             ? (paymentState.payments[paymentState.currentIndex])
             : state
-                .shopData?.shopPayments?[paymentState.currentIndex]?.payment),
+                  .shopData
+                  ?.shopPayments?[paymentState.currentIndex]
+                  ?.payment),
         onSuccess: () {
           widget.controllerCenter?.play();
           eventShopOrder.getCart(context, () {});
@@ -313,7 +322,6 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
       );
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -379,7 +387,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
                   isRepeatLoading: state.isAddLoading,
                   isLoading:
                       ref.watch(shopOrderProvider).isAddAndRemoveLoading ||
-                          state.isButtonLoading,
+                      state.isButtonLoading,
                   isOrder: widget.isOrder,
                   isAutoLoading: state.isButtonLoading,
                   orderStatus: widget.orderStatus,
@@ -443,7 +451,8 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
                       );
                     }
                   },
-                  isRefund: (state.orderData?.refunds?.isEmpty ?? true) ||
+                  isRefund:
+                      (state.orderData?.refunds?.isEmpty ?? true) ||
                       state.orderData?.refunds?.last.status == "canceled",
                   repeatOrder: () {
                     event.repeatOrder(
@@ -600,12 +609,14 @@ class _WebViewPageState extends State<WebViewPage> {
     // Don't process if already detected payment completion
     if (isPaymentComplete) return false;
 
-    final isSuccess = url.contains('order-stripe-success') ||
+    final isSuccess =
+        url.contains('order-stripe-success') ||
         url.contains('payment-success') ||
         url.contains('redirect-success') ||
         url.contains(AppConstants.baseUrl);
 
-    final isFailure = url.contains('payment-cancel') ||
+    final isFailure =
+        url.contains('payment-cancel') ||
         url.contains('payment-failed') ||
         url.contains('redirect-cancel');
 
@@ -897,8 +908,9 @@ class _PayFastPaymentScreenState extends ConsumerState<PayFastPaymentScreen> {
                           margin: EdgeInsets.only(right: 12.w),
                           padding: EdgeInsets.all(12.r),
                           decoration: BoxDecoration(
-                            color:
-                                isSelected ? AppStyle.primary : AppStyle.white,
+                            color: isSelected
+                                ? AppStyle.primary
+                                : AppStyle.white,
                             borderRadius: BorderRadius.circular(12.r),
                             border: Border.all(
                               color: isSelected

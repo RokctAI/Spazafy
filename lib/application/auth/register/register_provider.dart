@@ -7,10 +7,10 @@ import 'register_state.dart';
 
 final registerProvider =
     StateNotifierProvider.autoDispose<RegisterNotifier, RegisterState>(
-  (ref) => RegisterNotifier(
-    authRepository,
-    userRepository,
-    ref.watch(backgroundSyncServiceProvider),
-    ref.watch(appDatabaseProvider),
-  ),
-);
+      (ref) => RegisterNotifier(
+        authRepository,
+        userRepository,
+        ref.watch(backgroundSyncServiceProvider),
+        ref.watch(appDatabaseProvider),
+      ),
+    );

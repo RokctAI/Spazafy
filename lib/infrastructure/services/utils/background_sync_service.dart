@@ -68,7 +68,9 @@ class BackgroundSyncService {
           debugPrint('==> request ${request.id} abandoned after 5 retries');
           await database.abandonSyncRequest(
             request,
-            error: request.lastError ?? 'Abandoned after 5 retries due to persistent failures',
+            error:
+                request.lastError ??
+                'Abandoned after 5 retries due to persistent failures',
           );
           continue;
         }
@@ -79,11 +81,8 @@ class BackgroundSyncService {
         } else if (result.remove) {
           // If it's a permanent client error (4xx), move to abandoned for review if payload is important
           final errorMsg = 'Permanent Failure (4xx): ${result.error}';
-          await database.abandonSyncRequest(
-            request,
-            error: errorMsg,
-          );
-          
+          await database.abandonSyncRequest(request, error: errorMsg);
+
           // Notify user via LocalStorage flag
           final currentCount = LocalStorage.getSyncErrorCount();
           await LocalStorage.setSyncErrorCount(currentCount + 1);
@@ -118,18 +117,20 @@ class BackgroundSyncService {
       final statusCode = response.statusCode ?? 0;
       if (statusCode >= 200 && statusCode < 300) {
         // Special handling for auth requests to save token
-        if (request.url.contains('/auth/register') || 
+        if (request.url.contains('/auth/register') ||
             request.url.contains('/auth/login') ||
             request.url.contains('auth.signup') ||
             request.url.contains('auth.create')) {
           final responseData = response.data;
-          final token = responseData['data']?['access_token'] ?? responseData['token'];
+          final token =
+              responseData['data']?['access_token'] ?? responseData['token'];
           if (token != null) {
             await LocalStorage.setToken(token);
             LocalStorage.setIsGuest(false);
             LocalStorage.deleteOfflineUser();
-            
-            final userData = responseData['data']?['user'] ?? responseData['user'];
+
+            final userData =
+                responseData['data']?['user'] ?? responseData['user'];
             if (userData != null) {
               await LocalStorage.setUser(ProfileData.fromJson(userData));
             }
@@ -137,13 +138,21 @@ class BackgroundSyncService {
         }
         return const SyncResult(success: true);
       } else if (statusCode >= 400 && statusCode < 500) {
-        return SyncResult(success: false, remove: true, error: 'Status: $statusCode, ${response.data}');
+        return SyncResult(
+          success: false,
+          remove: true,
+          error: 'Status: $statusCode, ${response.data}',
+        );
       }
       return SyncResult(success: false, error: 'Server Error: $statusCode');
     } on DioException catch (e) {
       final statusCode = e.response?.statusCode ?? 0;
       if (statusCode >= 400 && statusCode < 500) {
-        return SyncResult(success: false, remove: true, error: 'Client Error: $statusCode, ${e.message}');
+        return SyncResult(
+          success: false,
+          remove: true,
+          error: 'Client Error: $statusCode, ${e.message}',
+        );
       }
       return SyncResult(success: false, error: 'Network Error: ${e.message}');
     } catch (e) {

@@ -10,12 +10,12 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
   AutoOrderNotifier()
-      : super(
-          AutoOrderState(
-            from: DateTime.now().add(const Duration(days: 1)),
-            to: DateTime.now().add(const Duration(days: 7)),
-          ),
-        );
+    : super(
+        AutoOrderState(
+          from: DateTime.now().add(const Duration(days: 1)),
+          to: DateTime.now().add(const Duration(days: 7)),
+        ),
+      );
 
   void init(RepeatData data, double grandTotal) {
     state = state.copyWith(

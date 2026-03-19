@@ -20,7 +20,6 @@ class OrderBodyData {
   final String? phone;
   final String? email; // Add this field
   final List<ProductNote> notes;
-  final num? quotedTotal;
 
   OrderBodyData({
     required this.cartId,
@@ -39,7 +38,6 @@ class OrderBodyData {
     this.username,
     this.phone,
     this.email, // Add this parameter
-    this.quotedTotal,
   });
 
   Map toJson() {
@@ -54,8 +52,9 @@ class OrderBodyData {
       if (email?.isNotEmpty ?? false) "email": email, // Include email in JSON
       if (paymentId != null) "payment_id": paymentId,
       "delivery_fee": deliveryFee,
-      "delivery_type":
-          deliveryType == DeliveryTypeEnum.delivery ? "delivery" : "pickup",
+      "delivery_type": deliveryType == DeliveryTypeEnum.delivery
+          ? "delivery"
+          : "pickup",
       if (coupon != null && (coupon?.trim().isNotEmpty ?? false))
         "coupon": coupon,
       "location": location.toJson(),
@@ -70,7 +69,6 @@ class OrderBodyData {
           for (int i = 0; i < notes.length; i++)
             notes[i].stockId: notes[i].comment,
         },
-      if (quotedTotal != null) "quoted_total": quotedTotal,
     };
   }
 }

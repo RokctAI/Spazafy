@@ -80,8 +80,10 @@ class BannersRepository implements BannersRepositoryFacade {
       // Fallback
       if (bannerId != null) {
         try {
-          final localBanner =
-              await appDatabase.getItem('banners', bannerId.toString());
+          final localBanner = await appDatabase.getItem(
+            'banners',
+            bannerId.toString(),
+          );
           if (localBanner != null) {
             return ApiResult.success(data: BannerData.fromJson(localBanner));
           }
@@ -175,8 +177,10 @@ class BannersRepository implements BannersRepositoryFacade {
       // Fallback
       if (bannerId != null) {
         try {
-          final localAd =
-              await appDatabase.getItem('banners', bannerId.toString());
+          final localAd = await appDatabase.getItem(
+            'banners',
+            bannerId.toString(),
+          );
           if (localAd != null) {
             return ApiResult.success(data: BannerData.fromJson(localAd));
           }

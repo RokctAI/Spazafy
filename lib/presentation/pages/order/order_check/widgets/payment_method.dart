@@ -41,7 +41,9 @@ class _PaymentMethodsState extends ConsumerState<PaymentMethods> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(paymentProvider.notifier).fetchPayments(
+      ref
+          .read(paymentProvider.notifier)
+          .fetchPayments(
             context,
             withOutCash: widget.tipPrice != null,
             shopEnableCod: widget.shopEnableCod,
@@ -115,20 +117,29 @@ class _PaymentMethodsState extends ConsumerState<PaymentMethods> {
                                   shrinkWrap: true,
                                   itemCount: state.payments.length,
                                   itemBuilder: (context, index) {
-                                    final bool isPayfast = state
-                                            .payments[index].tag
+                                    final bool isPayfast =
+                                        state.payments[index].tag
                                             ?.toLowerCase() ==
                                         "payfast";
                                     return SelectItem(
                                       onTap: () async {
-                                        final tag = state.payments[index].tag?.toLowerCase() ?? "";
-                                        final isOnlineOnly = tag == "wallet" || tag == "payfast" || tag == "pay-fast";
-                                        
+                                        final tag =
+                                            state.payments[index].tag
+                                                ?.toLowerCase() ??
+                                            "";
+                                        final isOnlineOnly =
+                                            tag == "wallet" ||
+                                            tag == "payfast" ||
+                                            tag == "pay-fast";
+
                                         if (isOnlineOnly) {
-                                          final connected = await AppConnectivity.connectivity();
+                                          final connected =
+                                              await AppConnectivity.connectivity();
                                           if (!connected) {
                                             if (context.mounted) {
-                                              AppHelpers.showNoConnectionSnackBar(context);
+                                              AppHelpers.showNoConnectionSnackBar(
+                                                context,
+                                              );
                                             }
                                             return;
                                           }

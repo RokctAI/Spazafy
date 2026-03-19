@@ -64,9 +64,9 @@ class ShopNotifier extends StateNotifier<ShopState> {
     required LatLng end,
   }) async {
     state = state.copyWith(polylineCoordinates: []);
-      final response = await _drawRouting.getRouting(start: start, end: end);
-      response.when(
-        success: (data) {
+    final response = await _drawRouting.getRouting(start: start, end: end);
+    response.when(
+      success: (data) {
         List<LatLng> list = [];
         List ls = data.features[0].geometry.coordinates;
         for (int i = 0; i < ls.length; i++) {
@@ -200,31 +200,34 @@ class ShopNotifier extends StateNotifier<ShopState> {
       }
       if (state.isTodayWorkingDay) {
         TimeOfDay startTimeOfDay = TimeOfDay(
-          hour: int.tryParse(
+          hour:
+              int.tryParse(
                 state.shopData!.shopWorkingDays?[todayWeekIndex].from
                         ?.substring(
-                      0,
-                      state.shopData!.shopWorkingDays?[todayWeekIndex].from
-                              ?.indexOf("-") ??
                           0,
-                    ) ??
+                          state.shopData!.shopWorkingDays?[todayWeekIndex].from
+                                  ?.indexOf("-") ??
+                              0,
+                        ) ??
                     "",
               ) ??
               0,
-          minute: int.tryParse(
+          minute:
+              int.tryParse(
                 state.shopData!.shopWorkingDays?[todayWeekIndex].from
                         ?.substring(
-                      (state.shopData!.shopWorkingDays?[todayWeekIndex].from
-                                  ?.indexOf("-") ??
-                              0) +
-                          1,
-                    ) ??
+                          (state.shopData!.shopWorkingDays?[todayWeekIndex].from
+                                      ?.indexOf("-") ??
+                                  0) +
+                              1,
+                        ) ??
                     "",
               ) ??
               0,
         );
         TimeOfDay endTimeOfDay = TimeOfDay(
-          hour: int.tryParse(
+          hour:
+              int.tryParse(
                 state.shopData!.shopWorkingDays?[todayWeekIndex].to?.substring(
                       0,
                       state.shopData!.shopWorkingDays?[todayWeekIndex].to
@@ -234,7 +237,8 @@ class ShopNotifier extends StateNotifier<ShopState> {
                     "",
               ) ??
               0,
-          minute: int.tryParse(
+          minute:
+              int.tryParse(
                 state.shopData!.shopWorkingDays?[todayWeekIndex].to?.substring(
                       (state.shopData!.shopWorkingDays?[todayWeekIndex].to
                                   ?.indexOf("-") ??
@@ -295,13 +299,13 @@ class ShopNotifier extends StateNotifier<ShopState> {
     VoidCallback onSuccess,
   ) async {
     state = state.copyWith(isJoinOrder: true);
-      final response = await _shopsRepository.joinOrder(
-        shopId: shopId,
-        name: name,
-        cartId: cartId,
-      );
-      response.when(
-        success: (data) async {
+    final response = await _shopsRepository.joinOrder(
+      shopId: shopId,
+      name: name,
+      cartId: cartId,
+    );
+    response.when(
+      success: (data) async {
         state = state.copyWith(
           isJoinOrder: false,
           isGroupOrder: true,
@@ -321,9 +325,9 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
   Future<void> fetchShop(BuildContext context, String uuid) async {
     state = state.copyWith(isLoading: true);
-      final response = await _shopsRepository.getSingleShop(uuid: uuid);
-      response.when(
-        success: (data) async {
+    final response = await _shopsRepository.getSingleShop(uuid: uuid);
+    response.when(
+      success: (data) async {
         _list = LocalStorage.getSavedShopsList();
         for (String e in _list) {
           if (e == data.data?.id) {
@@ -344,9 +348,9 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
   Future<bool> fetchCategory(BuildContext context, String shopId) async {
     state = state.copyWith(isCategoryLoading: true);
-      final response = await _categoriesRepository.getCategoriesByShop(
-        shopId: shopId,
-      );
+    final response = await _categoriesRepository.getCategoriesByShop(
+      shopId: shopId,
+    );
     return response.when(
       success: (data) async {
         state = state.copyWith(category: data.data, isCategoryLoading: false);
@@ -369,37 +373,35 @@ class ShopNotifier extends StateNotifier<ShopState> {
     ValueChanged<int> onSuccess,
   ) async {
     page = 1;
-      state = state.copyWith(
-        isProductLoading: true,
-        isCategoryLoading: true,
-        isBrandsLoading: true,
-      );
+    state = state.copyWith(
+      isProductLoading: true,
+      isCategoryLoading: true,
+      isBrandsLoading: true,
+    );
 
-      // First, fetch all brands for the shop - this is the only brands request we need
-      final brandsResponse = await _brandsRepository.getAllBrands(
-        shopId: shopId,
-      );
-      List<BrandData> shopBrands = [];
+    // First, fetch all brands for the shop - this is the only brands request we need
+    final brandsResponse = await _brandsRepository.getAllBrands(shopId: shopId);
+    List<BrandData> shopBrands = [];
 
-      brandsResponse.when(
-        success: (brandsData) {
-          shopBrands = brandsData.data ?? [];
-          // Update state with all shop brands - we won't need to fetch by category anymore
-          state = state.copyWith(brands: shopBrands, isBrandsLoading: false);
-        },
-        failure: (failure, status) {
-          debugPrint('Failed to fetch brands: $failure');
-          state = state.copyWith(isBrandsLoading: false);
-        },
-      );
+    brandsResponse.when(
+      success: (brandsData) {
+        shopBrands = brandsData.data ?? [];
+        // Update state with all shop brands - we won't need to fetch by category anymore
+        state = state.copyWith(brands: shopBrands, isBrandsLoading: false);
+      },
+      failure: (failure, status) {
+        debugPrint('Failed to fetch brands: $failure');
+        state = state.copyWith(isBrandsLoading: false);
+      },
+    );
 
-      // Then fetch products
-      final productsResponse = await _productsRepository.getAllProducts(
-        shopId: shopId,
-      );
+    // Then fetch products
+    final productsResponse = await _productsRepository.getAllProducts(
+      shopId: shopId,
+    );
 
-      productsResponse.when(
-        success: (data) {
+    productsResponse.when(
+      success: (data) {
         List<All> allList = data.data?.all ?? [];
         for (int i = 0; i < allList.length; i++) {
           allList[i] = allList[i].copyWith(key: GlobalKey());
@@ -448,16 +450,12 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
         onSuccess.call(allList.length);
       },
-      failure: (failure, status) async {
-        final connected = await AppConnectivity.connectivity();
+      failure: (failure, status) {
         state = state.copyWith(
           isProductLoading: false,
           isCategoryLoading: false,
-          isDataUnavailableOffline: !connected,
         );
-        if (connected && context.mounted) {
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        }
+        AppHelpers.showCheckTopSnackBar(context, failure);
       },
     );
   }
@@ -472,12 +470,12 @@ class ShopNotifier extends StateNotifier<ShopState> {
       return;
     }
     state = state.copyWith(isBrandsLoading: true);
-      final response = await _brandsRepository.getAllBrands(
-        categoryId: categoryId,
-        shopId: shopId,
-      );
-      response.when(
-        success: (data) {
+    final response = await _brandsRepository.getAllBrands(
+      categoryId: categoryId,
+      shopId: shopId,
+    );
+    response.when(
+      success: (data) {
         state = state.copyWith(brands: data.data, isBrandsLoading: false);
       },
       failure: (failure, status) {
@@ -512,15 +510,13 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
   Future<void> checkProductsPopular(BuildContext context, String shopId) async {
     page = 1;
-      final response = await _productsRepository.getProductsPopularPaginate(
-        page: 1,
-        shopId: shopId,
-      );
-      response.when(
-        success: (data) {
-        state = state.copyWith(
-          isPopularProduct: (data.data ?? []).isNotEmpty,
-        );
+    final response = await _productsRepository.getProductsPopularPaginate(
+      page: 1,
+      shopId: shopId,
+    );
+    response.when(
+      success: (data) {
+        state = state.copyWith(isPopularProduct: (data.data ?? []).isNotEmpty);
       },
       failure: (failure, status) {
         AppHelpers.showCheckTopSnackBar(context, failure);
@@ -570,17 +566,17 @@ class ShopNotifier extends StateNotifier<ShopState> {
     String categoryId,
   ) async {
     state = state.copyWith(isProductCategoryLoading: true);
-      page = 1;
-      final response =
-          await _productsRepository.getProductsShopByCategoryPaginate(
-        page: 1,
-        shopId: shopId,
-        categoryId: categoryId,
-        sortIndex: state.sortIndex,
-        brands: state.brandIds,
-      );
-      response.when(
-        success: (data) {
+    page = 1;
+    final response = await _productsRepository
+        .getProductsShopByCategoryPaginate(
+          page: 1,
+          shopId: shopId,
+          categoryId: categoryId,
+          sortIndex: state.sortIndex,
+          brands: state.brandIds,
+        );
+    response.when(
+      success: (data) {
         state = state.copyWith(
           categoryProducts: data.data ?? [],
           isProductCategoryLoading: false,
@@ -599,14 +595,14 @@ class ShopNotifier extends StateNotifier<ShopState> {
     String categoryId, {
     RefreshController? controller,
   }) async {
-    final response =
-          await _productsRepository.getProductsShopByCategoryPaginate(
-        page: ++page,
-        shopId: shopId,
-        categoryId: categoryId,
-      );
-      response.when(
-        success: (data) {
+    final response = await _productsRepository
+        .getProductsShopByCategoryPaginate(
+          page: ++page,
+          shopId: shopId,
+          categoryId: categoryId,
+        );
+    response.when(
+      success: (data) {
         List<ProductData> list = List.from(state.categoryProducts);
         list.addAll(data.data!.toList());
         state = state.copyWith(categoryProducts: list);
@@ -749,9 +745,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
     state = state.copyWith(shareLink: res.data['shortLink']);
 
-    debugPrint(
-      'share link shop_notifier: ${state.shareLink}\n$dataShare',
-    );
+    debugPrint('share link shop_notifier: ${state.shareLink}\n$dataShare');
   }
 
   onShare() async {

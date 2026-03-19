@@ -137,7 +137,9 @@ class _ShopPageState extends ConsumerState<ShopPage>
         ..checkProductsPopular(context, widget.shopId)
         ..changeIndex(0);
       if (LocalStorage.getToken().isNotEmpty) {
-        ref.read(shopOrderProvider.notifier).getCart(
+        ref
+            .read(shopOrderProvider.notifier)
+            .getCart(
               context,
               () {},
               userUuid: ref.watch(shopProvider).userUuid,
@@ -218,7 +220,8 @@ class _ShopPageState extends ConsumerState<ShopPage>
     final state = ref.watch(shopProvider);
     final orders = ref.watch(shopOrderProvider).cart;
 
-    final bool isCartEmpty = orders == null ||
+    final bool isCartEmpty =
+        orders == null ||
         (orders.userCarts?.isEmpty ?? true) ||
         ((orders.userCarts?.isEmpty ?? true)
             ? true
@@ -244,11 +247,10 @@ class _ShopPageState extends ConsumerState<ShopPage>
                     leading: const SizedBox.shrink(),
                     flexibleSpace: FlexibleSpaceBar(
                       background: state.isSearchEnabled
-                          ? const SizedBox
-                              .shrink() // Hide when search is active
+                          ? const SizedBox.shrink() // Hide when search is active
                           : ShopPageAvatar(
-                              workTime: state.endTodayTime.hour >
-                                      TimeOfDay.now().hour
+                              workTime:
+                                  state.endTodayTime.hour > TimeOfDay.now().hour
                                   ? "${TimeService.timeFormatTime(state.startTodayTime.format(context))} - ${TimeService.timeFormatTime(state.endTodayTime.format(context))}"
                                   : AppHelpers.getTranslation(TrKeys.close),
                               onLike: () {
@@ -354,10 +356,13 @@ class _ShopPageState extends ConsumerState<ShopPage>
                       Consumer(
                         builder: (context, ref, child) {
                           // Check if currency is loaded
-                          final isLoading =
-                              ref.watch(shopOrderProvider).isLoading;
-                          final totalPrice =
-                              ref.watch(shopOrderProvider).cart?.totalPrice;
+                          final isLoading = ref
+                              .watch(shopOrderProvider)
+                              .isLoading;
+                          final totalPrice = ref
+                              .watch(shopOrderProvider)
+                              .cart
+                              ?.totalPrice;
                           final currency = LocalStorage.getSelectedCurrency();
 
                           if (isLoading) {
@@ -453,7 +458,9 @@ class _ShopPageState extends ConsumerState<ShopPage>
                                   itemBuilder: (context, index) {
                                     return ListTile(
                                       title: Text(
-                                        state.allData[index].translation
+                                        state
+                                                .allData[index]
+                                                .translation
                                                 ?.title ??
                                             "",
                                         style: AppStyle.interNoSemi(
@@ -467,7 +474,9 @@ class _ShopPageState extends ConsumerState<ShopPage>
                                         // Scroll to the category
                                         if (state.allData[index].key != null) {
                                           Scrollable.ensureVisible(
-                                            state.allData[index].key!
+                                            state
+                                                .allData[index]
+                                                .key!
                                                 .currentContext!,
                                             duration: const Duration(
                                               milliseconds: 300,
@@ -585,14 +594,14 @@ class _ShopPageState extends ConsumerState<ShopPage>
                             isCartEmpty
                                 ? "0"
                                 : (ref
-                                            .watch(shopOrderProvider)
-                                            .cart
-                                            ?.userCarts
-                                            ?.first
-                                            .cartDetails
-                                            ?.length ??
-                                        0)
-                                    .toString(),
+                                              .watch(shopOrderProvider)
+                                              .cart
+                                              ?.userCarts
+                                              ?.first
+                                              .cartDetails
+                                              ?.length ??
+                                          0)
+                                      .toString(),
                             style: const TextStyle(color: AppStyle.white),
                           ),
                         ),
@@ -610,57 +619,6 @@ class _ShopPageState extends ConsumerState<ShopPage>
 
   Widget contentList() {
     final state = ref.watch(shopProvider);
-    if (state.isDataUnavailableOffline) {
-      return Container(
-        padding: EdgeInsets.only(top: 100.h),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Remix.wifi_off_line,
-                size: 80.r,
-                color: AppStyle.textGrey.withOpacity(0.5),
-              ),
-              24.verticalSpace,
-              Text(
-                AppHelpers.getTranslation(TrKeys.dataNotAvailableOffline),
-                style: AppStyle.interSemi(
-                  size: 16,
-                  color: AppStyle.textGrey,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              8.verticalSpace,
-              Text(
-                AppHelpers.getTranslation(TrKeys.pleaseGoOnlineToFetch),
-                style: AppStyle.interRegular(
-                  size: 14,
-                  color: AppStyle.textGrey,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              32.verticalSpace,
-              SizedBox(
-                width: 200.w,
-                child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.retry),
-                  onPressed: () {
-                    ref.read(shopProvider.notifier).fetchProducts(
-                      context,
-                      widget.shopId,
-                      (i) {
-                        _tabController = TabController(length: i, vsync: this);
-                      },
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
     return SingleChildScrollView(
       child: (state.isProductLoading || state.isBrandsLoading)
           ? const ShimmerProductList()
@@ -673,7 +631,7 @@ class _ShopPageState extends ConsumerState<ShopPage>
                     double screenHeight = MediaQuery.sizeOf(context).height;
                     double visibleAreaOnScreen =
                         info.visibleBounds.bottom - info.visibleBounds.top;
- 
+
                     if (info.visibleFraction > 0.5 ||
                         visibleAreaOnScreen > screenHeight * 0.5) {
                       _tabController.animateTo(index);

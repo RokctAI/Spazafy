@@ -42,8 +42,9 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       state = state.copyWith(isAddAndRemoveLoading: false);
       return;
     }
-    List<CartDetail> newCartList =
-        List.from(currentCart?.userCarts?.first.cartDetails ?? []);
+    List<CartDetail> newCartList = List.from(
+      currentCart?.userCarts?.first.cartDetails ?? [],
+    );
     newCartList.removeAt(index);
     newCartList.insert(index, newDetail);
     UserCart newCart = currentCart!.userCarts!.first.copyWith(
@@ -53,19 +54,15 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     newUserCart.removeAt(0);
     newUserCart.insert(0, newCart);
     Cart newDate = currentCart.copyWith(userCarts: newUserCart);
-    
+
     final newCarts = Map<String, Cart?>.from(state.carts);
     newCarts[shopId] = newDate;
     state = state.copyWith(carts: newCarts);
 
     List<CartRequest> list = [
       CartRequest(
-        stockId:
-            newDate.userCarts?.first.cartDetails?[index].stock?.id ?? "",
-        quantity:
-            newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
-        alternativeStockId:
-            newDate.userCarts?.first.cartDetails?[index].alternativeStock?.id,
+        stockId: newDate.userCarts?.first.cartDetails?[index].stock?.id ?? "",
+        quantity: newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
       ),
     ];
     for (Addons element
@@ -82,12 +79,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     final response = await _cartRepository.insertCart(
       cart: CartRequest(
         shopId: shopId,
-        stockId:
-            newDate.userCarts?.first.cartDetails?[index].stock?.id ?? "",
-        quantity:
-            newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
-        alternativeStockId:
-            newDate.userCarts?.first.cartDetails?[index].alternativeStock?.id,
+        stockId: newDate.userCarts?.first.cartDetails?[index].stock?.id ?? "",
+        quantity: newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
         carts: list,
       ),
     );
@@ -95,7 +88,10 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       success: (data) async {
         final updatedCarts = Map<String, Cart?>.from(state.carts);
         updatedCarts[shopId] = data.data;
-        state = state.copyWith(carts: updatedCarts, isAddAndRemoveLoading: false);
+        state = state.copyWith(
+          carts: updatedCarts,
+          isAddAndRemoveLoading: false,
+        );
       },
       failure: (failure, status) {
         state = state.copyWith(isAddAndRemoveLoading: false);
@@ -104,7 +100,11 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     );
   }
 
-  Future<void> removeCount(BuildContext context, int index, String shopId) async {
+  Future<void> removeCount(
+    BuildContext context,
+    int index,
+    String shopId,
+  ) async {
     state = state.copyWith(isAddAndRemoveLoading: true);
     final currentCart = state.carts[shopId];
     if ((currentCart?.userCarts?.first.cartDetails?[index].quantity ?? 1) > 1) {
@@ -113,8 +113,9 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       CartDetail newDetail = oldDetail.copyWith(
         quantity: (oldDetail.quantity ?? 1) - 1,
       );
-      List<CartDetail> newCartList =
-          List.from(currentCart?.userCarts?.first.cartDetails ?? []);
+      List<CartDetail> newCartList = List.from(
+        currentCart?.userCarts?.first.cartDetails ?? [],
+      );
       newCartList.removeAt(index);
       newCartList.insert(index, newDetail);
       UserCart newCart = currentCart!.userCarts!.first.copyWith(
@@ -124,20 +125,15 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       newUserCart.removeAt(0);
       newUserCart.insert(0, newCart);
       Cart newDate = currentCart.copyWith(userCarts: newUserCart);
-      
+
       final newCarts = Map<String, Cart?>.from(state.carts);
       newCarts[shopId] = newDate;
       state = state.copyWith(carts: newCarts);
 
       List<CartRequest> list = [
         CartRequest(
-          stockId:
-              newDate.userCarts?.first.cartDetails?[index].stock?.id ??
-                  "",
-          quantity:
-              newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
-          alternativeStockId:
-              newDate.userCarts?.first.cartDetails?[index].alternativeStock?.id,
+          stockId: newDate.userCarts?.first.cartDetails?[index].stock?.id ?? "",
+          quantity: newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
         ),
       ];
       for (Addons element
@@ -147,21 +143,15 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
             stockId: element.stocks?.id,
             quantity: element.quantity,
             parentId:
-                newDate.userCarts?.first.cartDetails?[index].stock?.id ??
-                    "",
+                newDate.userCarts?.first.cartDetails?[index].stock?.id ?? "",
           ),
         );
       }
       final response = await _cartRepository.insertCart(
         cart: CartRequest(
           shopId: shopId,
-          stockId:
-              newDate.userCarts?.first.cartDetails?[index].stock?.id ??
-                  "",
-          quantity:
-              newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
-          alternativeStockId:
-              newDate.userCarts?.first.cartDetails?[index].alternativeStock?.id,
+          stockId: newDate.userCarts?.first.cartDetails?[index].stock?.id ?? "",
+          quantity: newDate.userCarts?.first.cartDetails?[index].quantity ?? 1,
           carts: list,
         ),
       );
@@ -184,8 +174,9 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       final cartId = currentCart?.id ?? "";
       final cartDetailId =
           currentCart?.userCarts?.first.cartDetails?[index].id ?? "";
-      List<CartDetail> newCartList =
-          List.from(currentCart?.userCarts?.first.cartDetails ?? []);
+      List<CartDetail> newCartList = List.from(
+        currentCart?.userCarts?.first.cartDetails ?? [],
+      );
       newCartList.removeAt(index);
       UserCart newCart = currentCart!.userCarts!.first.copyWith(
         cartDetails: newCartList,
@@ -195,14 +186,15 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       newUserCart.insert(0, newCart);
       Cart newDate = currentCart.copyWith(userCarts: newUserCart);
       if (newDate.userCarts!.first.cartDetails!.isEmpty) {
-        final responseDelete = await _cartRepository.deleteCart(
-          cartId: cartId,
-        );
+        final responseDelete = await _cartRepository.deleteCart(cartId: cartId);
         responseDelete.when(
           success: (data) async {
             final updatedCarts = Map<String, Cart?>.from(state.carts);
             updatedCarts.remove(shopId);
-            state = state.copyWith(isAddAndRemoveLoading: false, carts: updatedCarts);
+            state = state.copyWith(
+              isAddAndRemoveLoading: false,
+              carts: updatedCarts,
+            );
             context.maybePop();
             getCart(context, () {}, isShowLoading: false, shopId: shopId);
           },
@@ -245,12 +237,13 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     final currentCart = state.carts[shopId];
     CartDetail oldDetail =
         currentCart?.userCarts?[userIndex].cartDetails?[productIndex] ??
-            CartDetail();
+        CartDetail();
     CartDetail newDetail = oldDetail.copyWith(
       quantity: 1 + (oldDetail.quantity ?? 1),
     );
-    List<CartDetail> newCartList =
-        List.from(currentCart?.userCarts?[userIndex].cartDetails ?? []);
+    List<CartDetail> newCartList = List.from(
+      currentCart?.userCarts?[userIndex].cartDetails ?? [],
+    );
     newCartList.removeAt(productIndex);
     newCartList.insert(productIndex, newDetail);
     UserCart newCart = currentCart!.userCarts![userIndex].copyWith(
@@ -260,7 +253,7 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     newUserCart.removeAt(userIndex);
     newUserCart.insert(userIndex, newCart);
     Cart newDate = currentCart.copyWith(userCarts: newUserCart);
-    
+
     final newCarts = Map<String, Cart?>.from(state.carts);
     newCarts[shopId] = newDate;
     state = state.copyWith(carts: newCarts);
@@ -269,25 +262,34 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       state = state.copyWith(isAddAndRemoveLoading: true);
       List<CartRequest> list = [
         CartRequest(
-          stockId: newDate.userCarts?[userIndex].cartDetails?[productIndex]
-                  .stock?.id ??
+          stockId:
+              newDate
+                  .userCarts?[userIndex]
+                  .cartDetails?[productIndex]
+                  .stock
+                  ?.id ??
               "",
-          quantity: newDate.userCarts?[userIndex].cartDetails?[productIndex]
+          quantity:
+              newDate
+                  .userCarts?[userIndex]
+                  .cartDetails?[productIndex]
                   .quantity ??
               1,
-          alternativeStockId: newDate.userCarts?[userIndex]
-              .cartDetails?[productIndex].alternativeStock?.id,
         ),
       ];
-      for (Addons element in newDate.userCarts?[userIndex]
-              .cartDetails?[productIndex].addons ??
-          []) {
+      for (Addons element
+          in newDate.userCarts?[userIndex].cartDetails?[productIndex].addons ??
+              []) {
         list.add(
           CartRequest(
             stockId: element.stocks?.id,
             quantity: element.quantity,
-            parentId: newDate.userCarts?[userIndex]
-                    .cartDetails?[productIndex].stock?.id ??
+            parentId:
+                newDate
+                    .userCarts?[userIndex]
+                    .cartDetails?[productIndex]
+                    .stock
+                    ?.id ??
                 "",
           ),
         );
@@ -297,14 +299,19 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           cartId: newDate.id.toString(),
           userUuid: newDate.userCarts?[userIndex].uuid,
           shopId: shopId,
-          stockId: newDate.userCarts?[userIndex].cartDetails?[productIndex]
-                  .stock?.id ??
+          stockId:
+              newDate
+                  .userCarts?[userIndex]
+                  .cartDetails?[productIndex]
+                  .stock
+                  ?.id ??
               "",
-          quantity: newDate.userCarts?[userIndex].cartDetails?[productIndex]
+          quantity:
+              newDate
+                  .userCarts?[userIndex]
+                  .cartDetails?[productIndex]
                   .quantity ??
               1,
-          alternativeStockId: newDate.userCarts?[userIndex]
-              .cartDetails?[productIndex].alternativeStock?.id,
           carts: list,
         ),
       );
@@ -335,18 +342,21 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     required String shopId,
   }) async {
     final currentCart = state.carts[shopId];
-    if ((currentCart?.userCarts?[userIndex].cartDetails?[productIndex]
+    if ((currentCart
+                ?.userCarts?[userIndex]
+                .cartDetails?[productIndex]
                 .quantity ??
             1) >
         1) {
       CartDetail oldDetail =
           currentCart?.userCarts?[userIndex].cartDetails?[productIndex] ??
-              CartDetail();
+          CartDetail();
       CartDetail newDetail = oldDetail.copyWith(
         quantity: (oldDetail.quantity ?? 1) - 1,
       );
-      List<CartDetail> newCartList =
-          List.from(currentCart?.userCarts?[userIndex].cartDetails ?? []);
+      List<CartDetail> newCartList = List.from(
+        currentCart?.userCarts?[userIndex].cartDetails ?? [],
+      );
       newCartList.removeAt(productIndex);
       newCartList.insert(productIndex, newDetail);
       UserCart newCart = currentCart!.userCarts![userIndex].copyWith(
@@ -356,7 +366,7 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       newUserCart.removeAt(userIndex);
       newUserCart.insert(userIndex, newCart);
       Cart newDate = currentCart.copyWith(userCarts: newUserCart);
-      
+
       final newCarts = Map<String, Cart?>.from(state.carts);
       newCarts[shopId] = newDate;
       state = state.copyWith(carts: newCarts);
@@ -365,25 +375,37 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
         state = state.copyWith(isAddAndRemoveLoading: true);
         List<CartRequest> list = [
           CartRequest(
-            stockId: newDate.userCarts?[userIndex]
-                    .cartDetails?[productIndex].stock?.id ??
+            stockId:
+                newDate
+                    .userCarts?[userIndex]
+                    .cartDetails?[productIndex]
+                    .stock
+                    ?.id ??
                 "",
-            quantity: newDate.userCarts?[userIndex]
-                    .cartDetails?[productIndex].quantity ??
+            quantity:
+                newDate
+                    .userCarts?[userIndex]
+                    .cartDetails?[productIndex]
+                    .quantity ??
                 1,
-            alternativeStockId: newDate.userCarts?[userIndex]
-                .cartDetails?[productIndex].alternativeStock?.id,
           ),
         ];
-        for (Addons element in newDate.userCarts?[userIndex]
-                .cartDetails?[productIndex].addons ??
-            []) {
+        for (Addons element
+            in newDate
+                    .userCarts?[userIndex]
+                    .cartDetails?[productIndex]
+                    .addons ??
+                []) {
           list.add(
             CartRequest(
               stockId: element.stocks?.id,
               quantity: element.quantity,
-              parentId: newDate.userCarts?[userIndex]
-                      .cartDetails?[productIndex].stock?.id ??
+              parentId:
+                  newDate
+                      .userCarts?[userIndex]
+                      .cartDetails?[productIndex]
+                      .stock
+                      ?.id ??
                   "",
             ),
           );
@@ -393,14 +415,19 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
             cartId: newDate.id.toString(),
             userUuid: newDate.userCarts?[userIndex].uuid,
             shopId: shopId,
-            stockId: newDate.userCarts?[userIndex]
-                    .cartDetails?[productIndex].stock?.id ??
+            stockId:
+                newDate
+                    .userCarts?[userIndex]
+                    .cartDetails?[productIndex]
+                    .stock
+                    ?.id ??
                 "",
-            quantity: newDate.userCarts?[userIndex]
-                    .cartDetails?[productIndex].quantity ??
+            quantity:
+                newDate
+                    .userCarts?[userIndex]
+                    .cartDetails?[productIndex]
+                    .quantity ??
                 1,
-            alternativeStockId: newDate.userCarts?[userIndex]
-                .cartDetails?[productIndex].alternativeStock?.id,
             carts: list,
           ),
         );
@@ -427,9 +454,11 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       state = state.copyWith(isAddAndRemoveLoading: true);
       final cartId = currentCart?.id ?? "";
       final cartDetailId =
-          currentCart?.userCarts?[userIndex].cartDetails?[productIndex].id ?? "";
-      List<CartDetail> newCartList =
-          List.from(currentCart?.userCarts?[userIndex].cartDetails ?? []);
+          currentCart?.userCarts?[userIndex].cartDetails?[productIndex].id ??
+          "";
+      List<CartDetail> newCartList = List.from(
+        currentCart?.userCarts?[userIndex].cartDetails ?? [],
+      );
       newCartList.removeAt(productIndex);
       UserCart newCart = currentCart!.userCarts![userIndex].copyWith(
         cartDetails: newCartList,
@@ -439,14 +468,15 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       newUserCart.insert(userIndex, newCart);
       Cart newDate = currentCart.copyWith(userCarts: newUserCart);
       if (newDate.userCarts![userIndex].cartDetails!.isEmpty) {
-        final responseDelete = await _cartRepository.deleteCart(
-          cartId: cartId,
-        );
+        final responseDelete = await _cartRepository.deleteCart(cartId: cartId);
         responseDelete.when(
           success: (data) async {
             final updatedCarts = Map<String, Cart?>.from(state.carts);
             updatedCarts.remove(shopId);
-            state = state.copyWith(isAddAndRemoveLoading: false, carts: updatedCarts);
+            state = state.copyWith(
+              isAddAndRemoveLoading: false,
+              carts: updatedCarts,
+            );
             context.maybePop();
             getCart(context, () {}, isShowLoading: false, shopId: shopId);
           },
@@ -494,7 +524,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     if (isShowLoading) {
       state = state.copyWith(isLoading: true);
     }
-    final String activeShopId = shopId ?? (state.carts.keys.isNotEmpty ? state.carts.keys.first : "");
+    final String activeShopId =
+        shopId ?? (state.carts.keys.isNotEmpty ? state.carts.keys.first : "");
     final response = (userUuid == null || userUuid.isEmpty)
         ? await _cartRepository.getCart(activeShopId)
         : await _cartRepository.getCartInGroup(cartId, activeShopId, userUuid);
@@ -547,7 +578,11 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     );
   }
 
-  Future changeStatus(BuildContext context, String? userUuid, String shopId) async {
+  Future changeStatus(
+    BuildContext context,
+    String? userUuid,
+    String shopId,
+  ) async {
     state = state.copyWith(isEditOrder: !state.isEditOrder);
     final response = await _cartRepository.changeStatus(
       userUuid: userUuid,
@@ -595,7 +630,7 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       List<UserCart> list = List.from(currentCart?.userCarts ?? []);
       list.removeAt(index);
       Cart? newCart = currentCart?.copyWith(userCarts: list);
-      
+
       final updatedCarts = Map<String, Cart?>.from(state.carts);
       updatedCarts[shopId] = newCart;
       state = state.copyWith(carts: updatedCarts);
@@ -603,10 +638,7 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       if (context.mounted) {
         context.maybePop();
       }
-      _cartRepository.deleteUser(
-        cartId: currentCart?.id ?? "",
-        userId: userId,
-      );
+      _cartRepository.deleteUser(cartId: currentCart?.id ?? "", userId: userId);
       final updatedCarts = Map<String, Cart?>.from(state.carts);
       updatedCarts.remove(shopId);
       state = state.copyWith(isStartGroup: false, carts: updatedCarts);
@@ -618,7 +650,11 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     state = state.copyWith(isStartGroup: true);
   }
 
-  Future<void> startGroupOrder(BuildContext context, String cartId, String shopId) async {
+  Future<void> startGroupOrder(
+    BuildContext context,
+    String cartId,
+    String shopId,
+  ) async {
     state = state.copyWith(isStartGroup: false, isStartGroupLoading: true);
     final response = await _cartRepository.startGroupOrder(cartId: cartId);
     response.when(
@@ -634,10 +670,7 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
         );
       },
       failure: (failure, status) {
-        state = state.copyWith(
-          isStartGroup: false,
-          isStartGroupLoading: false,
-        );
+        state = state.copyWith(isStartGroup: false, isStartGroupLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(status.toString()),
@@ -674,7 +707,12 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     );
   }
 
-  generateShareLink(String shopId, String shopName, String shopLogo, String? type) async {
+  generateShareLink(
+    String shopId,
+    String shopName,
+    String shopLogo,
+    String? type,
+  ) async {
     final currentCart = state.carts[shopId];
     final productLink =
         "${AppConstants.webUrl}/group/${shopId}?g=${currentCart?.id}&o=${currentCart?.ownerId}&t=${type ?? 'shop'}";
@@ -711,65 +749,5 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
     );
 
     state = state.copyWith(shareLink: res.data['shortLink']);
-  }
-
-  void setAlternativeStock({
-    required String shopId,
-    required String stockId,
-    required Stocks alternativeStock,
-  }) {
-    final currentCart = state.carts[shopId];
-    if (currentCart == null) return;
-
-    List<UserCart> newUserCarts = List.from(currentCart.userCarts ?? []);
-    bool found = false;
-
-    for (int i = 0; i < newUserCarts.length; i++) {
-      List<CartDetail> newDetails =
-          List.from(newUserCarts[i].cartDetails ?? []);
-      for (int j = 0; j < newDetails.length; j++) {
-        if (newDetails[j].stock?.id == stockId) {
-          newDetails[j] =
-              newDetails[j].copyWith(alternativeStock: alternativeStock);
-          newUserCarts[i] = newUserCarts[i].copyWith(cartDetails: newDetails);
-          found = true;
-          break;
-        }
-      }
-      if (found) break;
-    }
-
-    if (found) {
-      final newCarts = Map<String, Cart?>.from(state.carts);
-      newCarts[shopId] = currentCart.copyWith(userCarts: newUserCarts);
-      state = state.copyWith(carts: newCarts);
-
-      // Sync with backend immediately
-      int? userIndex;
-      int? productIndex;
-      for (int i = 0; i < newUserCarts.length; i++) {
-        for (int j = 0; j < newUserCarts[i].cartDetails!.length; j++) {
-          if (newUserCarts[i].cartDetails![j].stock?.id == stockId) {
-            userIndex = i;
-            productIndex = j;
-            break;
-          }
-        }
-        if (userIndex != null) break;
-      }
-
-      if (userIndex != null && productIndex != null) {
-        if (newUserCarts.length > 1 || (userIndex > 0)) {
-          addCountWithGroup(
-            context: AppHelpers.getContext()!,
-            productIndex: productIndex,
-            userIndex: userIndex,
-            shopId: shopId,
-          );
-        } else {
-          addCount(AppHelpers.getContext()!, productIndex, shopId);
-        }
-      }
-    }
   }
 }

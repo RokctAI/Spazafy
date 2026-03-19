@@ -22,8 +22,7 @@ class CartOrderItem extends StatelessWidget {
   final bool isActive;
   final bool isOwn;
   final bool isAddComment;
-  final VoidCallback? onChooseAlternative;
- 
+
   const CartOrderItem({
     super.key,
     required this.add,
@@ -34,7 +33,6 @@ class CartOrderItem extends StatelessWidget {
     this.isOwn = true,
     this.symbol,
     this.isAddComment = false,
-    this.onChooseAlternative,
   });
 
   @override
@@ -44,13 +42,15 @@ class CartOrderItem extends StatelessWidget {
     for (Addons e in (isActive ? cart?.addons ?? [] : cartTwo?.addons ?? [])) {
       sumPrice += (e.price ?? 0);
     }
-    disSumPrice = (isActive
+    disSumPrice =
+        (isActive
                 ? (cart?.stock?.totalPrice ?? 0)
                 : (cartTwo?.stock?.totalPrice ?? 0)) *
             (cart?.quantity ?? 1) +
         sumPrice +
         (isActive ? (cart?.discount ?? 0) : (cartTwo?.discount ?? 0));
-    sumPrice += (isActive
+    sumPrice +=
+        (isActive
             ? (cart?.stock?.totalPrice ?? 0)
             : (cartTwo?.stock?.totalPrice ?? 0)) *
         (isActive ? (cart?.quantity ?? 1) : (cartTwo?.quantity ?? 1));
@@ -139,9 +139,10 @@ class CartOrderItem extends StatelessWidget {
                           maxLines: 2,
                         ),
                   8.verticalSpace,
-                  for (Addons e in (isActive
-                      ? cart?.addons ?? []
-                      : cartTwo?.addons ?? []))
+                  for (Addons e
+                      in (isActive
+                          ? cart?.addons ?? []
+                          : cartTwo?.addons ?? []))
                     Text(
                       "${e.stocks?.product?.translation?.title ?? ""} ${AppHelpers.numberFormat(symbol: symbol, isOrder: symbol != null, number: (e.price ?? 0) / (e.quantity ?? 1))} x ${(e.quantity ?? 1)}",
                       style: AppStyle.interNormal(
@@ -224,43 +225,6 @@ class CartOrderItem extends StatelessWidget {
                               ),
                             ),
                             16.verticalSpace,
-                            if (isOwn && onChooseAlternative != null)
-                              Padding(
-                                padding: EdgeInsets.only(top: 8.h),
-                                child: InkWell(
-                                  onTap: onChooseAlternative,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        cart?.alternativeStock != null
-                                            ? FlutterRemix.checkbox_circle_fill
-                                            : FlutterRemix.add_circle_line,
-                                        size: 16.r,
-                                        color: cart?.alternativeStock != null
-                                            ? AppStyle.primary
-                                            : AppStyle.red,
-                                      ),
-                                      8.horizontalSpace,
-                                      Expanded(
-                                        child: Text(
-                                          cart?.alternativeStock != null
-                                              ? "${AppHelpers.getTranslation(TrKeys.alternative)}: ${cart?.alternativeStock?.product?.translation?.title}"
-                                              : AppHelpers.getTranslation(TrKeys.chooseAlternative),
-                                          style: AppStyle.interNormal(
-                                            size: 12,
-                                            color: cart?.alternativeStock != null
-                                                ? AppStyle.primary
-                                                : AppStyle.red,
-                                          ),
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            16.verticalSpace,
                             !(cart?.bonus ?? false)
                                 ? Column(
                                     crossAxisAlignment:
@@ -321,62 +285,25 @@ class CartOrderItem extends StatelessWidget {
                           ],
                         )
                       : !(cartTwo?.bonus ?? false)
-                          ? Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      AppHelpers.numberFormat(
-                                        isOrder: symbol != null,
-                                        symbol: symbol,
-                                        number: cartTwo?.stock?.totalPrice,
-                                      ),
-                                      style: AppStyle.interSemi(
-                                        size: 16,
-                                        color: AppStyle.black,
-                                      ),
-                                    ),
-                                    Text(
-                                      " X ${(cartTwo?.quantity ?? 1)}",
-                                      style: AppStyle.interSemi(
-                                        size: 16,
-                                        color: AppStyle.black,
-                                      ),
-                                    ),
-                                    Text(
-                                      " (${(cartTwo?.quantity ?? 1) * (cartTwo?.stock?.product?.interval ?? 1)} ${cartTwo?.stock?.product?.unit?.translation?.title})",
-                                      style: AppStyle.interNormal(
-                                        size: 12,
-                                        color: AppStyle.textGrey,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                8.verticalSpace,
                                 Text(
                                   AppHelpers.numberFormat(
                                     isOrder: symbol != null,
                                     symbol: symbol,
-                                    number: sumPrice,
+                                    number: cartTwo?.stock?.totalPrice,
                                   ),
                                   style: AppStyle.interSemi(
                                     size: 16,
                                     color: AppStyle.black,
                                   ),
                                 ),
-                                8.horizontalSpace,
-                              ],
-                            )
-                          : Row(
-                              children: [
                                 Text(
-                                  AppHelpers.getTranslation(
-                                    (cartTwo?.bonusShop ?? false)
-                                        ? TrKeys.shopBonus
-                                        : TrKeys.bonus,
-                                  ),
+                                  " X ${(cartTwo?.quantity ?? 1)}",
                                   style: AppStyle.interSemi(
                                     size: 16,
                                     color: AppStyle.black,
@@ -391,6 +318,43 @@ class CartOrderItem extends StatelessWidget {
                                 ),
                               ],
                             ),
+                            8.verticalSpace,
+                            Text(
+                              AppHelpers.numberFormat(
+                                isOrder: symbol != null,
+                                symbol: symbol,
+                                number: sumPrice,
+                              ),
+                              style: AppStyle.interSemi(
+                                size: 16,
+                                color: AppStyle.black,
+                              ),
+                            ),
+                            8.horizontalSpace,
+                          ],
+                        )
+                      : Row(
+                          children: [
+                            Text(
+                              AppHelpers.getTranslation(
+                                (cartTwo?.bonusShop ?? false)
+                                    ? TrKeys.shopBonus
+                                    : TrKeys.bonus,
+                              ),
+                              style: AppStyle.interSemi(
+                                size: 16,
+                                color: AppStyle.black,
+                              ),
+                            ),
+                            Text(
+                              " (${(cartTwo?.quantity ?? 1) * (cartTwo?.stock?.product?.interval ?? 1)} ${cartTwo?.stock?.product?.unit?.translation?.title})",
+                              style: AppStyle.interNormal(
+                                size: 12,
+                                color: AppStyle.textGrey,
+                              ),
+                            ),
+                          ],
+                        ),
                 ],
               ),
             ),

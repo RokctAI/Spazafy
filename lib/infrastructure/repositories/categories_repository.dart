@@ -81,9 +81,11 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
         if (localCategories.isNotEmpty) {
           final filtered = localCategories
               .map((e) => CategoryData.fromJson(e))
-              .where((c) =>
-                  (c.title?.toLowerCase().contains(text.toLowerCase()) ??
-                      false))
+              .where(
+                (c) =>
+                    (c.title?.toLowerCase().contains(text.toLowerCase()) ??
+                    false),
+              )
               .toList();
 
           return ApiResult.success(

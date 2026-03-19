@@ -20,7 +20,11 @@ class SettingsRepository implements SettingsRepositoryFacade {
       final responseData = GlobalSettingsResponse.fromJson(response.data);
 
       // Persistence: Cache settings
-      await appDatabase.putItem('settings', 'global_settings', responseData.toJson());
+      await appDatabase.putItem(
+        'settings',
+        'global_settings',
+        responseData.toJson(),
+      );
 
       return ApiResult.success(data: responseData);
     } catch (e) {
@@ -28,9 +32,14 @@ class SettingsRepository implements SettingsRepositoryFacade {
 
       // Fallback
       try {
-        final localData = await appDatabase.getItem('settings', 'global_settings');
+        final localData = await appDatabase.getItem(
+          'settings',
+          'global_settings',
+        );
         if (localData != null) {
-          return ApiResult.success(data: GlobalSettingsResponse.fromJson(localData));
+          return ApiResult.success(
+            data: GlobalSettingsResponse.fromJson(localData),
+          );
         }
       } catch (localError) {
         debugPrint('==> local settings fallback failure: $localError');
@@ -101,7 +110,9 @@ class SettingsRepository implements SettingsRepositoryFacade {
       await appDatabase.putItem('settings', 'languages', responseData.toJson());
 
       if (LocalStorage.getLanguage() == null ||
-          !(responseData.data?.map((e) => e.id).contains(LocalStorage.getLanguage()?.id) ??
+          !(responseData.data
+                  ?.map((e) => e.id)
+                  .contains(LocalStorage.getLanguage()?.id) ??
               true)) {
         responseData.data?.forEach((element) {
           if (element.isDefault ?? false) {
@@ -210,7 +221,8 @@ class SettingsRepository implements SettingsRepositoryFacade {
         '/api/method/paas.api.notification.notification.get_notification_settings',
       );
       return ApiResult.success(
-        data: notificationsListModelFromJson(response.data) ??
+        data:
+            notificationsListModelFromJson(response.data) ??
             NotificationsListModel(),
       );
     } catch (e) {
@@ -244,7 +256,8 @@ class SettingsRepository implements SettingsRepositoryFacade {
       // Sync Queue fallback
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.notification.notification.update_notification_settings',
+          url:
+              '/api/method/paas.api.notification.notification.update_notification_settings',
           method: 'POST',
           payload: {
             'notifications': notifications

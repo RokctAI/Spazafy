@@ -51,7 +51,9 @@ class AppInitializer extends StatefulWidget {
         }
       } else {
         if (kDebugMode) {
-          debugPrint("Failed to fetch POI data. Status: ${response.statusCode}");
+          debugPrint(
+            "Failed to fetch POI data. Status: ${response.statusCode}",
+          );
         }
       }
     } catch (e) {
@@ -105,10 +107,7 @@ class AppInitializer extends StatefulWidget {
             latitude: poiDataMap['latitude'].toDouble(),
             longitude: poiDataMap['longitude'].toDouble(),
             titleColor: Color(
-              int.parse(
-                    poiDataMap['titleColor'].substring(2),
-                    radix: 16,
-                  ) +
+              int.parse(poiDataMap['titleColor'].substring(2), radix: 16) +
                   0xFF000000,
             ),
             pin: poiDataMap['pin'],

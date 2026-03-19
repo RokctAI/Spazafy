@@ -14,7 +14,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
   int _notificationPage = 0;
 
   NotificationNotifier(this._notificationRepository)
-      : super(const NotificationState());
+    : super(const NotificationState());
 
   Future<void> fetchAllNotifications(BuildContext context) async {
     state = state.copyWith(isAllNotificationsLoading: true);
@@ -46,9 +46,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     );
     response.when(
       success: (data) async {
-        final List<NotificationModel> newList = List.from(
-          state.notifications,
-        );
+        final List<NotificationModel> newList = List.from(state.notifications);
         newList.addAll(data.data ?? []);
         state = state.copyWith(
           notifications: isRefresh ? (data.data ?? []) : newList,

@@ -16,7 +16,11 @@ class CurrenciesRepository implements CurrenciesRepositoryFacade {
       final responseData = CurrenciesResponse.fromJson(response.data);
 
       // Persistence: Cache currencies
-      await appDatabase.putItem('settings', 'currencies', responseData.toJson());
+      await appDatabase.putItem(
+        'settings',
+        'currencies',
+        responseData.toJson(),
+      );
 
       return ApiResult.success(data: responseData);
     } catch (e) {
@@ -26,7 +30,9 @@ class CurrenciesRepository implements CurrenciesRepositoryFacade {
       try {
         final localData = await appDatabase.getItem('settings', 'currencies');
         if (localData != null) {
-          return ApiResult.success(data: CurrenciesResponse.fromJson(localData));
+          return ApiResult.success(
+            data: CurrenciesResponse.fromJson(localData),
+          );
         }
       } catch (localError) {
         debugPrint('==> local currency fallback failure: $localError');

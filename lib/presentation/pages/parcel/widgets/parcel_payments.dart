@@ -82,14 +82,23 @@ class _PaymentMethodsState extends ConsumerState<ParcelPayments> {
                             itemBuilder: (context, index) {
                               return SelectItem(
                                 onTap: () async {
-                                  final tag = state.payments[index].tag?.toLowerCase() ?? "";
-                                  final isOnlineOnly = tag == "wallet" || tag == "payfast" || tag == "pay-fast";
-                                  
+                                  final tag =
+                                      state.payments[index].tag
+                                          ?.toLowerCase() ??
+                                      "";
+                                  final isOnlineOnly =
+                                      tag == "wallet" ||
+                                      tag == "payfast" ||
+                                      tag == "pay-fast";
+
                                   if (isOnlineOnly) {
-                                    final connected = await AppConnectivity.connectivity();
+                                    final connected =
+                                        await AppConnectivity.connectivity();
                                     if (!connected) {
                                       if (context.mounted) {
-                                        AppHelpers.showNoConnectionSnackBar(context);
+                                        AppHelpers.showNoConnectionSnackBar(
+                                          context,
+                                        );
                                       }
                                       return;
                                     }

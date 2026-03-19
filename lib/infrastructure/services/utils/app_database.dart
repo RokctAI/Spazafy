@@ -235,8 +235,10 @@ class AppDatabase extends _$AppDatabase {
     return (delete(syncQueueTable)..where((t) => t.id.equals(id))).go();
   }
 
-  Future<void> abandonSyncRequest(SyncQueueEntity request,
-      {String? error}) async {
+  Future<void> abandonSyncRequest(
+    SyncQueueEntity request, {
+    String? error,
+  }) async {
     await transaction(() async {
       // 1. Insert into abandoned table
       await into(abandonedSyncQueueTable).insert(
@@ -256,7 +258,9 @@ class AppDatabase extends _$AppDatabase {
   }
 
   Future<List<SyncQueueEntity>> getSyncRequestsByMethod(String method) {
-    return (select(syncQueueTable)..where((t) => t.method.equals(method))).get();
+    return (select(
+      syncQueueTable,
+    )..where((t) => t.method.equals(method))).get();
   }
 
   Future<void> incrementSyncRetry(String id, {String? error}) async {
@@ -338,7 +342,9 @@ class AppDatabase extends _$AppDatabase {
   }) async {
     final allShops = await getAll('shop');
     if (categoryId != null) {
-      return allShops.where((shop) => shop['category_id'] == categoryId).toList();
+      return allShops
+          .where((shop) => shop['category_id'] == categoryId)
+          .toList();
     }
     return allShops;
   }
@@ -518,17 +524,16 @@ class AppDatabase extends _$AppDatabase {
   }
 
   Future<UserEntity?> getLocalUser(String identifier) async {
-    return (select(userTable)
-          ..where(
-            (t) => t.email.equals(identifier) | t.phone.equals(identifier),
-          ))
+    return (select(userTable)..where(
+          (t) => t.email.equals(identifier) | t.phone.equals(identifier),
+        ))
         .getSingleOrNull();
   }
 
   Future<bool> hasManagerAccount() async {
-    final manager = await (select(userTable)
-          ..where((t) => t.role.equals('seller') | t.role.equals('manager')))
-        .get();
+    final manager = await (select(
+      userTable,
+    )..where((t) => t.role.equals('seller') | t.role.equals('manager'))).get();
     return manager.isNotEmpty;
   }
 }

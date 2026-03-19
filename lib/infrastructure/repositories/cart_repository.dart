@@ -52,11 +52,16 @@ class CartRepository implements CartRepositoryFacade {
         for (final request in pendingDeleteRequests) {
           final requestData = jsonDecode(request.data);
           if (requestData['cart_id'] == cart.id.toString()) {
-            return ApiResult.failure(error: "Cart is being deleted", statusCode: 404);
+            return ApiResult.failure(
+              error: "Cart is being deleted",
+              statusCode: 404,
+            );
           }
         }
 
-        final List<CartDetail> details = List.from(cart.data?.cartDetails ?? []);
+        final List<CartDetail> details = List.from(
+          cart.data?.cartDetails ?? [],
+        );
 
         // Process additions
         for (final request in pendingAddRequests) {
@@ -84,12 +89,12 @@ class CartRepository implements CartRepositoryFacade {
         for (final request in pendingRemoveRequests) {
           final requestData = jsonDecode(request.data);
           final String cartDetailId = requestData['cart_detail_id'];
-          details.removeWhere((element) => element.id.toString() == cartDetailId);
+          details.removeWhere(
+            (element) => element.id.toString() == cartDetailId,
+          );
         }
 
-        cart = cart.copyWith(
-          data: cart.data?.copyWith(cartDetails: details),
-        );
+        cart = cart.copyWith(data: cart.data?.copyWith(cartDetails: details));
       } catch (mergeError) {
         debugPrint('==> sync merge failure: $mergeError');
       }
@@ -195,7 +200,7 @@ class CartRepository implements CartRepositoryFacade {
       return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> deleteCart failure: $e');
-      
+
       // Persistence: Queue the deletion
       try {
         await appDatabase.enqueueSyncRequest(
@@ -251,7 +256,11 @@ class CartRepository implements CartRepositoryFacade {
       // Persistence: Cache result
       final String? shopId = responseData.data?.shopId?.toString();
       if (shopId != null) {
-        await appDatabase.putItem('billing_cart', shopId, responseData.toJson());
+        await appDatabase.putItem(
+          'billing_cart',
+          shopId,
+          responseData.toJson(),
+        );
       }
       return ApiResult.success(data: responseData);
     } catch (e) {
@@ -303,7 +312,11 @@ class CartRepository implements CartRepositoryFacade {
       // Persistence: Cache the cart details
       final String? shopId = responseData.data?.shopId?.toString();
       if (shopId != null) {
-        await appDatabase.putItem('billing_cart', shopId, responseData.toJson());
+        await appDatabase.putItem(
+          'billing_cart',
+          shopId,
+          responseData.toJson(),
+        );
       }
       return ApiResult.success(data: responseData);
     } catch (e) {
@@ -351,7 +364,11 @@ class CartRepository implements CartRepositoryFacade {
       // Persistence: Cache the cart details
       final String? shopId = responseData.data?.shopId?.toString();
       if (shopId != null) {
-        await appDatabase.putItem('billing_cart', shopId, responseData.toJson());
+        await appDatabase.putItem(
+          'billing_cart',
+          shopId,
+          responseData.toJson(),
+        );
       }
       return ApiResult.success(data: responseData);
     } catch (e) {

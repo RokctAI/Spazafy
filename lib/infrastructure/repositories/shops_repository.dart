@@ -44,16 +44,16 @@ class ShopsRepository implements ShopsRepositoryFacade {
         if (localShops.isNotEmpty) {
           final filtered = localShops
               .map((e) => ShopData.fromJson(e))
-              .where((s) =>
-                  (s.translation?.title
-                          ?.toLowerCase()
-                          .contains(text.toLowerCase()) ??
-                      false))
+              .where(
+                (s) =>
+                    (s.translation?.title?.toLowerCase().contains(
+                      text.toLowerCase(),
+                    ) ??
+                    false),
+              )
               .toList();
 
-          return ApiResult.success(
-            data: ShopsPaginateResponse(data: filtered),
-          );
+          return ApiResult.success(data: ShopsPaginateResponse(data: filtered));
         }
       } catch (localError) {
         debugPrint('==> local fallback failure: $localError');

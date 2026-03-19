@@ -175,14 +175,18 @@ class LoginNotifier extends StateNotifier<LoginState> {
           LocalStorage.setToken(data.data?.accessToken ?? '');
           LocalStorage.setAddressSelected(
             AddressData(
-              title: data.data?.user?.addresses?.firstWhere(
-                    (element) => element.active ?? false,
-                    orElse: () {
-                      return AddressNewModel();
-                    },
-                  ).title ??
+              title:
+                  data.data?.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .title ??
                   "",
-              address: data.data?.user?.addresses
+              address:
+                  data.data?.user?.addresses
                       ?.firstWhere(
                         (element) => element.active ?? false,
                         orElse: () {
@@ -242,28 +246,30 @@ class LoginNotifier extends StateNotifier<LoginState> {
       }
 
       state = state.copyWith(isLoading: true);
-      
+
       // 1. Check Local DB for offline re-login
       final localUser = await _appDatabase.getLocalUser(state.email);
       if (localUser != null && localUser.password == state.password) {
         // Success: Found matching local credentials
         final profileMap = jsonDecode(localUser.data);
         final profile = ProfileData.fromJson(profileMap);
-        
+
         // Use cached token if available, or a placeholder
         LocalStorage.setToken(profile.accessToken ?? 'offline_session');
         LocalStorage.setUser(profile);
-        
+
         if (profile.addresses?.isNotEmpty ?? false) {
           final addr = profile.addresses!.first;
-          LocalStorage.setAddressSelected(AddressData(
-            title: addr.title ?? "",
-            address: addr.address?.address ?? "",
-            location: LocationModel(
-              latitude: addr.location?.first,
-              longitude: addr.location?.last,
+          LocalStorage.setAddressSelected(
+            AddressData(
+              title: addr.title ?? "",
+              address: addr.address?.address ?? "",
+              location: LocationModel(
+                latitude: addr.location?.first,
+                longitude: addr.location?.last,
+              ),
             ),
-          ));
+          );
         }
 
         state = state.copyWith(isLoading: false);
@@ -282,10 +288,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       _backgroundSyncService.enqueueRequest(
         '${AppConstants.baseUrl}/auth/login',
         'POST',
-        {
-          'email': state.email,
-          'password': state.password,
-        },
+        {'email': state.email, 'password': state.password},
       );
       AppHelpers.goHome(context);
     }
@@ -324,14 +327,18 @@ class LoginNotifier extends StateNotifier<LoginState> {
           LocalStorage.setToken(data.data?.accessToken ?? '');
           LocalStorage.setAddressSelected(
             AddressData(
-              title: data.data?.user?.addresses?.firstWhere(
-                    (element) => element.active ?? false,
-                    orElse: () {
-                      return AddressNewModel();
-                    },
-                  ).title ??
+              title:
+                  data.data?.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .title ??
                   "",
-              address: data.data?.user?.addresses
+              address:
+                  data.data?.user?.addresses
                       ?.firstWhere(
                         (element) => element.active ?? false,
                         orElse: () {
@@ -412,15 +419,15 @@ class LoginNotifier extends StateNotifier<LoginState> {
         final rawNonce = AppHelpers.generateNonce();
         final OAuthCredential credential =
             user.accessToken?.type == AccessTokenType.limited
-                ? OAuthCredential(
-                    providerId: 'facebook.com',
-                    signInMethod: 'oauth',
-                    idToken: user.accessToken!.tokenString,
-                    rawNonce: rawNonce,
-                  )
-                : FacebookAuthProvider.credential(
-                    user.accessToken?.tokenString ?? "",
-                  );
+            ? OAuthCredential(
+                providerId: 'facebook.com',
+                signInMethod: 'oauth',
+                idToken: user.accessToken!.tokenString,
+                rawNonce: rawNonce,
+              )
+            : FacebookAuthProvider.credential(
+                user.accessToken?.tokenString ?? "",
+              );
 
         final userObj = await FirebaseAuth.instance.signInWithCredential(
           credential,
@@ -439,14 +446,18 @@ class LoginNotifier extends StateNotifier<LoginState> {
               LocalStorage.setToken(data.data?.accessToken ?? '');
               LocalStorage.setAddressSelected(
                 AddressData(
-                  title: data.data?.user?.addresses?.firstWhere(
-                        (element) => element.active ?? false,
-                        orElse: () {
-                          return AddressNewModel();
-                        },
-                      ).title ??
+                  title:
+                      data.data?.user?.addresses
+                          ?.firstWhere(
+                            (element) => element.active ?? false,
+                            orElse: () {
+                              return AddressNewModel();
+                            },
+                          )
+                          .title ??
                       "",
-                  address: data.data?.user?.addresses
+                  address:
+                      data.data?.user?.addresses
                           ?.firstWhere(
                             (element) => element.active ?? false,
                             orElse: () {
@@ -548,14 +559,18 @@ class LoginNotifier extends StateNotifier<LoginState> {
             LocalStorage.setToken(data.data?.accessToken ?? '');
             LocalStorage.setAddressSelected(
               AddressData(
-                title: data.data?.user?.addresses?.firstWhere(
-                      (element) => element.active ?? false,
-                      orElse: () {
-                        return AddressNewModel();
-                      },
-                    ).title ??
+                title:
+                    data.data?.user?.addresses
+                        ?.firstWhere(
+                          (element) => element.active ?? false,
+                          orElse: () {
+                            return AddressNewModel();
+                          },
+                        )
+                        .title ??
                     "",
-                address: data.data?.user?.addresses
+                address:
+                    data.data?.user?.addresses
                         ?.firstWhere(
                           (element) => element.active ?? false,
                           orElse: () {

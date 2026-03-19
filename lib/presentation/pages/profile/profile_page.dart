@@ -259,7 +259,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                   Expanded(
                     child: SmartRefresher(
                       onRefresh: () {
-                        ref.read(profileProvider.notifier).fetchUser(
+                        ref
+                            .read(profileProvider.notifier)
+                            .fetchUser(
                               context,
                               refreshController: refreshController,
                             );
@@ -307,8 +309,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                             onTap: () {
                                               showDialog(
                                                 context: context,
-                                                builder:
-                                                    (BuildContext context) {
+                                                builder: (BuildContext context) {
                                                   return const ComingSoonDialog();
                                                 },
                                               );
@@ -372,12 +373,17 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                     right: 5,
                                     child: GestureDetector(
                                       onTap: () async {
-                                        final connected = await AppConnectivity.connectivity();
+                                        final connected =
+                                            await AppConnectivity.connectivity();
                                         if (connected) {
-                                          context.pushRoute(WalletHistoryRoute());
+                                          context.pushRoute(
+                                            WalletHistoryRoute(),
+                                          );
                                         } else {
                                           if (context.mounted) {
-                                            AppHelpers.showNoConnectionSnackBar(context);
+                                            AppHelpers.showNoConnectionSnackBar(
+                                              context,
+                                            );
                                           }
                                         }
                                       },
@@ -431,15 +437,18 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                               child: SecondButton(
                                                 title:
                                                     AppHelpers.getTranslation(
-                                                  TrKeys.topup,
-                                                ),
+                                                      TrKeys.topup,
+                                                    ),
                                                 bgColor: AppStyle.primary,
                                                 titleColor: AppStyle.white,
                                                 onTap: () async {
-                                                  final connected = await AppConnectivity.connectivity();
+                                                  final connected =
+                                                      await AppConnectivity.connectivity();
                                                   if (!connected) {
                                                     if (context.mounted) {
-                                                      AppHelpers.showNoConnectionSnackBar(context);
+                                                      AppHelpers.showNoConnectionSnackBar(
+                                                        context,
+                                                      );
                                                     }
                                                     return;
                                                   }
@@ -447,9 +456,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                     context: context,
                                                     modal: ProviderScope(
                                                       child: Consumer(
-                                                        builder: (context, ref,
-                                                                _) =>
-                                                            const WalletTopUpScreen(),
+                                                        builder:
+                                                            (context, ref, _) =>
+                                                                const WalletTopUpScreen(),
                                                       ),
                                                     ),
                                                     isDarkMode: false,
@@ -462,15 +471,18 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                               child: SecondButton(
                                                 title:
                                                     AppHelpers.getTranslation(
-                                                  TrKeys.send,
-                                                ),
+                                                      TrKeys.send,
+                                                    ),
                                                 bgColor: AppStyle.primary,
                                                 titleColor: AppStyle.white,
                                                 onTap: () async {
-                                                  final connected = await AppConnectivity.connectivity();
+                                                  final connected =
+                                                      await AppConnectivity.connectivity();
                                                   if (!connected) {
                                                     if (context.mounted) {
-                                                      AppHelpers.showNoConnectionSnackBar(context);
+                                                      AppHelpers.showNoConnectionSnackBar(
+                                                        context,
+                                                      );
                                                     }
                                                     return;
                                                   }
@@ -478,9 +490,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                     context: context,
                                                     modal: ProviderScope(
                                                       child: Consumer(
-                                                        builder: (context, ref,
-                                                                _) =>
-                                                            const WalletSendScreen(),
+                                                        builder:
+                                                            (context, ref, _) =>
+                                                                const WalletSendScreen(),
                                                       ),
                                                     ),
                                                     isDarkMode: false,
@@ -488,22 +500,24 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                 },
                                               ),
                                             ),
-                                            if (AppHelpers
-                                                .getLendingEnabled()) ...[
+                                            if (AppHelpers.getLendingEnabled()) ...[
                                               12.horizontalSpace,
                                               Expanded(
                                                 child: SecondButton(
                                                   title:
                                                       AppHelpers.getTranslation(
-                                                    TrKeys.loan,
-                                                  ),
+                                                        TrKeys.loan,
+                                                      ),
                                                   bgColor: AppStyle.primary,
                                                   titleColor: AppStyle.white,
                                                   onTap: () async {
-                                                    final connected = await AppConnectivity.connectivity();
+                                                    final connected =
+                                                        await AppConnectivity.connectivity();
                                                     if (!connected) {
                                                       if (context.mounted) {
-                                                        AppHelpers.showNoConnectionSnackBar(context);
+                                                        AppHelpers.showNoConnectionSnackBar(
+                                                          context,
+                                                        );
                                                       }
                                                       return;
                                                     }
@@ -511,12 +525,13 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                       context: context,
                                                       modal: ProviderScope(
                                                         child: Consumer(
-                                                          builder: (
-                                                            context,
-                                                            ref,
-                                                            _,
-                                                          ) =>
-                                                              const LoanScreen(),
+                                                          builder:
+                                                              (
+                                                                context,
+                                                                ref,
+                                                                _,
+                                                              ) =>
+                                                                  const LoanScreen(),
                                                         ),
                                                       ),
                                                       isDarkMode: false,
@@ -604,8 +619,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                 }
 
                                                 if (success) {
-                                                  AppHelpers
-                                                      .showCheckTopSnackBarDone(
+                                                  AppHelpers.showCheckTopSnackBarDone(
                                                     context,
                                                     AppHelpers.getTranslation(
                                                       TrKeys
@@ -614,8 +628,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                   );
                                                 } else {
                                                   // Handle failure
-                                                  AppHelpers
-                                                      .showCheckTopSnackBarInfo(
+                                                  AppHelpers.showCheckTopSnackBarInfo(
                                                     context,
                                                     AppHelpers.getTranslation(
                                                       TrKeys.paymentRejected,
@@ -748,62 +761,56 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                         },
                                       )
                                     : (AppHelpers.getParcel())
-                                        ? _buildSquareButton(
-                                            context,
-                                            icon: Remix.bank_card_2_line,
-                                            title: AppHelpers.getTranslation(
-                                              TrKeys.cards,
+                                    ? _buildSquareButton(
+                                        context,
+                                        icon: Remix.bank_card_2_line,
+                                        title: AppHelpers.getTranslation(
+                                          TrKeys.cards,
+                                        ),
+                                        onTap: () {
+                                          AppHelpers.showCustomModalBottomSheet(
+                                            isDismissible: true,
+                                            context: context,
+                                            modal: PaymentScreen(
+                                              tokenizeOnly: true,
+                                              onPaymentComplete: (success) {
+                                                // Close the bottom sheet
+                                                Navigator.pop(context);
+
+                                                if (success &&
+                                                    widget.onCardAdded !=
+                                                        null) {
+                                                  widget.onCardAdded!();
+                                                }
+
+                                                if (success) {
+                                                  AppHelpers.showCheckTopSnackBarDone(
+                                                    context,
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys
+                                                          .cardAddedSuccessfully,
+                                                    ),
+                                                  );
+                                                } else {
+                                                  // Handle failure
+                                                  AppHelpers.showCheckTopSnackBarInfo(
+                                                    context,
+                                                    AppHelpers.getTranslation(
+                                                      TrKeys.paymentRejected,
+                                                    ),
+                                                  );
+                                                }
+                                              },
                                             ),
-                                            onTap: () {
-                                              AppHelpers
-                                                  .showCustomModalBottomSheet(
-                                                isDismissible: true,
-                                                context: context,
-                                                modal: PaymentScreen(
-                                                  tokenizeOnly: true,
-                                                  onPaymentComplete: (success) {
-                                                    // Close the bottom sheet
-                                                    Navigator.pop(context);
-
-                                                    if (success &&
-                                                        widget.onCardAdded !=
-                                                            null) {
-                                                      widget.onCardAdded!();
-                                                    }
-
-                                                    if (success) {
-                                                      AppHelpers
-                                                          .showCheckTopSnackBarDone(
-                                                        context,
-                                                        AppHelpers
-                                                            .getTranslation(
-                                                          TrKeys
-                                                              .cardAddedSuccessfully,
-                                                        ),
-                                                      );
-                                                    } else {
-                                                      // Handle failure
-                                                      AppHelpers
-                                                          .showCheckTopSnackBarInfo(
-                                                        context,
-                                                        AppHelpers
-                                                            .getTranslation(
-                                                          TrKeys
-                                                              .paymentRejected,
-                                                        ),
-                                                      );
-                                                    }
-                                                  },
-                                                ),
-                                                isDarkMode: isDarkMode,
-                                              );
-                                            },
-                                          )
-                                        : _buildSquareButton(
-                                            context,
-                                            borderColor: AppStyle.white,
-                                            backgroundColor: Colors.transparent,
-                                          ),
+                                            isDarkMode: isDarkMode,
+                                          );
+                                        },
+                                      )
+                                    : _buildSquareButton(
+                                        context,
+                                        borderColor: AppStyle.white,
+                                        backgroundColor: Colors.transparent,
+                                      ),
                                 AppHelpers.getReservationEnable()
                                     ? _buildSquareButton(
                                         context,
@@ -828,8 +835,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                 }
 
                                                 if (success) {
-                                                  AppHelpers
-                                                      .showCheckTopSnackBarDone(
+                                                  AppHelpers.showCheckTopSnackBarDone(
                                                     context,
                                                     AppHelpers.getTranslation(
                                                       TrKeys
@@ -838,8 +844,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                   );
                                                 } else {
                                                   // Handle failure
-                                                  AppHelpers
-                                                      .showCheckTopSnackBarInfo(
+                                                  AppHelpers.showCheckTopSnackBarInfo(
                                                     context,
                                                     AppHelpers.getTranslation(
                                                       TrKeys.paymentRejected,
@@ -1017,10 +1022,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     FutureBuilder<PackageInfo>(
-                                                      future: PackageInfo
-                                                          .fromPlatform(),
-                                                      builder: (context,
-                                                          packageSnapshot) {
+                                                      future:
+                                                          PackageInfo.fromPlatform(),
+                                                      builder: (context, packageSnapshot) {
                                                         if (packageSnapshot
                                                             .hasData) {
                                                           String versionDisplay;
@@ -1036,15 +1040,14 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
 
                                                           return Text(
                                                             versionDisplay,
-                                                            style: AppStyle
-                                                                .interNormal(
-                                                              color: AppStyle
-                                                                  .black,
-                                                            ),
+                                                            style:
+                                                                AppStyle.interNormal(
+                                                                  color: AppStyle
+                                                                      .black,
+                                                                ),
                                                           );
                                                         } else {
-                                                          return const SizedBox
-                                                              .shrink();
+                                                          return const SizedBox.shrink();
                                                         }
                                                       },
                                                     ),

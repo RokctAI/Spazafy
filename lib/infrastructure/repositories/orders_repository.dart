@@ -108,9 +108,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       try {
         final localOrder = await appDatabase.getItem('orders', orderId);
         if (localOrder != null) {
-          return ApiResult.success(
-            data: OrderActiveModel.fromJson(localOrder),
-          );
+          return ApiResult.success(data: OrderActiveModel.fromJson(localOrder));
         }
       } catch (localError) {
         debugPrint('==> local fallback failure: $localError');

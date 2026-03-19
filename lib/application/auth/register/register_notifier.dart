@@ -206,30 +206,31 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       response.when(
         success: (data) async {
           // Persist user to local DB for future offline login
-          await _appDatabase.upsertUser(
-            {
-              'uuid': data.user?.id?.toString() ?? '',
-              'email': state.email,
-              'phone': state.phone,
-              'role': 'seller',
-              'firstname': state.firstName,
-              'lastname': state.lastName,
-            },
-            password: state.password,
-          );
+          await _appDatabase.upsertUser({
+            'uuid': data.user?.id?.toString() ?? '',
+            'email': state.email,
+            'phone': state.phone,
+            'role': 'seller',
+            'firstname': state.firstName,
+            'lastname': state.lastName,
+          }, password: state.password);
 
           state = state.copyWith(isLoading: false);
           LocalStorage.setToken(data.token);
           LocalStorage.setAddressSelected(
             AddressData(
-              title: data.user?.addresses?.firstWhere(
-                    (element) => element.active ?? false,
-                    orElse: () {
-                      return AddressNewModel();
-                    },
-                  ).title ??
+              title:
+                  data.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .title ??
                   "",
-              address: data.user?.addresses
+              address:
+                  data.user?.addresses
                       ?.firstWhere(
                         (element) => element.active ?? false,
                         orElse: () {
@@ -296,7 +297,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           'confirm_password': state.confirmPassword,
           'referral': state.referral,
         };
-        
+
         await _appDatabase.enqueueSyncRequest(
           url: '/api/method/paas.api.auth.signup',
           method: 'POST',
@@ -304,21 +305,18 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         );
 
         // Persist temp user locally
-        await _appDatabase.upsertUser(
-          {
-            'uuid': "temp_${DateTime.now().millisecondsSinceEpoch}",
-            'email': state.email,
-            'phone': state.phone,
-            'role': 'seller',
-            'firstname': state.firstName,
-            'lastname': state.lastName,
-          },
-          password: state.password,
-        );
+        await _appDatabase.upsertUser({
+          'uuid': "temp_${DateTime.now().millisecondsSinceEpoch}",
+          'email': state.email,
+          'phone': state.phone,
+          'role': 'seller',
+          'firstname': state.firstName,
+          'lastname': state.lastName,
+        }, password: state.password);
 
         state = state.copyWith(isLoading: false);
         LocalStorage.setToken("temp_token");
-        
+
         if (context.mounted) {
           if (AppConstants.isDemo) {
             context.replaceRoute(UiTypeRoute());
@@ -365,30 +363,31 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       response.when(
         success: (data) async {
           // Persist user to local DB for future offline login
-          await _appDatabase.upsertUser(
-            {
-              'uuid': data.user?.id?.toString() ?? '',
-              'email': state.email,
-              'phone': state.phone,
-              'role': 'seller',
-              'firstname': state.firstName,
-              'lastname': state.lastName,
-            },
-            password: state.password,
-          );
+          await _appDatabase.upsertUser({
+            'uuid': data.user?.id?.toString() ?? '',
+            'email': state.email,
+            'phone': state.phone,
+            'role': 'seller',
+            'firstname': state.firstName,
+            'lastname': state.lastName,
+          }, password: state.password);
 
           state = state.copyWith(isLoading: false);
           LocalStorage.setToken(data.token);
           LocalStorage.setAddressSelected(
             AddressData(
-              title: data.user?.addresses?.firstWhere(
-                    (element) => element.active ?? false,
-                    orElse: () {
-                      return AddressNewModel();
-                    },
-                  ).title ??
+              title:
+                  data.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .title ??
                   "",
-              address: data.user?.addresses
+              address:
+                  data.user?.addresses
                       ?.firstWhere(
                         (element) => element.active ?? false,
                         orElse: () {
@@ -542,14 +541,18 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           LocalStorage.setToken(data.data?.accessToken ?? '');
           LocalStorage.setAddressSelected(
             AddressData(
-              title: data.data?.user?.addresses?.firstWhere(
-                    (element) => element.active ?? false,
-                    orElse: () {
-                      return AddressNewModel();
-                    },
-                  ).title ??
+              title:
+                  data.data?.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .title ??
                   "",
-              address: data.data?.user?.addresses
+              address:
+                  data.data?.user?.addresses
                       ?.firstWhere(
                         (element) => element.active ?? false,
                         orElse: () {
@@ -629,15 +632,15 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         final rawNonce = AppHelpers.generateNonce();
         final OAuthCredential credential =
             user.accessToken?.type == AccessTokenType.limited
-                ? OAuthCredential(
-                    providerId: 'facebook.com',
-                    signInMethod: 'oauth',
-                    idToken: user.accessToken!.tokenString,
-                    rawNonce: rawNonce,
-                  )
-                : FacebookAuthProvider.credential(
-                    user.accessToken?.tokenString ?? "",
-                  );
+            ? OAuthCredential(
+                providerId: 'facebook.com',
+                signInMethod: 'oauth',
+                idToken: user.accessToken!.tokenString,
+                rawNonce: rawNonce,
+              )
+            : FacebookAuthProvider.credential(
+                user.accessToken?.tokenString ?? "",
+              );
 
         final userObj = await FirebaseAuth.instance.signInWithCredential(
           credential,
@@ -656,14 +659,18 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
               LocalStorage.setToken(data.data?.accessToken ?? '');
               LocalStorage.setAddressSelected(
                 AddressData(
-                  title: data.data?.user?.addresses?.firstWhere(
-                        (element) => element.active ?? false,
-                        orElse: () {
-                          return AddressNewModel();
-                        },
-                      ).title ??
+                  title:
+                      data.data?.user?.addresses
+                          ?.firstWhere(
+                            (element) => element.active ?? false,
+                            orElse: () {
+                              return AddressNewModel();
+                            },
+                          )
+                          .title ??
                       "",
-                  address: data.data?.user?.addresses
+                  address:
+                      data.data?.user?.addresses
                           ?.firstWhere(
                             (element) => element.active ?? false,
                             orElse: () {
@@ -760,14 +767,18 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
             LocalStorage.setToken(data.data?.accessToken ?? '');
             LocalStorage.setAddressSelected(
               AddressData(
-                title: data.data?.user?.addresses?.firstWhere(
-                      (element) => element.active ?? false,
-                      orElse: () {
-                        return AddressNewModel();
-                      },
-                    ).title ??
+                title:
+                    data.data?.user?.addresses
+                        ?.firstWhere(
+                          (element) => element.active ?? false,
+                          orElse: () {
+                            return AddressNewModel();
+                          },
+                        )
+                        .title ??
                     "",
-                address: data.data?.user?.addresses
+                address:
+                    data.data?.user?.addresses
                         ?.firstWhere(
                           (element) => element.active ?? false,
                           orElse: () {

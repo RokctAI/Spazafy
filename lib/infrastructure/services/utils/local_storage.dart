@@ -116,8 +116,8 @@ abstract class LocalStorage {
             .map((part) => part.trim())
             .toList(); // Use null-aware operator
         if (addressParts.length >= 3) {
-          String postalCode =
-              addressParts.removeLast(); // Remove and store postal code
+          String postalCode = addressParts
+              .removeLast(); // Remove and store postal code
           addressParts.insert(
             0,
             postalCode,
@@ -215,8 +215,9 @@ abstract class LocalStorage {
       _preferences?.remove(StorageKeys.keyWalletData);
 
   static Future<void> setSettingsList(List<SettingsData> settings) async {
-    final List<String> strings =
-        settings.map((setting) => jsonEncode(setting.toJson())).toList();
+    final List<String> strings = settings
+        .map((setting) => jsonEncode(setting.toJson()))
+        .toList();
     await _preferences?.setStringList(StorageKeys.keyGlobalSettings, strings);
   }
 
@@ -251,12 +252,13 @@ abstract class LocalStorage {
 
   static void deleteTranslations() =>
       _preferences?.remove(StorageKeys.keyTranslations);
-      
+
   static Future<void> setIsGuest(bool isGuest) async {
     await _preferences?.setBool(StorageKeys.keyIsGuest, isGuest);
   }
 
-  static bool getIsGuest() => _preferences?.getBool(StorageKeys.keyIsGuest) ?? false;
+  static bool getIsGuest() =>
+      _preferences?.getBool(StorageKeys.keyIsGuest) ?? false;
 
   static void deleteIsGuest() => _preferences?.remove(StorageKeys.keyIsGuest);
 
@@ -269,10 +271,14 @@ abstract class LocalStorage {
     return data != null ? jsonDecode(data) : null;
   }
 
-  static void deleteOfflineUser() => _preferences?.remove(StorageKeys.keyOfflineUser);
+  static void deleteOfflineUser() =>
+      _preferences?.remove(StorageKeys.keyOfflineUser);
 
   static Future<void> setRemoteConfig(Map<String, dynamic>? data) async {
-    await _preferences?.setString(StorageKeys.keyRemoteConfig, jsonEncode(data));
+    await _preferences?.setString(
+      StorageKeys.keyRemoteConfig,
+      jsonEncode(data),
+    );
   }
 
   static Map<String, dynamic>? getRemoteConfig() {
@@ -349,13 +355,15 @@ abstract class LocalStorage {
     await _preferences?.setInt('sync_error_count', count);
   }
 
-  static int getSyncErrorCount() => _preferences?.getInt('sync_error_count') ?? 0;
+  static int getSyncErrorCount() =>
+      _preferences?.getInt('sync_error_count') ?? 0;
 
   static Future<void> setLastSyncError(String? error) async {
     await _preferences?.setString('last_sync_error', error ?? '');
   }
 
-  static String getLastSyncError() => _preferences?.getString('last_sync_error') ?? '';
+  static String getLastSyncError() =>
+      _preferences?.getString('last_sync_error') ?? '';
 
   static void logout() {
     deleteWalletData();
