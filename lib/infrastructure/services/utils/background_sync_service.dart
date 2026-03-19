@@ -78,15 +78,19 @@ class BackgroundSyncService {
           await database.removeSyncRequest(request.id);
         } else if (result.remove) {
           // If it's a permanent client error (4xx), move to abandoned for review if payload is important
-          // or just remove. Let's move to abandoned.
+          final errorMsg = 'Permanent Failure (4xx): ${result.error}';
           await database.abandonSyncRequest(
             request,
-            error: 'Permanent Failure (4xx): ${result.error}',
+            error: errorMsg,
           );
+          
+          // Notify user via LocalStorage flag
+          final currentCount = LocalStorage.getSyncErrorCount();
+          await LocalStorage.setSyncErrorCount(currentCount + 1);
+          await LocalStorage.setLastSyncError(errorMsg);
         } else {
           // Increment retry count if it was a server/network error
           await database.incrementSyncRetry(request.id, error: result.error);
-          // Optimization: Continue to next item instead of breaking
           continue;
         }
       }

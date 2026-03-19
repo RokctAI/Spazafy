@@ -138,7 +138,6 @@ class ProductNotifier extends StateNotifier<ProductState> {
     String? userUuid,
   }) async {
     state = state.copyWith(isCheckShopOrder: false);
-    if (shopId == state.productData?.shopId) {
     state = state.copyWith(isAddLoading: true);
     List<CartRequest> list = [
       CartRequest(
@@ -182,17 +181,10 @@ class ProductNotifier extends StateNotifier<ProductState> {
         onSuccess();
       },
       failure: (failure, status) {
-        if (status != 400) {
-          state = state.copyWith(isAddLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        } else {
-          onError?.call();
-        }
+        state = state.copyWith(isAddLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
       },
     );
-    } else {
-      state = state.copyWith(isCheckShopOrder: true);
-    }
   }
 
   void updateSelectedIndexes(BuildContext context, int index, int value) {

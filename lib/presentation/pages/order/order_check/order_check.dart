@@ -187,7 +187,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
       phone: state.phoneNumber ?? LocalStorage.getUser()?.phone,
       email: LocalStorage.getUser()?.email,
       notes: state.notes,
-      cartId: stateOrderShop.cart?.id ?? "",
+      cartId: stateOrderShop.carts[state.shopData?.id ?? ""]?.id ?? "",
       shopId: state.shopData?.id ?? "",
       coupon: state.promoCode,
       deliveryFee: state.calculateData?.deliveryFee ?? 0,
@@ -305,68 +305,6 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
     }
   }
 
-  _checkShopOrder() {
-    AppHelpers.showAlertDialog(
-      context: context,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            AppHelpers.getTranslation(TrKeys.allPreviouslyAdded),
-            style: AppStyle.interNormal(),
-            textAlign: TextAlign.center,
-          ),
-          16.verticalSpace,
-          Row(
-            children: [
-              Expanded(
-                child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.cancel),
-                  background: AppStyle.transparent,
-                  borderColor: AppStyle.borderColor,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              10.horizontalSpace,
-              Expanded(
-                child: Consumer(
-                  builder: (contextTwo, ref, child) {
-                    return CustomButton(
-                      isLoading: ref.watch(shopOrderProvider).isDeleteLoading,
-                      title: AppHelpers.getTranslation(TrKeys.clearAll),
-                      onPressed: () {
-                        ref
-                            .read(shopOrderProvider.notifier)
-                            .deleteCart(context);
-                        ref.read(orderProvider.notifier).repeatOrder(
-                              context: context,
-                              shopId: "",
-                              listOfProduct:
-                                  ref.watch(orderProvider).orderData?.details ??
-                                      [],
-                              onSuccess: () {
-                                ref.read(shopOrderProvider.notifier).getCart(
-                                  context,
-                                  () {
-                                    context.maybePop();
-                                    context.pushRoute(const OrderRoute());
-                                  },
-                                );
-                              },
-                            );
-                      },
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -397,13 +335,6 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
             }
           });
 
-          ref.listen(orderProvider, (previous, next) {
-            if (next.isCheckShopOrder &&
-                (next.isCheckShopOrder !=
-                    (previous?.isCheckShopOrder ?? false))) {
-              _checkShopOrder();
-            }
-          });
           num subTotal = 0;
           state.orderData?.details?.forEach((element) {
             subTotal = subTotal + (element.totalPrice ?? 0);
@@ -508,7 +439,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
                   repeatOrder: () {
                     event.repeatOrder(
                       context: context,
-                      shopId: ref.watch(shopOrderProvider).cart?.shopId ?? "",
+                      shopId: state.shopData?.id ?? "",
                       listOfProduct: state.orderData?.details ?? [],
                       onSuccess: () {
                         ref.read(shopOrderProvider.notifier).getCart(

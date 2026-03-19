@@ -17,7 +17,7 @@ class ShopOrderState with _$ShopOrderState {
     @Default(false) bool isAddAndRemoveLoading,
     @Default(false) bool isEditOrder,
     @Default("") String shareLink,
-    @Default(null) Cart? cart,
+    @Default({}) Map<String, Cart?> carts,
     @Default([]) List<CartProductData> productList,
   }) = _ShopOrderState;
 

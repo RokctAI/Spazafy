@@ -257,6 +257,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
       );
     } else {
+      state = state.copyWith(isLoading: false);
       if (context.mounted) {
         AppHelpers.showNoConnectionSnackBar(context);
       }

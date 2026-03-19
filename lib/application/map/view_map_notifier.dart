@@ -90,6 +90,7 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     String? shopId,
   }) async {
     final connected = await AppConnectivity.connectivity();
+    state = state.copyWith(isOffline: !connected);
     if (connected) {
       state = state.copyWith(isLoading: true, isActive: false);
       final response = await _shopsRepository.checkDriverZone(

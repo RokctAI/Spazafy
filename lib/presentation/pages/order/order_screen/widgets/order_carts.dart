@@ -6,7 +6,7 @@ import 'package:rokctapp/application/order/order_provider.dart';
 import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/infrastructure/services/utils/tpying_delay.dart';
+import 'package:rokctapp/infrastructure/services/utils/typing_delay.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/pages/shop/cart/widgets/cart_clear_dialog.dart';

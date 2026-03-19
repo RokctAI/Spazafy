@@ -345,6 +345,18 @@ abstract class LocalStorage {
     return DeliveryResponse.fromJson(map);
   }
 
+  static Future<void> setSyncErrorCount(int count) async {
+    await _preferences?.setInt('sync_error_count', count);
+  }
+
+  static int getSyncErrorCount() => _preferences?.getInt('sync_error_count') ?? 0;
+
+  static Future<void> setLastSyncError(String? error) async {
+    await _preferences?.setString('last_sync_error', error ?? '');
+  }
+
+  static String getLastSyncError() => _preferences?.getString('last_sync_error') ?? '';
+
   static void logout() {
     deleteWalletData();
     deleteSavedShopsList();

@@ -426,7 +426,7 @@ class _ProductScreenState extends ConsumerState<ProductScreen> {
                       event: event,
                       stateOrderShop: stateOrderShop,
                       eventOrderShop: eventOrderShop,
-                      cartId: stateOrderShop.cart?.id.toString(),
+                      cartId: stateOrderShop.carts[ref.watch(shopProvider).shopData?.id ?? ""]?.id.toString(),
                       shopId: ref.watch(shopProvider).shopData?.id,
                       userUuid: ref.watch(shopProvider).userUuid,
                     ),

@@ -533,147 +533,72 @@ class OrderNotifier extends StateNotifier<OrderState> {
       return;
     }
 
-    final response = await _orderRepository.createOrder(data);
-    response.when(
-      success: (data) async {
-        final ImageCropperForMarker image = ImageCropperForMarker();
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      final response = await _orderRepository.createOrder(data);
+      response.when(
+        success: (data) async {
+          final ImageCropperForMarker image = ImageCropperForMarker();
 
-        state = state.copyWith(
-          orderData: data,
-          isButtonLoading: false,
-          isMapLoading: true,
-        );
-
-        Map<MarkerId, Marker> list = {
-          const MarkerId("Shop"): Marker(
-            markerId: const MarkerId("Shop"),
-            position: LatLng(
-              data.shop?.location?.latitude ?? AppConstants.demoLatitude,
-              data.shop?.location?.longitude ?? AppConstants.demoLongitude,
-            ),
-            icon: await image.resizeAndCircle(
-              data.shop?.logoImg ?? "",
-              120,
-            ),
-          ),
-          const MarkerId("User"): Marker(
-            markerId: const MarkerId("User"),
-            position: LatLng(
-              data.location?.latitude ?? AppConstants.demoLatitude,
-              data.location?.longitude ?? AppConstants.demoLongitude,
-            ),
-            icon: await image.resizeAndCircle(
-              data.user?.img ?? "",
-              120,
-            ),
-          ),
-        };
-        state = state.copyWith(markers: list, isMapLoading: false);
-        if (context.mounted) {
-          getRoutingAll(
-            context: context,
-            end: LatLng(
-              data.location?.latitude ?? 0,
-              data.location?.longitude ?? 0,
-            ),
-            start: LatLng(
-              data.shop?.location?.latitude ?? 0,
-              data.shop?.location?.longitude ?? 0,
-            ),
+          state = state.copyWith(
+            orderData: data,
+            isButtonLoading: false,
+            isMapLoading: true,
           );
-        }
-      },
-      failure: (failure, status) {
-        state = state.copyWith(isButtonLoading: false);
-        if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        }
-      },
-    );
-  }
 
-    final num wallet = LocalStorage.getWalletData()?.price ?? 0;
-    if (payment.tag == "wallet" &&
-        wallet < (state.calculateData?.totalPrice ?? 0)) {
-      if (context.mounted) {
-        AppHelpers.showCheckTopSnackBarInfo(
-          context,
-          AppHelpers.getTranslation(TrKeys.notEnoughMoney),
-        );
-      }
-      state = state.copyWith(isButtonLoading: false);
-      return;
-    }
-    if (payment.tag != "cash" && payment.tag != "wallet") {
-      final res = await _orderRepository.process(
-        data,
-        payment.tag ?? "stripe",
-      );
-      res.map(
-        success: (key) {
-          onWebview?.call(key.data, payment.tag == 'pay-fast');
+          Map<MarkerId, Marker> list = {
+            const MarkerId("Shop"): Marker(
+              markerId: const MarkerId("Shop"),
+              position: LatLng(
+                data.shop?.location?.latitude ?? AppConstants.demoLatitude,
+                data.shop?.location?.longitude ?? AppConstants.demoLongitude,
+              ),
+              icon: await image.resizeAndCircle(
+                data.shop?.logoImg ?? "",
+                120,
+              ),
+            ),
+            const MarkerId("User"): Marker(
+              markerId: const MarkerId("User"),
+              position: LatLng(
+                data.location?.latitude ?? AppConstants.demoLatitude,
+                data.location?.longitude ?? AppConstants.demoLongitude,
+              ),
+              icon: await image.resizeAndCircle(
+                data.user?.img ?? "",
+                120,
+              ),
+            ),
+          };
+          state = state.copyWith(markers: list, isMapLoading: false);
+          if (context.mounted) {
+            getRoutingAll(
+              context: context,
+              end: LatLng(
+                data.location?.latitude ?? 0,
+                data.location?.longitude ?? 0,
+              ),
+              start: LatLng(
+                data.shop?.location?.latitude ?? 0,
+                data.shop?.location?.longitude ?? 0,
+              ),
+            );
+          }
         },
-        failure: (e) {
+        failure: (failure, status) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, e.error);
+            AppHelpers.showCheckTopSnackBar(context, failure);
           }
         },
       );
-      return;
+    } else {
+      state = state.copyWith(isButtonLoading: false);
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
     }
-
-    final response = await _orderRepository.createOrder(data);
-    response.when(
-      success: (data) async {
-        final ImageCropperForMarker image = ImageCropperForMarker();
-
-        state = state.copyWith(
-          orderData: data,
-          isButtonLoading: false,
-          isMapLoading: true,
-        );
-
-        Map<MarkerId, Marker> list = {
-          const MarkerId("Shop"): Marker(
-            markerId: const MarkerId("Shop"),
-            position: LatLng(
-              data.shop?.location?.latitude ?? AppConstants.demoLatitude,
-              data.shop?.location?.longitude ?? AppConstants.demoLongitude,
-            ),
-            icon: await image.resizeAndCircle(data.shop?.logoImg ?? "", 120),
-          ),
-          const MarkerId("User"): Marker(
-            markerId: const MarkerId("User"),
-            position: LatLng(
-              data.location?.latitude ?? AppConstants.demoLatitude,
-              data.location?.longitude ?? AppConstants.demoLongitude,
-            ),
-            icon: await image.resizeAndCircle(data.user?.img ?? "", 120),
-          ),
-        };
-        state = state.copyWith(markers: list, isMapLoading: false);
-        if (context.mounted) {
-          getRoutingAll(
-            context: context,
-            end: LatLng(
-              data.location?.latitude ?? 0,
-              data.location?.longitude ?? 0,
-            ),
-            start: LatLng(
-              data.shop?.location?.latitude ?? 0,
-              data.shop?.location?.longitude ?? 0,
-            ),
-          );
-        }
-      },
-      failure: (failure, status) {
-        state = state.copyWith(isButtonLoading: false);
-        if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        }
-      },
-    );
+  }
   }
 
   void repeatOrder({
@@ -682,46 +607,41 @@ class OrderNotifier extends StateNotifier<OrderState> {
     required VoidCallback onSuccess,
     List<Detail>? listOfProduct,
   }) async {
-    state = state.copyWith(isCheckShopOrder: false);
-    if (shopId.isEmpty) {
-      state = state.copyWith(isAddLoading: true);
-      List<CartRequest> list = [];
-      listOfProduct?.forEach((element) {
-        for (Addons addon in element.addons ?? []) {
-          list.add(
-            CartRequest(
-              stockId: addon.stocks?.id,
-              quantity: addon.quantity,
-              parentId: element.stock?.id ?? "",
-            ),
-          );
-        }
+    state = state.copyWith(isCheckShopOrder: false, isAddLoading: true);
+    List<CartRequest> list = [];
+    listOfProduct?.forEach((element) {
+      for (Addons addon in element.addons ?? []) {
         list.add(
           CartRequest(
-            stockId: element.stock?.id ?? "",
-            quantity: element.quantity ?? 0,
+            stockId: addon.stocks?.id,
+            quantity: addon.quantity,
+            parentId: element.stock?.id ?? "",
           ),
         );
-      });
-      final response = await _cartRepository.insertCart(
-        cart: CartRequest(
-          shopId: state.orderData?.shop?.id ?? "",
-          carts: list,
+      }
+      list.add(
+        CartRequest(
+          stockId: element.stock?.id ?? "",
+          quantity: element.quantity ?? 0,
         ),
       );
-      response.when(
-        success: (data) {
-          state = state.copyWith(isAddLoading: false);
-          onSuccess();
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isAddLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      state = state.copyWith(isCheckShopOrder: true);
-    }
+    });
+    final response = await _cartRepository.insertCart(
+      cart: CartRequest(
+        shopId: shopId.isNotEmpty ? shopId : (state.orderData?.shop?.id ?? ""),
+        carts: list,
+      ),
+    );
+    response.when(
+      success: (data) {
+        state = state.copyWith(isAddLoading: false);
+        onSuccess();
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isAddLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   Future<void> showOrder(

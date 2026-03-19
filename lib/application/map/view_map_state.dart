@@ -11,6 +11,7 @@ class ViewMapState with _$ViewMapState {
     @Default(null) AddressNewModel? place,
     @Default(false) bool isSetAddress,
     @Default(false) bool isScrolling,
+    @Default(false) bool isOffline,
   }) = _ViewMapState;
 
   const ViewMapState._();

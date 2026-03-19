@@ -300,6 +300,12 @@ class LoginNotifier extends StateNotifier<LoginState> {
         googleUser = await GoogleSignIn().signIn();
       } catch (e) {
         state = state.copyWith(isLoading: false);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            AppHelpers.getTranslation(e.toString()),
+          );
+        }
       }
       if (googleUser == null) {
         state = state.copyWith(isLoading: false);

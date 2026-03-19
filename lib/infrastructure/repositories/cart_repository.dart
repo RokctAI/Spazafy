@@ -40,22 +40,31 @@ class CartRepository implements CartRepositoryFacade {
     // Merge logic: If we have a cart (online or cached), merge pending sync requests
     if (cart != null) {
       try {
-        final pendingAddRequests = await appDatabase.getSyncRequestsByMethod(
-          '/api/method/paas.api.cart.cart.add_to_cart',
+        // Handle removals/deletions
+        final pendingRemoveRequests = await appDatabase.getSyncRequestsByMethod(
+          '/api/method/paas.api.cart.cart.remove_product_cart',
+        );
+        final pendingDeleteRequests = await appDatabase.getSyncRequestsByMethod(
+          '/api/method/paas.api.delete_cart',
         );
 
+        // If a total cart deletion is pending, the cart is effectively null
+        for (final request in pendingDeleteRequests) {
+          final requestData = jsonDecode(request.data);
+          if (requestData['cart_id'] == cart.id.toString()) {
+            return ApiResult.failure(error: "Cart is being deleted", statusCode: 404);
+          }
+        }
+
+        final List<CartDetail> details = List.from(cart.data?.cartDetails ?? []);
+
+        // Process additions
         for (final request in pendingAddRequests) {
           final requestData = jsonDecode(request.data);
-          // Only merge if it belongs to the current shop
           if (requestData['shop_id'] == shopId) {
             final String itemCode = requestData['item_code'];
             final int qty = requestData['qty'];
-
-            // Find if item already exists in cart, then update qty; else add new
             bool found = false;
-            final List<CartDetail> details =
-                List.from(cart.data?.cartDetails ?? []);
-
             for (int i = 0; i < details.length; i++) {
               if (details[i].itemCode == itemCode) {
                 details[i] = details[i].copyWith(
@@ -65,23 +74,22 @@ class CartRepository implements CartRepositoryFacade {
                 break;
               }
             }
-
             if (!found) {
-              details.add(
-                CartDetail(
-                  itemCode: itemCode,
-                  qty: qty,
-                  // Note: title/image might be missing if we only have the itemCode
-                  // but we want the user to at least see the count update.
-                ),
-              );
+              details.add(CartDetail(itemCode: itemCode, qty: qty));
             }
-
-            cart = cart.copyWith(
-              data: cart.data?.copyWith(cartDetails: details),
-            );
           }
         }
+
+        // Process removals
+        for (final request in pendingRemoveRequests) {
+          final requestData = jsonDecode(request.data);
+          final String cartDetailId = requestData['cart_detail_id'];
+          details.removeWhere((element) => element.id.toString() == cartDetailId);
+        }
+
+        cart = cart.copyWith(
+          data: cart.data?.copyWith(cartDetails: details),
+        );
       } catch (mergeError) {
         debugPrint('==> sync merge failure: $mergeError');
       }
@@ -178,9 +186,28 @@ class CartRepository implements CartRepositoryFacade {
         '/api/method/paas.api.delete_cart',
         data: {'cart_id': cartId},
       );
-      return ApiResult.success(data: CartModel.fromJson(response.data));
+      final responseData = CartModel.fromJson(response.data);
+      // Persistence: Remove entry from local cache
+      final String? shopId = responseData.data?.shopId?.toString();
+      if (shopId != null) {
+        await appDatabase.deleteItem('billing_cart', shopId);
+      }
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> deleteCart failure: $e');
+      
+      // Persistence: Queue the deletion
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.delete_cart',
+          method: 'POST',
+          payload: {'cart_id': cartId},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> deleteCart sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -220,9 +247,28 @@ class CartRepository implements CartRepositoryFacade {
         '/api/method/paas.api.cart.cart.remove_product_cart',
         data: {'cart_detail_id': cartDetailId},
       );
-      return ApiResult.success(data: CartModel.fromJson(response.data));
+      final responseData = CartModel.fromJson(response.data);
+      // Persistence: Cache result
+      final String? shopId = responseData.data?.shopId?.toString();
+      if (shopId != null) {
+        await appDatabase.putItem('billing_cart', shopId, responseData.toJson());
+      }
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> removeProductCart failure: $e');
+
+      // Persistence: Queue the removal
+      try {
+        await appDatabase.enqueueSyncRequest(
+          url: '/api/method/paas.api.cart.cart.remove_product_cart',
+          method: 'POST',
+          payload: {'cart_detail_id': cartDetailId},
+        );
+        return const ApiResult.success(data: null);
+      } catch (syncError) {
+        debugPrint('==> removeProductCart sync queue failure: $syncError');
+      }
+
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -253,7 +299,13 @@ class CartRepository implements CartRepositoryFacade {
         '/api/method/paas.api.cart.cart.add_to_cart',
         data: params,
       );
-      return ApiResult.success(data: CartModel.fromJson(response.data));
+      final responseData = CartModel.fromJson(response.data);
+      // Persistence: Cache the cart details
+      final String? shopId = responseData.data?.shopId?.toString();
+      if (shopId != null) {
+        await appDatabase.putItem('billing_cart', shopId, responseData.toJson());
+      }
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> insertCart failure: $e');
 
@@ -295,7 +347,13 @@ class CartRepository implements CartRepositoryFacade {
         '/api/method/paas.api.add_to_cart_group',
         data: cart.toJson(),
       );
-      return ApiResult.success(data: CartModel.fromJson(response.data));
+      final responseData = CartModel.fromJson(response.data);
+      // Persistence: Cache the cart details
+      final String? shopId = responseData.data?.shopId?.toString();
+      if (shopId != null) {
+        await appDatabase.putItem('billing_cart', shopId, responseData.toJson());
+      }
+      return ApiResult.success(data: responseData);
     } catch (e) {
       debugPrint('==> insertCartWithGroup failure: $e');
 
