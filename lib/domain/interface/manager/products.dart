@@ -3,23 +3,23 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 abstract class ProductsInterface {
-  Future<ApiResult<void>> deleteExtrasGroup({int? groupId});
+  Future<ApiResult<void>> deleteExtrasGroup({String? groupId});
 
   Future<ApiResult<SingleExtrasGroupResponse>> updateExtrasGroup({
     required String title,
-    int? groupId,
+    String? groupId,
   });
 
-  Future<ApiResult<void>> deleteExtrasItem({required int extrasId});
+  Future<ApiResult<void>> deleteExtrasItem({required String extrasId});
 
   Future<ApiResult<CreateGroupExtrasResponse>> updateExtrasItem({
-    required int extrasId,
-    required int groupId,
+    required String extrasId,
+    required String groupId,
     required String title,
   });
 
   Future<ApiResult<CreateGroupExtrasResponse>> createExtrasItem({
-    required int groupId,
+    required String groupId,
     required String title,
   });
 
@@ -31,11 +31,11 @@ abstract class ProductsInterface {
     List<Stock> stocks,
   );
 
-  Future<ApiResult<GroupExtrasResponse>> getExtras({int? groupId});
+  Future<ApiResult<GroupExtrasResponse>> getExtras({String? groupId});
 
   Future<ApiResult<SingleProductResponse>> updateStocks({
     required List<Stock> stocks,
-    required List<int> deletedStocks,
+    required List<String> deletedStocks,
     String? uuid,
     bool isAddon = false,
   });
@@ -48,16 +48,16 @@ abstract class ProductsInterface {
     required String maxQty,
     required bool active,
     String? qrcode,
-    int? categoryId,
-    int? kitchenId,
-    int? unitId,
+    String? categoryId,
+    String? kitchenId,
+    String? unitId,
     List<String>? images,
     String? uuid,
     bool needAddons = false,
   });
 
   Future<ApiResult<SingleProductResponse>> updateExtras({
-    required List<int> extrasIds,
+    required List<String> extrasIds,
     String? productUuid,
   });
 
@@ -74,9 +74,9 @@ abstract class ProductsInterface {
     required String maxQty,
     required String qrcode,
     required bool active,
-    int? categoryId,
-    int? kitchenId,
-    int? unitId,
+    String? categoryId,
+    String? kitchenId,
+    String? unitId,
     List<String>? images,
     bool isAddon = false,
     String type = 'single',
@@ -87,7 +87,7 @@ abstract class ProductsInterface {
 
   Future<ApiResult<ProductsPaginateResponse>> getProducts({
     int? page,
-    int? categoryId,
+    String? categoryId,
     String? query,
     ProductStatus? status,
     bool needAddons = false,
