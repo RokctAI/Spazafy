@@ -44,7 +44,10 @@ class ShopsRepository implements ShopsInterface {
     };
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/dashboard/user/shops', data: data);
+      await client.post(
+        '/api/v1/method/paas.api.shop.shop.create_shop',
+        data: {'shop_data': data},
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> create shop failure: $e');

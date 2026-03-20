@@ -16,7 +16,7 @@ class DeliveryPointsRepository implements DeliveryPointsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.doctype.delivery_point.delivery_point.get_nearest_delivery_points',
+        '/api/v1/method/paas.doctype.delivery_point.delivery_point.get_nearest_delivery_points',
         queryParameters: {'latitude': latitude, 'longitude': longitude},
       );
       final List<dynamic> data = response.data['message'];
@@ -39,7 +39,7 @@ class DeliveryPointsRepository implements DeliveryPointsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.get_delivery_points',
+        '/api/v1/method/paas.api.get_delivery_points',
       );
       final List<dynamic> data = response.data['message'];
       final List<DeliveryPointData> deliveryPoints = data

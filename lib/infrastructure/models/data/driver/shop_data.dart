@@ -4,9 +4,9 @@ import 'shop_delivery.dart';
 
 class ShopData {
   ShopData({
-    int? id,
+    String? id,
     String? uuid,
-    int? userId,
+    String? userId,
     num? tax,
     num? deliveryRange,
     num? percentage,
@@ -58,9 +58,9 @@ class ShopData {
   }
 
   ShopData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _uuid = json['uuid'];
-    _userId = json['user_id'];
+    _userId = json['user_id']?.toString();
     _tax = json['tax'];
     _deliveryRange = json['delivery_range'];
     _percentage = json['percentage'];
@@ -102,9 +102,9 @@ class ShopData {
     }
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
-  int? _userId;
+  String? _userId;
   num? _tax;
   num? _deliveryRange;
   num? _percentage;
@@ -129,9 +129,9 @@ class ShopData {
   List<ShopDelivery>? _deliveries;
 
   ShopData copyWith({
-    int? id,
+    String? id,
     String? uuid,
-    int? userId,
+    String? userId,
     num? tax,
     num? deliveryRange,
     num? percentage,
@@ -182,11 +182,11 @@ class ShopData {
     deliveries: deliveries ?? _deliveries,
   );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get uuid => _uuid;
 
-  int? get userId => _userId;
+  String? get userId => _userId;
 
   num? get tax => _tax;
 
@@ -272,7 +272,7 @@ class ShopData {
 }
 
 class Seller {
-  Seller({int? id, String? firstname, String? lastname, String? role}) {
+  Seller({String? id, String? firstname, String? lastname, String? role}) {
     _id = id;
     _firstname = firstname;
     _lastname = lastname;
@@ -280,19 +280,19 @@ class Seller {
   }
 
   Seller.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _firstname = json['firstname'];
     _lastname = json['lastname'];
     _role = json['role'];
   }
 
-  int? _id;
+  String? _id;
   String? _firstname;
   String? _lastname;
   String? _role;
 
   Seller copyWith({
-    int? id,
+    String? id,
     String? firstname,
     String? lastname,
     String? role,
@@ -303,7 +303,7 @@ class Seller {
     role: role ?? _role,
   );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get firstname => _firstname;
 

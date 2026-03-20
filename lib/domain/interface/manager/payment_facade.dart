@@ -15,7 +15,7 @@ abstract class PaymentsFacade {
 
   Future<ApiResult<String>> paymentSubscriptionWebView({
     required String name,
-    required int subscriptionId,
+    required String subscriptionId,
   });
 
   Future<ApiResult<bool>> sendWallet({

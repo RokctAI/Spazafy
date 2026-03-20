@@ -45,7 +45,7 @@ class LoansRepository implements LoansRepositoryFacade {
 
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/method/paas.api.create_loan_application',
+        '/api/v1/method/paas.api.create_loan_application',
         data: {
           'applicant_type': 'Customer',
           'applicant': user?.firstname != null
@@ -87,10 +87,10 @@ class LoansRepository implements LoansRepositoryFacade {
       debugPrint('==> Created authenticated client');
 
       debugPrint(
-        '==> Sending GET request to /api/method/paas.api.user.user.get_wallet_history',
+        '==> Sending GET request to /api/v1/method/paas.api.user.user.get_wallet_history',
       );
       final response = await client.get(
-        '/api/method/paas.api.user.user.get_wallet_history',
+        '/api/v1/method/paas.api.user.user.get_wallet_history',
         queryParameters: data,
       );
       debugPrint('==> Got response: ${jsonEncode(response.data)}');
@@ -138,10 +138,10 @@ class LoansRepository implements LoansRepositoryFacade {
       debugPrint('==> Request data: ${jsonEncode(data)}');
 
       debugPrint(
-        '==> Sending POST request to /api/method/paas.api.check_loan_eligibility',
+        '==> Sending POST request to /api/v1/method/paas.api.check_loan_eligibility',
       );
       final response = await client.post(
-        '/api/method/paas.api.check_loan_eligibility',
+        '/api/v1/method/paas.api.check_loan_eligibility',
         data: data,
       );
       debugPrint('==> Got response: ${jsonEncode(response.data)}');
@@ -233,10 +233,10 @@ class LoansRepository implements LoansRepositoryFacade {
 
       // Use get_payfast_settings from backend
       debugPrint(
-        '==> Sending GET request to /api/method/paas.api.payment.payment.get_payfast_settings',
+        '==> Sending GET request to /api/v1/method/paas.api.payment.payment.get_payfast_settings',
       );
       var res = await client.get(
-        '/api/method/paas.api.payment.payment.get_payfast_settings',
+        '/api/v1/method/paas.api.payment.payment.get_payfast_settings',
       );
 
       debugPrint('==> tokenization response: ${jsonEncode(res.data)}');
@@ -401,10 +401,10 @@ class LoansRepository implements LoansRepositoryFacade {
       debugPrint('==> Created authenticated client');
 
       debugPrint(
-        '==> Sending GET request to /api/method/paas.api.check_loan_history_eligibility',
+        '==> Sending GET request to /api/v1/method/paas.api.check_loan_history_eligibility',
       );
       final response = await client.get(
-        '/api/method/paas.api.check_loan_history_eligibility',
+        '/api/v1/method/paas.api.check_loan_history_eligibility',
       );
       debugPrint('==> Got response: ${jsonEncode(response.data)}');
 
@@ -436,7 +436,7 @@ class LoansRepository implements LoansRepositoryFacade {
 
       // Use the correct endpoint
       final response = await client.post(
-        '/api/method/paas.api.mark_application_as_rejected',
+        '/api/v1/method/paas.api.mark_application_as_rejected',
         data: data,
       );
       debugPrint('==> Got response: ${jsonEncode(response.data)}');
@@ -472,10 +472,10 @@ class LoansRepository implements LoansRepositoryFacade {
       debugPrint('==> Request data: ${jsonEncode(data)}');
 
       debugPrint(
-        '==> Sending POST request to /api/method/paas.api.check_financial_eligibility',
+        '==> Sending POST request to /api/v1/method/paas.api.check_financial_eligibility',
       );
       final response = await client.post(
-        '/api/method/paas.api.check_financial_eligibility',
+        '/api/v1/method/paas.api.check_financial_eligibility',
         data: data,
       );
       debugPrint('==> Got response: ${jsonEncode(response.data)}');
@@ -513,10 +513,10 @@ class LoansRepository implements LoansRepositoryFacade {
       debugPrint('==> Request data: ${jsonEncode(data)}');
 
       debugPrint(
-        '==> Sending POST request to /api/method/paas.api.save_incomplete_loan_application',
+        '==> Sending POST request to /api/v1/method/paas.api.save_incomplete_loan_application',
       );
       final response = await client.post(
-        '/api/method/paas.api.save_incomplete_loan_application',
+        '/api/v1/method/paas.api.save_incomplete_loan_application',
         data: data,
       );
       debugPrint('==> Got response: ${jsonEncode(response.data)}');
@@ -588,7 +588,7 @@ class LoansRepository implements LoansRepositoryFacade {
       debugPrint('==> Fetching saved loan application');
 
       final response = await client.get(
-        '/api/method/paas.api.fetch_saved_application',
+        '/api/v1/method/paas.api.fetch_saved_application',
       );
       debugPrint(
         '==> Saved application response: ${jsonEncode(response.data)}',
@@ -623,7 +623,7 @@ class LoansRepository implements LoansRepositoryFacade {
       debugPrint('==> Fetching saved loan applications');
 
       final response = await client.get(
-        '/api/method/paas.api.fetch_saved_applications',
+        '/api/v1/method/paas.api.fetch_saved_applications',
       );
       debugPrint(
         '==> Saved applications response: ${jsonEncode(response.data)}',
@@ -656,7 +656,7 @@ class LoansRepository implements LoansRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/method/paas.api.disburse_loan',
+        '/api/v1/method/paas.api.disburse_loan',
         data: {'loan_application': loanApplicationName},
       );
       return ApiResult.success(data: response.data['message']);
@@ -672,7 +672,7 @@ class LoansRepository implements LoansRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.request_payout',
+        '/api/v1/method/paas.api.request_payout',
         data: {'loan_application': loanApplicationName},
       );
       return const ApiResult.success(
@@ -692,7 +692,7 @@ class LoansRepository implements LoansRepositoryFacade {
       debugPrint('==> Fetching my loan applications');
 
       final response = await client.post(
-        '/api/method/paas.api.get_my_loan_applications',
+        '/api/v1/method/paas.api.get_my_loan_applications',
       );
       debugPrint('==> My applications response: ${jsonEncode(response.data)}');
 

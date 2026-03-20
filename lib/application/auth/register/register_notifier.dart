@@ -303,7 +303,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         };
 
         await _appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.auth.signup',
+          url: '/api/v1/method/paas.api.auth.signup',
           method: 'POST',
           payload: payload,
         );

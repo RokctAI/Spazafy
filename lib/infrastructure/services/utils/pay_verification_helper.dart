@@ -4,22 +4,22 @@ import 'dart:convert';
 class PayVerificationHelper {
   PayVerificationHelper._();
 
-  /// Constants shared with backend
-  static const String _sharedSecret = "SPAZAFY_SECURE_POS_2026";
-
   /// Generates a 5-digit verification code based on transaction details.
   /// This logic MUST be identical to the backend implementation.
   static String generateVerificationCode({
     required String orderId,
     required double amount,
     required String shopId,
-    String? secret,
+    required String? secret,
   }) {
+    if (secret == null || secret.isEmpty) {
+      throw Exception("Shop secret is missing. Cannot generate verification code.");
+    }
     // 1. Normalize amount to 2 decimal places to avoid precision issues
     final normalizedAmount = amount.toStringAsFixed(2);
     
-    // 2. Use the dynamic secret if provided, fallback to legacy global key
-    final salt = secret ?? _sharedSecret;
+    // 2. Use the dynamic secret if provided
+    final salt = secret;
 
     // 3. Construct signature string
     final rawString = "$orderId|$normalizedAmount|$shopId|$salt";
@@ -46,7 +46,7 @@ class PayVerificationHelper {
     required String orderId,
     required double amount,
     required String shopId,
-    String? secret,
+    required String? secret,
   }) {
     if (enteredCode.length != 5) return false;
     final expectedCode = generateVerificationCode(

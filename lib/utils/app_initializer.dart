@@ -38,7 +38,7 @@ class AppInitializer extends StatefulWidget {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.remote_config.get_remote_config',
+        '/api/v1/method/paas.api.remote_config.get_remote_config',
         queryParameters: {'app_type': 'Customer'},
       );
 

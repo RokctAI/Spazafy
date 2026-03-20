@@ -18,7 +18,7 @@ class NotificationRepository extends NotificationInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/notifications',
+        '/api/v1/method/paas.api.notification.notification.get_notifications',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -38,7 +38,7 @@ class NotificationRepository extends NotificationInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/notifications/read-all',
+        '/api/v1/method/paas.api.notification.notification.read_all_notifications',
       );
       return ApiResult.success(
         data: NotificationResponse.fromJson(response.data),
@@ -53,16 +53,12 @@ class NotificationRepository extends NotificationInterface {
   }
 
   @override
-  Future<ApiResult<dynamic>> readOne({int? id}) async {
-    final data = {
-      if (id != null) '$id': id,
-      'lang': LocalStorage.getLanguage()?.locale,
-    };
+  Future<ApiResult<dynamic>> readOne({String? id}) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/notifications/$id/read-at',
-        queryParameters: data,
+        '/api/v1/method/paas.api.notification.notification.mark_notification_as_read',
+        data: {'notification_id': id},
       );
       return const ApiResult.success(data: true);
     } catch (e) {
@@ -80,7 +76,7 @@ class NotificationRepository extends NotificationInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/notifications',
+        '/api/v1/method/paas.api.notification.notification.get_notifications',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -100,7 +96,7 @@ class NotificationRepository extends NotificationInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/user/profile/notifications-statistic',
+        '/api/v1/method/paas.api.notification.notification.get_notification_count',
       );
       return ApiResult.success(
         data: CountNotificationModel.fromJson(response.data),

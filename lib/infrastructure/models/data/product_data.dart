@@ -600,30 +600,29 @@ class Stocks {
 }
 
 class Extras {
-  Extras({int? id, int? extraGroupId, String? value, Group? group}) {
+  Extras({String? id, String? extraGroupId, String? value, Group? group}) {
     _id = id;
     _extraGroupId = extraGroupId;
     _value = value;
-    _active = active;
     _group = group;
   }
 
   Extras.fromJson(dynamic json) {
-    _id = json['id'];
-    _extraGroupId = json['extra_group_id'];
+    _id = json['id']?.toString();
+    _extraGroupId = json['extra_group_id']?.toString();
     _value = json["value"] ?? "";
     _group = json['group'] != null ? Group.fromJson(json['group']) : null;
   }
 
-  int? _id;
-  int? _extraGroupId;
+  String? _id;
+  String? _extraGroupId;
   String? _value;
   bool? _active;
   Group? _group;
 
   Extras copyWith({
-    int? id,
-    int? extraGroupId,
+    String? id,
+    String? extraGroupId,
     String? value,
     bool? active,
     Group? group,
@@ -634,9 +633,9 @@ class Extras {
     group: group ?? _group,
   );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get extraGroupId => _extraGroupId;
+  String? get extraGroupId => _extraGroupId;
 
   String? get value => _value;
 
@@ -658,7 +657,7 @@ class Extras {
 }
 
 class Group {
-  Group({int? id, String? type, bool? active, Translation? translation}) {
+  Group({String? id, String? type, bool? active, Translation? translation}) {
     _id = id;
     _type = type;
     _active = active;
@@ -666,20 +665,20 @@ class Group {
   }
 
   Group.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _type = json['type'];
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
         : null;
   }
 
-  int? _id;
+  String? _id;
   String? _type;
   bool? _active;
   Translation? _translation;
 
   Group copyWith({
-    int? id,
+    String? id,
     String? type,
     bool? active,
     Translation? translation,
@@ -690,7 +689,7 @@ class Group {
     translation: translation ?? _translation,
   );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get type => _type;
 

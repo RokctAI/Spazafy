@@ -47,7 +47,7 @@ void callbackDispatcher() {
             ),
           );
         await client.post(
-          '${global_constants.AppConstants.baseUrl}/api/v1/dashboard/deliveryman/settings/location',
+          '${global_constants.AppConstants.baseUrl}/api/v1/method/paas.api.driver.driver.update_location',
           data: {
             "location": LocalLocationData(
               latitude: userLocation.latitude,

@@ -15,7 +15,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/settings',
+        '/api/v1/method/paas.api.driver.driver.get_driver_settings',
       );
       return ApiResult.success(data: DeliveryResponse.fromJson(response.data));
     } catch (e) {
@@ -47,8 +47,8 @@ class UserRepositoryImpl implements UserRepository {
     debugPrint('===> update general info data ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.put(
-        '/api/v1/dashboard/user/profile/update',
+      final response = await client.post(
+        '/api/v1/method/paas.api.user.user.update_profile',
         data: data,
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
@@ -65,7 +65,7 @@ class UserRepositoryImpl implements UserRepository {
   Future<ApiResult<ProfileResponse>> getProfileDetails() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get('/api/v1/dashboard/user/profile/show');
+      final response = await client.get('/api/v1/method/paas.api.user.user.get_profile');
 
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
@@ -84,8 +84,8 @@ class UserRepositoryImpl implements UserRepository {
     debugPrint('===> update general info data ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.put(
-        '/api/v1/dashboard/user/profile/update',
+      final response = await client.post(
+        '/api/v1/method/paas.api.user.user.update_profile',
         data: data,
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
@@ -110,8 +110,8 @@ class UserRepositoryImpl implements UserRepository {
     debugPrint('===> update profile image data ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.put(
-        '/api/v1/dashboard/user/profile/update',
+      final response = await client.post(
+        '/api/v1/method/paas.api.user.user.update_profile',
         data: data,
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
@@ -136,7 +136,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/user/profile/password/update',
+        '/api/v1/method/paas.api.user.user.update_password',
         data: data,
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
@@ -155,7 +155,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/user/profile/firebase/token/update',
+        '/api/v1/method/paas.api.user.user.update_firebase_token',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -198,7 +198,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/deliveryman/settings',
+        '/api/v1/method/paas.api.driver.driver.update_car_info',
         data: data,
       );
       return ApiResult.success(data: DeliveryResponse.fromJson(response.data));
@@ -243,7 +243,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/user/request-models',
+        '/api/v1/method/paas.api.driver.driver.create_car_request',
         data: data,
       );
       return ApiResult.success(
@@ -277,7 +277,7 @@ class UserRepositoryImpl implements UserRepository {
       };
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/order/report',
+        '/api/v1/method/paas.api.driver_report.driver_report.get_order_report',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -316,7 +316,7 @@ class UserRepositoryImpl implements UserRepository {
       };
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/orders/report/paginate',
+        '/api/v1/method/paas.api.seller_report.seller_report.get_order_report_paginate',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -335,7 +335,7 @@ class UserRepositoryImpl implements UserRepository {
   Future<ApiResult> setOnline() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/dashboard/deliveryman/settings/online');
+      await client.post('/api/v1/method/paas.api.driver.driver.set_online_status');
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update online token failure: $e');
@@ -350,7 +350,7 @@ class UserRepositoryImpl implements UserRepository {
   Future<ApiResult<RequestModelResponse>> getRequestModel() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final res = await client.get('/api/v1/dashboard/user/request-models');
+      final res = await client.get('/api/v1/method/paas.api.driver.driver.get_car_requests');
       return ApiResult.success(data: RequestModelResponse.fromJson(res.data));
     } catch (e) {
       debugPrint('==> get request model failure: $e');
@@ -366,7 +366,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/statistics/count',
+        '/api/v1/method/paas.api.driver.driver.get_driver_statistics',
       );
       return ApiResult.success(
         data: StatisticsResponse.fromJson(response.data),
@@ -385,7 +385,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       final res = await client.post(
-        '/api/v1/dashboard/deliveryman/settings/location',
+        '/api/v1/method/paas.api.driver.driver.update_location',
         data: {
           "location": LocalLocationData(
             latitude: location.latitude,
@@ -408,7 +408,7 @@ class UserRepositoryImpl implements UserRepository {
   Future<ApiResult> deleteAccount() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.delete('/api/v1/dashboard/user/profile/delete');
+      await client.post('/api/v1/method/paas.api.user.user.delete_account');
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(
@@ -432,7 +432,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/delivery-zones',
+        '/api/v1/method/paas.api.delivery_zone.delivery_zone.update_driver_delivery_zones',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -455,7 +455,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/delivery-zones',
+        '/api/v1/method/paas.api.delivery_zone.delivery_zone.get_driver_delivery_zones',
         queryParameters: data,
       );
       return ApiResult.success(

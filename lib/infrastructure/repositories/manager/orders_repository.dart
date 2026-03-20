@@ -10,8 +10,8 @@ import 'package:rokctapp/domain/interface/manager/interfaces.dart';
 class OrdersRepository implements OrdersInterface {
   @override
   Future<ApiResult<TransactionsResponse>> createTransaction({
-    required int orderId,
-    required int paymentId,
+    required String orderId,
+    required String paymentId,
   }) async {
     final data = {'payment_sys_id': paymentId};
     debugPrint('===> create transaction body: ${jsonEncode(data)}');
@@ -19,8 +19,9 @@ class OrdersRepository implements OrdersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/payments/order/$orderId/transactions',
+        '/api/v1/method/paas.api.payment.payment.create_transaction',
         data: data,
+        queryParameters: {'order_id': orderId},
       );
       return ApiResult.success(
         data: TransactionsResponse.fromJson(response.data),
@@ -39,7 +40,7 @@ class OrdersRepository implements OrdersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/shop-payments',
+        '/api/v1/method/paas.api.seller_payment.seller_payment.get_payments',
       );
       return ApiResult.success(data: PaymentsResponse.fromJson(response.data));
     } catch (e) {
@@ -60,7 +61,7 @@ class OrdersRepository implements OrdersInterface {
     UserData? user,
     LocationData? location,
     String? entrance,
-    int? tableId,
+    String? tableId,
     String? floor,
     String? house,
   }) async {
@@ -110,7 +111,7 @@ class OrdersRepository implements OrdersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/seller/orders',
+        '/api/v1/method/paas.api.seller_order.seller_order.create_order',
         data: data,
       );
       return ApiResult.success(
@@ -128,7 +129,7 @@ class OrdersRepository implements OrdersInterface {
   @override
   Future<ApiResult<OrderStatusResponse>> updateOrderStatus({
     required OrderStatus status,
-    int? orderId,
+    String? orderId,
   }) async {
     String? statusText;
     switch (status) {
@@ -151,7 +152,7 @@ class OrdersRepository implements OrdersInterface {
         statusText = 'delivered';
         break;
       case OrderStatus.canceled:
-        statusText = 'canceled';
+        statusText = 'Cancelled';
         break;
     }
     final data = {'status': statusText};
@@ -159,8 +160,8 @@ class OrdersRepository implements OrdersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/seller/order/$orderId/status',
-        data: data,
+        '/api/v1/method/paas.api.seller_order.seller_order.update_seller_order_status',
+        data: {'order_id': orderId, 'status': statusText},
       );
       return ApiResult.success(
         data: OrderStatusResponse.fromJson(response.data),
@@ -175,12 +176,12 @@ class OrdersRepository implements OrdersInterface {
   }
 
   @override
-  Future<ApiResult<SingleOrderResponse>> getOrderDetails({int? orderId}) async {
+  Future<ApiResult<SingleOrderResponse>> getOrderDetails({String? orderId}) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final data = {'lang': LocalStorage.getLanguage()?.locale};
+      final data = {'lang': LocalStorage.getLanguage()?.locale, 'order_id': orderId};
       final response = await client.get(
-        '/api/v1/dashboard/seller/orders/$orderId',
+        '/api/v1/method/paas.api.seller_order.seller_order.get_seller_order_details',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -239,7 +240,7 @@ class OrdersRepository implements OrdersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/orders/paginate',
+        '/api/v1/method/paas.api.seller_order.seller_order.get_seller_orders',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -321,7 +322,7 @@ class OrdersRepository implements OrdersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/order/products/calculate',
+        '/api/v1/method/paas.api.order.order.calculate_order_price',
         queryParameters: data,
       );
       return ApiResult.success(data: OrderCalculate.fromJson(response.data));

@@ -6,7 +6,7 @@ abstract class CatalogInterface {
 
   Future<ApiResult<KitchensPaginateResponse>> getKitchens();
 
-  Future<ApiResult<void>> createCategory({required String title, int? input});
+  Future<ApiResult<void>> createCategory({required String title, String? input});
 
   Future<ApiResult<CategoriesPaginateResponse>> getCategories({
     int? page,
@@ -25,5 +25,5 @@ abstract class CatalogInterface {
     String? query,
   });
 
-  Future<ApiResult> deleteCategory({required int? id});
+  Future<ApiResult> deleteCategory({required String? id});
 }

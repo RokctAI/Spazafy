@@ -10,8 +10,8 @@ abstract class OrdersInterface {
   });
 
   Future<ApiResult<TransactionsResponse>> createTransaction({
-    required int orderId,
-    required int paymentId,
+    required String orderId,
+    required String paymentId,
   });
 
   Future<ApiResult<PaymentsResponse>> getPayments();
@@ -23,7 +23,7 @@ abstract class OrdersInterface {
     required String deliveryTime,
     required String address,
     String? entrance,
-    int? tableId,
+    String? tableId,
     String? floor,
     String? house,
     LocationData? location,
@@ -31,10 +31,10 @@ abstract class OrdersInterface {
 
   Future<ApiResult<OrderStatusResponse>> updateOrderStatus({
     required OrderStatus status,
-    int? orderId,
+    String? orderId,
   });
 
-  Future<ApiResult<SingleOrderResponse>> getOrderDetails({int? orderId});
+  Future<ApiResult<SingleOrderResponse>> getOrderDetails({String? orderId});
 
   Future<ApiResult<OrdersPaginateResponse>> getOrders({
     OrderStatus? status,

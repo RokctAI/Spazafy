@@ -25,7 +25,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/paginate',
+        '/api/v1/method/paas.api.driver_order.driver_order.get_driver_orders_paginate',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -55,7 +55,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/paginate',
+        '/api/v1/method/paas.api.driver_order.driver_order.get_driver_orders_paginate',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -92,7 +92,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/paginate',
+        '/api/v1/method/paas.api.driver_order.driver_order.get_driver_orders_paginate',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -108,7 +108,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<OrderDetailModel>> showOrders(int id) async {
+  Future<ApiResult<OrderDetailModel>> showOrders(String id) async {
     final data = {
       'currency_id': LocalStorage.getSelectedCurrency()?.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
@@ -116,8 +116,8 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/$id',
-        queryParameters: data,
+        '/api/v1/method/paas.api.driver_order.driver_order.get_driver_order_details',
+        queryParameters: {...data, 'order_id': id},
       );
       return ApiResult.success(data: OrderDetailModel.fromJson(response.data));
     } catch (e) {
@@ -149,7 +149,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/paginate',
+        '/api/v1/method/paas.api.driver_order.driver_order.get_driver_orders_paginate',
         queryParameters: data,
       );
 
@@ -166,11 +166,12 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId) async {
+  Future<ApiResult<dynamic>> setCurrentOrder(String? orderId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/orders/$orderId/current',
+        '/api/v1/method/paas.api.driver_order.driver_order.set_current_order',
+        data: {'order_id': orderId},
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -187,7 +188,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/orders/paginate?perPage=1&lang=en&current=1',
+        '/api/v1/method/paas.api.driver_order.driver_order.fetch_current_order',
       );
       return ApiResult.success(
         data: OrderPaginateResponse.fromJson(response.data),
@@ -202,12 +203,12 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateOrder(int? orderId, String? status) async {
+  Future<ApiResult<dynamic>> updateOrder(String? orderId, String? status) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/order/$orderId/status/update',
-        data: {"status": status},
+        '/api/v1/method/paas.api.driver_order.driver_order.update_driver_order_status',
+        data: {"order_id": orderId, "status": status},
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -220,12 +221,12 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> uploadImage(int? orderId, String? image) async {
+  Future<ApiResult<dynamic>> uploadImage(String? orderId, String? image) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/orders/$orderId/image',
-        data: {"img": image},
+        '/api/v1/method/paas.api.driver_order.driver_order.upload_order_image',
+        data: {"order_id": orderId, "img": image},
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -239,7 +240,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
   @override
   Future<ApiResult<void>> addReview(
-    num orderId, {
+    String orderId, {
     required double rating,
     required String comment,
   }) async {
@@ -247,8 +248,8 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/orders/$orderId/review',
-        data: data,
+        '/api/v1/method/paas.api.driver_order.driver_order.add_order_review',
+        data: {...data, "order_id": orderId},
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -265,7 +266,8 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/deliveryman/order/$orderId/attach/me',
+        '/api/v1/method/paas.api.driver_order.driver_order.attach_order_to_me',
+        data: {'order_id': orderId},
       );
       return ApiResult.success(data: OrderDetailModel.fromJson(response.data));
     } catch (e) {
@@ -278,12 +280,12 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<void>> cancelOrder(int orderId, String note) async {
+  Future<ApiResult<void>> cancelOrder(String orderId, String note) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/order/$orderId/status/update?status=canceled',
-        data: {"note": note},
+        '/api/v1/method/paas.api.driver_order.driver_order.update_driver_order_status',
+        data: {"order_id": orderId, "status": "canceled", "note": note},
       );
       return const ApiResult.success(data: null);
     } catch (e) {

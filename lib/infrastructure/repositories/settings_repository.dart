@@ -15,7 +15,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.system.system.get_global_settings',
+        '/api/v1/method/paas.api.system.system.get_global_settings',
       );
       final responseData = GlobalSettingsResponse.fromJson(response.data);
 
@@ -59,7 +59,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.translation.get_mobile_translations',
+        '/api/v1/method/paas.api.translation.get_mobile_translations',
         queryParameters: data,
       );
       final responseData = MobileTranslationsResponse.fromJson(response.data);
@@ -102,7 +102,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.system.system.get_languages',
+        '/api/v1/method/paas.api.system.system.get_languages',
       );
       final responseData = LanguagesResponse.fromJson(response.data);
 
@@ -146,7 +146,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/method/paas.api.admin_content.admin_content.get_admin_faqs',
+        '/api/v1/method/paas.api.admin_content.admin_content.get_admin_faqs',
       );
       final responseData = HelpModel.fromJson(response.data);
 
@@ -179,7 +179,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.page.page.get_page',
+        '/api/v1/method/paas.api.page.page.get_page',
         queryParameters: {'slug': 'term'},
       );
       // Response structure adaptation needed. Assuming get_page returns the page doc.
@@ -199,7 +199,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.page.page.get_page',
+        '/api/v1/method/paas.api.page.page.get_page',
         queryParameters: {'slug': 'policy'},
       );
       return ApiResult.success(data: Translation.fromJson(response.data));
@@ -218,7 +218,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       final client = dioHttp.client(requireAuth: true);
       // Using parities with NotificationRepository or dedicated settings endpoint
       final response = await client.get(
-        '/api/method/paas.api.notification.notification.get_notification_settings',
+        '/api/v1/method/paas.api.notification.notification.get_notification_settings',
       );
       return ApiResult.success(
         data:
@@ -246,7 +246,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
             .toList(),
       };
       await client.post(
-        '/api/method/paas.api.notification.notification.update_notification_settings',
+        '/api/v1/method/paas.api.notification.notification.update_notification_settings',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -257,7 +257,7 @@ class SettingsRepository implements SettingsRepositoryFacade {
       try {
         await appDatabase.enqueueSyncRequest(
           url:
-              '/api/method/paas.api.notification.notification.update_notification_settings',
+              '/api/v1/method/paas.api.notification.notification.update_notification_settings',
           method: 'POST',
           payload: {
             'notifications': notifications

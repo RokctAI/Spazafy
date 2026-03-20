@@ -15,7 +15,7 @@ class CatalogRepository implements CatalogInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/units/paginate',
+        '/api/v1/method/paas.api.seller_product.seller_product.get_seller_units',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -36,7 +36,7 @@ class CatalogRepository implements CatalogInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/kitchen/',
+        '/api/v1/method/paas.api.seller_operations.seller_operations.get_seller_kitchens',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -54,7 +54,7 @@ class CatalogRepository implements CatalogInterface {
   @override
   Future<ApiResult<void>> createCategory({
     required String title,
-    int? input,
+    String? input,
   }) async {
     final data = {
       'title': {LocalStorage.getSystemLanguage()?.locale ?? 'en': title},
@@ -65,7 +65,7 @@ class CatalogRepository implements CatalogInterface {
     debugPrint('===> create category request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/dashboard/seller/categories', data: data);
+      await client.post('/api/v1/method/paas.api.seller_product.seller_product.create_seller_category', data: data);
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> create category failure: $e');
@@ -83,7 +83,7 @@ class CatalogRepository implements CatalogInterface {
     String? type,
     bool hasProducts = false,
   }) async {
-    final shopId = LocalStorage.getUser()?.shop?.id ?? 0;
+    final shopId = LocalStorage.getUser()?.shop?.id ?? "0";
     final data = {
       if (page != null) 'page': page,
       if (query != null) 'search': query,
@@ -99,7 +99,7 @@ class CatalogRepository implements CatalogInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/categories',
+        '/api/v1/method/paas.api.seller_product.seller_product.get_seller_categories',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -126,12 +126,12 @@ class CatalogRepository implements CatalogInterface {
       'lang': LocalStorage.getLanguage()?.locale,
       'type': 'main',
       "has_products": 1,
-      "p_shop_id": LocalStorage.getUser()?.shop?.id ?? 0,
+      "p_shop_id": LocalStorage.getUser()?.shop?.id ?? "0",
     };
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/categories',
+        '/api/v1/method/paas.api.seller_product.seller_product.get_seller_categories',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -162,7 +162,7 @@ class CatalogRepository implements CatalogInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/categories',
+        '/api/v1/method/paas.api.seller_product.seller_product.get_seller_categories',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -178,13 +178,13 @@ class CatalogRepository implements CatalogInterface {
   }
 
   @override
-  Future<ApiResult> deleteCategory({required int? id}) async {
+  Future<ApiResult> deleteCategory({required String? id}) async {
     final data = {'ids[0]': id};
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.delete(
-        '/api/v1/dashboard/seller/categories/delete',
-        queryParameters: data,
+      await client.post(
+        '/api/v1/method/paas.api.seller_product.seller_product.delete_seller_category',
+        data: {'ids': [id]},
       );
       return const ApiResult.success(data: null);
     } catch (e) {

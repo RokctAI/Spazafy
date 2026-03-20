@@ -16,7 +16,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/method/paas.api.order.order.create_order',
+        '/api/v1/method/paas.api.order.order.create_order',
         data: orderBody.toJson(),
       );
       final responseData = OrderActiveModel.fromJson(response.data);
@@ -47,7 +47,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/method/paas.api.order.order.list_orders',
+        '/api/v1/method/paas.api.order.order.list_orders',
         queryParameters: data,
       );
 
@@ -92,7 +92,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/method/paas.api.order.order.get_order_details',
+        '/api/v1/method/paas.api.order.order.get_order_details',
         queryParameters: {'order_id': orderId},
       );
       final responseData = OrderActiveModel.fromJson(response.data);
@@ -135,7 +135,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.order.order.add_order_review',
+        '/api/v1/method/paas.api.order.order.add_order_review',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -145,7 +145,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       // Sync Queue fallback
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.order.order.add_order_review',
+          url: '/api/v1/method/paas.api.order.order.add_order_review',
           method: 'POST',
           payload: data,
         );
@@ -172,7 +172,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       var res = await client.post(
-        '/api/method/paas.api.payment.payment.initiate_${name.toLowerCase()}_payment',
+        '/api/v1/method/paas.api.payment.payment.initiate_${name.toLowerCase()}_payment',
         data: {'order_id': orderBody.cartId},
       );
       return ApiResult.success(data: res.data["redirect_url"]);
@@ -190,7 +190,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.order.order.cancel_order',
+        '/api/v1/method/paas.api.order.order.cancel_order',
         data: {'order_id': orderId},
       );
       return const ApiResult.success(data: null);
@@ -200,7 +200,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       // Sync Queue fallback
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.order.order.cancel_order',
+          url: '/api/v1/method/paas.api.order.order.cancel_order',
           method: 'POST',
           payload: {'order_id': orderId},
         );
@@ -222,7 +222,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       final data = {"order": orderId, "cause": title};
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.user.user.create_order_refund',
+        '/api/v1/method/paas.api.user.user.create_order_refund',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -232,7 +232,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       // Sync Queue fallback
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.user.user.create_order_refund',
+          url: '/api/v1/method/paas.api.user.user.create_order_refund',
           method: 'POST',
           payload: {"order": orderId, "cause": title},
         );
@@ -260,7 +260,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.repeating_order.create_repeating_order',
+        '/api/v1/method/paas.api.repeating_order.create_repeating_order',
         data: {
           'original_order': orderId,
           'start_date': from,
@@ -284,7 +284,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.repeating_order.pause_repeating_order',
+        '/api/v1/method/paas.api.repeating_order.pause_repeating_order',
         data: {'repeating_order_id': autoOrderId},
       );
       return const ApiResult.success(data: null);
@@ -301,7 +301,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.repeating_order.resume_repeating_order',
+        '/api/v1/method/paas.api.repeating_order.resume_repeating_order',
         data: {'repeating_order_id': autoOrderId},
       );
       return const ApiResult.success(data: null);
@@ -311,7 +311,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       // Sync Queue fallback
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.repeating_order.resume_repeating_order',
+          url: '/api/v1/method/paas.api.repeating_order.resume_repeating_order',
           method: 'POST',
           payload: {'repeating_order_id': autoOrderId},
         );
@@ -338,7 +338,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/method/paas.api.user.user.get_user_order_refunds',
+        '/api/v1/method/paas.api.user.user.get_user_order_refunds',
         queryParameters: data,
       );
       return ApiResult.success(data: RefundOrdersModel.fromJson(response.data));
@@ -367,7 +367,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/method/paas.api.order.order.get_calculate',
+        '/api/v1/method/paas.api.order.order.get_calculate',
         data: data,
       );
       return ApiResult.success(
@@ -391,7 +391,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/method/paas.api.coupon.coupon.check_coupon',
+        '/api/v1/method/paas.api.coupon.coupon.check_coupon',
         data: data,
       );
       return ApiResult.success(data: CouponResponse.fromJson(response.data));
@@ -435,7 +435,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       };
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.repeating_order.create_repeating_order',
+        '/api/v1/method/paas.api.repeating_order.create_repeating_order',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -445,7 +445,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       // Sync Queue fallback
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.repeating_order.create_repeating_order',
+          url: '/api/v1/method/paas.api.repeating_order.create_repeating_order',
           method: 'POST',
           payload: {
             'original_order': orderId,
@@ -473,7 +473,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.repeating_order.delete_repeating_order',
+        '/api/v1/method/paas.api.repeating_order.delete_repeating_order',
         data: {'repeating_order_id': repeatingOrderId},
       );
       return const ApiResult.success(data: null);
@@ -483,7 +483,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       // Sync Queue fallback
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.repeating_order.delete_repeating_order',
+          url: '/api/v1/method/paas.api.repeating_order.delete_repeating_order',
           method: 'POST',
           payload: {'repeating_order_id': repeatingOrderId},
         );
@@ -507,7 +507,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/method/paas.api.tip_process',
+        '/api/v1/method/paas.api.tip_process',
         data: {'order_id': orderId, 'tip': tip},
       );
       return ApiResult.success(data: response.data['redirect_url']);
@@ -527,7 +527,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/method/paas.api.check_cashback',
+        '/api/v1/method/paas.api.check_cashback',
         data: {'shop_id': shopId, 'amount': amount},
       );
       return ApiResult.success(
@@ -546,7 +546,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/method/paas.api.get_driver_location',
+        '/api/v1/method/paas.api.get_driver_location',
         queryParameters: {'order_id': deliveryId},
       );
       return ApiResult.success(

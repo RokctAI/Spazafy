@@ -16,7 +16,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.product.product.search_products',
+        '/api/v1/method/paas.api.product.product.search_products',
         queryParameters: params,
       );
       final responseData = ProductsPaginateResponse.fromJson(response.data);
@@ -60,7 +60,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.product.product.get_product_by_uuid',
+        '/api/v1/method/paas.api.product.product.get_product_by_uuid',
         queryParameters: {'uuid': uuid},
       );
       final responseData = SingleProductResponse.fromJson(response.data);
@@ -106,7 +106,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.product.product.get_products',
+        '/api/v1/method/paas.api.product.product.get_products',
         queryParameters: params,
       );
       final responseData = ProductsPaginateResponse.fromJson(response.data);
@@ -162,7 +162,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.product.product.most_sold_products',
+        '/api/v1/method/paas.api.product.product.most_sold_products',
         queryParameters: params,
       );
       final responseData = ProductsPaginateResponse.fromJson(response.data);
@@ -214,7 +214,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/method/paas.api.product.product.order_products_calculate',
+        '/api/v1/method/paas.api.product.product.order_products_calculate',
         data: {'products': products},
       );
       return ApiResult.success(
@@ -236,7 +236,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.product.product.get_products_by_ids',
+        '/api/v1/method/paas.api.product.product.get_products_by_ids',
         queryParameters: {'ids': ids},
       );
       final responseData = ProductsPaginateResponse.fromJson(response.data);
@@ -292,7 +292,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.product.product.add_product_review',
+        '/api/v1/method/paas.api.product.product.add_product_review',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -302,7 +302,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
       // Persistence: Queue for background sync
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.product.product.add_product_review',
+          url: '/api/v1/method/paas.api.product.product.add_product_review',
           method: 'POST',
           payload: data,
         );
@@ -335,7 +335,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.product.product.get_discounted_products',
+        '/api/v1/method/paas.api.product.product.get_discounted_products',
         queryParameters: params,
       );
       final responseData = ProductsPaginateResponse.fromJson(response.data);
@@ -394,7 +394,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/method/paas.api.product.product.get_products',
+        '/api/v1/method/paas.api.product.product.get_products',
         queryParameters: {'shop_id': shopId, 'limit_page_length': 100},
       );
       final responseData = AllProductsResponse.fromJson(response.data);

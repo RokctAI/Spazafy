@@ -4,9 +4,9 @@ import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_respon
 import 'package:rokctapp/domain/handlers/driver/handlers.dart';
 
 abstract class OrdersRepositoryFacade {
-  Future<ApiResult<OrderDetailModel>> showOrders(int id);
+  Future<ApiResult<OrderDetailModel>> showOrders(String id);
 
-  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId);
+  Future<ApiResult<dynamic>> setCurrentOrder(String? orderId);
 
   Future<ApiResult<OrderPaginateResponse>> getActiveOrders(int page);
 
@@ -21,17 +21,17 @@ abstract class OrdersRepositoryFacade {
     List<String>? status,
   });
 
-  Future<ApiResult<dynamic>> updateOrder(int? orderId, String? status);
+  Future<ApiResult<dynamic>> updateOrder(String? orderId, String? status);
 
-  Future<ApiResult<dynamic>> uploadImage(int? orderId, String? image);
+  Future<ApiResult<dynamic>> uploadImage(String? orderId, String? image);
 
   Future<ApiResult<void>> addReview(
-    num orderId, {
+    String orderId, {
     required double rating,
     required String comment,
   });
 
-  Future<ApiResult<void>> cancelOrder(int orderId, String note);
+  Future<ApiResult<void>> cancelOrder(String orderId, String note);
 
   Future<ApiResult<OrderPaginateResponse>> fetchCurrentOrder();
 

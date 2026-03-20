@@ -11,7 +11,7 @@ class AddressRepository implements AddressRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/method/paas.api.user.user.get_user_addresses',
+        '/api/v1/method/paas.api.user.user.get_user_addresses',
       );
       return ApiResult.success(data: AddressesResponse.fromJson(response.data));
     } catch (e) {
@@ -28,7 +28,7 @@ class AddressRepository implements AddressRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/method/paas.api.user.user.delete_user_address',
+        '/api/v1/method/paas.api.user.user.delete_user_address',
         data: {'name': addressId.toString()},
       );
       return const ApiResult.success(data: null);
@@ -38,7 +38,7 @@ class AddressRepository implements AddressRepositoryFacade {
       // Sync Queue fallback
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.user.user.delete_user_address',
+          url: '/api/v1/method/paas.api.user.user.delete_user_address',
           method: 'POST',
           payload: {'name': addressId.toString()},
         );
@@ -61,7 +61,7 @@ class AddressRepository implements AddressRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/method/paas.api.user.user.add_user_address',
+        '/api/v1/method/paas.api.user.user.add_user_address',
         data: {'address_data': address.toJson()},
       );
       return ApiResult.success(
@@ -73,7 +73,7 @@ class AddressRepository implements AddressRepositoryFacade {
       // Sync Queue fallback
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/method/paas.api.user.user.add_user_address',
+          url: '/api/v1/method/paas.api.user.user.add_user_address',
           method: 'POST',
           payload: {'address_data': address.toJson()},
         );

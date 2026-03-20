@@ -48,7 +48,7 @@ class PosNotifier extends StateNotifier<bool> {
 
       // 2. Enqueue for Background Sync
       await backgroundSyncService.enqueueRequest(
-        '/api/method/paas.api.order.order.create_order',
+        '/api/v1/method/paas.api.order.order.create_order',
         'POST',
         orderBody,
       );

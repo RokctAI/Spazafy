@@ -27,7 +27,7 @@ class UsersRepository implements UsersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/seller/users',
+        '/api/v1/method/paas.api.seller_user.seller_user.create_seller_user',
         data: data,
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
@@ -59,7 +59,7 @@ class UsersRepository implements UsersInterface {
       };
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/order/report',
+        '/api/v1/method/paas.api.seller_report.seller_report.get_order_report',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -98,7 +98,7 @@ class UsersRepository implements UsersInterface {
       };
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/orders/report/paginate',
+        '/api/v1/method/paas.api.seller_report.seller_report.get_order_report_paginate',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -126,7 +126,7 @@ class UsersRepository implements UsersInterface {
     debugPrint('====> update delivery zone ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/dashboard/seller/delivery-zones', data: data);
+      await client.post('/api/v1/method/paas.api.delivery_zone.delivery_zone.update_shop_delivery_zones', data: data);
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update delivery zones failure: $e');
@@ -147,7 +147,7 @@ class UsersRepository implements UsersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/delivery-zones',
+        '/api/v1/method/paas.api.delivery_zone.delivery_zone.get_shop_delivery_zones',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -181,8 +181,8 @@ class UsersRepository implements UsersInterface {
     debugPrint('====> update working days ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.put(
-        '/api/v1/dashboard/seller/shop-working-days/${uuid ?? LocalStorage.getShop()?.uuid}',
+      await client.post(
+        '/api/v1/method/paas.api.seller_shop_settings.seller_shop_settings.update_shop_working_days',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -255,8 +255,8 @@ class UsersRepository implements UsersInterface {
     debugPrint('====> update shop ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.put(
-        '/api/v1/dashboard/seller/shops',
+      final response = await client.post(
+        '/api/v1/method/paas.api.seller_shop.seller_shop.update_shop',
         data: data,
       );
       return ApiResult.success(
@@ -286,7 +286,7 @@ class UsersRepository implements UsersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/users/paginate',
+        '/api/v1/method/paas.api.user.user.search_user',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -310,7 +310,7 @@ class UsersRepository implements UsersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/shops',
+        '/api/v1/method/paas.api.seller_shop.seller_shop.get_shop',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -329,7 +329,7 @@ class UsersRepository implements UsersInterface {
   Future<ApiResult<dynamic>> setOnlineOffline() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/dashboard/seller/shops/working/status');
+      await client.post('/api/v1/method/paas.api.seller_shop.seller_shop.set_shop_working_status');
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('===> error switch shop online $e');
@@ -344,7 +344,7 @@ class UsersRepository implements UsersInterface {
   Future<ApiResult<ProfileResponse>> getProfileDetails() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get('/api/v1/dashboard/user/profile/show');
+      final response = await client.get('/api/v1/method/paas.api.user.user.get_profile');
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       return ApiResult.failure(
@@ -362,8 +362,8 @@ class UsersRepository implements UsersInterface {
     debugPrint('===> update general info data ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.put(
-        '/api/v1/dashboard/user/profile/update',
+      final response = await client.post(
+        '/api/v1/method/paas.api.user.user.update_profile',
         data: data,
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
@@ -387,8 +387,8 @@ class UsersRepository implements UsersInterface {
     };
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.put(
-        '/api/v1/dashboard/user/profile/update',
+      final response = await client.post(
+        '/api/v1/method/paas.api.user.user.update_profile',
         data: data,
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
@@ -413,7 +413,7 @@ class UsersRepository implements UsersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/user/profile/password/update',
+        '/api/v1/method/paas.api.user.user.update_password',
         data: data,
       );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
@@ -433,7 +433,7 @@ class UsersRepository implements UsersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/user/profile/firebase/token/update',
+        '/api/v1/method/paas.api.user.user.update_firebase_token',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -450,7 +450,7 @@ class UsersRepository implements UsersInterface {
   Future<ApiResult> deleteAccount() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.delete('/api/v1/dashboard/user/profile/delete');
+      await client.post('/api/v1/method/paas.api.user.user.delete_account');
       return const ApiResult.success(data: null);
     } catch (e) {
       return ApiResult.failure(

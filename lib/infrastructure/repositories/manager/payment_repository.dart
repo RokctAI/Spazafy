@@ -12,7 +12,7 @@ class PaymentRepository implements PaymentsFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/rest/payments',
+        '/api/v1/method/paas.api.payment.payment.get_payment_gateways',
         queryParameters: {"lang": LocalStorage.getLanguage()?.locale ?? 'en'},
       );
       return ApiResult.success(data: PaymentsResponse.fromJson(response.data));
@@ -30,7 +30,7 @@ class PaymentRepository implements PaymentsFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/shop-payments/shop-non-exist',
+        '/api/v1/method/paas.api.payment.payment.get_shop_available_payments',
         queryParameters: {"lang": LocalStorage.getLanguage()?.locale ?? 'en'},
       );
       return ApiResult.success(
@@ -59,8 +59,11 @@ class PaymentRepository implements PaymentsFacade {
 
       final client = dioHttp.client(requireAuth: true);
       final res = await client.post(
-        '/api/v1/dashboard/user/$name-process',
-        data: data,
+        '/api/v1/method/paas.api.payment.payment.initiate_wallet_topup',
+        data: {
+          ...data,
+          'payment_gateway': name,
+        },
       );
 
       return ApiResult.success(data: res.data["data"]["data"]["url"] ?? "");
@@ -86,7 +89,7 @@ class PaymentRepository implements PaymentsFacade {
       debugPrint('==> payment maksekeskus request: $data');
       final client = dioHttp.client(requireAuth: true);
       final res = await client.post(
-        '/api/v1/dashboard/user/maksekeskus-process',
+        '/api/v1/method/paas.api.payment.payment.initiate_maksekeskus_payment',
         data: data,
       );
 
@@ -105,7 +108,7 @@ class PaymentRepository implements PaymentsFacade {
   @override
   Future<ApiResult<String>> paymentSubscriptionWebView({
     required String name,
-    required int subscriptionId,
+    required String subscriptionId,
   }) async {
     try {
       final data = {
@@ -115,8 +118,11 @@ class PaymentRepository implements PaymentsFacade {
 
       final client = dioHttp.client(requireAuth: true);
       final res = await client.post(
-        '/api/v1/dashboard/user/$name-process',
-        data: data,
+        '/api/v1/method/paas.api.subscription.subscription.initiate_subscription_payment',
+        data: {
+          ...data,
+          'payment_gateway': name,
+        },
       );
 
       return ApiResult.success(data: res.data["data"]["data"]["url"] ?? "");
@@ -141,7 +147,7 @@ class PaymentRepository implements PaymentsFacade {
         "currency_id": LocalStorage.getSelectedCurrency()?.id,
       };
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/dashboard/user/wallet/send', data: data);
+      await client.post('/api/v1/method/paas.api.user.user.send_wallet_balance', data: data);
       return const ApiResult.success(data: true);
     } catch (e) {
       debugPrint('==> send wallet failure: $e');
