@@ -15,8 +15,8 @@ class TableRepository extends TableInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/shop-sections',
-        queryParameters: {
+        '/api/v1/method/paas.api.seller_operations.seller_operations.create_seller_section',
+        data: {
           "area": area,
           "images": [],
           "title": {LocalStorage.getLanguage()?.locale ?? 'en': name},
@@ -48,7 +48,7 @@ class TableRepository extends TableInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/shop-sections',
+        '/api/v1/method/paas.api.seller_operations.seller_operations.get_seller_sections',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -71,8 +71,8 @@ class TableRepository extends TableInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/tables',
-        queryParameters: tableModel.toJson(),
+        '/api/v1/method/paas.api.seller_operations.seller_operations.create_seller_table',
+        data: tableModel.toJson(),
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -88,7 +88,7 @@ class TableRepository extends TableInterface {
   Future<ApiResult<TableResponse>> getTables({
     int? page,
     String? query,
-    int? shopSectionId,
+    String? shopSectionId,
     String? type,
     DateTime? from,
     DateTime? to,
@@ -109,7 +109,7 @@ class TableRepository extends TableInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/tables',
+        '/api/v1/method/paas.api.seller_operations.seller_operations.get_seller_tables',
         queryParameters: data,
       );
       return ApiResult.success(data: TableResponse.fromJson(response.data));
@@ -125,7 +125,7 @@ class TableRepository extends TableInterface {
   @override
   Future<ApiResult<TableBookingResponse>> getTableOrders({
     int? page,
-    int? id,
+    String? id,
     String? type,
     DateTime? from,
     DateTime? to,
@@ -147,7 +147,7 @@ class TableRepository extends TableInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/user-bookings',
+        '/api/v1/method/paas.api.seller_operations.seller_operations.get_seller_bookings',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -164,12 +164,12 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<TableResponse>> deleteSection(int id) async {
+  Future<ApiResult<TableResponse>> deleteSection(String id) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.delete(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/shop-sections/delete',
-        queryParameters: {"ids[0]": id},
+      final response = await client.post(
+        '/api/v1/method/paas.api.seller_operations.seller_operations.delete_seller_sections',
+        data: {"ids": [id]},
       );
       return ApiResult.success(data: TableResponse.fromJson(response.data));
     } catch (e) {
@@ -182,12 +182,12 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<TableResponse>> deleteTable(int id) async {
+  Future<ApiResult<TableResponse>> deleteTable(String id) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.delete(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/tables/delete',
-        queryParameters: {"ids[0]": id},
+      final response = await client.post(
+        '/api/v1/method/paas.api.seller_operations.seller_operations.delete_seller_tables',
+        data: {"ids": [id]},
       );
       return ApiResult.success(data: TableResponse.fromJson(response.data));
     } catch (e) {
@@ -202,15 +202,16 @@ class TableRepository extends TableInterface {
   @override
   Future<ApiResult<List<DisableDates>>> disableDates({
     required DateTime dateTime,
-    required int? id,
+    required String? id,
   }) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/disable-dates/table/$id',
+        '/api/v1/method/paas.api.seller_operations.seller_operations.get_table_disable_dates',
         queryParameters: {
           'lang': LocalStorage.getLanguage()?.locale ?? 'en',
           "date_from": DateFormat("yyyy-MM-dd").format(dateTime),
+          "table_id": id,
         },
       );
       return ApiResult.success(data: disableDatesFromJson(response.data));
@@ -228,7 +229,7 @@ class TableRepository extends TableInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/bookings',
+        '/api/v1/method/paas.api.seller_operations.seller_operations.get_active_bookings',
         queryParameters: {
           'lang': LocalStorage.getLanguage()?.locale ?? 'en',
           'page': page,
@@ -247,15 +248,15 @@ class TableRepository extends TableInterface {
 
   @override
   Future<ApiResult<dynamic>> setBookings({
-    int? bookingId,
-    int? tableId,
+    String? bookingId,
+    String? tableId,
     DateTime? startDate,
     DateTime? endDate,
   }) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/user-bookings',
+        '/api/v1/method/paas.api.seller_operations.seller_operations.create_seller_booking',
         data: {
           'booking_id': bookingId,
           'end_date': TimeService.dateFormatYMDHm(endDate ?? DateTime.now()),
@@ -280,7 +281,7 @@ class TableRepository extends TableInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/booking/shop-working-days/${LocalStorage.getUser()?.shop?.uuid}',
+        '/api/v1/method/paas.api.seller_operations.seller_operations.get_booking_working_days',
         queryParameters: {'lang': LocalStorage.getLanguage()?.locale ?? 'en'},
       );
       return ApiResult.success(
@@ -300,7 +301,7 @@ class TableRepository extends TableInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/booking/shop-closed-dates/${LocalStorage.getUser()?.shop?.uuid}',
+        '/api/v1/method/paas.api.seller_operations.seller_operations.get_booking_closed_days',
         queryParameters: {'lang': LocalStorage.getLanguage()?.locale ?? 'en'},
       );
       return ApiResult.success(data: CloseDayResponse.fromJson(response.data));
@@ -314,12 +315,15 @@ class TableRepository extends TableInterface {
   }
 
   @override
-  Future<ApiResult<TableInfoResponse>> getTableInfo(int id) async {
+  Future<ApiResult<TableInfoResponse>> getTableInfo(String id) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/user-bookings/$id',
-        queryParameters: {'lang': LocalStorage.getLanguage()?.locale ?? 'en'},
+        '/api/v1/method/paas.api.seller_operations.seller_operations.get_booking_details',
+        queryParameters: {
+          'lang': LocalStorage.getLanguage()?.locale ?? 'en',
+          'id': id,
+        },
       );
       return ApiResult.success(data: TableInfoResponse.fromJson(response.data));
     } catch (e) {
@@ -334,13 +338,13 @@ class TableRepository extends TableInterface {
   @override
   Future<ApiResult> changeOrderStatus({
     required String status,
-    required int id,
+    required String id,
   }) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/user-booking/status/$id',
-        queryParameters: {'status': status},
+        '/api/v1/method/paas.api.seller_operations.seller_operations.update_booking_status',
+        data: {'status': status, 'id': id},
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -364,7 +368,7 @@ class TableRepository extends TableInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/${LocalStorage.getUser()?.role}/table/statistic',
+        '/api/v1/method/paas.api.seller_report.seller_report.get_table_report',
         queryParameters: {
           "date_from": TimeService.dateFormatYMDHm(from),
           "date_to": TimeService.dateFormatYMDHm(to),

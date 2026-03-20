@@ -6,7 +6,7 @@ abstract class NotificationRepositoryFacade {
 
   Future<ApiResult<NotificationResponse>> getAllNotifications();
 
-  Future<ApiResult<dynamic>> readOne({int? id});
+  Future<ApiResult<dynamic>> readOne({String? id});
 
   Future<ApiResult<NotificationResponse>> readAll();
 

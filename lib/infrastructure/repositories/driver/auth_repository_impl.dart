@@ -136,7 +136,8 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/auth/forgot/email-password/$verifyCode?email=$email',
+        '/api/v1/method/paas.api.user.user.forgot_password_confirm',
+        data: {'verifyCode': verifyCode, 'email': email},
       );
 
       return ApiResult.success(
@@ -158,7 +159,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/auth/forgot/password/confirm',
+        '/api/v1/method/paas.api.user.user.forgot_password_confirm_with_phone',
         data: {"phone": phone, "type": "firebase"},
       );
 
@@ -209,7 +210,10 @@ class AuthRepositoryImpl implements AuthRepository {
     };
     try {
       final client = dioHttp.client(requireAuth: false);
-      var res = await client.post('/api/v1/auth/after-verify', data: data);
+      var res = await client.post(
+        '/api/v1/method/paas.api.user.user.signup_with_data',
+        data: data,
+      );
       return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
     } catch (e) {
       return ApiResult.failure(
@@ -233,7 +237,10 @@ class AuthRepositoryImpl implements AuthRepository {
     };
     try {
       final client = dioHttp.client(requireAuth: false);
-      var res = await client.post('/api/v1/auth/verify/phone', data: data);
+      var res = await client.post(
+        '/api/v1/method/paas.api.user.user.signup_with_phone',
+        data: data,
+      );
       return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
     } catch (e) {
       return ApiResult.failure(
@@ -249,7 +256,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final client = dioHttp.client(requireAuth: false);
       await client.post(
-        '/api/v1/auth/register',
+        '/api/v1/method/paas.api.user.user.signup',
         queryParameters: data.toJson(),
       );
       return ApiResult.success(data: null);
@@ -267,7 +274,10 @@ class AuthRepositoryImpl implements AuthRepository {
     debugPrint('===> login request $data');
     try {
       final client = dioHttp.client(requireAuth: false);
-      await client.post('/api/v1/auth/check/phone', queryParameters: data);
+      await client.post(
+        '/api/v1/method/paas.api.user.user.check_phone',
+        queryParameters: data,
+      );
       return const ApiResult.success(data: true);
     } catch (e, s) {
       debugPrint('==> check phone failure: $e, $s');

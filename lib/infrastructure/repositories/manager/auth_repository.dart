@@ -111,8 +111,8 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/auth/verify/phone',
-        queryParameters: {"verifyId": verifyId, "verifyCode": verifyCode},
+        '/api/v1/method/paas.api.user.user.verify_phone_code',
+        data: {"phone": verifyId, "otp": verifyCode},
       );
       return ApiResult.success(
         data: VerifyPhoneResponse.fromJson(response.data),
@@ -138,10 +138,8 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        AppValidators.isValidEmail(email)
-            ? '/api/v1/auth/forgot/email-password'
-            : '/api/v1/auth/forgot/password',
-        queryParameters: data,
+        '/api/v1/method/paas.api.user.user.forgot_password',
+        data: data,
       );
       return ApiResult.success(data: RegisterResponse.fromJson(response.data));
     } catch (e) {
@@ -161,7 +159,8 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/auth/forgot/email-password/$verifyCode?email=${email.replaceAll('+', "")}',
+        '/api/v1/method/paas.api.user.user.forgot_password_confirm',
+        data: {'verifyCode': verifyCode, 'email': email},
       );
 
       return ApiResult.success(
@@ -183,7 +182,7 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/auth/forgot/password/confirm',
+        '/api/v1/method/paas.api.user.user.forgot_password_confirm_with_phone',
         data: {"phone": phone.replaceAll('+', ""), "type": "firebase"},
       );
 
@@ -205,7 +204,7 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       await client.post(
-        '/api/v1/auth/register',
+        '/api/v1/method/paas.api.user.user.signup',
         queryParameters: data.toJson(),
       );
       return const ApiResult.success(data: null);
@@ -222,7 +221,7 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       var res = await client.post(
-        '/api/v1/auth/after-verify',
+        '/api/v1/method/paas.api.user.user.signup_with_data',
         data: user.toJsonForSignUp(),
       );
       return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
@@ -241,7 +240,7 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       var res = await client.post(
-        '/api/v1/auth/verify/phone',
+        '/api/v1/method/paas.api.user.user.signup_with_phone',
         data: user.toJsonForSignUp(typeFirebase: true),
       );
       return ApiResult.success(data: VerifyData.fromJson(res.data["data"]));
@@ -262,7 +261,7 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/auth/check/phone',
+        '/api/v1/method/paas.api.user.user.check_phone',
         queryParameters: data,
       );
       return ApiResult.success(

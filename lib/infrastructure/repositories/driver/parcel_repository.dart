@@ -25,7 +25,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/parcel-orders/paginate',
+        '/api/v1/method/paas.api.driver_parcel.driver_parcel.get_driver_parcel_orders_paginate',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -54,7 +54,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/parcel-orders/paginate',
+        '/api/v1/method/paas.api.driver_parcel.driver_parcel.get_driver_parcel_orders_paginate',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -70,7 +70,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<ParcelOrder>> showParcel(int id) async {
+  Future<ApiResult<ParcelOrder>> showParcel(String id) async {
     final data = {
       'currency_id': LocalStorage.getSelectedCurrency()?.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
@@ -78,8 +78,8 @@ class ParcelRepository implements ParcelRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/parcel-orders$id',
-        queryParameters: data,
+        '/api/v1/method/paas.api.driver_parcel.driver_parcel.get_driver_parcel_order_details',
+        queryParameters: {...data, 'parcel_id': id},
       );
       return ApiResult.success(data: ParcelOrder.fromJson(response.data));
     } catch (e) {
@@ -110,7 +110,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/deliveryman/parcel-orders/paginate',
+        '/api/v1/method/paas.api.driver_parcel.driver_parcel.get_driver_parcel_orders_paginate',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -126,11 +126,12 @@ class ParcelRepository implements ParcelRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId) async {
+  Future<ApiResult<dynamic>> setCurrentOrder(String? orderId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/parcel-orders$orderId/current',
+        '/api/v1/method/paas.api.driver_parcel.driver_parcel.set_current_parcel_order',
+        data: {'parcel_id': orderId},
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -143,12 +144,12 @@ class ParcelRepository implements ParcelRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateParcel(int? parcelId, String? status) async {
+  Future<ApiResult<dynamic>> updateParcel(String? parcelId, String? status) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/parcel-orders/$parcelId/status/update',
-        data: {"status": status},
+        '/api/v1/method/paas.api.driver_parcel.driver_parcel.update_driver_parcel_order_status',
+        data: {"parcel_id": parcelId, "status": status},
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -162,7 +163,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
   @override
   Future<ApiResult<void>> addReviewParcel(
-    num orderId, {
+    String orderId, {
     required double rating,
     required String comment,
   }) async {
@@ -170,8 +171,8 @@ class ParcelRepository implements ParcelRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/dashboard/deliveryman/parcel-orders/$orderId/review',
-        data: data,
+        '/api/v1/method/paas.api.driver_parcel.driver_parcel.add_parcel_order_review',
+        data: {...data, "parcel_id": orderId},
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -188,7 +189,8 @@ class ParcelRepository implements ParcelRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/deliveryman/parcel-order/$parcelId/attach/me',
+        '/api/v1/method/paas.api.driver_parcel.driver_parcel.attach_parcel_order_to_me',
+        data: {'parcel_id': parcelId},
       );
       return ApiResult.success(data: ParcelOrder.fromJson(response.data));
     } catch (e) {

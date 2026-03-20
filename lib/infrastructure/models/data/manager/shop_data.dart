@@ -819,7 +819,7 @@ class ShopPayments {
 
 class ShopWorkingDays {
   ShopWorkingDays({
-    int? id,
+    String? id,
     String? day,
     String? from,
     String? to,
@@ -833,21 +833,21 @@ class ShopWorkingDays {
   }
 
   ShopWorkingDays.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _day = json['day'];
     _from = json['from'];
     _to = json['to'];
     _disabled = json['disabled'];
   }
 
-  int? _id;
+  String? _id;
   String? _day;
   String? _from;
   String? _to;
   bool? _disabled;
 
   ShopWorkingDays copyWith({
-    int? id,
+    String? id,
     String? day,
     String? from,
     String? to,
@@ -861,7 +861,7 @@ class ShopWorkingDays {
         disabled: disabled ?? _disabled,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get day => _day;
 
@@ -884,7 +884,7 @@ class ShopWorkingDays {
 
 class ShopTag {
   ShopTag({
-    int? id,
+    String? id,
     String? img,
     Translation? translation,
     List<String>? locales,
@@ -896,7 +896,7 @@ class ShopTag {
   }
 
   ShopTag.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _img = json['img'];
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
@@ -904,13 +904,13 @@ class ShopTag {
     _locales = json['locales'] != null ? json['locales'].cast<String>() : [];
   }
 
-  int? _id;
+  String? _id;
   String? _img;
   Translation? _translation;
   List<String>? _locales;
 
   ShopTag copyWith({
-    int? id,
+    String? id,
     String? img,
     Translation? translation,
     List<String>? locales,
@@ -922,7 +922,7 @@ class ShopTag {
         locales: locales ?? _locales,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get img => _img;
 

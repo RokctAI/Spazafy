@@ -14,7 +14,7 @@ abstract class TableInterface {
   Future<ApiResult<TableResponse>> getTables({
     int? page,
     String? query,
-    int? shopSectionId,
+    String? shopSectionId,
     String? type,
     DateTime? from,
     DateTime? to,
@@ -22,28 +22,28 @@ abstract class TableInterface {
 
   Future<ApiResult<TableBookingResponse>> getTableOrders({
     int? page,
-    int? id,
+    String? id,
     String? type,
     DateTime? from,
     DateTime? to,
   });
 
-  Future<ApiResult<TableInfoResponse>> getTableInfo(int id);
+  Future<ApiResult<TableInfoResponse>> getTableInfo(String id);
 
-  Future<ApiResult<TableResponse>> deleteSection(int id);
+  Future<ApiResult<TableResponse>> deleteSection(String id);
 
-  Future<ApiResult<TableResponse>> deleteTable(int id);
+  Future<ApiResult<TableResponse>> deleteTable(String id);
 
   Future<ApiResult<List<DisableDates>>> disableDates({
     required DateTime dateTime,
-    required int? id,
+    required String? id,
   });
 
   Future<ApiResult<BookingsResponse>> getBookings({int? page});
 
   Future<ApiResult<dynamic>> setBookings({
-    int? bookingId,
-    int? tableId,
+    String? bookingId,
+    String? tableId,
     DateTime? startDate,
     DateTime? endDate,
   });
@@ -54,7 +54,7 @@ abstract class TableInterface {
 
   Future<ApiResult<dynamic>> changeOrderStatus({
     required String status,
-    required int id,
+    required String id,
   });
 
   Future<ApiResult<TableStatisticResponse>> getStatistic({

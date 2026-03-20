@@ -4,11 +4,11 @@ import 'translation.dart';
 
 class CategoryData {
   CategoryData({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? uuid,
     String? keywords,
-    int? parentId,
+    String? parentId,
     String? type,
     String? img,
     bool? active,
@@ -67,11 +67,11 @@ class CategoryData {
   List<CategoryData>? _children;
 
   CategoryData copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? uuid,
     String? keywords,
-    int? parentId,
+    String? parentId,
     String? type,
     String? img,
     bool? active,

@@ -58,7 +58,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/galleries',
+        '/api/v1/method/paas.api.gallery.gallery.upload_gallery_image',
         data: data,
       );
       return ApiResult.success(
@@ -77,7 +77,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
   Future<ApiResult<CurrenciesResponse>> getCurrencies() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/rest/currencies');
+      final response = await client.get('/api/v1/method/paas.api.setting.setting.get_currencies');
       return ApiResult.success(
         data: CurrenciesResponse.fromJson(response.data),
       );
@@ -94,7 +94,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
   Future<ApiResult<SettingsResponse>> getGlobalSettings() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/rest/settings');
+      final response = await client.get('/api/v1/method/paas.api.setting.setting.get_global_settings');
       return ApiResult.success(data: SettingsResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get settings failure: $e');
@@ -111,7 +111,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/rest/translations/paginate',
+        '/api/v1/method/paas.api.setting.setting.get_translations',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -130,7 +130,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
   Future<ApiResult<LanguagesResponse>> getLanguages() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/rest/languages/active');
+      final response = await client.get('/api/v1/method/paas.api.setting.setting.get_active_languages');
       if (LocalStorage.getLanguage() != null &&
           !(LanguagesResponse.fromJson(response.data).data
                   ?.map((e) => e.id)

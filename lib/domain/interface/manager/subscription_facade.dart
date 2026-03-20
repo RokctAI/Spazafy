@@ -5,12 +5,12 @@ abstract class SubscriptionsFacade {
   Future<ApiResult<SubscriptionResponse>> getSubscriptions({required int page});
 
   Future<ApiResult> purchaseSubscription({
-    required int id,
-    required int paymentId,
+    required String id,
+    required String paymentId,
   });
 
   Future<ApiResult<TransactionsResponse>> createTransaction({
-    required int id,
-    required int paymentId,
+    required String id,
+    required String paymentId,
   });
 }

@@ -16,7 +16,7 @@ class SubscriptionsRepository implements SubscriptionsFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/subscriptions',
+        '/api/v1/method/paas.api.seller_subscription.seller_subscription.get_subscriptions',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -33,15 +33,15 @@ class SubscriptionsRepository implements SubscriptionsFacade {
 
   @override
   Future<ApiResult> purchaseSubscription({
-    required int id,
-    required int paymentId,
+    required String id,
+    required String paymentId,
   }) async {
     final data = {'payment_sys_id': paymentId};
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/seller/subscriptions/$id/attach',
-        data: data,
+        '/api/v1/method/paas.api.seller_subscription.seller_subscription.attach_subscription',
+        data: {...data, 'id': id},
       );
       return ApiResult.success(data: response.data['data']['id']);
     } catch (e) {
@@ -55,8 +55,8 @@ class SubscriptionsRepository implements SubscriptionsFacade {
 
   @override
   Future<ApiResult<TransactionsResponse>> createTransaction({
-    required int id,
-    required int paymentId,
+    required String id,
+    required String paymentId,
   }) async {
     final data = {'payment_sys_id': paymentId};
     debugPrint('===> create transaction body: ${jsonEncode(data)}');
@@ -64,8 +64,8 @@ class SubscriptionsRepository implements SubscriptionsFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/payments/subscription/$id/transactions',
-        data: data,
+        '/api/v1/method/paas.api.seller_subscription.seller_subscription.create_subscription_transaction',
+        data: {...data, 'subscription_id': id},
       );
       return ApiResult.success(
         data: TransactionsResponse.fromJson(response.data),

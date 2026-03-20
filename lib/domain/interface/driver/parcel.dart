@@ -2,9 +2,9 @@ import 'package:rokctapp/domain/handlers/driver/api_result.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 
 abstract class ParcelRepositoryFacade {
-  Future<ApiResult<ParcelOrder>> showParcel(int id);
+  Future<ApiResult<ParcelOrder>> showParcel(String id);
 
-  Future<ApiResult<dynamic>> setCurrentOrder(int? orderId);
+  Future<ApiResult<dynamic>> setCurrentOrder(String? orderId);
 
   Future<ApiResult<List<ParcelOrder>>> getActiveOrders(int page);
 
@@ -16,10 +16,10 @@ abstract class ParcelRepositoryFacade {
     DateTime? end,
   });
 
-  Future<ApiResult<dynamic>> updateParcel(int? parcelId, String? status);
+  Future<ApiResult<dynamic>> updateParcel(String? parcelId, String? status);
 
   Future<ApiResult<void>> addReviewParcel(
-    num orderId, {
+    String orderId, {
     required double rating,
     required String comment,
   });
