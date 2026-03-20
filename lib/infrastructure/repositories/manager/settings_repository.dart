@@ -48,7 +48,7 @@ class SettingsRepository implements SettingsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/galleries',
+        '/api/v1/method/paas.api.gallery.gallery.upload_gallery_image',
         data: data,
       );
       return ApiResult.success(
@@ -89,7 +89,7 @@ class SettingsRepository implements SettingsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/galleries/store-many',
+        '/api/v1/method/paas.api.gallery.gallery.upload_multi_gallery_images',
         data: data,
       );
       return ApiResult.success(
@@ -108,7 +108,7 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<CurrenciesResponse>> getCurrencies() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/rest/currencies');
+      final response = await client.get('/api/v1/method/paas.api.setting.setting.get_currencies');
       return ApiResult.success(
         data: CurrenciesResponse.fromJson(response.data),
       );
@@ -125,7 +125,7 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<SettingsResponse>> getGlobalSettings() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/rest/settings');
+      final response = await client.get('/api/v1/method/paas.api.setting.setting.get_global_settings');
       return ApiResult.success(data: SettingsResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get settings failure: $e');
@@ -142,7 +142,7 @@ class SettingsRepository implements SettingsInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/rest/translations/paginate',
+        '/api/v1/method/paas.api.setting.setting.get_translations',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -161,7 +161,7 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<LanguagesResponse>> getLanguages() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/rest/languages/active');
+      final response = await client.get('/api/v1/method/paas.api.setting.setting.get_active_languages');
       final languagesResponse = LanguagesResponse.fromJson(response.data);
       if (LocalStorage.getLanguage() != null &&
           !(languagesResponse.data
@@ -197,7 +197,7 @@ class SettingsRepository implements SettingsInterface {
     final client = dioHttp.client(requireAuth: true);
     try {
       final response = await client.post(
-        '/api/v1/dashboard/seller/ai-translations',
+        '/api/v1/method/paas.api.setting.setting.get_ai_translations',
         data: model.toJson(),
       );
       return ApiResult.success(
