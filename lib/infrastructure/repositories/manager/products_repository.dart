@@ -323,7 +323,7 @@ class ProductsRepository implements ProductsInterface {
 
   @override
   Future<ApiResult<SingleProductResponse>> updateExtras({
-    required List<int> extrasIds,
+    required List<String> extrasIds,
     String? productUuid,
   }) async {
     final data = {'extras': extrasIds};
@@ -331,8 +331,8 @@ class ProductsRepository implements ProductsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/seller/products/$productUuid/extras',
-        data: data,
+        '/api/v1/method/paas.api.seller_product.seller_product.update_product_extras',
+        data: {...data, 'product_id': productUuid},
       );
       return ApiResult.success(
         data: SingleProductResponse.fromJson(response.data),
@@ -358,7 +358,7 @@ class ProductsRepository implements ProductsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/extra/groups',
+        '/api/v1/method/paas.api.seller_product.seller_product.get_extras_groups',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -383,9 +383,9 @@ class ProductsRepository implements ProductsInterface {
     required String maxQty,
     required String qrcode,
     required bool active,
-    int? categoryId,
-    int? kitchenId,
-    int? unitId,
+    String? categoryId,
+    String? kitchenId,
+    String? unitId,
     List<String>? images,
     bool isAddon = false,
     String type = 'single',
@@ -414,7 +414,7 @@ class ProductsRepository implements ProductsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/seller/products',
+        '/api/v1/method/paas.api.seller_product.seller_product.create_product',
         data: data,
       );
       return ApiResult.success(
@@ -440,8 +440,8 @@ class ProductsRepository implements ProductsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/products/$uuid',
-        queryParameters: data,
+        '/api/v1/method/paas.api.seller_product.seller_product.get_product_details',
+        queryParameters: {...data, 'product_id': uuid},
       );
       return ApiResult.success(
         data: SingleProductResponse.fromJson(response.data),
@@ -458,7 +458,7 @@ class ProductsRepository implements ProductsInterface {
   @override
   Future<ApiResult<ProductsPaginateResponse>> getProducts({
     int? page,
-    int? categoryId,
+    String? categoryId,
     String? query,
     ProductStatus? status,
     bool needAddons = false,
@@ -496,7 +496,7 @@ class ProductsRepository implements ProductsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/products/paginate',
+        '/api/v1/method/paas.api.seller_product.seller_product.get_seller_products_paginate',
         queryParameters: data,
       );
       return ApiResult.success(
