@@ -224,7 +224,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        'https://api.foodyman.org/api/v1/dashboard/deliveryman/orders/$orderId/image',
+        '/api/v1/dashboard/deliveryman/orders/$orderId/image',
         data: {"img": image},
       );
       return const ApiResult.success(data: null);

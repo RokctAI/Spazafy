@@ -13,6 +13,7 @@ import 'package:proste_indexed_stack/proste_indexed_stack.dart';
 import 'foods/foods_page.dart';
 import 'package:rokctapp/presentation/theme/manager/app_style.dart';
 import 'orders/orders_home_page.dart';
+import 'billing/home_page.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/pages/main/widgets/bottom_navigator_item.dart';
@@ -33,6 +34,7 @@ class ManagerMainPage extends StatefulWidget {
 
 class _ManagerMainPageState extends State<ManagerMainPage> {
   List<IndexedStackChild> list = [
+    IndexedStackChild(child: const ManagerBillingPage(), preload: true),
     IndexedStackChild(child: const OrdersHomePage(), preload: true),
     IndexedStackChild(child: const FoodsPage(), preload: false),
     IndexedStackChild(child: const RestaurantPage(), preload: false),
@@ -139,21 +141,30 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
                               selectItem: () => event.selectIndex(0),
                               currentIndex: state.selectedIndex,
                               index: 0,
+                              selectIcon: FlutterRemix.scan_2_fill,
+                              unSelectIcon: FlutterRemix.scan_2_line,
+                              label: AppHelpers.getTranslation(TrKeys.pos),
+                            ),
+                            BottomNavigatorItem(
+                              isScrolling: state.isScrolling,
+                              selectItem: () => event.selectIndex(1),
+                              currentIndex: state.selectedIndex,
+                              index: 1,
                               selectIcon: FlutterRemix.file_list_2_fill,
                               unSelectIcon: FlutterRemix.file_list_2_line,
                               label: AppHelpers.getTranslation(TrKeys.orders),
                             ),
                             BottomNavigatorItem(
                               isScrolling: state.isScrolling,
-                              selectItem: () => event.selectIndex(1),
-                              index: 1,
+                              selectItem: () => event.selectIndex(2),
+                              index: 2,
                               currentIndex: state.selectedIndex,
                               selectIcon: FlutterRemix.restaurant_fill,
                               unSelectIcon: FlutterRemix.restaurant_line,
                               label: AppHelpers.getTranslation(TrKeys.products),
                             ),
                             _profileItem(() {
-                              event.selectIndex(2);
+                              event.selectIndex(3);
                               ref
                                   .read(mainProvider.notifier)
                                   .changeScrolling(false);
@@ -254,7 +265,7 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
         margin: EdgeInsets.only(left: 12.r),
         decoration: BoxDecoration(
           border: Border.all(
-            color: index == 2 ? AppStyle.primary : AppStyle.transparent,
+            color: index == 3 ? AppStyle.primary : AppStyle.transparent,
             width: 2.w,
           ),
           shape: BoxShape.circle,

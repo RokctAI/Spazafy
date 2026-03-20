@@ -7,10 +7,10 @@ import 'category_data.dart';
 
 class ShopData {
   ShopData({
-    int? id,
+    String? id,
     String? uuid,
     int? discountsCount,
-    int? userId,
+    String? userId,
     num? price,
     num? pricePerKm,
     num? tax,
@@ -43,9 +43,11 @@ class ShopData {
     List<ShopPayments>? shopPayments,
     List<ShopWorkingDays>? shopWorkingDays,
     List<ShopTag>? tags,
+    String? sharedSecret,
   }) {
     _id = id;
     _uuid = uuid;
+    _sharedSecret = sharedSecret;
     _orderPayment = orderPayment;
     _userId = userId;
     _price = price;
@@ -82,10 +84,10 @@ class ShopData {
   }
 
   ShopData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _orderPayment = json['order_payment'];
     _uuid = json['uuid'];
-    _userId = json['user_id'];
+    _userId = json['user_id']?.toString();
     _price = json['price'];
     _pricePerKm = json['price_per_km'];
     _tax = json['tax'];
@@ -153,12 +155,14 @@ class ShopData {
         _tags?.add(ShopTag.fromJson(v));
       });
     }
+    _sharedSecret = json['shared_secret'];
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
+  String? _sharedSecret;
   String? _orderPayment;
-  int? _userId;
+  String? _userId;
   num? _price;
   num? _pricePerKm;
   num? _tax;
@@ -192,11 +196,11 @@ class ShopData {
   List<ShopTag>? _tags;
 
   ShopData copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? orderPayment,
     int? discountsCount,
-    int? userId,
+    String? userId,
     num? price,
     num? pricePerKm,
     num? tax,
@@ -228,10 +232,12 @@ class ShopData {
     List<ShopPayments>? shopPayments,
     List<ShopWorkingDays>? shopWorkingDays,
     List<ShopTag>? tags,
+    String? sharedSecret,
   }) =>
       ShopData(
         id: id ?? _id,
         uuid: uuid ?? _uuid,
+        sharedSecret: sharedSecret ?? _sharedSecret,
         orderPayment: orderPayment ?? _orderPayment,
         userId: userId ?? _userId,
         price: price ?? _price,
@@ -267,14 +273,16 @@ class ShopData {
         tags: tags ?? _tags,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get uuid => _uuid;
+
+  String? get sharedSecret => _sharedSecret;
 
   String? get orderPayment => _orderPayment;
 
 
-  int? get userId => _userId;
+  String? get userId => _userId;
 
   num? get price => _price;
 
@@ -342,6 +350,7 @@ class ShopData {
     final map = <String, dynamic>{};
     map['id'] = _id;
     map['uuid'] = _uuid;
+    map['shared_secret'] = _sharedSecret;
     map['user_id'] = _userId;
     map['price'] = _price;
     map['price_per_km'] = _pricePerKm;

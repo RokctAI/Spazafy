@@ -227,6 +227,8 @@ class TrKeys {
   static const String stillHaveQuestions = 'still_have_questions';
   static const String cantFindTheAnswer = 'cant_find_the_answer';
   static const String cartIsEmpty = 'cart_is_empty';
+  static const String pos = 'pos';
+  static const String clearAll = 'clear_all';
   static const String allPreviouslyAdded = "all_previously_added";
   static const String agreeLocation = 'agree_location';
   static const String nothingFound = 'nothing_found';
@@ -284,7 +286,6 @@ class TrKeys {
   static const String county = 'country';
   static const String orAccessQuickly = 'or_access_quickly';
   static const String keepLogged = 'keep_me_logged_in';
-  static const String foodyman = 'foodyman';
   static const String shopList = 'shop_list';
   static const String viewMap = 'view_map';
   static const String address = 'address';
@@ -736,7 +737,7 @@ class TrKeys {
   static const String monthly = 'monthly';
   static const String weekly = 'weekly';
   static const String customerOrder = 'customer_order';
-  static const String foodymanBenefit = 'foodyman_benefit';
+  static const String appBenefit = 'app_benefit';
   static const String yourBenefit = 'your_benefit';
   static const String thereAre = 'there_are';
   static const String setBusinessDay = 'set_as_a_business_day';

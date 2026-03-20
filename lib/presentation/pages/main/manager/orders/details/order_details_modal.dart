@@ -310,7 +310,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                       children: [
                                         Text(
                                           AppHelpers.getTranslation(
-                                            TrKeys.foodymanBenefit,
+                                            TrKeys.appBenefit,
                                           ),
                                           style: AppStyle.interNormal(
                                             size: 12,

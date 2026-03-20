@@ -4,6 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_cart_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
+import 'dart:convert';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+
 class OrderCartNotifier extends StateNotifier<OrderCartState> {
   OrderCartNotifier() : super(const OrderCartState());
 
@@ -21,6 +24,7 @@ class OrderCartNotifier extends StateNotifier<OrderCartState> {
     stocks.remove(stock);
     stocks = stocks.toSet().toList();
     state = state.copyWith(stocks: stocks, totalPrice: price);
+    _persist();
     if (updateProducts != null) {
       updateProducts(stocks);
     }
@@ -28,6 +32,7 @@ class OrderCartNotifier extends StateNotifier<OrderCartState> {
 
   void clearAll() {
     state = state.copyWith(stocks: []);
+    _persist();
   }
 
   void addStockToCart({
@@ -89,8 +94,51 @@ class OrderCartNotifier extends StateNotifier<OrderCartState> {
       }
     }
     state = state.copyWith(stocks: stocks, totalPrice: sum);
+    _persist();
     if (updateProducts != null) {
       updateProducts(stocks);
+    }
+  }
+
+  Future<void> addStockByBarcode(String barcode) async {
+    final result = await productsRepository.searchProducts(text: barcode);
+    result.when(
+      success: (data) {
+        if (data.data != null && data.data!.isNotEmpty) {
+          final product = data.data!.first;
+          final stock = product.stock ?? (product.stocks?.isNotEmpty == true ? product.stocks!.first : null);
+          if (stock != null) {
+            addStockToCart(count: 1, product: product, stock: stock);
+          }
+        }
+      },
+      failure: (failure, status) {
+        debugPrint('==> barcode search failure: $failure');
+      },
+    );
+  }
+
+  void _persist() {
+    final List<Map<String, dynamic>> stocksJson = state.stocks.map((s) => s.toJson()).toList();
+    appDatabase.putItem('billing_cart', 'active_cart', {'stocks': stocksJson});
+  }
+
+  Future<void> loadCart() async {
+    final data = await appDatabase.getItem('billing_cart', 'active_cart');
+    if (data != null && data['stocks'] != null) {
+      final List<dynamic> stocksRaw = data['stocks'];
+      final List<Stock> stocks = stocksRaw.map((s) => Stock.fromJson(s)).toList();
+      
+      num sum = 0;
+      for (final stock in stocks) {
+        sum += (stock.totalPrice ?? 0) * (stock.cartCount ?? 0);
+        for (AddonData addon in stock.addons ?? []) {
+          if (addon.active ?? false) {
+            sum += (addon.product?.stock?.totalPrice ?? 0) * (addon.quantity ?? 1);
+          }
+        }
+      }
+      state = state.copyWith(stocks: stocks, totalPrice: sum);
     }
   }
 }
