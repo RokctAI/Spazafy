@@ -8,15 +8,15 @@ import 'package:rokctapp/domain/interface/manager/interfaces.dart';
 
 class ProductsRepository implements ProductsInterface {
   @override
-  Future<ApiResult<void>> deleteExtrasGroup({int? groupId}) async {
+  Future<ApiResult<void>> deleteExtrasGroup({String? groupId}) async {
     final data = {
       'ids': [groupId],
     };
     debugPrint('====> delete extras group request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.delete(
-        '/api/v1/dashboard/seller/extra/groups/delete',
+      await client.post(
+        '/api/v1/method/paas.api.seller_product.seller_product.delete_extras_group',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -32,7 +32,7 @@ class ProductsRepository implements ProductsInterface {
   @override
   Future<ApiResult<SingleExtrasGroupResponse>> updateExtrasGroup({
     required String title,
-    int? groupId,
+    String? groupId,
   }) async {
     final data = {
       'title': {LocalStorage.getSystemLanguage()?.locale ?? 'en': title},
@@ -41,9 +41,9 @@ class ProductsRepository implements ProductsInterface {
     debugPrint('===> update extras group ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.put(
-        '/api/v1/dashboard/seller/extra/groups/$groupId',
-        data: data,
+      final response = await client.post(
+        '/api/v1/method/paas.api.seller_product.seller_product.update_extras_group',
+        data: {...data, 'id': groupId},
       );
       return ApiResult.success(
         data: SingleExtrasGroupResponse.fromJson(response.data),
@@ -58,15 +58,15 @@ class ProductsRepository implements ProductsInterface {
   }
 
   @override
-  Future<ApiResult<void>> deleteExtrasItem({required int extrasId}) async {
+  Future<ApiResult<void>> deleteExtrasItem({required String extrasId}) async {
     final data = {
       'ids': [extrasId],
     };
     debugPrint('====> delete extras item request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.delete(
-        '/api/v1/dashboard/seller/extra/values/delete',
+      await client.post(
+        '/api/v1/method/paas.api.seller_product.seller_product.delete_extras_value',
         data: data,
       );
       return const ApiResult.success(data: null);
@@ -81,17 +81,17 @@ class ProductsRepository implements ProductsInterface {
 
   @override
   Future<ApiResult<CreateGroupExtrasResponse>> updateExtrasItem({
-    required int extrasId,
-    required int groupId,
+    required String extrasId,
+    required String groupId,
     required String title,
   }) async {
     final data = {'value': title, 'extra_group_id': groupId};
     debugPrint('===> update extras item ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.put(
-        '/api/v1/dashboard/seller/extra/values/$extrasId',
-        data: data,
+      final response = await client.post(
+        '/api/v1/method/paas.api.seller_product.seller_product.update_extras_value',
+        data: {...data, 'id': extrasId},
       );
       return ApiResult.success(
         data: CreateGroupExtrasResponse.fromJson(response.data),
@@ -107,7 +107,7 @@ class ProductsRepository implements ProductsInterface {
 
   @override
   Future<ApiResult<CreateGroupExtrasResponse>> createExtrasItem({
-    required int groupId,
+    required String groupId,
     required String title,
   }) async {
     final data = {'value': title, 'extra_group_id': groupId};
@@ -115,7 +115,7 @@ class ProductsRepository implements ProductsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/seller/extra/values',
+        '/api/v1/method/paas.api.seller_product.seller_product.create_extras_value',
         data: data,
       );
       return ApiResult.success(
@@ -143,7 +143,7 @@ class ProductsRepository implements ProductsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/seller/extra/groups',
+        '/api/v1/method/paas.api.seller_product.seller_product.create_extras_group',
         data: data,
       );
       return ApiResult.success(
@@ -170,9 +170,9 @@ class ProductsRepository implements ProductsInterface {
     debugPrint('===> get calculation ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get(
-        '/api/v1/dashboard/seller/order/products/calculate',
-        queryParameters: data,
+      final response = await client.post(
+        '/api/v1/method/paas.api.seller_order.seller_order.calculate_order_price',
+        data: data,
       );
       return ApiResult.success(data: CalculateResponse.fromJson(response.data));
     } catch (e) {
@@ -185,13 +185,13 @@ class ProductsRepository implements ProductsInterface {
   }
 
   @override
-  Future<ApiResult<GroupExtrasResponse>> getExtras({int? groupId}) async {
+  Future<ApiResult<GroupExtrasResponse>> getExtras({String? groupId}) async {
     final data = {'lang': LocalStorage.getLanguage()?.locale};
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/extra/groups/$groupId',
-        queryParameters: data,
+        '/api/v1/method/paas.api.seller_product.seller_product.get_extras_values',
+        queryParameters: {...data, 'id': groupId},
       );
       return ApiResult.success(
         data: GroupExtrasResponse.fromJson(response.data),
@@ -208,7 +208,7 @@ class ProductsRepository implements ProductsInterface {
   @override
   Future<ApiResult<SingleProductResponse>> updateStocks({
     required List<Stock> stocks,
-    required List<int> deletedStocks,
+    required List<String> deletedStocks,
     String? uuid,
     bool isAddon = false,
   }) async {
@@ -247,8 +247,8 @@ class ProductsRepository implements ProductsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/dashboard/seller/products/$uuid/stocks',
-        data: data,
+        '/api/v1/method/paas.api.seller_product.seller_product.update_product_stocks',
+        data: {...data, 'product_id': uuid},
       );
       return ApiResult.success(
         data: SingleProductResponse.fromJson(response.data),
@@ -271,9 +271,9 @@ class ProductsRepository implements ProductsInterface {
     required String maxQty,
     required bool active,
     String? qrcode,
-    int? categoryId,
-    int? unitId,
-    int? kitchenId,
+    String? categoryId,
+    String? unitId,
+    String? kitchenId,
     List<String>? images,
     String? uuid,
     bool needAddons = false,
@@ -305,9 +305,9 @@ class ProductsRepository implements ProductsInterface {
     debugPrint('===> update product ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.put(
-        '/api/v1/dashboard/seller/products/$uuid',
-        data: data,
+      final response = await client.post(
+        '/api/v1/method/paas.api.seller_product.seller_product.update_product',
+        data: {...data, 'product_id': uuid},
       );
       return ApiResult.success(
         data: SingleProductResponse.fromJson(response.data),
