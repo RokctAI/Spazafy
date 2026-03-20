@@ -1,91 +1,149 @@
-# Offline Failure Report
+# Offline Failure Audit Report
 
-This report outlines the application features that bypass the robust offline-first background queueing mechanism (`BackgroundSyncService` and `SyncQueueTable`). These features check for `AppConnectivity.connectivity()` directly in their respective Riverpod notifiers. As a result, when the device is offline, these features will fail immediately or display an error message, rather than appropriately queuing their network requests for background sync when the connection is restored.
+This report outlines the features, functions, and UI elements that explicitly fail or block user interaction when the application is offline.
 
-## Affected Features
+## 1. Application/Notifier Layer Blockers
+These state notifiers perform manual connectivity checks, effectively blocking the operation from entering the offline background sync queue or executing locally.
 
-Based on an audit of the `lib/application/` directory, the following modules manually check for connectivity and will fail gracefully or show errors when offline:
+### `lib/application/auth/confirmation/register_confirmation_notifier.dart`
+- **Register Confirmation Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 1. Search (`search_notifier.dart`)
-- **Impact:** Searching features bypass queueing.
-- **Failures at:**
-  - `lib/application/search/search_notifier.dart` (lines 67, 91, 115)
+### `lib/application/auth/login/login_notifier.dart`
+- **Login Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 2. Map / Location (`view_map_notifier.dart`)
-- **Impact:** Map viewing and location-related features will not function or queue requests offline.
-- **Failures at:**
-  - `lib/application/map/view_map_notifier.dart` (lines 47, 76, 106)
+### `lib/application/auth/register/register_notifier.dart`
+- **Register Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 3. Notifications (`notification_notifier.dart`)
-- **Impact:** Fetching or interacting with notifications will fail.
-- **Failures at:**
-  - `lib/application/notification/notification_notifier.dart` (line 41)
+### `lib/application/auth/reset_password/reset_password_notifier.dart`
+- **Reset Password Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 4. Orders (`order_notifier.dart`, `orders_list_notifier.dart`)
-- **Impact:** Creating, viewing, or modifying orders.
-- **Failures at:**
-  - `lib/application/order/order_notifier.dart` (numerous occurrences: 79, 282, 317, 341, 445, 654, 706, 803, 828, 863, 895)
-  - `lib/application/orders_list/orders_list_notifier.dart` (lines 177, 205)
+### `lib/application/chat/chat_notifier.dart`
+- **Chat Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 5. Likes / Favorites (`like_notifier.dart`)
-- **Impact:** Liking or unliking items will not be queued for offline execution.
-- **Failures at:**
-  - `lib/application/like/like_notifier.dart` (line 16)
+### `lib/application/confirmation/register_confirmation_notifier.dart`
+- **Register Confirmation Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 6. Profile & User Management (`profile_notifier.dart`, `edit_profile_notifier.dart`)
-- **Impact:** Fetching profile details or editing the profile will fail offline.
-- **Failures at:**
-  - `lib/application/profile/profile_notifier.dart` (lines 132, 216, 255, 286, 324, 371)
-  - `lib/application/edit_profile/edit_profile_notifier.dart` (lines 93, 142)
+### `lib/application/edit_profile/edit_profile_notifier.dart`
+- **Edit Profile Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 7. Shops (`shop_notifier.dart`)
-- **Impact:** Fetching shop details. (Note: The checks here are currently commented out, but are worth monitoring).
-- **Failures at:**
-  - `lib/application/shop/shop_notifier.dart` (lines 528, 624, 662)
+### `lib/application/filter/filter_notifier.dart`
+- **Filter Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 8. Home (`home_notifier.dart`)
-- **Impact:** The home screen uses a connection listener which might dictate offline behavior bypassing queue.
-- **Failures at:**
-  - `lib/application/home/home_notifier.dart` (line 57)
+### `lib/application/foods/manager/filter/foods_filter_notifier.dart`
+- **Foods Filter Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 9. Confirmations (`register_confirmation_notifier.dart`)
-- **Impact:** Confirming registration or actions.
-- **Failures at:**
-  - `lib/application/confirmation/register_confirmation_notifier.dart` (lines 42, 81, 116, 157, 214, 251)
+### `lib/application/home/driver/home_notifier.dart`
+- **Home Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 10. Promos & Filters (`promo_code_notifier.dart`, `filter_notifier.dart`)
-- **Impact:** Applying promo codes and applying catalog filters.
-- **Failures at:**
-  - `lib/application/promo_code/promo_code_notifier.dart` (line 23)
-  - `lib/application/filter/filter_notifier.dart` (lines 29, 76, 123, 165, 200)
+### `lib/application/map/view_map_notifier.dart`
+- **View Map Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 11. Settings, Help & Language (`setting_notifier.dart`, `help_notifier.dart`, `language_notifier.dart`, `currency_notifier.dart`)
-- **Impact:** Updating settings, fetching help, changing language, or changing currency.
-- **Failures at:**
-  - `lib/application/setting/setting_notifier.dart` (line 23)
-  - `lib/application/help/help_notifier.dart` (line 15)
-  - `lib/application/language/language_notifier.dart` (lines 27, 88)
-  - `lib/application/currency/currency_notifier.dart` (line 17)
+### `lib/application/notification/driver/notification_notifier.dart`
+- **Notification Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 12. Parcels (`parcel_list_notifier.dart`, `parcel_notifier.dart`)
-- **Impact:** Viewing or managing parcels.
-- **Failures at:**
-  - `lib/application/parcels_list/parcel_list_notifier.dart` (lines 22, 78, 124, 153)
-  - `lib/application/parcel/parcel_notifier.dart` (lines 31, 71, 95, 147, 305, 398)
+### `lib/application/notification/manager/notification_notifier.dart`
+- **Notification Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 13. Authentication (`login_notifier.dart`, `register_notifier.dart`, `reset_password_notifier.dart`, `auth/confirmation/register_confirmation_notifier.dart`)
-- **Impact:** Authentication flows frequently check for connectivity. However, note that `login_notifier.dart` and `register_notifier.dart` **do** have some fallback logic that enqueues requests via `BackgroundSyncService.enqueueRequest` when offline. Despite this, they still check connectivity manually to branch logic, rather than relying purely on the repository layer handling.
-- **Failures at:**
-  - `lib/application/auth/login/login_notifier.dart` (lines 76, 113, 145, 168, 316, 403, 530)
-  - `lib/application/auth/register/register_notifier.dart` (lines 89, 126, 179, 358, 472, 531, 625, 748)
-  - `lib/application/auth/reset_password/reset_password_notifier.dart` (lines 57, 94, 132)
-  - `lib/application/auth/confirmation/register_confirmation_notifier.dart` (lines 46, 160, 196, 237, 368, 405, 453)
+### `lib/application/order/driver/all_order/order_notifier.dart`
+- **Order Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-### 14. Splash Screen (`splash_notifier.dart`)
-- **Impact:** Splash screen initialization logic checks for connectivity.
-- **Failures at:**
-  - `lib/application/splash/splash_notifier.dart` (lines 21, 66)
+### `lib/application/order/driver/canceled_order/canceled_order_notifier.dart`
+- **Canceled Order Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-## Conclusion
+### `lib/application/order/driver/delivered_order/delivered_order_notifier.dart`
+- **Delivered Order Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
 
-According to best practices outlined for this project (`Avoid wrapping repository API calls with manual AppConnectivity.connectivity() checks in Riverpod Notifiers, as this bypasses the data layer's background sync queue and prevents Dio from properly handling offline request queuing`), the above modules should be refactored to remove the manual `AppConnectivity.connectivity()` checks. They should ideally rely on the `HttpService` / `Dio` interceptor logic and `BackgroundSyncService` to handle failures and queuing, providing a smoother offline-first experience.
+### `lib/application/order/driver/progress_ordedr/progress_order_notifier.dart`
+- **Progress Order Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/order/order_notifier.dart`
+- **Order Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/orders_list/orders_list_notifier.dart`
+- **Orders List Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/parcel/driver/parcel_notifier.dart`
+- **Parcel Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/parcel/parcel_notifier.dart`
+- **Parcel Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/parcels_list/parcel_list_notifier.dart`
+- **Parcel List Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/payment_methods/payment_notifier.dart`
+- **Payment Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/product/product_notifier.dart`
+- **Product Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/profile/driver/notifier/profile_edit_notifier.dart`
+- **Profile Edit Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/profile/driver/notifier/profile_settings_notifier.dart`
+- **Profile Settings Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/profile/manager/profile_notifier.dart`
+- **Profile Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/profile/profile_notifier.dart`
+- **Profile Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/promo_code/promo_code_notifier.dart`
+- **Promo Code Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/shop/shop_notifier.dart`
+- **Shop Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+### `lib/application/splash/splash_notifier.dart`
+- **Splash Notifier**: Operations within this file manually check `AppConnectivity.connectivity()`.
+
+## 2. UI Routing Blockers
+These screens intercept routing or initialize logic that explicitly checks for a connection and redirects the user to a `NoConnectionRoute` or blocks access.
+
+### `lib/presentation/components/custom_scaffold.dart`
+- **Custom Scaffold**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/initial/splash/splash_page.dart`
+- **Splash Page**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/order/order_check/order_check.dart`
+- **Order Check**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/order/order_check/widgets/payment_method.dart`
+- **Payment Method**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/pages_driver.dart`
+- **Pages Driver**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/pages_manager.dart`
+- **Pages Manager**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/parcel/parcel_page.dart`
+- **Parcel Page**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/parcel/widgets/parcel_payments.dart`
+- **Parcel Payments**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/profile/profile_page.dart`
+- **Profile Page**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/profile/wallet_history.dart`
+- **Wallet History**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/profile/widgets/wallet_send_screen.dart`
+- **Wallet Send Screen**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/pages/profile/widgets/wallet_topup_screen.dart`
+- **Wallet Topup Screen**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+### `lib/presentation/routes/app_router.dart`
+- **App Router**: Has explicit UI logic to check connection or route to `NoConnection`.
+
+## 3. Infrastructure Layer Connectivity Checks
+These repositories or services manually check for connectivity.
+
+- `lib/infrastructure/services/utils/app_connectivity.dart`
+- `lib/infrastructure/services/utils/app_helpers.dart`
+- `lib/infrastructure/services/utils/driver/app_helpers.dart`
+- `lib/infrastructure/services/utils/manager/app_helpers.dart`
