@@ -40,7 +40,7 @@ class OrdersRepository implements OrdersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/method/paas.api.seller_payment.seller_payment.get_payments',
+        '/api/v1/method/paas.api.payment.payment.get_payment_gateways',
       );
       return ApiResult.success(data: PaymentsResponse.fromJson(response.data));
     } catch (e) {
@@ -274,7 +274,7 @@ class OrdersRepository implements OrdersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/dashboard/seller/orders/paginate',
+        '/api/v1/method/paas.api.seller_order.seller_order.get_seller_orders',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -322,7 +322,7 @@ class OrdersRepository implements OrdersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/method/paas.api.order.order.calculate_order_price',
+        '/api/v1/method/paas.api.order.order.get_calculate',
         queryParameters: data,
       );
       return ApiResult.success(data: OrderCalculate.fromJson(response.data));

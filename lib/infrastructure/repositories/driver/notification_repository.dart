@@ -20,7 +20,7 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/method/paas.api.notification.notification.get_notifications',
+        '/api/v1/method/paas.api.user.user.get_user_notifications',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -63,7 +63,7 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/method/paas.api.notification.notification.read_one_notification',
+        '/api/v1/method/paas.api.read_one_notification',
         data: {'id': id},
       );
       return const ApiResult.success(data: true);
@@ -82,7 +82,7 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/method/paas.api.notification.notification.get_notifications',
+        '/api/v1/method/paas.api.user.user.get_user_notifications',
         queryParameters: data,
       );
       return ApiResult.success(

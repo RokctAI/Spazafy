@@ -92,7 +92,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/method/paas.api.user.user.verify_phone_code',
+        '/api/v1/method/paas.api.verify_phone_code',
         data: {"phone": verifyId, "otp": verifyCode},
       );
       return ApiResult.success(
@@ -136,7 +136,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/method/paas.api.user.user.forgot_password_confirm',
+        '/api/v1/method/paas.api.forgot_password_confirm',
         data: {'verifyCode': verifyCode, 'email': email},
       );
 
@@ -182,7 +182,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.user.user.verify_my_email',
+        '/api/v1/method/paas.api.verify_my_email',
         queryParameters: {'token': verifyCode},
       );
       return ApiResult.success(
@@ -256,7 +256,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final client = dioHttp.client(requireAuth: false);
       await client.post(
-        '/api/v1/method/paas.api.user.user.signup',
+        '/api/v1/method/paas.api.register_user',
         queryParameters: data.toJson(),
       );
       return ApiResult.success(data: null);

@@ -171,7 +171,7 @@ class ProductsRepository implements ProductsInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/method/paas.api.seller_order.seller_order.calculate_order_price',
+        '/api/v1/method/paas.api.order.order.get_calculate',
         data: data,
       );
       return ApiResult.success(data: CalculateResponse.fromJson(response.data));
@@ -248,6 +248,9 @@ class ProductsRepository implements ProductsInterface {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
         '/api/v1/method/paas.api.seller_product.seller_product.update_product_stocks',
+        data: data,
+        queryParameters: {'uuid': uuid},
+      );
         data: {...data, 'product_id': uuid},
       );
       return ApiResult.success(

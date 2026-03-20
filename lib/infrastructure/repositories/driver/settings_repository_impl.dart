@@ -130,7 +130,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
   Future<ApiResult<LanguagesResponse>> getLanguages() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.setting.setting.get_active_languages');
+      final response = await client.get('/api/v1/method/paas.api.system.system.get_languages');
       if (LocalStorage.getLanguage() != null &&
           !(LanguagesResponse.fromJson(response.data).data
                   ?.map((e) => e.id)

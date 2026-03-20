@@ -353,8 +353,9 @@ class ParcelRepository implements ParcelRepositoryFacade {
   Future<ApiResult<String>> process(String orderId, String name) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      var res = await client.get(
-        '/api/v1/dashboard/user/order-$name-process?parcel_id=$orderId',
+      var res = await client.post(
+        '/api/v1/method/paas.api.payment.payment.create_transaction',
+        data: {'parcel_id': orderId, 'payment_sys_id': name},
       );
       return ApiResult.success(data: res.data["data"]["data"]["url"]);
     } catch (e) {
@@ -375,8 +376,8 @@ class ParcelRepository implements ParcelRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/payments/parcel-order/$orderId/transactions',
-        data: data,
+        '/api/v1/method/paas.api.payment.payment.create_transaction',
+        data: {...data, 'parcel_id': orderId},
       );
       return ApiResult.success(
         data: TransactionsResponse.fromJson(response.data),
@@ -387,9 +388,9 @@ class ParcelRepository implements ParcelRepositoryFacade {
       // Sync Queue fallback
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/v1/payments/parcel-order/$orderId/transactions',
+          url: '/api/v1/method/paas.api.payment.payment.create_transaction',
           method: 'POST',
-          payload: data,
+          payload: {...data, 'parcel_id': orderId},
         );
         return ApiResult.success(data: TransactionsResponse());
       } catch (syncError) {
