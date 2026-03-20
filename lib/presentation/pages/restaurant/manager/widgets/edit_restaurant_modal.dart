@@ -383,7 +383,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                           const Divider(),
                           GestureDetector(
                             onTap: () =>
-                                context.pushRoute(const DeliveryZoneRoute()),
+                                context.pushRoute(const ManagerDeliveryZoneRoute()),
                             child: Container(
                               color: AppStyle.transparent,
                               child: Padding(

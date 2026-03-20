@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/domain/di/manager/dependency_manager.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+
+final settingsRepository = managerSettingsRepository;
 import 'package:rokctapp/infrastructure/models/models_manager.dart';
 import 'ai_translation_state.dart';
 

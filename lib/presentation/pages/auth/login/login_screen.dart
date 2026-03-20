@@ -21,7 +21,8 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/auth/auth.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
-  const LoginScreen({super.key});
+  final String? role;
+  const LoginScreen({super.key, this.role});
 
   @override
   ConsumerState<LoginScreen> createState() => _LoginScreenState();
@@ -347,44 +348,45 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         ],
                       ),
                       22.verticalSpace,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          if (isIOS)
+                      if (widget.role == null)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            if (isIOS)
+                              SocialButton(
+                                iconData: FlutterRemix.apple_fill,
+                                onPressed: () {
+                                  event.loginWithApple(context);
+                                },
+                                title: "Apple",
+                              ),
+                            // Add toggle button for email/phone when on Android
+                            if (!isIOS)
+                              SocialButton(
+                                iconData: currentSignUpType == SignUpType.phone
+                                    ? FlutterRemix.mail_fill
+                                    : FlutterRemix.phone_fill,
+                                onPressed: toggleSignUpType,
+                                title: currentSignUpType == SignUpType.phone
+                                    ? "Email"
+                                    : "Phone",
+                              ),
                             SocialButton(
-                              iconData: FlutterRemix.apple_fill,
+                              iconData: FlutterRemix.facebook_fill,
                               onPressed: () {
-                                event.loginWithApple(context);
+                                event.loginWithFacebook(context);
                               },
-                              title: "Apple",
+                              title: "Facebook",
                             ),
-                          // Add toggle button for email/phone when on Android
-                          if (!isIOS)
                             SocialButton(
-                              iconData: currentSignUpType == SignUpType.phone
-                                  ? FlutterRemix.mail_fill
-                                  : FlutterRemix.phone_fill,
-                              onPressed: toggleSignUpType,
-                              title: currentSignUpType == SignUpType.phone
-                                  ? "Email"
-                                  : "Phone",
+                              iconData: FlutterRemix.google_fill,
+                              onPressed: () {
+                                event.loginWithGoogle(context);
+                              },
+                              title: "Google",
                             ),
-                          SocialButton(
-                            iconData: FlutterRemix.facebook_fill,
-                            onPressed: () {
-                              event.loginWithFacebook(context);
-                            },
-                            title: "Facebook",
-                          ),
-                          SocialButton(
-                            iconData: FlutterRemix.google_fill,
-                            onPressed: () {
-                              event.loginWithGoogle(context);
-                            },
-                            title: "Google",
-                          ),
-                        ],
-                      ),
+                          ],
+                        ),
                       22.verticalSpace,
                       if (AppConstants.isDemo)
                         Column(

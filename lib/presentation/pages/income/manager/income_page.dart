@@ -14,14 +14,14 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'app_bar_screen.dart';
 
 @RoutePage()
-class IncomePage extends ConsumerStatefulWidget {
-  const IncomePage({super.key});
+class ManagerIncomePage extends ConsumerStatefulWidget {
+  const ManagerIncomePage({super.key});
 
   @override
-  ConsumerState<IncomePage> createState() => _IncomePageState();
+  ConsumerState<ManagerIncomePage> createState() => _ManagerIncomePageState();
 }
 
-class _IncomePageState extends ConsumerState<IncomePage>
+class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 

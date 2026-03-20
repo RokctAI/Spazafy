@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:rokctapp/presentation/driver/app_assets.dart';
+import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,21 +10,22 @@ import 'package:rokctapp/presentation/pages/profile/driver/widgets/edit_profile_
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/routes/driver/app_router.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/driver/app_style.dart';
-import 'package:rokctapp/presentation/pages/auth/driver/login/widgets/languages_modal.dart';
+import 'package:rokctapp/presentation/pages/profile/language_page.dart';
+import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
 import 'widgets/logout_modal.dart';
 import 'widgets/sections_item.dart';
 
 @RoutePage()
-class ProfilePage extends ConsumerStatefulWidget {
-  const ProfilePage({super.key});
+class DriverProfilePage extends ConsumerStatefulWidget {
+  const DriverProfilePage({super.key});
 
   @override
-  ConsumerState<ProfilePage> createState() => _ProfilePageState();
+  ConsumerState<DriverProfilePage> createState() => _DriverProfilePageState();
 }
 
-class _ProfilePageState extends ConsumerState<ProfilePage> {
+class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
   final bool isLtr = LocalStorage.getLangLtr();
 
   @override
@@ -280,7 +281,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                     title: AppHelpers.getTranslation(TrKeys.deliveryZone),
                     icon: FlutterRemix.navigation_fill,
                     onTap: () async {
-                      await context.pushRoute(const DeliveryZoneRoute());
+                      await context.pushRoute(const DriverDeliveryZoneRoute());
                       ref
                           .read(homeProvider.notifier)
                           .fetchDeliveryZone(isFetch: true);
@@ -290,41 +291,41 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                     title: AppHelpers.getTranslation(TrKeys.orders),
                     icon: FlutterRemix.order_play_line,
                     onTap: () {
-                      context.pushRoute(const OrdersRoute());
+                      context.pushRoute(const DriverOrdersRoute());
                     },
                   ),
                   SectionsItem(
                     title: AppHelpers.getTranslation(TrKeys.parcels),
                     icon: FlutterRemix.archive_line,
                     onTap: () {
-                      context.pushRoute(const ParcelsRoute());
+                      context.pushRoute(const DriverParcelsRoute());
                     },
                   ),
                   SectionsItem(
                     title: AppHelpers.getTranslation(TrKeys.notifications),
                     icon: FlutterRemix.notification_2_line,
                     onTap: () =>
-                        context.pushRoute(const NotificationListRoute()),
+                        context.pushRoute(const DriverNotificationListRoute()),
                   ),
                   SectionsItem(
                     title: AppHelpers.getTranslation(TrKeys.orderHistory),
                     icon: FlutterRemix.history_line,
                     onTap: () {
-                      context.pushRoute(const OrderHistoryRoute());
+                      context.pushRoute(const DriverOrderHistoryRoute());
                     },
                   ),
                   SectionsItem(
                     title: AppHelpers.getTranslation(TrKeys.parcelHistory),
                     icon: FlutterRemix.folder_history_fill,
                     onTap: () {
-                      context.pushRoute(const ParcelHistoryRoute());
+                      context.pushRoute(const DriverParcelHistoryRoute());
                     },
                   ),
                   SectionsItem(
                     title: AppHelpers.getTranslation(TrKeys.income),
                     icon: FlutterRemix.line_chart_line,
                     onTap: () {
-                      context.pushRoute(const IncomeRoute());
+                      context.pushRoute(const DriverIncomeRoute());
                     },
                   ),
                   Consumer(
@@ -338,6 +339,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             isDrag: false,
                             context: context,
                             modal: LanguageScreen(
+                              onSave: () => Navigator.pop(context),
                               afterUpdate: (lang) {
                                 ref
                                     .read(appProvider.notifier)
@@ -347,6 +349,17 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                             isDarkMode: false,
                           );
                         },
+                      );
+                    },
+                  ),
+                  SectionsItem(
+                    title: AppHelpers.getTranslation(TrKeys.currencies),
+                    icon: FlutterRemix.bank_card_line,
+                    onTap: () {
+                      AppHelpers.showCustomModalBottomSheet(
+                        context: context,
+                        modal: const CurrencyScreen(),
+                        isDarkMode: false,
                       );
                     },
                   ),

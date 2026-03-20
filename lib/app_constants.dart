@@ -39,6 +39,12 @@ abstract class AppConstants {
   static const String iosPackageName = String.fromEnvironment(
     'CUSTOMER_IOS_PACKAGE_NAME',
   );
+  static const String driverAndroidPackageName = String.fromEnvironment(
+    'DRIVER_ANDROID_PACKAGE_NAME',
+  );
+  static const String driverIosPackageName = String.fromEnvironment(
+    'DRIVER_IOS_PACKAGE_NAME',
+  );
 
   /// newStores and Recommendation Time
   static int newShopDays = 60;
@@ -56,6 +62,10 @@ abstract class AppConstants {
   static const String heroTagSelectUser = 'heroTagSelectUser';
   static const String heroTagSelectAddress = 'heroTagSelectAddress';
   static const String heroTagSelectCurrency = 'heroTagSelectCurrency';
+  static const String heroTagProfileAvatar = 'heroTagProfileAvatar';
+  static const String heroTagAddOrderButton = 'heroTagAddOrderButton';
+  static const String heroTagOrderHistory = 'heroTagOrderHistory';
+  static const String heroTagIncomePage = 'heroTagIncomePage';
 
   /// PayFast
   static const String passphrase = String.fromEnvironment('PAYFAST_PASSPHRASE');
@@ -69,6 +79,18 @@ abstract class AppConstants {
   static const String demoUserLogin = String.fromEnvironment('DEMO_USER_LOGIN');
   static const String demoUserPassword = String.fromEnvironment(
     'DEMO_USER_PASSWORD',
+  );
+  static const String demoSellerLogin = String.fromEnvironment(
+    'DEMO_SELLER_LOGIN',
+  );
+  static const String demoSellerPassword = String.fromEnvironment(
+    'DEMO_SELLER_PASSWORD',
+  );
+  static const String demoDriverLogin = String.fromEnvironment(
+    'DEMO_DRIVER_LOGIN',
+  );
+  static const String demoDriverPassword = String.fromEnvironment(
+    'DEMO_DRIVER_PASSWORD',
   );
 
   /// locales
@@ -137,4 +159,27 @@ abstract class AppConstants {
   /// Marketplace Settings
   static bool enableMarketplace = true;
   static String defaultShopId = "";
+
+  /// Manager specific
+  static const bool autoTrn = bool.fromEnvironment('AUTO_TRN');
+  static const Duration animationDuration = Duration(milliseconds: 375);
+  static bool playMusicOnOrderStatusChange = true;
+  static bool keepPlayingOnNewOrder = false;
+
+  /// Driver specific
+  static const bool isSpecificNumberEnabled = bool.fromEnvironment(
+    'IS_SPECIFIC_NUMBER_ENABLED',
+  );
+}
+
+enum UploadType {
+  extras,
+  brands,
+  categories,
+  shopsLogo,
+  shopsBack,
+  products,
+  reviews,
+  users,
+  deliveryCar,
 }

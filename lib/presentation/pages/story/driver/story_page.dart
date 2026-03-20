@@ -10,14 +10,14 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/driver/app_style.dart';
 
 @RoutePage()
-class StoryPage extends ConsumerStatefulWidget {
-  const StoryPage({super.key});
+class DriverStoryPage extends ConsumerStatefulWidget {
+  const DriverStoryPage({super.key});
 
   @override
-  ConsumerState<StoryPage> createState() => _StoryPageState();
+  ConsumerState<DriverStoryPage> createState() => _DriverStoryPageState();
 }
 
-class _StoryPageState extends ConsumerState<StoryPage>
+class _DriverStoryPageState extends ConsumerState<DriverStoryPage>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
 

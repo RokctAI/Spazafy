@@ -13,14 +13,16 @@ import 'canceled_orders_body.dart';
 import 'delivered_order_body.dart';
 
 @RoutePage()
-class OrderHistoryPage extends ConsumerStatefulWidget {
-  const OrderHistoryPage({super.key});
+class ManagerOrderHistoryPage extends ConsumerStatefulWidget {
+  const ManagerOrderHistoryPage({super.key});
 
   @override
-  ConsumerState<OrderHistoryPage> createState() => _OrderHistoryPageState();
+  ConsumerState<ManagerOrderHistoryPage> createState() =>
+      _ManagerOrderHistoryPageState();
 }
 
-class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
+class _ManagerOrderHistoryPageState
+    extends ConsumerState<ManagerOrderHistoryPage>
     with SingleTickerProviderStateMixin {
   late RefreshController _deliveredRefreshController;
   late RefreshController _canceledRefreshController;

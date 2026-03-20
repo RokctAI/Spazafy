@@ -13,14 +13,14 @@ import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/driver/app_style.dart';
 
 @RoutePage()
-class ParcelHistoryPage extends ConsumerStatefulWidget {
-  const ParcelHistoryPage({super.key});
+class DriverParcelHistoryPage extends ConsumerStatefulWidget {
+  const DriverParcelHistoryPage({super.key});
 
   @override
-  ConsumerState<ParcelHistoryPage> createState() => _ParcelHistoryPageState();
+  ConsumerState<DriverParcelHistoryPage> createState() => _DriverParcelHistoryPageState();
 }
 
-class _ParcelHistoryPageState extends ConsumerState<ParcelHistoryPage> {
+class _DriverParcelHistoryPageState extends ConsumerState<DriverParcelHistoryPage> {
   late RefreshController historyController;
 
   @override

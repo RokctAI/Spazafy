@@ -17,14 +17,14 @@ import 'package:rokctapp/presentation/theme/driver/app_style.dart';
 import 'package:rokctapp/application/providers_driver.dart';
 
 @RoutePage()
-class BecomeDriverPage extends ConsumerStatefulWidget {
-  const BecomeDriverPage({super.key});
+class DriverBecomeDriverPage extends ConsumerStatefulWidget {
+  const DriverBecomeDriverPage({super.key});
 
   @override
-  ConsumerState<BecomeDriverPage> createState() => _EditRestaurantState();
+  ConsumerState<DriverBecomeDriverPage> createState() => _DriverBecomeDriverPageState();
 }
 
-class _EditRestaurantState extends ConsumerState<BecomeDriverPage> {
+class _DriverBecomeDriverPageState extends ConsumerState<DriverBecomeDriverPage> {
   late TextEditingController brand;
   late TextEditingController model;
   late TextEditingController number;

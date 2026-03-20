@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
 extension BoolParsing on String {
   bool toBool() {

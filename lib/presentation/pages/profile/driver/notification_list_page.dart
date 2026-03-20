@@ -16,15 +16,16 @@ import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/driver/app_style.dart';
 
 @RoutePage()
-class NotificationListPage extends ConsumerStatefulWidget {
-  const NotificationListPage({super.key});
+class DriverNotificationListPage extends ConsumerStatefulWidget {
+  const DriverNotificationListPage({super.key});
 
   @override
-  ConsumerState<NotificationListPage> createState() =>
-      _NotificationListPageState();
+  ConsumerState<DriverNotificationListPage> createState() =>
+      _DriverNotificationListPageState();
 }
 
-class _NotificationListPageState extends ConsumerState<NotificationListPage> {
+class _DriverNotificationListPageState
+    extends ConsumerState<DriverNotificationListPage> {
   final bool isLtr = LocalStorage.getLangLtr();
   late RefreshController refreshController;
 

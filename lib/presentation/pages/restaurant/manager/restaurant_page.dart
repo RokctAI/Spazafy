@@ -12,7 +12,8 @@ import 'widgets/sections_item.dart';
 import 'widgets/shop_page_banner.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/phoenix_widget.dart';
-import 'package:rokctapp/presentation/pages/auth/manager/languages_modal.dart';
+import 'package:rokctapp/presentation/pages/profile/language_page.dart';
+import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'widgets/edit_restaurant_modal.dart';
 import 'package:rokctapp/application/providers_manager.dart';
@@ -310,17 +311,17 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
         SectionsItem(
           title: AppHelpers.getTranslation(TrKeys.income),
           icon: FlutterRemix.line_chart_line,
-          onTap: () => context.pushRoute(const IncomeRoute()),
+          onTap: () => context.pushRoute(const ManagerIncomeRoute()),
         ),
         SectionsItem(
           title: AppHelpers.getTranslation(TrKeys.myOrderHistory),
           icon: FlutterRemix.history_line,
-          onTap: () => context.pushRoute(const OrderHistoryRoute()),
+          onTap: () => context.pushRoute(const ManagerOrderHistoryRoute()),
         ),
         SectionsItem(
           title: AppHelpers.getTranslation(TrKeys.notifications),
           icon: FlutterRemix.notification_2_line,
-          onTap: () => context.pushRoute(const NotificationListRoute()),
+          onTap: () => context.pushRoute(const ManagerNotificationListRoute()),
         ),
         SectionsItem(
           title: AppHelpers.getTranslation(TrKeys.language),
@@ -329,12 +330,24 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
             paddingTop: MediaQuery.paddingOf(context).top + 60,
             context: context,
             modal: LanguageScreen(
+              onSave: () => Navigator.pop(context),
               afterUpdate: (lang) {
                 Phoenix.rebirth(context);
               },
             ),
             isDarkMode: false,
           ),
+        ),
+        SectionsItem(
+          title: AppHelpers.getTranslation(TrKeys.currencies),
+          icon: FlutterRemix.bank_card_line,
+          onTap: () {
+            AppHelpers.showCustomModalBottomSheet(
+              context: context,
+              modal: const CurrencyScreen(),
+              isDarkMode: false,
+            );
+          },
         ),
         if (LocalStorage.getSubscription())
           SectionsItem(

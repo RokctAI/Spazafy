@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/filter/result_filter.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/recommended_two_screen.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/presentation/pages/auth/login/login_page.dart';
+import 'package:rokctapp/presentation/pages/auth/login/login_screen.dart';
 import 'package:rokctapp/presentation/pages/auth/confirmation/register_confirmation_page.dart';
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 import 'package:rokctapp/presentation/pages/auth/reset/reset_password_page.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/recommended_one_screen.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/recommended_three_screen.dart';
+import 'package:rokctapp/presentation/pages/initial/splash_page.dart';
 import 'package:rokctapp/presentation/pages/initial/no_connection/no_connection_page.dart';
-import 'package:rokctapp/presentation/pages/initial/splash/splash_page.dart';
 import 'package:rokctapp/presentation/pages/initial/ui_type/ui_type_page.dart';
 import 'package:rokctapp/presentation/pages/like/like_page.dart';
 import 'package:rokctapp/presentation/pages/main/main_page.dart';
@@ -51,6 +51,8 @@ import 'package:rokctapp/presentation/pages/order/orders_main.dart';
 import 'package:rokctapp/presentation/pages/loans/widgets/loan_document_upload_screen.dart';
 import 'package:rokctapp/presentation/pages/loans/widgets/loan_eligibility_screen.dart';
 import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
+import 'package:rokctapp/presentation/pages/pages_driver.dart';
+import 'package:rokctapp/presentation/pages/pages_manager.dart';
 
 part 'app_router.gr.dart';
 
@@ -127,5 +129,48 @@ class AppRouter extends RootStackRouter {
       page: LoanDocumentUploadRoute.page,
     ),
     MaterialRoute(path: '/LoanScreen', page: LoanRoute.page),
+
+    // Driver Routes
+    CupertinoRoute(path: '/driver/income', page: DriverIncomeRoute.page),
+    CupertinoRoute(path: '/driver/home', page: DriverHomeRoute.page),
+    CupertinoRoute(path: '/map', page: ViewMapRoute.page),
+    CupertinoRoute(path: '/driver/story', page: DriverStoryRoute.page),
+    CupertinoRoute(path: '/driver/profile', page: DriverProfileRoute.page),
+    CupertinoRoute(
+      path: '/driver/list-notification',
+      page: DriverNotificationListRoute.page,
+    ),
+    CupertinoRoute(path: '/driver/order-history', page: DriverOrderHistoryRoute.page),
+    CupertinoRoute(path: '/driver/orders', page: DriverOrdersRoute.page),
+    CupertinoRoute(path: '/driver/parcels', page: DriverParcelsRoute.page),
+    CupertinoRoute(path: '/driver/become-driver', page: DriverBecomeDriverRoute.page),
+    CupertinoRoute(path: '/driver/delivery-zone', page: DriverDeliveryZoneRoute.page),
+    CupertinoRoute(path: '/driver/view-map', page: DriverViewMapRoute.page),
+    CupertinoRoute(path: '/driver/no-connection', page: DriverNoConnectionRoute.page),
+
+    // Manager Routes
+    CupertinoRoute(path: '/manager/main', page: ManagerMainRoute.page),
+    CupertinoRoute(path: '/manager/auth', page: ManagerAuthRoute.page),
+    CupertinoRoute(path: '/manager/view-map', page: ManagerViewMapRoute.page),
+    CupertinoRoute(path: '/manager/order', page: ManagerOrderRoute.page),
+    CupertinoRoute(path: '/manager/income', page: ManagerIncomeRoute.page),
+    CupertinoRoute(path: '/manager/select-user', page: SelectUserRoute.page),
+    CupertinoRoute(path: '/manager/delivery-time', page: DeliveryTimeRoute.page),
+    CupertinoRoute(path: '/manager/order-history', page: ManagerOrderHistoryRoute.page),
+    CupertinoRoute(path: '/manager/delivery-zone', page: ManagerDeliveryZoneRoute.page),
+    CupertinoRoute(path: '/manager/no-connection', page: ManagerNoConnectionRoute.page),
+    CupertinoRoute(path: '/manager/select-address', page: SelectAddressRoute.page),
+    CupertinoRoute(path: '/manager/order-products', page: ManagerCreateOrderRoute.page),
+    CupertinoRoute(path: '/manager/shipping-address', page: ShippingAddressRoute.page),
+    CupertinoRoute(
+      path: '/manager/list-notification',
+      page: ManagerNotificationListRoute.page,
+    ),
+    CupertinoRoute(path: '/manager/view_map', page: ManagerViewMapRoute.page),
+    CupertinoRoute(path: '/manager/search_map', page: ManagerMapSearchRoute.page),
+    MaterialRoute(path: '/manager/select-section', page: SelectSectionRoute.page),
+    MaterialRoute(path: '/manager/select-table', page: SelectTableRoute.page),
+    MaterialRoute(path: '/manager/webview', page: ManagerWebViewRoute.page),
+    MaterialRoute(path: '/manager/subscription', page: ManagerSubscriptionsRoute.page),
   ];
 }

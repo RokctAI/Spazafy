@@ -15,7 +15,7 @@ import 'package:rokctapp/presentation/theme/manager/app_style.dart';
 import 'orders/orders_home_page.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'widgets/bottom_navigator_item.dart';
+import 'package:rokctapp/presentation/pages/main/widgets/bottom_navigator_item.dart';
 import 'package:rokctapp/presentation/pages/restaurant/manager/restaurant_page.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'foods/create/create_product_modal.dart';
@@ -24,14 +24,14 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'foods/extras/create/create_extras_group_modal.dart';
 
 @RoutePage()
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class ManagerMainPage extends StatefulWidget {
+  const ManagerMainPage({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<ManagerMainPage> createState() => _ManagerMainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _ManagerMainPageState extends State<ManagerMainPage> {
   List<IndexedStackChild> list = [
     IndexedStackChild(child: const OrdersHomePage(), preload: true),
     IndexedStackChild(child: const FoodsPage(), preload: false),
@@ -141,6 +141,7 @@ class _MainPageState extends State<MainPage> {
                               index: 0,
                               selectIcon: FlutterRemix.file_list_2_fill,
                               unSelectIcon: FlutterRemix.file_list_2_line,
+                              label: AppHelpers.getTranslation(TrKeys.orders),
                             ),
                             BottomNavigatorItem(
                               isScrolling: state.isScrolling,
@@ -149,6 +150,7 @@ class _MainPageState extends State<MainPage> {
                               currentIndex: state.selectedIndex,
                               selectIcon: FlutterRemix.restaurant_fill,
                               unSelectIcon: FlutterRemix.restaurant_line,
+                              label: AppHelpers.getTranslation(TrKeys.products),
                             ),
                             _profileItem(() {
                               event.selectIndex(2);
@@ -174,7 +176,7 @@ class _MainPageState extends State<MainPage> {
                                   onTap: () {
                                     state.selectedIndex == 0
                                         ? context.pushRoute(
-                                            const CreateOrderRoute(),
+                                            const ManagerCreateOrderRoute(),
                                           )
                                         : (foodTabState.selectedIndex == 0
                                               ? AppHelpers.showCustomModalBottomSheet(

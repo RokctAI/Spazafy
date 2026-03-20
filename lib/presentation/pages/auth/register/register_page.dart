@@ -24,8 +24,9 @@ import 'package:rokctapp/presentation/pages/auth/confirmation/register_confirmat
 @RoutePage()
 class RegisterPage extends ConsumerStatefulWidget {
   final bool isOnlyEmail;
+  final String? role;
 
-  const RegisterPage({super.key, required this.isOnlyEmail});
+  const RegisterPage({super.key, required this.isOnlyEmail, this.role});
 
   @override
   ConsumerState<RegisterPage> createState() => _RegisterPageState();
@@ -42,6 +43,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     super.initState();
     // Initialize with the global value
     currentSignUpType = AppConstants.signUpType;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(signUpProvider.notifier).setRole(widget.role ?? 'user');
+    });
   }
 
   // Method to toggle between phone and email sign up types
@@ -423,45 +427,46 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                               ],
                             ),
                             22.verticalSpace,
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                if (isIOS)
+                            if (widget.role == null)
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  if (isIOS)
+                                    SocialButton(
+                                      iconData: FlutterRemix.apple_fill,
+                                      onPressed: () {
+                                        event.loginWithApple(context);
+                                      },
+                                      title: "Apple",
+                                    ),
+                                  // Add toggle button for email/phone when on Android
+                                  if (!isIOS)
+                                    SocialButton(
+                                      iconData:
+                                          currentSignUpType == SignUpType.phone
+                                          ? FlutterRemix.mail_fill
+                                          : FlutterRemix.phone_fill,
+                                      onPressed: toggleSignUpType,
+                                      title: currentSignUpType == SignUpType.phone
+                                          ? "Email"
+                                          : "Phone",
+                                    ),
                                   SocialButton(
-                                    iconData: FlutterRemix.apple_fill,
+                                    iconData: FlutterRemix.facebook_fill,
                                     onPressed: () {
-                                      event.loginWithApple(context);
+                                      event.loginWithFacebook(context);
                                     },
-                                    title: "Apple",
+                                    title: "Facebook",
                                   ),
-                                // Add toggle button for email/phone when on Android
-                                if (!isIOS)
                                   SocialButton(
-                                    iconData:
-                                        currentSignUpType == SignUpType.phone
-                                        ? FlutterRemix.mail_fill
-                                        : FlutterRemix.phone_fill,
-                                    onPressed: toggleSignUpType,
-                                    title: currentSignUpType == SignUpType.phone
-                                        ? "Email"
-                                        : "Phone",
+                                    iconData: FlutterRemix.google_fill,
+                                    onPressed: () {
+                                      event.loginWithGoogle(context);
+                                    },
+                                    title: "Google",
                                   ),
-                                SocialButton(
-                                  iconData: FlutterRemix.facebook_fill,
-                                  onPressed: () {
-                                    event.loginWithFacebook(context);
-                                  },
-                                  title: "Facebook",
-                                ),
-                                SocialButton(
-                                  iconData: FlutterRemix.google_fill,
-                                  onPressed: () {
-                                    event.loginWithGoogle(context);
-                                  },
-                                  title: "Google",
-                                ),
-                              ],
-                            ),
+                                ],
+                              ),
                             22.verticalSpace,
                           ],
                         )

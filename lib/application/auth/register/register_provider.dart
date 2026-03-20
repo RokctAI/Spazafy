@@ -5,7 +5,7 @@ import 'package:rokctapp/infrastructure/services/utils/sync_provider.dart';
 import 'register_notifier.dart';
 import 'register_state.dart';
 
-final registerProvider =
+final signUpProvider =
     StateNotifierProvider.autoDispose<RegisterNotifier, RegisterState>(
       (ref) => RegisterNotifier(
         authRepository,
@@ -14,3 +14,5 @@ final registerProvider =
         ref.watch(appDatabaseProvider),
       ),
     );
+
+final registerProvider = signUpProvider;

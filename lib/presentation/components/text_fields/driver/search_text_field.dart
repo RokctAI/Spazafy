@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/driver/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/driver/app_style.dart';
 
 class SearchTextField extends StatelessWidget {

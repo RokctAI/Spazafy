@@ -10,11 +10,11 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 
 @RoutePage()
-class DeliveryZonePage extends ConsumerStatefulWidget {
-  const DeliveryZonePage({super.key});
+class DriverDeliveryZonePage extends ConsumerStatefulWidget {
+  const DriverDeliveryZonePage({super.key});
 
   @override
-  ConsumerState<DeliveryZonePage> createState() => _DeliveryZonePageState();
+  ConsumerState<DriverDeliveryZonePage> createState() => _DriverDeliveryZonePageState();
 }
 
 class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {

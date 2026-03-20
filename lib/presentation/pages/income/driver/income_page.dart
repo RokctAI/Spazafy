@@ -14,14 +14,14 @@ import 'statistics_screen.dart';
 import 'widgets/income_item.dart';
 
 @RoutePage()
-class IncomePage extends ConsumerStatefulWidget {
-  const IncomePage({super.key});
+class DriverIncomePage extends ConsumerStatefulWidget {
+  const DriverIncomePage({super.key});
 
   @override
-  ConsumerState<IncomePage> createState() => _IncomePageState();
+  ConsumerState<DriverIncomePage> createState() => _DriverIncomePageState();
 }
 
-class _IncomePageState extends ConsumerState<IncomePage>
+class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 

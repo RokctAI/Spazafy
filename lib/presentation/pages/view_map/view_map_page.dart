@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:rokctapp/application/app_widget/app_provider.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
@@ -35,13 +36,9 @@ import 'package:lottie/lottie.dart' as lottie;
 import 'package:rokctapp/app_constants.dart';
 
 @RoutePage()
-class ViewMapPage extends ConsumerStatefulWidget {
-  final bool isShopLocation;
-  final bool isPop;
-  final bool isParcel;
-  final String? shopId;
-  final int? indexAddress;
   final AddressNewModel? address;
+  final bool useSlidingPanel;
+  final VoidCallback? onChanged;
 
   const ViewMapPage({
     super.key,
@@ -51,6 +48,8 @@ class ViewMapPage extends ConsumerStatefulWidget {
     this.shopId,
     this.indexAddress,
     this.address,
+    this.useSlidingPanel = false,
+    this.onChanged,
   });
 
   @override
@@ -77,6 +76,9 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
   void dispose() {
     controller.dispose();
     _animationController.dispose();
+    office.dispose();
+    house.dispose();
+    floor.dispose();
     super.dispose();
   }
 
@@ -251,9 +253,16 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
     }
   }
 
+  late TextEditingController office;
+  late TextEditingController house;
+  late TextEditingController floor;
+
   @override
   void initState() {
     controller = TextEditingController();
+    office = TextEditingController(text: widget.address?.title);
+    house = TextEditingController();
+    floor = TextEditingController();
     latLng = LatLng(
       widget.address?.location?.first ??
           LocalStorage.getAddressSelected()?.location?.latitude ??
@@ -281,17 +290,103 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
           backgroundColor: isDarkMode
               ? AppStyle.mainBackDark
               : AppStyle.mainBack,
-          body: SizedBox(
+          body: widget.useSlidingPanel
+              ? SlidingUpPanel(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15.r),
+                    topRight: Radius.circular(15.r),
+                  ),
+                  minHeight: 240.h,
+                  maxHeight: 240.h,
+                  color: AppStyle.white,
+                  panel: ViewMapModal(
+                    controller: controller,
+                    address: widget.address,
+                    latLng: latLng,
+                    isShopLocation: widget.isShopLocation,
+                    onSearch: () async {
+                      final placeId = await context.pushRoute(
+                        const MapSearchRoute(),
+                      );
+                      if (placeId != null) {
+                        _handleSearchSelected(placeId.toString());
+                      }
+                    },
+                  ),
+                  body: _buildMapBody(context, state, isDarkMode),
+                )
+              : _buildMapBody(context, state, isDarkMode),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _handleSearchSelected(String placeId) async {
+    final res = await googlePlace.details.get(placeId);
+    try {
+      final List<Placemark> placemarks = await placemarkFromCoordinates(
+        res?.result?.geometry?.location?.lat ?? latLng.latitude,
+        res?.result?.geometry?.location?.lng ?? latLng.longitude,
+      );
+      if (placemarks.isNotEmpty) {
+        final Placemark pos = placemarks[0];
+        final List<String> addressData = [];
+        addressData.add(pos.locality!);
+        if (pos.subLocality != null && pos.subLocality!.isNotEmpty) {
+          addressData.add(pos.subLocality!);
+        }
+        if (pos.thoroughfare != null && pos.thoroughfare!.isNotEmpty) {
+          addressData.add(pos.thoroughfare!);
+        }
+        addressData.add(pos.name!);
+        final String placeName = addressData.join(', ');
+        controller.text = placeName;
+      }
+    } catch (e) {
+      controller.text = '';
+    }
+
+    googleMapController!.animateCamera(
+      CameraUpdate.newLatLngZoom(
+        LatLng(
+          res?.result?.geometry?.location?.lat ?? latLng.latitude,
+          res?.result?.geometry?.location?.lng ?? latLng.longitude,
+        ),
+        15,
+      ),
+    );
+    event.changePlace(
+      AddressNewModel(
+        address: AddressInformation(
+          address: controller.text,
+        ),
+        location: [
+          cameraPosition?.target.latitude ?? latLng.latitude,
+          cameraPosition?.target.longitude ?? latLng.longitude,
+        ],
+      ),
+    );
+    if (widget.onChanged != null) {
+      widget.onChanged!();
+    }
+  }
+
+  Widget _buildMapBody(
+    BuildContext context,
+    ViewMapState state,
+    bool isDarkMode,
+  ) {
+    return SizedBox(
+      width: MediaQuery.sizeOf(context).width,
+      height: MediaQuery.sizeOf(context).height,
+      child: Stack(
+        children: [
+          SizedBox(
             width: MediaQuery.sizeOf(context).width,
-            height: MediaQuery.sizeOf(context).height,
-            child: Stack(
-              children: [
-                SizedBox(
-                  width: MediaQuery.sizeOf(context).width,
-                  height: state.isScrolling
-                      ? MediaQuery.sizeOf(context).height
-                      : MediaQuery.sizeOf(context).height - 0.r,
-                  child: GoogleMap(
+            height: state.isScrolling
+                ? MediaQuery.sizeOf(context).height
+                : MediaQuery.sizeOf(context).height - 0.r,
+            child: GoogleMap(
                     onCameraMoveStarted: () {
                       ref.read(viewMapProvider.notifier).scrolling(true);
                       _animationController.repeat();
@@ -596,11 +691,12 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
                       ),
                     ),
                   ),
-                AnimatedPositioned(
-                  left: 16,
-                  right: 16,
-                  bottom: 32,
-                  duration: const Duration(milliseconds: 500),
+                if (!widget.useSlidingPanel)
+                  AnimatedPositioned(
+                    left: 16,
+                    right: 16,
+                    bottom: 32,
+                    duration: const Duration(milliseconds: 500),
                   child: Column(
                     children: [
                       // Inside the build method, add this before the CustomButton
@@ -767,9 +863,23 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
                 ),
               ],
             ),
-          ),
-        ),
-      ),
     );
   }
+}
+
+@RoutePage()
+class DriverViewMapPage extends ViewMapPage {
+  const DriverViewMapPage({super.key});
+}
+
+@RoutePage()
+class ManagerViewMapPage extends ViewMapPage {
+  final VoidCallback onChanged;
+
+  const ManagerViewMapPage(
+    this.onChanged, {
+    super.key,
+    super.isShopLocation = false,
+    super.shopId,
+  }) : super(useSlidingPanel: true, onChanged: onChanged);
 }

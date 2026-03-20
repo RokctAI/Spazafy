@@ -15,15 +15,16 @@ import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_de
 import 'package:rokctapp/presentation/theme/manager/app_style.dart';
 
 @RoutePage()
-class NotificationListPage extends ConsumerStatefulWidget {
-  const NotificationListPage({super.key});
+class ManagerNotificationListPage extends ConsumerStatefulWidget {
+  const ManagerNotificationListPage({super.key});
 
   @override
-  ConsumerState<NotificationListPage> createState() =>
-      _NotificationListPageState();
+  ConsumerState<ManagerNotificationListPage> createState() =>
+      _ManagerNotificationListPageState();
 }
 
-class _NotificationListPageState extends ConsumerState<NotificationListPage> {
+class _ManagerNotificationListPageState
+    extends ConsumerState<ManagerNotificationListPage> {
   final bool isLtr = LocalStorage.getLangLtr();
   late RefreshController refreshController;
 

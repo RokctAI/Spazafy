@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 import 'app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/manager/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 class DateService {
   DateService._();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/domain/interface/settings.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
@@ -8,8 +8,35 @@ import 'splash_state.dart';
 
 class SplashNotifier extends StateNotifier<SplashState> {
   final SettingsRepositoryFacade _settingsRepository;
+  final UserRepositoryFacade _userRepository;
 
-  SplashNotifier(this._settingsRepository) : super(const SplashState());
+  SplashNotifier(this._settingsRepository, this._userRepository)
+      : super(const SplashState());
+
+  Future<void> fetchDriverDetails({required BuildContext context}) async {
+    final response = await driverUserRepository.getDriverDetails();
+    response.when(
+      success: (data) {
+        LocalStorage.setDeliveryInfo(data);
+        LocalStorage.setOnline(data.data?.online ?? false);
+      },
+      failure: (failure, status) {
+        debugPrint('==> error with fetching driver details $failure');
+      },
+    );
+  }
+
+  Future<void> fetchCurrencies() async {
+    final response = await settingsRepository.getCurrencies();
+    response.when(
+      success: (data) {
+        // ... handled in repository/storage usually, or here if needed
+      },
+      failure: (failure, status) {
+        debugPrint('==> error with fetching currencies $failure');
+      },
+    );
+  }
 
   Future<void> getToken(
     BuildContext context, {
@@ -37,7 +64,34 @@ class SplashNotifier extends StateNotifier<SplashState> {
       if (LocalStorage.getToken().isEmpty) {
         goLogin?.call();
       } else {
-        goMain?.call();
+        final profileResponse = await _userRepository.getProfileDetails();
+        profileResponse.when(
+          success: (data) {
+            LocalStorage.setUser(data.data);
+            if (data.data?.wallet != null) {
+              LocalStorage.setWallet(data.data?.wallet);
+            }
+            if (data.data?.role == "deliveryman") {
+              fetchDriverDetails(context: context);
+            } else if (data.data?.role == "seller") {
+              // Manager specific splash logic if needed
+            }
+            goMain?.call();
+          },
+          failure: (failure, status) {
+            if (status == 401) {
+              LocalStorage.logout();
+              goLogin?.call();
+            } else {
+              // On other errors, try to proceed offline if we have a user
+              if (LocalStorage.getUser() != null) {
+                goMain?.call();
+              } else {
+                goLogin?.call();
+              }
+            }
+          },
+        );
       }
 
       if (!LocalStorage.getSettingsFetched()) {

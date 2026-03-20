@@ -37,4 +37,7 @@ abstract class StorageKeys {
   static const String keyWallet = 'keyWallet';
   static const String keyShop = 'keyShop';
   static const String keySystemLanguage = 'keySystemLanguage';
+
+  // Driver specific keys
+  static const String keyOnline = 'keyOnline';
 }

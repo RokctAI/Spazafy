@@ -12,14 +12,14 @@ import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 @RoutePage()
-class OrderPage extends ConsumerStatefulWidget {
-  const OrderPage({super.key});
+class ManagerOrderPage extends ConsumerStatefulWidget {
+  const ManagerOrderPage({super.key});
 
   @override
-  ConsumerState<OrderPage> createState() => _OrderPageState();
+  ConsumerState<ManagerOrderPage> createState() => _ManagerOrderPageState();
 }
 
-class _OrderPageState extends ConsumerState<OrderPage> {
+class _ManagerOrderPageState extends ConsumerState<ManagerOrderPage> {
   @override
   void initState() {
     super.initState();

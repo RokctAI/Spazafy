@@ -25,6 +25,7 @@ class RegisterConfirmationPage extends ConsumerStatefulWidget {
   final bool isResetPassword;
   final String verificationId;
   final bool editPhone;
+  final String? role;
 
   const RegisterConfirmationPage({
     super.key,
@@ -32,6 +33,7 @@ class RegisterConfirmationPage extends ConsumerStatefulWidget {
     this.isResetPassword = false,
     required this.verificationId,
     this.editPhone = false,
+    this.role,
   });
 
   @override
@@ -67,7 +69,10 @@ class _RegisterConfirmationPageState
         Navigator.pop(context);
         AppHelpers.showCustomModalBottomSheet(
           context: context,
-          modal: RegisterPage(isOnlyEmail: false),
+          modal: RegisterPage(
+            isOnlyEmail: false,
+            role: widget.role,
+          ),
           isDarkMode: isDarkMode,
         );
       }

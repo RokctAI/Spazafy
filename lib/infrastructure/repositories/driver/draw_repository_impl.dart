@@ -1,6 +1,8 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'package:rokctapp/domain/di/driver/dependency_manager.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+
+final drawRepository = driverDrawRepository;
 import 'package:rokctapp/domain/handlers/driver/handlers.dart';
 import 'package:rokctapp/domain/interface/driver/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';

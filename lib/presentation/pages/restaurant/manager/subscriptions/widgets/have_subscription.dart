@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/date_service.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/constants/manager/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/manager/app_style.dart';
 
 class HaveSubscription extends StatelessWidget {

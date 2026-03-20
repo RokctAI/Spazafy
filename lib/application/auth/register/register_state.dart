@@ -20,6 +20,7 @@ class RegisterState with _$RegisterState {
     @Default('') String lastName,
     @Default('') String password,
     @Default('') String confirmPassword,
+    @Default('user') String role,
   }) = _RegisterState;
 
   const RegisterState._();

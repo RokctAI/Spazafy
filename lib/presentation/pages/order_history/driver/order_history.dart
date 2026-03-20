@@ -20,14 +20,15 @@ import 'package:rokctapp/presentation/theme/driver/app_style.dart';
 import 'package:rokctapp/application/order/driver/progress_ordedr/progress_order_provider.dart';
 
 @RoutePage()
-class OrderHistoryPage extends ConsumerStatefulWidget {
-  const OrderHistoryPage({super.key});
+class DriverOrderHistoryPage extends ConsumerStatefulWidget {
+  const DriverOrderHistoryPage({super.key});
 
   @override
-  ConsumerState<OrderHistoryPage> createState() => _OrderHistoryPageState();
+  ConsumerState<DriverOrderHistoryPage> createState() =>
+      _DriverOrderHistoryPageState();
 }
 
-class _OrderHistoryPageState extends ConsumerState<OrderHistoryPage>
+class _DriverOrderHistoryPageState extends ConsumerState<DriverOrderHistoryPage>
     with SingleTickerProviderStateMixin {
   late RefreshController historyController;
   late RefreshController deliveredController;

@@ -10,12 +10,12 @@ import 'package:rokctapp/application/home/driver/home_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/driver/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/driver/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
 import 'package:rokctapp/presentation/components/driver/maps_list.dart';
 import 'package:rokctapp/presentation/theme/driver/app_style.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:rokctapp/infrastructure/services/constants/driver/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/driver/custom_button.dart';
 
 class ParcelOrderPage extends StatelessWidget {

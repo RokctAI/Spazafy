@@ -73,6 +73,10 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
     state = state.copyWith(referral: name.trim());
   }
 
+  void setRole(String role) {
+    state = state.copyWith(role: role);
+  }
+
   void toggleShowPassword() {
     state = state.copyWith(showPassword: !state.showPassword);
   }
@@ -309,7 +313,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           'uuid': "temp_${DateTime.now().millisecondsSinceEpoch}",
           'email': state.email,
           'phone': state.phone,
-          'role': 'seller',
+          'role': state.role,
           'firstname': state.firstName,
           'lastname': state.lastName,
         }, password: state.password);

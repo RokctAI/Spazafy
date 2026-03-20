@@ -66,11 +66,18 @@ class LanguageNotifier extends StateNotifier<LanguageState> {
     );
   }
 
-  Future<void> makeSelectedLang(BuildContext context) async {
+  Future<void> makeSelectedLang(
+    BuildContext context, {
+    Function(LanguageData)? afterUpdate,
+  }) async {
     LocalStorage.setLanguageSelected(true);
-    LocalStorage.setLanguageData(state.list[state.index]);
-    LocalStorage.setLangLtr(state.list[state.index].backward);
+    final selectedLang = state.list[state.index];
+    LocalStorage.setLanguageData(selectedLang);
+    LocalStorage.setLangLtr(selectedLang.backward);
     await getTranslations(context);
+    if (afterUpdate != null) {
+      afterUpdate(selectedLang);
+    }
   }
 
   Future<void> getTranslations(BuildContext context) async {

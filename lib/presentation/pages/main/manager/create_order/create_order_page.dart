@@ -13,14 +13,14 @@ import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 @RoutePage()
-class CreateOrderPage extends ConsumerStatefulWidget {
-  const CreateOrderPage({super.key});
+class ManagerCreateOrderPage extends ConsumerStatefulWidget {
+  const ManagerCreateOrderPage({super.key});
 
   @override
-  ConsumerState<CreateOrderPage> createState() => _CreateOrderPageState();
+  ConsumerState<ManagerCreateOrderPage> createState() => _ManagerCreateOrderPageState();
 }
 
-class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
+class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage> {
   late RefreshController _categoryController;
   late RefreshController _productController;
 
@@ -345,7 +345,7 @@ class _CreateOrderPageState extends ConsumerState<CreateOrderPage> {
                         ? ButtonsBouncingEffect(
                             child: GestureDetector(
                               onTap: () =>
-                                  context.pushRoute(const OrderRoute()),
+                                  context.pushRoute(const ManagerOrderRoute()),
                               child: Container(
                                 height: 48.r,
                                 decoration: BoxDecoration(

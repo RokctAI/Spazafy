@@ -4,6 +4,17 @@ class Assets {
 
   static const String assetsImagesUi3 = 'assets/images/ui3.png';
   static const String imagesAppLogo = 'assets/images/app_logo.png';
+  static const String imageAppLogo = 'assets/image/app_logo.png';
+  static const String imageBackground = 'assets/image/background.png';
+  static const String imageLunch = 'assets/image/lunch.png';
+  static const String imageMyLocation = 'assets/image/my_location.png';
+  static const String imageNoOrders = 'assets/image/noOrders.png';
+  static const String imageNoProduct = 'assets/image/noProduct.png';
+  static const String imageQr = 'assets/image/qr.png';
+  static const String imageSplash = 'assets/image/splash.png';
+  static const String imageManager = 'assets/image/manager.png';
+  static const String imageNoNotification = 'assets/image/noNotification.png';
+  static const String imageNoOrdersAlternative = 'assets/image/no_orders.png';
   static const String imagesDelivery = 'assets/images/delivery.png';
   static const String imagesDeliveryBanner =
       'assets/images/delivery_banner.png';
@@ -28,6 +39,9 @@ class Assets {
   static const String lottieNotFound = 'assets/lottie/not-found.json';
   static const String lottieNotFoundPage = 'assets/lottie/not_found_page.json';
   static const String lottieProcessing = 'assets/lottie/processing.json';
+  static const String lottieClose = 'assets/lottie/close.json';
+  static const String lottiePin = 'assets/lottie/pin.json';
+  static const String audioNotification = 'assets/audio/notification.wav';
   static const String svgsAdress = 'assets/svgs/adress.svg';
   static const String svgsAvatar = 'assets/svgs/avatar.svg';
   static const String svgsBadge = 'assets/svgs/badge.svg';
@@ -62,4 +76,12 @@ class Assets {
   static const String svgsStar = 'assets/svgs/star.svg';
   static const String svgsTicket = 'assets/svgs/ticket.svg';
   static const String svgsVegetarin = 'assets/svgs/vegetarin.svg';
+
+  // Driver/Manager specific svgs
+  static const String svgBalance = 'assets/svg/balance.svg';
+  static const String svgMyLocation = 'assets/svg/my_location.svg';
+  static const String svgFoodyman = 'assets/svg/foodyman.svg';
+  static const String svgHome = 'assets/svg/home.svg';
+  static const String svgLogoWhite = 'assets/svg/logoWhite.svg';
+  static const String svgNoHome = 'assets/svg/noHome.svg';
 }

@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/subscriptions/manager/subscriptions_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/constants/manager/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/theme/manager/app_style.dart';
 

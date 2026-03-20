@@ -733,10 +733,17 @@ abstract class AppHelpers {
   }
 
   static void goHome(BuildContext context) {
-    if (AppConstants.enableMarketplace) {
-      context.router.replace(const MainRoute());
+    final role = LocalStorage.getUser()?.role;
+    if (role == 'deliveryman') {
+      context.router.replaceNamed('/home');
+    } else if (role == 'seller' || role == 'manager') {
+      context.router.replaceNamed('/main');
     } else {
-      context.router.replace(ShopRoute(shopId: AppConstants.defaultShopId));
+      if (AppConstants.enableMarketplace) {
+        context.router.replaceNamed('/main');
+      } else {
+        context.router.replaceNamed('/shop');
+      }
     }
   }
 }

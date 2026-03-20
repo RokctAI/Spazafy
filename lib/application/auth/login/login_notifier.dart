@@ -219,6 +219,19 @@ class LoginNotifier extends StateNotifier<LoginState> {
               ),
             ),
           );
+          if (data.data?.user?.role == 'seller') {
+            AppHelpers.showCheckTopSnackBar(
+              context,
+              text: AppHelpers.getTranslation(TrKeys.youAreASeller),
+              type: SnackBarType.success,
+            );
+          } else if (data.data?.user?.role == 'deliveryman') {
+            AppHelpers.showCheckTopSnackBar(
+              context,
+              text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
+              type: SnackBarType.success,
+            );
+          }
           if (AppConstants.isDemo) {
             context.replaceRoute(UiTypeRoute());
           } else {
@@ -372,6 +385,19 @@ class LoginNotifier extends StateNotifier<LoginState> {
             ),
           );
           context.router.popUntilRoot();
+          if (data.data?.user?.role == 'seller') {
+            AppHelpers.showCheckTopSnackBar(
+              context,
+              text: AppHelpers.getTranslation(TrKeys.youAreASeller),
+              type: SnackBarType.success,
+            );
+          } else if (data.data?.user?.role == 'deliveryman') {
+            AppHelpers.showCheckTopSnackBar(
+              context,
+              text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
+              type: SnackBarType.success,
+            );
+          }
           if (AppConstants.isDemo) {
             context.replaceRoute(UiTypeRoute());
           } else {

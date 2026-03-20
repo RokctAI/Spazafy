@@ -3,7 +3,13 @@ import 'dart:collection';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/domain/di/driver/dependency_manager.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+
+final userRepository = driverUserRepository;
+final drawRepository = driverDrawRepository;
+final orderRepository = driverOrderRepository;
+final parcelRepository = driverParcelRepository;
+final settingsRepository = driverSettingsRepository;
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/presentation/theme/driver/app_style.dart';

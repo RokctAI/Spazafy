@@ -12,10 +12,10 @@ import 'package:rokctapp/presentation/components/select_item.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-class LanguageScreen extends ConsumerStatefulWidget {
+  final Function(LanguageData)? afterUpdate;
   final VoidCallback onSave;
 
-  const LanguageScreen({super.key, required this.onSave});
+  const LanguageScreen({super.key, required this.onSave, this.afterUpdate});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _LanguagePageState();
@@ -100,7 +100,10 @@ class _LanguagePageState extends ConsumerState<LanguageScreen> {
                           onPressed: () {
                             ref
                                 .read(languageProvider.notifier)
-                                .makeSelectedLang(context);
+                                .makeSelectedLang(
+                                  context,
+                                  afterUpdate: widget.afterUpdate,
+                                );
                             widget.onSave();
                           },
                         ),

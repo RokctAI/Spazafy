@@ -1,6 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/domain/di/driver/dependency_manager.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+
+final orderRepository = driverOrderRepository;
+final parcelRepository = driverParcelRepository;
 import 'order_notifier.dart';
 import 'order_state.dart';
 

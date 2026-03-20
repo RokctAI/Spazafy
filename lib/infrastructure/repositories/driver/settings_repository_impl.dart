@@ -1,7 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-import 'package:rokctapp/domain/di/driver/dependency_manager.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+
+final authRepository = driverAuthRepository;
+final userRepository = driverUserRepository;
+final orderRepository = driverOrderRepository;
+final parcelRepository = driverParcelRepository;
+final settingsRepository = driverSettingsRepository;
+final drawRepository = driverDrawRepository;
+final notificationRepo = driverNotificationRepo;
 import 'package:rokctapp/domain/handlers/driver/handlers.dart';
 import 'package:rokctapp/domain/interface/driver/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';

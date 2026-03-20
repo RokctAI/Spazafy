@@ -10,7 +10,9 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 import 'components/custom_range_slider.dart';
-import 'routes/app_router.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/custom_scroll_behavior.dart';
+import 'package:rokctapp/presentation/phoenix_widget.dart';
 
 class AppWidget extends ConsumerWidget {
   AppWidget({super.key});
@@ -38,7 +40,7 @@ class AppWidget extends ConsumerWidget {
       ]),
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
         return ScreenUtilInit(
-          useInheritedMediaQuery: false,
+          useInheritedMediaQuery: true,
           designSize: const Size(375, 812),
           builder: (context, child) {
             return RefreshConfiguration(
@@ -63,6 +65,10 @@ class AppWidget extends ConsumerWidget {
                   ),
                 ),
                 themeMode: state.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+                builder: (context, child) => ScrollConfiguration(
+                  behavior: CustomBehavior(),
+                  child: child!,
+                ),
               ),
             );
           },

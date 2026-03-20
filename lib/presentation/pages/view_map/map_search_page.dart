@@ -84,3 +84,8 @@ class _MapSearchPageState extends State<MapSearchPage> {
     );
   }
 }
+
+@RoutePage()
+class ManagerMapSearchPage extends MapSearchPage {
+  const ManagerMapSearchPage({super.key});
+}

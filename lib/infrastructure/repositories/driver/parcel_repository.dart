@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:rokctapp/domain/di/driver/dependency_manager.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+
+final parcelRepositoryFacade = driverParcelRepository;
 import 'package:rokctapp/domain/interface/driver/parcel.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/parcel_paginate_response.dart';

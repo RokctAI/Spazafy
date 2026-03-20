@@ -3,24 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
-import 'package:rokctapp/presentation/pages/auth/manager/languages_modal.dart';
+import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 
-import 'register/register_modal.dart';
-import 'login/login_modal.dart';
+import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
+import 'package:rokctapp/presentation/pages/auth/login/login_screen.dart';
 import 'package:rokctapp/presentation/theme/manager/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 @RoutePage()
-class AuthPage extends ConsumerStatefulWidget {
-  const AuthPage({super.key});
+class ManagerAuthPage extends ConsumerStatefulWidget {
+  const ManagerAuthPage({super.key});
 
   @override
-  ConsumerState<AuthPage> createState() => _AuthPageState();
+  ConsumerState<ManagerAuthPage> createState() => _ManagerAuthPageState();
 }
 
-class _AuthPageState extends ConsumerState<AuthPage> {
+class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
   @override
   void initState() {
     super.initState();
@@ -34,7 +34,10 @@ class _AuthPageState extends ConsumerState<AuthPage> {
       isDismissible: false,
       isDrag: false,
       context: context,
-      modal: LanguageScreen(afterUpdate: (lang) {}),
+      modal: LanguageScreen(
+        onSave: () => Navigator.pop(context),
+        afterUpdate: (lang) {},
+      ),
       isDarkMode: false,
     );
   }
@@ -87,7 +90,7 @@ class _AuthPageState extends ConsumerState<AuthPage> {
                             onPressed: () =>
                                 AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
                                   context: context,
-                                  modal: const LoginModal(),
+                                  modal: const LoginScreen(role: 'seller'),
                                   isDarkMode: false,
                                 ),
                           ),
@@ -97,7 +100,10 @@ class _AuthPageState extends ConsumerState<AuthPage> {
                             onPressed: () {
                               AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
                                 context: context,
-                                modal: const RegisterModal(isOnlyEmail: true),
+                                modal: const RegisterPage(
+                                  isOnlyEmail: true,
+                                  role: 'seller',
+                                ),
                                 isDarkMode: false,
                               );
                             },

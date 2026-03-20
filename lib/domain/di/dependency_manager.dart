@@ -58,12 +58,86 @@ import 'package:rokctapp/infrastructure/repositories/mock/mock_orders_repository
 import 'package:rokctapp/infrastructure/repositories/mock/mock_address_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/mock/mock_brands_repository.dart';
 
+// Driver specific imports
+import 'package:rokctapp/domain/handlers/driver/handlers.dart' as driver_handlers;
+import 'package:rokctapp/domain/interface/driver/interfaces.dart' as driver_interfaces;
+import 'package:rokctapp/infrastructure/repositories/driver/repositories.dart' as driver_repos;
+
+// Manager specific imports
+import 'package:rokctapp/domain/interface/manager/interfaces.dart' as manager_interfaces;
+import 'package:rokctapp/domain/interface/manager/payment_facade.dart';
+import 'package:rokctapp/domain/interface/manager/subscription_facade.dart';
+import 'package:rokctapp/domain/interface/manager/table.dart';
+import 'package:rokctapp/infrastructure/repositories/manager/repositories.dart' as manager_repos;
+import 'package:rokctapp/presentation/routes/app_router.dart';
+
 final GetIt getIt = GetIt.instance;
 
 Future<void> setUpDependencies() async {
   getIt.registerSingleton<AppDatabase>(AppDatabase());
   getIt.registerLazySingleton<HttpService>(() => HttpService());
+  getIt.registerSingleton<AppRouter>(AppRouter());
 
+  final user = LocalStorage.getUser();
+  final role = user?.role ?? '';
+
+  if (role == 'deliveryman') {
+    getIt.registerSingleton<driver_interfaces.SettingsRepository>(
+      driver_repos.SettingsRepositoryImpl(),
+    );
+    getIt.registerSingleton<driver_interfaces.AuthRepository>(
+      driver_repos.AuthRepositoryImpl(),
+    );
+    getIt.registerSingleton<driver_interfaces.UserRepository>(
+      driver_repos.UserRepositoryImpl(),
+    );
+    getIt.registerSingleton<driver_interfaces.DrawRepository>(
+      driver_repos.DrawRepositoryImpl(),
+    );
+    getIt.registerSingleton<driver_interfaces.OrdersRepositoryFacade>(
+      driver_repos.OrdersRepository(),
+    );
+    getIt.registerSingleton<driver_interfaces.ParcelRepositoryFacade>(
+      driver_repos.ParcelRepository(),
+    );
+    getIt.registerSingleton<driver_interfaces.NotificationRepositoryFacade>(
+      driver_repos.NotificationRepositoryImpl(),
+    );
+  } else if (role == 'seller') {
+    getIt.registerSingleton<manager_interfaces.AuthInterface>(
+      manager_repos.AuthRepository(),
+    );
+    getIt.registerSingleton<manager_interfaces.TableInterface>(
+      manager_repos.TableRepository(),
+    );
+    getIt.registerSingleton<manager_interfaces.UsersInterface>(
+      manager_repos.UsersRepository(),
+    );
+    getIt.registerSingleton<manager_interfaces.ShopsInterface>(
+      manager_repos.ShopsRepository(),
+    );
+    getIt.registerSingleton<manager_interfaces.OrdersInterface>(
+      manager_repos.OrdersRepository(),
+    );
+    getIt.registerSingleton<manager_interfaces.CatalogInterface>(
+      manager_repos.CatalogRepository(),
+    );
+    getIt.registerSingleton<manager_interfaces.SettingsInterface>(
+      manager_repos.SettingsRepository(),
+    );
+    getIt.registerSingleton<manager_interfaces.ProductsInterface>(
+      manager_repos.ProductsRepository(),
+    );
+    getIt.registerSingleton<manager_interfaces.NotificationInterface>(
+      manager_repos.NotificationRepository(),
+    );
+    getIt.registerSingleton<PaymentsFacade>(manager_repos.PaymentRepository());
+    getIt.registerSingleton<SubscriptionsFacade>(
+      manager_repos.SubscriptionsRepository(),
+    );
+  }
+
+  // Common/Customer dependencies
   if (AppConstants.isDemo) {
     getIt.registerSingleton<SettingsRepositoryFacade>(MockSettingsRepository());
     getIt.registerSingleton<AuthRepositoryFacade>(MockAuthRepository());
@@ -135,3 +209,28 @@ final translation = getIt.get<Map>();
 final walletRepository = getIt.get<WalletRepositoryFacade>();
 final loansRepository = getIt.get<LoansRepositoryFacade>();
 final deliveryPointsRepository = getIt.get<DeliveryPointsRepositoryFacade>();
+
+// Driver specific accessors
+final driverSettingsRepository = getIt.get<driver_interfaces.SettingsRepository>();
+final driverAuthRepository = getIt.get<driver_interfaces.AuthRepository>();
+final driverUserRepository = getIt.get<driver_interfaces.UserRepository>();
+final driverDrawRepository = getIt.get<driver_interfaces.DrawRepository>();
+final driverOrderRepository = getIt.get<driver_interfaces.OrdersRepositoryFacade>();
+final driverParcelRepository = getIt.get<driver_interfaces.ParcelRepositoryFacade>();
+final driverNotificationRepo =
+    getIt.get<driver_interfaces.NotificationRepositoryFacade>();
+final appRouter = getIt.get<AppRouter>();
+
+// Manager specific accessors
+final managerAuthRepository = getIt.get<manager_interfaces.AuthInterface>();
+final managerShopsRepository = getIt.get<manager_interfaces.ShopsInterface>();
+final managerTableRepository = getIt.get<manager_interfaces.TableInterface>();
+final managerUsersRepository = getIt.get<manager_interfaces.UsersInterface>();
+final managerOrdersRepository = getIt.get<manager_interfaces.OrdersInterface>();
+final managerCatalogRepository = getIt.get<manager_interfaces.CatalogInterface>();
+final managerProductRepository = getIt.get<manager_interfaces.ProductsInterface>();
+final managerSettingsRepository = getIt.get<manager_interfaces.SettingsInterface>();
+final managerNotificationRepository =
+    getIt.get<manager_interfaces.NotificationInterface>();
+final managerSubscriptionRepository = getIt.get<SubscriptionsFacade>();
+final managerPaymentRepositoryNew = getIt.get<PaymentsFacade>();

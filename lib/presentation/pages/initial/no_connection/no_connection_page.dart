@@ -148,3 +148,13 @@ class NoConnectionDialog extends ConsumerWidget {
     AppHelpers.goHome(context);
   }
 }
+
+@RoutePage()
+class DriverNoConnectionPage extends NoConnectionPage {
+  const DriverNoConnectionPage({super.key});
+}
+
+@RoutePage()
+class ManagerNoConnectionPage extends NoConnectionPage {
+  const ManagerNoConnectionPage({super.key});
+}

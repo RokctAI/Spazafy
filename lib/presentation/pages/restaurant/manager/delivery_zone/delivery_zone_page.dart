@@ -10,11 +10,11 @@ import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 @RoutePage()
-class DeliveryZonePage extends ConsumerStatefulWidget {
-  const DeliveryZonePage({super.key});
+class ManagerDeliveryZonePage extends ConsumerStatefulWidget {
+  const ManagerDeliveryZonePage({super.key});
 
   @override
-  ConsumerState<DeliveryZonePage> createState() => _DeliveryZonePageState();
+  ConsumerState<ManagerDeliveryZonePage> createState() => _ManagerDeliveryZonePageState();
 }
 
 class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
