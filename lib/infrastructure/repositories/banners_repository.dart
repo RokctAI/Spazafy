@@ -58,7 +58,7 @@ class BannersRepository implements BannersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<BannerData>> getBannerById(int? bannerId) async {
+  Future<ApiResult<BannerData>> getBannerById(String? bannerId) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
@@ -155,7 +155,7 @@ class BannersRepository implements BannersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<BannerData>> getAdsById(int? bannerId) async {
+  Future<ApiResult<BannerData>> getAdsById(String? bannerId) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
@@ -197,7 +197,7 @@ class BannersRepository implements BannersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<void>> likeBanner(int? bannerId) async {
+  Future<ApiResult<void>> likeBanner(String? bannerId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(

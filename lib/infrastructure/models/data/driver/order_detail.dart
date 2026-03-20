@@ -21,8 +21,8 @@ class OrderDetailModel {
 }
 
 class OrderDetailData {
-  int? id;
-  int? userId;
+  String? id;
+  String? userId;
   num? totalPrice;
   num? rate;
   num? tax;
@@ -88,8 +88,8 @@ class OrderDetailData {
   });
 
   OrderDetailData.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    userId = json['user_id'];
+    id = json['id']?.toString();
+    userId = json['user_id']?.toString();
     totalPrice = json['total_price'];
     serviceFee = json['service_fee'];
     originPrice = json['origin_price'];
@@ -204,9 +204,9 @@ class Location {
 }
 
 class Shop {
-  int? id;
+  String? id;
   String? uuid;
-  int? userId;
+  String? userId;
   num? price;
   num? pricePerKm;
   num? tax;
@@ -251,9 +251,9 @@ class Shop {
   });
 
   Shop.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     uuid = json['uuid'];
-    userId = json['user_id'];
+    userId = json['user_id']?.toString();
     price = json['price'];
     pricePerKm = json['price_per_km'];
     tax = json['tax'];
@@ -338,7 +338,7 @@ class DeliveryTime {
 }
 
 class Translation {
-  int? id;
+  String? id;
   String? locale;
   String? title;
   String? description;
@@ -353,7 +353,7 @@ class Translation {
   });
 
   Translation.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     locale = json['locale'];
     title = json['title'];
     description = json['description'];
@@ -372,7 +372,7 @@ class Translation {
 }
 
 class Currency {
-  int? id;
+  String? id;
   String? symbol;
   String? title;
   bool? active;
@@ -380,7 +380,7 @@ class Currency {
   Currency({this.id, this.symbol, this.title, this.active});
 
   Currency.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     symbol = json['symbol'];
     title = json['title'];
     active = json['active'];
@@ -397,7 +397,7 @@ class Currency {
 }
 
 class User {
-  int? id;
+  String? id;
   String? uuid;
   String? firstname;
   String? lastname;
@@ -428,7 +428,7 @@ class User {
   });
 
   User.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     uuid = json['uuid'];
     firstname = json['firstname'];
     lastname = json['lastname'];
@@ -466,9 +466,9 @@ class User {
 
 class Details {
   String? note;
-  int? id;
-  int? orderId;
-  int? stockId;
+  String? id;
+  String? orderId;
+  String? stockId;
   num? originPrice;
   num? totalPrice;
   num? tax;
@@ -496,9 +496,9 @@ class Details {
   });
 
   Details.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    orderId = json['order_id'];
-    stockId = json['stock_id'];
+    id = json['id']?.toString();
+    orderId = json['order_id']?.toString();
+    stockId = json['stock_id']?.toString();
     originPrice = json['origin_price'];
     totalPrice = json['total_price'];
     tax = json['tax'];
@@ -535,8 +535,8 @@ class Details {
 }
 
 class Stock {
-  int? id;
-  int? countableId;
+  String? id;
+  String? countableId;
   num? price;
   int? quantity;
   num? tax;
@@ -556,8 +556,8 @@ class Stock {
   });
 
   Stock.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    countableId = json['countable_id'];
+    id = json['id']?.toString();
+    countableId = json['countable_id']?.toString();
     price = json['price'];
     quantity = json['quantity'];
     tax = json['tax'];
@@ -592,8 +592,8 @@ class Stock {
 }
 
 class Extras {
-  int? id;
-  int? extraGroupId;
+  String? id;
+  String? extraGroupId;
   String? value;
   bool? active;
   Group? group;
@@ -601,8 +601,8 @@ class Extras {
   Extras({this.id, this.extraGroupId, this.value, this.active, this.group});
 
   Extras.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    extraGroupId = json['extra_group_id'];
+    id = json['id']?.toString();
+    extraGroupId = json['extra_group_id']?.toString();
     value = json['value'];
     active = json['active'];
     group = json['group'] != null ? Group.fromJson(json['group']) : null;
@@ -622,7 +622,7 @@ class Extras {
 }
 
 class Group {
-  int? id;
+  String? id;
   String? type;
   bool? active;
   Translation? translation;
@@ -631,7 +631,7 @@ class Group {
   Group({this.id, this.type, this.active, this.translation, this.locales});
 
   Group.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     type = json['type'];
     active = json['active'];
     translation = json['translation'] != null
@@ -653,11 +653,11 @@ class Group {
 }
 
 class Product {
-  int? id;
+  String? id;
   String? uuid;
-  int? shopId;
-  int? categoryId;
-  int? brandId;
+  String? shopId;
+  String? categoryId;
+  String? brandId;
   num? tax;
   num? interval;
   String? barCode;
@@ -695,11 +695,11 @@ class Product {
   });
 
   Product.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     uuid = json['uuid'];
-    shopId = json['shop_id'];
-    categoryId = json['category_id'];
-    brandId = json['brand_id'];
+    shopId = json['shop_id']?.toString();
+    categoryId = json['category_id']?.toString();
+    brandId = json['brand_id']?.toString();
     tax = json['tax'];
     interval = json['interval'];
     barCode = json['bar_code'];
@@ -747,8 +747,8 @@ class Product {
 }
 
 class Transaction {
-  int? id;
-  int? payableId;
+  String? id;
+  String? payableId;
   num? price;
   String? paymentTrxId;
   String? note;
@@ -772,8 +772,8 @@ class Transaction {
   });
 
   Transaction.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    payableId = json['payable_id'];
+    id = json['id']?.toString();
+    payableId = json['payable_id']?.toString();
     price = json['price'];
     paymentTrxId = json['payment_trx_id'];
     note = json['note'];

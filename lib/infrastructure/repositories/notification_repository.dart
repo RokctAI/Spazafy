@@ -74,7 +74,7 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> readOne({int? id}) async {
+  Future<ApiResult<dynamic>> readOne({String? id}) async {
     const url = '/api/v1/method/paas.api.read_one_notification';
     final payload = {'notification_id': id};
     try {
