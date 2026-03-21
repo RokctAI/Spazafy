@@ -52,3 +52,12 @@ Get-ChildItem -Path "lib" -Recurse -Filter *.dart | ForEach-Object {
 
 # Execute Harmonize for Styles and Relative Paths
 powershell -ExecutionPolicy Bypass -File .\harmonize.ps1 -PackageName $targetPackage
+
+# Extension: Validate API Endpoints against Frappe Backend
+$backendPath = "C:\Users\sinya\Desktop\RokctAI\paas"
+if (Test-Path "$PSScriptRoot\validate_endpoints.ps1") {
+    Write-Host "`n--- Validating API Endpoints ---" -ForegroundColor Cyan
+    powershell -ExecutionPolicy Bypass -File "$PSScriptRoot\validate_endpoints.ps1" -BackendRoot $backendPath -AppRoot $PSScriptRoot
+} else {
+    Write-Host "`n[WARN] validate_endpoints.ps1 not found, skipping API validation." -ForegroundColor Yellow
+}
