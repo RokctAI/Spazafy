@@ -36,6 +36,12 @@ import 'package:lottie/lottie.dart' as lottie;
 import 'package:rokctapp/app_constants.dart';
 
 @RoutePage()
+class ViewMapPage extends ConsumerStatefulWidget {
+  final bool isParcel;
+  final bool isPop;
+  final bool isShopLocation;
+  final int? shopId;
+  final int? indexAddress;
   final AddressNewModel? address;
   final bool useSlidingPanel;
   final VoidCallback? onChanged;
