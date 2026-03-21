@@ -196,6 +196,74 @@ class ShopData {
         "bonus": bonus,
         "enable_cod": enableCod,
       };
+
+  /// Local logic to check if shop is open based on working hours. 
+  /// Essential for 'Blind Availability' offline resilience.
+  Map<String, dynamic> checkWorkingDay() {
+    if (this.open == false) return {"isOpen": false};
+    if (shopWorkingDays == null || shopWorkingDays!.isEmpty) {
+      return {"isOpen": this.open ?? true};
+    }
+
+    final now = DateTime.now();
+    final dayName = _dayName(now).toLowerCase();
+
+    // 1. Check if today is a working day
+    final workingDay = shopWorkingDays!.firstWhere(
+      (d) => d.day?.toLowerCase() == dayName && !(d.disabled ?? true),
+      orElse: () => ShopWorkingDay(),
+    );
+    if (workingDay.day == null) return {"isOpen": false};
+
+    // 2. Check for specific closed dates (holidays/etc)
+    if (shopClosedDate != null) {
+      for (final closed in shopClosedDate!) {
+        if (closed.day != null &&
+            closed.day!.year == now.year &&
+            closed.day!.month == now.month &&
+            closed.day!.day == now.day) {
+          return {"isOpen": false};
+        }
+      }
+    }
+
+    // 3. Check time slots (format: "HH-mm")
+    try {
+      final fromStr = workingDay.from ?? "";
+      final toStr = workingDay.to ?? "";
+      if (fromStr.isEmpty || toStr.isEmpty) return {"isOpen": true};
+
+      final startHour = int.tryParse(fromStr.substring(0, fromStr.indexOf("-"))) ?? 0;
+      final startMin = int.tryParse(fromStr.substring(fromStr.indexOf("-") + 1)) ?? 0;
+      final endHour = int.tryParse(toStr.substring(0, toStr.indexOf("-"))) ?? 0;
+      final endMin = int.tryParse(toStr.substring(toStr.indexOf("-") + 1)) ?? 0;
+
+      final start = DateTime(now.year, now.month, now.day, startHour, startMin);
+      final end = DateTime(now.year, now.month, now.day, endHour, endMin);
+
+      // Handle overnight shops (e.g., 22:00 to 02:00)
+      if (end.isBefore(start)) {
+        if (now.isAfter(start) || now.isBefore(end)) {
+          return {"isOpen": true, "startTodayTime": start, "endTodayTime": end};
+        }
+      } else {
+        if (now.isAfter(start) && now.isBefore(end)) {
+          return {"isOpen": true, "startTodayTime": start, "endTodayTime": end};
+        }
+      }
+      return {"isOpen": false, "startTodayTime": start, "endTodayTime": end};
+    } catch (e) {
+      return {"isOpen": true}; // Fallback to open if metadata is corrupt
+    }
+  }
+
+  String _dayName(DateTime date) {
+    const days = [
+      'Monday', 'Tuesday', 'Wednesday', 'Thursday', 
+      'Friday', 'Saturday', 'Sunday'
+    ];
+    return days[date.weekday - 1];
+  }
 }
 
 class DeliveryTime {
