@@ -12,7 +12,7 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/app_constants.dart';
-import 'local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 class AppHelpers {
   AppHelpers._();

@@ -15,7 +15,7 @@ import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/filter/filter_provider.dart';
-import 'widgets/filter_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/filter/widgets/filter_item.dart';
 
 
 class FilterPage extends ConsumerStatefulWidget {

@@ -1,5 +1,5 @@
 import 'app_helpers.dart';
-import 'tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 abstract class AppValidators {
   AppValidators._();

@@ -25,7 +25,7 @@ export 'data/manager/disable_dates.dart';
 export 'data/manager/table_data.dart';
 export 'data/manager/table_model.dart';
 export 'data/manager/generate_image_model.dart';
-export 'data/manager/address_data.dart';
+// export 'data/manager/address_data.dart'; // NOT FOUND IN PROJECT
 export 'data/manager/subscriptions_data.dart';
 export 'data/manager/referral_data.dart';
 export 'data/manager/blog_data.dart';
@@ -71,7 +71,7 @@ export 'response/manager/users_paginate_response.dart';
 export 'response/manager/gallery_upload_response.dart';
 export 'response/manager/orders_paginate_response.dart';
 export 'response/manager/products_paginate_response.dart';
-export 'response/manager/mobile_translations_response.dart';
+export './response/mobile_translations_response.dart';
 export 'response/manager/categories_paginate_response.dart';
 export 'response/manager/single_extras_group_response.dart';
 export 'response/manager/create_group_extras_response.dart';

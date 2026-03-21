@@ -67,6 +67,13 @@ dependencies:
   app_tracking_transparency: any
   flutter_facebook_auth: any
   remixicon: ^1.0.1
+  google_sign_in: any
+  sign_in_with_apple: any
+  charts_flutter: any
+  flutter_staggered_grid_view: any
+  image_cropper: any
+  map_launcher: any
+  percent_indicator: any
 
   #media:
   image_picker: ^1.2.1

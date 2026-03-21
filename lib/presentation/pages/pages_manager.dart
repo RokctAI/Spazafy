@@ -1,7 +1,7 @@
 export 'package:rokctapp/presentation/pages/main/manager/main_page.dart' show ManagerMainPage;
 export 'package:rokctapp/presentation/pages/become/become_seller.dart' show CreateShopPage;
-export 'package:rokctapp/presentation/pages/view_map/manager/view_map_page.dart' show ManagerViewMapPage;
-export 'package:rokctapp/presentation/pages/view_map/manager/map_search_page.dart' show ManagerMapSearchPage;
+export 'package:rokctapp/presentation/pages/view_map/view_map_page.dart' show ManagerViewMapPage;
+export 'package:rokctapp/presentation/pages/view_map/map_search_page.dart' show ManagerMapSearchPage;
 export 'package:rokctapp/presentation/pages/income/manager/income_page.dart' show ManagerIncomePage;
 export 'package:rokctapp/presentation/pages/main/manager/foods/foods_page.dart';
 export 'package:rokctapp/presentation/pages/auth/manager/auth_page.dart' show ManagerAuthPage;

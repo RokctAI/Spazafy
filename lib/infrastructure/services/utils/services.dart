@@ -5,4 +5,4 @@ export 'background_sync_service.dart';
 export 'local_storage.dart';
 export 'location_service.dart';
 export 'time_service.dart';
-export 'tr_keys.dart';
+export '../constants/tr_keys.dart';

@@ -16,8 +16,8 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'app_connectivity.dart';
-import 'enums.dart';
-import 'tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 
 abstract class AppHelpers {
