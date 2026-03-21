@@ -217,7 +217,7 @@ class _ParcelPageState extends ConsumerState<ParcelPage> {
                         : AppStyle.textGrey,
                     title:
                         "${state.expand ? AppHelpers.getTranslation(TrKeys.order) : AppHelpers.getTranslation(TrKeys.continueText)} ${AppHelpers.numberFormat(number: state.calculate?.data?.price ?? 0)}",
-                    onPressed: () {
+                    onPressed: () async {
                       if (state.error) {
                         return;
                       }
