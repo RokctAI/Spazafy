@@ -151,7 +151,24 @@ foreach ($endpoint in $endpointsUsed.Keys) {
 
     if ($foundLocations.Length -eq 1) {
         $trueHome = $foundLocations[0]
-        if ($AutoFix) {
+        
+        # --- SAFETY THRESHOLD: Prevent Risky Domain Crossing ---
+        # Don't let a generic function like 'get_order_report' map a 'seller' to a 'driver'
+        $oldMod = $parts[$parts.Length - 2]
+        $newMod = $trueHome.Split('.')[-2]
+        
+        $isSafeMatch = $false
+        if ($oldMod -eq $newMod) { $isSafeMatch = $true }
+        elseif ($oldMod -match "seller" -and $newMod -match "seller") { $isSafeMatch = $true }
+        elseif ($oldMod -match "driver" -and $newMod -match "driver") { $isSafeMatch = $true }
+        elseif ($oldMod -match "delivery" -and $newMod -match "delivery") { $isSafeMatch = $true }
+        elseif ($oldMod -match "shop" -and $newMod -match "shop") { $isSafeMatch = $true }
+        else {
+            # Let it pass if the old module was completely absorbed into the new one (pure rename scenario)
+            if ($newMod.Contains($oldMod)) { $isSafeMatch = $true }
+        }
+
+        if ($AutoFix -and $isSafeMatch) {
             foreach ($flutterFile in $endpointsUsed[$endpoint]) {
                 $content = [System.IO.File]::ReadAllText($flutterFile)
                 $pattern = [regex]::Escape("/api/v1/method/$endpoint")
@@ -160,6 +177,9 @@ foreach ($endpoint in $endpointsUsed.Keys) {
             }
             Write-Host "  [FIXED] $endpoint -> $trueHome" -ForegroundColor Green
             $fixedCount++
+        } elseif ($AutoFix -and -not $isSafeMatch) {
+            Log-Error "Risky Match Blocked: '$funcName' found at $trueHome, but domains ($oldMod -> $newMod) mismatched!"
+            $errors++
         } else {
             Log-Error "Mismatch: $endpoint found at $trueHome. Use -AutoFix to standardize."
             $errors++
