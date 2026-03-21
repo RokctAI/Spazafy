@@ -382,6 +382,13 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<ApiResult> setCurrentLocation(LatLng location) async {
+    final connected = await AppConnectivity.connectivity();
+    if (!connected) {
+      return const ApiResult.failure(
+        error: "No context", // Silent failure, no snackbar needed for telemetry
+        statusCode: 501, 
+      );
+    }
     try {
       final client = dioHttp.client(requireAuth: true);
       final res = await client.post(

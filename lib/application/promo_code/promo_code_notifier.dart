@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'promo_code_state.dart';
 
 class PromoCodeNotifier extends StateNotifier<PromoCodeState> {
@@ -20,18 +21,28 @@ class PromoCodeNotifier extends StateNotifier<PromoCodeState> {
     String promoCode,
     String shopId,
   ) async {
-    state = state.copyWith(isLoading: true, isActive: false);
-    final response = await _orderRepository.checkCoupon(
-      coupon: promoCode,
-      shopId: shopId,
-    );
-    response.when(
-      success: (data) {
-        state = state.copyWith(isLoading: false, isActive: true);
-      },
-      failure: (failure, status) {
-        state = state.copyWith(isLoading: false, isActive: false);
-      },
-    );
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isLoading: true, isActive: false);
+      final response = await _orderRepository.checkCoupon(
+        coupon: promoCode,
+        shopId: shopId,
+      );
+      response.when(
+        success: (data) {
+          state = state.copyWith(isLoading: false, isActive: true);
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isLoading: false, isActive: false);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+        );
+      }
+    }
   }
 }

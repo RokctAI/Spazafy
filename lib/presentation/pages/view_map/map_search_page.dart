@@ -6,6 +6,9 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/text_fields/search_text_field.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 @RoutePage()
 class MapSearchPage extends StatefulWidget {
@@ -31,9 +34,23 @@ class _MapSearchPageState extends State<MapSearchPage> {
                 autofocus: true,
                 isBorder: true,
                 onChanged: (title) async {
-                  final res = await googlePlace.autocomplete.get(title);
-                  searchResult = res?.predictions ?? [];
-                  setState(() {});
+                  final connected = await AppConnectivity.connectivity();
+                  if (connected) {
+                    final res = await googlePlace.autocomplete.get(title);
+                    if (mounted) {
+                      searchResult = res?.predictions ?? [];
+                      setState(() {});
+                    }
+                  } else {
+                    if (mounted) {
+                      AppHelpers.showCheckTopSnackBar(
+                        context,
+                        AppHelpers.getTranslation(
+                          TrKeys.checkYourNetworkConnection,
+                        ),
+                      );
+                    }
+                  }
                 },
               ),
               Expanded(

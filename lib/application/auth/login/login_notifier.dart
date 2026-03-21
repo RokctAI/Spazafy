@@ -308,153 +308,282 @@ class LoginNotifier extends StateNotifier<LoginState> {
     }
   }
 
-    state = state.copyWith(isLoading: true);
-    GoogleSignInAccount? googleUser;
-    try {
-      googleUser = await GoogleSignIn().signIn();
-    } catch (e) {
-      state = state.copyWith(isLoading: false);
+  Future<void> loginWithGoogle(BuildContext context) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isLoading: true);
+      GoogleSignInAccount? googleUser;
+      try {
+        googleUser = await GoogleSignIn().signIn();
+      } catch (e) {
+        state = state.copyWith(isLoading: false);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            AppHelpers.getTranslation(e.toString()),
+          );
+        }
+      }
+      if (googleUser == null) {
+        state = state.copyWith(isLoading: false);
+        return;
+      }
+
+      final response = await _authRepository.loginWithGoogle(
+        email: googleUser.email,
+        displayName: googleUser.displayName ?? '',
+        id: googleUser.id,
+        avatar: googleUser.photoUrl ?? "",
+      );
+      response.when(
+        success: (data) async {
+          state = state.copyWith(isLoading: false);
+          LocalStorage.setToken(data.data?.accessToken ?? '');
+          LocalStorage.setAddressSelected(
+            AddressData(
+              title:
+                  data.data?.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .title ??
+                  "",
+              address:
+                  data.data?.user?.addresses
+                      ?.firstWhere(
+                        (element) => element.active ?? false,
+                        orElse: () {
+                          return AddressNewModel();
+                        },
+                      )
+                      .address
+                      ?.address ??
+                  "",
+              location: LocationModel(
+                longitude: data.data?.user?.addresses
+                    ?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    )
+                    .location
+                    ?.last,
+                latitude: data.data?.user?.addresses
+                    ?.firstWhere(
+                      (element) => element.active ?? false,
+                      orElse: () {
+                        return AddressNewModel();
+                      },
+                    )
+                    .location
+                    ?.first,
+              ),
+            ),
+          );
+          context.router.popUntilRoot();
+          if (data.data?.user?.role == 'seller') {
+            AppHelpers.showCheckTopSnackBar(
+              context,
+              text: AppHelpers.getTranslation(TrKeys.youAreASeller),
+              type: SnackBarType.success,
+            );
+          } else if (data.data?.user?.role == 'deliveryman') {
+            AppHelpers.showCheckTopSnackBar(
+              context,
+              text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
+              type: SnackBarType.success,
+            );
+          }
+          if (AppConstants.isDemo) {
+            context.replaceRoute(UiTypeRoute());
+          } else {
+            AppHelpers.goHome(context);
+          }
+          String? fcmToken = await FirebaseMessaging.instance.getToken();
+          _userRepositoryFacade.updateFirebaseToken(fcmToken);
+        },
+        failure: (failure, status) {
+          state = state.copyWith(isLoading: false);
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        },
+      );
+    } else {
       if (context.mounted) {
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(e.toString()),
+          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
       }
     }
-    if (googleUser == null) {
-      state = state.copyWith(isLoading: false);
-      return;
-    }
-
-    final response = await _authRepository.loginWithGoogle(
-      email: googleUser.email,
-      displayName: googleUser.displayName ?? '',
-      id: googleUser.id,
-      avatar: googleUser.photoUrl ?? "",
-    );
-    response.when(
-      success: (data) async {
-        state = state.copyWith(isLoading: false);
-        LocalStorage.setToken(data.data?.accessToken ?? '');
-        LocalStorage.setAddressSelected(
-          AddressData(
-            title:
-                data.data?.user?.addresses
-                    ?.firstWhere(
-                      (element) => element.active ?? false,
-                      orElse: () {
-                        return AddressNewModel();
-                      },
-                    )
-                    .title ??
-                "",
-            address:
-                data.data?.user?.addresses
-                    ?.firstWhere(
-                      (element) => element.active ?? false,
-                      orElse: () {
-                        return AddressNewModel();
-                      },
-                    )
-                    .address
-                    ?.address ??
-                "",
-            location: LocationModel(
-              longitude: data.data?.user?.addresses
-                  ?.firstWhere(
-                    (element) => element.active ?? false,
-                    orElse: () {
-                      return AddressNewModel();
-                    },
-                  )
-                  .location
-                  ?.last,
-              latitude: data.data?.user?.addresses
-                  ?.firstWhere(
-                    (element) => element.active ?? false,
-                    orElse: () {
-                      return AddressNewModel();
-                    },
-                  )
-                  .location
-                  ?.first,
-            ),
-          ),
-        );
-        context.router.popUntilRoot();
-        if (data.data?.user?.role == 'seller') {
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            text: AppHelpers.getTranslation(TrKeys.youAreASeller),
-            type: SnackBarType.success,
-          );
-        } else if (data.data?.user?.role == 'deliveryman') {
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
-            type: SnackBarType.success,
-          );
-        }
-        if (AppConstants.isDemo) {
-          context.replaceRoute(UiTypeRoute());
-        } else {
-          AppHelpers.goHome(context);
-        }
-        String? fcmToken = await FirebaseMessaging.instance.getToken();
-        _userRepositoryFacade.updateFirebaseToken(fcmToken);
-      },
-      failure: (failure, status) {
-        state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, failure);
-      },
-    );
   }
 
+
   Future<void> loginWithFacebook(BuildContext context) async {
-    state = state.copyWith(isLoading: true);
-    final fb = FacebookAuth.instance;
-    try {
-      TrackingStatus? status;
-      if (Platform.isIOS) {
-        final permission = await Permission.appTrackingTransparency.request();
-        status = await AppTrackingTransparency.trackingAuthorizationStatus;
-        debugPrint("permission $permission");
-        debugPrint("status: $status");
-      }
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isLoading: true);
+      final fb = FacebookAuth.instance;
+      try {
+        TrackingStatus? status;
+        if (Platform.isIOS) {
+          final permission = await Permission.appTrackingTransparency.request();
+          status = await AppTrackingTransparency.trackingAuthorizationStatus;
+          debugPrint("permission $permission");
+          debugPrint("status: $status");
+        }
 
-      final user = await fb.login(
-        loginTracking: status == TrackingStatus.authorized
-            ? LoginTracking.enabled
-            : LoginTracking.limited,
-        loginBehavior: LoginBehavior.nativeWithFallback,
-      );
-      debugPrint(
-        '===> login with face token ${user.accessToken?.tokenString}',
-      );
-      debugPrint('===> login with face authenticationToken ${user.status}');
-      final rawNonce = AppHelpers.generateNonce();
-      final OAuthCredential credential =
-          user.accessToken?.type == AccessTokenType.limited
-          ? OAuthCredential(
-              providerId: 'facebook.com',
-              signInMethod: 'oauth',
-              idToken: user.accessToken!.tokenString,
-              rawNonce: rawNonce,
-            )
-          : FacebookAuthProvider.credential(
-              user.accessToken?.tokenString ?? "",
+        final user = await fb.login(
+          loginTracking: status == TrackingStatus.authorized
+              ? LoginTracking.enabled
+              : LoginTracking.limited,
+          loginBehavior: LoginBehavior.nativeWithFallback,
+        );
+        debugPrint(
+          '===> login with face token ${user.accessToken?.tokenString}',
+        );
+        debugPrint('===> login with face authenticationToken ${user.status}');
+        final rawNonce = AppHelpers.generateNonce();
+        final OAuthCredential credential =
+            user.accessToken?.type == AccessTokenType.limited
+            ? OAuthCredential(
+                providerId: 'facebook.com',
+                signInMethod: 'oauth',
+                idToken: user.accessToken!.tokenString,
+                rawNonce: rawNonce,
+              )
+            : FacebookAuthProvider.credential(
+                user.accessToken?.tokenString ?? "",
+              );
+
+        final userObj = await FirebaseAuth.instance.signInWithCredential(
+          credential,
+        );
+
+        if (user.status == LoginStatus.success) {
+          final response = await _authRepository.loginWithGoogle(
+            email: userObj.user?.email ?? "",
+            displayName: userObj.user?.displayName ?? "",
+            id: userObj.user?.uid ?? "",
+            avatar: userObj.user?.photoURL ?? "",
+          );
+          response.when(
+            success: (data) async {
+              state = state.copyWith(isLoading: false);
+              LocalStorage.setToken(data.data?.accessToken ?? '');
+              LocalStorage.setAddressSelected(
+                AddressData(
+                  title:
+                      data.data?.user?.addresses
+                          ?.firstWhere(
+                            (element) => element.active ?? false,
+                            orElse: () {
+                              return AddressNewModel();
+                            },
+                          )
+                          .title ??
+                      "",
+                  address:
+                      data.data?.user?.addresses
+                          ?.firstWhere(
+                            (element) => element.active ?? false,
+                            orElse: () {
+                              return AddressNewModel();
+                            },
+                          )
+                          .address
+                          ?.address ??
+                      "",
+                  location: LocationModel(
+                    longitude: data.data?.user?.addresses
+                        ?.firstWhere(
+                          (element) => element.active ?? false,
+                          orElse: () {
+                            return AddressNewModel();
+                          },
+                        )
+                        .location
+                        ?.last,
+                    latitude: data.data?.user?.addresses
+                        ?.firstWhere(
+                          (element) => element.active ?? false,
+                          orElse: () {
+                            return AddressNewModel();
+                          },
+                        )
+                        .location
+                        ?.first,
+                  ),
+                ),
+              );
+              context.router.popUntilRoot();
+              if (AppConstants.isDemo) {
+                context.replaceRoute(UiTypeRoute());
+              } else {
+                AppHelpers.goHome(context);
+              }
+              String? fcmToken = await FirebaseMessaging.instance.getToken();
+              _userRepositoryFacade.updateFirebaseToken(fcmToken);
+            },
+            failure: (failure, status) {
+              state = state.copyWith(isLoading: false);
+              AppHelpers.showCheckTopSnackBar(context, failure);
+            },
+          );
+        } else {
+          state = state.copyWith(isLoading: false);
+          if (context.mounted) {
+            AppHelpers.showCheckTopSnackBar(
+              context,
+              AppHelpers.getTranslation(TrKeys.somethingWentWrongWithTheServer),
             );
+          }
+        }
+      } catch (e) {
+        state = state.copyWith(isLoading: false);
+        debugPrint('===> login with face exception: $e');
+      }
+    } else {
+      if (context.mounted) {
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+        );
+      }
+    }
+  }
 
-      final userObj = await FirebaseAuth.instance.signInWithCredential(
-        credential,
-      );
+  Future<void> loginWithApple(BuildContext context) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isLoading: true);
 
-      if (user.status == LoginStatus.success) {
+      try {
+        final credential = await SignInWithApple.getAppleIDCredential(
+          scopes: [
+            AppleIDAuthorizationScopes.email,
+            AppleIDAuthorizationScopes.fullName,
+          ],
+        );
+
+        OAuthProvider oAuthProvider = OAuthProvider("apple.com");
+        final AuthCredential credentialApple = oAuthProvider.credential(
+          idToken: credential.identityToken,
+          accessToken: credential.authorizationCode,
+        );
+
+        final userObj = await FirebaseAuth.instance.signInWithCredential(
+          credentialApple,
+        );
+
         final response = await _authRepository.loginWithGoogle(
-          email: userObj.user?.email ?? "",
-          displayName: userObj.user?.displayName ?? "",
-          id: userObj.user?.uid ?? "",
-          avatar: userObj.user?.photoURL ?? "",
+          email: credential.email ?? userObj.user?.email ?? "",
+          displayName: credential.givenName ?? userObj.user?.displayName ?? "",
+          id: credential.userIdentifier ?? userObj.user?.uid ?? "",
+          avatar: userObj.user?.displayName ?? "",
         );
         response.when(
           success: (data) async {
@@ -514,119 +643,22 @@ class LoginNotifier extends StateNotifier<LoginState> {
             String? fcmToken = await FirebaseMessaging.instance.getToken();
             _userRepositoryFacade.updateFirebaseToken(fcmToken);
           },
-          failure: (failure, status) {
+          failure: (failure, s) {
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
         );
-      } else {
+      } catch (e) {
         state = state.copyWith(isLoading: false);
-        if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(TrKeys.somethingWentWrongWithTheServer),
-          );
-        }
+        debugPrint('===> login with apple exception: $e');
       }
-    } catch (e) {
-      state = state.copyWith(isLoading: false);
-      debugPrint('===> login with face exception: $e');
-    }
-  }
-
-  Future<void> loginWithApple(BuildContext context) async {
-    state = state.copyWith(isLoading: true);
-
-    try {
-      final credential = await SignInWithApple.getAppleIDCredential(
-        scopes: [
-          AppleIDAuthorizationScopes.email,
-          AppleIDAuthorizationScopes.fullName,
-        ],
-      );
-
-      OAuthProvider oAuthProvider = OAuthProvider("apple.com");
-      final AuthCredential credentialApple = oAuthProvider.credential(
-        idToken: credential.identityToken,
-        accessToken: credential.authorizationCode,
-      );
-
-      final userObj = await FirebaseAuth.instance.signInWithCredential(
-        credentialApple,
-      );
-
-      final response = await _authRepository.loginWithGoogle(
-        email: credential.email ?? userObj.user?.email ?? "",
-        displayName: credential.givenName ?? userObj.user?.displayName ?? "",
-        id: credential.userIdentifier ?? userObj.user?.uid ?? "",
-        avatar: userObj.user?.displayName ?? "",
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isLoading: false);
-          LocalStorage.setToken(data.data?.accessToken ?? '');
-          LocalStorage.setAddressSelected(
-            AddressData(
-              title:
-                  data.data?.user?.addresses
-                      ?.firstWhere(
-                        (element) => element.active ?? false,
-                        orElse: () {
-                          return AddressNewModel();
-                        },
-                      )
-                      .title ??
-                  "",
-              address:
-                  data.data?.user?.addresses
-                      ?.firstWhere(
-                        (element) => element.active ?? false,
-                        orElse: () {
-                          return AddressNewModel();
-                        },
-                      )
-                      .address
-                      ?.address ??
-                  "",
-              location: LocationModel(
-                longitude: data.data?.user?.addresses
-                    ?.firstWhere(
-                      (element) => element.active ?? false,
-                      orElse: () {
-                        return AddressNewModel();
-                      },
-                    )
-                    .location
-                    ?.last,
-                latitude: data.data?.user?.addresses
-                    ?.firstWhere(
-                      (element) => element.active ?? false,
-                      orElse: () {
-                        return AddressNewModel();
-                      },
-                    )
-                    .location
-                    ?.first,
-              ),
-            ),
-          );
-          context.router.popUntilRoot();
-          if (AppConstants.isDemo) {
-            context.replaceRoute(UiTypeRoute());
-          } else {
-            AppHelpers.goHome(context);
-          }
-          String? fcmToken = await FirebaseMessaging.instance.getToken();
-          _userRepositoryFacade.updateFirebaseToken(fcmToken);
-        },
-        failure: (failure, s) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } catch (e) {
-      state = state.copyWith(isLoading: false);
-      debugPrint('===> login with apple exception: $e');
+    } else {
+      if (context.mounted) {
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+        );
+      }
     }
   }
 }

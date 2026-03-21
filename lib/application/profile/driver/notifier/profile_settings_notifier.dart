@@ -95,18 +95,28 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
   }
 
   Future<void> deleteAccount(BuildContext context) async {
-    state = state.copyWith(isLoading: true);
-    final response = await _userRepository.deleteAccount();
-    response.when(
-      success: (data) async {
-        LocalStorage.logout();
-        context.router.popUntilRoot();
-        context.replaceRoute(const LoginRoute());
-      },
-      failure: (fail, status) {
-        state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, fail);
-      },
-    );
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      state = state.copyWith(isLoading: true);
+      final response = await _userRepository.deleteAccount();
+      response.when(
+        success: (data) async {
+          LocalStorage.logout();
+          context.router.popUntilRoot();
+          context.replaceRoute(const LoginRoute());
+        },
+        failure: (fail, status) {
+          state = state.copyWith(isLoading: false);
+          AppHelpers.showCheckTopSnackBar(context, fail);
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+        );
+      }
+    }
   }
 }
