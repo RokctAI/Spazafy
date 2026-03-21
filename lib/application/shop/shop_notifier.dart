@@ -172,89 +172,22 @@ class ShopNotifier extends StateNotifier<ShopState> {
   }
 
   void checkWorkingDay() {
-    int todayWeekIndex = 0;
-    for (int i = 0; i < state.shopData!.shopWorkingDays!.length; i++) {
-      if (state.shopData!.shopWorkingDays![i].day ==
-              TimeService.dateFormatEE(DateTime.now()).toLowerCase() &&
-          !(state.shopData!.shopWorkingDays![i].disabled ?? true)) {
-        state = state.copyWith(isTodayWorkingDay: true);
-        todayWeekIndex = i;
-        break;
-      } else {
-        state = state.copyWith(isTodayWorkingDay: false);
-      }
-    }
+    if (state.shopData == null) return;
+    
+    final result = state.shopData!.checkWorkingDay();
+    final bool isOpen = result["isOpen"] ?? false;
+    final DateTime? start = result["startTodayTime"];
+    final DateTime? end = result["endTodayTime"];
 
-    if (state.isTodayWorkingDay) {
-      for (int i = 0; i < state.shopData!.shopClosedDate!.length; i++) {
-        if (DateTime.now().year ==
-                state.shopData!.shopClosedDate![i].day!.year &&
-            DateTime.now().month ==
-                state.shopData!.shopClosedDate![i].day!.month &&
-            DateTime.now().day == state.shopData!.shopClosedDate![i].day!.day) {
-          state = state.copyWith(isTodayWorkingDay: false);
-          break;
-        } else {
-          state = state.copyWith(isTodayWorkingDay: true);
-        }
-      }
-      if (state.isTodayWorkingDay) {
-        TimeOfDay startTimeOfDay = TimeOfDay(
-          hour:
-              int.tryParse(
-                state.shopData!.shopWorkingDays?[todayWeekIndex].from
-                        ?.substring(
-                          0,
-                          state.shopData!.shopWorkingDays?[todayWeekIndex].from
-                                  ?.indexOf("-") ??
-                              0,
-                        ) ??
-                    "",
-              ) ??
-              0,
-          minute:
-              int.tryParse(
-                state.shopData!.shopWorkingDays?[todayWeekIndex].from
-                        ?.substring(
-                          (state.shopData!.shopWorkingDays?[todayWeekIndex].from
-                                      ?.indexOf("-") ??
-                                  0) +
-                              1,
-                        ) ??
-                    "",
-              ) ??
-              0,
-        );
-        TimeOfDay endTimeOfDay = TimeOfDay(
-          hour:
-              int.tryParse(
-                state.shopData!.shopWorkingDays?[todayWeekIndex].to?.substring(
-                      0,
-                      state.shopData!.shopWorkingDays?[todayWeekIndex].to
-                              ?.indexOf("-") ??
-                          0,
-                    ) ??
-                    "",
-              ) ??
-              0,
-          minute:
-              int.tryParse(
-                state.shopData!.shopWorkingDays?[todayWeekIndex].to?.substring(
-                      (state.shopData!.shopWorkingDays?[todayWeekIndex].to
-                                  ?.indexOf("-") ??
-                              0) +
-                          1,
-                    ) ??
-                    "",
-              ) ??
-              0,
-        );
-        state = state.copyWith(
-          startTodayTime: startTimeOfDay,
-          endTodayTime: endTimeOfDay,
-        );
-      }
-    }
+    state = state.copyWith(
+      isTodayWorkingDay: isOpen,
+      startTodayTime: start != null 
+          ? TimeOfDay(hour: start.hour, minute: start.minute) 
+          : const TimeOfDay(hour: 0, minute: 0),
+      endTodayTime: end != null 
+          ? TimeOfDay(hour: end.hour, minute: end.minute) 
+          : const TimeOfDay(hour: 0, minute: 0),
+    );
   }
 
   Future<void> setShop(ShopData shop) async {
