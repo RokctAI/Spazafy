@@ -1,5 +1,5 @@
-import 'bonus_data.dart';
 import 'translation.dart';
+import '../../services/constants/enums.dart';
 
 class ShopData {
   ShopData({
@@ -60,7 +60,7 @@ class ShopData {
   String? logoImg;
   bool? enableCod;
   num? minAmount;
-  String? status;
+  ShopStatus? status;
   String? type;
   DeliveryTime? deliveryTime;
   DateTime? createdAt;
@@ -115,7 +115,7 @@ class ShopData {
       enableCod: json["enable_cod"] ??
           true, // Default to true if not present for backward compat
       minAmount: json["min_amount"] ?? 0,
-      status: json["status"] ?? "",
+      status: ShopStatusExtension.fromString(json["status"]),
       type: json["type"]?.toString(),
       isRecommend: json["is_recommended"] ?? false,
       isDiscount:
@@ -182,7 +182,7 @@ class ShopData {
         "background_img": backgroundImg,
         "logo_img": logoImg,
         "min_amount": minAmount,
-        "status": status,
+        "status": status?.name,
         "type": type,
         "delivery_time": deliveryTime?.toJson(),
         "created_at": createdAt?.toIso8601String(),
@@ -210,7 +210,7 @@ class ShopData {
 
     // 1. Check if today is a working day
     final workingDay = shopWorkingDays!.firstWhere(
-      (d) => d.day?.toLowerCase() == dayName && !(d.disabled ?? true),
+      (d) => d.day?.name == dayName && !(d.disabled ?? true),
       orElse: () => ShopWorkingDay(),
     );
     if (workingDay.day == null) return {"isOpen": false};
@@ -361,7 +361,7 @@ class ShopWorkingDay {
   });
 
   num? id;
-  String? day;
+  DayOfWeek? day;
   String? from;
   bool? disabled;
   String? to;
@@ -370,7 +370,7 @@ class ShopWorkingDay {
 
   factory ShopWorkingDay.fromJson(Map<String, dynamic>? json) => ShopWorkingDay(
         id: json?["id"],
-        day: json?["day"],
+        day: DayOfWeekExtension.fromString(json?["day"]),
         from: json?["from"],
         disabled: json?["disabled"],
         to: json?["to"],
@@ -380,7 +380,7 @@ class ShopWorkingDay {
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "day": day,
+        "day": day?.name,
         "from": from,
         "to": to,
         "created_at": createdAt!.toIso8601String(),
