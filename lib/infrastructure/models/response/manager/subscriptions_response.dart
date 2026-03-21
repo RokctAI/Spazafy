@@ -1,31 +1,24 @@
 import 'package:rokctapp/infrastructure/models/data/manager/subscriptions_data.dart';
 
-
 class SubscriptionResponse {
   DateTime? timestamp;
   bool? status;
   String? message;
   List<SubscriptionData>? data;
 
-  SubscriptionResponse({
-    this.timestamp,
-    this.status,
-    this.message,
-    this.data,
-  });
+  SubscriptionResponse({this.timestamp, this.status, this.message, this.data});
 
   SubscriptionResponse copyWith({
     DateTime? timestamp,
     bool? status,
     String? message,
     List<SubscriptionData>? data,
-  }) =>
-      SubscriptionResponse(
-        timestamp: timestamp ?? this.timestamp,
-        status: status ?? this.status,
-        message: message ?? this.message,
-        data: data ?? this.data,
-      );
+  }) => SubscriptionResponse(
+    timestamp: timestamp ?? this.timestamp,
+    status: status ?? this.status,
+    message: message ?? this.message,
+    data: data ?? this.data,
+  );
 
   factory SubscriptionResponse.fromJson(Map<String, dynamic> json) =>
       SubscriptionResponse(
@@ -37,15 +30,16 @@ class SubscriptionResponse {
         data: json["data"] == null
             ? []
             : List<SubscriptionData>.from(
-                json["data"]!.map((x) => SubscriptionData.fromJson(x))),
+                json["data"]!.map((x) => SubscriptionData.fromJson(x)),
+              ),
       );
 
   Map<String, dynamic> toJson() => {
-        "timestamp": timestamp?.toIso8601String(),
-        "status": status,
-        "message": message,
-        "data": data == null
-            ? []
-            : List<dynamic>.from(data!.map((x) => x.toJson())),
-      };
+    "timestamp": timestamp?.toIso8601String(),
+    "status": status,
+    "message": message,
+    "data": data == null
+        ? []
+        : List<dynamic>.from(data!.map((x) => x.toJson())),
+  };
 }

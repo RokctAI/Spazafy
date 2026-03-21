@@ -10,7 +10,6 @@ import 'package:rokctapp/utils/products/brand_utils.dart';
 import 'package:rokctapp/utils/products/product_card.dart';
 import 'package:rokctapp/utils/products/product_utils.dart';
 
-
 class DiscountedProductsSection extends ConsumerWidget {
   final List<ProductData> products;
   final String? cartId;

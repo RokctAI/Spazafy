@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:rokctapp/app_constants.dart';
 
-
 final aboutProvider = FutureProvider<Map<String, dynamic>?>((ref) async {
   try {
     final response = await http.get(

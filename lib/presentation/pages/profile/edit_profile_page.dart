@@ -22,7 +22,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'phone_verify.dart';
 
-
 class EditProfileScreen extends ConsumerStatefulWidget {
   final ScrollController controller;
 

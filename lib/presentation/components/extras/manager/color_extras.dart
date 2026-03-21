@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class ColorExtras extends StatelessWidget {
   final int groupIndex;
   final List<UiExtra> uiExtras;

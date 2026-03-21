@@ -8,7 +8,6 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class FoodsPage extends ConsumerStatefulWidget {
   final OrderDetailData order;
 

@@ -16,7 +16,6 @@ import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class EditRestaurantModal extends ConsumerStatefulWidget {
   const EditRestaurantModal({super.key});
 
@@ -382,8 +381,9 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                           ),
                           const Divider(),
                           GestureDetector(
-                            onTap: () =>
-                                context.pushRoute(const ManagerDeliveryZoneRoute()),
+                            onTap: () => context.pushRoute(
+                              const ManagerDeliveryZoneRoute(),
+                            ),
                             child: Container(
                               color: AppStyle.transparent,
                               child: Padding(

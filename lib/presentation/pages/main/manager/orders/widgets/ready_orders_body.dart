@@ -8,7 +8,6 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class ReadyOrdersBody extends StatefulWidget {
   final ScrollController? scrollController;
 

@@ -18,7 +18,6 @@ import 'img_service.dart';
 import 'local_storage.dart';
 import 'tr_keys.dart';
 
-
 class AppHelpers {
   AppHelpers._();
 

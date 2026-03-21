@@ -3,7 +3,6 @@ import 'package:rokctapp/infrastructure/models/data/count_of_notifications_data.
 import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
 part 'notification_state.freezed.dart';
 
-
 @freezed
 class NotificationState with _$NotificationState {
   const factory NotificationState({

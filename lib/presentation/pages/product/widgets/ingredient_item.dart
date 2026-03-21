@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/services/utils/vibration.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/custom_checkbox.dart';
 
-
 class IngredientItem extends ConsumerWidget {
   final VoidCallback onTap;
   final VoidCallback add;

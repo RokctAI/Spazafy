@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class SearchTextField extends StatelessWidget {
   final String? hintText;
   final Widget? suffixIcon;
@@ -42,10 +41,7 @@ class SearchTextField extends StatelessWidget {
       cursorColor: AppStyle.blackColor,
       cursorWidth: 1,
       decoration: InputDecoration(
-        hintStyle: AppStyle.interRegular(
-          size: 16,
-          color: AppStyle.textGrey,
-        ),
+        hintStyle: AppStyle.interRegular(size: 16, color: AppStyle.textGrey),
         hintText: hintText ?? AppHelpers.getTranslation(TrKeys.search),
         contentPadding: REdgeInsets.symmetric(horizontal: 15, vertical: 17),
         prefixIcon: isSearchIcon

@@ -5,7 +5,6 @@ import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class ProductItem extends StatelessWidget {
   final Product? product;
   final num? amount;
@@ -33,12 +32,18 @@ class ProductItem extends StatelessWidget {
                 children: [
                   Text(
                     product?.translation?.title ?? "",
-                    style: AppStyle.interSemi(size: 14.sp, color: AppStyle.black),
+                    style: AppStyle.interSemi(
+                      size: 14.sp,
+                      color: AppStyle.black,
+                    ),
                   ),
                   4.verticalSpace,
                   Text(
                     "${AppHelpers.getTranslation(TrKeys.amount)} — ${(amount ?? 1) * (product?.interval ?? 1)} ${(product?.unit?.translation?.title ?? "")}",
-                    style: AppStyle.interRegular(size: 14.sp, color: AppStyle.black),
+                    style: AppStyle.interRegular(
+                      size: 14.sp,
+                      color: AppStyle.black,
+                    ),
                   ),
                 ],
               ),
@@ -58,7 +63,10 @@ class ProductItem extends StatelessWidget {
                     child: RichText(
                       text: TextSpan(
                         text: "${AppHelpers.getTranslation(TrKeys.sideDish)}:",
-                        style: AppStyle.interSemi(size: 14.sp, color: AppStyle.black),
+                        style: AppStyle.interSemi(
+                          size: 14.sp,
+                          color: AppStyle.black,
+                        ),
                         children: [
                           TextSpan(
                             text: product?.translation?.description ?? "",

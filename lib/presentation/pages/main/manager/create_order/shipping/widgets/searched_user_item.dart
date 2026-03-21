@@ -4,7 +4,6 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class SearchedUserItem extends StatelessWidget {
   final UserData user;
 

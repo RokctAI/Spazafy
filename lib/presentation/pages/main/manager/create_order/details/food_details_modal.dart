@@ -12,8 +12,6 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'widgets/w_ingredient.dart';
 
-
-
 class FoodDetailsModal extends ConsumerStatefulWidget {
   final ProductData product;
   final ScrollController controller;

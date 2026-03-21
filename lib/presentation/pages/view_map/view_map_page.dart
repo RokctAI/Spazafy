@@ -34,7 +34,6 @@ import 'package:rokctapp/app_constants.dart';
 // ignore_for_file: prefer_interpolation_to_compose_strings, use_build_context_synchronously
 //import 'package:flutter_svg/flutter_svg.dart';
 
-
 @RoutePage()
 class ViewMapPage extends ConsumerStatefulWidget {
   final bool isParcel;
@@ -363,9 +362,7 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
     );
     event.changePlace(
       AddressNewModel(
-        address: AddressInformation(
-          address: controller.text,
-        ),
+        address: AddressInformation(address: controller.text),
         location: [
           cameraPosition?.target.latitude ?? latLng.latitude,
           cameraPosition?.target.longitude ?? latLng.longitude,
@@ -393,482 +390,445 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
                 ? MediaQuery.sizeOf(context).height
                 : MediaQuery.sizeOf(context).height - 0.r,
             child: GoogleMap(
-                    onCameraMoveStarted: () {
-                      ref.read(viewMapProvider.notifier).scrolling(true);
-                      _animationController.repeat();
-                    },
-                    myLocationButtonEnabled: false,
-                    initialCameraPosition: CameraPosition(
-                      bearing: 0,
-                      target: latLng,
-                      tilt: 0,
-                      zoom: 17,
-                    ),
-                    mapToolbarEnabled: false,
-                    zoomControlsEnabled: false,
-                    onTap: (position) {
-                      event.updateActive();
-                      delayed.run(() async {
-                        try {
-                          final List<Placemark> placemarks =
-                              await placemarkFromCoordinates(
-                                cameraPosition?.target.latitude ??
-                                    latLng.latitude,
-                                cameraPosition?.target.longitude ??
-                                    latLng.longitude,
-                              );
-                          if (placemarks.isNotEmpty) {
-                            final Placemark pos = placemarks[0];
-                            final List<String> addressData = [];
-                            addressData.add(pos.locality!);
-                            if (pos.subLocality != null &&
-                                pos.subLocality!.isNotEmpty) {
-                              addressData.add(pos.subLocality!);
-                            }
-                            if (pos.thoroughfare != null &&
-                                pos.thoroughfare!.isNotEmpty) {
-                              addressData.add(pos.thoroughfare!);
-                            }
-                            addressData.add(pos.name!);
-                            final String placeName = addressData.join(', ');
-                            controller.text = placeName;
-                          }
-                        } catch (e) {
-                          controller.text = '';
-                        }
+              onCameraMoveStarted: () {
+                ref.read(viewMapProvider.notifier).scrolling(true);
+                _animationController.repeat();
+              },
+              myLocationButtonEnabled: false,
+              initialCameraPosition: CameraPosition(
+                bearing: 0,
+                target: latLng,
+                tilt: 0,
+                zoom: 17,
+              ),
+              mapToolbarEnabled: false,
+              zoomControlsEnabled: false,
+              onTap: (position) {
+                event.updateActive();
+                delayed.run(() async {
+                  try {
+                    final List<Placemark> placemarks =
+                        await placemarkFromCoordinates(
+                          cameraPosition?.target.latitude ?? latLng.latitude,
+                          cameraPosition?.target.longitude ?? latLng.longitude,
+                        );
+                    if (placemarks.isNotEmpty) {
+                      final Placemark pos = placemarks[0];
+                      final List<String> addressData = [];
+                      addressData.add(pos.locality!);
+                      if (pos.subLocality != null &&
+                          pos.subLocality!.isNotEmpty) {
+                        addressData.add(pos.subLocality!);
+                      }
+                      if (pos.thoroughfare != null &&
+                          pos.thoroughfare!.isNotEmpty) {
+                        addressData.add(pos.thoroughfare!);
+                      }
+                      addressData.add(pos.name!);
+                      final String placeName = addressData.join(', ');
+                      controller.text = placeName;
+                    }
+                  } catch (e) {
+                    controller.text = '';
+                  }
 
-                        event
-                          ..checkDriverZone(
-                            context: context,
-                            location: LatLng(
-                              cameraPosition?.target.latitude ??
-                                  latLng.latitude,
-                              cameraPosition?.target.longitude ??
-                                  latLng.longitude,
-                            ),
-                            shopId: widget.shopId,
-                          )
-                          ..changePlace(
-                            AddressNewModel(
-                              address: AddressInformation(
-                                address: controller.text,
-                              ),
-                              location: [
-                                cameraPosition?.target.latitude ??
-                                    latLng.latitude,
-                                cameraPosition?.target.longitude ??
-                                    latLng.longitude,
-                              ],
-                            ),
-                          );
-                      });
-                      googleMapController!.animateCamera(
-                        CameraUpdate.newLatLng(latLng),
-                      );
-                    },
-                    onCameraIdle: () {
-                      event.updateActive();
-                      delayed.run(() async {
-                        try {
-                          final List<Placemark> placemarks =
-                              await placemarkFromCoordinates(
-                                cameraPosition?.target.latitude ??
-                                    latLng.latitude,
-                                cameraPosition?.target.longitude ??
-                                    latLng.longitude,
-                              );
-                          if (placemarks.isNotEmpty) {
-                            final Placemark pos = placemarks[0];
-                            final List<String> addressData = [];
-                            addressData.add(pos.locality!);
-                            if (pos.subLocality != null &&
-                                pos.subLocality!.isNotEmpty) {
-                              addressData.add(pos.subLocality!);
-                            }
-                            if (pos.thoroughfare != null &&
-                                pos.thoroughfare!.isNotEmpty) {
-                              addressData.add(pos.thoroughfare!);
-                            }
-                            addressData.add(pos.name!);
-                            final String placeName = addressData.join(', ');
-                            controller.text = placeName;
-                          }
-                        } catch (e) {
-                          controller.text = '';
-                        }
-
-                        if (!widget.isShopLocation) {
-                          event
-                            ..checkDriverZone(
-                              context: context,
-                              location: LatLng(
-                                cameraPosition?.target.latitude ??
-                                    latLng.latitude,
-                                cameraPosition?.target.longitude ??
-                                    latLng.longitude,
-                              ),
-                              shopId: widget.shopId,
-                            )
-                            ..changePlace(
-                              AddressNewModel(
-                                address: AddressInformation(
-                                  address: controller.text,
-                                ),
-                                location: [
-                                  cameraPosition?.target.latitude ??
-                                      latLng.latitude,
-                                  cameraPosition?.target.longitude ??
-                                      latLng.longitude,
-                                ],
-                              ),
-                            );
-                        } else {
-                          event.changePlace(
-                            AddressNewModel(
-                              address: AddressInformation(
-                                address: controller.text,
-                              ),
-                              location: [
-                                cameraPosition?.target.latitude ??
-                                    latLng.latitude,
-                                cameraPosition?.target.longitude ??
-                                    latLng.longitude,
-                              ],
-                            ),
-                          );
-                        }
-                        ref.read(viewMapProvider.notifier).scrolling(false);
-                      });
-                      _animationController.forward(from: 0.0);
-                    },
-                    onCameraMove: (position) {
-                      cameraPosition = position;
-                      _createMarkers();
-                    },
-                    onMapCreated: (controller) {
-                      googleMapController = controller;
-                      _animationController.forward(from: 0.0);
-                    },
-                    markers: markers,
-                  ),
-                ),
-                IgnorePointer(
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 78.0),
-                      child: lottie.Lottie.asset(
-                        "assets/lottie/pin.json",
-                        onLoaded: (composition) {
-                          _animationController.duration = composition.duration;
-                        },
-                        controller: _animationController,
-                        width: 250.w,
-                        height: 250.h,
+                  event
+                    ..checkDriverZone(
+                      context: context,
+                      location: LatLng(
+                        cameraPosition?.target.latitude ?? latLng.latitude,
+                        cameraPosition?.target.longitude ?? latLng.longitude,
                       ),
-                    ),
-                  ),
-                ),
-                AnimatedPositioned(
-                  top: MediaQuery.of(context).padding.top + 24,
-                  left: 24,
-                  right: 24,
-                  duration: const Duration(milliseconds: 500),
-                  child: Column(
-                    children: [
-                      5.verticalSpace,
-                      Row(
-                        children: [
-                          10.horizontalSpace,
-                          Container(
-                            decoration: const BoxDecoration(
-                              boxShadow: <BoxShadow>[
-                                BoxShadow(
-                                  color: AppStyle.textGrey,
-                                  offset: Offset(0, 2),
-                                  blurRadius: 2,
-                                  spreadRadius: 0,
-                                ),
-                              ],
-                              shape: BoxShape.circle,
-                              color: AppStyle.white,
-                            ),
-                            padding: EdgeInsets.all(10.r),
-                            child: const Center(
-                              child: Icon(
-                                FlutterRemix.map_pin_range_line,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-                          6.horizontalSpace,
-                          Container(
-                            width: MediaQuery.sizeOf(context).width - 122,
-                            height: 50.r,
-                            padding: REdgeInsets.symmetric(horizontal: 15),
-                            decoration: BoxDecoration(
-                              boxShadow: const <BoxShadow>[
-                                BoxShadow(
-                                  color: AppStyle.textGrey,
-                                  offset: Offset(0, 2),
-                                  blurRadius: 2,
-                                  spreadRadius: 0,
-                                ),
-                              ],
-                              color: AppStyle.white,
-                              borderRadius: BorderRadius.circular(16.r),
-                            ),
-                            child: Center(
-                              child: Text(
-                                controller.text,
-                                style: AppStyle.interNormal(size: 16),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
+                      shopId: widget.shopId,
+                    )
+                    ..changePlace(
+                      AddressNewModel(
+                        address: AddressInformation(address: controller.text),
+                        location: [
+                          cameraPosition?.target.latitude ?? latLng.latitude,
+                          cameraPosition?.target.longitude ?? latLng.longitude,
                         ],
                       ),
-                    ],
-                  ),
-                ),
-                AnimatedPositioned(
-                  duration: const Duration(milliseconds: 500),
-                  bottom: 94.r,
-                  right: state.isScrolling ? -100 : 16.w,
-                  child: InkWell(
-                    onTap: () async {
-                      await getMyLocation();
-                    },
-                    child: Container(
-                      width: 50.r,
-                      height: 50.r,
-                      decoration: BoxDecoration(
-                        color: AppStyle.white,
-                        borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppStyle.shimmerBase,
-                            blurRadius: 2,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: const Center(
-                        child: Icon(FlutterRemix.navigation_line),
-                      ),
-                    ),
-                  ),
-                ),
-                if (widget.address != null &&
-                    !(widget.address?.active ?? false))
-                  AnimatedPositioned(
-                    duration: const Duration(milliseconds: 500),
-                    top: 32.r,
-                    right: state.isScrolling ? -100 : 16.w,
-                    child: InkWell(
-                      onTap: () async {
-                        ref
-                            .read(profileProvider.notifier)
-                            .deleteAddress(
-                              index: widget.indexAddress ?? 0,
-                              id: widget.address?.id,
-                            );
-                        context.maybePop();
-                      },
-                      child: Container(
-                        width: 48.r,
-                        height: 48.r,
-                        decoration: BoxDecoration(
-                          color: AppStyle.red,
-                          borderRadius: BorderRadius.all(Radius.circular(24.r)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppStyle.shimmerBase,
-                              blurRadius: 2,
-                              offset: const Offset(0, 2),
-                            ),
+                    );
+                });
+                googleMapController!.animateCamera(
+                  CameraUpdate.newLatLng(latLng),
+                );
+              },
+              onCameraIdle: () {
+                event.updateActive();
+                delayed.run(() async {
+                  try {
+                    final List<Placemark> placemarks =
+                        await placemarkFromCoordinates(
+                          cameraPosition?.target.latitude ?? latLng.latitude,
+                          cameraPosition?.target.longitude ?? latLng.longitude,
+                        );
+                    if (placemarks.isNotEmpty) {
+                      final Placemark pos = placemarks[0];
+                      final List<String> addressData = [];
+                      addressData.add(pos.locality!);
+                      if (pos.subLocality != null &&
+                          pos.subLocality!.isNotEmpty) {
+                        addressData.add(pos.subLocality!);
+                      }
+                      if (pos.thoroughfare != null &&
+                          pos.thoroughfare!.isNotEmpty) {
+                        addressData.add(pos.thoroughfare!);
+                      }
+                      addressData.add(pos.name!);
+                      final String placeName = addressData.join(', ');
+                      controller.text = placeName;
+                    }
+                  } catch (e) {
+                    controller.text = '';
+                  }
+
+                  if (!widget.isShopLocation) {
+                    event
+                      ..checkDriverZone(
+                        context: context,
+                        location: LatLng(
+                          cameraPosition?.target.latitude ?? latLng.latitude,
+                          cameraPosition?.target.longitude ?? latLng.longitude,
+                        ),
+                        shopId: widget.shopId,
+                      )
+                      ..changePlace(
+                        AddressNewModel(
+                          address: AddressInformation(address: controller.text),
+                          location: [
+                            cameraPosition?.target.latitude ?? latLng.latitude,
+                            cameraPosition?.target.longitude ??
+                                latLng.longitude,
                           ],
                         ),
-                        child: const Center(
-                          child: Icon(
-                            FlutterRemix.delete_bin_fill,
-                            color: AppStyle.white,
+                      );
+                  } else {
+                    event.changePlace(
+                      AddressNewModel(
+                        address: AddressInformation(address: controller.text),
+                        location: [
+                          cameraPosition?.target.latitude ?? latLng.latitude,
+                          cameraPosition?.target.longitude ?? latLng.longitude,
+                        ],
+                      ),
+                    );
+                  }
+                  ref.read(viewMapProvider.notifier).scrolling(false);
+                });
+                _animationController.forward(from: 0.0);
+              },
+              onCameraMove: (position) {
+                cameraPosition = position;
+                _createMarkers();
+              },
+              onMapCreated: (controller) {
+                googleMapController = controller;
+                _animationController.forward(from: 0.0);
+              },
+              markers: markers,
+            ),
+          ),
+          IgnorePointer(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 78.0),
+                child: lottie.Lottie.asset(
+                  "assets/lottie/pin.json",
+                  onLoaded: (composition) {
+                    _animationController.duration = composition.duration;
+                  },
+                  controller: _animationController,
+                  width: 250.w,
+                  height: 250.h,
+                ),
+              ),
+            ),
+          ),
+          AnimatedPositioned(
+            top: MediaQuery.of(context).padding.top + 24,
+            left: 24,
+            right: 24,
+            duration: const Duration(milliseconds: 500),
+            child: Column(
+              children: [
+                5.verticalSpace,
+                Row(
+                  children: [
+                    10.horizontalSpace,
+                    Container(
+                      decoration: const BoxDecoration(
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                            color: AppStyle.textGrey,
+                            offset: Offset(0, 2),
+                            blurRadius: 2,
+                            spreadRadius: 0,
                           ),
+                        ],
+                        shape: BoxShape.circle,
+                        color: AppStyle.white,
+                      ),
+                      padding: EdgeInsets.all(10.r),
+                      child: const Center(
+                        child: Icon(FlutterRemix.map_pin_range_line, size: 30),
+                      ),
+                    ),
+                    6.horizontalSpace,
+                    Container(
+                      width: MediaQuery.sizeOf(context).width - 122,
+                      height: 50.r,
+                      padding: REdgeInsets.symmetric(horizontal: 15),
+                      decoration: BoxDecoration(
+                        boxShadow: const <BoxShadow>[
+                          BoxShadow(
+                            color: AppStyle.textGrey,
+                            offset: Offset(0, 2),
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                        color: AppStyle.white,
+                        borderRadius: BorderRadius.circular(16.r),
+                      ),
+                      child: Center(
+                        child: Text(
+                          controller.text,
+                          style: AppStyle.interNormal(size: 16),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
-                  ),
-                if (!widget.useSlidingPanel)
-                  AnimatedPositioned(
-                    left: 16,
-                    right: 16,
-                    bottom: 32,
-                    duration: const Duration(milliseconds: 500),
-                  child: Column(
-                    children: [
-                      // Inside the build method, add this before the CustomButton
-                      if (_nearestPOIInfo.isNotEmpty)
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8.r),
-                          child: Text(
-                            _nearestPOIInfo,
-                            style: AppStyle.interNormal(
-                              size: 14,
-                              color: AppStyle.black,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      Row(
-                        children: [
-                          if (widget.isPop)
-                            Padding(
-                              padding: REdgeInsets.only(right: 8),
-                              child: const PopButton(),
-                            ),
-                          Expanded(
-                            child: Opacity(
-                              opacity: state.isScrolling ? 0.5 : 1,
-                              child: CustomButton(
-                                isLoading: controller.text.isEmpty,
-                                title: AppHelpers.getTranslation(
-                                  TrKeys.confirmLocation,
-                                ),
-                                onPressed: () {
-                                  if (widget.isParcel) {
-                                    Navigator.pop(
-                                      context,
-                                      AddressNewModel(
-                                        address: AddressInformation(
-                                          address: controller.text,
-                                        ),
-                                        location: [
-                                          cameraPosition?.target.latitude ??
-                                              latLng.latitude,
-                                          cameraPosition?.target.longitude ??
-                                              latLng.longitude,
-                                        ],
-                                      ),
-                                    );
-                                    return;
-                                  }
-                                  if (!state.isScrolling) {
-                                    AppHelpers.showCustomModalBottomSheet(
-                                      paddingTop: -50,
-                                      context: context,
-                                      modal: ViewMapModal(
-                                        controller: controller,
-                                        address: widget.address,
-                                        latLng: latLng,
-                                        isShopLocation: widget.isShopLocation,
-                                        onSearch: () async {
-                                          final placeId = await context
-                                              .pushRoute(
-                                                const MapSearchRoute(),
-                                              );
-                                          if (placeId != null) {
-                                            final res = await googlePlace
-                                                .details
-                                                .get(placeId.toString());
-                                            try {
-                                              final List<Placemark> placemarks =
-                                                  await placemarkFromCoordinates(
-                                                    res
-                                                            ?.result
-                                                            ?.geometry
-                                                            ?.location
-                                                            ?.lat ??
-                                                        latLng.latitude,
-                                                    res
-                                                            ?.result
-                                                            ?.geometry
-                                                            ?.location
-                                                            ?.lng ??
-                                                        latLng.longitude,
-                                                  );
-                                              if (placemarks.isNotEmpty) {
-                                                final Placemark pos =
-                                                    placemarks[0];
-                                                final List<String> addressData =
-                                                    [];
-                                                addressData.add(pos.locality!);
-                                                if (pos.subLocality != null &&
-                                                    pos
-                                                        .subLocality!
-                                                        .isNotEmpty) {
-                                                  addressData.add(
-                                                    pos.subLocality!,
-                                                  );
-                                                }
-                                                if (pos.thoroughfare != null &&
-                                                    pos
-                                                        .thoroughfare!
-                                                        .isNotEmpty) {
-                                                  addressData.add(
-                                                    pos.thoroughfare!,
-                                                  );
-                                                }
-                                                addressData.add(pos.name!);
-                                                final String placeName =
-                                                    addressData.join(', ');
-                                                controller.text = placeName;
-                                              }
-                                            } catch (e) {
-                                              controller.text = '';
-                                            }
-
-                                            googleMapController!.animateCamera(
-                                              CameraUpdate.newLatLngZoom(
-                                                LatLng(
-                                                  res
-                                                          ?.result
-                                                          ?.geometry
-                                                          ?.location
-                                                          ?.lat ??
-                                                      latLng.latitude,
-                                                  res
-                                                          ?.result
-                                                          ?.geometry
-                                                          ?.location
-                                                          ?.lng ??
-                                                      latLng.longitude,
-                                                ),
-                                                15,
-                                              ),
-                                            );
-                                            event.changePlace(
-                                              AddressNewModel(
-                                                address: AddressInformation(
-                                                  address: controller.text,
-                                                ),
-                                                location: [
-                                                  cameraPosition
-                                                          ?.target
-                                                          .latitude ??
-                                                      latLng.latitude,
-                                                  cameraPosition
-                                                          ?.target
-                                                          .longitude ??
-                                                      latLng.longitude,
-                                                ],
-                                              ),
-                                            );
-                                          }
-                                        },
-                                      ),
-                                      isDarkMode: isDarkMode,
-                                    );
-                                  }
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  ],
                 ),
               ],
             ),
+          ),
+          AnimatedPositioned(
+            duration: const Duration(milliseconds: 500),
+            bottom: 94.r,
+            right: state.isScrolling ? -100 : 16.w,
+            child: InkWell(
+              onTap: () async {
+                await getMyLocation();
+              },
+              child: Container(
+                width: 50.r,
+                height: 50.r,
+                decoration: BoxDecoration(
+                  color: AppStyle.white,
+                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppStyle.shimmerBase,
+                      blurRadius: 2,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: const Center(child: Icon(FlutterRemix.navigation_line)),
+              ),
+            ),
+          ),
+          if (widget.address != null && !(widget.address?.active ?? false))
+            AnimatedPositioned(
+              duration: const Duration(milliseconds: 500),
+              top: 32.r,
+              right: state.isScrolling ? -100 : 16.w,
+              child: InkWell(
+                onTap: () async {
+                  ref
+                      .read(profileProvider.notifier)
+                      .deleteAddress(
+                        index: widget.indexAddress ?? 0,
+                        id: widget.address?.id,
+                      );
+                  context.maybePop();
+                },
+                child: Container(
+                  width: 48.r,
+                  height: 48.r,
+                  decoration: BoxDecoration(
+                    color: AppStyle.red,
+                    borderRadius: BorderRadius.all(Radius.circular(24.r)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppStyle.shimmerBase,
+                        blurRadius: 2,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      FlutterRemix.delete_bin_fill,
+                      color: AppStyle.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          if (!widget.useSlidingPanel)
+            AnimatedPositioned(
+              left: 16,
+              right: 16,
+              bottom: 32,
+              duration: const Duration(milliseconds: 500),
+              child: Column(
+                children: [
+                  // Inside the build method, add this before the CustomButton
+                  if (_nearestPOIInfo.isNotEmpty)
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 8.r),
+                      child: Text(
+                        _nearestPOIInfo,
+                        style: AppStyle.interNormal(
+                          size: 14,
+                          color: AppStyle.black,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  Row(
+                    children: [
+                      if (widget.isPop)
+                        Padding(
+                          padding: REdgeInsets.only(right: 8),
+                          child: const PopButton(),
+                        ),
+                      Expanded(
+                        child: Opacity(
+                          opacity: state.isScrolling ? 0.5 : 1,
+                          child: CustomButton(
+                            isLoading: controller.text.isEmpty,
+                            title: AppHelpers.getTranslation(
+                              TrKeys.confirmLocation,
+                            ),
+                            onPressed: () {
+                              if (widget.isParcel) {
+                                Navigator.pop(
+                                  context,
+                                  AddressNewModel(
+                                    address: AddressInformation(
+                                      address: controller.text,
+                                    ),
+                                    location: [
+                                      cameraPosition?.target.latitude ??
+                                          latLng.latitude,
+                                      cameraPosition?.target.longitude ??
+                                          latLng.longitude,
+                                    ],
+                                  ),
+                                );
+                                return;
+                              }
+                              if (!state.isScrolling) {
+                                AppHelpers.showCustomModalBottomSheet(
+                                  paddingTop: -50,
+                                  context: context,
+                                  modal: ViewMapModal(
+                                    controller: controller,
+                                    address: widget.address,
+                                    latLng: latLng,
+                                    isShopLocation: widget.isShopLocation,
+                                    onSearch: () async {
+                                      final placeId = await context.pushRoute(
+                                        const MapSearchRoute(),
+                                      );
+                                      if (placeId != null) {
+                                        final res = await googlePlace.details
+                                            .get(placeId.toString());
+                                        try {
+                                          final List<Placemark> placemarks =
+                                              await placemarkFromCoordinates(
+                                                res
+                                                        ?.result
+                                                        ?.geometry
+                                                        ?.location
+                                                        ?.lat ??
+                                                    latLng.latitude,
+                                                res
+                                                        ?.result
+                                                        ?.geometry
+                                                        ?.location
+                                                        ?.lng ??
+                                                    latLng.longitude,
+                                              );
+                                          if (placemarks.isNotEmpty) {
+                                            final Placemark pos = placemarks[0];
+                                            final List<String> addressData = [];
+                                            addressData.add(pos.locality!);
+                                            if (pos.subLocality != null &&
+                                                pos.subLocality!.isNotEmpty) {
+                                              addressData.add(pos.subLocality!);
+                                            }
+                                            if (pos.thoroughfare != null &&
+                                                pos.thoroughfare!.isNotEmpty) {
+                                              addressData.add(
+                                                pos.thoroughfare!,
+                                              );
+                                            }
+                                            addressData.add(pos.name!);
+                                            final String placeName = addressData
+                                                .join(', ');
+                                            controller.text = placeName;
+                                          }
+                                        } catch (e) {
+                                          controller.text = '';
+                                        }
+
+                                        googleMapController!.animateCamera(
+                                          CameraUpdate.newLatLngZoom(
+                                            LatLng(
+                                              res
+                                                      ?.result
+                                                      ?.geometry
+                                                      ?.location
+                                                      ?.lat ??
+                                                  latLng.latitude,
+                                              res
+                                                      ?.result
+                                                      ?.geometry
+                                                      ?.location
+                                                      ?.lng ??
+                                                  latLng.longitude,
+                                            ),
+                                            15,
+                                          ),
+                                        );
+                                        event.changePlace(
+                                          AddressNewModel(
+                                            address: AddressInformation(
+                                              address: controller.text,
+                                            ),
+                                            location: [
+                                              cameraPosition?.target.latitude ??
+                                                  latLng.latitude,
+                                              cameraPosition
+                                                      ?.target
+                                                      .longitude ??
+                                                  latLng.longitude,
+                                            ],
+                                          ),
+                                        );
+                                      }
+                                    },
+                                  ),
+                                  isDarkMode: isDarkMode,
+                                );
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

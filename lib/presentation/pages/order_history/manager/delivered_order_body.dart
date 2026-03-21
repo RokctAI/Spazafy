@@ -9,7 +9,6 @@ import 'package:rokctapp/presentation/components/loading/manager/loading_list.da
 import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_details_modal.dart';
 import 'package:rokctapp/presentation/pages/main/manager/orders/widgets/no_orders.dart';
 
-
 class DeliveredOrdersBody extends ConsumerStatefulWidget {
   final RefreshController refreshController;
 

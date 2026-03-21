@@ -3,8 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'order_address_state.freezed.dart';
 
-
-
 @freezed
 abstract class OrderAddressState with _$OrderAddressState {
   const factory OrderAddressState({

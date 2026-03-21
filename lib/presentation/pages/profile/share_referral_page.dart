@@ -18,7 +18,6 @@ import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:share_plus/share_plus.dart';
 
-
 @RoutePage()
 class ShareReferralPage extends ConsumerStatefulWidget {
   const ShareReferralPage({super.key});

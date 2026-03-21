@@ -6,7 +6,6 @@ import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class CancelDialog extends StatelessWidget {
   final String? note;
 
@@ -42,7 +41,11 @@ class CancelDialog extends StatelessWidget {
               );
               await launchUrl(launchUri);
             },
-            icon: Icon(FlutterRemix.phone_line, color: AppStyle.white, size: 20.r),
+            icon: Icon(
+              FlutterRemix.phone_line,
+              color: AppStyle.white,
+              size: 20.r,
+            ),
           ),
         ],
       ),

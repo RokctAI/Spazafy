@@ -3,7 +3,6 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'products_state.dart';
 import 'products_notifier.dart';
 
-
 final productsProvider = StateNotifierProvider<ProductsNotifier, ProductsState>(
   (ref) => ProductsNotifier(productRepository),
 );

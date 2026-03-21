@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class UnderlinedBorderTextField extends StatelessWidget {
   final String label;
   final String? hint;
@@ -83,7 +82,10 @@ class UnderlinedBorderTextField extends StatelessWidget {
               color: isDarkMode ? AppStyle.white : AppStyle.textGrey,
             ),
             labelText: label.toUpperCase(),
-            labelStyle: AppStyle.interNormal(size: 14.sp, color: AppStyle.black),
+            labelStyle: AppStyle.interNormal(
+              size: 14.sp,
+              color: AppStyle.black,
+            ),
             contentPadding: REdgeInsets.symmetric(horizontal: 0, vertical: 8),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             enabledBorder: const UnderlineInputBorder(

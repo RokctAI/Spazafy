@@ -2,8 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 part 'delivered_order_state.freezed.dart';
 
-
-
 @freezed
 abstract class DeliveredOrderState with _$DeliveredOrderState {
   const factory DeliveredOrderState({

@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class SelectableAddonItem extends StatelessWidget {
   final ProductData addon;
   final bool isLast;
@@ -42,10 +41,7 @@ class SelectableAddonItem extends StatelessWidget {
                   children: [
                     Text(
                       '${addon.translation?.title}',
-                      style: AppStyle.interSemi(
-                        size: 14,
-                        letterSpacing: -0.3,
-                      ),
+                      style: AppStyle.interSemi(size: 14, letterSpacing: -0.3),
                     ),
                     4.verticalSpace,
                     Text(

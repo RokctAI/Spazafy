@@ -11,7 +11,6 @@ import 'package:rokctapp/presentation/components/buttons/manager/custom_button.d
 import 'package:rokctapp/presentation/components/tab_bars/manager/custom_tab_bar.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class FilterScreen extends StatefulWidget {
   final bool isTabBar;
   final ValueChanged<List<DateTime?>> onChangeDay;

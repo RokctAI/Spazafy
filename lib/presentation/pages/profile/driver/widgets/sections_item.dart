@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class SectionsItem extends StatelessWidget {
   final String title;
   final IconData icon;
@@ -35,7 +34,10 @@ class SectionsItem extends StatelessWidget {
               16.horizontalSpace,
               Text(
                 title,
-                style: AppStyle.interRegular(size: 16.sp, color: AppStyle.black),
+                style: AppStyle.interRegular(
+                  size: 16.sp,
+                  color: AppStyle.black,
+                ),
               ),
               const Spacer(),
               const Icon(

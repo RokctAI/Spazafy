@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 // ignore: must_be_immutable
 class TitleAndIcon extends StatelessWidget {
   final String? title;

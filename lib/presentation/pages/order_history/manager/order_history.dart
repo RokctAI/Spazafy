@@ -11,7 +11,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'canceled_orders_body.dart';
 import 'delivered_order_body.dart';
 
-
 @RoutePage()
 class ManagerOrderHistoryPage extends ConsumerStatefulWidget {
   const ManagerOrderHistoryPage({super.key});
@@ -80,10 +79,7 @@ class _ManagerOrderHistoryPageState
                 ),
                 Text(
                   '${AppHelpers.getTranslation(TrKeys.thereAre)} ${state.totalCount} ${AppHelpers.getTranslation(TrKeys.orders)}',
-                  style: AppStyle.interRegular(
-                    size: 12,
-                    letterSpacing: -0.3,
-                  ),
+                  style: AppStyle.interRegular(size: 12, letterSpacing: -0.3),
                 ),
               ],
             ),

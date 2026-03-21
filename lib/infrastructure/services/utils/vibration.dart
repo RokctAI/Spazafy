@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 
-
 enum FeedbackType {
   success,
   error,

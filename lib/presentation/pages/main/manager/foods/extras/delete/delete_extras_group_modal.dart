@@ -9,7 +9,6 @@ import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class DeleteExtrasGroupModal extends StatelessWidget {
   final Group group;
 

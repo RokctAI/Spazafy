@@ -9,7 +9,6 @@ import 'details/extras_group_details_modal.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class ExtrasBody extends StatelessWidget {
   final RefreshController refreshController;
 

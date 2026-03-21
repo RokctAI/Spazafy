@@ -9,7 +9,6 @@ import 'widgets/table_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 
-
 @RoutePage()
 class SelectTablePage extends ConsumerStatefulWidget {
   final int? sectionId;

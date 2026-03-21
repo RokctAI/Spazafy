@@ -4,16 +4,19 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'create_new_group_item_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class CreateNewGroupItemNotifier
     extends StateNotifier<CreateNewGroupItemState> {
   final ProductsInterface _productsRepository;
   String _title = '';
 
   CreateNewGroupItemNotifier(this._productsRepository)
-      : super(const CreateNewGroupItemState());
+    : super(const CreateNewGroupItemState());
 
-  Future<void> createExtrasItem(BuildContext context,{VoidCallback? success, int? groupId}) async {
+  Future<void> createExtrasItem(
+    BuildContext context, {
+    VoidCallback? success,
+    int? groupId,
+  }) async {
     state = state.copyWith(isLoading: true);
     final response = await _productsRepository.createExtrasItem(
       title: _title,
@@ -24,13 +27,13 @@ class CreateNewGroupItemNotifier
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> create extras item fail $fail');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-            context,
-            text: fail,
-            type: SnackBarType.error
+          context,
+          text: fail,
+          type: SnackBarType.error,
         );
       },
     );
@@ -40,4 +43,3 @@ class CreateNewGroupItemNotifier
     _title = value.trim();
   }
 }
-

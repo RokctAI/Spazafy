@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class SettingsRepository implements SettingsInterface {
   @override
   Future<ApiResult<GalleryUploadResponse>> uploadImage(
@@ -108,7 +107,9 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<CurrenciesResponse>> getCurrencies() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.system.system.get_currencies');
+      final response = await client.get(
+        '/api/v1/method/paas.api.system.system.get_currencies',
+      );
       return ApiResult.success(
         data: CurrenciesResponse.fromJson(response.data),
       );
@@ -125,7 +126,9 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<SettingsResponse>> getGlobalSettings() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.system.system.get_global_settings');
+      final response = await client.get(
+        '/api/v1/method/paas.api.system.system.get_global_settings',
+      );
       return ApiResult.success(data: SettingsResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get settings failure: $e');
@@ -161,7 +164,9 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<LanguagesResponse>> getLanguages() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.language.language.get_languages');
+      final response = await client.get(
+        '/api/v1/method/paas.api.language.language.get_languages',
+      );
       final languagesResponse = LanguagesResponse.fromJson(response.data);
       if (LocalStorage.getLanguage() != null &&
           !(languagesResponse.data
@@ -212,9 +217,3 @@ class SettingsRepository implements SettingsInterface {
     }
   }
 }
-
-
-
-
-
-

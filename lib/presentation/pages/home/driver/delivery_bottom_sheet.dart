@@ -10,7 +10,6 @@ import 'widgets/approve_dialog.dart';
 import 'widgets/foods_page.dart';
 import 'widgets/rate_customer.dart';
 
-
 class DeliverBottomSheetScreen extends StatefulWidget {
   final OrderDetailData order;
 
@@ -184,7 +183,9 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                         text: AppHelpers.getTranslation(
                                           TrKeys.areYouSure,
                                         ),
-                                        style: AppStyle.interNormal(size: 16.sp),
+                                        style: AppStyle.interNormal(
+                                          size: 16.sp,
+                                        ),
                                       ),
                                     ),
                                     Form(

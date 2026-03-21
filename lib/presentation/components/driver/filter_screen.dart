@@ -13,7 +13,6 @@ import 'custom_date_picker.dart';
 import 'tab_bars/custom_tab_bar.dart';
 import 'title_icon.dart';
 
-
 class FilterScreen extends StatefulWidget {
   final bool isTabBar;
   final bool parcel;

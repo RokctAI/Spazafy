@@ -57,7 +57,11 @@ class ParcelRepository implements ParcelRepositoryFacade {
       final responseData = ParcelTypeResponse.fromJson(response.data);
 
       // Persistence: Cache types
-      await appDatabase.putItem('settings', 'parcel_types', responseData.toJson());
+      await appDatabase.putItem(
+        'settings',
+        'parcel_types',
+        responseData.toJson(),
+      );
 
       return ApiResult.success(data: responseData);
     } catch (e) {
@@ -67,7 +71,9 @@ class ParcelRepository implements ParcelRepositoryFacade {
       try {
         final localData = await appDatabase.getItem('settings', 'parcel_types');
         if (localData != null) {
-          return ApiResult.success(data: ParcelTypeResponse.fromJson(localData));
+          return ApiResult.success(
+            data: ParcelTypeResponse.fromJson(localData),
+          );
         }
       } catch (localError) {
         debugPrint('==> local parcel types fallback failure: $localError');
@@ -232,7 +238,11 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
       // Persistence: Cache active parcels (only page 1 for simplicity)
       if (page == 1) {
-        await appDatabase.putItem('settings', 'active_parcels', responseData.toJson());
+        await appDatabase.putItem(
+          'settings',
+          'active_parcels',
+          responseData.toJson(),
+        );
       }
 
       return ApiResult.success(data: responseData);
@@ -242,7 +252,10 @@ class ParcelRepository implements ParcelRepositoryFacade {
       // Fallback (page 1 only)
       if (page == 1) {
         try {
-          final localData = await appDatabase.getItem('settings', 'active_parcels');
+          final localData = await appDatabase.getItem(
+            'settings',
+            'active_parcels',
+          );
           if (localData != null) {
             return ApiResult.success(
               data: ParcelPaginateResponse.fromJson(localData),
@@ -286,7 +299,11 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
       // Persistence: Cache history parcels
       if (page == 1) {
-        await appDatabase.putItem('settings', 'history_parcels', responseData.toJson());
+        await appDatabase.putItem(
+          'settings',
+          'history_parcels',
+          responseData.toJson(),
+        );
       }
 
       return ApiResult.success(data: responseData);
@@ -296,7 +313,10 @@ class ParcelRepository implements ParcelRepositoryFacade {
       // Fallback
       if (page == 1) {
         try {
-          final localData = await appDatabase.getItem('settings', 'history_parcels');
+          final localData = await appDatabase.getItem(
+            'settings',
+            'history_parcels',
+          );
           if (localData != null) {
             return ApiResult.success(
               data: ParcelPaginateResponse.fromJson(localData),

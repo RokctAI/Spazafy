@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'badge_item.dart';
 import 'shop_avarat.dart';
 
-
 class MarketItem extends StatelessWidget {
   final ShopData shop;
   final bool isSimpleShop;
