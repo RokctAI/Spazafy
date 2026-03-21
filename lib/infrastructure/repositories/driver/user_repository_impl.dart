@@ -65,7 +65,9 @@ class UserRepositoryImpl implements UserRepository {
   Future<ApiResult<ProfileResponse>> getProfileDetails() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get('/api/v1/method/paas.api.user.user.get_profile');
+      final response = await client.get(
+        '/api/v1/method/paas.api.user.user.get_profile',
+      );
 
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
@@ -335,7 +337,9 @@ class UserRepositoryImpl implements UserRepository {
   Future<ApiResult> setOnline() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/method/paas.api.driver.driver.set_online_status');
+      await client.post(
+        '/api/v1/method/paas.api.driver.driver.set_online_status',
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update online token failure: $e');
@@ -350,7 +354,9 @@ class UserRepositoryImpl implements UserRepository {
   Future<ApiResult<RequestModelResponse>> getRequestModel() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final res = await client.get('/api/v1/method/paas.api.driver.driver.get_car_requests');
+      final res = await client.get(
+        '/api/v1/method/paas.api.driver.driver.get_car_requests',
+      );
       return ApiResult.success(data: RequestModelResponse.fromJson(res.data));
     } catch (e) {
       debugPrint('==> get request model failure: $e');
@@ -386,7 +392,7 @@ class UserRepositoryImpl implements UserRepository {
     if (!connected) {
       return const ApiResult.failure(
         error: "No context", // Silent failure, no snackbar needed for telemetry
-        statusCode: 501, 
+        statusCode: 501,
       );
     }
     try {
@@ -477,4 +483,3 @@ class UserRepositoryImpl implements UserRepository {
     }
   }
 }
-

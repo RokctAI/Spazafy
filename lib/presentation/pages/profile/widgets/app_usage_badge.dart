@@ -7,8 +7,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/utils/app_usage_service.dart';
 // lib/presentation/pages/profile/widgets/app_usage_badge.dart
 
-
-
 class AppUsageBadge extends StatefulWidget {
   const AppUsageBadge({super.key});
 

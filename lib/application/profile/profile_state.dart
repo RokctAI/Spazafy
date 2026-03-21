@@ -3,8 +3,6 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 part 'profile_state.freezed.dart';
 
-
-
 @freezed
 class ProfileState with _$ProfileState {
   const factory ProfileState({

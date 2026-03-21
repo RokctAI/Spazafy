@@ -6,7 +6,6 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'categories_state.dart';
 
-
 class CategoriesNotifier extends StateNotifier<CategoriesState> {
   CategoriesNotifier() : super(const CategoriesState());
 

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'animation_button_effect.dart';
 
-
 class SocialButton extends StatelessWidget {
   final IconData iconData;
   final Function() onPressed;

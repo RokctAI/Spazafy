@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/services/utils/driver/app_connectivity.d
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
 import 'order_state.dart';
 
-
 class OrderNotifier extends StateNotifier<OrderState> {
   final OrdersRepositoryFacade _orderRepository;
 
@@ -395,4 +394,3 @@ class OrderNotifier extends StateNotifier<OrderState> {
   //   }
   // }
 }
-

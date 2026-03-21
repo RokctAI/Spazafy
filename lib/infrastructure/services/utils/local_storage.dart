@@ -215,7 +215,9 @@ abstract class LocalStorage {
       _preferences?.remove(StorageKeys.keyWalletData);
 
   static Future<void> setWallet(Wallet? wallet) async {
-    final String walletString = wallet != null ? jsonEncode(wallet.toJson()) : '';
+    final String walletString = wallet != null
+        ? jsonEncode(wallet.toJson())
+        : '';
     await _preferences?.setString(StorageKeys.keyWallet, walletString);
   }
 

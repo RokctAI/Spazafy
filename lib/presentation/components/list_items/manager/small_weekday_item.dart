@@ -4,7 +4,6 @@ import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class SmallWeekdayItem extends StatelessWidget {
   final bool isSelected;
   final ShopWorkingDays day;
@@ -33,10 +32,7 @@ class SmallWeekdayItem extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         '${toBeginningOfSentenceCase(day.day?.substring(0, 2))}',
-        style: AppStyle.interNormal(
-          size: fontSize,
-          color: AppStyle.blackColor,
-        ),
+        style: AppStyle.interNormal(size: fontSize, color: AppStyle.blackColor),
       ),
     );
   }

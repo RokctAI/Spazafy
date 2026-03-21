@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'saved_cards_state.dart';
 
-
 class SavedCardsNotifier extends StateNotifier<SavedCardsState> {
   SavedCardsNotifier() : super(const SavedCardsState()) {
     loadSavedCards();

@@ -20,7 +20,6 @@ import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
 import 'package:rokctapp/application/main/main_provider.dart';
 //import 'package:rokctapp/application/home/home_provider.dart';
 
-
 @RoutePage()
 class LikePage extends ConsumerStatefulWidget {
   final bool isBackButton;

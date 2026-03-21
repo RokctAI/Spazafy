@@ -6,7 +6,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 class CustomTags extends StatelessWidget {
   final bool isPopular;
   final BonusModel? bonus;

@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'parcel_item.dart';
 
-
 @RoutePage()
 class DriverParcelsPage extends ConsumerStatefulWidget {
   const DriverParcelsPage({super.key});

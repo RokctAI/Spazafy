@@ -6,7 +6,6 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class AddonItem extends StatelessWidget {
   final ProductData addon;
   final VoidCallback onTap;

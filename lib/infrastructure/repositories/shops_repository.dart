@@ -108,12 +108,14 @@ class ShopsRepository implements ShopsRepositoryFacade {
         );
         if (localShops.isNotEmpty) {
           final shops = localShops.map((e) => ShopData.fromJson(e)).toList();
-          
+
           // Apply local 'isOpen' filter if requested
           final filtered = (isOpen ?? false)
-              ? shops.where((s) => s.checkWorkingDay()["isOpen"] == true).toList()
+              ? shops
+                    .where((s) => s.checkWorkingDay()["isOpen"] == true)
+                    .toList()
               : shops;
-              
+
           return ApiResult.success(data: ShopsPaginateResponse(data: filtered));
         }
       } catch (localError) {
@@ -540,10 +542,3 @@ class ShopsRepository implements ShopsRepositoryFacade {
     }
   }
 }
-
-
-
-
-
-
-

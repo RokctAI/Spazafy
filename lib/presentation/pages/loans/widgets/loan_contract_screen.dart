@@ -6,7 +6,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 class LoanContractScreen extends ConsumerStatefulWidget {
   final dynamic loanApplication;
 

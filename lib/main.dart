@@ -16,7 +16,6 @@ import 'package:dio/dio.dart';
 import 'package:rokctapp/presentation/phoenix_widget.dart';
 import 'package:rokctapp/app_constants.dart' as global_constants;
 
-
 const fetchBackground = "fetchBackground";
 
 @pragma('vm:entry-point')
@@ -29,23 +28,25 @@ void callbackDispatcher() {
           // ignore: deprecated_member_use
           desiredAccuracy: LocationAccuracy.high,
         );
-        final Dio client = Dio(
-          BaseOptions(
-            headers: {
-              'Accept':
-                  'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
-              'Content-type': 'application/json',
-              "Authorization": "Bearer ${LocalStorage.getToken()}",
-            },
-          ),
-        )..interceptors.add(
-            LogInterceptor(
-              responseHeader: false,
-              requestHeader: true,
-              responseBody: true,
-              requestBody: true,
-            ),
-          );
+        final Dio client =
+            Dio(
+                BaseOptions(
+                  headers: {
+                    'Accept':
+                        'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
+                    'Content-type': 'application/json',
+                    "Authorization": "Bearer ${LocalStorage.getToken()}",
+                  },
+                ),
+              )
+              ..interceptors.add(
+                LogInterceptor(
+                  responseHeader: false,
+                  requestHeader: true,
+                  responseBody: true,
+                  requestBody: true,
+                ),
+              );
         await client.post(
           '${global_constants.AppConstants.baseUrl}/api/v1/method/paas.api.driver.driver.update_location',
           data: {
@@ -104,11 +105,7 @@ void main() async {
 
   runApp(
     ProviderScope(
-      child: Phoenix(
-        child: AppInitializerWidget(
-          child: AppWidget(),
-        ),
-      ),
+      child: Phoenix(child: AppInitializerWidget(child: AppWidget())),
     ),
   );
 }

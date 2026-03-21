@@ -5,7 +5,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class MainGroupItem extends StatelessWidget {
   final Group group;
   final Function() onTap;

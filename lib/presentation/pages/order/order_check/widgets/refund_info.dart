@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/services/utils/time_service.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 class RefundInfoScreen extends StatelessWidget {
   final RefundModel? refundModel;
 

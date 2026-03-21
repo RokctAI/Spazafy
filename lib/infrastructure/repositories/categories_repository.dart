@@ -110,5 +110,3 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
     return getAllCategories(page: 1, shopId: shopId);
   }
 }
-
-

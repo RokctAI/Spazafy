@@ -16,7 +16,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'parcel_item.dart';
 import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
 
-
 @RoutePage()
 class ParcelListPage extends ConsumerStatefulWidget {
   const ParcelListPage({super.key});

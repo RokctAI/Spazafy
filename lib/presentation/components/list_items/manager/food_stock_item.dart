@@ -7,7 +7,6 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class FoodStockItem extends StatelessWidget {
   final Stock? product;
   final Function() onDelete;

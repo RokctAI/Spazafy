@@ -18,7 +18,6 @@ import 'package:rokctapp/presentation/pages/auth/confirmation/register_confirmat
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/auth/auth.dart';
 
-
 @RoutePage()
 class ResetPasswordPage extends ConsumerWidget {
   const ResetPasswordPage({super.key});

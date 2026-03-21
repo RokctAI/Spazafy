@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class UsersRepository implements UsersInterface {
   @override
   Future<ApiResult<ProfileResponse>> createUser({
@@ -126,7 +125,10 @@ class UsersRepository implements UsersInterface {
     debugPrint('====> update delivery zone ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/method/paas.api.delivery_zone.delivery_zone.update_shop_delivery_zones', data: data);
+      await client.post(
+        '/api/v1/method/paas.api.delivery_zone.delivery_zone.update_shop_delivery_zones',
+        data: data,
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update delivery zones failure: $e');
@@ -316,7 +318,7 @@ class UsersRepository implements UsersInterface {
       return ApiResult.success(
         data: SingleShopResponse.fromJson(response.data),
       );
-    } catch (e,s) {
+    } catch (e, s) {
       debugPrint('===> error fetching my shop $e, $s');
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -329,7 +331,9 @@ class UsersRepository implements UsersInterface {
   Future<ApiResult<dynamic>> setOnlineOffline() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/method/paas.api.seller_shop.seller_shop.set_shop_working_status');
+      await client.post(
+        '/api/v1/method/paas.api.seller_shop.seller_shop.set_shop_working_status',
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('===> error switch shop online $e');
@@ -344,7 +348,9 @@ class UsersRepository implements UsersInterface {
   Future<ApiResult<ProfileResponse>> getProfileDetails() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get('/api/v1/method/paas.api.user.user.get_profile');
+      final response = await client.get(
+        '/api/v1/method/paas.api.user.user.get_profile',
+      );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       return ApiResult.failure(
@@ -460,4 +466,3 @@ class UsersRepository implements UsersInterface {
     }
   }
 }
-

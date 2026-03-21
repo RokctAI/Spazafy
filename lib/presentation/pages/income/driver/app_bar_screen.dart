@@ -5,7 +5,6 @@ import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class AbbBarScreen extends StatelessWidget {
   const AbbBarScreen({super.key});
 
@@ -29,7 +28,10 @@ class AbbBarScreen extends StatelessWidget {
                 ),
                 Text(
                   AppHelpers.getTranslation(TrKeys.earningsRestaurant),
-                  style: AppStyle.interRegular(size: 12.sp, letterSpacing: -0.3),
+                  style: AppStyle.interRegular(
+                    size: 12.sp,
+                    letterSpacing: -0.3,
+                  ),
                 ),
               ],
             ),

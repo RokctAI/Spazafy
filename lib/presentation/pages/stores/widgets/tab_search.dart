@@ -9,8 +9,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'category_tab_bar.widget.dart';
 
-
-
 class TabSearch extends StatelessWidget {
   final TextEditingController? controller;
 

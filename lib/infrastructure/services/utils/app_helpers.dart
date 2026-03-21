@@ -19,7 +19,6 @@ import 'app_connectivity.dart';
 import 'enums.dart';
 import 'tr_keys.dart';
 
-
 abstract class AppHelpers {
   AppHelpers._();
 

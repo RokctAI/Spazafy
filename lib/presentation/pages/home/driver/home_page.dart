@@ -332,7 +332,8 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
                   left: state.isScrolling ? -64.w : 16.w,
                   child: ButtonsBouncingEffect(
                     child: GestureDetector(
-                      onTap: () => context.pushRoute(const DriverProfileRoute()),
+                      onTap: () =>
+                          context.pushRoute(const DriverProfileRoute()),
                       child: Hero(
                         tag: AppConstants.heroTagProfileAvatar,
                         child: Consumer(
@@ -365,8 +366,9 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
                               ),
                               margin: EdgeInsets.all(8.r),
                               child: IconButton(
-                                onPressed: () =>
-                                    context.pushRoute(const DriverOrdersRoute()),
+                                onPressed: () => context.pushRoute(
+                                  const DriverOrdersRoute(),
+                                ),
                                 icon: const Icon(
                                   FlutterRemix.history_fill,
                                   color: AppStyle.white,

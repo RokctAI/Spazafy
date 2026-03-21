@@ -3,7 +3,6 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'app_state.dart';
 
-
 class AppNotifier extends StateNotifier<AppState> {
   AppNotifier() : super(const AppState()) {
     fetchThemeAndLocale();

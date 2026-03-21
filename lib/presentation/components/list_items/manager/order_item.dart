@@ -6,7 +6,6 @@ import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncin
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class OrderItem extends StatelessWidget {
   final OrderData order;
   final bool isHistoryOrder;

@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'currency_state.dart';
 
-
 class CurrencyNotifier extends StateNotifier<CurrencyState> {
   final CurrenciesRepositoryFacade _currenciesRepository;
 

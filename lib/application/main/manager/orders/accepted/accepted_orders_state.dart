@@ -2,8 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'accepted_orders_state.freezed.dart';
 
-
-
 @freezed
 abstract class AcceptedOrdersState with _$AcceptedOrdersState {
   const factory AcceptedOrdersState({

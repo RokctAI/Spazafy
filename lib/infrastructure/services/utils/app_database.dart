@@ -10,9 +10,6 @@ import 'package:uuid/uuid.dart';
 import 'drift_tables.dart';
 part 'app_database.g.dart';
 
-
-
-
 @DriftDatabase(
   tables: [
     ProductsTable,
