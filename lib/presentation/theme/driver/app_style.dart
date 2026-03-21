@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 
-abstract class Style {
+abstract class AppStyle {
   AppStyle._();
 
   /// ###################### Colors ##########################
