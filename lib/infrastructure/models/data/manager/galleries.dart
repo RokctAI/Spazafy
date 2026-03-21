@@ -1,9 +1,9 @@
 class Galleries {
   Galleries({
-    int? id,
+    String? id,
     String? title,
     String? type,
-    int? loadableId,
+    String? loadableId,
     String? path,
     String? preview,
     String? basePath,
@@ -18,28 +18,28 @@ class Galleries {
   }
 
   Galleries.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _title = json['title'];
     _type = json['type'];
-    _loadableId = json['loadable_id'];
+    _loadableId = json['loadable_id']?.toString();
     _path = json['path'];
     _preview = json['preview'];
     _basePath = json['base_path'];
   }
 
-  int? _id;
+  String? _id;
   String? _title;
   String? _type;
-  int? _loadableId;
+  String? _loadableId;
   String? _path;
   String? _preview;
   String? _basePath;
 
   Galleries copyWith({
-    int? id,
+    String? id,
     String? title,
     String? type,
-    int? loadableId,
+    String? loadableId,
     String? path,
     String? preview,
     String? basePath,
@@ -54,13 +54,13 @@ class Galleries {
         basePath: basePath ?? _basePath,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get title => _title;
 
   String? get type => _type;
 
-  int? get loadableId => _loadableId;
+  String? get loadableId => _loadableId;
 
   String? get path => _path;
 

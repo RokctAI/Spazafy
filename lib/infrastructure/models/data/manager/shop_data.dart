@@ -86,7 +86,7 @@ class ShopData {
   ShopData.fromJson(dynamic json) {
     _id = json['id']?.toString();
     _orderPayment = json['order_payment'];
-    _uuid = json['uuid'];
+    _uuid = json['uuid']?.toString();
     _userId = json['user_id']?.toString();
     _price = json['price'];
     _pricePerKm = json['price_per_km'];
@@ -281,7 +281,6 @@ class ShopData {
 
   String? get orderPayment => _orderPayment;
 
-
   String? get userId => _userId;
 
   num? get price => _price;
@@ -411,11 +410,7 @@ class ShopData {
 }
 
 class DeliveryTime {
-  DeliveryTime({
-    String? to,
-    String? from,
-    String? type,
-  }) {
+  DeliveryTime({String? to, String? from, String? type}) {
     _to = to;
     _from = from;
     _type = type;
@@ -431,16 +426,8 @@ class DeliveryTime {
   String? _from;
   String? _type;
 
-  DeliveryTime copyWith({
-    String? to,
-    String? from,
-    String? type,
-  }) =>
-      DeliveryTime(
-        to: to ?? _to,
-        from: from ?? _from,
-        type: type ?? _type,
-      );
+  DeliveryTime copyWith({String? to, String? from, String? type}) =>
+      DeliveryTime(to: to ?? _to, from: from ?? _from, type: type ?? _type);
 
   String? get to => _to;
 
@@ -459,8 +446,8 @@ class DeliveryTime {
 
 class Discount {
   Discount({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? type,
     num? price,
     String? start,
@@ -479,8 +466,8 @@ class Discount {
   }
 
   Discount.fromJson(dynamic json) {
-    _id = json['id'];
-    _shopId = json['shop_id'];
+    _id = json['id']?.toString();
+    _shopId = json['shop_id']?.toString();
     _type = json['type'];
     _price = json['price'];
     _start = json['start'];
@@ -489,8 +476,8 @@ class Discount {
     _img = json['img'];
   }
 
-  int? _id;
-  int? _shopId;
+  String? _id;
+  String? _shopId;
   String? _type;
   num? _price;
   String? _start;
@@ -499,8 +486,8 @@ class Discount {
   String? _img;
 
   Discount copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? type,
     num? price,
     String? start,
@@ -519,9 +506,9 @@ class Discount {
         img: img ?? _img,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   String? get type => _type;
 
@@ -552,9 +539,9 @@ class Discount {
 class Bonus {
   Bonus({
     String? bonusableType,
-    int? bonusableId,
+    String? bonusableId,
     int? bonusQuantity,
-    int? bonusStockId,
+    String? bonusStockId,
     int? value,
     String? type,
     bool? status,
@@ -574,9 +561,9 @@ class Bonus {
 
   Bonus.fromJson(dynamic json) {
     _bonusableType = json['bonusable_type'];
-    _bonusableId = json['bonusable_id'];
+    _bonusableId = json['bonusable_id']?.toString();
     _bonusQuantity = json['bonus_quantity'];
-    _bonusStockId = json['bonus_stock_id'];
+    _bonusStockId = json['bonus_stock_id']?.toString();
     _value = json['value'];
     _type = json['type'];
     _status = json['status'];
@@ -587,9 +574,9 @@ class Bonus {
   }
 
   String? _bonusableType;
-  int? _bonusableId;
+  String? _bonusableId;
   int? _bonusQuantity;
-  int? _bonusStockId;
+  String? _bonusStockId;
   int? _value;
   String? _type;
   bool? _status;
@@ -598,9 +585,9 @@ class Bonus {
 
   Bonus copyWith({
     String? bonusableType,
-    int? bonusableId,
+    String? bonusableId,
     int? bonusQuantity,
-    int? bonusStockId,
+    String? bonusStockId,
     int? value,
     String? type,
     bool? status,
@@ -621,11 +608,11 @@ class Bonus {
 
   String? get bonusableType => _bonusableType;
 
-  int? get bonusableId => _bonusableId;
+  String? get bonusableId => _bonusableId;
 
   int? get bonusQuantity => _bonusQuantity;
 
-  int? get bonusStockId => _bonusStockId;
+  String? get bonusStockId => _bonusStockId;
 
   int? get value => _value;
 
@@ -656,8 +643,8 @@ class Bonus {
 
 class BonusStock {
   BonusStock({
-    int? id,
-    int? countableId,
+    String? id,
+    String? countableId,
     num? price,
     int? quantity,
     num? tax,
@@ -674,8 +661,8 @@ class BonusStock {
   }
 
   BonusStock.fromJson(dynamic json) {
-    _id = json['id'];
-    _countableId = json['countable_id'];
+    _id = json['id']?.toString();
+    _countableId = json['countable_id']?.toString();
     _price = json['price'];
     _quantity = json['quantity'];
     _tax = json['tax'];
@@ -684,8 +671,8 @@ class BonusStock {
         json['product'] != null ? ProductData.fromJson(json['product']) : null;
   }
 
-  int? _id;
-  int? _countableId;
+  String? _id;
+  String? _countableId;
   num? _price;
   int? _quantity;
   num? _tax;
@@ -693,8 +680,8 @@ class BonusStock {
   ProductData? _product;
 
   BonusStock copyWith({
-    int? id,
-    int? countableId,
+    String? id,
+    String? countableId,
     num? price,
     int? quantity,
     num? tax,
@@ -711,9 +698,9 @@ class BonusStock {
         product: product ?? _product,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get countableId => _countableId;
+  String? get countableId => _countableId;
 
   num? get price => _price;
 
@@ -742,8 +729,8 @@ class BonusStock {
 
 class ShopPayments {
   ShopPayments({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     int? status,
     dynamic clientId,
     dynamic secretId,
@@ -758,25 +745,25 @@ class ShopPayments {
   }
 
   ShopPayments.fromJson(dynamic json) {
-    _id = json['id'];
-    _shopId = json['shop_id'];
+    _id = json['id']?.toString();
+    _shopId = json['shop_id']?.toString();
     _status = json['status'];
-    _clientId = json['client_id'];
-    _secretId = json['secret_id'];
+    _clientId = json['client_id']?.toString();
+    _secretId = json['secret_id']?.toString();
     _payment =
         json['payment'] != null ? PaymentData.fromJson(json['payment']) : null;
   }
 
-  int? _id;
-  int? _shopId;
+  String? _id;
+  String? _shopId;
   int? _status;
   dynamic _clientId;
   dynamic _secretId;
   PaymentData? _payment;
 
   ShopPayments copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     int? status,
     dynamic clientId,
     dynamic secretId,
@@ -791,9 +778,9 @@ class ShopPayments {
         payment: payment ?? _payment,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   int? get status => _status;
 

@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 
 class UiExtra {
   final int index;

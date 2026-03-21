@@ -1,10 +1,10 @@
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class WalletHistoryData {
-  final int? id;
+  final String? id;
   final String? uuid;
   final String? walletUuid;
-  final int? transactionId;
+  final String? transactionId;
   final String? type;
   final double? price;
   final String? note;
@@ -33,10 +33,10 @@ class WalletHistoryData {
 
   factory WalletHistoryData.fromJson(Map<String, dynamic> json) {
     return WalletHistoryData(
-      id: json['id'],
-      uuid: json['uuid'],
-      walletUuid: json['wallet_uuid'],
-      transactionId: json['transaction_id'],
+      id: json['id']?.toString(),
+      uuid: json['uuid']?.toString(),
+      walletUuid: json['wallet_uuid']?.toString(),
+      transactionId: json['transaction_id']?.toString(),
       type: json['type'],
       price: json['price']?.toDouble(),
       note: json['note'],

@@ -2,7 +2,7 @@ import 'translation.dart';
 
 class BlogData {
   BlogData({
-    int? id,
+    String? id,
     String? uuid,
     String? userId,
     String? type,
@@ -26,9 +26,9 @@ class BlogData {
   }
 
   BlogData.fromJson(dynamic json) {
-    _id = json['id'];
-    _uuid = json['uuid'];
-    _userId = json['user_id'];
+    _id = json['id']?.toString();
+    _uuid = json['uuid']?.toString();
+    _userId = json['user_id']?.toString();
     _type = json['type'];
     _publishedAt = json['published_at'];
     _active = json['active'];
@@ -40,7 +40,7 @@ class BlogData {
         : null;
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
   String? _userId;
   String? _type;
@@ -52,7 +52,7 @@ class BlogData {
   Translation? _translation;
 
   BlogData copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? userId,
     String? type,
@@ -62,20 +62,21 @@ class BlogData {
     String? createdAt,
     String? updatedAt,
     Translation? translation,
-  }) => BlogData(
-    id: id ?? _id,
-    uuid: uuid ?? _uuid,
-    userId: userId ?? _userId,
-    type: type ?? _type,
-    publishedAt: publishedAt ?? _publishedAt,
-    active: active ?? _active,
-    img: img ?? _img,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    translation: translation ?? _translation,
-  );
+  }) =>
+      BlogData(
+        id: id ?? _id,
+        uuid: uuid ?? _uuid,
+        userId: userId ?? _userId,
+        type: type ?? _type,
+        publishedAt: publishedAt ?? _publishedAt,
+        active: active ?? _active,
+        img: img ?? _img,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        translation: translation ?? _translation,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get uuid => _uuid;
 

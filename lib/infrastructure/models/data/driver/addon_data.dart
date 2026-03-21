@@ -3,9 +3,9 @@ import 'product_data.dart';
 
 class AddonData {
   AddonData({
-    int? id,
-    int? stockId,
-    int? addonId,
+    String? id,
+    String? stockId,
+    String? addonId,
     int? quantity,
     num? totalPrice,
     ProductData? product,
@@ -23,20 +23,19 @@ class AddonData {
   }
 
   AddonData.fromJson(dynamic json) {
-    _id = json['id'];
-    _stockId = json['stock_id'];
-    _addonId = json['addon_id'];
+    _id = json['id']?.toString();
+    _stockId = json['stock_id']?.toString();
+    _addonId = json['addon_id']?.toString();
     _quantity = json['quantity'];
     _totalPrice = json["total_price"];
     _stock = json['stock'] != null ? Stock.fromJson(json['stock']) : null;
-    _product = json['product'] != null
-        ? ProductData.fromJson(json['product'])
-        : null;
+    _product =
+        json['product'] != null ? ProductData.fromJson(json['product']) : null;
   }
 
-  int? _id;
-  int? _stockId;
-  int? _addonId;
+  String? _id;
+  String? _stockId;
+  String? _addonId;
   int? _quantity;
   bool? _active;
   num? _totalPrice;
@@ -44,30 +43,31 @@ class AddonData {
   Stock? _stock;
 
   AddonData copyWith({
-    int? id,
-    int? stockId,
-    int? addonId,
+    String? id,
+    String? stockId,
+    String? addonId,
     int? quantity,
     bool? active,
     num? totalPrice,
     Stock? stock,
     ProductData? product,
-  }) => AddonData(
-    id: id ?? _id,
-    stockId: stockId ?? _stockId,
-    addonId: addonId ?? _addonId,
-    quantity: quantity ?? _quantity,
-    totalPrice: totalPrice ?? _totalPrice,
-    stock: stock ?? _stock,
-    active: active ?? _active,
-    product: product ?? _product,
-  );
+  }) =>
+      AddonData(
+        id: id ?? _id,
+        stockId: stockId ?? _stockId,
+        addonId: addonId ?? _addonId,
+        quantity: quantity ?? _quantity,
+        totalPrice: totalPrice ?? _totalPrice,
+        stock: stock ?? _stock,
+        active: active ?? _active,
+        product: product ?? _product,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get stockId => _stockId;
+  String? get stockId => _stockId;
 
-  int? get addonId => _addonId;
+  String? get addonId => _addonId;
 
   int? get quantity => _quantity;
 

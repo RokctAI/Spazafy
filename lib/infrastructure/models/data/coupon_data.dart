@@ -1,6 +1,6 @@
 class CouponData {
   CouponData({
-    int? id,
+    String? id,
     String? name,
     String? type,
     int? qty,
@@ -20,7 +20,7 @@ class CouponData {
   }
 
   CouponData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _name = json['name'];
     _type = json['type'];
     _qty = json['qty'];
@@ -30,7 +30,7 @@ class CouponData {
     _updatedAt = json['updated_at'];
   }
 
-  int? _id;
+  String? _id;
   String? _name;
   String? _type;
   int? _qty;
@@ -40,7 +40,7 @@ class CouponData {
   String? _updatedAt;
 
   CouponData copyWith({
-    int? id,
+    String? id,
     String? name,
     String? type,
     int? qty,
@@ -48,18 +48,19 @@ class CouponData {
     String? expiredAt,
     String? createdAt,
     String? updatedAt,
-  }) => CouponData(
-    id: id ?? _id,
-    name: name ?? _name,
-    type: type ?? _type,
-    qty: qty ?? _qty,
-    price: price ?? _price,
-    expiredAt: expiredAt ?? _expiredAt,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-  );
+  }) =>
+      CouponData(
+        id: id ?? _id,
+        name: name ?? _name,
+        type: type ?? _type,
+        qty: qty ?? _qty,
+        price: price ?? _price,
+        expiredAt: expiredAt ?? _expiredAt,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get name => _name;
 

@@ -1,6 +1,6 @@
 class Translation {
   Translation({
-    int? id,
+    String? id,
     String? locale,
     String? title,
     String? description,
@@ -31,7 +31,7 @@ class Translation {
     // print("Button text extracted in Translation.fromJson: ${json?['button_text']}");
   }
 
-  int? _id;
+  String? _id;
   String? _locale;
   String? _title;
   String? _description;
@@ -40,24 +40,25 @@ class Translation {
   String? _buttonText;
 
   Translation copyWith({
-    int? id,
+    String? id,
     String? locale,
     String? title,
     String? description,
     String? shortDesc,
     String? address,
     String? buttonText,
-  }) => Translation(
-    id: id ?? _id,
-    locale: locale ?? _locale,
-    title: title ?? _title,
-    description: description ?? _description,
-    shortDesc: shortDesc ?? _shortDesc,
-    address: address ?? _address,
-    buttonText: buttonText ?? _buttonText,
-  );
+  }) =>
+      Translation(
+        id: id ?? _id,
+        locale: locale ?? _locale,
+        title: title ?? _title,
+        description: description ?? _description,
+        shortDesc: shortDesc ?? _shortDesc,
+        address: address ?? _address,
+        buttonText: buttonText ?? _buttonText,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
   String? get locale => _locale;
   String? get title => _title;
   String? get description => _description;

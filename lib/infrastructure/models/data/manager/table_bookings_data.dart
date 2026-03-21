@@ -1,9 +1,8 @@
-
 class TableBookingData {
-  int? id;
-  int? bookingId;
-  int? userId;
-  int? tableId;
+  String? id;
+  String? bookingId;
+  String? userId;
+  String? tableId;
   DateTime? startDate;
   DateTime? endDate;
   String? status;
@@ -25,10 +24,10 @@ class TableBookingData {
   });
 
   TableBookingData copyWith({
-    int? id,
-    int? bookingId,
-    int? userId,
-    int? tableId,
+    String? id,
+    String? bookingId,
+    String? userId,
+    String? tableId,
     DateTime? startDate,
     DateTime? endDate,
     String? status,
@@ -48,57 +47,54 @@ class TableBookingData {
         user: user ?? this.user,
         table: table ?? this.table,
       );
-  factory TableBookingData.fromJson(Map<String, dynamic> json) => TableBookingData(
-    id: json["id"],
-    bookingId: json["booking_id"],
-    userId: json["user_id"],
-    tableId: json["table_id"],
-    startDate: DateTime.tryParse(json["start_date"] ?? '')?? DateTime.now(),
-    endDate: DateTime.tryParse(json["end_date"] ?? '') ?? DateTime.now(),
-    status: json["status"],
-    booking: json["booking"] == null ? null : Booking.fromJson(json["booking"]),
-    user: json["user"] == null ? null : User.fromJson(json["user"]),
-    table: json["table"] == null ? null : Table.fromJson(json["table"]),
-  );
+  factory TableBookingData.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      TableBookingData(
+        id: json["id"]?.toString(),
+        bookingId: json["booking_id"]?.toString(),
+        userId: json["user_id"]?.toString(),
+        tableId: json["table_id"]?.toString(),
+        startDate:
+            DateTime.tryParse(json["start_date"] ?? '') ?? DateTime.now(),
+        endDate: DateTime.tryParse(json["end_date"] ?? '') ?? DateTime.now(),
+        status: json["status"],
+        booking:
+            json["booking"] == null ? null : Booking.fromJson(json["booking"]),
+        user: json["user"] == null ? null : User.fromJson(json["user"]),
+        table: json["table"] == null ? null : Table.fromJson(json["table"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "booking_id": bookingId,
-    "user_id": userId,
-    "table_id": tableId,
-    "start_date": startDate?.toIso8601String(),
-    "end_date": endDate?.toIso8601String(),
-    "status": status,
-    "booking": booking?.toJson(),
-    "user": user?.toJson(),
-    "table": table?.toJson(),
-  };
+        "id": id,
+        "booking_id": bookingId,
+        "user_id": userId,
+        "table_id": tableId,
+        "start_date": startDate?.toIso8601String(),
+        "end_date": endDate?.toIso8601String(),
+        "status": status,
+        "booking": booking?.toJson(),
+        "user": user?.toJson(),
+        "table": table?.toJson(),
+      };
 }
 
 class Booking {
-  int? id;
+  String? id;
   int? maxTime;
 
-  Booking({
-    required this.id,
-    required this.maxTime,
-  });
+  Booking({required this.id, required this.maxTime});
 
-  factory Booking.fromJson(Map<String, dynamic> json) => Booking(
-    id: json["id"],
-    maxTime: json["max_time"],
-  );
+  factory Booking.fromJson(Map<String, dynamic> json) =>
+      Booking(id: json["id"]?.toString(), maxTime: json["max_time"]);
 
-  Map<String, dynamic> toJson() => {
-    "id": id,
-    "max_time": maxTime,
-  };
+  Map<String, dynamic> toJson() => {"id": id, "max_time": maxTime};
 }
 
 class Table {
-  int id;
+  String? id;
   String name;
-  int shopSectionId;
+  String? shopSectionId;
   int chairCount;
   bool active;
 
@@ -111,24 +107,24 @@ class Table {
   });
 
   factory Table.fromJson(Map<String, dynamic> json) => Table(
-    id: json["id"],
-    name: json["name"],
-    shopSectionId: json["shop_section_id"],
-    chairCount: json["chair_count"],
-    active: json["active"],
-  );
+        id: json["id"]?.toString(),
+        name: json["name"],
+        shopSectionId: json["shop_section_id"]?.toString(),
+        chairCount: json["chair_count"],
+        active: json["active"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "name": name,
-    "shop_section_id": shopSectionId,
-    "chair_count": chairCount,
-    "active": active,
-  };
+        "id": id,
+        "name": name,
+        "shop_section_id": shopSectionId,
+        "chair_count": chairCount,
+        "active": active,
+      };
 }
 
 class User {
-  int id;
+  String? id;
   String uuid;
   String firstname;
   String lastname;
@@ -149,7 +145,7 @@ class User {
   });
 
   User copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? firstname,
     String? lastname,
@@ -170,26 +166,26 @@ class User {
       );
 
   factory User.fromJson(Map json) => User(
-    id: json["id"],
-    uuid: json["uuid"],
-    firstname: json["firstname"],
-    lastname: json["lastname"],
-    emptyP: json["empty_p"],
-    active: json["active"],
-    role: json["role"],
-    img: json["img"],
-  );
+        id: json["id"]?.toString(),
+        uuid: json["uuid"]?.toString(),
+        firstname: json["firstname"],
+        lastname: json["lastname"],
+        emptyP: json["empty_p"],
+        active: json["active"],
+        role: json["role"],
+        img: json["img"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "uuid": uuid,
-    "firstname": firstname,
-    "lastname": lastname,
-    "empty_p": emptyP,
-    "active": active,
-    "role": role,
-    "img": img,
-  };
+        "id": id,
+        "uuid": uuid,
+        "firstname": firstname,
+        "lastname": lastname,
+        "empty_p": emptyP,
+        "active": active,
+        "role": role,
+        "img": img,
+      };
 }
 
 class Links {
@@ -198,26 +194,21 @@ class Links {
   dynamic prev;
   dynamic next;
 
-  Links({
-    required this.first,
-    required this.last,
-    this.prev,
-    this.next,
-  });
+  Links({required this.first, required this.last, this.prev, this.next});
 
   factory Links.fromJson(Map<String, dynamic> json) => Links(
-    first: json["first"],
-    last: json["last"],
-    prev: json["prev"],
-    next: json["next"],
-  );
+        first: json["first"],
+        last: json["last"],
+        prev: json["prev"],
+        next: json["next"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "first": first,
-    "last": last,
-    "prev": prev,
-    "next": next,
-  };
+        "first": first,
+        "last": last,
+        "prev": prev,
+        "next": next,
+      };
 }
 
 class Meta {
@@ -242,26 +233,26 @@ class Meta {
   });
 
   factory Meta.fromJson(Map<String, dynamic> json) => Meta(
-    currentPage: json["current_page"],
-    from: json["from"],
-    lastPage: json["last_page"],
-    links: List<Link>.from(json["links"].map((x) => Link.fromJson(x))),
-    path: json["path"],
-    perPage: json["per_page"],
-    to: json["to"],
-    total: json["total"],
-  );
+        currentPage: json["current_page"],
+        from: json["from"],
+        lastPage: json["last_page"],
+        links: List<Link>.from(json["links"].map((x) => Link.fromJson(x))),
+        path: json["path"],
+        perPage: json["per_page"],
+        to: json["to"],
+        total: json["total"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "current_page": currentPage,
-    "from": from,
-    "last_page": lastPage,
-    "links": List<dynamic>.from(links.map((x) => x.toJson())),
-    "path": path,
-    "per_page": perPage,
-    "to": to,
-    "total": total,
-  };
+        "current_page": currentPage,
+        "from": from,
+        "last_page": lastPage,
+        "links": List<dynamic>.from(links.map((x) => x.toJson())),
+        "path": path,
+        "per_page": perPage,
+        "to": to,
+        "total": total,
+      };
 }
 
 class Link {
@@ -269,21 +260,14 @@ class Link {
   String label;
   bool active;
 
-  Link({
-    this.url,
-    required this.label,
-    required this.active,
-  });
+  Link({this.url, required this.label, required this.active});
 
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-    url: json["url"],
-    label: json["label"],
-    active: json["active"],
-  );
+  factory Link.fromJson(Map<String, dynamic> json) =>
+      Link(url: json["url"], label: json["label"], active: json["active"]);
 
   Map<String, dynamic> toJson() => {
-    "url": url,
-    "label": label,
-    "active": active,
-  };
+        "url": url,
+        "label": label,
+        "active": active,
+      };
 }

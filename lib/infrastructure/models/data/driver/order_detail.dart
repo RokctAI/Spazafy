@@ -105,11 +105,10 @@ class OrderDetailData {
     current = json["current"] == null
         ? false
         : ((json["current"].runtimeType == int)
-              ? (json["current"] == 0 ? false : true)
-              : json["current"]);
-    location = json['location'] != null
-        ? Location.fromJson(json['location'])
-        : null;
+            ? (json["current"] == 0 ? false : true)
+            : json["current"]);
+    location =
+        json['location'] != null ? Location.fromJson(json['location']) : null;
     address = (json['address'] != null)
         ? AddressModel.fromJson(json['address'])
         : null;
@@ -122,9 +121,8 @@ class OrderDetailData {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     shop = json['shop'] != null ? Shop.fromJson(json['shop']) : null;
-    currency = json['currency'] != null
-        ? Currency.fromJson(json['currency'])
-        : null;
+    currency =
+        json['currency'] != null ? Currency.fromJson(json['currency']) : null;
     user = json['user'] != null ? User.fromJson(json['user']) : null;
     if (json['details'] != null) {
       details = <Details>[];
@@ -252,7 +250,7 @@ class Shop {
 
   Shop.fromJson(Map<String, dynamic> json) {
     id = json['id']?.toString();
-    uuid = json['uuid'];
+    uuid = json['uuid']?.toString();
     userId = json['user_id']?.toString();
     price = json['price'];
     pricePerKm = json['price_per_km'];
@@ -272,9 +270,8 @@ class Shop {
         : null;
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    location = json['location'] != null
-        ? Location.fromJson(json['location'])
-        : null;
+    location =
+        json['location'] != null ? Location.fromJson(json['location']) : null;
     productsCount = json['products_count'];
     translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
@@ -429,7 +426,7 @@ class User {
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id']?.toString();
-    uuid = json['uuid'];
+    uuid = json['uuid']?.toString();
     firstname = json['firstname'];
     lastname = json['lastname'];
     email = json['email'];
@@ -568,9 +565,8 @@ class Stock {
         extras?.add(Extras.fromJson(v));
       });
     }
-    product = json['product'] != null
-        ? Product.fromJson(json['product'])
-        : null;
+    product =
+        json['product'] != null ? Product.fromJson(json['product']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -696,7 +692,7 @@ class Product {
 
   Product.fromJson(Map<String, dynamic> json) {
     id = json['id']?.toString();
-    uuid = json['uuid'];
+    uuid = json['uuid']?.toString();
     shopId = json['shop_id']?.toString();
     categoryId = json['category_id']?.toString();
     brandId = json['brand_id']?.toString();
@@ -775,7 +771,7 @@ class Transaction {
     id = json['id']?.toString();
     payableId = json['payable_id']?.toString();
     price = json['price'];
-    paymentTrxId = json['payment_trx_id'];
+    paymentTrxId = json['payment_trx_id']?.toString();
     note = json['note'];
     status = json['status'];
     statusDescription = json['status_description'];
@@ -805,14 +801,14 @@ class Transaction {
 }
 
 class PaymentSystem {
-  int? id;
+  String? id;
   String? tag;
   bool? active;
 
   PaymentSystem({this.id, this.tag, this.active});
 
   PaymentSystem.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     tag = json['tag'];
     active = json['active'].runtimeType == int
         ? (json['active'] == 0 ? false : true)

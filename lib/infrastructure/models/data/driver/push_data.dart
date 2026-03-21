@@ -3,7 +3,7 @@ import 'dart:convert';
 class PushModel {
   final String? shopImage;
   final String? shopName;
-  final int? orderId;
+  final String? orderId;
   final String? startTime;
   final String? customerImge;
   final AddressModel? addressName;

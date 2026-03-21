@@ -13,7 +13,7 @@ class PayFastCredentials {
 
   factory PayFastCredentials.fromJson(Map<String, dynamic> json) {
     return PayFastCredentials(
-      // merchantId: json['merchant_id'] as String,
+      // merchantId: json['merchant_id']?.toString() as String,
       merchantKey: json['merchant_key'] as String,
       passphrase: json['passphrase'] as String,
       isSandbox: json['is_sandbox'] as bool? ?? true,

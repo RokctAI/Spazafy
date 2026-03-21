@@ -24,9 +24,9 @@ class Addons {
     this.active,
   });
 
-  int? id;
-  int? stockId;
-  int? addonId;
+  String? id;
+  String? stockId;
+  String? addonId;
   int? quantity;
   num? price;
   bool? active;
@@ -49,11 +49,11 @@ class Addons {
   }
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "stock_id": stockId,
-    "addon_id": addonId,
-    "product": product?.toJson(),
-  };
+        "id": id,
+        "stock_id": stockId,
+        "addon_id": addonId,
+        "product": product?.toJson(),
+      };
 }
 
 class Product {
@@ -80,11 +80,11 @@ class Product {
     this.reviews,
   });
 
-  int? id;
+  String? id;
   String? uuid;
-  int? shopId;
-  int? categoryId;
-  int? brandId;
+  String? shopId;
+  String? categoryId;
+  String? brandId;
   num? tax;
   String? barCode;
   String? status;
@@ -123,22 +123,22 @@ class Product {
   }
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "uuid": uuid,
-    "shop_id": shopId,
-    "category_id": categoryId,
-    "brand_id": brandId,
-    "tax": tax,
-    "bar_code": barCode,
-    "status": status,
-    "active": active,
-    "addon": addon,
-    "img": img,
-    "min_qty": minQty,
-    "max_qty": maxQty,
-    "created_at": createdAt?.toIso8601String(),
-    "updated_at": updatedAt?.toIso8601String(),
-    "rating_percent": ratingPercent,
-    "translation": translation?.toJson(),
-  };
+        "id": id,
+        "uuid": uuid,
+        "shop_id": shopId,
+        "category_id": categoryId,
+        "brand_id": brandId,
+        "tax": tax,
+        "bar_code": barCode,
+        "status": status,
+        "active": active,
+        "addon": addon,
+        "img": img,
+        "min_qty": minQty,
+        "max_qty": maxQty,
+        "created_at": createdAt?.toIso8601String(),
+        "updated_at": updatedAt?.toIso8601String(),
+        "rating_percent": ratingPercent,
+        "translation": translation?.toJson(),
+      };
 }

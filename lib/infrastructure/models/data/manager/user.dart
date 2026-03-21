@@ -1,6 +1,6 @@
 class UserModel {
   UserModel({
-    int? id,
+    String? id,
     String? uuid,
     String? firstname,
     String? lastname,
@@ -36,8 +36,8 @@ class UserModel {
   }
 
   UserModel.fromJson(dynamic json) {
-    _id = json['id']  ?? 0;
-    _uuid = json['uuid'];
+    _id = json['id']?.toString() ?? 0.toString();
+    _uuid = json['uuid']?.toString();
     _firstname = json['firstname'];
     _lastname = json['lastname'];
     _email = json['email'];
@@ -46,12 +46,14 @@ class UserModel {
     _gender = json['gender'];
     _emailVerifiedAt = json['email_verified_at'];
     _registeredAt = json['registered_at'];
-    _active = json['active'].runtimeType == int ? (json['active']!=0) : json['active'];
+    _active = json['active'].runtimeType == int
+        ? (json['active'] != 0)
+        : json['active'];
     _img = json['img'];
     _role = json['role'];
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
   String? _firstname;
   String? _lastname;
@@ -68,9 +70,8 @@ class UserModel {
   String? _password;
   String? _confirmPassword;
 
-
   UserModel copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? firstname,
     String? lastname,
@@ -102,11 +103,11 @@ class UserModel {
         active: active ?? _active,
         img: img ?? _img,
         role: role ?? _role,
-        confirmPassword:  conPassword ?? _confirmPassword,
-        password:  password ?? _password
+        confirmPassword: conPassword ?? _confirmPassword,
+        password: password ?? _password,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get uuid => _uuid;
 
@@ -144,7 +145,7 @@ class UserModel {
     map['uuid'] = _uuid;
     map['firstname'] = _firstname;
     map['lastname'] = _lastname;
-     map['referral'] = _referral;
+    map['referral'] = _referral;
     map['email'] = _email;
     map['phone'] = _phone;
     map['birthday'] = _birthday;
@@ -158,14 +159,14 @@ class UserModel {
   }
 
   Map<String, dynamic> toJsonForSignUp({bool typeFirebase = false}) => {
-    "firstname": _firstname,
-    if (_lastname?.isNotEmpty ?? false) "lastname": _lastname,
-    if (_phone?.isNotEmpty ?? false) "phone": _phone?.replaceAll('+', ""),
-    if (_email?.isNotEmpty ?? false) "email": _email,
-    if (_password?.isNotEmpty ?? false) "password": _password,
-    if (_confirmPassword?.isNotEmpty ?? false)
-      "password_conformation": _confirmPassword,
-    if (_referral?.isNotEmpty ?? false) 'referral': _referral,
-    if (typeFirebase) "type": "firebase",
-  };
+        "firstname": _firstname,
+        if (_lastname?.isNotEmpty ?? false) "lastname": _lastname,
+        if (_phone?.isNotEmpty ?? false) "phone": _phone?.replaceAll('+', ""),
+        if (_email?.isNotEmpty ?? false) "email": _email,
+        if (_password?.isNotEmpty ?? false) "password": _password,
+        if (_confirmPassword?.isNotEmpty ?? false)
+          "password_conformation": _confirmPassword,
+        if (_referral?.isNotEmpty ?? false) 'referral': _referral,
+        if (typeFirebase) "type": "firebase",
+      };
 }

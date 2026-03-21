@@ -1,10 +1,10 @@
 import 'shop_data.dart';
-import 'address_data.dart';
+import '../address_information.dart';
 import 'currency_data.dart';
 
 class UserData {
   UserData({
-    int? id,
+    String? id,
     String? uuid,
     String? firstname,
     String? lastname,
@@ -18,7 +18,7 @@ class UserData {
     num? rate,
     String? img,
     String? role,
-    List<AddressData>? addresses,
+    List<AddressInformation>? addresses,
     List<List<double>>? deliveryZone,
     ShopData? shop,
     Wallet? wallet,
@@ -50,8 +50,8 @@ class UserData {
   }
 
   UserData.fromJson(dynamic json) {
-    _id = json['id'];
-    _uuid = json['uuid'];
+    _id = json['id']?.toString();
+    _uuid = json['uuid']?.toString();
     _firstname = json['firstname'];
     _lastname = json['lastname'];
     _email = json['email'];
@@ -74,14 +74,14 @@ class UserData {
     if (json['addresses'] != null) {
       _addresses = [];
       json['addresses'].forEach((v) {
-        _addresses?.add(AddressData.fromJson(v));
+        _addresses?.add(AddressInformation.fromJson(v));
       });
     }
     _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
     _wallet = json['wallet'] != null ? Wallet.fromJson(json['wallet']) : null;
   }
 
-  int? _id;
+  String? _id;
   String? _uuid;
   String? _firstname;
   String? _lastname;
@@ -95,7 +95,7 @@ class UserData {
   num? _rate;
   String? _img;
   String? _role;
-  List<AddressData>? _addresses;
+  List<AddressInformation>? _addresses;
   List<List<double>>? _deliveryZone;
   ShopData? _shop;
   Wallet? _wallet;
@@ -104,7 +104,7 @@ class UserData {
   String? _referral;
 
   UserData copyWith({
-    int? id,
+    String? id,
     String? uuid,
     String? firstname,
     String? lastname,
@@ -119,37 +119,38 @@ class UserData {
     String? img,
     double? rate,
     String? role,
-    List<AddressData>? addresses,
+    List<AddressInformation>? addresses,
     List<List<double>>? deliveryZone,
     ShopData? shop,
     Wallet? wallet,
     String? password,
     String? conPassword,
-  }) => UserData(
-    id: id ?? _id,
-    uuid: uuid ?? _uuid,
-    firstname: firstname ?? _firstname,
-    lastname: lastname ?? _lastname,
-    email: email ?? _email,
-    phone: phone ?? _phone,
-    birthday: birthday ?? _birthday,
-    gender: gender ?? _gender,
-    emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
-    registeredAt: registeredAt ?? _registeredAt,
-    deliveryZone: deliveryZone ?? _deliveryZone,
-    active: active ?? _active,
-    img: img ?? _img,
-    rate: rate ?? _rate,
-    role: role ?? _role,
-    addresses: addresses ?? _addresses,
-    shop: shop ?? _shop,
-    wallet: wallet ?? _wallet,
-    confirmPassword: conPassword ?? _confirmPassword,
-    password: password ?? _password,
-    referral: referral ?? _referral,
-  );
+  }) =>
+      UserData(
+        id: id ?? _id,
+        uuid: uuid ?? _uuid,
+        firstname: firstname ?? _firstname,
+        lastname: lastname ?? _lastname,
+        email: email ?? _email,
+        phone: phone ?? _phone,
+        birthday: birthday ?? _birthday,
+        gender: gender ?? _gender,
+        emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
+        registeredAt: registeredAt ?? _registeredAt,
+        deliveryZone: deliveryZone ?? _deliveryZone,
+        active: active ?? _active,
+        img: img ?? _img,
+        rate: rate ?? _rate,
+        role: role ?? _role,
+        addresses: addresses ?? _addresses,
+        shop: shop ?? _shop,
+        wallet: wallet ?? _wallet,
+        confirmPassword: conPassword ?? _confirmPassword,
+        password: password ?? _password,
+        referral: referral ?? _referral,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   num? get rate => _rate;
 
@@ -179,7 +180,7 @@ class UserData {
 
   String? get role => _role;
 
-  List<AddressData>? get addresses => _addresses;
+  List<AddressInformation>? get addresses => _addresses;
 
   ShopData? get shop => _shop;
 
@@ -229,8 +230,8 @@ class UserData {
 class Wallet {
   Wallet({
     String? uuid,
-    int? userId,
-    int? currencyId,
+    String? userId,
+    String? currencyId,
     num? price,
     String? symbol,
     String? createdAt,
@@ -248,9 +249,9 @@ class Wallet {
   }
 
   Wallet.fromJson(dynamic json) {
-    _uuid = json['uuid'];
-    _userId = json['user_id'];
-    _currencyId = json['currency_id'];
+    _uuid = json['uuid']?.toString();
+    _userId = json['user_id']?.toString();
+    _currencyId = json['currency_id']?.toString();
     _price = json['price'];
     _symbol = json['symbol'];
     _createdAt = json['created_at'];
@@ -261,8 +262,8 @@ class Wallet {
   }
 
   String? _uuid;
-  int? _userId;
-  int? _currencyId;
+  String? _userId;
+  String? _currencyId;
   num? _price;
   String? _symbol;
   String? _createdAt;
@@ -271,29 +272,30 @@ class Wallet {
 
   Wallet copyWith({
     String? uuid,
-    int? userId,
-    int? currencyId,
+    String? userId,
+    String? currencyId,
     num? price,
     String? symbol,
     String? createdAt,
     String? updatedAt,
     CurrencyData? currency,
-  }) => Wallet(
-    uuid: uuid ?? _uuid,
-    userId: userId ?? _userId,
-    currencyId: currencyId ?? _currencyId,
-    price: price ?? _price,
-    symbol: symbol ?? _symbol,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    currency: currency ?? _currency,
-  );
+  }) =>
+      Wallet(
+        uuid: uuid ?? _uuid,
+        userId: userId ?? _userId,
+        currencyId: currencyId ?? _currencyId,
+        price: price ?? _price,
+        symbol: symbol ?? _symbol,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        currency: currency ?? _currency,
+      );
 
   String? get uuid => _uuid;
 
-  int? get userId => _userId;
+  String? get userId => _userId;
 
-  int? get currencyId => _currencyId;
+  String? get currencyId => _currencyId;
 
   num? get price => _price;
 

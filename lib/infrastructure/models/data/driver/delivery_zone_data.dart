@@ -1,15 +1,15 @@
 class DeliveryZoneData {
-  int? id;
+  String? id;
   List<List<double>>? address;
 
   DeliveryZoneData({this.id, this.address});
 
-  DeliveryZoneData copyWith({int? id, List<List<double>>? address}) =>
+  DeliveryZoneData copyWith({String? id, List<List<double>>? address}) =>
       DeliveryZoneData(id: id ?? this.id, address: address ?? this.address);
 
   factory DeliveryZoneData.fromJson(Map<String, dynamic> json) =>
       DeliveryZoneData(
-        id: json["id"],
+        id: json["id"]?.toString(),
         address: json["address"] == null
             ? []
             : List<List<double>>.from(
@@ -20,11 +20,11 @@ class DeliveryZoneData {
       );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "address": address == null
-        ? []
-        : List<dynamic>.from(
-            address!.map((x) => List<dynamic>.from(x.map((x) => x))),
-          ),
-  };
+        "id": id,
+        "address": address == null
+            ? []
+            : List<dynamic>.from(
+                address!.map((x) => List<dynamic>.from(x.map((x) => x))),
+              ),
+      };
 }

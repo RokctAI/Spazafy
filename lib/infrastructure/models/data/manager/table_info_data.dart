@@ -1,9 +1,8 @@
-
 class TableInfoData {
-  int id;
-  int bookingId;
-  int userId;
-  int tableId;
+  String? id;
+  String? bookingId;
+  String? userId;
+  String? tableId;
   DateTime startDate;
   DateTime endDate;
   String status;
@@ -19,22 +18,22 @@ class TableInfoData {
   });
 
   factory TableInfoData.fromJson(Map<String, dynamic> json) => TableInfoData(
-    id: json["id"],
-    bookingId: json["booking_id"],
-    userId: json["user_id"],
-    tableId: json["table_id"],
-    startDate: DateTime.parse(json["start_date"]),
-    endDate: DateTime.parse(json["end_date"]),
-    status: json["status"],
-  );
+        id: json["id"]?.toString(),
+        bookingId: json["booking_id"]?.toString(),
+        userId: json["user_id"]?.toString(),
+        tableId: json["table_id"]?.toString(),
+        startDate: DateTime.parse(json["start_date"]),
+        endDate: DateTime.parse(json["end_date"]),
+        status: json["status"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "booking_id": bookingId,
-    "user_id": userId,
-    "table_id": tableId,
-    "start_date": startDate.toIso8601String(),
-    "end_date": endDate.toIso8601String(),
-    "status": status,
-  };
+        "id": id,
+        "booking_id": bookingId,
+        "user_id": userId,
+        "table_id": tableId,
+        "start_date": startDate.toIso8601String(),
+        "end_date": endDate.toIso8601String(),
+        "status": status,
+      };
 }

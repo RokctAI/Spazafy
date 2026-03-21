@@ -61,7 +61,7 @@ class ProfileData {
 
   ProfileData.fromJson(dynamic json) {
     _id = json['id']?.toString();
-    _uuid = json['uuid'];
+    _uuid = json['uuid']?.toString();
     _firstname = json['firstname'];
     _lastname = json['lastname'];
     _referral = json["my_referral"];
@@ -147,28 +147,29 @@ class ProfileData {
     ShopData? shop,
     Wallet? wallet,
     num? ringfencedBalance,
-  }) => ProfileData(
-    id: id ?? _id,
-    uuid: uuid ?? _uuid,
-    firstname: firstname ?? _firstname,
-    lastname: lastname ?? _lastname,
-    referral: referral ?? _referral,
-    email: email ?? _email,
-    phone: phone ?? _phone,
-    secondPhone: secondPhone ?? _secondPhone,
-    birthday: birthday ?? _birthday,
-    gender: gender ?? _gender,
-    emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
-    registeredAt: registeredAt ?? _registeredAt,
-    active: active ?? _active,
-    img: img ?? _img,
-    role: role ?? _role,
-    membership: membership ?? _membership,
-    addresses: addresses ?? _addresses,
-    shop: shop ?? _shop,
-    wallet: wallet ?? _wallet,
-    ringfencedBalance: ringfencedBalance ?? _ringfencedBalance,
-  );
+  }) =>
+      ProfileData(
+        id: id ?? _id,
+        uuid: uuid ?? _uuid,
+        firstname: firstname ?? _firstname,
+        lastname: lastname ?? _lastname,
+        referral: referral ?? _referral,
+        email: email ?? _email,
+        phone: phone ?? _phone,
+        secondPhone: secondPhone ?? _secondPhone,
+        birthday: birthday ?? _birthday,
+        gender: gender ?? _gender,
+        emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
+        registeredAt: registeredAt ?? _registeredAt,
+        active: active ?? _active,
+        img: img ?? _img,
+        role: role ?? _role,
+        membership: membership ?? _membership,
+        addresses: addresses ?? _addresses,
+        shop: shop ?? _shop,
+        wallet: wallet ?? _wallet,
+        ringfencedBalance: ringfencedBalance ?? _ringfencedBalance,
+      );
 
   String? get id => _id;
 
@@ -266,9 +267,9 @@ class ProfileData {
 class Wallet {
   Wallet({
     String? uuid,
-    int? userId,
-    int? id,
-    int? currencyId,
+    String? userId,
+    String? id,
+    String? currencyId,
     num? price,
     String? createdAt,
     String? updatedAt,
@@ -285,10 +286,10 @@ class Wallet {
   }
 
   Wallet.fromJson(dynamic json) {
-    _uuid = json['uuid'];
-    _userId = json['user_id'];
-    _id = json['id'];
-    _currencyId = json['currency_id'];
+    _uuid = json['uuid']?.toString();
+    _userId = json['user_id']?.toString();
+    _id = json['id']?.toString();
+    _currencyId = json['currency_id']?.toString();
     _price = json['price'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
@@ -298,9 +299,9 @@ class Wallet {
   }
 
   String? _uuid;
-  int? _userId;
-  int? _id;
-  int? _currencyId;
+  String? _userId;
+  String? _id;
+  String? _currencyId;
   num? _price;
   String? _createdAt;
   String? _updatedAt;
@@ -308,30 +309,31 @@ class Wallet {
 
   Wallet copyWith({
     String? uuid,
-    int? userId,
-    int? id,
-    int? currencyId,
+    String? userId,
+    String? id,
+    String? currencyId,
     num? price,
     String? createdAt,
     String? updatedAt,
     CurrencyData? currency,
-  }) => Wallet(
-    uuid: uuid ?? _uuid,
-    userId: userId ?? _userId,
-    id: id ?? _id,
-    currencyId: currencyId ?? _currencyId,
-    price: price ?? _price,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    currency: currency ?? _currency,
-  );
+  }) =>
+      Wallet(
+        uuid: uuid ?? _uuid,
+        userId: userId ?? _userId,
+        id: id ?? _id,
+        currencyId: currencyId ?? _currencyId,
+        price: price ?? _price,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        currency: currency ?? _currency,
+      );
 
   String? get uuid => _uuid;
 
-  int? get userId => _userId;
-  int? get id => _id;
+  String? get userId => _userId;
+  String? get id => _id;
 
-  int? get currencyId => _currencyId;
+  String? get currencyId => _currencyId;
 
   num? get price => _price;
 
