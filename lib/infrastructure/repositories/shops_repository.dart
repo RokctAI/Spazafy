@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -180,7 +180,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
         if (shopId != null) 'shop_id': shopId,
       };
       final response = await client.get(
-        '/api/v1/method/paas.api.shop.shop.check_delivery_zone',
+        '/api/v1/method/paas.api.delivery.delivery.check_delivery_zone',
         queryParameters: data,
       );
       return ApiResult.success(data: response.data["status"] == "success");
@@ -281,7 +281,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/method/paas.api.shop.shop.join_order',
+        '/api/v1/method/paas.api.cart.cart.join_order',
         data: {'shop_id': shopId, 'name': name, 'cart_id': cartId},
       );
       return const ApiResult.success(data: null);
@@ -488,7 +488,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_story',
+        '/api/v1/method/paas.api.story.story.get_story',
         queryParameters: {'page': page},
       );
       return ApiResult.success(
@@ -508,7 +508,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.shop.shop.get_tags',
+        '/api/v1/method/paas.api.tag.tag.get_tags',
         queryParameters: {'category_id': categoryId},
       );
       return ApiResult.success(data: TagResponse.fromJson(response.data));
@@ -526,7 +526,7 @@ class ShopsRepository implements ShopsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.shop.shop.get_suggest_price',
+        '/api/v1/method/paas.api.product.product.get_suggest_price',
       );
       return ApiResult.success(
         data: PriceModel.fromJson(response.data['message']),
@@ -540,3 +540,10 @@ class ShopsRepository implements ShopsRepositoryFacade {
     }
   }
 }
+
+
+
+
+
+
+

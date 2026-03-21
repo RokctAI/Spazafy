@@ -1,4 +1,4 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
@@ -111,7 +111,7 @@ class OrdersRepository implements OrdersInterface {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/method/paas.api.seller_order.seller_order.create_order',
+        '/api/v1/method/paas.api.order.order.create_order',
         data: data,
       );
       return ApiResult.success(
@@ -335,3 +335,4 @@ class OrdersRepository implements OrdersInterface {
     }
   }
 }
+

@@ -1,4 +1,4 @@
-import 'package:rokctapp/domain/di/dependency_manager.dart';
+﻿import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/categories.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
@@ -19,7 +19,7 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_categories',
+        '/api/v1/method/paas.api.category.category.get_categories',
         queryParameters: params,
       );
       final responseData = CategoriesPaginateResponse.fromJson(response.data);
@@ -66,7 +66,7 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.search_categories',
+        '/api/v1/method/paas.api.category.category.search_categories',
         queryParameters: params,
       );
       return ApiResult.success(
@@ -110,3 +110,5 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
     return getAllCategories(page: 1, shopId: shopId);
   }
 }
+
+

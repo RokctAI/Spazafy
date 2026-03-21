@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
@@ -16,7 +16,7 @@ class DeliveryPointsRepository implements DeliveryPointsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.doctype.delivery_point.delivery_point.get_nearest_delivery_points',
+        '/api/v1/method/paas.api.shop.shop.get_nearest_delivery_points',
         queryParameters: {'latitude': latitude, 'longitude': longitude},
       );
       final List<dynamic> data = response.data['message'];
@@ -39,7 +39,7 @@ class DeliveryPointsRepository implements DeliveryPointsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_delivery_points',
+        '/api/v1/method/paas.api.delivery.delivery.get_delivery_points',
       );
       final List<dynamic> data = response.data['message'];
       final List<DeliveryPointData> deliveryPoints = data
@@ -55,3 +55,5 @@ class DeliveryPointsRepository implements DeliveryPointsRepositoryFacade {
     }
   }
 }
+
+

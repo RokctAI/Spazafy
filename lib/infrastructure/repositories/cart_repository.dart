@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/interface/cart.dart';
 import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
@@ -45,7 +45,7 @@ class CartRepository implements CartRepositoryFacade {
           '/api/v1/method/paas.api.cart.cart.remove_product_cart',
         );
         final pendingDeleteRequests = await appDatabase.getSyncRequestsByMethod(
-          '/api/v1/method/paas.api.delete_cart',
+          '/api/v1/method/paas.api.cart.cart.delete_cart',
         );
 
         // If a total cart deletion is pending, the cart is effectively null
@@ -131,7 +131,7 @@ class CartRepository implements CartRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_cart_in_group',
+        '/api/v1/method/paas.api.cart.cart.get_cart_in_group',
         queryParameters: params,
       );
       return ApiResult.success(data: CartModel.fromJson(response.data));
@@ -170,7 +170,7 @@ class CartRepository implements CartRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/method/paas.api.change_status',
+        '/api/v1/method/paas.api.cart.cart.change_status',
         data: {'user_uuid': userUuid, 'cart_id': cartId},
       );
       return const ApiResult.success(data: null);
@@ -188,7 +188,7 @@ class CartRepository implements CartRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/method/paas.api.delete_cart',
+        '/api/v1/method/paas.api.cart.cart.delete_cart',
         data: {'cart_id': cartId},
       );
       final responseData = CartModel.fromJson(response.data);
@@ -204,7 +204,7 @@ class CartRepository implements CartRepositoryFacade {
       // Persistence: Queue the deletion
       try {
         await appDatabase.enqueueSyncRequest(
-          url: '/api/v1/method/paas.api.delete_cart',
+          url: '/api/v1/method/paas.api.cart.cart.delete_cart',
           method: 'POST',
           payload: {'cart_id': cartId},
         );
@@ -228,7 +228,7 @@ class CartRepository implements CartRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/method/paas.api.delete_user',
+        '/api/v1/method/paas.api.cart.cart.delete_user',
         data: {'cart_id': cartId, 'user_id': userId},
       );
       return const ApiResult.success(data: null);
@@ -403,3 +403,10 @@ class CartRepository implements CartRepositoryFacade {
     return ApiResult.failure(error: "Shop ID is required", statusCode: 400);
   }
 }
+
+
+
+
+
+
+

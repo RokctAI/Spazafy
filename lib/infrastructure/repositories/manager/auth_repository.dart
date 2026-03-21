@@ -88,7 +88,7 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.verify_my_email',
+        '/api/v1/method/rcore.tenant.api.verify_my_email',
         queryParameters: {'token': verifyCode},
       );
       return ApiResult.success(
@@ -111,7 +111,7 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/method/paas.api.verify_phone_code',
+        '/api/v1/method/paas.api.user.user.verify_phone_code',
         data: {"phone": verifyId, "otp": verifyCode},
       );
       return ApiResult.success(
@@ -204,7 +204,7 @@ class AuthRepository implements AuthInterface {
     try {
       final client = dioHttp.client(requireAuth: false);
       await client.post(
-        '/api/v1/method/paas.api.register_user',
+        '/api/v1/method/paas.api.user.user.register_user',
         queryParameters: data.toJson(),
       );
       return const ApiResult.success(data: null);
@@ -276,3 +276,6 @@ class AuthRepository implements AuthInterface {
     }
   }
 }
+
+
+

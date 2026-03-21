@@ -13,6 +13,7 @@ class RegisterConfirmationState with _$RegisterConfirmationState {
     @Default(false) bool isCodeError,
     @Default(false) bool isConfirm,
     @Default('') String confirmCode,
+    @Default('') String email,
     @Default('') String verificationCode,
     @Default('05:00') String timerText,
   }) = _RegisterConfirmationState;

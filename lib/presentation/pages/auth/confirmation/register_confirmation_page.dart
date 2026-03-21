@@ -49,6 +49,9 @@ class _RegisterConfirmationPageState
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.refresh(registerConfirmationProvider);
       ref.read(registerConfirmationProvider.notifier).startTimer();
+      ref
+          .read(registerConfirmationProvider.notifier)
+          .setEmail(widget.userModel.email ?? "");
     });
   }
 

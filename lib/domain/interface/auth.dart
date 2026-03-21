@@ -27,6 +27,7 @@ abstract class AuthRepositoryFacade {
 
   Future<ApiResult<VerifyPhoneResponse>> verifyEmail({
     required String verifyCode,
+    String? email,
   });
 
   Future<ApiResult<VerifyPhoneResponse>> verifyPhone({

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
@@ -248,7 +248,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/method/paas.api.driver_order.driver_order.add_order_review',
+        '/api/v1/method/paas.api.order.order.add_order_review',
         data: {...data, "order_id": orderId},
       );
       return const ApiResult.success(data: null);
@@ -297,3 +297,5 @@ class OrdersRepository implements OrdersRepositoryFacade {
     }
   }
 }
+
+

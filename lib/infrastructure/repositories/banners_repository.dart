@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/banners.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -20,7 +20,7 @@ class BannersRepository implements BannersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_banners',
+        '/api/v1/method/paas.api.banner.banner.get_banners',
         queryParameters: params,
       );
       final responseData = BannersPaginateResponse.fromJson(response.data);
@@ -62,7 +62,7 @@ class BannersRepository implements BannersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_banner',
+        '/api/v1/method/paas.api.banner.banner.get_banner',
         queryParameters: {
           'id': bannerId,
           'lang': LocalStorage.getLanguage()?.locale,
@@ -117,7 +117,7 @@ class BannersRepository implements BannersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_ads',
+        '/api/v1/method/paas.api.banner.banner.get_ads',
         queryParameters: params,
       );
       final responseData = BannersPaginateResponse.fromJson(response.data);
@@ -159,7 +159,7 @@ class BannersRepository implements BannersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_ad',
+        '/api/v1/method/paas.api.banner.banner.get_ad',
         queryParameters: {
           'id': bannerId,
           'lang': LocalStorage.getLanguage()?.locale,
@@ -201,7 +201,7 @@ class BannersRepository implements BannersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
-        '/api/v1/method/paas.api.like_banner',
+        '/api/v1/method/paas.api.banner.banner.like_banner',
         data: {'id': bannerId, 'lang': LocalStorage.getLanguage()?.locale},
       );
       return const ApiResult.success(data: null);
@@ -214,3 +214,10 @@ class BannersRepository implements BannersRepositoryFacade {
     }
   }
 }
+
+
+
+
+
+
+

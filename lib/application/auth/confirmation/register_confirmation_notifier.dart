@@ -36,6 +36,10 @@ class RegisterConfirmationNotifier
     );
   }
 
+  void setEmail(String email) {
+    state = state.copyWith(email: email);
+  }
+
   // For phone confirmation
   Future<void> confirmCodeWithPhone({
     required BuildContext context,
@@ -154,6 +158,7 @@ class RegisterConfirmationNotifier
     state = state.copyWith(isLoading: true, isSuccess: false);
     final response = await _authRepository.verifyEmail(
       verifyCode: state.confirmCode.trim(),
+      email: state.email,
     );
     response.when(
       success: (data) async {

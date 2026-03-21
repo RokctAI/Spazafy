@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
@@ -507,7 +507,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/method/paas.api.tip_process',
+        '/api/v1/method/paas.api.payment.payment.tip_process',
         data: {'order_id': orderId, 'tip': tip},
       );
       return ApiResult.success(data: response.data['redirect_url']);
@@ -527,7 +527,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
-        '/api/v1/method/paas.api.check_cashback',
+        '/api/v1/method/paas.api.shop.shop.check_cashback',
         data: {'shop_id': shopId, 'amount': amount},
       );
       return ApiResult.success(
@@ -546,7 +546,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_driver_location',
+        '/api/v1/method/paas.api.delivery.delivery.get_driver_location',
         queryParameters: {'order_id': deliveryId},
       );
       return ApiResult.success(
@@ -560,3 +560,8 @@ class OrdersRepository implements OrdersRepositoryFacade {
     }
   }
 }
+
+
+
+
+

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/blogs.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -21,7 +21,7 @@ class BlogsRepository implements BlogsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_blogs',
+        '/api/v1/method/paas.api.blog.blog.get_blogs',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -41,7 +41,7 @@ class BlogsRepository implements BlogsRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.get_blog',
+        '/api/v1/method/paas.api.blog.blog.get_blog',
         queryParameters: {'uuid': uuid},
       );
       return ApiResult.success(
@@ -56,3 +56,7 @@ class BlogsRepository implements BlogsRepositoryFacade {
     }
   }
 }
+
+
+
+

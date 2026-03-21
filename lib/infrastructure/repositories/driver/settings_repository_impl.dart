@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+﻿import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import 'package:rokctapp/domain/di/dependency_manager.dart';
@@ -77,7 +77,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
   Future<ApiResult<CurrenciesResponse>> getCurrencies() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.setting.setting.get_currencies');
+      final response = await client.get('/api/v1/method/paas.api.system.system.get_currencies');
       return ApiResult.success(
         data: CurrenciesResponse.fromJson(response.data),
       );
@@ -94,7 +94,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
   Future<ApiResult<SettingsResponse>> getGlobalSettings() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.setting.setting.get_global_settings');
+      final response = await client.get('/api/v1/method/paas.api.system.system.get_global_settings');
       return ApiResult.success(data: SettingsResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get settings failure: $e');
@@ -111,7 +111,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.setting.setting.get_translations',
+        '/api/v1/method/paas.api.language.language.get_translations',
         queryParameters: data,
       );
       return ApiResult.success(
@@ -152,3 +152,8 @@ class SettingsRepositoryImpl implements SettingsRepository {
     }
   }
 }
+
+
+
+
+
