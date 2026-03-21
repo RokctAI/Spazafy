@@ -1,19 +1,19 @@
 class MaksekeskusData {
   List<Method>? methods;
-  int? paymentId;
+  String? paymentId;
   String? modelType;
-  int? modelId;
+  String? modelId;
   int? totalPrice;
   String? currency;
-  int? cartId;
-  int? userId;
+  String? cartId;
+  String? userId;
   String? status;
-  int? currencyId;
+  String? currencyId;
   int? rate;
   String? deliveryType;
   String? deliveryDate;
-  int? addressId;
-  int? deliveryPointId;
+  String? addressId;
+  String? deliveryPointId;
 
   MaksekeskusData({
     this.methods,
@@ -35,20 +35,20 @@ class MaksekeskusData {
 
   MaksekeskusData copyWith({
     List<Method>? methods,
-    int? paymentId,
+    String? paymentId,
     String? modelType,
-    int? modelId,
+    String? modelId,
     int? totalPrice,
     String? currency,
-    int? cartId,
-    int? userId,
+    String? cartId,
+    String? userId,
     String? status,
-    int? currencyId,
+    String? currencyId,
     int? rate,
     String? deliveryType,
     String? deliveryDate,
-    int? addressId,
-    int? deliveryPointId,
+    String? addressId,
+    String? deliveryPointId,
   }) =>
       MaksekeskusData(
         methods: methods ?? this.methods,
@@ -68,46 +68,48 @@ class MaksekeskusData {
         deliveryPointId: deliveryPointId ?? this.deliveryPointId,
       );
 
-  factory MaksekeskusData.fromJson(Map<String, dynamic> json) => MaksekeskusData(
-    methods: json["methods"] == null
-        ? []
-        : List<Method>.from(
-        json["methods"]!.map((x) => Method.fromJson(x))),
-    paymentId: json["payment_id"],
-    modelType: json["model_type"],
-    modelId: json["model_id"],
-    totalPrice: json["total_price"],
-    currency: json["currency"],
-    cartId: json["cart_id"],
-    userId: json["user_id"],
-    status: json["status"],
-    currencyId: json["currency_id"],
-    rate: json["rate"],
-    deliveryType: json["delivery_type"],
-    deliveryDate: json["delivery_date"],
-    addressId: json["address_id"],
-    deliveryPointId: json["delivery_point_id"],
-  );
+  factory MaksekeskusData.fromJson(Map<String, dynamic> json) =>
+      MaksekeskusData(
+        methods: json["methods"] == null
+            ? []
+            : List<Method>.from(
+                json["methods"]!.map((x) => Method.fromJson(x)),
+              ),
+        paymentId: json["payment_id"]?.toString(),
+        modelType: json["model_type"],
+        modelId: json["model_id"]?.toString(),
+        totalPrice: json["total_price"],
+        currency: json["currency"],
+        cartId: json["cart_id"]?.toString(),
+        userId: json["user_id"]?.toString(),
+        status: json["status"],
+        currencyId: json["currency_id"]?.toString(),
+        rate: json["rate"],
+        deliveryType: json["delivery_type"],
+        deliveryDate: json["delivery_date"],
+        addressId: json["address_id"]?.toString(),
+        deliveryPointId: json["delivery_point_id"]?.toString(),
+      );
 
   Map<String, dynamic> toJson() => {
-    "methods": methods == null
-        ? []
-        : List<dynamic>.from(methods!.map((x) => x.toJson())),
-    "payment_id": paymentId,
-    "model_type": modelType,
-    "model_id": modelId,
-    "total_price": totalPrice,
-    "currency": currency,
-    "cart_id": cartId,
-    "user_id": userId,
-    "status": status,
-    "currency_id": currencyId,
-    "rate": rate,
-    "delivery_type": deliveryType,
-    "delivery_date": deliveryDate,
-    "address_id": addressId,
-    "delivery_point_id": deliveryPointId,
-  };
+        "methods": methods == null
+            ? []
+            : List<dynamic>.from(methods!.map((x) => x.toJson())),
+        "payment_id": paymentId,
+        "model_type": modelType,
+        "model_id": modelId,
+        "total_price": totalPrice,
+        "currency": currency,
+        "cart_id": cartId,
+        "user_id": userId,
+        "status": status,
+        "currency_id": currencyId,
+        "rate": rate,
+        "delivery_type": deliveryType,
+        "delivery_date": deliveryDate,
+        "address_id": addressId,
+        "delivery_point_id": deliveryPointId,
+      };
 }
 
 class Method {
@@ -153,29 +155,28 @@ class Method {
       );
 
   factory Method.fromJson(Map<String, dynamic> json) => Method(
-    channel: json["channel"],
-    countries: json["countries"] == null
-        ? []
-        : List<String>.from(json["countries"]!.map((x) => x)),
-    country: json["country"],
-    displayName: json["display_name"],
-    logoUrl: json["logo_url"],
-    maxAmount: json["max_amount"],
-    name: json["name"],
-    url: json["url"],
-  );
+        channel: json["channel"],
+        countries: json["countries"] == null
+            ? []
+            : List<String>.from(json["countries"]!.map((x) => x)),
+        country: json["country"],
+        displayName: json["display_name"],
+        logoUrl: json["logo_url"],
+        maxAmount: json["max_amount"],
+        name: json["name"],
+        url: json["url"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "channel": channel,
-    "countries": countries == null
-        ? []
-        : List<dynamic>.from(countries!.map((x) => x)),
-    "country": country,
-    "display_name": displayName,
-    "logo_url": logoUrl,
-    "max_amount": maxAmount,
-    "name": name,
-    "url": url,
-  };
+        "channel": channel,
+        "countries": countries == null
+            ? []
+            : List<dynamic>.from(countries!.map((x) => x)),
+        "country": country,
+        "display_name": displayName,
+        "logo_url": logoUrl,
+        "max_amount": maxAmount,
+        "name": name,
+        "url": url,
+      };
 }
-

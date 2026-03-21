@@ -2,8 +2,8 @@ import 'translation.dart';
 
 class ShopDelivery {
   ShopDelivery({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? type,
     int? price,
     List<String>? times,
@@ -22,8 +22,8 @@ class ShopDelivery {
   }
 
   ShopDelivery.fromJson(dynamic json) {
-    _id = json['id'];
-    _shopId = json['shop_id'];
+    _id = json['id']?.toString();
+    _shopId = json['shop_id']?.toString();
     _type = json['type'];
     _price = json['price'];
     _times = json['times'] != null ? json['times'].cast<String>() : [];
@@ -34,8 +34,8 @@ class ShopDelivery {
         : null;
   }
 
-  int? _id;
-  int? _shopId;
+  String? _id;
+  String? _shopId;
   String? _type;
   int? _price;
   List<String>? _times;
@@ -44,8 +44,8 @@ class ShopDelivery {
   Translation? _translation;
 
   ShopDelivery copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? type,
     int? price,
     List<String>? times,
@@ -64,9 +64,9 @@ class ShopDelivery {
         translation: translation ?? _translation,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   String? get type => _type;
 

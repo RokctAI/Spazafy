@@ -1,6 +1,6 @@
 class PaymentData {
   PaymentData({
-    int? id,
+    String? id,
     String? tag,
     bool? active,
     String? createdAt,
@@ -14,7 +14,7 @@ class PaymentData {
   }
 
   PaymentData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _tag = json['tag'];
     _active = json['active'].runtimeType == int
         ? (json['active'] != 0)
@@ -23,14 +23,14 @@ class PaymentData {
     _updatedAt = json['updated_at'];
   }
 
-  int? _id;
+  String? _id;
   String? _tag;
   bool? _active;
   String? _createdAt;
   String? _updatedAt;
 
   PaymentData copyWith({
-    int? id,
+    String? id,
     String? tag,
     bool? active,
     String? createdAt,
@@ -44,7 +44,7 @@ class PaymentData {
         updatedAt: updatedAt ?? _updatedAt,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get tag => _tag;
 

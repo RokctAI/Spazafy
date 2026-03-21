@@ -6,8 +6,8 @@ import 'product_data.dart';
 
 class Stock {
   Stock({
-    int? id,
-    int? countableId,
+    String? id,
+    String? countableId,
     num? price,
     num? discount,
     int? quantity,
@@ -48,8 +48,8 @@ class Stock {
   }
 
   Stock.fromJson(dynamic json) {
-    _id = json['id'];
-    _countableId = json['countable_id'];
+    _id = json['id']?.toString();
+    _countableId = json['countable_id']?.toString();
     _price = json['price'];
     if (json['bonus'].runtimeType == bool) _bonus = json['bonus'];
     _discount = json['discount'];
@@ -95,8 +95,8 @@ class Stock {
     }
   }
 
-  int? _id;
-  int? _countableId;
+  String? _id;
+  String? _countableId;
   num? _price;
   num? _discount;
   int? _quantity;
@@ -116,8 +116,8 @@ class Stock {
   List<AddonData>? _localAddons;
 
   Stock copyWith({
-    int? id,
-    int? countableId,
+    String? id,
+    String? countableId,
     num? price,
     num? discount,
     int? quantity,
@@ -138,29 +138,30 @@ class Stock {
     List<AddonData>? localAddons,
   }) =>
       Stock(
-          id: id ?? _id,
-          bonus: bonus ?? _bonus,
-          countableId: countableId ?? _countableId,
-          price: isInitial ? num.tryParse('') : (price ?? _price),
-          discount: isInitial ? num.tryParse('') : (discount ?? _discount),
-          quantity: isInitial ? int.tryParse('') : (quantity ?? _quantity),
-          cartCount: cartCount ?? _cartCount,
-          tax: tax ?? _tax,
-          totalPrice: totalPrice ?? _totalPrice,
-          product: product ?? _product,
-          extras: extras ?? _extras,
-          localGroups: localGroups ?? _localGroups,
-          countableType: countableType ?? _countableType,
-          stock: stock ?? _stock,
-          countable: countable ?? _countable,
-          addons: addons ?? _addons,
-          localAddons: localAddons ?? _localAddons,
-          shopBonus: shopBonus ?? _shopBonus,
-          sku: sku ?? _sku);
+        id: id ?? _id,
+        bonus: bonus ?? _bonus,
+        countableId: countableId ?? _countableId,
+        price: isInitial ? num.tryParse('') : (price ?? _price),
+        discount: isInitial ? num.tryParse('') : (discount ?? _discount),
+        quantity: isInitial ? int.tryParse('') : (quantity ?? _quantity),
+        cartCount: cartCount ?? _cartCount,
+        tax: tax ?? _tax,
+        totalPrice: totalPrice ?? _totalPrice,
+        product: product ?? _product,
+        extras: extras ?? _extras,
+        localGroups: localGroups ?? _localGroups,
+        countableType: countableType ?? _countableType,
+        stock: stock ?? _stock,
+        countable: countable ?? _countable,
+        addons: addons ?? _addons,
+        localAddons: localAddons ?? _localAddons,
+        shopBonus: shopBonus ?? _shopBonus,
+        sku: sku ?? _sku,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get countableId => _countableId;
+  String? get countableId => _countableId;
 
   num? get price => _price;
 
@@ -226,15 +227,16 @@ class Stock {
 }
 
 class AddonData {
-  AddonData(
-      {int? id,
-      int? stockId,
-      int? addonId,
-      int? quantity,
-      num? totalPrice,
-      ProductData? product,
-      Stock? stock,
-      bool? active}) {
+  AddonData({
+    String? id,
+    String? stockId,
+    String? addonId,
+    int? quantity,
+    num? totalPrice,
+    ProductData? product,
+    Stock? stock,
+    bool? active,
+  }) {
     _id = id;
     _stockId = stockId;
     _addonId = addonId;
@@ -246,9 +248,9 @@ class AddonData {
   }
 
   AddonData.fromJson(dynamic json) {
-    _id = json['id'];
-    _stockId = json['stock_id'];
-    _addonId = json['addon_id'];
+    _id = json['id']?.toString();
+    _stockId = json['stock_id']?.toString();
+    _addonId = json['addon_id']?.toString();
     _quantity = json['quantity'];
     _totalPrice = json["total_price"];
     _stock = json['stock'] != null ? Stock.fromJson(json['stock']) : null;
@@ -256,9 +258,9 @@ class AddonData {
         json['product'] != null ? ProductData.fromJson(json['product']) : null;
   }
 
-  int? _id;
-  int? _stockId;
-  int? _addonId;
+  String? _id;
+  String? _stockId;
+  String? _addonId;
   int? _quantity;
   bool? _active;
   num? _totalPrice;
@@ -266,9 +268,9 @@ class AddonData {
   Stock? _stock;
 
   AddonData copyWith({
-    int? id,
-    int? stockId,
-    int? addonId,
+    String? id,
+    String? stockId,
+    String? addonId,
     int? quantity,
     bool? active,
     num? totalPrice,
@@ -286,11 +288,11 @@ class AddonData {
         product: product ?? _product,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get stockId => _stockId;
+  String? get stockId => _stockId;
 
-  int? get addonId => _addonId;
+  String? get addonId => _addonId;
 
   int? get quantity => _quantity;
 

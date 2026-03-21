@@ -1,9 +1,9 @@
 import 'translation.dart';
 
 class TableData {
-  int? id;
+  String? id;
   String? name;
-  int? shopSectionId;
+  String? shopSectionId;
   int? tax;
   int? chairCount;
   bool? active;
@@ -11,18 +11,30 @@ class TableData {
   String? updatedAt;
   ShopSection? shopSection;
 
-  TableData({this.id, this.name, this.shopSectionId, this.tax, this.chairCount, this.active, this.createdAt, this.updatedAt, this.shopSection});
+  TableData({
+    this.id,
+    this.name,
+    this.shopSectionId,
+    this.tax,
+    this.chairCount,
+    this.active,
+    this.createdAt,
+    this.updatedAt,
+    this.shopSection,
+  });
 
   TableData.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     name = json['name'];
-    shopSectionId = json['shop_section_id'];
+    shopSectionId = json['shop_section_id']?.toString();
     tax = json['tax'];
     chairCount = json['chair_count'];
     active = json['active'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    shopSection = json['shop_section'] != null ? ShopSection.fromJson(json['shop_section']) : null;
+    shopSection = json['shop_section'] != null
+        ? ShopSection.fromJson(json['shop_section'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -43,24 +55,34 @@ class TableData {
 }
 
 class ShopSection {
-  int? id;
-  int? shopId;
+  String? id;
+  String? shopId;
   String? area;
   String? img;
   String? createdAt;
   String? updatedAt;
   Translation? translation;
 
-  ShopSection({this.id, this.shopId, this.area, this.img, this.createdAt, this.updatedAt, this.translation});
+  ShopSection({
+    this.id,
+    this.shopId,
+    this.area,
+    this.img,
+    this.createdAt,
+    this.updatedAt,
+    this.translation,
+  });
 
   ShopSection.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    shopId = json['shop_id'];
+    id = json['id']?.toString();
+    shopId = json['shop_id']?.toString();
     area = json['area'];
     img = json['img'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    translation = json['translation'] != null ? Translation.fromJson(json['translation']) : null;
+    translation = json['translation'] != null
+        ? Translation.fromJson(json['translation'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -77,8 +99,3 @@ class ShopSection {
     return data;
   }
 }
-
-
-
-
-

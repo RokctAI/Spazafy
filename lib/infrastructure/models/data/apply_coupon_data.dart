@@ -1,5 +1,5 @@
 class ApplyCouponData {
-  final int shopId;
+  final String? shopId;
   final String? coupon;
   final bool? isApplied;
   final bool? isError;

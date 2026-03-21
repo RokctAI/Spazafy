@@ -1,8 +1,7 @@
-
 import 'translation.dart';
 
 class ReferralModel {
-  int? id;
+  String? id;
   bool? active;
   int? priceFrom;
   int? priceTo;
@@ -12,20 +11,20 @@ class ReferralModel {
   String? updatedAt;
   Translation? translation;
 
-  ReferralModel(
-      {this.id,
-        this.active,
-        this.priceFrom,
-        this.priceTo,
-        this.img,
-        this.expiredAt,
-        this.createdAt,
-        this.updatedAt,
-        this.translation,
-      });
+  ReferralModel({
+    this.id,
+    this.active,
+    this.priceFrom,
+    this.priceTo,
+    this.img,
+    this.expiredAt,
+    this.createdAt,
+    this.updatedAt,
+    this.translation,
+  });
 
   ReferralModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     active = json['active'];
     priceFrom = json['price_from'];
     priceTo = json['price_to'];
@@ -54,4 +53,3 @@ class ReferralModel {
     return data;
   }
 }
-

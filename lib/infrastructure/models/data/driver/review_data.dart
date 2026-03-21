@@ -2,8 +2,8 @@ import 'user_data.dart';
 
 class ReviewData {
   ReviewData({
-    int? id,
-    int? reviewableId,
+    String? id,
+    String? reviewableId,
     String? rating,
     String? comment,
     String? img,
@@ -24,8 +24,8 @@ class ReviewData {
   }
 
   ReviewData.fromJson(dynamic json) {
-    _id = json['id'];
-    _reviewableId = json['reviewable_id'];
+    _id = json['id']?.toString();
+    _reviewableId = json['reviewable_id']?.toString();
     _rating = json['rating'];
     _comment = json['comment'];
     _img = json['img'];
@@ -40,8 +40,8 @@ class ReviewData {
     _user = json['user'] != null ? UserData.fromJson(json['user']) : null;
   }
 
-  int? _id;
-  int? _reviewableId;
+  String? _id;
+  String? _reviewableId;
   String? _rating;
   String? _comment;
   String? _img;
@@ -51,8 +51,8 @@ class ReviewData {
   UserData? _user;
 
   ReviewData copyWith({
-    int? id,
-    int? reviewableId,
+    String? id,
+    String? reviewableId,
     String? rating,
     String? comment,
     String? img,
@@ -60,21 +60,22 @@ class ReviewData {
     String? updatedAt,
     List<Galleries>? galleries,
     UserData? user,
-  }) => ReviewData(
-    id: id ?? _id,
-    reviewableId: reviewableId ?? _reviewableId,
-    rating: rating ?? _rating,
-    comment: comment ?? _comment,
-    img: img ?? _img,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    galleries: galleries ?? _galleries,
-    user: user ?? _user,
-  );
+  }) =>
+      ReviewData(
+        id: id ?? _id,
+        reviewableId: reviewableId ?? _reviewableId,
+        rating: rating ?? _rating,
+        comment: comment ?? _comment,
+        img: img ?? _img,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        galleries: galleries ?? _galleries,
+        user: user ?? _user,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get reviewableId => _reviewableId;
+  String? get reviewableId => _reviewableId;
 
   String? get rating => _rating;
 
@@ -111,10 +112,10 @@ class ReviewData {
 
 class Galleries {
   Galleries({
-    int? id,
+    String? id,
     String? title,
     String? type,
-    int? loadableId,
+    String? loadableId,
     String? path,
     String? basePath,
   }) {
@@ -127,44 +128,45 @@ class Galleries {
   }
 
   Galleries.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _title = json['title'];
     _type = json['type'];
-    _loadableId = json['loadable_id'];
+    _loadableId = json['loadable_id']?.toString();
     _path = json['path'];
     _basePath = json['base_path'];
   }
 
-  int? _id;
+  String? _id;
   String? _title;
   String? _type;
-  int? _loadableId;
+  String? _loadableId;
   String? _path;
   String? _basePath;
 
   Galleries copyWith({
-    int? id,
+    String? id,
     String? title,
     String? type,
-    int? loadableId,
+    String? loadableId,
     String? path,
     String? basePath,
-  }) => Galleries(
-    id: id ?? _id,
-    title: title ?? _title,
-    type: type ?? _type,
-    loadableId: loadableId ?? _loadableId,
-    path: path ?? _path,
-    basePath: basePath ?? _basePath,
-  );
+  }) =>
+      Galleries(
+        id: id ?? _id,
+        title: title ?? _title,
+        type: type ?? _type,
+        loadableId: loadableId ?? _loadableId,
+        path: path ?? _path,
+        basePath: basePath ?? _basePath,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get title => _title;
 
   String? get type => _type;
 
-  int? get loadableId => _loadableId;
+  String? get loadableId => _loadableId;
 
   String? get path => _path;
 

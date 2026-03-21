@@ -1,6 +1,6 @@
 class MembershipData {
   MembershipData({
-    int? id,
+    String? id,
     String? title,
     String? type,
     num? price,
@@ -24,7 +24,7 @@ class MembershipData {
   }
 
   MembershipData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _title = json['title'];
     _type = json['type'];
     _price = json['price'];
@@ -34,8 +34,8 @@ class MembershipData {
     _endDate = json['end_date'];
     _isActive = json['is_active'] != null
         ? json['is_active'].runtimeType == int
-              ? (json['is_active'] == 1)
-              : json['is_active']
+            ? (json['is_active'] == 1)
+            : json['is_active']
         : false;
 
     if (json['benefits'] != null) {
@@ -46,7 +46,7 @@ class MembershipData {
     }
   }
 
-  int? _id;
+  String? _id;
   String? _title;
   String? _type;
   num? _price;
@@ -57,7 +57,7 @@ class MembershipData {
   bool? _isActive;
   List<MembershipBenefit>? _benefits;
 
-  int? get id => _id;
+  String? get id => _id;
   String? get title => _title;
   String? get type => _type;
   num? get price => _price;
@@ -88,7 +88,7 @@ class MembershipData {
 
 class MembershipBenefit {
   MembershipBenefit({
-    int? id,
+    String? id,
     String? name,
     String? description,
     bool? enabled,
@@ -100,22 +100,22 @@ class MembershipBenefit {
   }
 
   MembershipBenefit.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _name = json['name'];
     _description = json['description'];
     _enabled = json['enabled'] != null
         ? json['enabled'].runtimeType == int
-              ? (json['enabled'] == 1)
-              : json['enabled']
+            ? (json['enabled'] == 1)
+            : json['enabled']
         : false;
   }
 
-  int? _id;
+  String? _id;
   String? _name;
   String? _description;
   bool? _enabled;
 
-  int? get id => _id;
+  String? get id => _id;
   String? get name => _name;
   String? get description => _description;
   bool? get enabled => _enabled;

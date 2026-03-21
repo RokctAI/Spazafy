@@ -1,6 +1,6 @@
 class CurrencyData {
   CurrencyData({
-    int? id,
+    String? id,
     String? symbol,
     String? title,
     num? rate,
@@ -20,7 +20,7 @@ class CurrencyData {
   }
 
   CurrencyData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _symbol = json['symbol'];
     _title = json['title'];
     _rate = json['rate'];
@@ -30,7 +30,7 @@ class CurrencyData {
     _position = json['position'];
   }
 
-  int? _id;
+  String? _id;
   String? _symbol;
   String? _title;
   num? _rate;
@@ -40,7 +40,7 @@ class CurrencyData {
   String? _position;
 
   CurrencyData copyWith({
-    int? id,
+    String? id,
     String? symbol,
     String? title,
     num? rate,
@@ -48,18 +48,19 @@ class CurrencyData {
     bool? active,
     String? updatedAt,
     String? position,
-  }) => CurrencyData(
-    id: id ?? _id,
-    symbol: symbol ?? _symbol,
-    title: title ?? _title,
-    rate: rate ?? _rate,
-    isDefault: isDefault ?? _default,
-    active: active ?? _active,
-    updatedAt: updatedAt ?? _updatedAt,
-    position: position ?? _position,
-  );
+  }) =>
+      CurrencyData(
+        id: id ?? _id,
+        symbol: symbol ?? _symbol,
+        title: title ?? _title,
+        rate: rate ?? _rate,
+        isDefault: isDefault ?? _default,
+        active: active ?? _active,
+        updatedAt: updatedAt ?? _updatedAt,
+        position: position ?? _position,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get symbol => _symbol;
 

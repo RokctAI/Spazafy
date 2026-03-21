@@ -1,5 +1,5 @@
 class TakeModel {
-  int? id;
+  String? id;
   String? img;
   String? createdAt;
   String? updatedAt;
@@ -16,7 +16,7 @@ class TakeModel {
   });
 
   TakeModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     img = json['img'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
@@ -41,8 +41,8 @@ class TakeModel {
 }
 
 class Translation {
-  int? id;
-  int? shopTagId;
+  String? id;
+  String? shopTagId;
   String? title;
   String? locale;
   String? deletedAt;
@@ -56,8 +56,8 @@ class Translation {
   });
 
   Translation.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    shopTagId = json['shop_tag_id'];
+    id = json['id']?.toString();
+    shopTagId = json['shop_tag_id']?.toString();
     title = json['title'];
     locale = json['locale'];
     deletedAt = json['deleted_at'];

@@ -1,5 +1,5 @@
 class NonExistPayment {
-  int? id;
+  String? id;
   String? tag;
   int? input;
   bool? active;
@@ -16,7 +16,7 @@ class NonExistPayment {
   });
 
   NonExistPayment copyWith({
-    int? id,
+    String? id,
     String? tag,
     int? input,
     bool? active,
@@ -34,7 +34,7 @@ class NonExistPayment {
 
   factory NonExistPayment.fromJson(Map<String, dynamic> json) =>
       NonExistPayment(
-        id: json["id"],
+        id: json["id"]?.toString(),
         tag: json["tag"],
         input: json["input"],
         active: json["active"],

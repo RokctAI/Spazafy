@@ -2,7 +2,7 @@ import 'local_location.dart';
 
 class LocalAddressData {
   LocalAddressData({
-    int? id,
+    String? id,
     String? title,
     String? address,
     LocalLocation? location,
@@ -18,7 +18,7 @@ class LocalAddressData {
   }
 
   LocalAddressData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _title = json['title'];
     _address = json['address'];
     _location = json['location'] != null
@@ -28,7 +28,7 @@ class LocalAddressData {
     _isSelected = json['selected'];
   }
 
-  int? _id;
+  String? _id;
   String? _title;
   String? _address;
   LocalLocation? _location;
@@ -36,22 +36,23 @@ class LocalAddressData {
   bool? _isSelected;
 
   LocalAddressData copyWith({
-    int? id,
+    String? id,
     String? title,
     String? address,
     LocalLocation? location,
     bool? isDefault,
     bool? isSelected,
-  }) => LocalAddressData(
-    id: id ?? _id,
-    title: title ?? _title,
-    address: address ?? _address,
-    location: location ?? _location,
-    isDefault: isDefault ?? _default,
-    isSelected: isSelected ?? _isSelected,
-  );
+  }) =>
+      LocalAddressData(
+        id: id ?? _id,
+        title: title ?? _title,
+        address: address ?? _address,
+        location: location ?? _location,
+        isDefault: isDefault ?? _default,
+        isSelected: isSelected ?? _isSelected,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get title => _title;
 
@@ -64,12 +65,12 @@ class LocalAddressData {
   bool? get isSelected => _isSelected;
 
   Map<String, dynamic> toJson() => {
-    'address': _address,
-    'location': '${_location?.latitude},${_location?.longitude}',
-    'active': 1,
-    if (_title?.isNotEmpty ?? false) 'title': _title,
-    'default': (_isSelected ?? false) ? 1 : 0,
-  };
+        'address': _address,
+        'location': '${_location?.latitude},${_location?.longitude}',
+        'active': 1,
+        if (_title?.isNotEmpty ?? false) 'title': _title,
+        'default': (_isSelected ?? false) ? 1 : 0,
+      };
 
   @override
   String toString() {

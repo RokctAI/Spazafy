@@ -33,7 +33,7 @@ class CategoryData {
 
   CategoryData.fromJson(dynamic json) {
     _id = json['id']?.toString();
-    _uuid = json['uuid'];
+    _uuid = json['uuid']?.toString();
     _shopId = json['shop_id']?.toString();
     _keywords = json['keywords'];
     _parentId = json['parent_id']?.toString();

@@ -27,7 +27,7 @@ class DeliveryPointData {
 
   factory DeliveryPointData.fromJson(Map<String, dynamic> json) =>
       DeliveryPointData(
-        id: json["name"],
+        id: json["name"]?.toString(),
         name: json["name"],
         address: json["address"],
         latitude: (json["latitude"] as num?)?.toDouble(),
@@ -37,12 +37,12 @@ class DeliveryPointData {
       );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "name": name,
-    "address": address,
-    "latitude": latitude,
-    "longitude": longitude,
-    "img": img,
-    "distance": distance,
-  };
+        "id": id,
+        "name": name,
+        "address": address,
+        "latitude": latitude,
+        "longitude": longitude,
+        "img": img,
+        "distance": distance,
+      };
 }

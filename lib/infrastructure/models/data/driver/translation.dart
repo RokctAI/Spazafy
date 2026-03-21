@@ -1,6 +1,6 @@
 class Translation {
   Translation({
-    int? id,
+    String? id,
     String? locale,
     String? title,
     String? description,
@@ -16,7 +16,7 @@ class Translation {
   }
 
   Translation.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _locale = json['locale'];
     _title = json['title'];
     _description = json['description'];
@@ -24,7 +24,7 @@ class Translation {
     _address = json['address'];
   }
 
-  int? _id;
+  String? _id;
   String? _locale;
   String? _title;
   String? _description;
@@ -32,22 +32,23 @@ class Translation {
   String? _address;
 
   Translation copyWith({
-    int? id,
+    String? id,
     String? locale,
     String? title,
     String? description,
     String? shortDesc,
     String? address,
-  }) => Translation(
-    id: id ?? _id,
-    locale: locale ?? _locale,
-    title: title ?? _title,
-    description: description ?? _description,
-    shortDesc: shortDesc ?? _shortDesc,
-    address: address ?? _address,
-  );
+  }) =>
+      Translation(
+        id: id ?? _id,
+        locale: locale ?? _locale,
+        title: title ?? _title,
+        description: description ?? _description,
+        shortDesc: shortDesc ?? _shortDesc,
+        address: address ?? _address,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get locale => _locale;
 

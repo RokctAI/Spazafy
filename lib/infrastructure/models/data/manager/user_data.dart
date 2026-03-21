@@ -1,5 +1,5 @@
 import 'shop_data.dart';
-import 'address_data.dart';
+import '../address_information.dart';
 import 'currency_data.dart';
 
 class UserData {
@@ -15,7 +15,7 @@ class UserData {
     bool? active,
     String? img,
     String? role,
-    List<AddressData>? addresses,
+    List<AddressInformation>? addresses,
     ShopData? shop,
     Wallet? wallet,
   }) {
@@ -37,7 +37,7 @@ class UserData {
 
   UserData.fromJson(dynamic json) {
     _id = json['id']?.toString();
-    _uuid = json['uuid'];
+    _uuid = json['uuid']?.toString();
     _firstname = json['firstname'];
     _lastname = json['lastname'];
     _email = json['email'];
@@ -52,7 +52,7 @@ class UserData {
     if (json['addresses'] != null) {
       _addresses = [];
       json['addresses'].forEach((v) {
-        _addresses?.add(AddressData.fromJson(v));
+        _addresses?.add(AddressInformation.fromJson(v));
       });
     }
     _shop = json['shop'] != null ? ShopData.fromJson(json['shop']) : null;
@@ -70,7 +70,7 @@ class UserData {
   bool? _active;
   String? _img;
   String? _role;
-  List<AddressData>? _addresses;
+  List<AddressInformation>? _addresses;
   ShopData? _shop;
   Wallet? _wallet;
 
@@ -86,7 +86,7 @@ class UserData {
     bool? active,
     String? img,
     String? role,
-    List<AddressData>? addresses,
+    List<AddressInformation>? addresses,
     ShopData? shop,
     Wallet? wallet,
   }) =>
@@ -129,7 +129,7 @@ class UserData {
 
   String? get role => _role;
 
-  List<AddressData>? get addresses => _addresses;
+  List<AddressInformation>? get addresses => _addresses;
 
   ShopData? get shop => _shop;
 
@@ -166,7 +166,7 @@ class Wallet {
     String? uuid,
     String? userId,
     String? currencyId,
-      num? price,
+    num? price,
     String? symbol,
     String? createdAt,
     String? updatedAt,
@@ -183,7 +183,7 @@ class Wallet {
   }
 
   Wallet.fromJson(dynamic json) {
-    _uuid = json['uuid'];
+    _uuid = json['uuid']?.toString();
     _userId = json['user_id']?.toString();
     _currencyId = json['currency_id']?.toString();
     _price = json['price'];

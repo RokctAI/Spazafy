@@ -1,6 +1,6 @@
 class SettingsData {
   SettingsData({
-    int? id,
+    String? id,
     String? key,
     String? value,
     String? createdAt,
@@ -14,34 +14,35 @@ class SettingsData {
   }
 
   SettingsData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _key = json['key'];
     _value = json['value'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
   }
 
-  int? _id;
+  String? _id;
   String? _key;
   String? _value;
   String? _createdAt;
   String? _updatedAt;
 
   SettingsData copyWith({
-    int? id,
+    String? id,
     String? key,
     String? value,
     String? createdAt,
     String? updatedAt,
-  }) => SettingsData(
-    id: id ?? _id,
-    key: key ?? _key,
-    value: value ?? _value,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-  );
+  }) =>
+      SettingsData(
+        id: id ?? _id,
+        key: key ?? _key,
+        value: value ?? _value,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get key => _key;
 

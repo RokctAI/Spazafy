@@ -11,15 +11,16 @@ List<List<StoryModel?>?>? storyModelFromJson(dynamic str) => str == null
       );
 
 String storyModelToJson(List<List<StoryModel?>?>? data) => json.encode(
-  data == null
-      ? []
-      : List<dynamic>.from(
-          data.map(
-            (x) =>
-                x == null ? [] : List<dynamic>.from(x.map((x) => x!.toJson())),
-          ),
-        ),
-);
+      data == null
+          ? []
+          : List<dynamic>.from(
+              data.map(
+                (x) => x == null
+                    ? []
+                    : List<dynamic>.from(x.map((x) => x!.toJson())),
+              ),
+            ),
+    );
 
 class StoryModel {
   StoryModel({
@@ -47,7 +48,7 @@ class StoryModel {
       shopId: json["shop_id"]?.toString(),
       logoImg: json["logo_img"],
       title: json["title"],
-      productUuid: json["product_uuid"],
+      productUuid: json["product_uuid"]?.toString(),
       productTitle: json["product_title"],
       url: json["url"],
       createdAt: DateTime.tryParse(json["created_at"])?.toLocal(),
@@ -56,13 +57,13 @@ class StoryModel {
   }
 
   Map<String, dynamic> toJson() => {
-    "shop_id": shopId,
-    "logo_img": logoImg,
-    "title": title,
-    "product_id": productUuid,
-    "product_title": productTitle,
-    "url": url,
-    "created_at": createdAt?.toIso8601String(),
-    "updated_at": updatedAt?.toIso8601String(),
-  };
+        "shop_id": shopId,
+        "logo_img": logoImg,
+        "title": title,
+        "product_id": productUuid,
+        "product_title": productTitle,
+        "url": url,
+        "created_at": createdAt?.toIso8601String(),
+        "updated_at": updatedAt?.toIso8601String(),
+      };
 }

@@ -2,7 +2,7 @@ import 'location.dart';
 
 class AddressData {
   AddressData({
-    int? id,
+    String? id,
     String? title,
     String? address,
     LocationModel? location,
@@ -22,7 +22,7 @@ class AddressData {
   }
 
   AddressData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _title = json['title'];
     _address = json['address'];
     _location = json['location'] != null
@@ -34,7 +34,7 @@ class AddressData {
     _updatedAt = json['updated_at'];
   }
 
-  int? _id;
+  String? _id;
   String? _title;
   String? _address;
   LocationModel? _location;
@@ -44,7 +44,7 @@ class AddressData {
   String? _updatedAt;
 
   AddressData copyWith({
-    int? id,
+    String? id,
     String? title,
     String? address,
     LocationModel? location,
@@ -52,18 +52,19 @@ class AddressData {
     bool? active,
     String? createdAt,
     String? updatedAt,
-  }) => AddressData(
-    id: id ?? _id,
-    title: title ?? _title,
-    address: address ?? _address,
-    location: location ?? _location,
-    isDefault: isDefault ?? _default,
-    active: active ?? _active,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-  );
+  }) =>
+      AddressData(
+        id: id ?? _id,
+        title: title ?? _title,
+        address: address ?? _address,
+        location: location ?? _location,
+        isDefault: isDefault ?? _default,
+        active: active ?? _active,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get title => _title;
 

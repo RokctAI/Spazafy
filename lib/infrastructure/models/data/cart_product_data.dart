@@ -20,8 +20,8 @@ class CartProductData {
   }
 
   CartProductData.fromJson(dynamic json) {
-    _shopId = json["shop_id"];
-    _id = json["id"];
+    _shopId = json["shop_id"]?.toString();
+    _id = json["id"]?.toString();
     _price = json["price"];
     _quantity = json['quantity'];
     _imageUrl = json['image_url'];

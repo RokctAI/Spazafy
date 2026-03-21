@@ -61,7 +61,7 @@ class ProductData {
 
   ProductData.fromJson(dynamic json) {
     _id = json['id']?.toString();
-    _uuid = json['uuid'];
+    _uuid = json['uuid']?.toString();
     _shopId = json['shop_id']?.toString();
     _categoryId = json['category_id']?.toString();
     _keywords = json['keywords'];
@@ -93,9 +93,8 @@ class ProductData {
       });
     }
     _shop = json['shop'] != null ? Shop.fromJson(json['shop']) : null;
-    _category = json['category'] != null
-        ? Category.fromJson(json['category'])
-        : null;
+    _category =
+        json['category'] != null ? Category.fromJson(json['category']) : null;
     _brand = json['brand'] != null ? Brand.fromJson(json['brand']) : null;
     _unit = json['unit'] != null ? Unit.fromJson(json['unit']) : null;
     if (json['reviews'] != null) {
@@ -165,33 +164,34 @@ class ProductData {
     Unit? unit,
     List<ReviewData>? reviews,
     List<Galleries>? galleries,
-  }) => ProductData(
-    id: id ?? _id,
-    uuid: uuid ?? _uuid,
-    shopId: shopId ?? _shopId,
-    categoryId: categoryId ?? _categoryId,
-    keywords: keywords ?? _keywords,
-    brandId: brandId ?? _brandId,
-    tax: tax ?? _tax,
-    interval: interval ?? _interval,
-    minQty: minQty ?? _minQty,
-    maxQty: maxQty ?? _maxQty,
-    active: active ?? _active,
-    img: img ?? _img,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    ratingAvg: ratingAvg ?? _ratingAvg,
-    ordersCount: ordersCount ?? _ordersCount,
-    translation: translation ?? _translation,
-    properties: properties ?? _properties,
-    stocks: stocks ?? _stocks,
-    shop: shop ?? _shop,
-    category: category ?? _category,
-    brand: brand ?? _brand,
-    unit: unit ?? _unit,
-    reviews: reviews ?? _reviews,
-    galleries: galleries ?? _galleries,
-  );
+  }) =>
+      ProductData(
+        id: id ?? _id,
+        uuid: uuid ?? _uuid,
+        shopId: shopId ?? _shopId,
+        categoryId: categoryId ?? _categoryId,
+        keywords: keywords ?? _keywords,
+        brandId: brandId ?? _brandId,
+        tax: tax ?? _tax,
+        interval: interval ?? _interval,
+        minQty: minQty ?? _minQty,
+        maxQty: maxQty ?? _maxQty,
+        active: active ?? _active,
+        img: img ?? _img,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        ratingAvg: ratingAvg ?? _ratingAvg,
+        ordersCount: ordersCount ?? _ordersCount,
+        translation: translation ?? _translation,
+        properties: properties ?? _properties,
+        stocks: stocks ?? _stocks,
+        shop: shop ?? _shop,
+        category: category ?? _category,
+        brand: brand ?? _brand,
+        unit: unit ?? _unit,
+        reviews: reviews ?? _reviews,
+        galleries: galleries ?? _galleries,
+      );
 
   String? get id => _id;
 
@@ -335,14 +335,15 @@ class Unit {
     String? createdAt,
     String? updatedAt,
     Translation? translation,
-  }) => Unit(
-    id: id ?? _id,
-    active: active ?? _active,
-    position: position ?? _position,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    translation: translation ?? _translation,
-  );
+  }) =>
+      Unit(
+        id: id ?? _id,
+        active: active ?? _active,
+        position: position ?? _position,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        translation: translation ?? _translation,
+      );
 
   String? get id => _id;
 
@@ -371,7 +372,7 @@ class Unit {
 }
 
 class Brand {
-  Brand({int? id, String? uuid, String? title}) {
+  Brand({String? id, String? uuid, String? title}) {
     _id = id;
     _uuid = uuid;
     _title = title;
@@ -379,7 +380,7 @@ class Brand {
 
   Brand.fromJson(dynamic json) {
     _id = json['id']?.toString();
-    _uuid = json['uuid'];
+    _uuid = json['uuid']?.toString();
     _title = json['title'];
   }
 
@@ -387,7 +388,7 @@ class Brand {
   String? _uuid;
   String? _title;
 
-  Brand copyWith({int? id, String? uuid, String? title}) =>
+  Brand copyWith({String? id, String? uuid, String? title}) =>
       Brand(id: id ?? _id, uuid: uuid ?? _uuid, title: title ?? _title);
 
   String? get id => _id;
@@ -406,7 +407,12 @@ class Brand {
 }
 
 class Category {
-  Category({String? id, String? uuid, String? parentId, Translation? translation}) {
+  Category({
+    String? id,
+    String? uuid,
+    String? parentId,
+    Translation? translation,
+  }) {
     _id = id;
     _uuid = uuid;
     _parentId = parentId;
@@ -415,7 +421,7 @@ class Category {
 
   Category.fromJson(dynamic json) {
     _id = json['id']?.toString();
-    _uuid = json['uuid'];
+    _uuid = json['uuid']?.toString();
     _parentId = json['parent_id']?.toString();
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
@@ -428,22 +434,23 @@ class Category {
   Translation? _translation;
 
   Category copyWith({
-    int? id,
+    String? id,
     String? uuid,
-    int? parentId,
+    String? parentId,
     Translation? translation,
-  }) => Category(
-    id: id ?? _id,
-    uuid: uuid ?? _uuid,
-    parentId: parentId ?? _parentId,
-    translation: translation ?? _translation,
-  );
+  }) =>
+      Category(
+        id: id ?? _id,
+        uuid: uuid ?? _uuid,
+        parentId: parentId ?? _parentId,
+        translation: translation ?? _translation,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get uuid => _uuid;
 
-  int? get parentId => _parentId;
+  String? get parentId => _parentId;
 
   Translation? get translation => _translation;
 
@@ -461,9 +468,9 @@ class Category {
 
 class Shop {
   Shop({
-    int? id,
+    String? id,
     String? uuid,
-    int? userId,
+    String? userId,
     num? tax,
     num? deliveryRange,
     num? percentage,
@@ -508,7 +515,7 @@ class Shop {
 
   Shop.fromJson(dynamic json) {
     _id = json['id']?.toString();
-    _uuid = json['uuid'];
+    _uuid = json['uuid']?.toString();
     _userId = json['user_id']?.toString();
     _tax = json['tax'];
     _deliveryRange = json['delivery_range'];
@@ -557,9 +564,9 @@ class Shop {
   Translation? _translation;
 
   Shop copyWith({
-    int? id,
+    String? id,
     String? uuid,
-    int? userId,
+    String? userId,
     num? tax,
     num? deliveryRange,
     num? percentage,
@@ -578,29 +585,30 @@ class Shop {
     String? createdAt,
     String? updatedAt,
     Translation? translation,
-  }) => Shop(
-    id: id ?? _id,
-    uuid: uuid ?? _uuid,
-    userId: userId ?? _userId,
-    tax: tax ?? _tax,
-    deliveryRange: deliveryRange ?? _deliveryRange,
-    percentage: percentage ?? _percentage,
-    location: location ?? _location,
-    phone: phone ?? _phone,
-    showType: showType ?? _showType,
-    open: open ?? _open,
-    visibility: visibility ?? _visibility,
-    openTime: openTime ?? _openTime,
-    closeTime: closeTime ?? _closeTime,
-    backgroundImg: backgroundImg ?? _backgroundImg,
-    logoImg: logoImg ?? _logoImg,
-    minAmount: minAmount ?? _minAmount,
-    status: status ?? _status,
-    statusNote: statusNote ?? _statusNote,
-    createdAt: createdAt ?? _createdAt,
-    updatedAt: updatedAt ?? _updatedAt,
-    translation: translation ?? _translation,
-  );
+  }) =>
+      Shop(
+        id: id ?? _id,
+        uuid: uuid ?? _uuid,
+        userId: userId ?? _userId,
+        tax: tax ?? _tax,
+        deliveryRange: deliveryRange ?? _deliveryRange,
+        percentage: percentage ?? _percentage,
+        location: location ?? _location,
+        phone: phone ?? _phone,
+        showType: showType ?? _showType,
+        open: open ?? _open,
+        visibility: visibility ?? _visibility,
+        openTime: openTime ?? _openTime,
+        closeTime: closeTime ?? _closeTime,
+        backgroundImg: backgroundImg ?? _backgroundImg,
+        logoImg: logoImg ?? _logoImg,
+        minAmount: minAmount ?? _minAmount,
+        status: status ?? _status,
+        statusNote: statusNote ?? _statusNote,
+        createdAt: createdAt ?? _createdAt,
+        updatedAt: updatedAt ?? _updatedAt,
+        translation: translation ?? _translation,
+      );
 
   String? get id => _id;
 
@@ -677,8 +685,8 @@ class Shop {
 
 class Stocks {
   Stocks({
-    int? id,
-    int? countableId,
+    String? id,
+    String? countableId,
     num? price,
     int? quantity,
     num? discount,
@@ -712,9 +720,8 @@ class Stocks {
         _extras?.add(Extras.fromJson(v));
       });
     }
-    _product = json['product'] != null
-        ? ProductData.fromJson(json['product'])
-        : null;
+    _product =
+        json['product'] != null ? ProductData.fromJson(json['product']) : null;
   }
 
   String? _id;
@@ -728,8 +735,8 @@ class Stocks {
   ProductData? _product;
 
   Stocks copyWith({
-    int? id,
-    int? countableId,
+    String? id,
+    String? countableId,
     num? price,
     int? quantity,
     num? discount,
@@ -737,17 +744,18 @@ class Stocks {
     num? totalPrice,
     List<Extras>? extras,
     ProductData? product,
-  }) => Stocks(
-    id: id ?? _id,
-    countableId: countableId ?? _countableId,
-    price: price ?? _price,
-    quantity: quantity ?? _quantity,
-    discount: discount ?? _discount,
-    tax: tax ?? _tax,
-    totalPrice: totalPrice ?? _totalPrice,
-    extras: extras ?? _extras,
-    product: product ?? _product,
-  );
+  }) =>
+      Stocks(
+        id: id ?? _id,
+        countableId: countableId ?? _countableId,
+        price: price ?? _price,
+        quantity: quantity ?? _quantity,
+        discount: discount ?? _discount,
+        tax: tax ?? _tax,
+        totalPrice: totalPrice ?? _totalPrice,
+        extras: extras ?? _extras,
+        product: product ?? _product,
+      );
 
   String? get id => _id;
 
@@ -816,18 +824,19 @@ class Extras {
   Group? _group;
 
   Extras copyWith({
-    int? id,
-    int? extraGroupId,
+    String? id,
+    String? extraGroupId,
     String? value,
     bool? active,
     Group? group,
-  }) => Extras(
-    id: id ?? _id,
-    extraGroupId: extraGroupId ?? _extraGroupId,
-    value: value ?? _value,
-    active: active ?? _active,
-    group: group ?? _group,
-  );
+  }) =>
+      Extras(
+        id: id ?? _id,
+        extraGroupId: extraGroupId ?? _extraGroupId,
+        value: value ?? _value,
+        active: active ?? _active,
+        group: group ?? _group,
+      );
 
   String? get id => _id;
 
@@ -875,18 +884,19 @@ class Group {
   Translation? _translation;
 
   Group copyWith({
-    int? id,
+    String? id,
     String? type,
     bool? active,
     Translation? translation,
-  }) => Group(
-    id: id ?? _id,
-    type: type ?? _type,
-    active: active ?? _active,
-    translation: translation ?? _translation,
-  );
+  }) =>
+      Group(
+        id: id ?? _id,
+        type: type ?? _type,
+        active: active ?? _active,
+        translation: translation ?? _translation,
+      );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get type => _type;
 

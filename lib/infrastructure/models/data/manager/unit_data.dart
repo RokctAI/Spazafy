@@ -2,7 +2,7 @@ import 'translation.dart';
 
 class UnitData {
   UnitData({
-    int? id,
+    String? id,
     bool? active,
     String? position,
     Translation? translation,
@@ -16,7 +16,7 @@ class UnitData {
   }
 
   UnitData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _active = json['active'];
     _position = json['position'];
     _translation = json['translation'] != null
@@ -25,14 +25,14 @@ class UnitData {
     _locales = json['locales'] != null ? json['locales'].cast<String>() : [];
   }
 
-  int? _id;
+  String? _id;
   bool? _active;
   String? _position;
   Translation? _translation;
   List<String>? _locales;
 
   UnitData copyWith({
-    int? id,
+    String? id,
     bool? active,
     String? position,
     Translation? translation,
@@ -46,7 +46,7 @@ class UnitData {
         locales: locales ?? _locales,
       );
 
-  int? get id => _id;
+  String? get id => _id;
 
   bool? get active => _active;
 
