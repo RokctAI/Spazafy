@@ -1,6 +1,8 @@
+import 'package:rokctapp/domain/interface/manager_orders.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'accepted_orders_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -12,7 +14,7 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
   bool _hasMore = true;
 
   AcceptedOrdersNotifier(this._ordersRepository)
-      : super(const AcceptedOrdersState());
+    : super(const AcceptedOrdersState());
 
   Future<void> fetchAcceptedOrders({
     RefreshController? refreshController,
@@ -61,7 +63,7 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -75,4 +77,3 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
     );
   }
 }
-

@@ -1,5 +1,5 @@
-// infrastructure/models/data/poi_data.dart
 import 'package:flutter/material.dart';
+// infrastructure/models/data/poi_data.dart
 
 class POIData {
   final String name;

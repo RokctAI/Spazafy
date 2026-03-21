@@ -1,5 +1,10 @@
-// ignore_for_file: deprecated_member_use
-
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,7 +18,8 @@ import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/driver/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+// ignore_for_file: deprecated_member_use
 
 @RoutePage()
 class DriverNotificationListPage extends ConsumerStatefulWidget {
@@ -58,8 +64,11 @@ class _DriverNotificationListPageState
                 children: [
                   CommonAppBar(
                     child: Text(
-                      AppHelpers.getTranslation(TrKeys.notifications),
-                      style: AppStyle.interSemi(size: 18, color: AppStyle.black),
+                      help.AppHelpers.getTranslation(TrKeys.notifications),
+                      style: AppStyle.interSemi(
+                        size: 18,
+                        color: AppStyle.black,
+                      ),
                     ),
                   ),
                   Expanded(
@@ -101,7 +110,7 @@ class _DriverNotificationListPageState
                                   null) {
                                 if (state.notifications[index].orderData !=
                                     null) {
-                                  // AppHelpers.showCustomModalBottomSheet(
+                                  // help.AppHelpers.showCustomModalBottomSheet(
                                   //     context: context,
                                   //     modal: OrderDetailsModal(
                                   //         order: state.notifications[index]
@@ -125,7 +134,7 @@ class _DriverNotificationListPageState
                                   enableJavaScript: true,
                                 );
                               } else {
-                                AppHelpers.showAlertDialog(
+                                help.AppHelpers.showAlertDialog(
                                   context: context,
                                   child: Text(
                                     '${state.notifications[index].body ?? state.notifications[index].title}',
@@ -157,7 +166,7 @@ class _DriverNotificationListPageState
                 child: CustomButton(
                   background: AppStyle.black,
                   textColor: AppStyle.white,
-                  title: AppHelpers.getTranslation(TrKeys.readAll),
+                  title: help.AppHelpers.getTranslation(TrKeys.readAll),
                   onPressed: () async {
                     event.readAll(context);
                   },
@@ -190,7 +199,10 @@ class _DriverNotificationListPageState
                   children: [
                     Text(
                       '${notification.client?.firstname ?? ''} ${notification.client?.lastname?.substring(0, 1) ?? ''}.',
-                      style: AppStyle.interSemi(size: 16, color: AppStyle.black),
+                      style: AppStyle.interSemi(
+                        size: 16,
+                        color: AppStyle.black,
+                      ),
                     ),
                     15.horizontalSpace,
                     Container(
@@ -216,7 +228,10 @@ class _DriverNotificationListPageState
                       '${notification.body ?? notification.title}',
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
-                      style: AppStyle.interRegular(size: 14, color: AppStyle.black),
+                      style: AppStyle.interRegular(
+                        size: 14,
+                        color: AppStyle.black,
+                      ),
                     ),
                   ),
                   if (notification.client == null)
@@ -238,7 +253,10 @@ class _DriverNotificationListPageState
                 Jiffy.parseFromDateTime(
                   notification.createdAt ?? DateTime.now(),
                 ).fromNow(),
-                style: AppStyle.interRegular(size: 12, color: AppStyle.textGrey),
+                style: AppStyle.interRegular(
+                  size: 12,
+                  color: AppStyle.textGrey,
+                ),
               ),
             ],
           ),

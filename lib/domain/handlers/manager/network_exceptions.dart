@@ -1,11 +1,8 @@
-// ignore_for_file: deprecated_member_use
-
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'network_exceptions.freezed.dart';
+// ignore_for_file: deprecated_member_use
 
 @freezed
 class NetworkExceptions with _$NetworkExceptions {

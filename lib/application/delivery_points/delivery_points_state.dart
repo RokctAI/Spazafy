@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/data/delivery_point_data.dart';
-
 part 'delivery_points_state.freezed.dart';
 
 @freezed

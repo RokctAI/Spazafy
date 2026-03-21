@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class SizeItem extends StatelessWidget {
   final VoidCallback onTap;
@@ -40,9 +39,7 @@ class SizeItem extends StatelessWidget {
                       color: isActive ? AppStyle.green : AppStyle.transparent,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: isActive
-                            ? AppStyle.blackColor
-                            : AppStyle.greyColor,
+                        color: isActive ? AppStyle.blackColor : AppStyle.bgGrey,
                         width: isActive ? 4.r : 2.r,
                       ),
                     ),
@@ -58,7 +55,7 @@ class SizeItem extends StatelessWidget {
                 ],
               ),
               16.verticalSpace,
-              Divider(color: AppStyle.greyColor.withOpacity(0.2)),
+              Divider(color: AppStyle.bgGrey.withOpacity(0.2)),
             ],
           ),
         ),

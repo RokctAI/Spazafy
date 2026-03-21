@@ -1,8 +1,13 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/kitchens_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/units_paginate_response.dart';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
@@ -65,7 +70,10 @@ class CatalogRepository implements CatalogInterface {
     debugPrint('===> create category request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/method/paas.api.seller_product.seller_product.create_seller_category', data: data);
+      await client.post(
+        '/api/v1/method/paas.api.seller_product.seller_product.create_seller_category',
+        data: data,
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> create category failure: $e');
@@ -184,7 +192,9 @@ class CatalogRepository implements CatalogInterface {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
         '/api/v1/method/paas.api.seller_product.seller_product.delete_seller_category',
-        data: {'ids': [id]},
+        data: {
+          'ids': [id],
+        },
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -196,4 +206,3 @@ class CatalogRepository implements CatalogInterface {
     }
   }
 }
-

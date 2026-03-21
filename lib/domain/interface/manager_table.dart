@@ -1,3 +1,14 @@
+import 'package:rokctapp/infrastructure/models/response/manager/close_day_response.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/table_model.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/disable_dates.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/table_bookings_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/working_day_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/shop_section_response.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/table_data.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/table_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/bookings_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/table_info_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/table_statistic_response.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 

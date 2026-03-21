@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,7 +12,8 @@ import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/application/shop/shop_provider.dart';
 import 'package:rokctapp/application/shop/shop_state.dart';
 import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
+import 'package:rokctapp/infrastructure/models/response/all_products_response.dart'
+    hide Product;
 import 'package:rokctapp/utils/products/product_card.dart';
 import 'package:rokctapp/utils/products/product_utils.dart';
 import 'package:rokctapp/presentation/pages/product/product_page.dart';

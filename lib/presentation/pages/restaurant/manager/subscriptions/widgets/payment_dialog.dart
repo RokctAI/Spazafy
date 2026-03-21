@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,7 +8,7 @@ import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart'
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class PaymentDialog extends ConsumerWidget {
   const PaymentDialog({super.key});
@@ -27,7 +28,7 @@ class PaymentDialog extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(AppHelpers.getTranslation(TrKeys.selectPayment)),
+            Text(help.AppHelpers.getTranslation(TrKeys.selectPayment)),
             Expanded(
               child: ListView.builder(
                 padding: REdgeInsets.symmetric(vertical: 12),

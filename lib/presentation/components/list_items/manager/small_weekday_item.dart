@@ -1,8 +1,8 @@
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class SmallWeekdayItem extends StatelessWidget {
@@ -33,10 +33,7 @@ class SmallWeekdayItem extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         '${toBeginningOfSentenceCase(day.day?.substring(0, 2))}',
-        style: AppStyle.interNormal(
-          size: fontSize,
-          color: AppStyle.blackColor,
-        ),
+        style: AppStyle.interNormal(size: fontSize, color: AppStyle.blackColor),
       ),
     );
   }

@@ -1,13 +1,26 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/statistics_response.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/request_model_response.dart';
+import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/statistics_income_response.dart';
+import 'package:rokctapp/infrastructure/models/response/driver_show_response.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/delivery_zone_paginate.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
-final settingsRepository = driverSettingsRepository;
-import 'package:rokctapp/domain/handlers/driver/handlers.dart';
+import 'package:rokctapp/domain/handlers/driver/handlers.dart' hide ApiResult;
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
+
+final settingsRepository = driverSettingsRepository;
 
 class UserRepositoryImpl implements UserRepository {
   @override
@@ -65,7 +78,9 @@ class UserRepositoryImpl implements UserRepository {
   Future<ApiResult<ProfileResponse>> getProfileDetails() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get('/api/v1/method/paas.api.user.user.get_profile');
+      final response = await client.get(
+        '/api/v1/method/paas.api.user.user.get_profile',
+      );
 
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
@@ -335,7 +350,9 @@ class UserRepositoryImpl implements UserRepository {
   Future<ApiResult> setOnline() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/method/paas.api.driver.driver.set_online_status');
+      await client.post(
+        '/api/v1/method/paas.api.driver.driver.set_online_status',
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update online token failure: $e');
@@ -350,7 +367,9 @@ class UserRepositoryImpl implements UserRepository {
   Future<ApiResult<RequestModelResponse>> getRequestModel() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final res = await client.get('/api/v1/method/paas.api.driver.driver.get_car_requests');
+      final res = await client.get(
+        '/api/v1/method/paas.api.driver.driver.get_car_requests',
+      );
       return ApiResult.success(data: RequestModelResponse.fromJson(res.data));
     } catch (e) {
       debugPrint('==> get request model failure: $e');
@@ -386,7 +405,7 @@ class UserRepositoryImpl implements UserRepository {
     if (!connected) {
       return const ApiResult.failure(
         error: "No context", // Silent failure, no snackbar needed for telemetry
-        statusCode: 501, 
+        statusCode: 501,
       );
     }
     try {
@@ -477,4 +496,3 @@ class UserRepositoryImpl implements UserRepository {
     }
   }
 }
-

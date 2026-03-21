@@ -1,6 +1,7 @@
+import 'package:rokctapp/domain/interface/manager_users.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'working_days_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -48,4 +49,3 @@ class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
     state = state.copyWith(currentIndex: index);
   }
 }
-

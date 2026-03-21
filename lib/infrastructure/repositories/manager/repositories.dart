@@ -1,4 +1,4 @@
-export 'auth_repository.dart';
+export '../auth_repository.dart';
 export 'users_repository.dart';
 export 'orders_repository.dart';
 export 'catalog_repository.dart';
@@ -7,3 +7,5 @@ export 'products_repository.dart';
 export 'shops_repository.dart';
 export 'table_repository.dart';
 export 'notification_repository.dart';
+export 'subscription_repository.dart';
+export 'payment_repository.dart';

@@ -1,8 +1,8 @@
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -34,7 +34,7 @@ class ShopBanner extends StatelessWidget {
                     imageSize: 36,
                     size: 46,
                     borderRadius: 12,
-                    bgColor: AppStyle.greyColor.withOpacity(0.65),
+                    bgColor: AppStyle.bgGrey.withOpacity(0.65),
                   ),
                 ),
                 Positioned(
@@ -58,7 +58,7 @@ class ShopBanner extends StatelessWidget {
               child: Container(
                 height: 150.h + MediaQuery.paddingOf(context).top,
                 width: double.infinity,
-                color: AppStyle.greyColor,
+                color: AppStyle.bgGrey,
                 child: CommonImage(
                   url:
                       state.shop?.backgroundImg ??

@@ -1,5 +1,5 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,7 +8,6 @@ import 'package:rokctapp/application/shop/shop_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-
 import 'category_tab_bar.widget.dart';
 
 class TabSearch extends StatelessWidget {

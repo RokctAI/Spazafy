@@ -1,7 +1,7 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class Loading extends StatelessWidget {

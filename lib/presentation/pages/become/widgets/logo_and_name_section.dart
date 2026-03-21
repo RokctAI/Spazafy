@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -6,7 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:rokctapp/application/profile/profile_notifier.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class LogoAndNameSection extends StatelessWidget {
   final String logoImage;
@@ -96,7 +98,7 @@ class LogoAndNameSection extends StatelessWidget {
           child: OutlinedBorderTextField(
             validation: validation,
             textController: shopNameController,
-            label: AppHelpers.getTranslation(TrKeys.restaurantName),
+            label: help.AppHelpers.getTranslation(TrKeys.restaurantName),
           ),
         ),
       ],

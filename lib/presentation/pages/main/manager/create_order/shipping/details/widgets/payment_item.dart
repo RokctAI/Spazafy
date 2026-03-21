@@ -1,11 +1,12 @@
+import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart'
+    hide PaymentData;
 
 class PaymentItem extends StatelessWidget {
   final PaymentData payment;
@@ -48,11 +49,7 @@ class PaymentItem extends StatelessWidget {
               Column(
                 children: [
                   14.verticalSpace,
-                  Divider(
-                    thickness: 1.r,
-                    height: 1.r,
-                    color: AppStyle.greyColor,
-                  ),
+                  Divider(thickness: 1.r, height: 1.r, color: AppStyle.bgGrey),
                   14.verticalSpace,
                 ],
               ),

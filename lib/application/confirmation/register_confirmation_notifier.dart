@@ -1,7 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +11,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'register_confirmation_state.dart';
+// ignore_for_file: use_build_context_synchronously
 
 class RegisterConfirmationNotifier
     extends StateNotifier<RegisterConfirmationState> {
@@ -103,10 +101,7 @@ class RegisterConfirmationNotifier
         await LocalStorage.setToken(data.token);
         String? fcmToken = await FirebaseMessaging.instance.getToken();
         _userRepositoryFacade.updateFirebaseToken(fcmToken);
-        state = state.copyWith(
-          isLoading: false,
-          isResetPasswordSuccess: true,
-        );
+        state = state.copyWith(isLoading: false, isResetPasswordSuccess: true);
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false, isCodeError: true);
@@ -205,9 +200,7 @@ class RegisterConfirmationNotifier
       verificationFailed: (FirebaseAuthException e) {
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(
-            AppHelpers.getTranslation(e.message ?? ""),
-          ),
+          AppHelpers.getTranslation(AppHelpers.getTranslation(e.message ?? "")),
         );
         state = state.copyWith(isResending: false);
       },

@@ -1,3 +1,4 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -8,7 +9,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/filter/filter_page.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/category_one_item.dart';
 
 class ServiceOneCategory extends StatelessWidget {

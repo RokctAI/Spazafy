@@ -1,3 +1,7 @@
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/statistics_income_response.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
@@ -6,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class SalesChart extends StatelessWidget {
   final List<num> price;
@@ -43,7 +47,7 @@ class SalesChart extends StatelessWidget {
                   ? LineChart(mainData())
                   : Center(
                       child: Text(
-                        AppHelpers.getTranslation(TrKeys.needOrder),
+                        help.AppHelpers.getTranslation(TrKeys.needOrder),
                         style: AppStyle.interSemi(size: 22),
                       ),
                     ),
@@ -71,7 +75,7 @@ class SalesChart extends StatelessWidget {
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     final style = AppStyle.interRegular(size: 12);
     return AutoSizeText(
-      AppHelpers.numberFormat(
+      help.AppHelpers.numberFormat(
         value.toInt() == 0 ? 0 : price[value.toInt() - 1],
       ),
       style: style,

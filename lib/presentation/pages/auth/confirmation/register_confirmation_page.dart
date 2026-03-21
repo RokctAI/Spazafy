@@ -1,5 +1,5 @@
-// ignore_for_file: unused_result
-
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,6 +18,7 @@ import 'package:sms_autofill/sms_autofill.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/auth/auth.dart';
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
+// ignore_for_file: unused_result
 
 @RoutePage()
 class RegisterConfirmationPage extends ConsumerStatefulWidget {
@@ -72,10 +73,7 @@ class _RegisterConfirmationPageState
         Navigator.pop(context);
         AppHelpers.showCustomModalBottomSheet(
           context: context,
-          modal: RegisterPage(
-            isOnlyEmail: false,
-            role: widget.role,
-          ),
+          modal: RegisterPage(isOnlyEmail: false, role: widget.role),
           isDarkMode: isDarkMode,
         );
       }

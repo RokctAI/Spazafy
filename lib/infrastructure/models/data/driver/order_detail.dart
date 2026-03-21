@@ -1,5 +1,6 @@
-import 'package:rokctapp/infrastructure/models/data/driver/push_data.dart';
-
+import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/push_data.dart'
+    hide AddressModel;
 import 'product_data.dart';
 
 class OrderDetailModel {
@@ -105,10 +106,11 @@ class OrderDetailData {
     current = json["current"] == null
         ? false
         : ((json["current"].runtimeType == int)
-            ? (json["current"] == 0 ? false : true)
-            : json["current"]);
-    location =
-        json['location'] != null ? Location.fromJson(json['location']) : null;
+              ? (json["current"] == 0 ? false : true)
+              : json["current"]);
+    location = json['location'] != null
+        ? Location.fromJson(json['location'])
+        : null;
     address = (json['address'] != null)
         ? AddressModel.fromJson(json['address'])
         : null;
@@ -121,8 +123,9 @@ class OrderDetailData {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     shop = json['shop'] != null ? Shop.fromJson(json['shop']) : null;
-    currency =
-        json['currency'] != null ? Currency.fromJson(json['currency']) : null;
+    currency = json['currency'] != null
+        ? Currency.fromJson(json['currency'])
+        : null;
     user = json['user'] != null ? User.fromJson(json['user']) : null;
     if (json['details'] != null) {
       details = <Details>[];
@@ -270,8 +273,9 @@ class Shop {
         : null;
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    location =
-        json['location'] != null ? Location.fromJson(json['location']) : null;
+    location = json['location'] != null
+        ? Location.fromJson(json['location'])
+        : null;
     productsCount = json['products_count'];
     translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
@@ -565,8 +569,9 @@ class Stock {
         extras?.add(Extras.fromJson(v));
       });
     }
-    product =
-        json['product'] != null ? Product.fromJson(json['product']) : null;
+    product = json['product'] != null
+        ? Product.fromJson(json['product'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {

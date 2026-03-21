@@ -1,5 +1,6 @@
-import 'package:rokctapp/infrastructure/models/data/links.dart';
-import 'package:rokctapp/infrastructure/models/data/meta.dart';
+import 'package:rokctapp/infrastructure/models/data/help_data.dart';
+import 'package:rokctapp/infrastructure/models/data/links.dart' hide Links;
+import 'package:rokctapp/infrastructure/models/data/meta.dart' hide Meta;
 import 'package:rokctapp/infrastructure/models/data/user.dart';
 
 class WalletHistoriesResponse {

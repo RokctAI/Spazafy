@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/driver/language.dart';
+import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 import 'dart:io';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:auto_route/auto_route.dart';
@@ -10,7 +12,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart' hide LanguageData;
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
@@ -21,11 +23,9 @@ import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:rokctapp/domain/interface/settings.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/background_sync_service.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 import 'dart:convert';
-
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'login_state.dart';
 
@@ -420,7 +420,6 @@ class LoginNotifier extends StateNotifier<LoginState> {
       }
     }
   }
-
 
   Future<void> loginWithFacebook(BuildContext context) async {
     final connected = await AppConnectivity.connectivity();

@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +15,12 @@ import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/application/auth/login/login_provider.dart';
 import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 import 'login_screen.dart';
-
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/buttons/second_button.dart';
 import 'package:rokctapp/presentation/pages/intro/intro_page.dart';
 import 'package:rokctapp/presentation/pages/policy_term/policy_page.dart';
 import 'package:rokctapp/presentation/pages/policy_term/term_page.dart';
+// ignore_for_file: use_build_context_synchronously
 
 @RoutePage()
 class LoginPage extends ConsumerStatefulWidget {

@@ -1,9 +1,10 @@
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart'
+    hide UserData;
 
 class UserItem extends StatelessWidget {
   final UserData user;
@@ -65,10 +66,7 @@ class UserItem extends StatelessWidget {
                     style: AppStyle.interSemi(size: 15),
                   ),
                   4.verticalSpace,
-                  Text(
-                    user.email ?? '',
-                    style: AppStyle.interNormal(size: 12),
-                  ),
+                  Text(user.email ?? '', style: AppStyle.interNormal(size: 12)),
                 ],
               ),
             ),

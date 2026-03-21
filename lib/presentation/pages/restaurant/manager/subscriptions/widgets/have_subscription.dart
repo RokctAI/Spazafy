@@ -1,10 +1,11 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/date_service.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class HaveSubscription extends StatelessWidget {
   const HaveSubscription({super.key});
@@ -23,7 +24,7 @@ class HaveSubscription extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            AppHelpers.getTranslation(TrKeys.youHaveSubscription),
+            help.AppHelpers.getTranslation(TrKeys.youHaveSubscription),
             style: AppStyle.interNormal(size: 14),
           ),
           12.verticalSpace,
@@ -40,13 +41,13 @@ class HaveSubscription extends StatelessWidget {
                     ),
                     2.verticalSpace,
                     Text(
-                      AppHelpers.numberFormat(subscription?.price),
+                      help.AppHelpers.numberFormat(subscription?.price),
                       style: AppStyle.interSemi(size: 16),
                     ),
                     2.verticalSpace,
                     if (subscription?.withReport ?? false)
                       Text(
-                        "+ ${AppHelpers.getTranslation(TrKeys.withReport)}",
+                        "+ ${help.AppHelpers.getTranslation(TrKeys.withReport)}",
                         style: AppStyle.interRegular(
                           size: 12,
                           color: AppStyle.green,
@@ -65,12 +66,12 @@ class HaveSubscription extends StatelessWidget {
                     ),
                     2.verticalSpace,
                     Text(
-                      "${subscription?.productLimit ?? 0} ${AppHelpers.getTranslation(TrKeys.product).toLowerCase()}",
+                      "${subscription?.productLimit ?? 0} ${help.AppHelpers.getTranslation(TrKeys.product).toLowerCase()}",
                       style: AppStyle.interRegular(size: 14),
                     ),
                     2.verticalSpace,
                     Text(
-                      "${subscription?.orderLimit ?? 0} ${AppHelpers.getTranslation(TrKeys.order).toLowerCase()}",
+                      "${subscription?.orderLimit ?? 0} ${help.AppHelpers.getTranslation(TrKeys.order).toLowerCase()}",
                       style: AppStyle.interRegular(size: 14),
                     ),
                   ],
@@ -85,7 +86,7 @@ class HaveSubscription extends StatelessWidget {
               DateService.dateFormatForNotification(
                 LocalStorage.getShop()?.subscription?.createdAt,
               ),
-              style: AppStyle.interNormal(size: 12, color: AppStyle.textColor),
+              style: AppStyle.interNormal(size: 12, color: AppStyle.textGrey),
             ),
           ),
         ],

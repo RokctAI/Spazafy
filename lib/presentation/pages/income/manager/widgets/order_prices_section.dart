@@ -1,10 +1,11 @@
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:rokctapp/presentation/pages/income/manager/more_orders.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
@@ -32,7 +33,7 @@ class OrderPricesSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppHelpers.getTranslation(TrKeys.orderPrice),
+                    help.AppHelpers.getTranslation(TrKeys.orderPrice),
                     style: AppStyle.interNormal(
                       size: 14,
                       color: AppStyle.blackColor,
@@ -41,7 +42,7 @@ class OrderPricesSection extends StatelessWidget {
                   ),
                   16.verticalSpace,
                   Text(
-                    AppHelpers.numberFormat(
+                    help.AppHelpers.numberFormat(
                       state.countData?.lastOrderTotalPrice ?? 0,
                     ),
                     style: AppStyle.interSemi(
@@ -53,7 +54,7 @@ class OrderPricesSection extends StatelessWidget {
                   4.verticalSpace,
                   RichText(
                     text: TextSpan(
-                      text: AppHelpers.getTranslation(TrKeys.lastIncome),
+                      text: help.AppHelpers.getTranslation(TrKeys.lastIncome),
                       style: AppStyle.interNormal(
                         size: 12,
                         color: AppStyle.blackColor,
@@ -61,7 +62,7 @@ class OrderPricesSection extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: AppHelpers.numberFormat(
+                          text: help.AppHelpers.numberFormat(
                             state.countData?.lastOrderIncome ?? 0,
                           ),
                           style: AppStyle.interSemi(
@@ -91,7 +92,7 @@ class OrderPricesSection extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        AppHelpers.getTranslation(TrKeys.restaurantRevenue),
+                        help.AppHelpers.getTranslation(TrKeys.restaurantRevenue),
                         style: AppStyle.interNormal(
                           size: 12,
                           color: AppStyle.white,
@@ -99,7 +100,7 @@ class OrderPricesSection extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        AppHelpers.numberFormat(
+                        help.AppHelpers.numberFormat(
                           state.countData?.totalPrice ?? 0,
                         ),
                         style: AppStyle.interSemi(
@@ -122,7 +123,7 @@ class OrderPricesSection extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        AppHelpers.getTranslation(TrKeys.fMRevenue),
+                        help.AppHelpers.getTranslation(TrKeys.fMRevenue),
                         style: AppStyle.interNormal(
                           size: 12,
                           color: AppStyle.white,
@@ -130,7 +131,7 @@ class OrderPricesSection extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        AppHelpers.numberFormat(
+                        help.AppHelpers.numberFormat(
                           state.countData?.fmTotalPrice ?? 0,
                         ),
                         style: AppStyle.interSemi(
@@ -147,7 +148,7 @@ class OrderPricesSection extends StatelessWidget {
             10.verticalSpace,
             GestureDetector(
               onTap: () {
-                AppHelpers.showCustomModalBottomSheet(
+                help.AppHelpers.showCustomModalBottomSheet(
                   paddingTop: MediaQuery.paddingOf(context).top + 200.h,
                   context: context,
                   radius: 12,
@@ -173,7 +174,7 @@ class OrderPricesSection extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      AppHelpers.getTranslation(TrKeys.moreAboutOrders),
+                      help.AppHelpers.getTranslation(TrKeys.moreAboutOrders),
                       style: AppStyle.interNormal(
                         size: 14,
                         color: AppStyle.blackColor,

@@ -1,3 +1,4 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,6 @@ import 'domain/di/dependency_manager.dart';
 import 'presentation/app_widget.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'utils/app_initializer_widget.dart';
-
 import 'package:workmanager/workmanager.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/local_location_data.dart';
@@ -29,23 +29,25 @@ void callbackDispatcher() {
           // ignore: deprecated_member_use
           desiredAccuracy: LocationAccuracy.high,
         );
-        final Dio client = Dio(
-          BaseOptions(
-            headers: {
-              'Accept':
-                  'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
-              'Content-type': 'application/json',
-              "Authorization": "Bearer ${LocalStorage.getToken()}",
-            },
-          ),
-        )..interceptors.add(
-            LogInterceptor(
-              responseHeader: false,
-              requestHeader: true,
-              responseBody: true,
-              requestBody: true,
-            ),
-          );
+        final Dio client =
+            Dio(
+                BaseOptions(
+                  headers: {
+                    'Accept':
+                        'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
+                    'Content-type': 'application/json',
+                    "Authorization": "Bearer ${LocalStorage.getToken()}",
+                  },
+                ),
+              )
+              ..interceptors.add(
+                LogInterceptor(
+                  responseHeader: false,
+                  requestHeader: true,
+                  responseBody: true,
+                  requestBody: true,
+                ),
+              );
         await client.post(
           '${global_constants.AppConstants.baseUrl}/api/v1/method/paas.api.driver.driver.update_location',
           data: {
@@ -104,11 +106,7 @@ void main() async {
 
   runApp(
     ProviderScope(
-      child: Phoenix(
-        child: AppInitializerWidget(
-          child: AppWidget(),
-        ),
-      ),
+      child: Phoenix(child: AppInitializerWidget(child: AppWidget())),
     ),
   );
 }

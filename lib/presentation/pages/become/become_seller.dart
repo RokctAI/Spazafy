@@ -1,3 +1,9 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -16,7 +22,7 @@ import 'package:rokctapp/presentation/pages/become/widgets/logo_and_name_section
 import 'package:rokctapp/presentation/pages/become/widgets/processing_view.dart';
 import 'package:rokctapp/presentation/pages/become/widgets/shop_form_fields.dart';
 import 'package:rokctapp/presentation/pages/restaurant/manager/widgets/logout_modal.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 @RoutePage()
 class CreateShopPage extends ConsumerStatefulWidget {
@@ -63,7 +69,9 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
   void _loadUserData() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.read(profileProvider.notifier).resetShopData();
-      ref.read(profileProvider.notifier).fetchUser(
+      ref
+          .read(profileProvider.notifier)
+          .fetchUser(
             context,
             onSuccess: (phone) {
               if (!AppConstants.isSpecificNumberEnabled) {
@@ -108,14 +116,12 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
             CustomAppBar(
               bottomPadding: 16,
               child: Text(
-                AppHelpers.getTranslation(TrKeys.becomeSeller),
+                help.AppHelpers.getTranslation(TrKeys.becomeSeller),
                 style: AppStyle.interSemi(size: 18, color: AppStyle.black),
               ),
             ),
             Expanded(
-              child: state.isLoading
-                  ? const Loading()
-                  : _buildContent(state),
+              child: state.isLoading ? const Loading() : _buildContent(state),
             ),
           ],
         ),
@@ -142,11 +148,7 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
       key: form,
       child: ListView(
         physics: const BouncingScrollPhysics(),
-        padding: REdgeInsets.only(
-          top: 12,
-          left: 16,
-          right: 16,
-        ),
+        padding: REdgeInsets.only(top: 12, left: 16, right: 16),
         shrinkWrap: true,
         children: [
           if (isRetry) ...[
@@ -170,11 +172,8 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
                   12.horizontalSpace,
                   Expanded(
                     child: Text(
-                      AppHelpers.getTranslation(TrKeys.pleaseTryAgain),
-                      style: AppStyle.interSemi(
-                        size: 14,
-                        color: AppStyle.red,
-                      ),
+                      help.AppHelpers.getTranslation(TrKeys.pleaseTryAgain),
+                      style: AppStyle.interSemi(size: 14, color: AppStyle.red),
                     ),
                   ),
                 ],
@@ -182,10 +181,7 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
             ),
             24.verticalSpace,
           ],
-          BackgroundImagePicker(
-            bgImage: state.bgImage,
-            event: event,
-          ),
+          BackgroundImagePicker(bgImage: state.bgImage, event: event),
           24.verticalSpace,
           LogoAndNameSection(
             logoImage: state.logoImage,
@@ -214,10 +210,7 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
             },
           ),
           24.verticalSpace,
-          DocumentUploadSection(
-            filePaths: state.filepath,
-            event: event,
-          ),
+          DocumentUploadSection(filePaths: state.filepath, event: event),
           24.verticalSpace,
           AddressSelector(
             addressModel: state.addressModel,
@@ -229,12 +222,12 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
           32.verticalSpace,
           CustomButton(
             isLoading: state.isSaveLoading,
-            title: AppHelpers.getTranslation(TrKeys.save),
+            title: help.AppHelpers.getTranslation(TrKeys.save),
             onPressed: () => _handleSave(state, categoryId),
           ),
           16.verticalSpace,
           OutlinedButton(
-            onPressed: () => AppHelpers.showCustomModalBottomSheet(
+            onPressed: () => help.AppHelpers.showCustomModalBottomSheet(
               context: context,
               modal: const LogoutModal(),
               isDarkMode: false,
@@ -250,11 +243,8 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
               ),
             ),
             child: Text(
-              AppHelpers.getTranslation(TrKeys.logout),
-              style: AppStyle.interSemi(
-                size: 15,
-                color: AppStyle.red,
-              ),
+              help.AppHelpers.getTranslation(TrKeys.logout),
+              style: AppStyle.interSemi(size: 15, color: AppStyle.red),
             ),
           ),
           36.verticalSpace,
@@ -270,23 +260,23 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
 
     if (categoryId == 0) {
       if (state.logoImage.isEmpty) {
-        AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(
           context,
-          text: AppHelpers.getTranslation(TrKeys.logoCanNotBeEmpty),
+          text: help.AppHelpers.getTranslation(TrKeys.logoCanNotBeEmpty),
         );
         return;
       }
       if (state.bgImage.isEmpty) {
-        AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(
           context,
-          text: AppHelpers.getTranslation(TrKeys.bgCanNotBeEmpty),
+          text: help.AppHelpers.getTranslation(TrKeys.bgCanNotBeEmpty),
         );
         return;
       }
       if (state.addressModel?.address?.isEmpty ?? true) {
-        AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(
           context,
-          text: AppHelpers.getTranslation(TrKeys.locationCanNotBeEmpty),
+          text: help.AppHelpers.getTranslation(TrKeys.locationCanNotBeEmpty),
         );
         return;
       }

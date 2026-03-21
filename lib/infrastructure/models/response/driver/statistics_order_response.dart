@@ -1,8 +1,7 @@
+import 'dart:convert';
 // To parse this JSON data, do
 //
 //     final statisticsOrderModel = statisticsOrderModelFromJson(jsonString);
-
-import 'dart:convert';
 
 StatisticsOrderResponse statisticsOrderModelFromJson(String str) =>
     StatisticsOrderResponse.fromJson(json.decode(str));

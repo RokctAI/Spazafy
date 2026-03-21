@@ -1,10 +1,13 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'add_category_modal.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -43,7 +46,7 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
           const ModalDrag(),
           if (!widget.isSubCategory)
             GestureDetector(
-              onTap: () => AppHelpers.showCustomModalBottomSheet(
+              onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                 context: context,
                 paddingTop: 100,
                 modal: const AddCategoryModal(),
@@ -59,7 +62,7 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
                   ),
                   10.horizontalSpace,
                   Text(
-                    AppHelpers.getTranslation(TrKeys.addNewCategory),
+                    help.AppHelpers.getTranslation(TrKeys.addNewCategory),
                     style: AppStyle.interSemi(
                       size: 14,
                       color: AppStyle.blue,
@@ -80,7 +83,7 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
                 child: Column(
                   children: [
                     TitleAndIcon(
-                      title: AppHelpers.getTranslation(TrKeys.categories),
+                      title: help.AppHelpers.getTranslation(TrKeys.categories),
                       titleSize: 16,
                     ),
                     Consumer(
@@ -90,13 +93,13 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
                         final currentCategories = widget.isSubCategory
                             ? state.categoriesSub
                             : (isCombo
-                                ? state.comboCategories
-                                : state.categories);
+                                  ? state.comboCategories
+                                  : state.categories);
                         final currentActiveIndex = widget.isSubCategory
                             ? state.activeSubIndex
                             : (isCombo
-                                ? state.activeComboIndex
-                                : state.activeIndex);
+                                  ? state.activeComboIndex
+                                  : state.activeIndex);
 
                         return ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
@@ -121,15 +124,15 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
                               isSelected: currentActiveIndex == index,
                               onDelete:
                                   currentCategories[index].shopId ==
-                                          LocalStorage.getShop()?.id
-                                      ? () {
-                                          ref
-                                              .read(allCategoriesProvider.notifier)
-                                              .deleteCategories(
-                                                currentCategories[index],
-                                              );
-                                        }
-                                      : null,
+                                      LocalStorage.getShop()?.id
+                                  ? () {
+                                      ref
+                                          .read(allCategoriesProvider.notifier)
+                                          .deleteCategories(
+                                            currentCategories[index],
+                                          );
+                                    }
+                                  : null,
                             );
                           },
                         );

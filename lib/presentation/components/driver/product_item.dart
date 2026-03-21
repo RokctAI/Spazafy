@@ -1,10 +1,12 @@
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
-
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart'
+    hide Product;
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ProductItem extends StatelessWidget {
   final Product? product;
@@ -33,12 +35,18 @@ class ProductItem extends StatelessWidget {
                 children: [
                   Text(
                     product?.translation?.title ?? "",
-                    style: AppStyle.interSemi(size: 14.sp, color: AppStyle.black),
+                    style: AppStyle.interSemi(
+                      size: 14.sp,
+                      color: AppStyle.black,
+                    ),
                   ),
                   4.verticalSpace,
                   Text(
                     "${AppHelpers.getTranslation(TrKeys.amount)} — ${(amount ?? 1) * (product?.interval ?? 1)} ${(product?.unit?.translation?.title ?? "")}",
-                    style: AppStyle.interRegular(size: 14.sp, color: AppStyle.black),
+                    style: AppStyle.interRegular(
+                      size: 14.sp,
+                      color: AppStyle.black,
+                    ),
                   ),
                 ],
               ),
@@ -58,7 +66,10 @@ class ProductItem extends StatelessWidget {
                     child: RichText(
                       text: TextSpan(
                         text: "${AppHelpers.getTranslation(TrKeys.sideDish)}:",
-                        style: AppStyle.interSemi(size: 14.sp, color: AppStyle.black),
+                        style: AppStyle.interSemi(
+                          size: 14.sp,
+                          color: AppStyle.black,
+                        ),
                         children: [
                           TextSpan(
                             text: product?.translation?.description ?? "",

@@ -1,12 +1,20 @@
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/language.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:collection/collection.dart';
 import 'package:rokctapp/application/ai_translation/manager/ai_translation_provider.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart'
+    hide LanguageData;
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
@@ -160,53 +168,53 @@ class _MultiTranslationInputModalState
               if (AppConstants.groqApiKey.isNotEmpty)
                 Padding(
                   padding: REdgeInsets.only(top: 12, bottom: 24),
-                child: TextButton(
-                  style: ButtonStyle(
-                    overlayColor: WidgetStateProperty.resolveWith(
-                      (states) => AppStyle.greyColor,
-                    ),
-                  ),
-                  child: state.isLoading
-                      ? SizedBox(width: 60.r, child: Loading())
-                      : Text(
-                          AppHelpers.getTranslation(TrKeys.translateWithAi),
-                          style: AppStyle.interNormal(
-                            textDecoration: TextDecoration.underline,
-                            size: 12,
-                            color: AppStyle.deepPurple,
-                          ),
-                        ),
-                  onPressed: () {
-                    if (AppConstants.baseUrl.contains('foodyman')) {
-                      AppHelpers.errorSnackBar(
-                        context,
-                        text: "Don't using demo mode",
-                      );
-                      return;
-                    }
-                    notifier.getAiTranslation(
-                      model: AiTranslationRequest(
-                        model: widget.model,
-                        content:
-                            (_inputs[state.selectedLanguage?.locale]
-                                    ?.isNotEmpty ??
-                                false)
-                            ? _inputs[state.selectedLanguage?.locale]
-                            : _inputs[_inputs.keys.firstWhereOrNull(
-                                (e) => e != state.selectedLanguage?.locale,
-                              )],
-                        lang: state.selectedLanguage,
-                        modelId: widget.modelId,
+                  child: TextButton(
+                    style: ButtonStyle(
+                      overlayColor: WidgetStateProperty.resolveWith(
+                        (states) => AppStyle.bgGrey,
                       ),
-                      onSuccess: (text) {
-                        _inputs[state.selectedLanguage?.locale ?? 'en'] =
-                            text?.trim() ?? '';
-                        _textController.text = text?.trim() ?? '';
-                      },
-                    );
-                  },
+                    ),
+                    child: state.isLoading
+                        ? SizedBox(width: 60.r, child: Loading())
+                        : Text(
+                            AppHelpers.getTranslation(TrKeys.translateWithAi),
+                            style: AppStyle.interNormal(
+                              textDecoration: TextDecoration.underline,
+                              size: 12,
+                              color: AppStyle.deepPurple,
+                            ),
+                          ),
+                    onPressed: () {
+                      if (AppConstants.baseUrl.contains('foodyman')) {
+                        AppHelpers.errorSnackBar(
+                          context,
+                          text: "Don't using demo mode",
+                        );
+                        return;
+                      }
+                      notifier.getAiTranslation(
+                        model: AiTranslationRequest(
+                          model: widget.model,
+                          content:
+                              (_inputs[state.selectedLanguage?.locale]
+                                      ?.isNotEmpty ??
+                                  false)
+                              ? _inputs[state.selectedLanguage?.locale]
+                              : _inputs[_inputs.keys.firstWhereOrNull(
+                                  (e) => e != state.selectedLanguage?.locale,
+                                )],
+                          lang: state.selectedLanguage,
+                          modelId: widget.modelId,
+                        ),
+                        onSuccess: (text) {
+                          _inputs[state.selectedLanguage?.locale ?? 'en'] =
+                              text?.trim() ?? '';
+                          _textController.text = text?.trim() ?? '';
+                        },
+                      );
+                    },
+                  ),
                 ),
-              ),
               24.verticalSpace,
               CustomButton(
                 title: AppHelpers.getTranslation(TrKeys.save),

@@ -1,16 +1,17 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-//import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart'; //Changed
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'; //changed
 import 'package:rokctapp/presentation/components/buttons/second_button.dart';
+import 'package:rokctapp/application/intro/intro_provider.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+//import 'package:flutter_remix/flutter_remix.dart';
 //import '../../components/helper/shimmer.dart';
 
-import 'package:rokctapp/application/intro/intro_provider.dart';
 //import '../../component/components.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
 
 //import 'package:shared_preferences/shared_preferences.dart';
 

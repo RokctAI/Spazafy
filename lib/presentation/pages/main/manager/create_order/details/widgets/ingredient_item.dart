@@ -1,10 +1,12 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/custom_checkbox.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class IngredientItem extends ConsumerWidget {
   final VoidCallback onTap;
@@ -54,7 +56,7 @@ class IngredientItem extends ConsumerWidget {
                       ),
                       4.horizontalSpace,
                       Text(
-                        "+${AppHelpers.numberFormat(addon.product?.stock?.totalPrice ?? 0)}",
+                        "+${help.AppHelpers.numberFormat(addon.product?.stock?.totalPrice ?? 0)}",
                         style: AppStyle.interNormal(
                           size: 14,
                           color: AppStyle.black,
@@ -88,7 +90,7 @@ class IngredientItem extends ConsumerWidget {
                     : const SizedBox.shrink(),
               ],
             ),
-            Divider(color: AppStyle.greyColor.withOpacity(0.2)),
+            Divider(color: AppStyle.bgGrey.withOpacity(0.2)),
           ],
         ),
       ),

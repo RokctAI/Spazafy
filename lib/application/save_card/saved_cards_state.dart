@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
-
 part 'saved_cards_state.freezed.dart';
 
 @freezed

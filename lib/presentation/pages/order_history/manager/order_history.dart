@@ -1,11 +1,14 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -30,8 +33,8 @@ class _ManagerOrderHistoryPageState
   late TabController _tabController;
 
   final List<Tab> tabs = <Tab>[
-    Tab(text: AppHelpers.getTranslation(TrKeys.delivered)),
-    Tab(text: AppHelpers.getTranslation(TrKeys.canceled)),
+    Tab(text: help.AppHelpers.getTranslation(TrKeys.delivered)),
+    Tab(text: help.AppHelpers.getTranslation(TrKeys.canceled)),
   ];
 
   int count = 0;
@@ -64,7 +67,7 @@ class _ManagerOrderHistoryPageState
   Widget build(BuildContext context) {
     final state = ref.watch(orderProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
           CustomAppBar(
@@ -75,15 +78,12 @@ class _ManagerOrderHistoryPageState
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  AppHelpers.getTranslation(TrKeys.orderHistory),
+                  help.AppHelpers.getTranslation(TrKeys.orderHistory),
                   style: AppStyle.interSemi(size: 18),
                 ),
                 Text(
-                  '${AppHelpers.getTranslation(TrKeys.thereAre)} ${state.totalCount} ${AppHelpers.getTranslation(TrKeys.orders)}',
-                  style: AppStyle.interRegular(
-                    size: 12,
-                    letterSpacing: -0.3,
-                  ),
+                  '${help.AppHelpers.getTranslation(TrKeys.thereAre)} ${state.totalCount} ${help.AppHelpers.getTranslation(TrKeys.orders)}',
+                  style: AppStyle.interRegular(size: 12, letterSpacing: -0.3),
                 ),
               ],
             ),
@@ -118,7 +118,7 @@ class _ManagerOrderHistoryPageState
             const PopButton(heroTag: AppConstants.heroTagOrderHistory),
 
             GestureDetector(
-              onTap: () => AppHelpers.showCustomModalBottomSheet(
+              onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                 paddingTop: MediaQuery.paddingOf(context).top,
                 context: context,
                 radius: 12,

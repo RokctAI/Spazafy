@@ -1,3 +1,9 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/response/verify_phone_response.dart';
+import 'package:rokctapp/infrastructure/models/response/login_response.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/models/response/register_response.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
@@ -55,10 +61,7 @@ class AuthRepository implements AuthRepositoryFacade {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
         '/api/v1/method/paas.api.user.user.verify_email_code',
-        data: {
-          'otp': verifyCode,
-          'email': email,
-        },
+        data: {'otp': verifyCode, 'email': email},
       );
       return ApiResult.success(
         data: VerifyPhoneResponse.fromJson(response.data),
@@ -120,7 +123,7 @@ class AuthRepository implements AuthRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       var data = {};
-      
+
       // Determine field mapping based on the model provided
       if (user is UserModel) {
         data = user.toJsonForSignUp();
@@ -141,7 +144,7 @@ class AuthRepository implements AuthRepositoryFacade {
         '/api/v1/method/paas.api.user.user.register_user',
         data: data,
       );
-      
+
       return ApiResult.success(
         data: VerifyData.fromJson(res.data['data'] ?? res.data),
       );
@@ -159,7 +162,7 @@ class AuthRepository implements AuthRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: false);
       var data = {};
-      
+
       if (user is UserModel) {
         data = user.toJsonForSignUp(typeFirebase: true);
       } else {
@@ -179,7 +182,7 @@ class AuthRepository implements AuthRepositoryFacade {
         '/api/v1/method/paas.api.user.user.register_user',
         data: data,
       );
-      
+
       return ApiResult.success(
         data: VerifyData.fromJson(response.data['data'] ?? response.data),
       );
@@ -267,11 +270,7 @@ class AuthRepository implements AuthRepositoryFacade {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
         '/api/v1/method/paas.api.user.user.login_with_google',
-        data: {
-          'email': email,
-          'display_name': displayName,
-          'id': id,
-        },
+        data: {'email': email, 'display_name': displayName, 'id': id},
       );
       return ApiResult.success(data: LoginResponse.fromJson(response.data));
     } catch (e) {
@@ -309,7 +308,7 @@ class AuthRepository implements AuthRepositoryFacade {
         '/api/v1/method/paas.api.user.user.check_phone',
         data: {'phone': phone.replaceAll("+", "")},
       );
-      
+
       // Attempt generic response parsing for CheckPhoneResponse or Boolean
       return ApiResult.success(data: response.data);
     } catch (e) {

@@ -1,11 +1,15 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/application/delivery_zone/driver/delivery_zone_provider.dart';
-
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 
@@ -14,10 +18,12 @@ class DriverDeliveryZonePage extends ConsumerStatefulWidget {
   const DriverDeliveryZonePage({super.key});
 
   @override
-  ConsumerState<DriverDeliveryZonePage> createState() => _DriverDeliveryZonePageState();
+  ConsumerState<DriverDeliveryZonePage> createState() =>
+      _DriverDeliveryZonePageState();
 }
 
-class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
+class _DriverDeliveryZonePageState
+    extends ConsumerState<DriverDeliveryZonePage> {
   @override
   void initState() {
     super.initState();
@@ -29,7 +35,7 @@ class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       resizeToAvoidBottomInset: false,
       body: Consumer(
         builder: (context, ref, child) {
@@ -77,7 +83,7 @@ class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
                     if (state.tappedPoints.length > 3)
                       Expanded(
                         child: CustomButton(
-                          title: AppHelpers.getTranslation(TrKeys.save),
+                          title: help.AppHelpers.getTranslation(TrKeys.save),
                           isLoading: state.isSaving,
                           onPressed: () => event.updateDeliveryZone(
                             updateSuccess: context.router.maybePop,

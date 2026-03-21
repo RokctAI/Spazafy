@@ -1,3 +1,8 @@
+import 'package:rokctapp/application/order/order_notifier.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
@@ -5,11 +10,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/application/providers_driver.dart';
+import 'package:rokctapp/application/providers_driver.dart' hide OrderNotifier;
 import 'package:rokctapp/presentation/components/driver/loading.dart';
-import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/driver/services.dart' hide AppHelpers;
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 @RoutePage()
 class DriverOrdersPage extends ConsumerStatefulWidget {
@@ -27,8 +32,8 @@ class _DriverOrdersPageState extends ConsumerState<DriverOrdersPage>
   late OrderNotifier event;
 
   final _tabs = [
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.activeOrders))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.availableOrders))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.activeOrders))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.availableOrders))),
   ];
 
   @override
@@ -62,7 +67,7 @@ class _DriverOrdersPageState extends ConsumerState<DriverOrdersPage>
   Widget build(BuildContext context) {
     final state = ref.watch(orderProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
           CustomAppBar(
@@ -72,13 +77,13 @@ class _DriverOrdersPageState extends ConsumerState<DriverOrdersPage>
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  AppHelpers.getTranslation(TrKeys.orders),
+                  help.AppHelpers.getTranslation(TrKeys.orders),
                   style: AppStyle.interSemi(size: 18.sp),
                 ),
                 Row(
                   children: [
                     Text(
-                      AppHelpers.getTranslation(TrKeys.thereAreOrders),
+                      help.AppHelpers.getTranslation(TrKeys.thereAreOrders),
                       style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,
@@ -92,7 +97,7 @@ class _DriverOrdersPageState extends ConsumerState<DriverOrdersPage>
                       ),
                     ),
                     Text(
-                      AppHelpers.getTranslation(TrKeys.orders).toLowerCase(),
+                      help.AppHelpers.getTranslation(TrKeys.orders).toLowerCase(),
                       style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,
@@ -218,13 +223,13 @@ Widget _resultEmpty() {
       16.verticalSpace,
       Lottie.asset(Assets.lottieEmptyBox),
       Text(
-        AppHelpers.getTranslation(TrKeys.nothingFound),
+        help.AppHelpers.getTranslation(TrKeys.nothingFound),
         style: AppStyle.interSemi(size: 18.sp),
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 32.w),
         child: Text(
-          AppHelpers.getTranslation(TrKeys.trySearchingAgain),
+          help.AppHelpers.getTranslation(TrKeys.trySearchingAgain),
           style: AppStyle.interRegular(size: 14.sp),
           textAlign: TextAlign.center,
         ),

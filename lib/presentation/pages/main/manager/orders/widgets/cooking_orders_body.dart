@@ -1,9 +1,10 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/loading/manager/loading_list.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/main/manager/orders/cooking/cooking_orders_provider.dart';
-
 import 'no_orders.dart';
 import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_details_modal.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
@@ -66,7 +67,7 @@ class _AcceptedOrdersBodyState extends State<CookingOrdersBody> {
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) => OrderItem(
                     order: state.orders[index],
-                    onTap: () => AppHelpers.showCustomModalBottomSheet(
+                    onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                       paddingTop: MediaQuery.paddingOf(context).top + 60,
                       context: context,
                       radius: 12,

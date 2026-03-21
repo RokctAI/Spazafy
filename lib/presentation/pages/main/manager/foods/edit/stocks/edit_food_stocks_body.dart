@@ -1,3 +1,7 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -56,7 +60,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                     extras: state.groups[index],
                     onTap: () {
                       event.toggleCheckedGroup(index);
-                      AppHelpers.showCustomModalBottomSheet(
+                      help.AppHelpers.showCustomModalBottomSheet(
                         paddingTop: MediaQuery.paddingOf(context).top + 150,
                         context: context,
                         radius: 12,
@@ -89,7 +93,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                         onQuantityChange: (value) =>
                             event.setQuantity(value: value, index: index),
                         onAddonTap: (context) =>
-                            AppHelpers.showCustomModalBottomSheet(
+                            help.AppHelpers.showCustomModalBottomSheet(
                               paddingTop:
                                   MediaQuery.paddingOf(context).top + 150,
                               context: context,
@@ -111,7 +115,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
               Padding(
                 padding: REdgeInsets.symmetric(horizontal: 20),
                 child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.save),
+                  title: help.AppHelpers.getTranslation(TrKeys.save),
                   isLoading: state.isSaving,
                   onPressed: () {
                     if (_formKey.currentState?.validate() ?? false) {
@@ -128,19 +132,19 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                                           2]
                                       .id,
                           );
-                          AppHelpers.showCheckTopSnackBar(
+                          help.AppHelpers.showCheckTopSnackBar(
                             context,
                             type: SnackBarType.success,
-                            text: AppHelpers.getTranslation(
+                            text: help.AppHelpers.getTranslation(
                               TrKeys.successfullyUpdated,
                             ),
                           );
                           context.maybePop();
                         },
-                        failed: () => AppHelpers.showCheckTopSnackBar(
+                        failed: () => help.AppHelpers.showCheckTopSnackBar(
                           context,
                           type: SnackBarType.error,
-                          text: AppHelpers.getTranslation(TrKeys.updateFailed),
+                          text: help.AppHelpers.getTranslation(TrKeys.updateFailed),
                         ),
                       );
                     }

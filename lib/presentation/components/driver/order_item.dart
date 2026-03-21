@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -9,11 +10,10 @@ import 'package:rokctapp/application/order/driver/all_order/order_provider.dart'
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/maps_list.dart';
-
 import 'package:rokctapp/application/home/driver/home_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 
 class OrderItem extends StatelessWidget {
@@ -306,7 +306,7 @@ class OrderItem extends StatelessWidget {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.bgGrey,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(
@@ -507,7 +507,7 @@ class OrderItem extends StatelessWidget {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.bgGrey,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(
@@ -529,7 +529,10 @@ class OrderItem extends StatelessWidget {
                     width: MediaQuery.sizeOf(context).width - 190.w,
                     child: Text(
                       order.address?.address ?? "",
-                      style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
+                      style: AppStyle.interSemi(
+                        size: 14.sp,
+                        letterSpacing: -0.3,
+                      ),
                       maxLines: 1,
                     ),
                   ),

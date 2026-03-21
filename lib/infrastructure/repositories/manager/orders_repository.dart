@@ -1,9 +1,26 @@
+import 'package:rokctapp/infrastructure/models/response/manager/orders_paginate_response.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/models/response/single_order_response.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/order_calculate_data.dart';
+import 'package:rokctapp/infrastructure/models/response/create_order_response.dart';
+import 'package:rokctapp/infrastructure/models/response/payments_response.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/order_status_response.dart';
+import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    hide OrderStatus;
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
@@ -134,6 +151,7 @@ class OrdersRepository implements OrdersInterface {
     String? statusText;
     switch (status) {
       case OrderStatus.newOrder:
+      case OrderStatus.open:
         statusText = 'new';
         break;
       case OrderStatus.accepted:
@@ -145,14 +163,14 @@ class OrdersRepository implements OrdersInterface {
       case OrderStatus.ready:
         statusText = 'ready';
         break;
-      case OrderStatus.onAWay:
+      case OrderStatus.onWay:
         statusText = 'on_a_way';
         break;
       case OrderStatus.delivered:
         statusText = 'delivered';
         break;
       case OrderStatus.canceled:
-        statusText = 'Cancelled';
+        statusText = 'canceled';
         break;
     }
     final data = {'status': statusText};
@@ -176,10 +194,15 @@ class OrdersRepository implements OrdersInterface {
   }
 
   @override
-  Future<ApiResult<SingleOrderResponse>> getOrderDetails({String? orderId}) async {
+  Future<ApiResult<SingleOrderResponse>> getOrderDetails({
+    String? orderId,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final data = {'lang': LocalStorage.getLanguage()?.locale, 'order_id': orderId};
+      final data = {
+        'lang': LocalStorage.getLanguage()?.locale,
+        'order_id': orderId,
+      };
       final response = await client.get(
         '/api/v1/method/paas.api.seller_order.seller_order.get_seller_order_details',
         queryParameters: data,
@@ -211,7 +234,7 @@ class OrdersRepository implements OrdersInterface {
       case OrderStatus.ready:
         statusText = 'ready';
         break;
-      case OrderStatus.onAWay:
+      case OrderStatus.onWay:
         statusText = 'on_a_way';
         break;
       case OrderStatus.delivered:
@@ -221,7 +244,9 @@ class OrdersRepository implements OrdersInterface {
         statusText = 'canceled';
         break;
       case OrderStatus.newOrder:
+      case OrderStatus.open:
         statusText = 'new';
+        break;
       case OrderStatus.cooking:
         statusText = 'cooking';
         break;
@@ -335,5 +360,3 @@ class OrdersRepository implements OrdersInterface {
     }
   }
 }
-
-

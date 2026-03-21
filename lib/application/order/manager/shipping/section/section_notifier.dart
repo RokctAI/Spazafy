@@ -1,10 +1,9 @@
+import 'package:rokctapp/infrastructure/models/data/manager/table_data.dart';
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
 import 'section_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
@@ -15,7 +14,7 @@ class SectionNotifier extends StateNotifier<SectionState> {
   Timer? _timer;
 
   SectionNotifier()
-      : super(SectionState(textController: TextEditingController()));
+    : super(SectionState(textController: TextEditingController()));
 
   void clearSelectSectionInfo() {
     state = state.copyWith(selectSection: null, selectedIndex: 0);
@@ -50,21 +49,15 @@ class SectionNotifier extends StateNotifier<SectionState> {
     );
   }
 
-  void setQuery({
-    RefreshController? refreshController,
-    required String text,
-  }) {
+  void setQuery({RefreshController? refreshController, required String text}) {
     if (text.trim() == _query) {
       return;
     }
     _query = text.trim();
     _timer?.cancel();
-    _timer = Timer(
-      const Duration(milliseconds: 300),
-      () {
-        _search(refreshController: refreshController);
-      },
-    );
+    _timer = Timer(const Duration(milliseconds: 300), () {
+      _search(refreshController: refreshController);
+    });
   }
 
   Future<void> fetchMoreSections({RefreshController? refreshController}) async {
@@ -113,7 +106,9 @@ class SectionNotifier extends StateNotifier<SectionState> {
     );
   }
 
-  Future<void> initialFetchSections({RefreshController? refreshController}) async {
+  Future<void> initialFetchSections({
+    RefreshController? refreshController,
+  }) async {
     _query = '';
     if (state.sections.isNotEmpty) {
       if (state.selectSection == null) {

@@ -26,8 +26,7 @@ class PaymentNotifier extends StateNotifier<PaymentState> {
         List payments = [];
         if (withOutCash || !shopEnableCod) {
           payments =
-              data?.data?.reversed.where((e) => e.tag != "cash").toList() ??
-              [];
+              data?.data?.reversed.where((e) => e.tag != "cash").toList() ?? [];
         } else {
           payments = data?.data?.reversed.toList() ?? [];
         }

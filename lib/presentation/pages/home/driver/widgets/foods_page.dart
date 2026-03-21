@@ -1,13 +1,15 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/order/driver/all_order/order_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class FoodsPage extends ConsumerStatefulWidget {
   final OrderDetailData order;
@@ -44,7 +46,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.foods)),
+                TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.foods)),
                 16.verticalSpace,
                 Container(
                   decoration: BoxDecoration(
@@ -80,7 +82,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                                   amount: hasData
                                       ? (widget.order.details?[index].quantity)
                                       : (state.order?.details?[index].quantity),
-                                  price: AppHelpers.numberFormat(
+                                  price: help.AppHelpers.numberFormat(
                                     number: hasData
                                         ? (widget
                                               .order
@@ -95,7 +97,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                                 if (state.order?.details?[index].note != null &&
                                     state.order?.details?[index].note != '')
                                   Text(
-                                    "${AppHelpers.getTranslation(TrKeys.note)}: ${state.order?.details?[index].note}",
+                                    "${help.AppHelpers.getTranslation(TrKeys.note)}: ${state.order?.details?[index].note}",
                                     style: AppStyle.interRegular(
                                       color: AppStyle.blackColor,
                                       size: 14.sp,
@@ -174,24 +176,24 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    AppHelpers.getTranslation(title),
+                    help.AppHelpers.getTranslation(title),
                     style: isTotal
                         ? AppStyle.interSemi(size: 16.sp, letterSpacing: -0.3)
                         : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount ? AppStyle.redColor : AppStyle.black,
+                            color: isDiscount ? AppStyle.red : AppStyle.black,
                           ),
                   ),
                   Text(
                     (isDiscount ? '-' : '') +
-                        AppHelpers.numberFormat(number: price),
+                        help.AppHelpers.numberFormat(number: price),
                     style: isTotal
                         ? AppStyle.interSemi(size: 16.sp, letterSpacing: -0.3)
                         : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount ? AppStyle.redColor : AppStyle.black,
+                            color: isDiscount ? AppStyle.red : AppStyle.black,
                           ),
                   ),
                 ],

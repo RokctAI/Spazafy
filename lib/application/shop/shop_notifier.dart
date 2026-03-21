@@ -1,5 +1,9 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
+import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/time_service.dart';
@@ -173,7 +177,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
   void checkWorkingDay() {
     if (state.shopData == null) return;
-    
+
     final result = state.shopData!.checkWorkingDay();
     final bool isOpen = result["isOpen"] ?? false;
     final DateTime? start = result["startTodayTime"];
@@ -181,11 +185,11 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
     state = state.copyWith(
       isTodayWorkingDay: isOpen,
-      startTodayTime: start != null 
-          ? TimeOfDay(hour: start.hour, minute: start.minute) 
+      startTodayTime: start != null
+          ? TimeOfDay(hour: start.hour, minute: start.minute)
           : const TimeOfDay(hour: 0, minute: 0),
-      endTodayTime: end != null 
-          ? TimeOfDay(hour: end.hour, minute: end.minute) 
+      endTodayTime: end != null
+          ? TimeOfDay(hour: end.hour, minute: end.minute)
           : const TimeOfDay(hour: 0, minute: 0),
     );
   }

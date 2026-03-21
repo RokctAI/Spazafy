@@ -1,11 +1,14 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
-
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -37,7 +40,7 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                 children: [
                   const ModalDrag(),
                   TitleAndIcon(
-                    title: AppHelpers.getTranslation(TrKeys.addNewCategory),
+                    title: help.AppHelpers.getTranslation(TrKeys.addNewCategory),
                   ),
                   24.verticalSpace,
                   Consumer(
@@ -47,7 +50,7 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                             .watch(allCategoriesProvider)
                             .categorySubController,
                         label:
-                            '${AppHelpers.getTranslation(TrKeys.subShopCategory)}*',
+                            '${help.AppHelpers.getTranslation(TrKeys.subShopCategory)}*',
                         suffixIcon: Icon(
                           FlutterRemix.arrow_down_s_line,
                           color: AppStyle.blackColor,
@@ -55,7 +58,7 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                         ),
                         readOnly: true,
                         validator: AppValidators.emptyCheck,
-                        onTap: () => AppHelpers.showCustomModalBottomSheet(
+                        onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                           paddingTop: MediaQuery.paddingOf(context).top + 100.h,
                           context: context,
                           modal: const FoodCategoriesModal(isSubCategory: true),
@@ -66,7 +69,7 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                   ),
                   24.verticalSpace,
                   UnderlinedTextField(
-                    label: AppHelpers.getTranslation(TrKeys.categoryName),
+                    label: help.AppHelpers.getTranslation(TrKeys.categoryName),
                     inputType: TextInputType.text,
                     textCapitalization: TextCapitalization.sentences,
                     textInputAction: TextInputAction.next,
@@ -75,7 +78,7 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                   ),
                   24.verticalSpace,
                   UnderlinedTextField(
-                    label: AppHelpers.getTranslation(TrKeys.input),
+                    label: help.AppHelpers.getTranslation(TrKeys.input),
                     inputType: TextInputType.number,
                     textInputAction: TextInputAction.done,
                     onChanged: event.setInput,
@@ -83,7 +86,7 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                   ),
                   36.verticalSpace,
                   CustomButton(
-                    title: AppHelpers.getTranslation(TrKeys.save),
+                    title: help.AppHelpers.getTranslation(TrKeys.save),
                     isLoading: state.isLoading,
                     onPressed: () {
                       if (_formKey.currentState?.validate() ?? false) {
@@ -94,26 +97,26 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                                 .read(allCategoriesProvider.notifier)
                                 .updateCategories(context);
                             Navigator.pop(context);
-                            AppHelpers.showAlertDialog(
+                            help.AppHelpers.showAlertDialog(
                               context: context,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Text(
-                                    AppHelpers.getTranslation(
+                                    help.AppHelpers.getTranslation(
                                       TrKeys.thanksForCategory,
                                     ),
                                     style: AppStyle.interNormal(),
                                     textAlign: TextAlign.center,
                                   ),
                                   16.verticalSpace,
-                                  if (AppHelpers.getAppPhone() != null)
+                                  if (help.AppHelpers.getAppPhone() != null)
                                     CustomButton(
-                                      title: AppHelpers.getAppPhone() ?? "",
+                                      title: help.AppHelpers.getAppPhone() ?? "",
                                       onPressed: () {
                                         final Uri launchUri = Uri(
                                           scheme: 'tel',
-                                          path: AppHelpers.getAppPhone(),
+                                          path: help.AppHelpers.getAppPhone(),
                                         );
                                         launchUrl(launchUri);
                                       },

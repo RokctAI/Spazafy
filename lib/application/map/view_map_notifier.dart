@@ -4,11 +4,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/add_address.dart';
@@ -96,7 +94,11 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     );
     response.when(
       success: (data) async {
-        state = state.copyWith(isLoading: false, isActive: data, isOffline: false);
+        state = state.copyWith(
+          isLoading: false,
+          isActive: data,
+          isOffline: false,
+        );
         if (!data) {
           AppHelpers.showCheckTopSnackBarInfo(
             context,

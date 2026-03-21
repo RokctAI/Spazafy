@@ -1,9 +1,12 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/img_service.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/profile/profile_notifier.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class DocumentUploadSection extends StatelessWidget {
   final List<String> filePaths;
@@ -24,10 +27,7 @@ class DocumentUploadSection extends StatelessWidget {
           padding: EdgeInsets.only(left: 4.w, bottom: 12.h),
           child: Text(
             'Documents',
-            style: AppStyle.interSemi(
-              size: 14,
-              color: AppStyle.black,
-            ),
+            style: AppStyle.interSemi(size: 14, color: AppStyle.black),
           ),
         ),
         Material(
@@ -67,7 +67,7 @@ class DocumentUploadSection extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        AppHelpers.getTranslation(TrKeys.uploadDocuments),
+                        help.AppHelpers.getTranslation(TrKeys.uploadDocuments),
                         style: AppStyle.interSemi(
                           size: 14,
                           color: AppStyle.black,

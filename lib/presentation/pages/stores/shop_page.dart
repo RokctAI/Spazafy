@@ -1,3 +1,4 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,12 +22,10 @@ import 'package:rokctapp/presentation/pages/stores/widgets/shimmer_product_list.
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-
 import 'package:rokctapp/application/shop/shop_provider.dart';
 import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
 import 'package:rokctapp/presentation/components/blur_wrap.dart';
 import 'package:rokctapp/app_constants.dart';

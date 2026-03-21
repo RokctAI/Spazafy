@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'update_extras_group_state.freezed.dart';
 
 @freezed

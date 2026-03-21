@@ -1,3 +1,8 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +16,7 @@ import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
 import 'widgets/logout_modal.dart';
@@ -35,7 +40,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
     return Directionality(
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         resizeToAvoidBottomInset: false,
         body: Column(
           children: [
@@ -81,7 +86,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                     child: ButtonsBouncingEffect(
                       child: GestureDetector(
                         onTap: () {
-                          AppHelpers.showCustomModalBottomSheet(
+                          help.AppHelpers.showCustomModalBottomSheet(
                             context: context,
                             modal: const LogoutModal(),
                             isDarkMode: LocalStorage.getAppThemeMode(),
@@ -120,14 +125,14 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppHelpers.getTranslation(TrKeys.balance),
+                                  help.AppHelpers.getTranslation(TrKeys.balance),
                                   style: AppStyle.interNormal(
                                     size: 12.sp,
                                     letterSpacing: -0.3,
                                   ),
                                 ),
                                 Text(
-                                  AppHelpers.numberFormat(
+                                  help.AppHelpers.numberFormat(
                                     number:
                                         LocalStorage.getUser()?.wallet?.price,
                                     maxLength: 8,
@@ -148,14 +153,14 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppHelpers.getTranslation(TrKeys.lastProfit),
+                                  help.AppHelpers.getTranslation(TrKeys.lastProfit),
                                   style: AppStyle.interNormal(
                                     size: 12.sp,
                                     letterSpacing: -0.3,
                                   ),
                                 ),
                                 Text(
-                                  AppHelpers.numberFormat(
+                                  help.AppHelpers.numberFormat(
                                     number:
                                         ref
                                             .watch(profileSettingsProvider)
@@ -193,7 +198,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              AppHelpers.getTranslation(TrKeys.deliveredOrder),
+                              help.AppHelpers.getTranslation(TrKeys.deliveredOrder),
                               style: AppStyle.interNormal(
                                 size: 12.sp,
                                 letterSpacing: -0.3,
@@ -217,7 +222,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                         // ButtonsBouncingEffect(
                         //   child: InkWell(
                         //     onTap: () {
-                        //       AppHelpers.showAlertDialog(
+                        //       help.AppHelpers.showAlertDialog(
                         //         context: context,
                         //         child:  CancelDialog(note: state.requestData?.statusNote ?? "",),
                         //       );
@@ -234,7 +239,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                         //           crossAxisAlignment: CrossAxisAlignment.start,
                         //           children: [
                         //             Text(
-                        //               AppHelpers.getTranslation(
+                        //               help.AppHelpers.getTranslation(
                         //                   TrKeys.youStatus),
                         //               style: Style.interNormal(
                         //                 size: 12.sp,
@@ -265,10 +270,10 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                   // _notifications(context),
                   20.verticalSpace,
                   SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.profileSettings),
+                    title: help.AppHelpers.getTranslation(TrKeys.profileSettings),
                     icon: FlutterRemix.user_settings_line,
                     onTap: () {
-                      AppHelpers.showCustomModalBottomSheet(
+                      help.AppHelpers.showCustomModalBottomSheet(
                         paddingTop: MediaQuery.paddingOf(context).top + 32.h,
                         context: context,
                         modal: const EditProfileModal(),
@@ -278,7 +283,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                     },
                   ),
                   SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.deliveryZone),
+                    title: help.AppHelpers.getTranslation(TrKeys.deliveryZone),
                     icon: FlutterRemix.navigation_fill,
                     onTap: () async {
                       await context.pushRoute(const DriverDeliveryZoneRoute());
@@ -288,41 +293,41 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                     },
                   ),
                   SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.orders),
+                    title: help.AppHelpers.getTranslation(TrKeys.orders),
                     icon: FlutterRemix.order_play_line,
                     onTap: () {
                       context.pushRoute(const DriverOrdersRoute());
                     },
                   ),
                   SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.parcels),
+                    title: help.AppHelpers.getTranslation(TrKeys.parcels),
                     icon: FlutterRemix.archive_line,
                     onTap: () {
                       context.pushRoute(const DriverParcelsRoute());
                     },
                   ),
                   SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.notifications),
+                    title: help.AppHelpers.getTranslation(TrKeys.notifications),
                     icon: FlutterRemix.notification_2_line,
                     onTap: () =>
                         context.pushRoute(const DriverNotificationListRoute()),
                   ),
                   SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.orderHistory),
+                    title: help.AppHelpers.getTranslation(TrKeys.orderHistory),
                     icon: FlutterRemix.history_line,
                     onTap: () {
                       context.pushRoute(const DriverOrderHistoryRoute());
                     },
                   ),
                   SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.parcelHistory),
+                    title: help.AppHelpers.getTranslation(TrKeys.parcelHistory),
                     icon: FlutterRemix.folder_history_fill,
                     onTap: () {
                       context.pushRoute(const DriverParcelHistoryRoute());
                     },
                   ),
                   SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.income),
+                    title: help.AppHelpers.getTranslation(TrKeys.income),
                     icon: FlutterRemix.line_chart_line,
                     onTap: () {
                       context.pushRoute(const DriverIncomeRoute());
@@ -331,10 +336,10 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                   Consumer(
                     builder: (context, ref, child) {
                       return SectionsItem(
-                        title: AppHelpers.getTranslation(TrKeys.language),
+                        title: help.AppHelpers.getTranslation(TrKeys.language),
                         icon: FlutterRemix.global_line,
                         onTap: () {
-                          AppHelpers.showCustomModalBottomSheet(
+                          help.AppHelpers.showCustomModalBottomSheet(
                             isDismissible: true,
                             isDrag: false,
                             context: context,
@@ -353,10 +358,10 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                     },
                   ),
                   SectionsItem(
-                    title: AppHelpers.getTranslation(TrKeys.currencies),
+                    title: help.AppHelpers.getTranslation(TrKeys.currencies),
                     icon: FlutterRemix.bank_card_line,
                     onTap: () {
-                      AppHelpers.showCustomModalBottomSheet(
+                      help.AppHelpers.showCustomModalBottomSheet(
                         context: context,
                         modal: const CurrencyScreen(),
                         isDarkMode: false,
@@ -365,10 +370,10 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                   ),
                   if (!AppConstants.isDemo)
                     SectionsItem(
-                      title: AppHelpers.getTranslation(TrKeys.deleteAccount),
+                      title: help.AppHelpers.getTranslation(TrKeys.deleteAccount),
                       icon: FlutterRemix.logout_box_r_line,
                       onTap: () {
-                        AppHelpers.showCustomModalBottomSheet(
+                        help.AppHelpers.showCustomModalBottomSheet(
                           context: context,
                           modal: const LogoutModal(isDeleteAccount: true),
                           isDarkMode: false,
@@ -393,11 +398,11 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
               10.horizontalSpace,
               Expanded(
                 child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.onlineHelper),
+                  title: help.AppHelpers.getTranslation(TrKeys.onlineHelper),
                   onPressed: () async {
                     final Uri launchUri = Uri(
                       scheme: 'tel',
-                      path: AppHelpers.getAppPhone(),
+                      path: help.AppHelpers.getAppPhone(),
                     );
                     await launchUrl(launchUri);
                   },
@@ -437,7 +442,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
   //           ),
   //           12.horizontalSpace,
   //           Text(
-  //             AppHelpers.getTranslation(TrKeys.notifications),
+  //             help.AppHelpers.getTranslation(TrKeys.notifications),
   //             style: Style.interSemi(size: 18.sp, color: Style.blackColor),
   //           ),
   //           const Spacer(),
@@ -448,7 +453,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
   //             child: Padding(
   //               padding: const EdgeInsets.all(4.0),
   //               child: Text(
-  //                 AppHelpers.getTranslation(TrKeys.seeAll),
+  //                 help.AppHelpers.getTranslation(TrKeys.seeAll),
   //                 style: Style.interNormal(size: 14.sp, color: Style.blueColor),
   //               ),
   //             ),

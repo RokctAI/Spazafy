@@ -1,5 +1,5 @@
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:dio/dio.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 class TokenInterceptor extends Interceptor {
@@ -14,9 +14,7 @@ class TokenInterceptor extends Interceptor {
   ) async {
     final String token = LocalStorage.getToken();
     if (token.isNotEmpty && requireAuth) {
-      options.headers.addAll({
-        'Authorization': 'Bearer $token',
-      });
+      options.headers.addAll({'Authorization': 'Bearer $token'});
     }
     handler.next(options);
   }

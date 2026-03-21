@@ -1,3 +1,20 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/close_day_response.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/table_model.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/disable_dates.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/table_info_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/table_bookings_response.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/table_data.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/shop_section_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/table_response.dart';
+import 'package:rokctapp/infrastructure/services/utils/time_service.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/bookings_response.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/working_day_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/table_statistic_response.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
@@ -169,7 +186,9 @@ class TableRepository extends TableInterface {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
         '/api/v1/method/paas.api.seller_operations.seller_operations.delete_seller_sections',
-        data: {"ids": [id]},
+        data: {
+          "ids": [id],
+        },
       );
       return ApiResult.success(data: TableResponse.fromJson(response.data));
     } catch (e) {
@@ -187,7 +206,9 @@ class TableRepository extends TableInterface {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
         '/api/v1/method/paas.api.seller_operations.seller_operations.delete_seller_tables',
-        data: {"ids": [id]},
+        data: {
+          "ids": [id],
+        },
       );
       return ApiResult.success(data: TableResponse.fromJson(response.data));
     } catch (e) {
@@ -386,4 +407,3 @@ class TableRepository extends TableInterface {
     }
   }
 }
-

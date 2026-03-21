@@ -1,9 +1,10 @@
+import 'package:rokctapp/domain/interface/settings.dart';
+import 'package:rokctapp/domain/interface/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-
 import 'splash_state.dart';
 
 class SplashNotifier extends StateNotifier<SplashState> {
@@ -11,7 +12,7 @@ class SplashNotifier extends StateNotifier<SplashState> {
   final UserRepositoryFacade _userRepository;
 
   SplashNotifier(this._settingsRepository, this._userRepository)
-      : super(const SplashState());
+    : super(const SplashState());
 
   Future<void> fetchDriverDetails({required BuildContext context}) async {
     final response = await driverUserRepository.getDriverDetails();

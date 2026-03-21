@@ -1,3 +1,8 @@
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,7 +11,7 @@ import 'package:rokctapp/application/foods/manager/create/details/kitchens/creat
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/create/details/create_food_kitchens_modal.dart';
 import 'food_categories_modal.dart';
 import 'create_food_units_modal.dart';
@@ -70,7 +75,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                               ),
                               child: Center(
                                 child: Text(
-                                  AppHelpers.getTranslation(TrKeys.product),
+                                  help.AppHelpers.getTranslation(TrKeys.product),
                                   style: AppStyle.interSemi(
                                     size: 14,
                                     color: state.productType == 'single'
@@ -118,17 +123,19 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                     24.verticalSpace,
                     UnderlinedTextField(
                       label:
-                      '${AppHelpers.getTranslation(TrKeys.productTitle)}*',
+                          '${help.AppHelpers.getTranslation(TrKeys.productTitle)}*',
                       inputType: TextInputType.text,
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,
                       readOnly: true,
-                      onTap: (){
-                        AppHelpers.showCustomModalBottomSheet(
+                      onTap: () {
+                        help.AppHelpers.showCustomModalBottomSheet(
                           context: context,
                           modal: MultiTranslationInputModal(
                             model: AiTranslationModel.product,
-                            label: AppHelpers.getTranslation(TrKeys.productTitle),
+                            label: help.AppHelpers.getTranslation(
+                              TrKeys.productTitle,
+                            ),
                             inputs: state.titleTranslations,
                             save: (translations) {
                               event.setTitleTranslations(translations);
@@ -136,7 +143,6 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                           ),
                           isDarkMode: false,
                         );
-
                       },
                       textController: TextEditingController(text: state.title),
                       validator: AppValidators.emptyCheck,
@@ -149,17 +155,19 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                     24.verticalSpace,
                     UnderlinedTextField(
                       label:
-                          '${AppHelpers.getTranslation(TrKeys.description)}*',
+                          '${help.AppHelpers.getTranslation(TrKeys.description)}*',
                       inputType: TextInputType.text,
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,
                       readOnly: true,
                       onTap: () {
-                        AppHelpers.showCustomModalBottomSheet(
+                        help.AppHelpers.showCustomModalBottomSheet(
                           context: context,
                           modal: MultiTranslationInputModal(
                             model: AiTranslationModel.product,
-                            label: AppHelpers.getTranslation(TrKeys.description),
+                            label: help.AppHelpers.getTranslation(
+                              TrKeys.description,
+                            ),
                             inputs: state.descriptionTranslations,
                             save: (translations) {
                               event.setDescriptionTranslations(translations);
@@ -168,7 +176,9 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                           isDarkMode: false,
                         );
                       },
-                      textController: TextEditingController(text: state.description),
+                      textController: TextEditingController(
+                        text: state.description,
+                      ),
                       validator: AppValidators.emptyCheck,
                       suffixIcon: Icon(
                         FlutterRemix.translate,
@@ -182,7 +192,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                         return UnderlinedTextField(
                           textController: categoryState.categoryController,
                           label:
-                              '${AppHelpers.getTranslation(TrKeys.productCategory)}*',
+                              '${help.AppHelpers.getTranslation(TrKeys.productCategory)}*',
                           suffixIcon: Icon(
                             FlutterRemix.arrow_down_s_line,
                             color: AppStyle.blackColor,
@@ -190,7 +200,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                           ),
                           readOnly: true,
                           validator: AppValidators.emptyCheck,
-                          onTap: () => AppHelpers.showCustomModalBottomSheet(
+                          onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                             paddingTop:
                                 MediaQuery.paddingOf(context).top + 100.h,
                             context: context,
@@ -205,7 +215,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                       builder: (context, ref, child) {
                         return UnderlinedTextField(
                           textController: unitState.unitController,
-                          label: '${AppHelpers.getTranslation(TrKeys.units)}*',
+                          label: '${help.AppHelpers.getTranslation(TrKeys.units)}*',
                           suffixIcon: Icon(
                             FlutterRemix.arrow_down_s_line,
                             color: AppStyle.blackColor,
@@ -213,7 +223,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                           ),
                           readOnly: true,
                           validator: AppValidators.emptyCheck,
-                          onTap: () => AppHelpers.showCustomModalBottomSheet(
+                          onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                             paddingTop:
                                 MediaQuery.paddingOf(context).top + 300.h,
                             context: context,
@@ -228,14 +238,14 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                       builder: (context, ref, child) {
                         return UnderlinedTextField(
                           textController: kitchenState.kitchenController,
-                          label: AppHelpers.getTranslation(TrKeys.kitchen),
+                          label: help.AppHelpers.getTranslation(TrKeys.kitchen),
                           suffixIcon: Icon(
                             FlutterRemix.arrow_down_s_line,
                             color: AppStyle.blackColor,
                             size: 18.r,
                           ),
                           readOnly: true,
-                          onTap: () => AppHelpers.showCustomModalBottomSheet(
+                          onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                             paddingTop:
                                 MediaQuery.paddingOf(context).top + 300.h,
                             context: context,
@@ -247,7 +257,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
-                      label: '${AppHelpers.getTranslation(TrKeys.interval)}*',
+                      label: '${help.AppHelpers.getTranslation(TrKeys.interval)}*',
                       inputType: TextInputType.number,
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,
@@ -261,7 +271,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                         Expanded(
                           child: UnderlinedTextField(
                             label:
-                                '${AppHelpers.getTranslation(TrKeys.minQuantity)}*',
+                                '${help.AppHelpers.getTranslation(TrKeys.minQuantity)}*',
                             inputType: TextInputType.number,
                             textInputAction: TextInputAction.next,
                             onChanged: event.setMinQty,
@@ -273,7 +283,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                         Expanded(
                           child: UnderlinedTextField(
                             label:
-                                '${AppHelpers.getTranslation(TrKeys.maxQuantity)}*',
+                                '${help.AppHelpers.getTranslation(TrKeys.maxQuantity)}*',
                             inputType: TextInputType.number,
                             textInputAction: TextInputAction.next,
                             onChanged: event.setMaxQty,
@@ -285,7 +295,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
-                      label: '${AppHelpers.getTranslation(TrKeys.tax)}*',
+                      label: '${help.AppHelpers.getTranslation(TrKeys.tax)}*',
                       inputType: TextInputType.number,
                       textInputAction: TextInputAction.next,
                       onChanged: event.setTax,
@@ -296,7 +306,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          AppHelpers.getTranslation(TrKeys.showProduct),
+                          help.AppHelpers.getTranslation(TrKeys.showProduct),
                           style: AppStyle.interNormal(
                             size: 14,
                             letterSpacing: -0.3,
@@ -311,7 +321,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                     ),
                     40.verticalSpace,
                     CustomButton(
-                      title: AppHelpers.getTranslation(TrKeys.save),
+                      title: help.AppHelpers.getTranslation(TrKeys.save),
                       isLoading: state.isCreating,
                       onPressed: () {
                         if (_formKey.currentState?.validate() ?? false) {
@@ -328,9 +338,9 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                                 : null,
                             created: () {
                               widget.onSave();
-                              AppHelpers.showCheckTopSnackBar(
+                              help.AppHelpers.showCheckTopSnackBar(
                                 context,
-                                text: AppHelpers.getTranslation(
+                                text: help.AppHelpers.getTranslation(
                                   TrKeys.successfullyCreated,
                                 ),
                                 type: SnackBarType.success,

@@ -1,9 +1,12 @@
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/domain/interface/manager_orders.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-
 import 'new_orders_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -15,7 +18,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
   bool _hasMore = true;
 
   NewOrdersNotifier(this._ordersRepository)
-      : super(NewOrdersState(refreshController: RefreshController()));
+    : super(NewOrdersState(refreshController: RefreshController()));
 
   Future<void> fetchNewOrders({
     required BuildContext context,
@@ -68,7 +71,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
           state.refreshController?.loadComplete();
         }
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -78,7 +81,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
         } else {
           state.refreshController?.loadFailed();
         }
-        if(status == 401){
+        if (status == 401) {
           LocalStorage.logout();
           context.router.popUntilRoot();
           context.replaceRoute(const ManagerAuthRoute());
@@ -87,4 +90,3 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
     );
   }
 }
-

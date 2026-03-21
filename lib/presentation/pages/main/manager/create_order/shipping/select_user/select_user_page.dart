@@ -1,12 +1,15 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'widgets/user_item.dart';
 import 'widgets/create_user_modal.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -43,7 +46,7 @@ class _SelectUserPageState extends ConsumerState<SelectUserPage> {
   Widget build(BuildContext context) {
     return KeyboardDisable(
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         body: Consumer(
           builder: (context, ref, child) {
             final state = ref.watch(orderUserProvider);
@@ -115,8 +118,8 @@ class _SelectUserPageState extends ConsumerState<SelectUserPage> {
               8.horizontalSpace,
               Expanded(
                 child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.addUser),
-                  onPressed: () => AppHelpers.showCustomModalBottomSheet(
+                  title: help.AppHelpers.getTranslation(TrKeys.addUser),
+                  onPressed: () => help.AppHelpers.showCustomModalBottomSheet(
                     context: context,
                     modal: const CreateUserModal(),
                     isDarkMode: true,

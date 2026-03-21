@@ -1,13 +1,13 @@
+import 'package:rokctapp/presentation/components/helper/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 @RoutePage()
 class DriverStoryPage extends ConsumerStatefulWidget {
@@ -126,7 +126,7 @@ class _DriverStoryPageState extends ConsumerState<DriverStoryPage>
                           errorWidget: (context, url, error) {
                             return Container(
                               decoration: BoxDecoration(
-                                color: AppStyle.greyColor,
+                                color: AppStyle.bgGrey,
                                 borderRadius: BorderRadius.circular(16.r),
                               ),
                               alignment: Alignment.center,

@@ -1,9 +1,11 @@
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/domain/interface/manager_products.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'order_products_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -18,7 +20,7 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
   String _productType = 'single';
 
   OrderProductsNotifier(this._productsRepository)
-      : super(const OrderProductsState());
+    : super(const OrderProductsState());
 
   void setProductType(
     String type, {
@@ -69,30 +71,24 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
       if (_timer?.isActive ?? false) {
         _timer?.cancel();
       }
-      _timer = Timer(
-        const Duration(milliseconds: 500),
-        () {
-          fetchProducts(
-            isRefresh: true,
-            categoryId: categoryId,
-            cartStocks: cartStocks,
-          );
-        },
-      );
+      _timer = Timer(const Duration(milliseconds: 500), () {
+        fetchProducts(
+          isRefresh: true,
+          categoryId: categoryId,
+          cartStocks: cartStocks,
+        );
+      });
     } else {
       if (_timer?.isActive ?? false) {
         _timer?.cancel();
       }
-      _timer = Timer(
-        const Duration(milliseconds: 500),
-        () {
-          fetchProducts(
-            isRefresh: true,
-            categoryId: categoryId,
-            cartStocks: cartStocks,
-          );
-        },
-      );
+      _timer = Timer(const Duration(milliseconds: 500), () {
+        fetchProducts(
+          isRefresh: true,
+          categoryId: categoryId,
+          cartStocks: cartStocks,
+        );
+      });
     }
   }
 
@@ -167,7 +163,7 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         debugPrint('====> fetch products fail $failure');
         _page--;
         if (_page == 0) {
@@ -182,4 +178,3 @@ class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
     );
   }
 }
-

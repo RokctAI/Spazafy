@@ -1,7 +1,5 @@
-// ignore_for_file: unused_result
-
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'dart:ui';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +31,7 @@ import 'package:rokctapp/presentation/pages/order/order_type/order_type.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/rating_page.dart';
 import 'widgets/order_carts.dart';
 import 'widgets/order_status.dart';
+// ignore_for_file: unused_result
 
 @RoutePage()
 class OrderPage extends ConsumerStatefulWidget {

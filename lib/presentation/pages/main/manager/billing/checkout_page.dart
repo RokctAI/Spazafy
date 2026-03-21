@@ -1,3 +1,6 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,17 +10,17 @@ import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart
 import 'package:rokctapp/application/pos/pos_provider.dart';
 import 'package:rokctapp/printer/providers/billing_printer_provider.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/pay_verification_helper.dart';
 
 class ManagerCheckoutPage extends ConsumerStatefulWidget {
   const ManagerCheckoutPage({super.key});
 
   @override
-  ConsumerState<ManagerCheckoutPage> createState() => _ManagerCheckoutPageState();
+  ConsumerState<ManagerCheckoutPage> createState() =>
+      _ManagerCheckoutPageState();
 }
 
 class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
@@ -38,14 +41,15 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
 
     final shopData = LocalStorage.getShop();
     final shopId = shopData?.id ?? "0";
-    final shopIdSegment = shopId.length > 4 
+    final shopIdSegment = shopId.length > 4
         ? shopId.substring(shopId.length - 4)
         : shopId;
-    
+
     // Using a stable order ID for this checkout session
     final orderId = "POS-${DateTime.now().millisecondsSinceEpoch}";
-    final uniqueOrderCode = "PZ$shopIdSegment${orderId.substring(orderId.length - 4)}";
-    
+    final uniqueOrderCode =
+        "PZ$shopIdSegment${orderId.substring(orderId.length - 4)}";
+
     // Construct Payment URL with mandatory parameters for the backend
     final paymentUrl =
         "${AppConstants.webUrl}/pay/$uniqueOrderCode?amount=${cartState.totalPrice}&shop_id=$shopId&order_id=$orderId";
@@ -73,7 +77,9 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
               RestaurantItem(
                 shopName: shopData?.translation?.title ?? "Manager POS",
                 shopImage: shopData?.logoImg ?? "",
-                shopText: isWaitingForPayment ? "Waiting for Payment..." : "Active Transaction",
+                shopText: isWaitingForPayment
+                    ? "Waiting for Payment..."
+                    : "Active Transaction",
                 shopUid: shopId,
                 shopId: shopId,
               ),
@@ -89,7 +95,10 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                   padding: EdgeInsets.all(12.r),
                   child: Row(
                     children: [
-                      const Icon(FlutterRemix.qr_code_line, color: AppStyle.blueColor),
+                      const Icon(
+                        FlutterRemix.qr_code_line,
+                        color: AppStyle.blue,
+                      ),
                       12.horizontalSpace,
                       Expanded(
                         child: Text(
@@ -109,7 +118,9 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                       data: paymentUrl,
                       decoration: PrettyQrDecoration(
                         image: PrettyQrDecorationImage(
-                          image: shopData?.logoImg != null && shopData!.logoImg!.isNotEmpty
+                          image:
+                              shopData?.logoImg != null &&
+                                  shopData!.logoImg!.isNotEmpty
                               ? NetworkImage(shopData.logoImg!) as ImageProvider
                               : const AssetImage('assets/image/manager.png'),
                         ),
@@ -120,30 +131,36 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                 24.verticalSpace,
                 CustomButton(
                   title: "I've Scanned, Wait for Code",
-                  background: AppStyle.blueColor.withOpacity(0.1),
-                  textColor: AppStyle.blueColor,
+                  background: AppStyle.blue.withOpacity(0.1),
+                  textColor: AppStyle.blue,
                   onPressed: () => setState(() => isWaitingForPayment = true),
                 ),
               ] else ...[
                 // 3. Enter OTP Section
                 Container(
                   decoration: BoxDecoration(
-                    color: AppStyle.blueColor.withOpacity(0.05),
+                    color: AppStyle.blue.withOpacity(0.05),
                     borderRadius: BorderRadius.circular(12.r),
-                    border: Border.all(color: AppStyle.blueColor.withOpacity(0.2)),
+                    border: Border.all(color: AppStyle.blue.withOpacity(0.2)),
                   ),
                   padding: EdgeInsets.all(20.r),
                   child: Column(
                     children: [
                       Text(
                         "Waiting for Payment",
-                        style: AppStyle.interSemi(size: 18.sp, color: AppStyle.blueColor),
+                        style: AppStyle.interSemi(
+                          size: 18.sp,
+                          color: AppStyle.blue,
+                        ),
                       ),
                       12.verticalSpace,
                       Text(
                         "Enter the 5-digit verification code provided by the customer after successful payment.",
                         textAlign: TextAlign.center,
-                        style: AppStyle.interRegular(size: 14.sp, color: AppStyle.textGrey),
+                        style: AppStyle.interRegular(
+                          size: 14.sp,
+                          color: AppStyle.textGrey,
+                        ),
                       ),
                       24.verticalSpace,
                       CustomTextField(
@@ -163,7 +180,10 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                           padding: EdgeInsets.only(top: 8.h),
                           child: Text(
                             errorMessage!,
-                            style: AppStyle.interRegular(size: 12.sp, color: AppStyle.redColor),
+                            style: AppStyle.interRegular(
+                              size: 12.sp,
+                              color: AppStyle.red,
+                            ),
                           ),
                         ),
                     ],
@@ -172,7 +192,10 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                 16.verticalSpace,
                 TextButton(
                   onPressed: () => setState(() => isWaitingForPayment = false),
-                  child: Text("Show QR Code Again", style: AppStyle.interRegular(color: AppStyle.textGrey)),
+                  child: Text(
+                    "Show QR Code Again",
+                    style: AppStyle.interRegular(color: AppStyle.textGrey),
+                  ),
                 ),
               ],
 
@@ -194,7 +217,10 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                     ),
                     Text(
                       AppHelpers.numberFormat(num: cartState.totalPrice),
-                      style: AppStyle.interBold(size: 18.sp, color: AppStyle.blueColor),
+                      style: AppStyle.interBold(
+                        size: 18.sp,
+                        color: AppStyle.blue,
+                      ),
                     ),
                   ],
                 ),
@@ -208,30 +234,45 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 16.h),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-                        side: const BorderSide(color: AppStyle.blueColor),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.r),
+                        ),
+                        side: const BorderSide(color: AppStyle.blue),
                       ),
                       onPressed: () {
-                        ref.read(billingPrinterProvider.notifier).printReceipt(
-                          shopName: shopData?.translation?.title ?? "My Shop",
-                          address1: shopData?.location != null 
-                              ? "${shopData?.location?.latitude}, ${shopData?.location?.longitude}"
-                              : "Main St 123",
-                          address2: "",
-                          phone: shopData?.phone ?? "555-0101",
-                          items: cartState.stocks.map((s) => {
-                            'name': s.product?.translation?.title ?? '',
-                            'qty': s.cartCount,
-                            'price': s.totalPrice,
-                            'total': (s.totalPrice ?? 0) * (s.cartCount ?? 0),
-                          }).toList(),
-                          total: cartState.totalPrice.toDouble(),
-                          footer: "Thank you for shopping!",
-                        );
+                        ref
+                            .read(billingPrinterProvider.notifier)
+                            .printReceipt(
+                              shopName:
+                                  shopData?.translation?.title ?? "My Shop",
+                              address1: shopData?.location != null
+                                  ? "${shopData?.location?.latitude}, ${shopData?.location?.longitude}"
+                                  : "Main St 123",
+                              address2: "",
+                              phone: shopData?.phone ?? "555-0101",
+                              items: cartState.stocks
+                                  .map(
+                                    (s) => {
+                                      'name':
+                                          s.product?.translation?.title ?? '',
+                                      'qty': s.cartCount,
+                                      'price': s.totalPrice,
+                                      'total':
+                                          (s.totalPrice ?? 0) *
+                                          (s.cartCount ?? 0),
+                                    },
+                                  )
+                                  .toList(),
+                              total: cartState.totalPrice.toDouble(),
+                              footer: "Thank you for shopping!",
+                            );
                       },
                       child: Text(
                         AppHelpers.getTranslation(TrKeys.print),
-                        style: AppStyle.interSemi(size: 16.sp, color: AppStyle.blueColor),
+                        style: AppStyle.interSemi(
+                          size: 16.sp,
+                          color: AppStyle.blue,
+                        ),
                       ),
                     ),
                   ),
@@ -239,7 +280,9 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                   Expanded(
                     flex: 2,
                     child: CustomButton(
-                      title: isWaitingForPayment ? "Verify & Finish" : AppHelpers.getTranslation(TrKeys.finish),
+                      title: isWaitingForPayment
+                          ? "Verify & Finish"
+                          : AppHelpers.getTranslation(TrKeys.finish),
                       isLoading: isSaving,
                       onPressed: () async {
                         if (isWaitingForPayment) {
@@ -253,20 +296,30 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                           );
 
                           if (!isValid) {
-                            setState(() => errorMessage = "Invalid Verification Code. Please try again.");
+                            setState(
+                              () => errorMessage =
+                                  "Invalid Verification Code. Please try again.",
+                            );
                             return;
                           }
                         }
 
                         // Proceed to finish sale
-                        await ref.read(posProvider.notifier).finishSale(
-                          paymentType: isWaitingForPayment ? 'online' : 'cash',
-                          amountPaid: cartState.totalPrice.toDouble(),
-                        );
-                        
+                        await ref
+                            .read(posProvider.notifier)
+                            .finishSale(
+                              paymentType: isWaitingForPayment
+                                  ? 'online'
+                                  : 'cash',
+                              amountPaid: cartState.totalPrice.toDouble(),
+                            );
+
                         if (context.mounted) {
                           Navigator.popUntil(context, (route) => route.isFirst);
-                          AppHelpers.showCheckTopSnackBarDone(context, "Sale Completed Successfully");
+                          AppHelpers.showCheckTopSnackBarDone(
+                            context,
+                            "Sale Completed Successfully",
+                          );
                         }
                       },
                     ),

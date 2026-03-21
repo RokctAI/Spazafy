@@ -1,15 +1,16 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
-
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'add_comment.dart';
 
 class RateCustomer extends StatefulWidget {
@@ -33,14 +34,14 @@ class _RateCustomerState extends State<RateCustomer> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.evaluation)),
+          TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.evaluation)),
           Text(
-            AppHelpers.getTranslation(TrKeys.yourFeedbackService),
+            help.AppHelpers.getTranslation(TrKeys.yourFeedbackService),
             style: AppStyle.interNormal(size: 14.sp),
           ),
           24.verticalSpace,
           Text(
-            AppHelpers.getTranslation(TrKeys.rateTheCustomer),
+            help.AppHelpers.getTranslation(TrKeys.rateTheCustomer),
             style: AppStyle.interSemi(size: 16.sp),
           ),
           14.verticalSpace,
@@ -69,7 +70,7 @@ class _RateCustomerState extends State<RateCustomer> {
           Consumer(
             builder: (context, ref, child) {
               return CustomButton(
-                title: AppHelpers.getTranslation(TrKeys.send),
+                title: help.AppHelpers.getTranslation(TrKeys.send),
                 onPressed: () {
                   Navigator.pop(context);
                   if (widget.order == null) {
@@ -104,7 +105,7 @@ class _RateCustomerState extends State<RateCustomer> {
   Widget _addComment(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        AppHelpers.showCustomModalBottomSheet(
+        help.AppHelpers.showCustomModalBottomSheet(
           context: context,
           modal: AddComment(
             onChange: (s) {
@@ -126,7 +127,7 @@ class _RateCustomerState extends State<RateCustomer> {
             12.horizontalSpace,
             Text(
               note.isEmpty
-                  ? AppHelpers.getTranslation(TrKeys.noteAboutClient)
+                  ? help.AppHelpers.getTranslation(TrKeys.noteAboutClient)
                   : note,
               style: AppStyle.interRegular(size: 13.sp, color: AppStyle.black),
             ),

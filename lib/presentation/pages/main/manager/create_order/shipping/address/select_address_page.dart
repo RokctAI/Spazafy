@@ -1,3 +1,7 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:lottie/lottie.dart' as lottie;
@@ -6,12 +10,11 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'searched_location_item.dart';
 
 @RoutePage()
@@ -43,7 +46,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
   Widget build(BuildContext context) {
     return KeyboardDisable(
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         resizeToAvoidBottomInset: false,
         body: Consumer(
           builder: (context, ref, child) {
@@ -58,9 +61,9 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                   initialCameraPosition: CameraPosition(
                     bearing: 0,
                     target: LatLng(
-                      AppHelpers.getInitialLatitude() ??
+                      help.AppHelpers.getInitialLatitude() ??
                           AppConstants.demoLatitude,
-                      AppHelpers.getInitialLongitude() ??
+                      help.AppHelpers.getInitialLongitude() ??
                           AppConstants.demoLongitude,
                     ),
                     tilt: 0,
@@ -118,7 +121,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                       decoration: BoxDecoration(
                         boxShadow: const <BoxShadow>[
                           BoxShadow(
-                            color: AppStyle.bgColor,
+                            color: AppStyle.redBg,
                             offset: Offset(0, 2),
                             blurRadius: 2,
                             spreadRadius: 0,
@@ -132,7 +135,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                           Icon(
                             FlutterRemix.search_line,
                             size: 20.r,
-                            color: AppStyle.iconsColor,
+                            color: AppStyle.black,
                           ),
                           12.horizontalSpace,
                           Expanded(
@@ -141,7 +144,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,
-                                color: AppStyle.iconsColor,
+                                color: AppStyle.black,
                                 letterSpacing: -0.5,
                               ),
                               onChanged: (value) {
@@ -150,7 +153,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                               cursorWidth: 1.r,
                               cursorColor: AppStyle.blackColor,
                               decoration: InputDecoration.collapsed(
-                                hintText: AppHelpers.getTranslation(
+                                hintText: help.AppHelpers.getTranslation(
                                   TrKeys.searchLocation,
                                 ),
                                 hintStyle: GoogleFonts.inter(
@@ -169,7 +172,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                             icon: Icon(
                               FlutterRemix.close_line,
                               size: 20.r,
-                              color: AppStyle.iconsColor,
+                              color: AppStyle.black,
                             ),
                           ),
                         ],
@@ -225,7 +228,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                         child: Consumer(
                           builder: (context, ref, child) {
                             return CustomButton(
-                              title: AppHelpers.getTranslation(
+                              title: help.AppHelpers.getTranslation(
                                 TrKeys.confirmLocation,
                               ),
                               onPressed: state.location == null

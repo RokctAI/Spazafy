@@ -1,10 +1,23 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/response/mobile_translations_response.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/ai_translation_response.dart';
+import 'package:rokctapp/infrastructure/models/request/manager/ai_translation_request.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/models/response/gallery_upload_response.dart';
+import 'package:rokctapp/infrastructure/models/response/currencies_response.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/setting_response.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/models/response/multi_gallery_upload_response.dart';
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    hide UploadType;
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
@@ -39,6 +52,9 @@ class SettingsRepository implements SettingsInterface {
         break;
       case UploadType.users:
         type = 'users';
+        break;
+      case UploadType.deliveryCar:
+        type = 'delivery_car';
         break;
     }
     final data = FormData.fromMap({
@@ -108,7 +124,9 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<CurrenciesResponse>> getCurrencies() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.system.system.get_currencies');
+      final response = await client.get(
+        '/api/v1/method/paas.api.system.system.get_currencies',
+      );
       return ApiResult.success(
         data: CurrenciesResponse.fromJson(response.data),
       );
@@ -125,7 +143,9 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<SettingsResponse>> getGlobalSettings() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.system.system.get_global_settings');
+      final response = await client.get(
+        '/api/v1/method/paas.api.system.system.get_global_settings',
+      );
       return ApiResult.success(data: SettingsResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get settings failure: $e');
@@ -161,7 +181,9 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<LanguagesResponse>> getLanguages() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.language.language.get_languages');
+      final response = await client.get(
+        '/api/v1/method/paas.api.language.language.get_languages',
+      );
       final languagesResponse = LanguagesResponse.fromJson(response.data);
       if (LocalStorage.getLanguage() != null &&
           !(languagesResponse.data
@@ -212,9 +234,3 @@ class SettingsRepository implements SettingsInterface {
     }
   }
 }
-
-
-
-
-
-

@@ -1,3 +1,15 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/models/response/gallery_upload_response.dart';
+import 'package:rokctapp/infrastructure/models/response/multi_gallery_upload_response.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/domain/interface/gallery.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 // Copyright (c) 2024 RokctAI
 //
 // This program is free software: you can redistribute it and/or modify
@@ -12,15 +24,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/domain/interface/gallery.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
 class GalleryRepository implements GalleryRepositoryFacade {
   @override
@@ -63,6 +66,10 @@ class GalleryRepository implements GalleryRepositoryFacade {
         docType = 'User';
         docName = 'Profile';
         break;
+      case UploadType.deliveryCar:
+        docType = 'User';
+        docName = 'DeliveryCar';
+        break;
     }
     final data = FormData.fromMap({
       'file': await MultipartFile.fromFile(file),
@@ -73,7 +80,10 @@ class GalleryRepository implements GalleryRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       // NOTE: Using Frappe's standard file upload method
-      final response = await client.post('/api/v1/method/upload_file', data: data);
+      final response = await client.post(
+        '/api/v1/method/upload_file',
+        data: data,
+      );
       // The response will contain the file URL, which needs to be saved
       // to the appropriate document in a separate API call.
       return ApiResult.success(

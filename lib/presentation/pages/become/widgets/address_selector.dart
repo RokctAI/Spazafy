@@ -1,10 +1,13 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class AddressSelector extends StatelessWidget {
@@ -27,11 +30,8 @@ class AddressSelector extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 4.w, bottom: 12.h),
           child: Text(
-            AppHelpers.getTranslation(TrKeys.address),
-            style: AppStyle.interSemi(
-              size: 14,
-              color: AppStyle.black,
-            ),
+            help.AppHelpers.getTranslation(TrKeys.address),
+            style: AppStyle.interSemi(size: 14, color: AppStyle.black),
           ),
         ),
         Material(
@@ -40,10 +40,7 @@ class AddressSelector extends StatelessWidget {
           child: InkWell(
             onTap: () async {
               final data = await context.pushRoute(
-                ViewMapRoute(
-                  isShopLocation: true,
-                  onChanged: () {},
-                ),
+                ViewMapRoute(isShopLocation: true, onChanged: () {}),
               );
               onAddressSelected(data);
             },
@@ -82,7 +79,7 @@ class AddressSelector extends StatelessWidget {
                       children: [
                         Text(
                           hasAddress
-                              ? AppHelpers.getTranslation(TrKeys.address)
+                              ? help.AppHelpers.getTranslation(TrKeys.address)
                               : 'Select Location',
                           style: AppStyle.interNormal(
                             size: 13,

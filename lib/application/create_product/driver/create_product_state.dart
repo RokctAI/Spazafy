@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'create_product_state.freezed.dart';
 
 @freezed

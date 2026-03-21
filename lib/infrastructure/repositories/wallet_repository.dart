@@ -1,3 +1,15 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
+import 'package:flutter/material.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'package:rokctapp/domain/interface/wallet.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/models/data/wallet_data.dart';
+import 'package:rokctapp/infrastructure/models/models.dart';
 // Copyright (c) 2024 RokctAI
 //
 // This program is free software: you can redistribute it and/or modify
@@ -12,16 +24,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-import 'package:flutter/material.dart';
-import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/domain/interface/wallet.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-
-import 'package:rokctapp/infrastructure/models/data/wallet_data.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
 
 class WalletRepository implements WalletRepositoryFacade {
   @override

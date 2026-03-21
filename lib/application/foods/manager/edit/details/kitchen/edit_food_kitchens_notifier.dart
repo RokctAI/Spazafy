@@ -1,6 +1,7 @@
+import 'package:rokctapp/infrastructure/models/data/manager/kitchen_data.dart';
+import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'edit_food_kitchens_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -9,7 +10,7 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
   final CatalogInterface _catalogRepository;
 
   EditFoodKitchensNotifier(this._catalogRepository)
-      : super(EditFoodKitchensState(kitchenController: TextEditingController()));
+    : super(EditFoodKitchensState(kitchenController: TextEditingController()));
 
   void setFoodKitchen(KitchenModel? unit) {
     state = state.copyWith(foodKitchen: unit);
@@ -29,8 +30,11 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
         if (state.foodKitchen != null) {
           kitchens.insert(0, state.foodKitchen!);
         }
-        state =
-            state.copyWith(kitchens: kitchens, activeIndex: 0, foodKitchen: kitchens[0]);
+        state = state.copyWith(
+          kitchens: kitchens,
+          activeIndex: 0,
+          foodKitchen: kitchens[0],
+        );
         state.kitchenController?.text = kitchens[0].translation?.title ?? '';
       } else {
         state = state.copyWith(
@@ -38,7 +42,8 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
           activeIndex: index,
           foodKitchen: kitchens[index],
         );
-        state.kitchenController?.text = kitchens[index].translation?.title ?? '';
+        state.kitchenController?.text =
+            kitchens[index].translation?.title ?? '';
       }
       return;
     }
@@ -78,8 +83,7 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
               kitchens[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (failure,status) {
-
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         debugPrint('====> fetch kitchens fail $failure');
       },
@@ -95,4 +99,3 @@ class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
     state.kitchenController?.text = newUnit.translation?.title ?? '';
   }
 }
-

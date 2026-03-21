@@ -1,8 +1,9 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -21,11 +22,11 @@ class AddFoodCategoryModal extends StatelessWidget {
           return Column(
             children: [
               TitleAndIcon(
-                title: AppHelpers.getTranslation(TrKeys.addNewCategory),
+                title: help.AppHelpers.getTranslation(TrKeys.addNewCategory),
               ),
               24.verticalSpace,
               UnderlinedTextField(
-                label: AppHelpers.getTranslation(TrKeys.categoryName),
+                label: help.AppHelpers.getTranslation(TrKeys.categoryName),
                 inputType: TextInputType.text,
                 textCapitalization: TextCapitalization.sentences,
                 textInputAction: TextInputAction.done,
@@ -33,7 +34,7 @@ class AddFoodCategoryModal extends StatelessWidget {
               ),
               36.verticalSpace,
               CustomButton(
-                title: AppHelpers.getTranslation(TrKeys.save),
+                title: help.AppHelpers.getTranslation(TrKeys.save),
                 isLoading: state.isLoading,
                 onPressed: () => event.createCategory(
                   context,

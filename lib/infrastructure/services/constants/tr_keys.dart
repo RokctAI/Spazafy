@@ -331,7 +331,6 @@ class TrKeys {
   static const String theme = 'theme';
   static const String notifications = 'notifications';
   static const String filter = 'filter';
-  static const String clearAll = 'clear_all';
   static const String categories = 'categories';
   static const String brands = 'brands';
   static const String apply = 'apply';
@@ -639,7 +638,8 @@ class TrKeys {
   static const String orderCount = 'order.count';
   static const String duration = 'duration';
   static const String translateWithAi = 'translate.with.ai';
-  static const String thisContentTranslatedUsingAI = 'this.content.translated.using.ai';
+  static const String thisContentTranslatedUsingAI =
+      'this.content.translated.using.ai';
   static const String productCount = 'product.count';
   static const String subscriptionIncludes = 'subscription.includes';
   static const String purchase = 'purchase';
@@ -692,7 +692,6 @@ class TrKeys {
   static const String productCategory = 'product_category';
   static const String productTitle = 'product.title';
   static const String addProduct = 'add_product';
-  static const String payment = 'payment';
   static const String cashPayment = 'cash_payment_when_the_courier_arrives';
   static const String selectedTimeAndDay = 'selected_time_and_day';
   static const String approximateTime = 'spproximate_preparation_time: ';
@@ -732,7 +731,8 @@ class TrKeys {
   static const String withdrawMoney = 'withdraw_money';
   static const String earningsRestaurant = 'earnings_of_the_restaurant';
   static const String income = 'income';
-  static const String selectDesiredOrderHistory = 'select_desired_order_history';
+  static const String selectDesiredOrderHistory =
+      'select_desired_order_history';
   static const String overall = 'overall';
   static const String monthly = 'monthly';
   static const String weekly = 'weekly';
@@ -753,9 +753,11 @@ class TrKeys {
   static const String amount = 'amount';
   static const String orders = 'orders';
   static const String smsDidntSend = 'sms_didnt_send';
-  static const String loginCredentialsAreNotValid = 'login_credentials_are_not_valid';
+  static const String loginCredentialsAreNotValid =
+      'login_credentials_are_not_valid';
   static const String doYouReallyWantToLogout = 'do_you_really_want_to_logout';
-  static const String passwordShouldContainMinimum6Characters = 'password_should_contain_minimum_6_characters';
+  static const String passwordShouldContainMinimum6Characters =
+      'password_should_contain_minimum_6_characters';
   static const String successfullyCompleted = 'successfully_completed';
   static const String infoMessage = 'info_message';
   static const String readyOrders = 'ready_orders';
@@ -771,7 +773,8 @@ class TrKeys {
   static const String minQuantity = 'min_quantity';
   static const String minQuantityError = 'min_quantity_error';
   static const String deliveryZone = 'delivery_zone';
-  static const String theRestaurantIsClosedToday = 'the_restaurant_is_closed_today';
+  static const String theRestaurantIsClosedToday =
+      'the_restaurant_is_closed_today';
   static const String searchLocation = 'search_location';
   static const String selectDeliveryDate = 'select_delivery_date';
   static const String outOfStock = 'out_of_stock';
@@ -785,8 +788,10 @@ class TrKeys {
   static const String published = 'published';
   static const String pending = 'pending';
   static const String successfullyCreated = 'successfully_created';
-  static const String minQtyCannotBeGreaterThanMaxQty = 'min_qty_cannot_be_greater_than_max_qty';
-  static const String maxQtyShouldBeGreaterThanMinQty = 'max_qty_should_be_greater_than_min_qty';
+  static const String minQtyCannotBeGreaterThanMaxQty =
+      'min_qty_cannot_be_greater_than_max_qty';
+  static const String maxQtyShouldBeGreaterThanMinQty =
+      'max_qty_should_be_greater_than_min_qty';
   static const String selectedUser = 'selected_user';
   static const String addUser = 'add.user';
   static const String lastname = 'lastname';
@@ -800,7 +805,6 @@ class TrKeys {
   static const String areYouSureToDelete = 'are_you_sure_to_delete';
   static const String noData = 'no_data';
   static const String demoLoginPassword = 'demo_login_password';
-  static const String emailOrPhone = 'email_or_phone';
   static const String pleaseTryAgain = 'your_request_rejected_please_try_again';
   static const String defaultWord = 'default';
   static const String enterTitle = 'enter.title';
@@ -829,7 +833,8 @@ class TrKeys {
   static const String availableOrders = 'available.orders';
   static const String noteAboutClient = 'note.about.the.client';
   static const String rateTheCustomer = 'rate.the.customer';
-  static const String yourFeedbackService = 'your.feedback.will.help.us.improve.our.delivery.service';
+  static const String yourFeedbackService =
+      'your.feedback.will.help.us.improve.our.delivery.service';
   static const String evaluation = 'evaluation';
   static const String iDeliveredTheOrder = 'delivered.the.order';
   static const String theOrderDoYouConfirm = 'the.order.do.you.confirm?';
@@ -859,7 +864,8 @@ class TrKeys {
   static const String doneOrders = 'done.orders';
   static const String thereAreOrders = 'there.are';
   static const String workingTime = 'working.time';
-  static const String descriptionOfTheRestaurant = 'description.of.the.restaurant';
+  static const String descriptionOfTheRestaurant =
+      'description.of.the.restaurant';
   static const String workedHours = 'worked.hours:';
   static const String changeProduct = 'change.the.product';
   static const String additionalParameters = 'additional.parameters';
@@ -867,16 +873,20 @@ class TrKeys {
   static const String currentOrder = 'current.order';
   static const String newPassword = 'new.password';
   static const String confirmNewPassword = 'confirm.new.password';
-  static const String confirmPasswordDoesntMatchWithNewPassword = 'confirm.password.doesnt.matches.with.new.password';
+  static const String confirmPasswordDoesntMatchWithNewPassword =
+      'confirm.password.doesnt.matches.with.new.password';
   static const String sendSmsCode = 'send.sms.code';
   static const String createNewPassword = 'create.new.password';
-  static const String enterTheCodeWeSentOverSmsTo = 'enter.the.code.we.sent.over.sms.to';
+  static const String enterTheCodeWeSentOverSmsTo =
+      'enter.the.code.we.sent.over.sms.to';
   static const String youAlreadyHaveAnAccount = 'you.already.have.an.account';
   static const String iAgreeToSendASms = 'i.agree.to.send.a.sms';
   static const String startShopping = 'start.shopping';
   static const String itemsInCart = 'items.in.cart';
-  static const String walletAmountIsNotEnoughForOrderCreating = 'wallet.amount.is.not.enough.for.order.creating';
-  static const String errorOccurredWithPayingViaStripe = 'error.occurred.with.paying.via.stripe';
+  static const String walletAmountIsNotEnoughForOrderCreating =
+      'wallet.amount.is.not.enough.for.order.creating';
+  static const String errorOccurredWithPayingViaStripe =
+      'error.occurred.with.paying.via.stripe';
   static const String firstnameCannotBeEmpty = 'firstname.cannot.be.empty';
   static const String lastnameCannotBeEmpty = 'lastname.cannot.be.empty';
 }

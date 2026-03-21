@@ -1,10 +1,11 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/interface/notification.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-
 import 'notification_state.dart';
 
 class NotificationNotifier extends StateNotifier<NotificationState> {
@@ -45,9 +46,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     );
     response.when(
       success: (data) async {
-        final List<NotificationModel> newList = List.from(
-          state.notifications,
-        );
+        final List<NotificationModel> newList = List.from(state.notifications);
         newList.addAll(data.data ?? []);
         state = state.copyWith(
           notifications: isRefresh ? (data.data ?? []) : newList,
@@ -125,4 +124,3 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     );
   }
 }
-

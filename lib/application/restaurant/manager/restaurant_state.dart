@@ -1,7 +1,6 @@
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:rokctapp/infrastructure/models/models.dart';
-
 part 'restaurant_state.freezed.dart';
 
 @freezed

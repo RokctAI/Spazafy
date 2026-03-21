@@ -1,8 +1,12 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -35,11 +39,11 @@ class _CreateUserModalState extends State<CreateUserModal> {
                   children: [
                     const ModalDrag(),
                     TitleAndIcon(
-                      title: AppHelpers.getTranslation(TrKeys.addUser),
+                      title: help.AppHelpers.getTranslation(TrKeys.addUser),
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
-                      label: '${AppHelpers.getTranslation(TrKeys.firstname)}*',
+                      label: '${help.AppHelpers.getTranslation(TrKeys.firstname)}*',
                       inputType: TextInputType.text,
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,
@@ -48,7 +52,7 @@ class _CreateUserModalState extends State<CreateUserModal> {
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
-                      label: '${AppHelpers.getTranslation(TrKeys.lastname)}*',
+                      label: '${help.AppHelpers.getTranslation(TrKeys.lastname)}*',
                       inputType: TextInputType.text,
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,
@@ -58,7 +62,7 @@ class _CreateUserModalState extends State<CreateUserModal> {
                     24.verticalSpace,
                     UnderlinedTextField(
                       label:
-                          '${AppHelpers.getTranslation(TrKeys.phoneNumber)}*',
+                          '${help.AppHelpers.getTranslation(TrKeys.phoneNumber)}*',
                       inputType: TextInputType.phone,
                       textInputAction: TextInputAction.next,
                       onChanged: event.setPhone,
@@ -66,7 +70,7 @@ class _CreateUserModalState extends State<CreateUserModal> {
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
-                      label: '${AppHelpers.getTranslation(TrKeys.email)}*',
+                      label: '${help.AppHelpers.getTranslation(TrKeys.email)}*',
                       inputType: TextInputType.emailAddress,
                       textCapitalization: TextCapitalization.none,
                       textInputAction: TextInputAction.done,
@@ -75,7 +79,7 @@ class _CreateUserModalState extends State<CreateUserModal> {
                     ),
                     24.verticalSpace,
                     CustomButton(
-                      title: AppHelpers.getTranslation(TrKeys.save),
+                      title: help.AppHelpers.getTranslation(TrKeys.save),
                       isLoading: state.isLoading,
                       onPressed: () {
                         if (_formKey.currentState?.validate() ?? false) {
@@ -87,9 +91,9 @@ class _CreateUserModalState extends State<CreateUserModal> {
                                   .read(orderUserProvider.notifier)
                                   .addCreatedUser(user);
                             },
-                            failed: () => AppHelpers.showCheckTopSnackBar(
+                            failed: () => help.AppHelpers.showCheckTopSnackBar(
                               context,
-                              text: AppHelpers.getTranslation(TrKeys.failed),
+                              text: help.AppHelpers.getTranslation(TrKeys.failed),
                               type: SnackBarType.error,
                             ),
                           );

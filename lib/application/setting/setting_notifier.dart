@@ -4,7 +4,6 @@ import 'package:rokctapp/domain/interface/settings.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-
 import 'package:rokctapp/infrastructure/models/data/notification_list_data.dart';
 import 'setting_state.dart';
 

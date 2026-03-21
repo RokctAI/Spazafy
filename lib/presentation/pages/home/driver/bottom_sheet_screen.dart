@@ -1,3 +1,6 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -5,9 +8,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rokctapp/application/profile/driver/provider/profile_settings_provider.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/stores.dart';
 
 class BottomSheetScreen extends StatefulWidget {
@@ -35,7 +37,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
         height: 336.h,
         width: MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
-          color: AppStyle.greyColor,
+          color: AppStyle.bgGrey,
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(12.r),
             topLeft: Radius.circular(12.r),
@@ -60,7 +62,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
               height: 4.h,
               width: 48.w,
               decoration: BoxDecoration(
-                color: AppStyle.bottomSheetIconColor,
+                color: AppStyle.dragElement,
                 borderRadius: BorderRadius.circular(40.r),
               ),
             ),
@@ -112,7 +114,10 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                 shape: BoxShape.circle,
                 color: AppStyle.black,
               ),
-              child: Icon(FlutterRemix.file_list_2_fill, color: AppStyle.primary),
+              child: Icon(
+                FlutterRemix.file_list_2_fill,
+                color: AppStyle.primary,
+              ),
             ),
             14.horizontalSpace,
             Column(
@@ -122,15 +127,18 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                 SizedBox(
                   width: 60.w,
                   child: Text(
-                    AppHelpers.getTranslation(TrKeys.appBenefit),
-                    style: AppStyle.interNormal(size: 12.sp, letterSpacing: -0.3),
+                    help.AppHelpers.getTranslation(TrKeys.appBenefit),
+                    style: AppStyle.interNormal(
+                      size: 12.sp,
+                      letterSpacing: -0.3,
+                    ),
                     maxLines: 1,
                   ),
                 ),
                 Consumer(
                   builder: (context, ref, child) {
                     return Text(
-                      AppHelpers.numberFormat(
+                      help.AppHelpers.numberFormat(
                         number:
                             (ref
                                 .watch(profileSettingsProvider)
@@ -139,7 +147,10 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                                 ?.totalPrice ??
                             0),
                       ),
-                      style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
+                      style: AppStyle.interSemi(
+                        size: 14.sp,
+                        letterSpacing: -0.3,
+                      ),
                     );
                   },
                 ),
@@ -154,7 +165,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
   Widget _balance(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // AppHelpers.showAlertDialog(
+        // help.AppHelpers.showAlertDialog(
         //   context: context,
         //   child:  PushOrder(),
         // );
@@ -176,16 +187,22 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppHelpers.getTranslation(TrKeys.balance),
-                    style: AppStyle.interNormal(size: 12.sp, letterSpacing: -0.3),
+                    help.AppHelpers.getTranslation(TrKeys.balance),
+                    style: AppStyle.interNormal(
+                      size: 12.sp,
+                      letterSpacing: -0.3,
+                    ),
                   ),
                   Expanded(
                     child: Text(
-                      AppHelpers.numberFormat(
+                      help.AppHelpers.numberFormat(
                         number: LocalStorage.getUser()?.wallet?.price,
                         maxLength: 3,
                       ),
-                      style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
+                      style: AppStyle.interSemi(
+                        size: 14.sp,
+                        letterSpacing: -0.3,
+                      ),
                     ),
                   ),
                 ],

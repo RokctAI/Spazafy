@@ -1,6 +1,6 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'dart:io';
 import 'dart:ui';
-
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:path_provider/path_provider.dart';
@@ -8,7 +8,6 @@ import 'package:image/image.dart' as img;
 import 'dart:async';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:dio/dio.dart';
-
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class ImageCropperForMarker {

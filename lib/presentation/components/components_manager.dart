@@ -65,4 +65,4 @@ export 'tab_bars/manager/categories_tab_bar.dart';
 export 'text_fields/manager/search_text_field.dart';
 export 'text_fields/manager/underlined_text_field.dart';
 export 'text_fields/manager/outline_bordered_text_field.dart';
-export '../pages/auth/manager/widgets/auth_tab_bar.dart';
+export './tab_bars/driver/auth_tab_bar.dart';

@@ -1,10 +1,12 @@
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
-
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'ingredient_item.dart';
 
 class WIngredientScreen extends StatelessWidget {
@@ -36,7 +38,7 @@ class WIngredientScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TitleAndIcon(
-                  title: AppHelpers.getTranslation(TrKeys.ingredients),
+                  title: help.AppHelpers.getTranslation(TrKeys.ingredients),
                 ),
                 16.verticalSpace,
                 ListView.builder(

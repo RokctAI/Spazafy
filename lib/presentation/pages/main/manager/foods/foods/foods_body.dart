@@ -1,12 +1,14 @@
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/loading/manager/tab_bar_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/foods/manager/edit/details/kitchen/edit_food_kitchens_provider.dart';
-
 import 'package:rokctapp/presentation/pages/main/manager/foods/edit/edit_product_modal.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
@@ -61,7 +63,7 @@ class FoodsBody extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            AppHelpers.getTranslation(TrKeys.product),
+                            help.AppHelpers.getTranslation(TrKeys.product),
                             style: AppStyle.interSemi(
                               size: 14,
                               color: productsState.productType == 'single'
@@ -101,7 +103,7 @@ class FoodsBody extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            AppHelpers.getTranslation(TrKeys.combo),
+                            help.AppHelpers.getTranslation(TrKeys.combo),
                             style: AppStyle.interSemi(
                               size: 14,
                               color: productsState.productType == 'combo'
@@ -200,7 +202,7 @@ class FoodsBody extends StatelessWidget {
                   ref
                       .read(editFoodCategoriesProvider.notifier)
                       .setFoodCategory(productsState.foods[index].category);
-                  AppHelpers.showCustomModalBottomSheet(
+                  help.AppHelpers.showCustomModalBottomSheet(
                     paddingTop: 60,
                     context: context,
                     modal: EditProductModal(

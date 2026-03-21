@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'filter_notifier.dart';
 import 'filter_state.dart';

@@ -1,10 +1,15 @@
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -88,10 +93,10 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                     children: [
                       const ModalDrag(),
                       TitleAndIcon(
-                        title: AppHelpers.getTranslation(TrKeys.workingHours),
+                        title: help.AppHelpers.getTranslation(TrKeys.workingHours),
                       ),
                       Text(
-                        AppHelpers.getTranslation(TrKeys.enterOpeningHours),
+                        help.AppHelpers.getTranslation(TrKeys.enterOpeningHours),
                         style: AppStyle.interNormal(
                           size: 14,
                           color: AppStyle.blackColor,
@@ -126,7 +131,7 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            AppHelpers.getTranslation(TrKeys.setBusinessDay),
+                            help.AppHelpers.getTranslation(TrKeys.setBusinessDay),
                             style: AppStyle.interNormal(
                               size: 16,
                               letterSpacing: -0.3,
@@ -222,7 +227,7 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                       ),
                       40.verticalSpace,
                       CustomButton(
-                        title: AppHelpers.getTranslation(TrKeys.save),
+                        title: help.AppHelpers.getTranslation(TrKeys.save),
                         isLoading: state.isLoading,
                         onPressed: () {
                           _savingWorkingDays = _workingDays;

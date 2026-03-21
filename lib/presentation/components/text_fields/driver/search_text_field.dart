@@ -1,9 +1,10 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class SearchTextField extends StatelessWidget {
   final String? hintText;
@@ -37,10 +38,13 @@ class SearchTextField extends StatelessWidget {
       cursorColor: AppStyle.black,
       cursorWidth: 1,
       decoration: InputDecoration(
-        hintStyle: AppStyle.interRegular(size: 16.sp, color: AppStyle.textColor),
+        hintStyle: AppStyle.interRegular(size: 16.sp, color: AppStyle.textGrey),
         hintText: hintText ?? AppHelpers.getTranslation(TrKeys.search),
         contentPadding: REdgeInsets.symmetric(horizontal: 15, vertical: 17),
-        prefixIcon: const Icon(FlutterRemix.search_2_line, color: AppStyle.black),
+        prefixIcon: const Icon(
+          FlutterRemix.search_2_line,
+          color: AppStyle.black,
+        ),
 
         suffixIcon: suffixIcon,
         fillColor: bgColor,

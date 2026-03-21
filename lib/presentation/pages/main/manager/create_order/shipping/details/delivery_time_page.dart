@@ -1,12 +1,17 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/order/manager/shipping/section/section_provider.dart';
 import 'package:rokctapp/application/order/manager/shipping/table/table_provider.dart';
-
 import 'widgets/payment_item.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/create_order/order/widgets/title_price.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
@@ -40,7 +45,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
     return KeyboardDisable(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         body: Container(
           padding: MediaQuery.viewInsetsOf(context),
           child: SingleChildScrollView(
@@ -74,7 +79,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                           return Column(
                             children: [
                               TitleAndIcon(
-                                title: AppHelpers.getTranslation(
+                                title: help.AppHelpers.getTranslation(
                                   TrKeys.deliveryTime,
                                 ),
                               ),
@@ -84,7 +89,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    AppHelpers.getTranslation(
+                                    help.AppHelpers.getTranslation(
                                       TrKeys.selectedTimeAndDay,
                                     ),
                                     style: AppStyle.interSemi(
@@ -94,7 +99,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                   ),
                                   GestureDetector(
                                     onTap: () =>
-                                        AppHelpers.showCustomModalBottomSheet(
+                                        help.AppHelpers.showCustomModalBottomSheet(
                                           paddingTop: MediaQuery.paddingOf(
                                             context,
                                           ).top,
@@ -144,7 +149,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                       child: Column(
                         children: [
                           TitleAndIcon(
-                            title: AppHelpers.getTranslation(TrKeys.payment),
+                            title: help.AppHelpers.getTranslation(TrKeys.payment),
                           ),
                           Consumer(
                             builder: (context, ref, child) {
@@ -217,15 +222,15 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                   ),
                                   child: TitleAndIcon(
                                     title:
-                                        "${AppHelpers.getTranslation(TrKeys.payment)} - \$",
+                                        "${help.AppHelpers.getTranslation(TrKeys.payment)} - \$",
                                   ),
                                 ),
                                 24.verticalSpace,
                                 TitleAndPrice(
-                                  title: AppHelpers.getTranslation(
+                                  title: help.AppHelpers.getTranslation(
                                     TrKeys.subtotal,
                                   ),
-                                  rightTitle: AppHelpers.numberFormat(
+                                  rightTitle: help.AppHelpers.numberFormat(
                                     state.orderCalculate?.price ?? 0,
                                   ),
                                   textStyle: AppStyle.interRegular(
@@ -235,10 +240,10 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                 ),
                                 16.verticalSpace,
                                 TitleAndPrice(
-                                  title: AppHelpers.getTranslation(
+                                  title: help.AppHelpers.getTranslation(
                                     TrKeys.deliveryPrice,
                                   ),
-                                  rightTitle: AppHelpers.numberFormat(
+                                  rightTitle: help.AppHelpers.numberFormat(
                                     state.orderCalculate?.deliveryFee ?? 0,
                                   ),
                                   textStyle: AppStyle.interRegular(
@@ -248,10 +253,10 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                 ),
                                 16.verticalSpace,
                                 TitleAndPrice(
-                                  title: AppHelpers.getTranslation(
+                                  title: help.AppHelpers.getTranslation(
                                     TrKeys.serviceFee,
                                   ),
-                                  rightTitle: AppHelpers.numberFormat(
+                                  rightTitle: help.AppHelpers.numberFormat(
                                     state.orderCalculate?.serviceFee ?? 0,
                                   ),
                                   textStyle: AppStyle.interRegular(
@@ -261,11 +266,11 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                 ),
                                 16.verticalSpace,
                                 TitleAndPrice(
-                                  title: AppHelpers.getTranslation(
+                                  title: help.AppHelpers.getTranslation(
                                     TrKeys.discount,
                                   ),
                                   rightTitle:
-                                      '-${AppHelpers.numberFormat(state.orderCalculate?.totalDiscount ?? 0)}',
+                                      '-${help.AppHelpers.numberFormat(state.orderCalculate?.totalDiscount ?? 0)}',
                                   textStyle: AppStyle.interRegular(
                                     size: 16,
                                     letterSpacing: -0.3,
@@ -273,10 +278,10 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                 ),
                                 16.verticalSpace,
                                 TitleAndPrice(
-                                  title: AppHelpers.getTranslation(
+                                  title: help.AppHelpers.getTranslation(
                                     TrKeys.totalTax,
                                   ),
-                                  rightTitle: AppHelpers.numberFormat(
+                                  rightTitle: help.AppHelpers.numberFormat(
                                     state.orderCalculate?.totalShopTax ?? 0,
                                   ),
                                   textStyle: AppStyle.interRegular(
@@ -285,13 +290,13 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                   ),
                                 ),
                                 16.verticalSpace,
-                                const Divider(color: AppStyle.shimmerBase),
+                                Divider(color: AppStyle.shimmerBase),
                                 16.verticalSpace,
                                 TitleAndPrice(
-                                  title: AppHelpers.getTranslation(
+                                  title: help.AppHelpers.getTranslation(
                                     TrKeys.total,
                                   ),
-                                  rightTitle: AppHelpers.numberFormat(
+                                  rightTitle: help.AppHelpers.numberFormat(
                                     state.orderCalculate?.totalPrice ?? 0,
                                   ),
                                   textStyle: AppStyle.interSemi(
@@ -323,7 +328,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                     final paymentState = ref.watch(orderPaymentProvider);
                     final userState = ref.watch(orderUserProvider);
                     return CustomButton(
-                      title: AppHelpers.getTranslation(TrKeys.next),
+                      title: help.AppHelpers.getTranslation(TrKeys.next),
                       isLoading: ref.watch(createOrderProvider).isCreating,
                       onPressed: () {
                         if (paymentState
@@ -335,10 +340,10 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                           final num orderPrice =
                               paymentState.orderCalculate?.totalPrice ?? 0;
                           if (walletPrice < orderPrice) {
-                            AppHelpers.showCheckTopSnackBar(
+                            help.AppHelpers.showCheckTopSnackBar(
                               context,
                               type: SnackBarType.error,
-                              text: AppHelpers.getTranslation(
+                              text: help.AppHelpers.getTranslation(
                                 TrKeys.notEnoughMoney,
                               ),
                             );
@@ -398,7 +403,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                     );
                               },
                               failed: (message) =>
-                                  AppHelpers.showCheckTopSnackBar(
+                                  help.AppHelpers.showCheckTopSnackBar(
                                     context,
                                     text: message,
                                     type: SnackBarType.error,

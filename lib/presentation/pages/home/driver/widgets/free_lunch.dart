@@ -1,9 +1,11 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/pages/free_lunch/driver/free_lunch_screen.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/pages_driver.dart';
 
 class FreeLunch extends StatelessWidget {
@@ -13,7 +15,7 @@ class FreeLunch extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        AppHelpers.showCustomModalBottomSheet(
+        help.AppHelpers.showCustomModalBottomSheet(
           paddingTop: MediaQuery.paddingOf(context).top,
           context: context,
           modal: const FreeLunchScreen(),
@@ -35,7 +37,7 @@ class FreeLunch extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.only(top: 16.h, left: 16.w),
           child: Text(
-            AppHelpers.getTranslation(TrKeys.freeLunches),
+            help.AppHelpers.getTranslation(TrKeys.freeLunches),
             style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
           ),
         ),

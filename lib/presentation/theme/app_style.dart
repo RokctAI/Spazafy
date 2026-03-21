@@ -48,8 +48,8 @@ abstract class AppStyle {
   static const Color discountProduct = Color(0xFFD21234);
   static const Color notificationTime = Color(0xFF8B8B8B);
   static const Color separatorDot = Color(0xFFD9D9D9);
-  static Color shimmerBase = Colors.grey.shade300;
-  static Color shimmerHighlight = Colors.grey.shade100;
+  static const Color shimmerBase = Color(0xFFE0E0E0);
+  static const Color shimmerHighlight = Color(0xFFF5F5F5);
   static const Color locationAddress = Color(0xFF343434);
   static const Color selectedItemsText = Color(0xFFA0A09C);
   static const Color iconButtonBack = Color(0xFFE9E9E6);
@@ -76,6 +76,27 @@ abstract class AppStyle {
   static const Color orderStatusProgressBack = Color(0xFFE7E7E7);
   static const Color shadow = Color(0x3FD8D8D8);
   static const Color shadowBottom = Color(0x33000000);
+
+  // --- Merged from Driver & Manager ---
+  static const Color progressColor = Color(0xffF26110);
+  static const Color pendingDark = Color(0xFFF19204);
+  static const Color blackColor = Color(0xff000000);
+  static const Color blackColorOpacity = Color(0x06000000);
+  static const Color iconColor = Color(0xffC4C4C4);
+  static const Color toggleColor = Color(0xFFE7E7E7);
+  static const Color toggleShadowColor = Color(0xFF6B6B6B);
+  static const Color logOutBgColor = Color(0xFFB9B9B9);
+  static const Color addCountColor = Color(0xFFF7F7F7);
+  static const Color discountColor = Color(0xFFF3F3F3);
+  static const Color shadowColor = Color(0xFF7D7D7D);
+  static const Color green = Color(0xFF16AA16);
+  static const Color pending = Color(0xFFFEFAF2);
+  static const Color deepPurple = Color(0xFF673AB7);
+
+  static List<Color> primaryGradient = [
+    AppStyle.primary.withOpacity(0.5),
+    AppStyle.transparent,
+  ];
 
   /// dark theme based colors
   static const Color mainBackDark = Color(0xFF1E272E);

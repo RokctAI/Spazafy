@@ -1,12 +1,14 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'widgets/food_extras.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/food_price_widget.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
@@ -95,7 +97,7 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                         '${widget.product.translation?.description}',
                         style: AppStyle.interNormal(
                           size: 12,
-                          color: AppStyle.textColor,
+                          color: AppStyle.textGrey,
                           letterSpacing: -0.3,
                         ),
                       ),
@@ -227,7 +229,7 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                       : Padding(
                           padding: REdgeInsets.symmetric(horizontal: 16),
                           child: CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.toBuy),
+                            title: help.AppHelpers.getTranslation(TrKeys.toBuy),
                             onPressed: () {
                               event.increaseStockCount(
                                 updateCart: (count) {

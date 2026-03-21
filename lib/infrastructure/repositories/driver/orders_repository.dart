@@ -1,13 +1,18 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
-final ordersRepositoryFacade = driverOrderRepository;
 import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart';
+
+final ordersRepositoryFacade = driverOrderRepository;
 
 class OrdersRepository implements OrdersRepositoryFacade {
   @override
@@ -203,7 +208,10 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateOrder(String? orderId, String? status) async {
+  Future<ApiResult<dynamic>> updateOrder(
+    String? orderId,
+    String? status,
+  ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -297,6 +305,3 @@ class OrdersRepository implements OrdersRepositoryFacade {
     }
   }
 }
-
-
-

@@ -1,8 +1,11 @@
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
@@ -22,7 +25,7 @@ class FoodPriceWidget extends StatelessWidget {
         : (stock?.discount != null && (stock?.discount ?? 0) > 0);
     return isOutOfStock
         ? Text(
-            AppHelpers.getTranslation(TrKeys.outOfStock),
+            help.AppHelpers.getTranslation(TrKeys.outOfStock),
             style: AppStyle.interSemi(
               size: 11,
               color: AppStyle.red,
@@ -33,7 +36,7 @@ class FoodPriceWidget extends StatelessWidget {
               ? Row(
                   children: [
                     Text(
-                      AppHelpers.numberFormat(
+                      help.AppHelpers.numberFormat(
                         (stock?.price ?? 0) + (stock?.tax ?? 0),
                       ),
                       style: AppStyle.interSemi(
@@ -53,7 +56,7 @@ class FoodPriceWidget extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.r),
-                        color: AppStyle.bgColor,
+                        color: AppStyle.redBg,
                       ),
                       alignment: Alignment.center,
                       child: Row(
@@ -73,7 +76,7 @@ class FoodPriceWidget extends StatelessWidget {
                           ),
                           8.horizontalSpace,
                           Text(
-                            AppHelpers.numberFormat(stock?.totalPrice ?? 0),
+                            help.AppHelpers.numberFormat(stock?.totalPrice ?? 0),
                             style: AppStyle.interSemi(
                               size: 14,
                               color: AppStyle.blackColor,
@@ -86,7 +89,7 @@ class FoodPriceWidget extends StatelessWidget {
                   ],
                 )
               : Text(
-                  AppHelpers.numberFormat(stock?.totalPrice ?? 0),
+                  help.AppHelpers.numberFormat(stock?.totalPrice ?? 0),
                   style: AppStyle.interSemi(
                     size: 14,
                     color: AppStyle.blackColor,

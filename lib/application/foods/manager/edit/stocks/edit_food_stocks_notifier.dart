@@ -1,7 +1,13 @@
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart'
+    hide Group;
+import 'package:rokctapp/domain/interface/manager_products.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart' hide Group;
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-
 import 'edit_food_stocks_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,7 +18,7 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
   List<Stock> _oldStocks = [];
 
   EditFoodStocksNotifier(this._productsRepository)
-      : super(const EditFoodStocksState());
+    : super(const EditFoodStocksState());
 
   void setStockAddons(List<ProductData> addons, int stockIndex) {
     List<AddonData> checkedAddons = [];
@@ -21,17 +27,20 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
         checkedAddons.add(AddonData(addonId: addon.id, product: addon));
       }
     }
-    _localStocks[stockIndex] =
-        _localStocks[stockIndex].copyWith(localAddons: checkedAddons);
+    _localStocks[stockIndex] = _localStocks[stockIndex].copyWith(
+      localAddons: checkedAddons,
+    );
     state = state.copyWith(stocks: _localStocks);
     debugPrint(
-        '===> set selected addon ${_localStocks[stockIndex].localAddons?.length}');
+      '===> set selected addon ${_localStocks[stockIndex].localAddons?.length}',
+    );
   }
 
   void toggleCheckedGroup(int groupIndex) {
     List<Group> groups = List.from(state.groups);
-    final bool check =
-        state.selectGroups.containsKey(groups[groupIndex].id.toString());
+    final bool check = state.selectGroups.containsKey(
+      groups[groupIndex].id.toString(),
+    );
     groups[groupIndex] = groups[groupIndex].copyWith(isChecked: check);
     state = state.copyWith(groups: groups);
   }
@@ -106,10 +115,13 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
   void combination() {
     List<Stock> stocks = [];
     if (state.selectGroups.values.isNotEmpty) {
-      List<List<Extras>> list =
-          AppHelpers.cartesian(List.from(state.selectGroups.values));
-      stocks =
-          List.generate(list.length, (index) => Stock(extras: list[index]));
+      List<List<Extras>> list = AppHelpers.cartesian(
+        List.from(state.selectGroups.values),
+      );
+      stocks = List.generate(
+        list.length,
+        (index) => Stock(extras: list[index]),
+      );
     } else {
       stocks = [Stock()];
     }
@@ -145,8 +157,9 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
       success: (data) {
         final List<Extras> fetchedExtras = data.data?.extraValues ?? <Extras>[];
         List<Group> activeGroups = List.from(state.groups);
-        activeGroups[groupIndex] =
-            activeGroups[groupIndex].copyWith(fetchedExtras: fetchedExtras);
+        activeGroups[groupIndex] = activeGroups[groupIndex].copyWith(
+          fetchedExtras: fetchedExtras,
+        );
 
         /// save fetched extras to groups
         List<Group> groups = List.from(state.groups);
@@ -156,8 +169,9 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
             mainGroupIndex = i;
           }
         }
-        groups[mainGroupIndex] =
-            groups[mainGroupIndex].copyWith(fetchedExtras: fetchedExtras);
+        groups[mainGroupIndex] = groups[mainGroupIndex].copyWith(
+          fetchedExtras: fetchedExtras,
+        );
         state = state.copyWith(
           isLoading: false,
           activeGroupExtras: fetchedExtras,
@@ -167,8 +181,11 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
       },
       failure: (fail, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context,
-            text: fail.toString(), type: SnackBarType.error);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          text: fail.toString(),
+          type: SnackBarType.error,
+        );
         debugPrint('===> group extras fetching failed $fail');
       },
     );
@@ -182,13 +199,15 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
   }
 
   void setQuantity({required String value, required int index}) {
-    _localStocks[index] =
-        _localStocks[index].copyWith(quantity: int.tryParse(value.trim()));
+    _localStocks[index] = _localStocks[index].copyWith(
+      quantity: int.tryParse(value.trim()),
+    );
   }
 
   void setPrice({required String value, required int index}) {
-    _localStocks[index] =
-        _localStocks[index].copyWith(price: num.tryParse(value.trim()));
+    _localStocks[index] = _localStocks[index].copyWith(
+      price: num.tryParse(value.trim()),
+    );
   }
 
   void setSku({required String value, required int index}) {
@@ -214,8 +233,11 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
       },
       failure: (fail, status) {
         state = state.copyWith(isSaving: false);
-        AppHelpers.showCheckTopSnackBar(context,
-            text: fail.toString(), type: SnackBarType.error);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          text: fail.toString(),
+          type: SnackBarType.error,
+        );
         failed?.call();
       },
     );
@@ -224,8 +246,9 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
   void addEmptyStock() {
     List<Extras>? extras = _localStocks.last.extras;
     extras = extras?.map((e) => e.copyWith(value: null)).toList();
-    _localStocks
-        .add(_localStocks.last.copyWith(isInitial: true, extras: extras));
+    _localStocks.add(
+      _localStocks.last.copyWith(isInitial: true, extras: extras),
+    );
     state = state.copyWith(stocks: _localStocks);
   }
 
@@ -253,4 +276,3 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
     fetchGroups(product: product ?? ProductData());
   }
 }
-

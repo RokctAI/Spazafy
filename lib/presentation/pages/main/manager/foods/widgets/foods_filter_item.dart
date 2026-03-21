@@ -1,8 +1,8 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 class FoodsFilterItem extends StatelessWidget {
@@ -62,7 +62,7 @@ class FoodsFilterItem extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10.r),
                         color: currentItem == e || currentItemTwo == e
                             ? AppStyle.primary
-                            : AppStyle.greyColor,
+                            : AppStyle.bgGrey,
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -105,7 +105,7 @@ class FoodsFilterItem extends StatelessWidget {
                               : const SizedBox.shrink(),
                           isPrice
                               ? Text(
-                                  AppHelpers.numberFormat(double.tryParse(e)),
+                                  help.AppHelpers.numberFormat(double.tryParse(e)),
                                   style: AppStyle.interNormal(
                                     size: 14,
                                     color: AppStyle.blackColor,

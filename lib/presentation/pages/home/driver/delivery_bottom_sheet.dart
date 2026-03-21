@@ -1,12 +1,13 @@
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
-
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/approve_dialog.dart';
 import 'widgets/foods_page.dart';
 import 'widgets/rate_customer.dart';
@@ -51,7 +52,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
               builder: (context, scrollController) => Container(
                 width: MediaQuery.sizeOf(context).width,
                 decoration: BoxDecoration(
-                  color: AppStyle.greyColor,
+                  color: AppStyle.bgGrey,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.r),
                     topLeft: Radius.circular(12.r),
@@ -80,7 +81,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                             (MediaQuery.sizeOf(context).width - 100.w) / 2,
                       ),
                       decoration: BoxDecoration(
-                        color: AppStyle.bottomSheetIconColor,
+                        color: AppStyle.dragElement,
                         borderRadius: BorderRadius.circular(40.r),
                       ),
                     ),
@@ -95,11 +96,11 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                         ? Column(
                             children: [
                               CustomButton(
-                                title: AppHelpers.getTranslation(
+                                title: help.AppHelpers.getTranslation(
                                   TrKeys.orderInformation,
                                 ),
                                 onPressed: () {
-                                  AppHelpers.showCustomModalBottomSheet(
+                                  help.AppHelpers.showCustomModalBottomSheet(
                                     context: context,
                                     modal: FoodsPage(order: widget.order),
                                     isDarkMode: false,
@@ -113,19 +114,19 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                           )
                         : const SizedBox.shrink(),
                     CustomButton(
-                      title: AppHelpers.getTranslation(
+                      title: help.AppHelpers.getTranslation(
                         ref.watch(homeProvider).isGoRestaurant
                             ? TrKeys.completeCheckout
                             : TrKeys.iDeliveredTheOrder,
                       ),
                       onPressed: () {
                         if (ref.watch(homeProvider).isGoRestaurant) {
-                          AppHelpers.showAlertDialog(
+                          help.AppHelpers.showAlertDialog(
                             context: context,
                             child: ApproveOrderDialog(order: widget.order),
                           );
                         } else {
-                          AppHelpers.openDialogImagePicker(
+                          help.AppHelpers.openDialogImagePicker(
                             context: context,
                             onSuccess: (path) async {
                               if (context.mounted) {
@@ -145,7 +146,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                       orderId: widget.order.id,
                                     );
                                 Navigator.pop(context);
-                                AppHelpers.showCustomModalBottomSheet(
+                                help.AppHelpers.showCustomModalBottomSheet(
                                   context: context,
                                   modal: RateCustomer(order: widget.order),
                                   isDarkMode: false,
@@ -158,11 +159,11 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                     ),
                     const SizedBox(height: 10),
                     CustomButton(
-                      title: AppHelpers.getTranslation(TrKeys.cancel),
+                      title: help.AppHelpers.getTranslation(TrKeys.cancel),
                       textColor: Colors.white,
-                      background: AppStyle.redColor,
+                      background: AppStyle.red,
                       onPressed: () {
-                        AppHelpers.showAlertDialog(
+                        help.AppHelpers.showAlertDialog(
                           context: context,
                           child: StatefulBuilder(
                             builder: (context, setState) {
@@ -181,10 +182,12 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                     RichText(
                                       textAlign: TextAlign.center,
                                       text: TextSpan(
-                                        text: AppHelpers.getTranslation(
+                                        text: help.AppHelpers.getTranslation(
                                           TrKeys.areYouSure,
                                         ),
-                                        style: AppStyle.interNormal(size: 16.sp),
+                                        style: AppStyle.interNormal(
+                                          size: 16.sp,
+                                        ),
                                       ),
                                     ),
                                     Form(
@@ -194,7 +197,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                         label: 'Note',
                                         validator: (p0) {
                                           if (p0?.isEmpty ?? true) {
-                                            return AppHelpers.getTranslation(
+                                            return help.AppHelpers.getTranslation(
                                               TrKeys.cannotBeEmpty,
                                             );
                                           }
@@ -210,10 +213,10 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                       children: [
                                         Expanded(
                                           child: CustomButton(
-                                            title: AppHelpers.getTranslation(
+                                            title: help.AppHelpers.getTranslation(
                                               TrKeys.cancel,
                                             ),
-                                            background: AppStyle.redColor,
+                                            background: AppStyle.red,
                                             textColor: AppStyle.white,
                                             onPressed: () {
                                               Navigator.pop(context);
@@ -226,7 +229,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                             builder: (context, ref, child) {
                                               return CustomButton(
                                                 title:
-                                                    AppHelpers.getTranslation(
+                                                    help.AppHelpers.getTranslation(
                                                       TrKeys.confirmation,
                                                     ),
                                                 background: AppStyle.black,

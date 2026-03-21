@@ -1,11 +1,10 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
 import 'package:rokctapp/presentation/pages/stores/widgets/shimmer_category_list.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-
 import 'tab_search.dart';
 
 class CategoryTabBar extends StatefulWidget {

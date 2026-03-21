@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/products.dart';
@@ -6,7 +7,6 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-
 import 'search_state.dart';
 
 class SearchNotifier extends StateNotifier<SearchState> {

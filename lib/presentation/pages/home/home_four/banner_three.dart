@@ -1,3 +1,5 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +9,6 @@ import 'package:rokctapp/application/home/home_notifier.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import 'package:rokctapp/presentation/pages/home/home_four/widgets/banner_item_three.dart';
 
 class BannerThree extends StatefulWidget {

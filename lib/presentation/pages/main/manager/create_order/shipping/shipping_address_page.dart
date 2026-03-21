@@ -1,3 +1,8 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/services.dart';
@@ -7,8 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rokctapp/application/order/manager/shipping/section/section_provider.dart';
 import 'package:rokctapp/application/order/manager/shipping/table/table_provider.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/delivery_type_item.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
@@ -43,7 +47,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
     return KeyboardDisable(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         body: Consumer(
           builder: (context, ref, child) {
             final deliveryEvent = ref.read(deliveryTypeProvider.notifier);
@@ -67,36 +71,36 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                         children: [
                           24.verticalSpace,
                           TitleAndIcon(
-                            title: AppHelpers.getTranslation(
+                            title: help.AppHelpers.getTranslation(
                               TrKeys.deliveryType,
                             ),
                           ),
                           24.verticalSpace,
                           DeliveryTypeItem(
                             iconData: FlutterRemix.takeaway_fill,
-                            title: AppHelpers.getTranslation(
+                            title: help.AppHelpers.getTranslation(
                               TrKeys.deliveryService,
                             ),
                             desc:
-                                '${AppHelpers.getTranslation(TrKeys.estimatedTime)} 25 - 30 min',
+                                '${help.AppHelpers.getTranslation(TrKeys.estimatedTime)} 25 - 30 min',
                             isActive: deliveryState.type == TrKeys.delivery,
                             onTap: () => deliveryEvent.setType(TrKeys.delivery),
                           ),
                           8.verticalSpace,
                           DeliveryTypeItem(
                             iconData: FlutterRemix.walk_fill,
-                            title: AppHelpers.getTranslation(TrKeys.takeAway),
+                            title: help.AppHelpers.getTranslation(TrKeys.takeAway),
                             desc:
-                                '${AppHelpers.getTranslation(TrKeys.approximateTime)} 25 - 30 min',
+                                '${help.AppHelpers.getTranslation(TrKeys.approximateTime)} 25 - 30 min',
                             isActive: deliveryState.type == TrKeys.pickup,
                             onTap: () => deliveryEvent.setType(TrKeys.pickup),
                           ),
                           8.verticalSpace,
                           DeliveryTypeItem(
                             iconData: Icons.table_restaurant,
-                            title: AppHelpers.getTranslation(TrKeys.dineIn),
+                            title: help.AppHelpers.getTranslation(TrKeys.dineIn),
                             desc:
-                                '${AppHelpers.getTranslation(TrKeys.approximateTime)} 25 - 30 min',
+                                '${help.AppHelpers.getTranslation(TrKeys.approximateTime)} 25 - 30 min',
                             isActive: deliveryState.type == TrKeys.dineIn,
                             onTap: () => deliveryEvent.setType(TrKeys.dineIn),
                           ),
@@ -118,7 +122,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                         child: Column(
                           children: [
                             TitleAndIcon(
-                              title: AppHelpers.getTranslation(
+                              title: help.AppHelpers.getTranslation(
                                 TrKeys.customerInformation,
                               ),
                             ),
@@ -140,10 +144,10 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                   children: [
                                     UnderlinedTextField(
                                       label: userState.selectedUser != null
-                                          ? AppHelpers.getTranslation(
+                                          ? help.AppHelpers.getTranslation(
                                               TrKeys.selectedUser,
                                             )
-                                          : AppHelpers.getTranslation(
+                                          : help.AppHelpers.getTranslation(
                                               TrKeys.pleaseSelectAUser,
                                             ),
                                       readOnly: true,
@@ -174,7 +178,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                           if (AppConstants
                                                   .isNumberLengthAlwaysSame &&
                                               (s?.isValidNumber() ?? true)) {
-                                            return AppHelpers.getTranslation(
+                                            return help.AppHelpers.getTranslation(
                                               TrKeys.phoneNumberIsNotValid,
                                             );
                                           }
@@ -184,7 +188,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                         initialCountryCode:
                                             AppConstants.countryCodeISO,
                                         invalidNumberMessage:
-                                            AppHelpers.getTranslation(
+                                            help.AppHelpers.getTranslation(
                                               TrKeys.phoneNumberIsNotValid,
                                             ),
                                         inputFormatters: [
@@ -286,7 +290,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                             return Column(
                               children: [
                                 TitleAndIcon(
-                                  title: AppHelpers.getTranslation(
+                                  title: help.AppHelpers.getTranslation(
                                     TrKeys.shippingAddress,
                                   ),
                                 ),
@@ -295,7 +299,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                   children: [
                                     Expanded(
                                       child: UnderlinedTextField(
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.selectedAddress,
                                         ),
                                         textController:
@@ -332,7 +336,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                   children: [
                                     Expanded(
                                       child: UnderlinedTextField(
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.entrance,
                                         ),
                                         onChanged: addressEvent.setEntrance,
@@ -341,7 +345,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                     8.horizontalSpace,
                                     Expanded(
                                       child: UnderlinedTextField(
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.floor,
                                         ),
                                         onChanged: addressEvent.setFloor,
@@ -350,7 +354,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                     8.horizontalSpace,
                                     Expanded(
                                       child: UnderlinedTextField(
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.house,
                                         ),
                                         onChanged: addressEvent.setHouse,
@@ -381,17 +385,17 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                             child: Column(
                               children: [
                                 TitleAndIcon(
-                                  title: AppHelpers.getTranslation(
+                                  title: help.AppHelpers.getTranslation(
                                     TrKeys.selectTable,
                                   ),
                                 ),
                                 16.verticalSpace,
                                 UnderlinedTextField(
                                   label: state.selectSection != null
-                                      ? AppHelpers.getTranslation(
+                                      ? help.AppHelpers.getTranslation(
                                           TrKeys.selectedSection,
                                         )
-                                      : AppHelpers.getTranslation(
+                                      : help.AppHelpers.getTranslation(
                                           TrKeys.pleaseSelectASection,
                                         ),
                                   readOnly: true,
@@ -410,10 +414,10 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                 4.verticalSpace,
                                 UnderlinedTextField(
                                   label: tableState.selectTable != null
-                                      ? AppHelpers.getTranslation(
+                                      ? help.AppHelpers.getTranslation(
                                           TrKeys.selectedTable,
                                         )
-                                      : AppHelpers.getTranslation(
+                                      : help.AppHelpers.getTranslation(
                                           TrKeys.pleaseSelectATable,
                                         ),
                                   readOnly: true,
@@ -456,13 +460,13 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                         ref.watch(tableProvider).selectTable != null))
                   Expanded(
                     child: CustomButton(
-                      title: AppHelpers.getTranslation(TrKeys.next),
+                      title: help.AppHelpers.getTranslation(TrKeys.next),
                       onPressed: () {
                         if (ref.watch(deliveryTypeProvider).type ==
                             TrKeys.delivery) {
                           if (ref.watch(orderAddressProvider).location ==
                               null) {
-                            AppHelpers.showCheckTopSnackBar(
+                            help.AppHelpers.showCheckTopSnackBar(
                               context,
                               type: SnackBarType.info,
                               text: TrKeys.selectedAddress,

@@ -1,11 +1,10 @@
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart' hide Meta;
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 class FoodStockItem extends StatelessWidget {
@@ -99,7 +98,7 @@ class FoodStockItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: AppStyle.interNormal(
                       size: 12,
-                      color: AppStyle.textColor,
+                      color: AppStyle.textGrey,
                       letterSpacing: -0.3,
                     ),
                   ),
@@ -112,7 +111,7 @@ class FoodStockItem extends StatelessWidget {
                             "${e.group?.translation?.title ?? ''}: ",
                             style: AppStyle.interNormal(
                               size: 12,
-                              color: AppStyle.textColor,
+                              color: AppStyle.textGrey,
                               letterSpacing: -0.3,
                             ),
                           ),
@@ -137,7 +136,7 @@ class FoodStockItem extends StatelessWidget {
                             e.product?.translation?.title ?? '',
                             style: AppStyle.interNormal(
                               size: 12,
-                              color: AppStyle.textColor,
+                              color: AppStyle.textGrey,
                               letterSpacing: -0.3,
                             ),
                           ),

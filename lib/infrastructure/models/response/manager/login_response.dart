@@ -1,4 +1,6 @@
-import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart'
+    hide UserData;
 
 class LoginResponse {
   LoginResponse({LoginData? data}) {
@@ -26,11 +28,7 @@ class LoginResponse {
 }
 
 class LoginData {
-  LoginData({
-    String? accessToken,
-    String? tokenType,
-    UserData? user,
-  }) {
+  LoginData({String? accessToken, String? tokenType, UserData? user}) {
     _accessToken = accessToken;
     _tokenType = tokenType;
     _user = user;
@@ -50,12 +48,11 @@ class LoginData {
     String? accessToken,
     String? tokenType,
     UserData? user,
-  }) =>
-      LoginData(
-        accessToken: accessToken ?? _accessToken,
-        tokenType: tokenType ?? _tokenType,
-        user: user ?? _user,
-      );
+  }) => LoginData(
+    accessToken: accessToken ?? _accessToken,
+    tokenType: tokenType ?? _tokenType,
+    user: user ?? _user,
+  );
 
   String? get accessToken => _accessToken;
 

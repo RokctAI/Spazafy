@@ -1,9 +1,28 @@
+import 'package:rokctapp/infrastructure/models/response/verify_phone_response.dart';
+import 'package:rokctapp/infrastructure/models/response/login_response.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+import 'package:rokctapp/infrastructure/models/response/register_response.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 
 class MockAuthRepository implements AuthRepositoryFacade {
+  @override
+  Future<dynamic> checkPhone({required String phone}) async {
+    return null;
+  }
+
+  @override
+  Future<dynamic> loginWithSocial({
+    required dynamic email,
+    required dynamic displayName,
+    required dynamic id,
+  }) async {
+    return null;
+  }
+
   final UserModel _demoUser = UserModel(
     id: "1",
     uuid: "demo_uuid",

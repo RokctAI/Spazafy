@@ -1,16 +1,21 @@
+import 'package:rokctapp/application/parcel/parcel_notifier.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/application/parcel/driver/parcel_notifier.dart';
+import 'package:rokctapp/application/parcel/driver/parcel_notifier.dart'
+    hide ParcelNotifier;
 import 'package:rokctapp/application/parcel/driver/parcel_provider.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
-
-import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/driver/services.dart' hide AppHelpers;
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'parcel_item.dart';
 
 @RoutePage()
@@ -29,8 +34,8 @@ class _DriverParcelsPageState extends ConsumerState<DriverParcelsPage>
   late ParcelNotifier event;
 
   final _tabs = [
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.activeParcels))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.availableParcels))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.activeParcels))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.availableParcels))),
   ];
 
   @override
@@ -64,7 +69,7 @@ class _DriverParcelsPageState extends ConsumerState<DriverParcelsPage>
   Widget build(BuildContext context) {
     final state = ref.watch(parcelProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
           CustomAppBar(
@@ -74,13 +79,13 @@ class _DriverParcelsPageState extends ConsumerState<DriverParcelsPage>
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  AppHelpers.getTranslation(TrKeys.orders),
+                  help.AppHelpers.getTranslation(TrKeys.orders),
                   style: AppStyle.interSemi(size: 18.sp),
                 ),
                 Row(
                   children: [
                     Text(
-                      AppHelpers.getTranslation(TrKeys.thereAreOrders),
+                      help.AppHelpers.getTranslation(TrKeys.thereAreOrders),
                       style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,
@@ -94,7 +99,7 @@ class _DriverParcelsPageState extends ConsumerState<DriverParcelsPage>
                       ),
                     ),
                     Text(
-                      AppHelpers.getTranslation(TrKeys.orders).toLowerCase(),
+                      help.AppHelpers.getTranslation(TrKeys.orders).toLowerCase(),
                       style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,
@@ -222,13 +227,13 @@ Widget _resultEmpty() {
       16.verticalSpace,
       Lottie.asset("assets/lottie/empty-box.json"),
       Text(
-        AppHelpers.getTranslation(TrKeys.nothingFound),
+        help.AppHelpers.getTranslation(TrKeys.nothingFound),
         style: AppStyle.interSemi(size: 18.sp),
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 32.w),
         child: Text(
-          AppHelpers.getTranslation(TrKeys.trySearchingAgain),
+          help.AppHelpers.getTranslation(TrKeys.trySearchingAgain),
           style: AppStyle.interRegular(size: 14.sp),
           textAlign: TextAlign.center,
         ),

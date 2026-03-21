@@ -1,6 +1,7 @@
+import 'package:rokctapp/domain/interface/manager_orders.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'today_orders_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -38,7 +39,7 @@ class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
           );
         }
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         if (state.ordersStatistic == null) {
           state = state.copyWith(isLoading: false);
         }
@@ -47,4 +48,3 @@ class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
     );
   }
 }
-

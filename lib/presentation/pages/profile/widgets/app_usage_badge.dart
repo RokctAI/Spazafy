@@ -1,13 +1,12 @@
-// lib/presentation/pages/profile/widgets/app_usage_badge.dart
-
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-
 import 'package:rokctapp/utils/app_usage_service.dart';
+// lib/presentation/pages/profile/widgets/app_usage_badge.dart
 
 class AppUsageBadge extends StatefulWidget {
   const AppUsageBadge({super.key});

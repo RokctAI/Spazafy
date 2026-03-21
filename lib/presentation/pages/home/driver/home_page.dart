@@ -1,3 +1,8 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/loading.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
@@ -11,8 +16,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
-final orderRepository = driverOrderRepository;
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/pages/pages_driver.dart';
@@ -22,10 +25,12 @@ import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/main.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'bottom_sheet_screen.dart';
 import 'delivery_bottom_sheet.dart';
 import 'parcel_bottom_sheet.dart';
+
+final orderRepository = driverOrderRepository;
 
 @RoutePage()
 class DriverHomePage extends ConsumerStatefulWidget {
@@ -52,7 +57,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
   final _delayed = Delayed(milliseconds: 36000);
 
   Future<void> setCustomMarkerIcon() async {
-    final Uint8List markerMyIcon = await AppHelpers.svgToPng(
+    final Uint8List markerMyIcon = await help.AppHelpers.svgToPng(
       Assets.svgMyLocation,
     );
     myIcon = BitmapDescriptor.bytes(markerMyIcon);
@@ -68,7 +73,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
       debugPrint("New notification on message: ${jsonEncode(message.data)}");
       if (message.data["id"] != null && mounted) {
-        AppHelpers.showCheckTopSnackBarInfo(
+        help.AppHelpers.showCheckTopSnackBarInfo(
           context,
           "${message.notification?.body}",
         );
@@ -225,7 +230,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
   }
 
   Future<void> attachOrder(OrderDetailData? push) async {
-    AppHelpers.showAlertDialog(
+    help.AppHelpers.showAlertDialog(
       context: context,
       child: PushOrder(pushModel: push ?? OrderDetailData(), isActive: false),
     );
@@ -269,7 +274,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
   }
 
   Future<void> newOrder(OrderDetailData? push) async {
-    AppHelpers.showAlertDialog(
+    help.AppHelpers.showAlertDialog(
       context: context,
       child: PushOrder(pushModel: push ?? OrderDetailData(), isActive: true),
     );
@@ -332,7 +337,8 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
                   left: state.isScrolling ? -64.w : 16.w,
                   child: ButtonsBouncingEffect(
                     child: GestureDetector(
-                      onTap: () => context.pushRoute(const DriverProfileRoute()),
+                      onTap: () =>
+                          context.pushRoute(const DriverProfileRoute()),
                       child: Hero(
                         tag: AppConstants.heroTagProfileAvatar,
                         child: Consumer(
@@ -365,8 +371,9 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
                               ),
                               margin: EdgeInsets.all(8.r),
                               child: IconButton(
-                                onPressed: () =>
-                                    context.pushRoute(const DriverOrdersRoute()),
+                                onPressed: () => context.pushRoute(
+                                  const DriverOrdersRoute(),
+                                ),
                                 icon: const Icon(
                                   FlutterRemix.history_fill,
                                   color: AppStyle.white,

@@ -1,9 +1,24 @@
+import 'package:rokctapp/infrastructure/models/response/manager/users_paginate_response.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/statistics_response.dart';
+import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
+import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart'
+    hide DeliveryTime;
+import 'package:rokctapp/infrastructure/models/response/driver/delivery_zone_paginate.dart';
+import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
@@ -126,7 +141,10 @@ class UsersRepository implements UsersInterface {
     debugPrint('====> update delivery zone ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/method/paas.api.delivery_zone.delivery_zone.update_shop_delivery_zones', data: data);
+      await client.post(
+        '/api/v1/method/paas.api.delivery_zone.delivery_zone.update_shop_delivery_zones',
+        data: data,
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> update delivery zones failure: $e');
@@ -316,7 +334,7 @@ class UsersRepository implements UsersInterface {
       return ApiResult.success(
         data: SingleShopResponse.fromJson(response.data),
       );
-    } catch (e,s) {
+    } catch (e, s) {
       debugPrint('===> error fetching my shop $e, $s');
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
@@ -329,7 +347,9 @@ class UsersRepository implements UsersInterface {
   Future<ApiResult<dynamic>> setOnlineOffline() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/method/paas.api.seller_shop.seller_shop.set_shop_working_status');
+      await client.post(
+        '/api/v1/method/paas.api.seller_shop.seller_shop.set_shop_working_status',
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('===> error switch shop online $e');
@@ -344,7 +364,9 @@ class UsersRepository implements UsersInterface {
   Future<ApiResult<ProfileResponse>> getProfileDetails() async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final response = await client.get('/api/v1/method/paas.api.user.user.get_profile');
+      final response = await client.get(
+        '/api/v1/method/paas.api.user.user.get_profile',
+      );
       return ApiResult.success(data: ProfileResponse.fromJson(response.data));
     } catch (e) {
       return ApiResult.failure(
@@ -460,4 +482,3 @@ class UsersRepository implements UsersInterface {
     }
   }
 }
-

@@ -1,8 +1,8 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class SelectableAddonItem extends StatelessWidget {
@@ -42,10 +42,7 @@ class SelectableAddonItem extends StatelessWidget {
                   children: [
                     Text(
                       '${addon.translation?.title}',
-                      style: AppStyle.interSemi(
-                        size: 14,
-                        letterSpacing: -0.3,
-                      ),
+                      style: AppStyle.interSemi(size: 14, letterSpacing: -0.3),
                     ),
                     4.verticalSpace,
                     Text(
@@ -65,7 +62,7 @@ class SelectableAddonItem extends StatelessWidget {
             Divider(
               thickness: 1.r,
               height: 1.r,
-              color: AppStyle.textColor.withOpacity(0.15),
+              color: AppStyle.textGrey.withOpacity(0.15),
             ),
         ],
       ),

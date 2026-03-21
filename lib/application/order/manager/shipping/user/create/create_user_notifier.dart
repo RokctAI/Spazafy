@@ -1,12 +1,14 @@
+import 'package:rokctapp/domain/interface/manager_users.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'create_user_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 
 class CreateUserNotifier extends StateNotifier<CreateUserState> {
   final UsersInterface _usersRepository;
@@ -33,7 +35,8 @@ class CreateUserNotifier extends StateNotifier<CreateUserState> {
     _firstname = value.trim();
   }
 
-  Future<void> createUser(BuildContext context,{
+  Future<void> createUser(
+    BuildContext context, {
     Function(UserData?)? created,
     VoidCallback? failed,
   }) async {
@@ -49,17 +52,16 @@ class CreateUserNotifier extends StateNotifier<CreateUserState> {
         state = state.copyWith(isLoading: false);
         created?.call(data.data);
       },
-      failure: (error,status) {
+      failure: (error, status) {
         debugPrint('====> create user fail $error');
         failed?.call();
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-            context,
-            text: error,
-            type: SnackBarType.error
+          context,
+          text: error,
+          type: SnackBarType.error,
         );
       },
     );
   }
 }
-

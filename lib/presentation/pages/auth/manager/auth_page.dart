@@ -1,13 +1,15 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:rokctapp/presentation/pages/profile/language_page.dart';
-
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 import 'package:rokctapp/presentation/pages/auth/login/login_screen.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -30,7 +32,7 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
   }
 
   void selectLanguage() {
-    AppHelpers.showCustomModalBottomSheet(
+    help.AppHelpers.showCustomModalBottomSheet(
       isDismissible: false,
       isDrag: false,
       context: context,
@@ -71,7 +73,7 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
                   Row(
                     children: [
                       Text(
-                        AppHelpers.getAppName(),
+                        help.AppHelpers.getAppName(),
                         style: AppStyle.interBold(
                           color: AppStyle.white,
                           size: 24,
@@ -86,9 +88,9 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
                       return Column(
                         children: [
                           CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.login),
+                            title: help.AppHelpers.getTranslation(TrKeys.login),
                             onPressed: () =>
-                                AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
+                                help.AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
                                   context: context,
                                   modal: const LoginScreen(role: 'seller'),
                                   isDarkMode: false,
@@ -96,9 +98,9 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
                           ),
                           10.verticalSpace,
                           CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.register),
+                            title: help.AppHelpers.getTranslation(TrKeys.register),
                             onPressed: () {
-                              AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
+                              help.AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
                                 context: context,
                                 modal: const RegisterPage(
                                   isOnlyEmail: true,

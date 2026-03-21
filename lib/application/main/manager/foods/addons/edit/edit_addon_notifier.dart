@@ -1,6 +1,11 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/domain/interface/manager_products.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/unit_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'edit_addon_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -44,9 +49,7 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
       List<String> list = [_title, _description];
       temp[LocalStorage.getLanguage()?.locale ?? "en"] = list;
     }
-    state = state.copyWith(
-      mapOfDesc: temp,
-    );
+    state = state.copyWith(mapOfDesc: temp);
   }
 
   Future<void> updateAddon(
@@ -92,8 +95,11 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
             debugPrint('===> update addon stock fail $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
-            AppHelpers.showCheckTopSnackBar(context,
-                text: stockFail, type: SnackBarType.error);
+            AppHelpers.showCheckTopSnackBar(
+              context,
+              text: stockFail,
+              type: SnackBarType.error,
+            );
           },
         );
       },
@@ -101,8 +107,11 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
         state = state.copyWith(isLoading: false);
         debugPrint('===> addon update fail $fail');
         failed?.call();
-        AppHelpers.showCheckTopSnackBar(context,
-            text: fail, type: SnackBarType.error);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          text: fail,
+          type: SnackBarType.error,
+        );
       },
     );
   }
@@ -135,11 +144,10 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
       for (int i = 0; i < addon.translations!.length; i++) {
         temp[items?[i].locale ?? "en"] = [
           items?[i].title ?? '',
-          items?[i].description ?? ''
+          items?[i].description ?? '',
         ];
       }
       state = state.copyWith(mapOfDesc: temp);
     }
   }
 }
-

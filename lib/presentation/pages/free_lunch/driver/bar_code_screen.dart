@@ -1,5 +1,8 @@
-// ignore_for_file: deprecated_member_use
-
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/presentation/components/driver/restaurant_item.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -7,11 +10,11 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+// ignore_for_file: deprecated_member_use
 
 class BarCodeScreen extends StatelessWidget {
   const BarCodeScreen({super.key});
@@ -41,23 +44,26 @@ class BarCodeScreen extends StatelessWidget {
               children: [
                 const Icon(
                   FlutterRemix.error_warning_fill,
-                  color: AppStyle.blueColor,
+                  color: AppStyle.blue,
                 ),
                 12.horizontalSpace,
                 RichText(
                   text: TextSpan(
-                    text: AppHelpers.getTranslation(TrKeys.youWillShow),
-                    style: AppStyle.interRegular(size: 14.sp, letterSpacing: -0.3),
+                    text: help.AppHelpers.getTranslation(TrKeys.youWillShow),
+                    style: AppStyle.interRegular(
+                      size: 14.sp,
+                      letterSpacing: -0.3,
+                    ),
                     children: [
                       TextSpan(
-                        text: AppHelpers.getTranslation(TrKeys.qRCode),
+                        text: help.AppHelpers.getTranslation(TrKeys.qRCode),
                         style: AppStyle.interSemi(
                           size: 14.sp,
                           letterSpacing: -0.3,
                         ),
                       ),
                       TextSpan(
-                        text: AppHelpers.getTranslation(TrKeys.toTheRestaurant),
+                        text: help.AppHelpers.getTranslation(TrKeys.toTheRestaurant),
                         style: AppStyle.interRegular(
                           size: 14.sp,
                           letterSpacing: -0.3,
@@ -75,7 +81,7 @@ class BarCodeScreen extends StatelessWidget {
           Consumer(
             builder: (context, ref, child) {
               return CustomButton(
-                title: AppHelpers.getTranslation(TrKeys.showOnMap),
+                title: help.AppHelpers.getTranslation(TrKeys.showOnMap),
                 icon: const Icon(
                   FlutterRemix.map_pin_range_fill,
                   color: AppStyle.black,
@@ -83,7 +89,7 @@ class BarCodeScreen extends StatelessWidget {
                 onPressed: () async {
                   Navigator.pop(context);
                   final Uint8List markerMarketIcon =
-                      await AppHelpers.getBytesFromAsset(
+                      await help.AppHelpers.getBytesFromAsset(
                         Assets.imageMarker,
                         100,
                       ).whenComplete(() {});

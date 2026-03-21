@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
 import 'reset_password_notifier.dart';
 import 'reset_password_state.dart';
 

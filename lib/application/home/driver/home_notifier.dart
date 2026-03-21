@@ -1,20 +1,24 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'dart:collection';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
+import 'home_state.dart';
 
 final userRepository = driverUserRepository;
 final drawRepository = driverDrawRepository;
 final orderRepository = driverOrderRepository;
 final parcelRepository = driverParcelRepository;
 final settingsRepository = driverSettingsRepository;
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
-import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
-import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'home_state.dart';
 
 class HomeNotifier extends StateNotifier<HomeState> {
   HomeNotifier() : super(const HomeState());
@@ -242,12 +246,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
                     AppConstants.demoLongitude,
               ),
               end: LatLng(
-                double.parse(
-                  data.data?.first.shop?.location?.latitude ?? "0",
-                ),
-                double.parse(
-                  data.data?.first.shop?.location?.longitude ?? "0",
-                ),
+                double.parse(data.data?.first.shop?.location?.latitude ?? "0"),
+                double.parse(data.data?.first.shop?.location?.longitude ?? "0"),
               ),
               market: Marker(
                 markerId: const MarkerId("Shop"),

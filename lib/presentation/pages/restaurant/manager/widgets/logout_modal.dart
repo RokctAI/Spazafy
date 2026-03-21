@@ -1,9 +1,13 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -24,7 +28,7 @@ class LogoutModal extends StatelessWidget {
             const ModalDrag(),
             12.verticalSpace,
             Text(
-              AppHelpers.getTranslation(
+              help.AppHelpers.getTranslation(
                 isDeleteAccount
                     ? TrKeys.areYouSure
                     : TrKeys.doYouReallyWantToLogout,
@@ -40,7 +44,7 @@ class LogoutModal extends StatelessWidget {
                     borderColor: AppStyle.black,
                     background: AppStyle.transparent,
                     textColor: AppStyle.black,
-                    title: AppHelpers.getTranslation(TrKeys.cancel),
+                    title: help.AppHelpers.getTranslation(TrKeys.cancel),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -54,7 +58,7 @@ class LogoutModal extends StatelessWidget {
                         return CustomButton(
                           background: AppStyle.red,
                           textColor: AppStyle.white,
-                          title: AppHelpers.getTranslation(
+                          title: help.AppHelpers.getTranslation(
                             TrKeys.deleteAccount,
                           ),
                           onPressed: () {
@@ -65,7 +69,7 @@ class LogoutModal extends StatelessWidget {
                         );
                       } else {
                         return CustomButton(
-                          title: AppHelpers.getTranslation(TrKeys.logout),
+                          title: help.AppHelpers.getTranslation(TrKeys.logout),
                           onPressed: () {
                             LocalStorage.logout();
                             context.router.popUntilRoot();

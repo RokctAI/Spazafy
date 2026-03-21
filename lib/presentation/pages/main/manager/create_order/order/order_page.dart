@@ -1,11 +1,16 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/presentation/components/loading/manager/loading_list.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
@@ -36,7 +41,7 @@ class _ManagerOrderPageState extends ConsumerState<ManagerOrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       body: Consumer(
         builder: (context, ref, child) {
           final state = ref.watch(orderCartProvider);
@@ -90,11 +95,11 @@ class _ManagerOrderPageState extends ConsumerState<ManagerOrderPage> {
                   bottom: 16,
                 ),
                 child: TitleAndIcon(
-                  title: AppHelpers.getTranslation(TrKeys.orders),
+                  title: help.AppHelpers.getTranslation(TrKeys.orders),
                   rightTitleColor: AppStyle.red,
                   rightTitle: state.stocks.isEmpty
                       ? null
-                      : AppHelpers.getTranslation(TrKeys.clearAllOrders),
+                      : help.AppHelpers.getTranslation(TrKeys.clearAllOrders),
                   onRightTap: () {
                     event.clearAll();
                     productsEvent.updateProducts(cartStocks: []);
@@ -149,7 +154,7 @@ class _ManagerOrderPageState extends ConsumerState<ManagerOrderPage> {
                 if (cartState.stocks.isNotEmpty)
                   Expanded(
                     child: CustomButton(
-                      title: AppHelpers.getTranslation(TrKeys.next),
+                      title: help.AppHelpers.getTranslation(TrKeys.next),
                       onPressed: () =>
                           context.pushRoute(const ShippingAddressRoute()),
                     ),

@@ -1,4 +1,6 @@
-import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart'
+    hide ShopData;
 
 class DeliveryZonePaginate {
   DeliveryZonePaginate({List<DeliveryZoneData>? data}) {
@@ -31,11 +33,7 @@ class DeliveryZonePaginate {
 }
 
 class DeliveryZoneData {
-  DeliveryZoneData({
-    int? id,
-    List<List<double>>? address,
-    ShopData? shop,
-  }) {
+  DeliveryZoneData({int? id, List<List<double>>? address, ShopData? shop}) {
     _id = id;
     _address = address;
     _shop = shop;
@@ -67,12 +65,11 @@ class DeliveryZoneData {
     int? id,
     List<List<double>>? address,
     ShopData? shop,
-  }) =>
-      DeliveryZoneData(
-        id: id ?? _id,
-        address: address ?? _address,
-        shop: shop ?? _shop,
-      );
+  }) => DeliveryZoneData(
+    id: id ?? _id,
+    address: address ?? _address,
+    shop: shop ?? _shop,
+  );
 
   int? get id => _id;
 

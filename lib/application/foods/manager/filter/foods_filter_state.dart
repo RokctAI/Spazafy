@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'foods_filter_state.freezed.dart';
 
 @freezed

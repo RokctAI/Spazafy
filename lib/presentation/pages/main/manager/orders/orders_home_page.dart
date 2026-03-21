@@ -1,3 +1,6 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -5,8 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/main/manager/orders/cooking/cooking_orders_provider.dart';
 import 'package:rokctapp/presentation/pages/main/manager/orders/widgets/cooking_orders_body.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/new_orders_body.dart';
 import 'widgets/ready_orders_body.dart';
 import 'widgets/accepted_orders_body.dart';
@@ -45,31 +47,31 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
     _tabController = TabController(length: 5, vsync: this);
     _tabController?.addListener(() {
       if (!(_tabController?.indexIsChanging ?? false)) {
-        String title = AppHelpers.getTranslation(TrKeys.newOrders);
+        String title = help.AppHelpers.getTranslation(TrKeys.newOrders);
         int count = ref.watch(newOrdersProvider).totalCount;
         switch (_tabController?.index) {
           case 0:
-            title = AppHelpers.getTranslation(TrKeys.newOrders);
+            title = help.AppHelpers.getTranslation(TrKeys.newOrders);
             count = ref.watch(newOrdersProvider).totalCount;
             break;
           case 1:
-            title = AppHelpers.getTranslation(TrKeys.acceptedOrders);
+            title = help.AppHelpers.getTranslation(TrKeys.acceptedOrders);
             count = ref.watch(acceptedOrdersProvider).totalCount;
             break;
           case 2:
-            title = AppHelpers.getTranslation(TrKeys.cookingOrders);
+            title = help.AppHelpers.getTranslation(TrKeys.cookingOrders);
             count = ref.watch(cookingOrdersProvider).totalCount;
             break;
           case 3:
-            title = AppHelpers.getTranslation(TrKeys.readyOrders);
+            title = help.AppHelpers.getTranslation(TrKeys.readyOrders);
             count = ref.watch(readyOrdersProvider).totalCount;
             break;
           case 4:
-            title = AppHelpers.getTranslation(TrKeys.onAWayOrders);
+            title = help.AppHelpers.getTranslation(TrKeys.onAWayOrders);
             count = ref.watch(onAWayOrdersProvider).totalCount;
             break;
           default:
-            title = AppHelpers.getTranslation(TrKeys.newOrders);
+            title = help.AppHelpers.getTranslation(TrKeys.newOrders);
             count = ref.watch(newOrdersProvider).totalCount;
             break;
         }
@@ -97,7 +99,7 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
             updateTotal: (count) => ref
                 .read(homeAppbarProvider.notifier)
                 .setAppbarDetails(
-                  AppHelpers.getTranslation(TrKeys.newOrders),
+                  help.AppHelpers.getTranslation(TrKeys.newOrders),
                   count,
                   index: 0,
                 ),
@@ -140,7 +142,7 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
     return Directionality(
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         body: Column(
           children: [
             CustomAppBar(
@@ -154,7 +156,7 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
                     Container(
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.bgGrey,
                       ),
                       padding: REdgeInsets.all(12),
                       child: Icon(
@@ -173,14 +175,14 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
                           children: [
                             Text(
                               state.title.isEmpty
-                                  ? AppHelpers.getTranslation(TrKeys.newOrders)
+                                  ? help.AppHelpers.getTranslation(TrKeys.newOrders)
                                   : state.title,
                               style: AppStyle.interNormal(size: 12),
                             ),
                             Row(
                               children: [
                                 Text(
-                                  '${state.totalCount} ${AppHelpers.getTranslation(TrKeys.orders).toLowerCase()}',
+                                  '${state.totalCount} ${help.AppHelpers.getTranslation(TrKeys.orders).toLowerCase()}',
                                   style: AppStyle.interSemi(
                                     size: 14,
                                     color: AppStyle.blackColor,

@@ -1,8 +1,10 @@
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -38,15 +40,15 @@ class AddonItem extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             style: AppStyle.interNormal(
               size: 12,
-              color: AppStyle.textColor,
+              color: AppStyle.textGrey,
               letterSpacing: -0.3,
             ),
           ),
           8.verticalSpace,
           Text(
             isOutOfStock
-                ? AppHelpers.getTranslation(TrKeys.outOfStock)
-                : AppHelpers.numberFormat(addon.stock?.price ?? 0),
+                ? help.AppHelpers.getTranslation(TrKeys.outOfStock)
+                : help.AppHelpers.numberFormat(addon.stock?.price ?? 0),
             style: AppStyle.interSemi(
               size: 14,
               color: isOutOfStock ? AppStyle.red : AppStyle.blackColor,
@@ -69,7 +71,7 @@ class AddonItem extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        AppHelpers.getTranslation(TrKeys.parameters),
+                        help.AppHelpers.getTranslation(TrKeys.parameters),
                         style: AppStyle.interNormal(size: 13),
                       ),
                       6.horizontalSpace,
@@ -105,8 +107,8 @@ class AddonItem extends StatelessWidget {
                     6.horizontalSpace,
                     Text(
                       addon.status == 'pending'
-                          ? AppHelpers.getTranslation(TrKeys.pending)
-                          : AppHelpers.getTranslation(TrKeys.published),
+                          ? help.AppHelpers.getTranslation(TrKeys.pending)
+                          : help.AppHelpers.getTranslation(TrKeys.published),
                       style: AppStyle.interNormal(
                         size: 14,
                         color: AppStyle.white,

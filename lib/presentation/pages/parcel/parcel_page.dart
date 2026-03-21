@@ -1,4 +1,5 @@
-// ignore_for_file: unused_result
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -20,6 +21,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/info_item.dart';
 import 'widgets/parcel_payments.dart';
 import 'widgets/time_and_type.dart';
+// ignore_for_file: unused_result
 
 @RoutePage()
 class ParcelPage extends ConsumerStatefulWidget {
@@ -217,7 +219,7 @@ class _ParcelPageState extends ConsumerState<ParcelPage> {
                         : AppStyle.textGrey,
                     title:
                         "${state.expand ? AppHelpers.getTranslation(TrKeys.order) : AppHelpers.getTranslation(TrKeys.continueText)} ${AppHelpers.numberFormat(number: state.calculate?.data?.price ?? 0)}",
-                    onPressed: () {
+                    onPressed: () async {
                       if (state.error) {
                         return;
                       }

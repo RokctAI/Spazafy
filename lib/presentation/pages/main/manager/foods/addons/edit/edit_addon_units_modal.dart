@@ -1,12 +1,14 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class EditAddonUnitsModal extends ConsumerStatefulWidget {
   const EditAddonUnitsModal({super.key});
@@ -35,7 +37,7 @@ class _EditAddonUnitsModalState extends ConsumerState<EditAddonUnitsModal> {
           children: [
             const ModalDrag(),
             TitleAndIcon(
-              title: AppHelpers.getTranslation(TrKeys.units),
+              title: help.AppHelpers.getTranslation(TrKeys.units),
               titleSize: 16,
             ),
             24.verticalSpace,
@@ -66,7 +68,7 @@ class _EditAddonUnitsModalState extends ConsumerState<EditAddonUnitsModal> {
             ),
             24.verticalSpace,
             CustomButton(
-              title: AppHelpers.getTranslation(TrKeys.close),
+              title: help.AppHelpers.getTranslation(TrKeys.close),
               onPressed: context.maybePop,
             ),
             20.verticalSpace,

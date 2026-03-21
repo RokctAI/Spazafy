@@ -1,11 +1,14 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/logout_button.dart';
 import 'widgets/logout_modal.dart';
 import 'widgets/sections_item.dart';
@@ -79,7 +82,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                           Row(
                             children: [
                               Text(
-                                AppHelpers.truncate(
+                                help.AppHelpers.truncate(
                                   state.shop?.translation?.title ??
                                       LocalStorage.getShop()
                                           ?.translation
@@ -98,7 +101,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                                 margin: REdgeInsets.symmetric(horizontal: 8),
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: AppStyle.textColor,
+                                  color: AppStyle.textGrey,
                                 ),
                               ),
                               Icon(
@@ -174,12 +177,12 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                                 RichText(
                                   text: TextSpan(
                                     text:
-                                        AppHelpers.getTranslation(
+                                        help.AppHelpers.getTranslation(
                                               TrKeys.theRestaurantIsClosedToday,
                                             ) ==
-                                            AppHelpers.getShopWorkingTimeForToday()
+                                            help.AppHelpers.getShopWorkingTimeForToday()
                                         ? ''
-                                        : '${AppHelpers.getTranslation(TrKeys.workingHours)}:',
+                                        : '${help.AppHelpers.getTranslation(TrKeys.workingHours)}:',
                                     style: AppStyle.interRegular(
                                       color: AppStyle.blackColor,
                                       size: 12,
@@ -187,7 +190,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                                     children: [
                                       TextSpan(
                                         text:
-                                            ' ${AppHelpers.getShopWorkingTimeForToday()}',
+                                            ' ${help.AppHelpers.getShopWorkingTimeForToday()}',
                                         style: AppStyle.interSemi(
                                           color: AppStyle.blackColor,
                                           size: 13,
@@ -223,7 +226,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text(
-                                        AppHelpers.getTranslation(
+                                        help.AppHelpers.getTranslation(
                                           TrKeys.balance,
                                         ),
                                         style: AppStyle.interNormal(
@@ -233,7 +236,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                                         ),
                                       ),
                                       Text(
-                                        AppHelpers.numberFormat(
+                                        help.AppHelpers.numberFormat(
                                           LocalStorage.getShop()
                                               ?.seller
                                               ?.wallet
@@ -296,12 +299,12 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
   Widget _sections(BuildContext context) {
     return Column(
       children: [
-        TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.sections)),
+        TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.sections)),
         20.verticalSpace,
         SectionsItem(
-          title: AppHelpers.getTranslation(TrKeys.restaurantSettings),
+          title: help.AppHelpers.getTranslation(TrKeys.restaurantSettings),
           icon: FlutterRemix.restaurant_line,
-          onTap: () => AppHelpers.showCustomModalBottomSheet(
+          onTap: () => help.AppHelpers.showCustomModalBottomSheet(
             paddingTop: MediaQuery.paddingOf(context).top + 60,
             context: context,
             modal: const EditRestaurantModal(),
@@ -309,24 +312,24 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
           ),
         ),
         SectionsItem(
-          title: AppHelpers.getTranslation(TrKeys.income),
+          title: help.AppHelpers.getTranslation(TrKeys.income),
           icon: FlutterRemix.line_chart_line,
           onTap: () => context.pushRoute(const ManagerIncomeRoute()),
         ),
         SectionsItem(
-          title: AppHelpers.getTranslation(TrKeys.myOrderHistory),
+          title: help.AppHelpers.getTranslation(TrKeys.myOrderHistory),
           icon: FlutterRemix.history_line,
           onTap: () => context.pushRoute(const ManagerOrderHistoryRoute()),
         ),
         SectionsItem(
-          title: AppHelpers.getTranslation(TrKeys.notifications),
+          title: help.AppHelpers.getTranslation(TrKeys.notifications),
           icon: FlutterRemix.notification_2_line,
           onTap: () => context.pushRoute(const ManagerNotificationListRoute()),
         ),
         SectionsItem(
-          title: AppHelpers.getTranslation(TrKeys.language),
+          title: help.AppHelpers.getTranslation(TrKeys.language),
           icon: FlutterRemix.translate,
-          onTap: () => AppHelpers.showCustomModalBottomSheet(
+          onTap: () => help.AppHelpers.showCustomModalBottomSheet(
             paddingTop: MediaQuery.paddingOf(context).top + 60,
             context: context,
             modal: LanguageScreen(
@@ -339,10 +342,10 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
           ),
         ),
         SectionsItem(
-          title: AppHelpers.getTranslation(TrKeys.currencies),
+          title: help.AppHelpers.getTranslation(TrKeys.currencies),
           icon: FlutterRemix.bank_card_line,
           onTap: () {
-            AppHelpers.showCustomModalBottomSheet(
+            help.AppHelpers.showCustomModalBottomSheet(
               context: context,
               modal: const CurrencyScreen(),
               isDarkMode: false,
@@ -351,16 +354,16 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
         ),
         if (LocalStorage.getSubscription())
           SectionsItem(
-            title: AppHelpers.getTranslation(TrKeys.subscriptions),
+            title: help.AppHelpers.getTranslation(TrKeys.subscriptions),
             icon: Icons.verified_outlined,
             onTap: () => context.pushRoute(SubscriptionsRoute()),
           ),
         if (!AppConstants.isDemo)
           SectionsItem(
-            title: AppHelpers.getTranslation(TrKeys.deleteAccount),
+            title: help.AppHelpers.getTranslation(TrKeys.deleteAccount),
             icon: FlutterRemix.logout_box_r_line,
             onTap: () {
-              AppHelpers.showCustomModalBottomSheet(
+              help.AppHelpers.showCustomModalBottomSheet(
                 context: context,
                 modal: const LogoutModal(isDeleteAccount: true),
                 isDarkMode: false,
@@ -368,7 +371,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
             },
           ),
         // SectionsItem(
-        //   title: AppHelpers.trans(TrKeys.settings),
+        //   title: help.AppHelpers.trans(TrKeys.settings),
         //   icon: FlutterRemix.settings_3_line,
         //   onTap: () {},
         // ),
@@ -399,7 +402,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
   //           ),
   //           12.horizontalSpace,
   //           Text(
-  //             AppHelpers.trans(TrKeys.notifications),
+  //             help.AppHelpers.trans(TrKeys.notifications),
   //             style: Style.interSemi(size: 18, color: Style.blackColor),
   //           ),
   //           const Spacer(),
@@ -408,7 +411,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
   //             child: Padding(
   //               padding: const EdgeInsets.all(4.0),
   //               child: Text(
-  //                 AppHelpers.trans(TrKeys.seeAll),
+  //                 help.AppHelpers.trans(TrKeys.seeAll),
   //                 style: Style.interNormal(size: 14, color: Style.blueColor),
   //               ),
   //             ),

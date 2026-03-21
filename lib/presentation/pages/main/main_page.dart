@@ -1,18 +1,5 @@
-// Copyright (c) 2024 RokctAI
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/utils/app_usage_service.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'dart:async';
@@ -51,13 +38,25 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'widgets/bottom_navigator_item.dart';
 import 'package:rokctapp/utils/app_initializer.dart';
 import 'package:proste_indexed_stack/proste_indexed_stack.dart';
-
-import 'widgets/bottom_navigator_one.dart';
-import 'widgets/bottom_navigator_two.dart';
-
+// import 'widgets/bottom_navigator_one.dart'; // NOT FOUND IN PROJECT
+// import 'widgets/bottom_navigator_two.dart'; // NOT FOUND IN PROJECT
 import 'package:remixicon/remixicon.dart';
 import 'package:rokctapp/presentation/pages/parcel/parcel_page.dart';
 import 'package:rokctapp/presentation/pages/profile/wallet_history.dart';
+// Copyright (c) 2024 RokctAI
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 @RoutePage()
 class MainPage extends StatefulWidget {

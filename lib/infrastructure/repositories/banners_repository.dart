@@ -1,10 +1,13 @@
-﻿import 'package:flutter/material.dart';
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/banners.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:flutter/material.dart';
 
 class BannersRepository implements BannersRepositoryFacade {
   @override
@@ -214,10 +217,3 @@ class BannersRepository implements BannersRepositoryFacade {
     }
   }
 }
-
-
-
-
-
-
-

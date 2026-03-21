@@ -1,9 +1,12 @@
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/domain/interface/manager_products.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'edit_food_addons_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -15,12 +18,13 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
   bool _hasMore = true;
 
   EditFoodAddonsNotifier(this._productsRepository)
-      : super(const EditFoodAddonsState());
+    : super(const EditFoodAddonsState());
 
   void toggleAddonSelection(int index) {
     List<ProductData> addons = List.from(state.addons);
-    addons[index] = addons[index]
-        .copyWith(isSelectedAddon: !(addons[index].isSelectedAddon ?? false));
+    addons[index] = addons[index].copyWith(
+      isSelectedAddon: !(addons[index].isSelectedAddon ?? false),
+    );
     state = state.copyWith(addons: addons);
   }
 
@@ -43,7 +47,7 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
         refreshController?.loadComplete();
         state = state.copyWith(addons: addons);
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch more addons fail $fail');
         refreshController?.loadFailed();
       },
@@ -92,11 +96,10 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
         }
         state = state.copyWith(isLoading: false, addons: addons);
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch addons fail $fail');
         state = state.copyWith(isLoading: false, addons: []);
       },
     );
   }
 }
-

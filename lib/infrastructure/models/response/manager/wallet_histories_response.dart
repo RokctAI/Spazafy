@@ -1,11 +1,12 @@
-import 'package:rokctapp/infrastructure/models/data/manager/meta.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/user.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/infrastructure/models/data/help_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/meta.dart'
+    hide Meta;
+import 'package:rokctapp/infrastructure/models/data/manager/user.dart'
+    hide UserModel;
 
 class WalletHistoriesResponse {
-  WalletHistoriesResponse({
-    List<WalletData>? data,
-    Meta? meta,
-  }) {
+  WalletHistoriesResponse({List<WalletData>? data, Meta? meta}) {
     _data = data;
     _meta = meta;
   }
@@ -23,17 +24,10 @@ class WalletHistoriesResponse {
   List<WalletData>? _data;
   Meta? _meta;
 
-  WalletHistoriesResponse copyWith({
-    List<WalletData>? data,
-    Meta? meta,
-  }) =>
-      WalletHistoriesResponse(
-        data: data ?? _data,
-        meta: meta ?? _meta,
-      );
+  WalletHistoriesResponse copyWith({List<WalletData>? data, Meta? meta}) =>
+      WalletHistoriesResponse(data: data ?? _data, meta: meta ?? _meta);
 
   List<WalletData>? get data => _data;
-
 
   Meta? get meta => _meta;
 
@@ -90,7 +84,9 @@ class WalletData {
     _status = json['status'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
-    _author = json['author'] != null ? UserModel.fromJson(json['author']) : null;
+    _author = json['author'] != null
+        ? UserModel.fromJson(json['author'])
+        : null;
     _user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
   }
 
@@ -120,21 +116,20 @@ class WalletData {
     String? updatedAt,
     UserModel? author,
     UserModel? user,
-  }) =>
-      WalletData(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        walletUuid: walletUuid ?? _walletUuid,
-        transactionId: transactionId ?? _transactionId,
-        type: type ?? _type,
-        price: price ?? _price,
-        note: note ?? _note,
-        status: status ?? _status,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        author: author ?? _author,
-        user: user ?? _user,
-      );
+  }) => WalletData(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    walletUuid: walletUuid ?? _walletUuid,
+    transactionId: transactionId ?? _transactionId,
+    type: type ?? _type,
+    price: price ?? _price,
+    note: note ?? _note,
+    status: status ?? _status,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    author: author ?? _author,
+    user: user ?? _user,
+  );
 
   int? get id => _id;
 

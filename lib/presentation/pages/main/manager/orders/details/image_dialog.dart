@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -5,7 +7,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ImageDialog extends StatelessWidget {
   final String? img;
@@ -22,7 +24,7 @@ class ImageDialog extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                AppHelpers.getTranslation(TrKeys.thisImageWasUploadDriver),
+                help.AppHelpers.getTranslation(TrKeys.thisImageWasUploadDriver),
                 style: AppStyle.interNormal(),
               ),
             ),

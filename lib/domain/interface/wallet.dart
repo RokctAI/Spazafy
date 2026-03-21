@@ -1,6 +1,6 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-
 import 'package:rokctapp/infrastructure/models/data/user.dart';
 import 'package:rokctapp/infrastructure/models/data/wallet_data.dart';
 

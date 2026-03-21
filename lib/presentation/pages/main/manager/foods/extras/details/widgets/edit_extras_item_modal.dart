@@ -1,11 +1,16 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart'
+    hide Group, Extras;
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 class EditExtrasItemModal extends ConsumerStatefulWidget {
@@ -52,11 +57,11 @@ class _EditExtrasItemModalState extends ConsumerState<EditExtrasItemModal> {
                 children: [
                   const ModalDrag(),
                   TitleAndIcon(
-                    title: AppHelpers.getTranslation(TrKeys.addNewExtras),
+                    title: help.AppHelpers.getTranslation(TrKeys.addNewExtras),
                   ),
                   24.verticalSpace,
                   UnderlinedTextField(
-                    label: AppHelpers.getTranslation(TrKeys.title),
+                    label: help.AppHelpers.getTranslation(TrKeys.title),
                     inputType: TextInputType.text,
                     textCapitalization: TextCapitalization.sentences,
                     textInputAction: TextInputAction.done,
@@ -66,7 +71,7 @@ class _EditExtrasItemModalState extends ConsumerState<EditExtrasItemModal> {
                   ),
                   36.verticalSpace,
                   CustomButton(
-                    title: AppHelpers.getTranslation(TrKeys.save),
+                    title: help.AppHelpers.getTranslation(TrKeys.save),
                     isLoading: state.isLoading,
                     onPressed: () {
                       if (_formKey.currentState?.validate() ?? false) {

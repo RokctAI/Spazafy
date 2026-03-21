@@ -1,7 +1,7 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class GroupExtrasItem extends StatelessWidget {
@@ -46,7 +46,7 @@ class GroupExtrasItem extends StatelessWidget {
                       border: Border.all(
                         color: isSelected
                             ? AppStyle.blackColor
-                            : AppStyle.textColor,
+                            : AppStyle.textGrey,
                         width: isSelected ? 4 : 2,
                       ),
                     ),

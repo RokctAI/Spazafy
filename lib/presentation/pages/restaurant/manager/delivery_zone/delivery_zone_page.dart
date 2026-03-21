@@ -1,10 +1,13 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -14,10 +17,12 @@ class ManagerDeliveryZonePage extends ConsumerStatefulWidget {
   const ManagerDeliveryZonePage({super.key});
 
   @override
-  ConsumerState<ManagerDeliveryZonePage> createState() => _ManagerDeliveryZonePageState();
+  ConsumerState<ManagerDeliveryZonePage> createState() =>
+      _ManagerDeliveryZonePageState();
 }
 
-class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
+class _ManagerDeliveryZonePageState
+    extends ConsumerState<ManagerDeliveryZonePage> {
   @override
   void initState() {
     super.initState();
@@ -29,7 +34,7 @@ class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       resizeToAvoidBottomInset: false,
       body: Consumer(
         builder: (context, ref, child) {
@@ -54,11 +59,11 @@ class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
                         target: LatLng(
                           state.polygon.isNotEmpty
                               ? state.polygon.first.points.first.latitude
-                              : AppHelpers.getInitialLatitude() ??
+                              : help.AppHelpers.getInitialLatitude() ??
                                     AppConstants.demoLatitude,
                           state.polygon.isNotEmpty
                               ? state.polygon.first.points.first.longitude
-                              : AppHelpers.getInitialLongitude() ??
+                              : help.AppHelpers.getInitialLongitude() ??
                                     AppConstants.demoLongitude,
                         ),
                         tilt: 0,
@@ -79,7 +84,7 @@ class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
                     if (state.tappedPoints.length > 3)
                       Expanded(
                         child: CustomButton(
-                          title: AppHelpers.getTranslation(TrKeys.save),
+                          title: help.AppHelpers.getTranslation(TrKeys.save),
                           isLoading: state.isSaving,
                           onPressed: () => event.updateDeliveryZone(
                             updateSuccess: context.maybePop,

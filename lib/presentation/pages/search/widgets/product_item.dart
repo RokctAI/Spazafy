@@ -1,5 +1,5 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
-//import 'package:http/http.dart' as http;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +9,7 @@ import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/product/product_page.dart';
 import 'package:rokctapp/application/shopname/shop_name_provider.dart';
+//import 'package:http/http.dart' as http;
 
 class ProductItem extends ConsumerWidget {
   final ProductData product;

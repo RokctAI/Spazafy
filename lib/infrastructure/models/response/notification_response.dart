@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/blog_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class NotificationResponse {
@@ -191,8 +193,11 @@ class Data {
     status: status ?? this.status,
   );
 
-  factory Data.fromJson(Map<String, dynamic> json) =>
-      Data(id: json["id"]?.toString(), type: json["type"], status: json["status"]);
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
+    id: json["id"]?.toString(),
+    type: json["type"],
+    status: json["status"],
+  );
 
   Map<String, dynamic> toJson() => {"id": id, "type": type, "status": status};
 }

@@ -1,8 +1,13 @@
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/domain/interface/manager_orders.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'order_payment_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
@@ -12,7 +17,7 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
   final OrdersInterface _ordersRepository;
 
   OrderPaymentNotifier(this._ordersRepository)
-      : super(const OrderPaymentState());
+    : super(const OrderPaymentState());
 
   void setSelectedIndex(int index) {
     state = state.copyWith(selectedIndex: index);
@@ -62,15 +67,23 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
   }
 
   Future<void> createTransaction(
-      BuildContext context, int orderId, int? paymentId) async {
+    BuildContext context,
+    int orderId,
+    int? paymentId,
+  ) async {
     var response = await _ordersRepository.createTransaction(
-        orderId: orderId, paymentId: paymentId ?? 0);
+      orderId: orderId,
+      paymentId: paymentId ?? 0,
+    );
     response.when(
       success: (data) {},
       failure: (error, status) {
         debugPrint('====> fetch payments fail $error');
-        AppHelpers.showCheckTopSnackBar(context,
-            text: error, type: SnackBarType.error);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          text: error,
+          type: SnackBarType.error,
+        );
       },
     );
   }
@@ -100,4 +113,3 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
     );
   }
 }
-

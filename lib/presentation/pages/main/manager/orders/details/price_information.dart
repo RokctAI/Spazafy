@@ -1,8 +1,11 @@
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class PriceInformation extends StatelessWidget {
   final OrderData? order;
@@ -22,7 +25,7 @@ class PriceInformation extends StatelessWidget {
       child: ExpansionTile(
         initiallyExpanded: isHistoryOrder ?? false,
         tilePadding: EdgeInsets.zero,
-        title: Text(AppHelpers.getTranslation(TrKeys.priceInformation)),
+        title: Text(help.AppHelpers.getTranslation(TrKeys.priceInformation)),
         childrenPadding: REdgeInsets.only(bottom: 18),
         textColor: AppStyle.black,
         iconColor: AppStyle.black,
@@ -68,7 +71,7 @@ class PriceInformation extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    AppHelpers.getTranslation(title),
+                    help.AppHelpers.getTranslation(title),
                     style: isTotal
                         ? AppStyle.interSemi(size: 16, letterSpacing: -0.3)
                         : AppStyle.interNormal(
@@ -80,7 +83,7 @@ class PriceInformation extends StatelessWidget {
                   8.horizontalSpace,
                   if (isTotal && order?.transaction?.paymentSystem?.tag != null)
                     Text(
-                      "(${AppHelpers.getTranslation(order?.transaction?.paymentSystem?.tag ?? TrKeys.noTransaction)})",
+                      "(${help.AppHelpers.getTranslation(order?.transaction?.paymentSystem?.tag ?? TrKeys.noTransaction)})",
                       style: AppStyle.interNormal(
                         size: 12,
                         color: AppStyle.black,
@@ -88,7 +91,7 @@ class PriceInformation extends StatelessWidget {
                     ),
                   const Spacer(),
                   Text(
-                    (isDiscount ? '-' : '') + AppHelpers.numberFormat(price),
+                    (isDiscount ? '-' : '') + help.AppHelpers.numberFormat(price),
                     style: isTotal
                         ? AppStyle.interSemi(size: 16, letterSpacing: -0.3)
                         : AppStyle.interNormal(

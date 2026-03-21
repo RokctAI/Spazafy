@@ -1,12 +1,12 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
-
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/pages/parcel/driver/parcel_order.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ParcelItem extends StatelessWidget {
   final ParcelOrder? parcel;
@@ -24,7 +24,7 @@ class ParcelItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        AppHelpers.showCustomModalBottomSheet(
+        help.AppHelpers.showCustomModalBottomSheet(
           context: context,
           modal: ParcelOrderPage(
             parcel: parcel,
@@ -47,7 +47,7 @@ class ParcelItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "#${AppHelpers.getTranslation(TrKeys.id)}${parcel?.id}",
+              "#${help.AppHelpers.getTranslation(TrKeys.id)}${parcel?.id}",
               style: AppStyle.interSemi(size: 16),
             ),
             16.verticalSpace,
@@ -68,7 +68,7 @@ class ParcelItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppHelpers.numberFormat(
+                      help.AppHelpers.numberFormat(
                         isOrder: parcel?.currency?.symbol != null,
                         symbol: parcel?.currency?.symbol,
                         number: (parcel?.totalPrice?.isNegative ?? true)

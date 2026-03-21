@@ -1,10 +1,9 @@
+import 'package:rokctapp/infrastructure/models/data/manager/table_data.dart';
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
 import 'table_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
@@ -63,12 +62,9 @@ class TableNotifier extends StateNotifier<TableState> {
     }
     _query = text.trim();
     _timer?.cancel();
-    _timer = Timer(
-      const Duration(milliseconds: 300),
-      () {
-        _search(refreshController: refreshController,sectionId: sectionId);
-      },
-    );
+    _timer = Timer(const Duration(milliseconds: 300), () {
+      _search(refreshController: refreshController, sectionId: sectionId);
+    });
   }
 
   Future<void> fetchMoreTables({

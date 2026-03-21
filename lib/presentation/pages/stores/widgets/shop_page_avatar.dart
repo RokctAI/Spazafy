@@ -1,27 +1,28 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'dart:ui';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
-//import 'package:remixicon/remixicon.dart';
 import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-//import 'package:rokctapp/presentation/components/badge_item.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
-//import 'package:rokctapp/presentation/components/shop_avarat.dart';
 import 'package:rokctapp/presentation/pages/stores/group_order/group_order.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/badges.dart';
 import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
 import 'bonus_screen.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:remixicon/remixicon.dart';
+//import 'package:rokctapp/presentation/components/badge_item.dart';
+//import 'package:rokctapp/presentation/components/shop_avarat.dart';
 //import 'shop_description_item.dart';
 
 class ShopPageAvatar extends StatelessWidget {

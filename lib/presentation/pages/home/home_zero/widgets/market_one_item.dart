@@ -7,7 +7,6 @@ import 'package:rokctapp/presentation/components/bonus_discount_popular.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class MarketOneItem extends StatelessWidget {

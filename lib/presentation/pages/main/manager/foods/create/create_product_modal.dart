@@ -1,8 +1,10 @@
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'stocks/create_food_stocks_body.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'details/create_food_details_body.dart';
@@ -59,14 +61,14 @@ class _CreateProductModalState extends ConsumerState<CreateProductModal>
                   color: AppStyle.blackColor,
                 ),
                 labelColor: AppStyle.white,
-                unselectedLabelColor: AppStyle.textColor,
+                unselectedLabelColor: AppStyle.textGrey,
                 unselectedLabelStyle: AppStyle.interRegular(size: 14),
                 labelStyle: AppStyle.interSemi(size: 14),
                 tabs: [
                   Tab(
-                    child: Text(AppHelpers.getTranslation(TrKeys.addProduct)),
+                    child: Text(help.AppHelpers.getTranslation(TrKeys.addProduct)),
                   ),
-                  Tab(child: Text(AppHelpers.getTranslation(TrKeys.stocks))),
+                  Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.stocks))),
                 ],
               ),
             ),

@@ -1,4 +1,6 @@
-import 'package:rokctapp/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/infrastructure/models/data/take_data.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart'
+    hide Translation;
 
 class PaymentData {
   PaymentData({
@@ -52,17 +54,16 @@ class PaymentData {
     String? createdAt,
     String? updatedAt,
     Translation? translation,
-  }) =>
-      PaymentData(
-        id: id ?? _id,
-        tag: tag ?? _tag,
-        input: input ?? _input,
-        sandbox: sandbox ?? _sandbox,
-        active: active ?? _active,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        translation: translation ?? _translation,
-      );
+  }) => PaymentData(
+    id: id ?? _id,
+    tag: tag ?? _tag,
+    input: input ?? _input,
+    sandbox: sandbox ?? _sandbox,
+    active: active ?? _active,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    translation: translation ?? _translation,
+  );
 
   String? get id => _id;
 

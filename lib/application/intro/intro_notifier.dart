@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'intro_state.dart';
 
 class IntroNotifier extends StateNotifier<IntroState> {

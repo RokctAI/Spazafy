@@ -1,12 +1,12 @@
-import 'package:rokctapp/infrastructure/models/data/translation.dart';
-
+import 'package:rokctapp/infrastructure/models/data/take_data.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart'
+    hide Translation;
 import 'product_data.dart';
+import 'dart:convert';
 
 // To parse this JSON data, do
 //
 //     final addons = addonsFromJson(jsonString);
-
-import 'dart:convert';
 
 Addons addonsFromJson(String str) => Addons.fromJson(json.decode(str));
 
@@ -49,11 +49,11 @@ class Addons {
   }
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "stock_id": stockId,
-        "addon_id": addonId,
-        "product": product?.toJson(),
-      };
+    "id": id,
+    "stock_id": stockId,
+    "addon_id": addonId,
+    "product": product?.toJson(),
+  };
 }
 
 class Product {
@@ -123,22 +123,22 @@ class Product {
   }
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "uuid": uuid,
-        "shop_id": shopId,
-        "category_id": categoryId,
-        "brand_id": brandId,
-        "tax": tax,
-        "bar_code": barCode,
-        "status": status,
-        "active": active,
-        "addon": addon,
-        "img": img,
-        "min_qty": minQty,
-        "max_qty": maxQty,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "rating_percent": ratingPercent,
-        "translation": translation?.toJson(),
-      };
+    "id": id,
+    "uuid": uuid,
+    "shop_id": shopId,
+    "category_id": categoryId,
+    "brand_id": brandId,
+    "tax": tax,
+    "bar_code": barCode,
+    "status": status,
+    "active": active,
+    "addon": addon,
+    "img": img,
+    "min_qty": minQty,
+    "max_qty": maxQty,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+    "rating_percent": ratingPercent,
+    "translation": translation?.toJson(),
+  };
 }

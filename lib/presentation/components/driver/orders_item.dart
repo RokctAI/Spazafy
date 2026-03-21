@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -5,11 +7,9 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-
-import 'helper/shimmer.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/components/helper/driver/shimmer.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
-
 import 'order_detail.dart';
 
 class OrdersItem extends StatelessWidget {
@@ -78,7 +78,7 @@ class OrdersItem extends StatelessWidget {
                                 width: 32.r,
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: AppStyle.greyColor,
+                                  color: AppStyle.bgGrey,
                                 ),
                                 alignment: Alignment.center,
                                 child: const Icon(
@@ -135,7 +135,7 @@ class OrdersItem extends StatelessWidget {
                         width: 36.r,
                         height: 36.r,
                         decoration: const BoxDecoration(
-                          color: AppStyle.greyColor,
+                          color: AppStyle.bgGrey,
                           shape: BoxShape.circle,
                         ),
                         child: const Center(
@@ -192,7 +192,7 @@ class OrdersItem extends StatelessWidget {
                                 width: 32.r,
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: AppStyle.greyColor,
+                                  color: AppStyle.bgGrey,
                                 ),
                                 alignment: Alignment.center,
                                 child: const Icon(
@@ -269,7 +269,7 @@ class OrdersItem extends StatelessWidget {
               ),
             ),
             16.verticalSpace,
-            const Divider(color: AppStyle.shimmerBase),
+            Divider(color: AppStyle.shimmerBase),
             8.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -297,7 +297,7 @@ class OrdersItem extends StatelessWidget {
                     width: 36.r,
                     height: 36.r,
                     decoration: const BoxDecoration(
-                      color: AppStyle.greyColor,
+                      color: AppStyle.bgGrey,
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(FlutterRemix.arrow_right_s_line),

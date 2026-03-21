@@ -1,7 +1,9 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -19,19 +21,17 @@ class _EditFoodCategoriesScreenState
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) {
-        final product = ref.read(editFoodDetailsProvider).product;
-        final type = product?.type;
-        final allCategoriesState = ref.read(allCategoriesProvider);
-        final isCombo = type == 'combo';
-        final categories = isCombo
-            ? allCategoriesState.comboCategories
-            : allCategoriesState.categories;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final product = ref.read(editFoodDetailsProvider).product;
+      final type = product?.type;
+      final allCategoriesState = ref.read(allCategoriesProvider);
+      final isCombo = type == 'combo';
+      final categories = isCombo
+          ? allCategoriesState.comboCategories
+          : allCategoriesState.categories;
 
-        ref.read(editFoodCategoriesProvider.notifier).setCategories(categories);
-      },
-    );
+      ref.read(editFoodCategoriesProvider.notifier).setCategories(categories);
+    });
   }
 
   @override
@@ -45,7 +45,7 @@ class _EditFoodCategoriesScreenState
             children: [
               const ModalDrag(),
               TitleAndIcon(
-                title: AppHelpers.getTranslation(TrKeys.categories),
+                title: help.AppHelpers.getTranslation(TrKeys.categories),
                 titleSize: 16,
               ),
               Consumer(

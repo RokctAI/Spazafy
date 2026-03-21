@@ -1,8 +1,10 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -33,7 +35,7 @@ class _CreateFoodUnitsModalState extends ConsumerState<CreateFoodUnitsModal> {
           children: [
             const ModalDrag(),
             TitleAndIcon(
-              title: AppHelpers.getTranslation(TrKeys.units),
+              title: help.AppHelpers.getTranslation(TrKeys.units),
               titleSize: 16,
             ),
             24.verticalSpace,
@@ -57,7 +59,7 @@ class _CreateFoodUnitsModalState extends ConsumerState<CreateFoodUnitsModal> {
             ),
             24.verticalSpace,
             CustomButton(
-              title: AppHelpers.getTranslation(TrKeys.close),
+              title: help.AppHelpers.getTranslation(TrKeys.close),
               onPressed: context.maybePop,
             ),
             20.verticalSpace,

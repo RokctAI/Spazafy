@@ -1,13 +1,18 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/response/parcel_paginate_response.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
-final parcelRepositoryFacade = driverParcelRepository;
 import 'package:rokctapp/domain/interface/parcel.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/parcel_paginate_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
+
+final parcelRepositoryFacade = driverParcelRepository;
 
 class ParcelRepository implements ParcelRepositoryFacade {
   @override
@@ -144,7 +149,10 @@ class ParcelRepository implements ParcelRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateParcel(String? parcelId, String? status) async {
+  Future<ApiResult<dynamic>> updateParcel(
+    String? parcelId,
+    String? status,
+  ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -202,4 +210,3 @@ class ParcelRepository implements ParcelRepositoryFacade {
     }
   }
 }
-

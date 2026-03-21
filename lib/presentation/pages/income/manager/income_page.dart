@@ -1,10 +1,11 @@
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/app_constants.dart';
 import 'package:auto_route/auto_route.dart';
-
-// import 'package:charts_flutter_new/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'widgets/chart.dart';
 import 'widgets/statistics_section.dart';
@@ -12,6 +13,8 @@ import 'widgets/order_prices_section.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'app_bar_screen.dart';
+
+// import 'package:charts_flutter_new/flutter.dart';
 
 @RoutePage()
 class ManagerIncomePage extends ConsumerStatefulWidget {
@@ -26,9 +29,9 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
   late TabController _tabController;
 
   final _tabs = [
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.today))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.weekly))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.monthly))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.today))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.weekly))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.monthly))),
   ];
 
   @override
@@ -75,7 +78,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
           AppbarScreen(event: ref.read(statisticsProvider.notifier)),
@@ -135,7 +138,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
   Column _chart() {
     return Column(
       children: [
-        TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.earningsChart)),
+        TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.earningsChart)),
         16.verticalSpace,
         Container(
           padding: REdgeInsets.symmetric(horizontal: 16, vertical: 18),
@@ -171,7 +174,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
         //           cornerStrategy: const ConstCornerStrategy(6)),
         //       selectionModels: [
         //         SelectionModelConfig(changedListener: (d) {
-        //           // AppHelpers.showAlertDialog(
+        //           // help.AppHelpers.showAlertDialog(
         //           //   context: context,
         //           //   child: Column(
         //           //     mainAxisSize: MainAxisSize.min,
@@ -180,7 +183,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
         //           //           .day),
         //           //       8.verticalSpace,
         //           //       Text(
-        //           //           "${AppHelpers.trans(TrKeys.price)}: ${(d.selectedSeries.first.data.first as OrdinalSales).sales}"),
+        //           //           "${help.AppHelpers.trans(TrKeys.price)}: ${(d.selectedSeries.first.data.first as OrdinalSales).sales}"),
         //           //     ],
         //           //   ),
         //           // );

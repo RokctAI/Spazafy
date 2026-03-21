@@ -1,3 +1,9 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/presentation/components/loading/manager/tab_bar_loading.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -5,8 +11,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'details/food_details_modal.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
@@ -17,10 +22,12 @@ class ManagerCreateOrderPage extends ConsumerStatefulWidget {
   const ManagerCreateOrderPage({super.key});
 
   @override
-  ConsumerState<ManagerCreateOrderPage> createState() => _ManagerCreateOrderPageState();
+  ConsumerState<ManagerCreateOrderPage> createState() =>
+      _ManagerCreateOrderPageState();
 }
 
-class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage> {
+class _ManagerCreateOrderPageState
+    extends ConsumerState<ManagerCreateOrderPage> {
   late RefreshController _categoryController;
   late RefreshController _productController;
 
@@ -61,7 +68,7 @@ class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage>
       child: KeyboardDisable(
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          backgroundColor: AppStyle.greyColor,
+          backgroundColor: AppStyle.bgGrey,
           body: Column(
             children: [
               CustomAppBar(
@@ -140,7 +147,7 @@ class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage>
                                     ),
                                     child: Center(
                                       child: Text(
-                                        AppHelpers.getTranslation(
+                                        help.AppHelpers.getTranslation(
                                           TrKeys.product,
                                         ),
                                         style: AppStyle.interSemi(
@@ -190,7 +197,7 @@ class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage>
                                     ),
                                     child: Center(
                                       child: Text(
-                                        AppHelpers.getTranslation(TrKeys.combo),
+                                        help.AppHelpers.getTranslation(TrKeys.combo),
                                         style: AppStyle.interSemi(
                                           size: 14,
                                           color:
@@ -248,8 +255,7 @@ class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage>
                                         refreshController: _productController,
                                         categoryId: index == 1
                                             ? null
-                                            : currentCategories[index - 2]
-                                                  .id,
+                                            : currentCategories[index - 2].id,
                                         isRefresh: true,
                                         cartStocks: ref
                                             .watch(orderCartProvider)
@@ -311,7 +317,7 @@ class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage>
                                         .id,
                             ),
                             onProductTap: (index) =>
-                                AppHelpers.showCustomModalBottomDragSheet(
+                                help.AppHelpers.showCustomModalBottomDragSheet(
                                   paddingTop: 60,
                                   context: context,
                                   maxChildSize: 0.8,
@@ -357,7 +363,7 @@ class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage>
                                 child: Row(
                                   children: [
                                     Text(
-                                      AppHelpers.getTranslation(
+                                      help.AppHelpers.getTranslation(
                                         TrKeys.ordering,
                                       ),
                                       style: AppStyle.interSemi(
@@ -379,7 +385,7 @@ class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage>
                                         ),
                                       ),
                                       child: Text(
-                                        AppHelpers.numberFormat(
+                                        help.AppHelpers.numberFormat(
                                           cartState.totalPrice,
                                         ),
                                         style: AppStyle.interSemi(

@@ -1,11 +1,16 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'edit_addon_units_modal.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -32,7 +37,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
           child: Column(
             children: [
               const ModalDrag(),
-              TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.edit)),
+              TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.edit)),
               Expanded(
                 child: Consumer(
                   builder: (context, ref, child) {
@@ -52,7 +57,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                   24.verticalSpace,
                                   UnderlinedTextField(
                                     label:
-                                        '${AppHelpers.getTranslation(TrKeys.title)}*',
+                                        '${help.AppHelpers.getTranslation(TrKeys.title)}*',
                                     inputType: TextInputType.text,
                                     textCapitalization:
                                         TextCapitalization.sentences,
@@ -65,7 +70,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                   24.verticalSpace,
                                   UnderlinedTextField(
                                     label:
-                                        '${AppHelpers.getTranslation(TrKeys.description)}*',
+                                        '${help.AppHelpers.getTranslation(TrKeys.description)}*',
                                     inputType: TextInputType.text,
                                     textCapitalization:
                                         TextCapitalization.sentences,
@@ -79,7 +84,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                   UnderlinedTextField(
                                     textController: unitState.unitController,
                                     label:
-                                        '${AppHelpers.getTranslation(TrKeys.units)}*',
+                                        '${help.AppHelpers.getTranslation(TrKeys.units)}*',
                                     suffixIcon: Icon(
                                       FlutterRemix.arrow_down_s_line,
                                       color: AppStyle.blackColor,
@@ -88,7 +93,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                     readOnly: true,
                                     validator: AppValidators.emptyCheck,
                                     onTap: () =>
-                                        AppHelpers.showCustomModalBottomSheet(
+                                        help.AppHelpers.showCustomModalBottomSheet(
                                           paddingTop:
                                               MediaQuery.paddingOf(
                                                 context,
@@ -102,7 +107,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                   24.verticalSpace,
                                   UnderlinedTextField(
                                     label:
-                                        '${AppHelpers.getTranslation(TrKeys.tax)}*',
+                                        '${help.AppHelpers.getTranslation(TrKeys.tax)}*',
                                     inputType: TextInputType.number,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setTax,
@@ -114,7 +119,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                   24.verticalSpace,
                                   UnderlinedTextField(
                                     label:
-                                        '${AppHelpers.getTranslation(TrKeys.sku)}*',
+                                        '${help.AppHelpers.getTranslation(TrKeys.sku)}*',
                                     inputType: TextInputType.text,
                                     textInputAction: TextInputAction.done,
                                     onChanged: event.setBarcode,
@@ -129,13 +134,13 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                       Expanded(
                                         child: UnderlinedTextField(
                                           label:
-                                              '${AppHelpers.getTranslation(TrKeys.price)}*',
+                                              '${help.AppHelpers.getTranslation(TrKeys.price)}*',
                                           inputType: TextInputType.number,
                                           textInputAction: TextInputAction.next,
                                           onChanged: event.setPrice,
                                           validator: AppValidators.emptyCheck,
                                           initialText:
-                                              AppHelpers.getInitialAddonPrice(
+                                              help.AppHelpers.getInitialAddonPrice(
                                                 widget.addon,
                                               ),
                                         ),
@@ -144,13 +149,13 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                       Expanded(
                                         child: UnderlinedTextField(
                                           label:
-                                              '${AppHelpers.getTranslation(TrKeys.quantity)}*',
+                                              '${help.AppHelpers.getTranslation(TrKeys.quantity)}*',
                                           inputType: TextInputType.number,
                                           textInputAction: TextInputAction.next,
                                           onChanged: event.setQuantity,
                                           validator: AppValidators.emptyCheck,
                                           initialText:
-                                              AppHelpers.getInitialAddonQuantity(
+                                              help.AppHelpers.getInitialAddonQuantity(
                                                 widget.addon,
                                               ),
                                         ),
@@ -163,7 +168,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        AppHelpers.getTranslation(
+                                        help.AppHelpers.getTranslation(
                                           TrKeys.active,
                                         ),
                                         style: AppStyle.interNormal(
@@ -186,7 +191,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                             ),
                           ),
                           CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.save),
+                            title: help.AppHelpers.getTranslation(TrKeys.save),
                             isLoading: state.isLoading,
                             onPressed: () {
                               if (_formKey.currentState?.validate() ?? false) {
@@ -195,9 +200,9 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                   uuid: widget.addon.uuid,
                                   unit: unitState.foodUnit,
                                   updated: () {
-                                    AppHelpers.showCheckTopSnackBar(
+                                    help.AppHelpers.showCheckTopSnackBar(
                                       context,
-                                      text: AppHelpers.getTranslation(
+                                      text: help.AppHelpers.getTranslation(
                                         TrKeys.successfullyCreated,
                                       ),
                                       type: SnackBarType.success,

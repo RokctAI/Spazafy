@@ -1,3 +1,10 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
+import 'package:rokctapp/infrastructure/models/response/parcel_calculate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/parcel_response.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/models/data/location.dart';
+import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
@@ -57,7 +64,11 @@ class ParcelRepository implements ParcelRepositoryFacade {
       final responseData = ParcelTypeResponse.fromJson(response.data);
 
       // Persistence: Cache types
-      await appDatabase.putItem('settings', 'parcel_types', responseData.toJson());
+      await appDatabase.putItem(
+        'settings',
+        'parcel_types',
+        responseData.toJson(),
+      );
 
       return ApiResult.success(data: responseData);
     } catch (e) {
@@ -67,7 +78,9 @@ class ParcelRepository implements ParcelRepositoryFacade {
       try {
         final localData = await appDatabase.getItem('settings', 'parcel_types');
         if (localData != null) {
-          return ApiResult.success(data: ParcelTypeResponse.fromJson(localData));
+          return ApiResult.success(
+            data: ParcelTypeResponse.fromJson(localData),
+          );
         }
       } catch (localError) {
         debugPrint('==> local parcel types fallback failure: $localError');
@@ -232,7 +245,11 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
       // Persistence: Cache active parcels (only page 1 for simplicity)
       if (page == 1) {
-        await appDatabase.putItem('settings', 'active_parcels', responseData.toJson());
+        await appDatabase.putItem(
+          'settings',
+          'active_parcels',
+          responseData.toJson(),
+        );
       }
 
       return ApiResult.success(data: responseData);
@@ -242,7 +259,10 @@ class ParcelRepository implements ParcelRepositoryFacade {
       // Fallback (page 1 only)
       if (page == 1) {
         try {
-          final localData = await appDatabase.getItem('settings', 'active_parcels');
+          final localData = await appDatabase.getItem(
+            'settings',
+            'active_parcels',
+          );
           if (localData != null) {
             return ApiResult.success(
               data: ParcelPaginateResponse.fromJson(localData),
@@ -286,7 +306,11 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
       // Persistence: Cache history parcels
       if (page == 1) {
-        await appDatabase.putItem('settings', 'history_parcels', responseData.toJson());
+        await appDatabase.putItem(
+          'settings',
+          'history_parcels',
+          responseData.toJson(),
+        );
       }
 
       return ApiResult.success(data: responseData);
@@ -296,7 +320,10 @@ class ParcelRepository implements ParcelRepositoryFacade {
       // Fallback
       if (page == 1) {
         try {
-          final localData = await appDatabase.getItem('settings', 'history_parcels');
+          final localData = await appDatabase.getItem(
+            'settings',
+            'history_parcels',
+          );
           if (localData != null) {
             return ApiResult.success(
               data: ParcelPaginateResponse.fromJson(localData),
@@ -312,7 +339,6 @@ class ParcelRepository implements ParcelRepositoryFacade {
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
-鼓
   }
 
   @override
@@ -402,6 +428,5 @@ class ParcelRepository implements ParcelRepositoryFacade {
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
-鼓
   }
 }

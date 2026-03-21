@@ -1,9 +1,10 @@
+import 'package:rokctapp/domain/handlers/http_service.dart';
+import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 import 'dart:convert';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
-
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';

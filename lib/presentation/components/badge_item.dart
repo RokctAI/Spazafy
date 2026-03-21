@@ -1,6 +1,6 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:remixicon/remixicon.dart';
-
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class BadgeItem extends StatelessWidget {

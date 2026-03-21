@@ -1,13 +1,16 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart' hide Extras;
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 class DeleteExtrasItemModal extends StatelessWidget {
@@ -26,7 +29,7 @@ class DeleteExtrasItemModal extends StatelessWidget {
             const ModalDrag(),
             40.verticalSpace,
             Text(
-              '${AppHelpers.getTranslation(TrKeys.areYouSureToDelete)} ${extras.value}?',
+              '${help.AppHelpers.getTranslation(TrKeys.areYouSureToDelete)} ${extras.value}?',
               textAlign: TextAlign.center,
               style: GoogleFonts.inter(
                 fontSize: 18,
@@ -40,7 +43,7 @@ class DeleteExtrasItemModal extends StatelessWidget {
               children: [
                 Expanded(
                   child: CustomButton(
-                    title: AppHelpers.getTranslation(TrKeys.cancel),
+                    title: help.AppHelpers.getTranslation(TrKeys.cancel),
                     onPressed: context.maybePop,
                     background: AppStyle.transparent,
                     borderColor: AppStyle.blackColor,
@@ -51,7 +54,7 @@ class DeleteExtrasItemModal extends StatelessWidget {
                   child: Consumer(
                     builder: (context, ref, child) {
                       return CustomButton(
-                        title: AppHelpers.getTranslation(TrKeys.yes),
+                        title: help.AppHelpers.getTranslation(TrKeys.yes),
                         isLoading: ref
                             .watch(deleteExtrasItemProvider)
                             .isLoading,

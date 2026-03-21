@@ -1,3 +1,4 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -6,10 +7,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'; //changed
 import 'package:rokctapp/presentation/components/helper/shimmer.dart';
-
 import 'package:rokctapp/application/closed/closed_provider.dart';
-//import 'package:rokctapp/presentation/component/components.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
+
+//import 'package:rokctapp/presentation/component/components.dart';
 
 @RoutePage()
 class ClosedPage extends ConsumerStatefulWidget {

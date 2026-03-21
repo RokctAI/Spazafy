@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/currencies.dart';
@@ -5,7 +6,6 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-
 import 'currency_state.dart';
 
 class CurrencyNotifier extends StateNotifier<CurrencyState> {

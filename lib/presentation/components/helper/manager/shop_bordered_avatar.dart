@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'blur_wrap.dart';
 import 'common_image.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ShopBorderedAvatar extends StatelessWidget {
   final String? imageUrl;
@@ -18,7 +17,7 @@ class ShopBorderedAvatar extends StatelessWidget {
     required this.size,
     required this.imageSize,
     required this.borderRadius,
-    this.bgColor = AppStyle.greyColor,
+    this.bgColor = AppStyle.bgGrey,
   });
 
   @override

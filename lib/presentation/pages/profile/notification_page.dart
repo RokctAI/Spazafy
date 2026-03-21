@@ -1,5 +1,4 @@
-// ignore_for_file: deprecated_member_use
-
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,8 +18,8 @@ import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import 'package:rokctapp/presentation/theme/theme.dart';
+// ignore_for_file: deprecated_member_use
 
 @RoutePage()
 class NotificationListPage extends ConsumerStatefulWidget {

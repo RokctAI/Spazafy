@@ -1,14 +1,18 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
-
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ApproveOrderDialog extends StatelessWidget {
   final OrderDetailData? order;
@@ -30,7 +34,7 @@ class ApproveOrderDialog extends StatelessWidget {
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-              text: AppHelpers.getTranslation(TrKeys.thatYouHaveIndeed),
+              text: help.AppHelpers.getTranslation(TrKeys.thatYouHaveIndeed),
               style: AppStyle.interNormal(size: 16.sp),
             ),
           ),
@@ -39,8 +43,8 @@ class ApproveOrderDialog extends StatelessWidget {
             children: [
               Expanded(
                 child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.cancel),
-                  background: AppStyle.redColor,
+                  title: help.AppHelpers.getTranslation(TrKeys.cancel),
+                  background: AppStyle.red,
                   textColor: AppStyle.white,
                   onPressed: () {
                     Navigator.pop(context);
@@ -52,7 +56,7 @@ class ApproveOrderDialog extends StatelessWidget {
                 child: Consumer(
                   builder: (context, ref, child) {
                     return CustomButton(
-                      title: AppHelpers.getTranslation(TrKeys.approve),
+                      title: help.AppHelpers.getTranslation(TrKeys.approve),
                       background: AppStyle.black,
                       textColor: AppStyle.white,
                       onPressed: () async {

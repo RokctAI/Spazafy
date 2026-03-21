@@ -1,3 +1,8 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,12 +12,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
-
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/edit_car.dart';
 
 class EditProfileModal extends ConsumerStatefulWidget {
@@ -32,9 +36,9 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
           .fetchProfileDetails(
             context: context,
             checkYourNetwork: () {
-              AppHelpers.showCheckTopSnackBar(
+              help.AppHelpers.showCheckTopSnackBar(
                 context,
-                AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+                help.AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
               );
             },
             setImage: (url) {
@@ -70,7 +74,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                       child: Column(
                         children: [
                           TitleAndIcon(
-                            title: AppHelpers.getTranslation(
+                            title: help.AppHelpers.getTranslation(
                               TrKeys.profileSettings,
                             ),
                           ),
@@ -144,13 +148,13 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                               16.horizontalSpace,
                               Expanded(
                                 child: UnderlinedBorderTextField(
-                                  label: AppHelpers.getTranslation(
+                                  label: help.AppHelpers.getTranslation(
                                     TrKeys.firstname,
                                   ),
                                   initialText: editState.firstname,
                                   onChanged: editNotifier.setFirstname,
                                   descriptionText: editState.isFirstnameError
-                                      ? AppHelpers.getTranslation(
+                                      ? help.AppHelpers.getTranslation(
                                           TrKeys.firstnameCannotBeEmpty,
                                         )
                                       : null,
@@ -161,11 +165,11 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                           ),
                           24.verticalSpace,
                           UnderlinedBorderTextField(
-                            label: AppHelpers.getTranslation(TrKeys.lastname),
+                            label: help.AppHelpers.getTranslation(TrKeys.lastname),
                             initialText: editState.lastname,
                             onChanged: editNotifier.setLastname,
                             descriptionText: editState.isLastnameError
-                                ? AppHelpers.getTranslation(
+                                ? help.AppHelpers.getTranslation(
                                     TrKeys.lastnameCannotBeEmpty,
                                   )
                                 : null,
@@ -174,7 +178,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                           24.verticalSpace,
                           if (!AppConstants.isSpecificNumberEnabled)
                             UnderlinedBorderTextField(
-                              label: AppHelpers.getTranslation(
+                              label: help.AppHelpers.getTranslation(
                                 TrKeys.phoneNumber,
                               ),
                               initialText: editState.phone,
@@ -196,7 +200,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                                 validator: (s) {
                                   if (AppConstants.isNumberLengthAlwaysSame &&
                                       (s?.isValidNumber() ?? false)) {
-                                    return AppHelpers.getTranslation(
+                                    return help.AppHelpers.getTranslation(
                                       TrKeys.phoneNumberIsNotValid,
                                     );
                                   }
@@ -213,7 +217,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                                       "+${editState.phone.replaceAll('+', "")}",
                                 ).number,
                                 enabled: editState.isPhoneEditable,
-                                invalidNumberMessage: AppHelpers.getTranslation(
+                                invalidNumberMessage: help.AppHelpers.getTranslation(
                                   TrKeys.phoneNumberIsNotValid,
                                 ),
                                 inputFormatters: [
@@ -261,7 +265,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                             ),
                           24.verticalSpace,
                           UnderlinedBorderTextField(
-                            label: AppHelpers.getTranslation(TrKeys.email),
+                            label: help.AppHelpers.getTranslation(TrKeys.email),
                             initialText: editState.email,
                             inputType: TextInputType.emailAddress,
                             readOnly: !editState.isEmailEditable,
@@ -269,12 +273,12 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                           ),
                           24.verticalSpace,
                           UnderlinedBorderTextField(
-                            label: AppHelpers.getTranslation(TrKeys.password),
+                            label: help.AppHelpers.getTranslation(TrKeys.password),
                             obscure: editState.showPassword,
                             onChanged: editNotifier.setPassword,
                             isError: editState.isPasswordError,
                             descriptionText: editState.isPasswordError
-                                ? AppHelpers.getTranslation(
+                                ? help.AppHelpers.getTranslation(
                                     TrKeys
                                         .passwordShouldContainMinimum6Characters,
                                   )
@@ -293,14 +297,14 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                           ),
                           24.verticalSpace,
                           UnderlinedBorderTextField(
-                            label: AppHelpers.getTranslation(
+                            label: help.AppHelpers.getTranslation(
                               TrKeys.confirmPassword,
                             ),
                             obscure: editState.showConfirmPassword,
                             onChanged: editNotifier.setConfirmPassword,
                             isError: editState.isConfirmPasswordError,
                             descriptionText: editState.isConfirmPasswordError
-                                ? AppHelpers.getTranslation(
+                                ? help.AppHelpers.getTranslation(
                                     TrKeys
                                         .confirmPasswordDoesntMatchWithNewPassword,
                                   )
@@ -324,7 +328,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                     const Divider(),
                     GestureDetector(
                       onTap: () {
-                        AppHelpers.showCustomModalBottomSheet(
+                        help.AppHelpers.showCustomModalBottomSheet(
                           paddingTop: 120.h,
                           context: context,
                           modal: const EditCar(),
@@ -344,7 +348,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    AppHelpers.getTranslation(
+                                    help.AppHelpers.getTranslation(
                                       TrKeys.deliveryVehicle,
                                     ),
                                     style: AppStyle.interNormal(
@@ -372,15 +376,15 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                     Padding(
                       padding: EdgeInsets.all(16.r),
                       child: CustomButton(
-                        title: AppHelpers.getTranslation(TrKeys.save),
+                        title: help.AppHelpers.getTranslation(TrKeys.save),
                         isLoading: editState.isLoading,
                         onPressed: () {
                           editNotifier.updateGeneralInfo(
                             context: context,
                             checkYourNetwork: () {
-                              AppHelpers.showCheckTopSnackBar(
+                              help.AppHelpers.showCheckTopSnackBar(
                                 context,
-                                AppHelpers.getTranslation(
+                                help.AppHelpers.getTranslation(
                                   TrKeys.checkYourNetworkConnection,
                                 ),
                               );

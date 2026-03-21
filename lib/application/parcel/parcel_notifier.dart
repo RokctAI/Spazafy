@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/location.dart';
+import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,7 +14,6 @@ import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import 'package:rokctapp/domain/interface/draw.dart';
 import 'parcel_state.dart';
 

@@ -1,10 +1,14 @@
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ShopFormFields extends StatelessWidget {
   final TextEditingController descController;
@@ -44,7 +48,7 @@ class ShopFormFields extends StatelessWidget {
         OutlinedBorderTextField(
           textController: descController,
           validation: AppValidators.emptyCheck,
-          label: AppHelpers.getTranslation(TrKeys.description),
+          label: help.AppHelpers.getTranslation(TrKeys.description),
         ),
         24.verticalSpace,
         if (isSpecificNumberEnabled)
@@ -54,14 +58,14 @@ class ShopFormFields extends StatelessWidget {
             textController: phoneController,
             inputType: TextInputType.phone,
             validation: AppValidators.emptyCheck,
-            label: AppHelpers.getTranslation(TrKeys.phoneNumber),
+            label: help.AppHelpers.getTranslation(TrKeys.phoneNumber),
           ),
         24.verticalSpace,
         OutlinedBorderTextField(
           textController: taxController,
           validation: AppValidators.emptyCheck,
           inputType: TextInputType.number,
-          label: AppHelpers.getTranslation(TrKeys.tax),
+          label: help.AppHelpers.getTranslation(TrKeys.tax),
         ),
         24.verticalSpace,
         _buildDeliveryTypeDropdown(),
@@ -74,7 +78,7 @@ class ShopFormFields extends StatelessWidget {
               child: OutlinedBorderTextField(
                 textController: deliveryTimeFromController,
                 inputType: TextInputType.number,
-                label: AppHelpers.getTranslation(TrKeys.deliveryTimeFrom),
+                label: help.AppHelpers.getTranslation(TrKeys.deliveryTimeFrom),
               ),
             ),
             16.horizontalSpace,
@@ -82,7 +86,7 @@ class ShopFormFields extends StatelessWidget {
               child: OutlinedBorderTextField(
                 inputType: TextInputType.number,
                 textController: deliveryTimeToController,
-                label: AppHelpers.getTranslation(TrKeys.deliveryTimeTo),
+                label: help.AppHelpers.getTranslation(TrKeys.deliveryTimeTo),
               ),
             ),
           ],
@@ -96,7 +100,7 @@ class ShopFormFields extends StatelessWidget {
               child: OutlinedBorderTextField(
                 textController: startPriceController,
                 inputType: TextInputType.number,
-                label: AppHelpers.getTranslation(TrKeys.startPrice),
+                label: help.AppHelpers.getTranslation(TrKeys.startPrice),
               ),
             ),
             16.horizontalSpace,
@@ -104,7 +108,7 @@ class ShopFormFields extends StatelessWidget {
               child: OutlinedBorderTextField(
                 inputType: TextInputType.number,
                 textController: pricePerKmController,
-                label: AppHelpers.getTranslation(TrKeys.pricePerKm),
+                label: help.AppHelpers.getTranslation(TrKeys.pricePerKm),
               ),
             ),
           ],
@@ -118,10 +122,7 @@ class ShopFormFields extends StatelessWidget {
       padding: EdgeInsets.only(left: 4.w),
       child: Text(
         title,
-        style: AppStyle.interSemi(
-          size: 14,
-          color: AppStyle.black,
-        ),
+        style: AppStyle.interSemi(size: 14, color: AppStyle.black),
       ),
     );
   }
@@ -133,14 +134,15 @@ class ShopFormFields extends StatelessWidget {
       validator: (s) {
         if (AppConstants.isNumberLengthAlwaysSame &&
             (s?.isValidNumber() ?? true)) {
-          return AppHelpers.getTranslation(TrKeys.phoneNumberIsNotValid);
+          return help.AppHelpers.getTranslation(TrKeys.phoneNumberIsNotValid);
         }
         return null;
       },
       keyboardType: TextInputType.phone,
       initialCountryCode: AppConstants.countryCodeISO,
-      invalidNumberMessage:
-          AppHelpers.getTranslation(TrKeys.phoneNumberIsNotValid),
+      invalidNumberMessage: help.AppHelpers.getTranslation(
+        TrKeys.phoneNumberIsNotValid,
+      ),
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       showCountryFlag: AppConstants.showFlag,
       showDropdownIcon: AppConstants.showArrowIcon,
@@ -179,16 +181,11 @@ class ShopFormFields extends StatelessWidget {
     return DropdownButtonFormField<String>(
       value: selectedDeliveryType,
       items: deliveryTypeList
-          .map(
-            (e) => DropdownMenuItem<String>(
-              value: e,
-              child: Text(e),
-            ),
-          )
+          .map((e) => DropdownMenuItem<String>(value: e, child: Text(e)))
           .toList(),
       onChanged: onDeliveryTypeChanged,
       decoration: InputDecoration(
-        labelText: AppHelpers.getTranslation(TrKeys.deliveryType),
+        labelText: help.AppHelpers.getTranslation(TrKeys.deliveryType),
         labelStyle: AppStyle.interNormal(size: 12, color: AppStyle.black),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide.merge(

@@ -1,14 +1,18 @@
+import 'package:rokctapp/application/restaurant/manager/income/statistics/statistics_state.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/annotations.dart';
-import 'package:charts_flutter/flutter.dart';
+import 'package:community_charts_flutter/community_charts_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/statistics/driver/statistics_provider.dart';
-import 'package:rokctapp/application/statistics/driver/statistics_state.dart';
-
-import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
+import 'package:rokctapp/application/statistics/driver/statistics_state.dart' hide StatisticsState;
+import 'package:rokctapp/infrastructure/services/utils/driver/services.dart' hide AppHelpers;
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'app_bar_screen.dart';
 import 'statistics_screen.dart';
 import 'widgets/income_item.dart';
@@ -26,9 +30,9 @@ class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
   late TabController _tabController;
 
   final _tabs = [
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.today))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.weekly))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.monthly))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.today))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.weekly))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.monthly))),
   ];
 
   @override
@@ -76,7 +80,7 @@ class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
   Widget build(BuildContext context) {
     final state = ref.watch(statisticsProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
           const AbbBarScreen(),
@@ -94,66 +98,66 @@ class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
                   24.verticalSpace,
                   _orderPrices(context, state),
                   // TitleAndIcon(
-                  //   title: AppHelpers.getTranslation(TrKeys.remittanceIncome),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.remittanceIncome),
                   // ),
                   // 12.verticalSpace,
                   // IncomeItem(
-                  //   title: AppHelpers.getTranslation(TrKeys.servicePrice),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.servicePrice),
                   //   price: "\$0",
                   // ),
                   // IncomeItem(
-                  //   title: AppHelpers.getTranslation(TrKeys.tax),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.tax),
                   //   price: "\$2",
                   // ),
                   // IncomeItem(
-                  //   title: AppHelpers.getTranslation(TrKeys.shippingCost),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.shippingCost),
                   //   price: "\$500",
                   // ),
                   // IncomeItem(
-                  //   title: AppHelpers.getTranslation(TrKeys.adminBenefit),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.adminBenefit),
                   //   price: "\$5.8",
                   // ),
                   // IncomeItem(
-                  //   title: AppHelpers.getTranslation(TrKeys.yourBenefit),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.yourBenefit),
                   //   price: "\$560",
                   // ),
                   // 24.verticalSpace,
                   TitleAndIcon(
-                    title: AppHelpers.getTranslation(
+                    title: help.AppHelpers.getTranslation(
                       TrKeys.deliverymanTransactions,
                     ),
                   ),
                   12.verticalSpace,
                   IncomeItem(
-                    title: AppHelpers.getTranslation(TrKeys.wallet),
-                    price: AppHelpers.numberFormat(
+                    title: help.AppHelpers.getTranslation(TrKeys.wallet),
+                    price: help.AppHelpers.numberFormat(
                       number: LocalStorage.getUser()?.wallet?.price ?? 0,
                     ),
                   ),
                   IncomeItem(
-                    title: AppHelpers.getTranslation(TrKeys.rating),
+                    title: help.AppHelpers.getTranslation(TrKeys.rating),
                     price:
                         "${LocalStorage.getUser()?.rate?.toStringAsFixed(1) ?? 0}",
                   ),
                   24.verticalSpace,
                   // TitleAndIcon(
-                  //   title: AppHelpers.getTranslation(TrKeys.payment),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.payment),
                   // ),
                   // 12.verticalSpace,
                   // IncomeItem(
-                  //   title: AppHelpers.getTranslation(TrKeys.grossProfit),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.grossProfit),
                   //   price: "\$580",
                   // ),
                   // IncomeItem(
-                  //   title: AppHelpers.getTranslation(TrKeys.earningsWallet),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.earningsWallet),
                   //   price: "\$100",
                   // ),
                   // IncomeItem(
-                  //   title: AppHelpers.getTranslation(TrKeys.paid),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.paid),
                   //   price: "\$0",
                   // ),
                   // IncomeItem(
-                  //   title: AppHelpers.getTranslation(TrKeys.paidCourier),
+                  //   title: help.AppHelpers.getTranslation(TrKeys.paidCourier),
                   //   price: "\$560",
                   //   isBlack: true,
                   // ),
@@ -199,7 +203,7 @@ class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
   Column _chart(StatisticsState state) {
     return Column(
       children: [
-        TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.earningsChart)),
+        TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.earningsChart)),
         16.verticalSpace,
         Container(
           width: double.infinity,
@@ -238,7 +242,7 @@ class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                AppHelpers.getTranslation(TrKeys.orderPrice),
+                help.AppHelpers.getTranslation(TrKeys.orderPrice),
                 style: AppStyle.interNormal(
                   size: 14.sp,
                   color: AppStyle.black,
@@ -247,7 +251,7 @@ class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
               ),
               16.verticalSpace,
               Text(
-                AppHelpers.numberFormat(
+                help.AppHelpers.numberFormat(
                   number: state.countData?.data?.lastOrderTotalPrice ?? 0,
                 ),
                 style: AppStyle.interSemi(
@@ -259,7 +263,7 @@ class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
               4.verticalSpace,
               RichText(
                 text: TextSpan(
-                  text: AppHelpers.getTranslation(TrKeys.lastIncome),
+                  text: help.AppHelpers.getTranslation(TrKeys.lastIncome),
                   style: AppStyle.interNormal(
                     size: 12.sp,
                     color: AppStyle.black,
@@ -267,7 +271,7 @@ class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
                   ),
                   children: [
                     TextSpan(
-                      text: AppHelpers.numberFormat(
+                      text: help.AppHelpers.numberFormat(
                         number: state.countData?.data?.lastOrderIncome ?? 0,
                       ),
                       style: AppStyle.interSemi(
