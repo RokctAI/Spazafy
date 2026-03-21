@@ -107,11 +107,14 @@ class ShopsRepository implements ShopsRepositoryFacade {
           categoryId: categoryId,
         );
         if (localShops.isNotEmpty) {
-          return ApiResult.success(
-            data: ShopsPaginateResponse(
-              data: localShops.map((e) => ShopData.fromJson(e)).toList(),
-            ),
-          );
+          final shops = localShops.map((e) => ShopData.fromJson(e)).toList();
+          
+          // Apply local 'isOpen' filter if requested
+          final filtered = (isOpen ?? false)
+              ? shops.where((s) => s.checkWorkingDay()["isOpen"] == true).toList()
+              : shops;
+              
+          return ApiResult.success(data: ShopsPaginateResponse(data: filtered));
         }
       } catch (localError) {
         debugPrint('==> local fallback failure: $localError');
