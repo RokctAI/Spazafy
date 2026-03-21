@@ -8,10 +8,10 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/bonus_discount_popular.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'badge_item.dart';
 import 'shop_avarat.dart';
+
 
 class MarketItem extends StatelessWidget {
   final ShopData shop;

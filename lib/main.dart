@@ -9,13 +9,13 @@ import 'domain/di/dependency_manager.dart';
 import 'presentation/app_widget.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'utils/app_initializer_widget.dart';
-
 import 'package:workmanager/workmanager.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/local_location_data.dart';
 import 'package:dio/dio.dart';
 import 'package:rokctapp/presentation/phoenix_widget.dart';
 import 'package:rokctapp/app_constants.dart' as global_constants;
+
 
 const fetchBackground = "fetchBackground";
 

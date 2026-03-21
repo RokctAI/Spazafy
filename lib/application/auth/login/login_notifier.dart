@@ -21,13 +21,13 @@ import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:rokctapp/domain/interface/settings.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/background_sync_service.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 import 'dart:convert';
-
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'login_state.dart';
+
+
 
 class LoginNotifier extends StateNotifier<LoginState> {
   final AuthRepositoryFacade _authRepository;

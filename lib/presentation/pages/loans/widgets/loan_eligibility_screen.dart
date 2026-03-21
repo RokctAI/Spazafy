@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-
 import 'package:rokctapp/infrastructure/repositories/loans_repository.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -16,6 +15,7 @@ import 'package:rokctapp/presentation/pages/loans/provider/loans_provider.dart';
 import 'loan_document_upload_screen.dart';
 import 'loan_ineligibility_dialog.dart';
 import 'loan_qualification_dialog.dart';
+
 
 @RoutePage()
 class LoanEligibilityScreen extends ConsumerStatefulWidget {

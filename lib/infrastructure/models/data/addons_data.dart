@@ -1,12 +1,12 @@
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
-
 import 'product_data.dart';
+import 'dart:convert';
+
 
 // To parse this JSON data, do
 //
 //     final addons = addonsFromJson(jsonString);
 
-import 'dart:convert';
 
 Addons addonsFromJson(String str) => Addons.fromJson(json.decode(str));
 

@@ -1,10 +1,10 @@
+import 'dart:convert';
+import 'package:rokctapp/infrastructure/models/data/manager/table_bookings_data.dart';
 // To parse this JSON data, do
 //
 //     final tableBookingResponse = tableBookingResponseFromJson(jsonString);
 
-import 'dart:convert';
 
-import 'package:rokctapp/infrastructure/models/data/manager/table_bookings_data.dart';
 
 TableBookingResponse tableBookingResponseFromJson(String str) =>
     TableBookingResponse.fromJson(json.decode(str));

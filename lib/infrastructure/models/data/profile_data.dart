@@ -1,9 +1,9 @@
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
-
 import 'notification_data.dart';
 import 'shop_data.dart';
 import 'currency_data.dart';
 import 'membership_data.dart';
+
 
 class ProfileData {
   ProfileData({

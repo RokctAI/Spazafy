@@ -2,13 +2,13 @@ import 'package:rokctapp/application/order/driver/canceled_order/canceled_order_
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
-final orderRepository = driverOrderRepository;
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
+
+
+final orderRepository = driverOrderRepository;
 
 class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
   CanceledOrderNotifier() : super(const CanceledOrderState());

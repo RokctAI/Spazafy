@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/driver/push_data.dart';
-
 import 'product_data.dart';
+
 
 class OrderDetailModel {
   OrderDetailData? data;

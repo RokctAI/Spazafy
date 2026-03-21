@@ -1,4 +1,3 @@
-// ignore_for_file: unused_result
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -20,6 +19,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/info_item.dart';
 import 'widgets/parcel_payments.dart';
 import 'widgets/time_and_type.dart';
+// ignore_for_file: unused_result
 
 @RoutePage()
 class ParcelPage extends ConsumerStatefulWidget {

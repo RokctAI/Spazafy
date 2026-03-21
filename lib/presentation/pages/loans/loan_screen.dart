@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' as intl;
-
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/repositories/loans_repository.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
@@ -20,6 +19,7 @@ import 'package:rokctapp/presentation/pages/chat/chat/chat_page.dart';
 import 'widgets/loan_contract_screen.dart';
 import 'widgets/loan_eligibility_screen.dart';
 import 'provider/loans_provider.dart';
+
 
 @RoutePage()
 class LoanScreen extends ConsumerStatefulWidget {

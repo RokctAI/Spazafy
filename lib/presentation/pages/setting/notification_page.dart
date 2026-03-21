@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/setting/setting_notifier.dart';
 import 'package:rokctapp/presentation/components/custom_toggle.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
-
 import 'package:rokctapp/application/setting/setting_provider.dart';
+
 
 class NotificationPage extends ConsumerStatefulWidget {
   const NotificationPage({super.key});

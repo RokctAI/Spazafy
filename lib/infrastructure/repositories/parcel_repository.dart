@@ -312,7 +312,6 @@ class ParcelRepository implements ParcelRepositoryFacade {
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
-鼓
   }
 
   @override
@@ -402,6 +401,5 @@ class ParcelRepository implements ParcelRepositoryFacade {
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
-鼓
   }
 }

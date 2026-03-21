@@ -1,5 +1,4 @@
 import 'package:rokctapp/infrastructure/services/utils/manager/extension.dart';
-
 import 'kitchen_data.dart';
 import 'payment_data.dart';
 import 'stock.dart';
@@ -8,6 +7,7 @@ import 'user_data.dart';
 import 'shop_data.dart';
 import 'currency_data.dart';
 import 'location_data.dart';
+
 
 class OrderData {
   OrderData({

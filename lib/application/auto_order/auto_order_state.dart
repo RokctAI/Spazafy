@@ -1,9 +1,9 @@
-// ignore_for_file: depend_on_referenced_packages
-
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'auto_order_state.freezed.dart';
+// ignore_for_file: depend_on_referenced_packages
+
+
 
 @freezed
 class AutoOrderState with _$AutoOrderState {

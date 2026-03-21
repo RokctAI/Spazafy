@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'story_state.dart';
+
 
 class StoryNotifier extends StateNotifier<StoryState> {
   StoryNotifier() : super(const StoryState());

@@ -1,10 +1,10 @@
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'on_a_way_orders_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
 
 class OnAWayOrdersNotifier extends StateNotifier<OnAWayOrdersState> {
   final OrdersInterface _ordersRepository;

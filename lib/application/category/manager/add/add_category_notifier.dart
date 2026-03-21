@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'add_category_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
+
 
 class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
   final CatalogInterface _catalogRepository;

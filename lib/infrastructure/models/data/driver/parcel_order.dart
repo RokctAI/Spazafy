@@ -1,9 +1,9 @@
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/parcel_response.dart';
 // To parse this JSON data, do
 //
 //     final parcelOrder = parcelOrderFromJson(jsonString);
 
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/parcel_response.dart';
 
 class ParcelOrder {
   String? id;

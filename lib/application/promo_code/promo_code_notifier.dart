@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'promo_code_state.dart';
+
 
 class PromoCodeNotifier extends StateNotifier<PromoCodeState> {
   final OrdersRepositoryFacade _orderRepository;

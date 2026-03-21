@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/printer/models/data/printer_device.dart';
-
 part 'billing_printer_state.freezed.dart';
+
 
 enum PrinterStatus {
   initial,

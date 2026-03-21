@@ -4,13 +4,13 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
-//import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-//import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/services/app_assets.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
+//import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+//import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 @RoutePage()
 class TermPage extends ConsumerStatefulWidget {

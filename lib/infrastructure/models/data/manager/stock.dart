@@ -1,8 +1,8 @@
 import 'package:rokctapp/infrastructure/services/utils/manager/extension.dart';
-
 import 'group.dart';
 import 'extras.dart';
 import 'product_data.dart';
+
 
 class Stock {
   Stock({

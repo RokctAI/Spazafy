@@ -1,7 +1,7 @@
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
-
 import 'package:rokctapp/presentation/theme/app_style.dart';
+
 
 class MakeShimmer extends StatelessWidget {
   final Widget child;

@@ -4,8 +4,8 @@ import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-
 import 'like_state.dart';
+
 
 class LikeNotifier extends StateNotifier<LikeState> {
   final ShopsRepositoryFacade _shopsRepository;

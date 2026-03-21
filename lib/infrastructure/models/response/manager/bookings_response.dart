@@ -1,5 +1,5 @@
-
 import 'package:rokctapp/infrastructure/models/data/manager/bookings_data.dart';
+
 
 class BookingsResponse {
   BookingsData? data;

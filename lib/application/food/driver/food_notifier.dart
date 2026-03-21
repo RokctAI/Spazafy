@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'food_state.dart';
+
 
 class FoodNotifier extends StateNotifier<FoodState> {
   FoodNotifier() : super(const FoodState());

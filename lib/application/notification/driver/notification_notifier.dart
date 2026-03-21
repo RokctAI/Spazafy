@@ -4,8 +4,8 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/interface/notification.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-
 import 'notification_state.dart';
+
 
 class NotificationNotifier extends StateNotifier<NotificationState> {
   final NotificationRepositoryFacade _notificationRepository;

@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'app_state.dart';
+
 
 class AppNotifier extends StateNotifier<AppState> {
   AppNotifier() : super(const AppState()) {

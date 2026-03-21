@@ -1,7 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +11,9 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'register_confirmation_state.dart';
+// ignore_for_file: use_build_context_synchronously
+
+
 
 class RegisterConfirmationNotifier
     extends StateNotifier<RegisterConfirmationState> {

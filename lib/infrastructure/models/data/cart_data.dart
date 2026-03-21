@@ -1,7 +1,7 @@
 import 'dart:convert';
-
 import 'addons_data.dart';
 import 'product_data.dart';
+
 
 CartModel cartFromJson(String str) => CartModel.fromJson(json.decode(str));
 

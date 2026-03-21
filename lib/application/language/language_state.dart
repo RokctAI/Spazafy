@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-
 part 'language_state.freezed.dart';
+
 
 @freezed
 class LanguageState with _$LanguageState {

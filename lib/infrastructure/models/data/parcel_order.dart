@@ -1,10 +1,10 @@
+import 'package:rokctapp/infrastructure/models/data/review_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/infrastructure/models/response/parcel_response.dart';
 // To parse this JSON data, do
 //
 //     final parcelOrder = parcelOrderFromJson(jsonString);
 
-import 'package:rokctapp/infrastructure/models/data/review_data.dart';
-import 'package:rokctapp/infrastructure/models/data/user.dart';
-import 'package:rokctapp/infrastructure/models/response/parcel_response.dart';
 
 class ParcelOrder {
   String? id;

@@ -5,8 +5,8 @@ import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
-
 import 'order_state.dart';
+
 
 class OrderNotifier extends StateNotifier<OrderState> {
   final OrdersRepositoryFacade _orderRepository;

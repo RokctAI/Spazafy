@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,6 +15,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/typing_delay.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'shop_order_state.dart';
+
 
 class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
   final CartRepositoryFacade _cartRepository;

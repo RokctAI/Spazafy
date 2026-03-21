@@ -1,5 +1,3 @@
-// lib/infrastructure/utils/brand_utils.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -7,6 +5,8 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/application/shop/shop_provider.dart';
+// lib/infrastructure/utils/brand_utils.dart
+
 
 class BrandUtils {
   /// Get brand from product using brand ID and provider references

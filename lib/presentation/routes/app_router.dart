@@ -53,8 +53,8 @@ import 'package:rokctapp/presentation/pages/loans/widgets/loan_eligibility_scree
 import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
 import 'package:rokctapp/presentation/pages/pages_driver.dart';
 import 'package:rokctapp/presentation/pages/pages_manager.dart';
-
 part 'app_router.gr.dart';
+
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {

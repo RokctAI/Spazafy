@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -8,13 +6,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/presentation/pages/home/driver/widgets/foods_page.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'buttons/custom_button.dart';
 import 'image_dialog.dart';
 import 'order_item.dart';
+// ignore_for_file: use_build_context_synchronously
+
+
 
 class OrderDetail extends StatelessWidget {
   final OrderDetailData order;

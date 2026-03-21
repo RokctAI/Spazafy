@@ -1,10 +1,10 @@
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-
 import 'edit_food_stocks_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 
 class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
   final ProductsInterface _productsRepository;

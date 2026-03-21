@@ -8,9 +8,9 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/badge_item.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'two_bonus_discount.dart';
+
 
 class MarketTwoItem extends StatelessWidget {
   final ShopData shop;

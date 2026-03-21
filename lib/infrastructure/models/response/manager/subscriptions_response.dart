@@ -1,5 +1,5 @@
-
 import 'package:rokctapp/infrastructure/models/data/manager/subscriptions_data.dart';
+
 
 class SubscriptionResponse {
   DateTime? timestamp;

@@ -6,8 +6,8 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-
 import 'search_state.dart';
+
 
 class SearchNotifier extends StateNotifier<SearchState> {
   final ShopsRepositoryFacade _shopsRepository;

@@ -24,10 +24,8 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/repositories/loans_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/wallet_repository.dart';
 import 'package:rokctapp/domain/handlers/http_service.dart';
-
 import 'package:rokctapp/infrastructure/repositories/delivery_points_repository.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
-
 import 'package:rokctapp/infrastructure/repositories/mock/mock_auth_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/mock/mock_settings_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/mock/mock_shops_repository.dart';
@@ -38,19 +36,21 @@ import 'package:rokctapp/infrastructure/repositories/mock/mock_cart_repository.d
 import 'package:rokctapp/infrastructure/repositories/mock/mock_orders_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/mock/mock_address_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/mock/mock_brands_repository.dart';
-
-// Driver specific imports
 import 'package:rokctapp/domain/handlers/driver/handlers.dart' as driver_handlers;
 import 'package:rokctapp/domain/interface/interfaces.dart' as driver_interfaces;
 import 'package:rokctapp/infrastructure/repositories/driver/repositories.dart' as driver_repos;
-
-// Manager specific imports
 import 'package:rokctapp/domain/interface/interfaces.dart' as manager_interfaces;
 import 'package:rokctapp/domain/interface/manager_payment.dart';
 import 'package:rokctapp/domain/interface/manager_subscription.dart';
 import 'package:rokctapp/domain/interface/manager_table.dart';
 import 'package:rokctapp/infrastructure/repositories/manager/repositories.dart' as manager_repos;
 import 'package:rokctapp/presentation/routes/app_router.dart';
+
+
+
+// Driver specific imports
+
+// Manager specific imports
 
 final GetIt getIt = GetIt.instance;
 

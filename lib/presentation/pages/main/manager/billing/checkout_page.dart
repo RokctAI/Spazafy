@@ -10,8 +10,8 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/pay_verification_helper.dart';
+
 
 class ManagerCheckoutPage extends ConsumerStatefulWidget {
   const ManagerCheckoutPage({super.key});

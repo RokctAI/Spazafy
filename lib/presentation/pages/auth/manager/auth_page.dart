@@ -4,13 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:rokctapp/presentation/pages/profile/language_page.dart';
-
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 import 'package:rokctapp/presentation/pages/auth/login/login_screen.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
 
 @RoutePage()
 class ManagerAuthPage extends ConsumerStatefulWidget {

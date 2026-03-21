@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
-
 import 'package:rokctapp/presentation/theme/app_style.dart';
+
 
 class CategoryTwoItem extends StatelessWidget {
   final String image;

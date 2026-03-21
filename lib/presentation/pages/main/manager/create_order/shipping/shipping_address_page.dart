@@ -7,13 +7,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rokctapp/application/order/manager/shipping/section/section_provider.dart';
 import 'package:rokctapp/application/order/manager/shipping/table/table_provider.dart';
-
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/delivery_type_item.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
 
 @RoutePage()
 class ShippingAddressPage extends StatefulWidget {

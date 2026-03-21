@@ -1,7 +1,7 @@
-
-
 import 'package:rokctapp/infrastructure/models/data/manager/meta.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
+
+
 
 class ProductsPaginateResponse {
   ProductsPaginateResponse({List<ProductData>? data, Meta? meta}) {

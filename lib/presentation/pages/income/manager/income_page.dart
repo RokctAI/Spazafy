@@ -1,6 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-
-// import 'package:charts_flutter_new/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,6 +10,8 @@ import 'widgets/order_prices_section.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'app_bar_screen.dart';
+
+// import 'package:charts_flutter_new/flutter.dart';
 
 @RoutePage()
 class ManagerIncomePage extends ConsumerStatefulWidget {

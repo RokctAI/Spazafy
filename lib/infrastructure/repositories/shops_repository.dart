@@ -1,4 +1,3 @@
-﻿import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -6,6 +5,7 @@ import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/data/filter_model.dart';
+﻿import 'package:flutter/material.dart';
 
 class ShopsRepository implements ShopsRepositoryFacade {
   @override

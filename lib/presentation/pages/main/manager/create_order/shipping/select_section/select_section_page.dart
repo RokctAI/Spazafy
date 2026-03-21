@@ -5,10 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/order/manager/shipping/section/section_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-
 import 'widgets/section_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
+
 
 @RoutePage()
 class SelectSectionPage extends ConsumerStatefulWidget {

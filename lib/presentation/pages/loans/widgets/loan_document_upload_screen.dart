@@ -1,3 +1,21 @@
+import 'dart:io';
+import 'package:auto_route/auto_route.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rokctapp/infrastructure/models/data/loans/loan_application.dart';
+import 'package:rokctapp/infrastructure/repositories/loans_repository.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
+import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
+import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/pages/loans/provider/loans_provider.dart';
 // Copyright (c) 2024 RokctAI
 //
 // This program is free software: you can redistribute it and/or modify
@@ -13,26 +31,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'dart:io';
-import 'package:auto_route/auto_route.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:path/path.dart' as path;
 
-import 'package:rokctapp/infrastructure/models/data/loans/loan_application.dart';
-import 'package:rokctapp/infrastructure/repositories/loans_repository.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
-import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/presentation/pages/loans/provider/loans_provider.dart';
 
 @RoutePage()
 class LoanDocumentUploadScreen extends ConsumerStatefulWidget {

@@ -4,13 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/order/manager/shipping/section/section_provider.dart';
 import 'package:rokctapp/application/order/manager/shipping/table/table_provider.dart';
-
 import 'widgets/payment_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/create_order/order/widgets/title_price.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
 
 @RoutePage()
 class DeliveryTimePage extends ConsumerStatefulWidget {

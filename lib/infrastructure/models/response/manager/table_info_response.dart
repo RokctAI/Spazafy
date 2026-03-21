@@ -1,5 +1,5 @@
-
 import 'package:rokctapp/infrastructure/models/data/manager/table_info_data.dart';
+
 class TableInfoResponse {
   DateTime timestamp;
   bool status;

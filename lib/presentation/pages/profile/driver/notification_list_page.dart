@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,6 +12,8 @@ import 'package:rokctapp/presentation/components/driver/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
+// ignore_for_file: deprecated_member_use
+
 
 @RoutePage()
 class DriverNotificationListPage extends ConsumerStatefulWidget {

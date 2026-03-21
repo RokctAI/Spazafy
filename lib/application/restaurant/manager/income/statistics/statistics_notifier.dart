@@ -1,10 +1,10 @@
-// import 'package:charts_flutter_new/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'statistics_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
+// import 'package:charts_flutter_new/flutter.dart';
 
 class StatisticsNotifier extends StateNotifier<StatisticsState> {
   final UsersInterface _usersRepository;

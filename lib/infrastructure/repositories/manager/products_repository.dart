@@ -251,8 +251,6 @@ class ProductsRepository implements ProductsInterface {
         data: data,
         queryParameters: {'uuid': uuid},
       );
-        data: {...data, 'product_id': uuid},
-      );
       return ApiResult.success(
         data: SingleProductResponse.fromJson(response.data),
       );

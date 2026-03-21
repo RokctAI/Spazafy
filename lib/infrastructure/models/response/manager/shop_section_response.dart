@@ -1,5 +1,5 @@
-
 import 'package:rokctapp/infrastructure/models/data/manager/table_data.dart';
+
 
 class ShopSectionResponse {
   List<ShopSection>? data;

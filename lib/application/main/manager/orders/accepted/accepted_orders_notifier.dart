@@ -1,10 +1,10 @@
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'accepted_orders_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
 
 class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
   final OrdersInterface _ordersRepository;

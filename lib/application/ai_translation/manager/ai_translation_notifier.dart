@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
-final settingsRepository = managerSettingsRepository;
 import 'package:rokctapp/infrastructure/models/models_manager.dart';
 import 'ai_translation_state.dart';
+
+
+final settingsRepository = managerSettingsRepository;
 
 class AiTranslationNotifier extends StateNotifier<AiTranslationState> {
   AiTranslationNotifier() : super(const AiTranslationState());

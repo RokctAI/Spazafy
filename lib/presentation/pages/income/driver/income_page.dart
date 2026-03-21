@@ -5,13 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/statistics/driver/statistics_provider.dart';
 import 'package:rokctapp/application/statistics/driver/statistics_state.dart';
-
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'app_bar_screen.dart';
 import 'statistics_screen.dart';
 import 'widgets/income_item.dart';
+
 
 @RoutePage()
 class DriverIncomePage extends ConsumerStatefulWidget {

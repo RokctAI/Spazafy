@@ -1,12 +1,12 @@
 import 'dart:async';
-
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/application/profile/driver/state/profile_edit_state.dart';
+
+
 
 class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
   final UserRepository _userRepository;

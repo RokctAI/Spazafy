@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +15,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'package:rokctapp/application/main/main_provider.dart';
 import 'register_confirmation_state.dart';
+
 
 class RegisterConfirmationNotifier
     extends StateNotifier<RegisterConfirmationState> {

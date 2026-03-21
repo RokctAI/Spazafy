@@ -1,3 +1,16 @@
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/data/loans/loan_contract_model.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/domain/handlers/handlers.dart';
+import 'dart:math';
+import 'package:payfast/payfast.dart';
+import 'package:rokctapp/domain/interface/loans.dart';
+import 'package:rokctapp/utils/payfast/payfast_webview.dart';
+import 'package:rokctapp/infrastructure/models/data/loans/loan_application.dart';
 ﻿// Copyright (c) 2024 RokctAI
 //
 // This program is free software: you can redistribute it and/or modify
@@ -13,19 +26,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/data/loans/loan_contract_model.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'dart:math';
-import 'package:payfast/payfast.dart';
-import 'package:rokctapp/domain/interface/loans.dart';
-import 'package:rokctapp/utils/payfast/payfast_webview.dart';
-import 'package:rokctapp/infrastructure/models/data/loans/loan_application.dart';
 
 class LoansRepository implements LoansRepositoryFacade {
   @override

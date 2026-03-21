@@ -1,5 +1,3 @@
-// ignore_for_file: unused_result
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -14,9 +12,11 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'widgets/chat_item.dart';
+// ignore_for_file: unused_result
+
+
 
 @RoutePage()
 class ChatPage extends ConsumerStatefulWidget {

@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,6 +11,8 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_details_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
+// ignore_for_file: deprecated_member_use
+
 
 @RoutePage()
 class ManagerNotificationListPage extends ConsumerStatefulWidget {

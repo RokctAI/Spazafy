@@ -1,10 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'widgets/food_extras.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/food_price_widget.dart';
@@ -13,6 +11,8 @@ import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'widgets/w_ingredient.dart';
+
+
 
 class FoodDetailsModal extends ConsumerStatefulWidget {
   final ProductData product;

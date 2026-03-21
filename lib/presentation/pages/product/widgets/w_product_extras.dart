@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-
 import 'package:rokctapp/application/product/product_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
 import 'package:rokctapp/presentation/components/extras/color_extras.dart';
 import 'package:rokctapp/presentation/components/extras/image_extras.dart';
 import 'package:rokctapp/presentation/components/extras/text_extras.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
+
 
 class WProductExtras extends ConsumerWidget {
   const WProductExtras({super.key});

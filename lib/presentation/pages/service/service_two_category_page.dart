@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,8 +6,10 @@ import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-
 import 'filter_category_service.dart';
+// ignore_for_file: deprecated_member_use
+
+
 
 @RoutePage()
 class ServiceTwoCategoryPage extends ConsumerStatefulWidget {

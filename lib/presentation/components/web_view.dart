@@ -1,3 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/application/webview/preloaded_webview_provider.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 // Copyright (c) 2024 RokctAI
 //
 // This program is free software: you can redistribute it and/or modify
@@ -13,12 +19,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'package:flutter/material.dart';
-import 'package:rokctapp/app_constants.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/application/webview/preloaded_webview_provider.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class WebViewPage extends StatefulWidget {
   final String url;

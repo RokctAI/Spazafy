@@ -1,3 +1,13 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/application/splash/splash_provider.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 // Copyright (c) 2024 RokctAI
 //
 // This program is free software: you can redistribute it and/or modify
@@ -13,16 +23,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/application/splash/splash_provider.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 @RoutePage()
 class SplashPage extends ConsumerStatefulWidget {

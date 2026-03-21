@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'stocks/edit_food_stocks_body.dart';
 import 'details/edit_food_details_body.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
 
 class EditProductModal extends StatefulWidget {
   final ProductData product;

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'intro_state.freezed.dart';
+
 
 @freezed
 class IntroState with _$IntroState {

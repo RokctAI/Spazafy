@@ -1,8 +1,8 @@
-﻿import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/categories.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+﻿import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 class CategoriesRepository implements CategoriesRepositoryFacade {
   @override

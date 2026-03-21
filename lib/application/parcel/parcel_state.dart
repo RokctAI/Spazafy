@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-
 part 'parcel_state.freezed.dart';
+
 
 @freezed
 class ParcelState with _$ParcelState {

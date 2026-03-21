@@ -1,7 +1,7 @@
 import 'dart:convert';
-
 import 'package:rokctapp/infrastructure/models/data/driver/request_model_data.dart';
 import 'parcel_response.dart';
+
 
 RequestModelResponse requestModelResponseFromJson(String str) =>
     RequestModelResponse.fromJson(json.decode(str));

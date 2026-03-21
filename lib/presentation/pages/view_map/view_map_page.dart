@@ -1,11 +1,9 @@
-// ignore_for_file: prefer_interpolation_to_compose_strings, use_build_context_synchronously
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocoding/geocoding.dart';
@@ -32,8 +30,10 @@ import 'package:rokctapp/application/map/view_map_provider.dart';
 import 'package:rokctapp/application/poidata/poi_data_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/poi_data.dart';
 import 'package:lottie/lottie.dart' as lottie;
-
 import 'package:rokctapp/app_constants.dart';
+// ignore_for_file: prefer_interpolation_to_compose_strings, use_build_context_synchronously
+//import 'package:flutter_svg/flutter_svg.dart';
+
 
 @RoutePage()
 class ViewMapPage extends ConsumerStatefulWidget {

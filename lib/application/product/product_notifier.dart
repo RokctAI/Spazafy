@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/products.dart';
@@ -15,6 +14,7 @@ import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'product_state.dart';
+
 
 class ProductNotifier extends StateNotifier<ProductState> {
   final ProductsRepositoryFacade _productsRepository;
