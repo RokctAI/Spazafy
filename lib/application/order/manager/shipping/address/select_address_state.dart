@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:osm_nominatim/osm_nominatim.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import 'package:rokctapp/infrastructure/models/models.dart';
-
 part 'select_address_state.freezed.dart';
+
+
 
 @freezed
 abstract class SelectAddressState with _$SelectAddressState {

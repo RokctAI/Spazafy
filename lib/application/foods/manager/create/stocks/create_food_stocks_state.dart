@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:rokctapp/infrastructure/models/models.dart';
-
 part 'create_food_stocks_state.freezed.dart';
+
+
 
 @freezed
 abstract class CreateFoodStocksState with _$CreateFoodStocksState {

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'products_state.freezed.dart';
+
 
 @freezed
 abstract class ProductsState with _$ProductsState {

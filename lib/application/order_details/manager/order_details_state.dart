@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:rokctapp/infrastructure/models/models.dart';
-
 part 'order_details_state.freezed.dart';
+
+
 
 @freezed
 abstract class OrderDetailsState with _$OrderDetailsState {

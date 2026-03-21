@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'create_order_state.freezed.dart';
+
 
 @freezed
 abstract class CreateOrderState with _$CreateOrderState {

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'edit_addon_state.freezed.dart';
+
 
 @freezed
 abstract class EditAddonState with _$EditAddonState {

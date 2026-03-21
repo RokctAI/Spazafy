@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-
 part 'edit_food_stocks_state.freezed.dart';
+
 
 @freezed
 abstract class EditFoodStocksState with _$EditFoodStocksState {

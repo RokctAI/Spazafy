@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'food_state.freezed.dart';
+
 
 @freezed
 abstract class FoodState with _$FoodState {

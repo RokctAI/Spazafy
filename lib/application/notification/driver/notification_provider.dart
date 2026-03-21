@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-
-final notificationRepositoryFacade = driverNotificationRepo;
 import 'notification_notifier.dart';
 import 'notification_state.dart';
+
+final notificationRepositoryFacade = driverNotificationRepo;
 
 final notificationProvider =
     StateNotifierProvider<NotificationNotifier, NotificationState>(

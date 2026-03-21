@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'edit_extras_item_state.freezed.dart';
+
 
 @freezed
 abstract class EditExtrasItemState with _$EditExtrasItemState {

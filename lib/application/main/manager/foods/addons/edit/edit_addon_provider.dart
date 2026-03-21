@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'edit_addon_state.dart';
 import 'edit_addon_notifier.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
+
 
 final editAddonProvider =
     StateNotifierProvider<EditAddonNotifier, EditAddonState>(

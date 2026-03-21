@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'create_addon_state.freezed.dart';
+
 
 @freezed
 abstract class CreateAddonState with _$CreateAddonState {

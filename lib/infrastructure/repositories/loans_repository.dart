@@ -11,7 +11,7 @@ import 'package:payfast/payfast.dart';
 import 'package:rokctapp/domain/interface/loans.dart';
 import 'package:rokctapp/utils/payfast/payfast_webview.dart';
 import 'package:rokctapp/infrastructure/models/data/loans/loan_application.dart';
-﻿// Copyright (c) 2024 RokctAI
+// Copyright (c) 2024 RokctAI
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
