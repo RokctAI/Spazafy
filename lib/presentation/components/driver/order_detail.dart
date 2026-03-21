@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/presentation/pages/home/driver/widgets/foods_page.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';

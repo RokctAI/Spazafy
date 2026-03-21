@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class FoodsPage extends ConsumerStatefulWidget {
   final OrderDetailData order;
@@ -180,7 +180,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                         : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount ? AppStyle.redColor : AppStyle.black,
+                            color: isDiscount ? AppStyle.red : AppStyle.black,
                           ),
                   ),
                   Text(
@@ -191,7 +191,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                         : AppStyle.interNormal(
                             size: 14.sp,
                             letterSpacing: -0.3,
-                            color: isDiscount ? AppStyle.redColor : AppStyle.black,
+                            color: isDiscount ? AppStyle.red : AppStyle.black,
                           ),
                   ),
                 ],

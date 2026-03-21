@@ -12,7 +12,7 @@ import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
 import 'package:rokctapp/presentation/components/helper/manager/no_data_info.dart';
 import 'package:rokctapp/presentation/components/loading/manager/loading_grid.dart';
 import 'package:rokctapp/presentation/pages/restaurant/manager/subscriptions/widgets/have_subscription.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/payment_dialog.dart';
 import 'widgets/subscriptions_item.dart';
 

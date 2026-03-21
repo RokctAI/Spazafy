@@ -6,7 +6,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/animation_button_effect.dart';
 
@@ -66,7 +66,7 @@ class CommonImage extends StatelessWidget {
                                   AppHelpers.getAppName(),
                                 ),
                                 style: AppStyle.interNormal(
-                                  color: AppStyle.textColor,
+                                  color: AppStyle.textGrey,
                                   size: 12,
                                 ),
                               ),
@@ -152,7 +152,7 @@ class CommonImage extends StatelessWidget {
                         child: Text(
                           AppHelpers.getTranslation(AppHelpers.getAppName()),
                           style: AppStyle.interNormal(
-                            color: AppStyle.textColor,
+                            color: AppStyle.textGrey,
                             size: 12,
                           ),
                         ),
@@ -162,7 +162,7 @@ class CommonImage extends StatelessWidget {
               errorWidget: (_, _, _) => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(errorRadius.r),
-                  color: errorBackground ?? AppStyle.greyColor,
+                  color: errorBackground ?? AppStyle.bgGrey,
                 ),
                 alignment: Alignment.center,
                 child: title?.isNotEmpty ?? false

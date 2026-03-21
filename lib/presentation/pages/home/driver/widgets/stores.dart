@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class StoresPage extends StatelessWidget {
   final String image;
@@ -48,7 +48,7 @@ class StoresPage extends StatelessWidget {
                 height: 176.h,
                 width: 100.w,
                 decoration: BoxDecoration(
-                  color: AppStyle.greyColor,
+                  color: AppStyle.bgGrey,
                   borderRadius: BorderRadius.circular(16.r),
                 ),
                 alignment: Alignment.center,

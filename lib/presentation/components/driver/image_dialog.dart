@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 import 'common_image.dart';
 

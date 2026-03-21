@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -77,7 +77,7 @@ class EditableFoodStockItem extends StatelessWidget {
                       margin: REdgeInsets.only(left: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(6.r),
-                        color: AppStyle.greyColor,
+                        color: AppStyle.bgGrey,
                       ),
                       alignment: Alignment.center,
                       child: Icon(FlutterRemix.delete_bin_line, size: 18.r),

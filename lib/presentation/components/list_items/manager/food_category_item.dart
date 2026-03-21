@@ -3,7 +3,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class FoodCategoryItem extends StatelessWidget {
@@ -51,7 +51,7 @@ class FoodCategoryItem extends StatelessWidget {
                             border: Border.all(
                               color: isSelected
                                   ? AppStyle.blackColor
-                                  : AppStyle.textColor,
+                                  : AppStyle.textGrey,
                               width: isSelected ? 4 : 2,
                             ),
                           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class TextExtrasItem extends StatelessWidget {
   final VoidCallback onTap;
@@ -44,7 +44,7 @@ class TextExtrasItem extends StatelessWidget {
                       border: Border.all(
                         color: isActive
                             ? AppStyle.blackColor
-                            : AppStyle.greyColor,
+                            : AppStyle.bgGrey,
                         width: isActive ? 4.r : 2.r,
                       ),
                     ),
@@ -64,7 +64,7 @@ class TextExtrasItem extends StatelessWidget {
                   children: [
                     16.verticalSpace,
                     Divider(
-                      color: AppStyle.textColor.withOpacity(0.1),
+                      color: AppStyle.textGrey.withOpacity(0.1),
                       height: 1.r,
                       thickness: 1.r,
                     ),

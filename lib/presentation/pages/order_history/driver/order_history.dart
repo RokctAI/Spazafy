@@ -15,7 +15,7 @@ import 'package:rokctapp/application/order/driver/all_order/order_provider.dart'
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 import 'package:rokctapp/application/order/driver/progress_ordedr/progress_order_provider.dart';
 
@@ -90,7 +90,7 @@ class _DriverOrderHistoryPageState extends ConsumerState<DriverOrderHistoryPage>
   Widget build(BuildContext context) {
     final state = ref.watch(orderProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
           CustomAppBar(

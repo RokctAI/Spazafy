@@ -8,7 +8,7 @@ import 'package:rokctapp/presentation/components/manager/filter_screen.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 class MoreOrders extends ConsumerStatefulWidget {

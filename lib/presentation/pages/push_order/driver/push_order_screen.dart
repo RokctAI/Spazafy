@@ -10,7 +10,7 @@ import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class PushOrder extends ConsumerStatefulWidget {
   final OrderDetailData pushModel;
@@ -291,7 +291,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.bgGrey,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(
@@ -394,7 +394,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.bgGrey,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(

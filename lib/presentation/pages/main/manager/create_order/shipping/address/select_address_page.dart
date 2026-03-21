@@ -11,7 +11,7 @@ import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'searched_location_item.dart';
 
 @RoutePage()
@@ -43,7 +43,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
   Widget build(BuildContext context) {
     return KeyboardDisable(
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         resizeToAvoidBottomInset: false,
         body: Consumer(
           builder: (context, ref, child) {
@@ -118,7 +118,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                       decoration: BoxDecoration(
                         boxShadow: const <BoxShadow>[
                           BoxShadow(
-                            color: AppStyle.bgColor,
+                            color: AppStyle.redBg,
                             offset: Offset(0, 2),
                             blurRadius: 2,
                             spreadRadius: 0,
@@ -132,7 +132,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                           Icon(
                             FlutterRemix.search_line,
                             size: 20.r,
-                            color: AppStyle.iconsColor,
+                            color: AppStyle.black,
                           ),
                           12.horizontalSpace,
                           Expanded(
@@ -141,7 +141,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,
-                                color: AppStyle.iconsColor,
+                                color: AppStyle.black,
                                 letterSpacing: -0.5,
                               ),
                               onChanged: (value) {
@@ -169,7 +169,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                             icon: Icon(
                               FlutterRemix.close_line,
                               size: 20.r,
-                              color: AppStyle.iconsColor,
+                              color: AppStyle.black,
                             ),
                           ),
                         ],

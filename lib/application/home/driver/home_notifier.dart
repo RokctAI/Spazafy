@@ -12,7 +12,7 @@ final parcelRepository = driverParcelRepository;
 final settingsRepository = driverSettingsRepository;
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'home_state.dart';
 

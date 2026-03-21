@@ -11,7 +11,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class BarCodeScreen extends StatelessWidget {
   const BarCodeScreen({super.key});
@@ -41,7 +41,7 @@ class BarCodeScreen extends StatelessWidget {
               children: [
                 const Icon(
                   FlutterRemix.error_warning_fill,
-                  color: AppStyle.blueColor,
+                  color: AppStyle.blue,
                 ),
                 12.horizontalSpace,
                 RichText(

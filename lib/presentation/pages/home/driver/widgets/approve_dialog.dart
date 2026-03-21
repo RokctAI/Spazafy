@@ -8,7 +8,7 @@ import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ApproveOrderDialog extends StatelessWidget {
   final OrderDetailData? order;
@@ -40,7 +40,7 @@ class ApproveOrderDialog extends StatelessWidget {
               Expanded(
                 child: CustomButton(
                   title: AppHelpers.getTranslation(TrKeys.cancel),
-                  background: AppStyle.redColor,
+                  background: AppStyle.red,
                   textColor: AppStyle.white,
                   onPressed: () {
                     Navigator.pop(context);

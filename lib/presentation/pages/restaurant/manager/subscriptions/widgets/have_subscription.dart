@@ -4,7 +4,7 @@ import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart'
 import 'package:rokctapp/infrastructure/services/utils/manager/date_service.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class HaveSubscription extends StatelessWidget {
   const HaveSubscription({super.key});
@@ -85,7 +85,7 @@ class HaveSubscription extends StatelessWidget {
               DateService.dateFormatForNotification(
                 LocalStorage.getShop()?.subscription?.createdAt,
               ),
-              style: AppStyle.interNormal(size: 12, color: AppStyle.textColor),
+              style: AppStyle.interNormal(size: 12, color: AppStyle.textGrey),
             ),
           ),
         ],

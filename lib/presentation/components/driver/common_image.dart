@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class CommonImage extends StatelessWidget {
   final String? imageUrl;
@@ -56,7 +56,7 @@ class CommonImage extends StatelessWidget {
               errorWidget: (_, _, _) => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.r),
-                  color: errorBackground ?? AppStyle.greyColor,
+                  color: errorBackground ?? AppStyle.bgGrey,
                 ),
                 alignment: Alignment.center,
                 child: Icon(

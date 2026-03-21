@@ -1,6 +1,6 @@
 import 'package:charts_flutter/flutter.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';

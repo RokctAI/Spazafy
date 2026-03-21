@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class ModalDrag extends StatelessWidget {
   const ModalDrag({super.key});
@@ -18,7 +18,7 @@ class ModalDrag extends StatelessWidget {
             height: 4.r,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(40.r),
-              color: AppStyle.bottomSheetIconColor,
+              color: AppStyle.dragElement,
             ),
           ),
           18.verticalSpace,

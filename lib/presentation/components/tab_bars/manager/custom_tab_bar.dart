@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class CustomTabBar extends StatelessWidget {
   final TabController? tabController;
@@ -26,7 +26,7 @@ class CustomTabBar extends StatelessWidget {
           color: AppStyle.blackColor,
         ),
         labelColor: AppStyle.white,
-        unselectedLabelColor: AppStyle.textColor,
+        unselectedLabelColor: AppStyle.textGrey,
         unselectedLabelStyle: AppStyle.interRegular(size: 14),
         labelStyle: AppStyle.interSemi(size: 14),
         tabs: tabs,

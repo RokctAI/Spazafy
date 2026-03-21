@@ -11,7 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:proste_indexed_stack/proste_indexed_stack.dart';
 
 import 'foods/foods_page.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'orders/orders_home_page.dart';
 import 'billing/home_page.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';

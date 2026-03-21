@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/statistics_item.dart';
 
 class StatisticsScreen extends StatelessWidget {
@@ -101,7 +101,7 @@ class StatisticsScreen extends StatelessWidget {
                         title: AppHelpers.getTranslation(TrKeys.acceptedOrders),
                         count: acceptedOrders,
                         percentage: acceptedPer == "NaN%" ? "0%" : acceptedPer,
-                        bgColor: AppStyle.greenColor,
+                        bgColor: AppStyle.green,
                         textColor: AppStyle.white,
                         iconColor: AppStyle.white.withValues(alpha: 0.54),
                       ),
@@ -110,7 +110,7 @@ class StatisticsScreen extends StatelessWidget {
                         title: AppHelpers.getTranslation(TrKeys.rejectedOrders),
                         count: rejectedOrders,
                         percentage: rejectedPer == "NaN%" ? "0%" : rejectedPer,
-                        bgColor: AppStyle.redColor,
+                        bgColor: AppStyle.red,
                         textColor: AppStyle.white,
                         iconColor: AppStyle.white.withValues(alpha: 0.54),
                       ),

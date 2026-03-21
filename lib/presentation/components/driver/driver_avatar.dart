@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'common_image.dart';
 
 class DriverAvatar extends StatelessWidget {
@@ -32,7 +32,7 @@ class DriverAvatar extends StatelessWidget {
             left: 2.w,
             child: Container(
               decoration: BoxDecoration(
-                color: AppStyle.orangeColor,
+                color: AppStyle.pendingDark,
                 borderRadius: BorderRadius.circular(10.r),
                 border: Border.all(color: AppStyle.white, width: 2),
               ),

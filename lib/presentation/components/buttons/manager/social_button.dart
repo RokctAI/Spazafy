@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'buttons_bouncing_effect.dart';
 
 class SocialButton extends StatelessWidget {
@@ -33,7 +33,7 @@ class SocialButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(iconData, color: AppStyle.textColor, size: 16.r),
+              Icon(iconData, color: AppStyle.textGrey, size: 16.r),
               8.horizontalSpace,
               isLoading
                   ? SizedBox(
@@ -48,7 +48,7 @@ class SocialButton extends StatelessWidget {
                       title,
                       style: AppStyle.interNormal(
                         size: 12,
-                        color: AppStyle.textColor,
+                        color: AppStyle.textGrey,
                       ),
                     ),
             ],

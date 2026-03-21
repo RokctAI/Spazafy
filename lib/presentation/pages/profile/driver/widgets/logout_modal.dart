@@ -6,7 +6,7 @@ import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class LogoutModal extends StatelessWidget {
   final bool isDeleteAccount;
@@ -47,7 +47,7 @@ class LogoutModal extends StatelessWidget {
                   builder: (context, ref, child) {
                     if (isDeleteAccount) {
                       return CustomButton(
-                        background: AppStyle.redColor,
+                        background: AppStyle.red,
                         textColor: AppStyle.white,
                         title: AppHelpers.getTranslation(TrKeys.deleteAccount),
                         onPressed: () {

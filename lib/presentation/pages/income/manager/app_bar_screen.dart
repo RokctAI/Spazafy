@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/restaurant/manager/income/statistics/statistics_notifier.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
@@ -59,7 +59,7 @@ class AppbarScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(10.r),
                 decoration: const BoxDecoration(
-                  color: AppStyle.greyColor,
+                  color: AppStyle.bgGrey,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(

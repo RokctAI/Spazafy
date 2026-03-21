@@ -10,7 +10,7 @@ import 'package:rokctapp/presentation/components/driver/loading.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'parcel_item.dart';
 
 @RoutePage()
@@ -64,7 +64,7 @@ class _DriverParcelsPageState extends ConsumerState<DriverParcelsPage>
   Widget build(BuildContext context) {
     final state = ref.watch(parcelProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
           CustomAppBar(

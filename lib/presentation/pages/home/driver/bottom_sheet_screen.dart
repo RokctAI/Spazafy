@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:rokctapp/application/profile/driver/provider/profile_settings_provider.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/stores.dart';
 
 class BottomSheetScreen extends StatefulWidget {
@@ -35,7 +35,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
         height: 336.h,
         width: MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
-          color: AppStyle.greyColor,
+          color: AppStyle.bgGrey,
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(12.r),
             topLeft: Radius.circular(12.r),
@@ -60,7 +60,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
               height: 4.h,
               width: 48.w,
               decoration: BoxDecoration(
-                color: AppStyle.bottomSheetIconColor,
+                color: AppStyle.dragElement,
                 borderRadius: BorderRadius.circular(40.r),
               ),
             ),

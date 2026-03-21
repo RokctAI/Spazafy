@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'bar_code_screen.dart';
 
 class FreeLunchScreen extends StatelessWidget {
@@ -34,7 +34,7 @@ class FreeLunchScreen extends StatelessWidget {
                         height: 48.r,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppStyle.orangeColor,
+                          color: AppStyle.pendingDark,
                         ),
                         child: Center(
                           child: Text(

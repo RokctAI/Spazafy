@@ -3,7 +3,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'driver_avatar.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
@@ -80,7 +80,7 @@ class OrdersItem extends StatelessWidget {
                               vertical: 6.h,
                             ),
                             decoration: BoxDecoration(
-                              color: AppStyle.greyColor,
+                              color: AppStyle.bgGrey,
                               borderRadius: BorderRadius.circular(100.r),
                             ),
                             child: Row(
@@ -102,7 +102,7 @@ class OrdersItem extends StatelessWidget {
                 ),
               ],
             ),
-            const Divider(color: AppStyle.greyColor),
+            const Divider(color: AppStyle.bgGrey),
             IntrinsicHeight(
               child: Row(
                 children: [
@@ -113,7 +113,7 @@ class OrdersItem extends StatelessWidget {
                       color: AppStyle.blackColor,
                     ),
                   ),
-                  const VerticalDivider(color: AppStyle.greyColor),
+                  const VerticalDivider(color: AppStyle.bgGrey),
                   Text(
                     time,
                     style: AppStyle.interNormal(

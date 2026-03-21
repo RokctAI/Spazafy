@@ -77,6 +77,27 @@ abstract class AppStyle {
   static const Color shadow = Color(0x3FD8D8D8);
   static const Color shadowBottom = Color(0x33000000);
 
+  // --- Merged from Driver & Manager ---
+  static const Color progressColor = Color(0xffF26110);
+  static const Color pendingDark = Color(0xFFF19204);
+  static const Color blackColor = Color(0xff000000);
+  static const Color blackColorOpacity = Color(0x06000000);
+  static const Color iconColor = Color(0xffC4C4C4);
+  static const Color toggleColor = Color(0xFFE7E7E7);
+  static const Color toggleShadowColor = Color(0xFF6B6B6B);
+  static const Color logOutBgColor = Color(0xFFB9B9B9);
+  static const Color addCountColor = Color(0xFFF7F7F7);
+  static const Color discountColor = Color(0xFFF3F3F3);
+  static const Color shadowColor = Color(0xFF7D7D7D);
+  static const Color green = Color(0xFF16AA16);
+  static const Color pending = Color(0xFFFEFAF2);
+  static const Color deepPurple = Color(0xFF673AB7);
+  
+  static List<Color> primaryGradient = [
+    AppStyle.primary.withOpacity(0.5),
+    AppStyle.transparent,
+  ];
+
   /// dark theme based colors
   static const Color mainBackDark = Color(0xFF1E272E);
   static const Color dontHaveAnAccBackDark = Color(0xFF2B343B);

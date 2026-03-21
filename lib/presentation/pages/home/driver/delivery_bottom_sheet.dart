@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/approve_dialog.dart';
 import 'widgets/foods_page.dart';
 import 'widgets/rate_customer.dart';
@@ -51,7 +51,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
               builder: (context, scrollController) => Container(
                 width: MediaQuery.sizeOf(context).width,
                 decoration: BoxDecoration(
-                  color: AppStyle.greyColor,
+                  color: AppStyle.bgGrey,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.r),
                     topLeft: Radius.circular(12.r),
@@ -80,7 +80,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                             (MediaQuery.sizeOf(context).width - 100.w) / 2,
                       ),
                       decoration: BoxDecoration(
-                        color: AppStyle.bottomSheetIconColor,
+                        color: AppStyle.dragElement,
                         borderRadius: BorderRadius.circular(40.r),
                       ),
                     ),
@@ -160,7 +160,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                     CustomButton(
                       title: AppHelpers.getTranslation(TrKeys.cancel),
                       textColor: Colors.white,
-                      background: AppStyle.redColor,
+                      background: AppStyle.red,
                       onPressed: () {
                         AppHelpers.showAlertDialog(
                           context: context,
@@ -213,7 +213,7 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                             title: AppHelpers.getTranslation(
                                               TrKeys.cancel,
                                             ),
-                                            background: AppStyle.redColor,
+                                            background: AppStyle.red,
                                             textColor: AppStyle.white,
                                             onPressed: () {
                                               Navigator.pop(context);

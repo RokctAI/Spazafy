@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class OutlinedBorderTextField extends StatelessWidget {
   final String? label;
@@ -127,9 +127,9 @@ class OutlinedBorderTextField extends StatelessWidget {
                   letterSpacing: -0.3,
                   size: 12,
                   color: isError
-                      ? AppStyle.redColor
+                      ? AppStyle.red
                       : isSuccess
-                      ? AppStyle.greyColor
+                      ? AppStyle.bgGrey
                       : AppStyle.pendingDark,
                 ),
               ),

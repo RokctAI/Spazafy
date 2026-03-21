@@ -6,7 +6,7 @@ import 'package:rokctapp/application/foods/manager/edit/details/kitchen/edit_foo
 
 import 'package:rokctapp/presentation/pages/main/manager/foods/edit/edit_product_modal.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 

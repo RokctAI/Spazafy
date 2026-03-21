@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart'
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class PaymentDialog extends ConsumerWidget {
   const PaymentDialog({super.key});

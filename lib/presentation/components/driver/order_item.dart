@@ -13,7 +13,7 @@ import 'package:rokctapp/presentation/components/driver/maps_list.dart';
 import 'package:rokctapp/application/home/driver/home_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 
 class OrderItem extends StatelessWidget {
@@ -306,7 +306,7 @@ class OrderItem extends StatelessWidget {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.bgGrey,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(
@@ -507,7 +507,7 @@ class OrderItem extends StatelessWidget {
                       width: 32.r,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppStyle.greyColor,
+                        color: AppStyle.bgGrey,
                       ),
                       alignment: Alignment.center,
                       child: const Icon(

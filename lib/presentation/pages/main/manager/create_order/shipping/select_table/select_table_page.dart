@@ -7,7 +7,7 @@ import 'package:rokctapp/application/order/manager/shipping/table/table_provider
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 import 'widgets/table_item.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 
 @RoutePage()
@@ -44,7 +44,7 @@ class _SelectTablePageState extends ConsumerState<SelectTablePage> {
   Widget build(BuildContext context) {
     return KeyboardDisable(
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         body: Consumer(
           builder: (context, ref, child) {
             final state = ref.watch(tableProvider);

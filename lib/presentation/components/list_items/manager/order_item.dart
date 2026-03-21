@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -100,7 +100,7 @@ class OrderItem extends StatelessWidget {
                 ],
               ),
               14.verticalSpace,
-              Divider(color: AppStyle.greyColor, thickness: 1.r, height: 1.r),
+              Divider(color: AppStyle.bgGrey, thickness: 1.r, height: 1.r),
               14.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

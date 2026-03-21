@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/application/delivery_zone/driver/delivery_zone_provider.dart';
 
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 
@@ -29,7 +29,7 @@ class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       resizeToAvoidBottomInset: false,
       body: Consumer(
         builder: (context, ref, child) {

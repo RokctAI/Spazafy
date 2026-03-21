@@ -8,7 +8,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rokctapp/application/order/manager/shipping/section/section_provider.dart';
 import 'package:rokctapp/application/order/manager/shipping/table/table_provider.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/delivery_type_item.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
@@ -43,7 +43,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
     return KeyboardDisable(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         body: Consumer(
           builder: (context, ref, child) {
             final deliveryEvent = ref.read(deliveryTypeProvider.notifier);

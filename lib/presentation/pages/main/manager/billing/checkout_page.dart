@@ -7,7 +7,7 @@ import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart
 import 'package:rokctapp/application/pos/pos_provider.dart';
 import 'package:rokctapp/printer/providers/billing_printer_provider.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
@@ -89,7 +89,7 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                   padding: EdgeInsets.all(12.r),
                   child: Row(
                     children: [
-                      const Icon(FlutterRemix.qr_code_line, color: AppStyle.blueColor),
+                      const Icon(FlutterRemix.qr_code_line, color: AppStyle.blue),
                       12.horizontalSpace,
                       Expanded(
                         child: Text(
@@ -120,24 +120,24 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                 24.verticalSpace,
                 CustomButton(
                   title: "I've Scanned, Wait for Code",
-                  background: AppStyle.blueColor.withOpacity(0.1),
-                  textColor: AppStyle.blueColor,
+                  background: AppStyle.blue.withOpacity(0.1),
+                  textColor: AppStyle.blue,
                   onPressed: () => setState(() => isWaitingForPayment = true),
                 ),
               ] else ...[
                 // 3. Enter OTP Section
                 Container(
                   decoration: BoxDecoration(
-                    color: AppStyle.blueColor.withOpacity(0.05),
+                    color: AppStyle.blue.withOpacity(0.05),
                     borderRadius: BorderRadius.circular(12.r),
-                    border: Border.all(color: AppStyle.blueColor.withOpacity(0.2)),
+                    border: Border.all(color: AppStyle.blue.withOpacity(0.2)),
                   ),
                   padding: EdgeInsets.all(20.r),
                   child: Column(
                     children: [
                       Text(
                         "Waiting for Payment",
-                        style: AppStyle.interSemi(size: 18.sp, color: AppStyle.blueColor),
+                        style: AppStyle.interSemi(size: 18.sp, color: AppStyle.blue),
                       ),
                       12.verticalSpace,
                       Text(
@@ -163,7 +163,7 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                           padding: EdgeInsets.only(top: 8.h),
                           child: Text(
                             errorMessage!,
-                            style: AppStyle.interRegular(size: 12.sp, color: AppStyle.redColor),
+                            style: AppStyle.interRegular(size: 12.sp, color: AppStyle.red),
                           ),
                         ),
                     ],
@@ -194,7 +194,7 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                     ),
                     Text(
                       AppHelpers.numberFormat(num: cartState.totalPrice),
-                      style: AppStyle.interBold(size: 18.sp, color: AppStyle.blueColor),
+                      style: AppStyle.interBold(size: 18.sp, color: AppStyle.blue),
                     ),
                   ],
                 ),
@@ -209,7 +209,7 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                       style: OutlinedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 16.h),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-                        side: const BorderSide(color: AppStyle.blueColor),
+                        side: const BorderSide(color: AppStyle.blue),
                       ),
                       onPressed: () {
                         ref.read(billingPrinterProvider.notifier).printReceipt(
@@ -231,7 +231,7 @@ class _ManagerCheckoutPageState extends ConsumerState<ManagerCheckoutPage> {
                       },
                       child: Text(
                         AppHelpers.getTranslation(TrKeys.print),
-                        style: AppStyle.interSemi(size: 16.sp, color: AppStyle.blueColor),
+                        style: AppStyle.interSemi(size: 16.sp, color: AppStyle.blue),
                       ),
                     ),
                   ),

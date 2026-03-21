@@ -12,7 +12,7 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'enums.dart';
 import 'img_service.dart';
@@ -268,7 +268,7 @@ class AppHelpers {
                   height: 4.h,
                   width: 48.w,
                   decoration: BoxDecoration(
-                    color: AppStyle.bottomSheetIconColor,
+                    color: AppStyle.dragElement,
                     borderRadius: BorderRadius.circular(40.r),
                   ),
                   margin: EdgeInsets.only(top: 8.h, bottom: 16.h),

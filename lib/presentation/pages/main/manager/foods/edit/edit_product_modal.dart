@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'stocks/edit_food_stocks_body.dart';
 import 'details/edit_food_details_body.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
@@ -60,7 +60,7 @@ class _EditProductModalState extends State<EditProductModal>
                 color: AppStyle.blackColor,
               ),
               labelColor: AppStyle.white,
-              unselectedLabelColor: AppStyle.textColor,
+              unselectedLabelColor: AppStyle.textGrey,
               unselectedLabelStyle: AppStyle.interRegular(size: 14),
               labelStyle: AppStyle.interSemi(size: 14),
               tabs: [

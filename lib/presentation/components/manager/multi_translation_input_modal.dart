@@ -6,7 +6,7 @@ import 'package:collection/collection.dart';
 import 'package:rokctapp/application/ai_translation/manager/ai_translation_provider.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
@@ -163,7 +163,7 @@ class _MultiTranslationInputModalState
                 child: TextButton(
                   style: ButtonStyle(
                     overlayColor: WidgetStateProperty.resolveWith(
-                      (states) => AppStyle.greyColor,
+                      (states) => AppStyle.bgGrey,
                     ),
                   ),
                   child: state.isLoading

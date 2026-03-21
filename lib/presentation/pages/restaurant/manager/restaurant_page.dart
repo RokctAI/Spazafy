@@ -5,7 +5,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/logout_button.dart';
 import 'widgets/logout_modal.dart';
 import 'widgets/sections_item.dart';
@@ -98,7 +98,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
                                 margin: REdgeInsets.symmetric(horizontal: 8),
                                 decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: AppStyle.textColor,
+                                  color: AppStyle.textGrey,
                                 ),
                               ),
                               Icon(

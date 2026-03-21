@@ -15,7 +15,7 @@ import 'package:rokctapp/infrastructure/services/utils/driver/img_service.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class EditCar extends ConsumerStatefulWidget {
   const EditCar({super.key});
@@ -294,7 +294,7 @@ class _EditCarState extends ConsumerState<EditCar> {
                               Icon(
                                 FlutterRemix.upload_cloud_2_line,
                                 size: 36.sp,
-                                color: AppStyle.blueColor,
+                                color: AppStyle.blue,
                               ),
                               16.verticalSpace,
                               Text(

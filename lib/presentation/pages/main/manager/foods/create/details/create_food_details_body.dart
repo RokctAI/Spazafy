@@ -6,7 +6,7 @@ import 'package:rokctapp/application/foods/manager/create/details/kitchens/creat
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/create/details/create_food_kitchens_modal.dart';
 import 'food_categories_modal.dart';
 import 'create_food_units_modal.dart';

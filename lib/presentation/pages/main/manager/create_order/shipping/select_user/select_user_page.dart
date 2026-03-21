@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/user_item.dart';
 import 'widgets/create_user_modal.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -43,7 +43,7 @@ class _SelectUserPageState extends ConsumerState<SelectUserPage> {
   Widget build(BuildContext context) {
     return KeyboardDisable(
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         body: Consumer(
           builder: (context, ref, child) {
             final state = ref.watch(orderUserProvider);

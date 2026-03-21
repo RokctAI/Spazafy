@@ -8,7 +8,7 @@ import 'package:rokctapp/application/statistics/driver/statistics_state.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'app_bar_screen.dart';
 import 'statistics_screen.dart';
 import 'widgets/income_item.dart';
@@ -76,7 +76,7 @@ class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
   Widget build(BuildContext context) {
     final state = ref.watch(statisticsProvider);
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
           const AbbBarScreen(),

@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widgets/food_extras.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/food_price_widget.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
@@ -95,7 +95,7 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                         '${widget.product.translation?.description}',
                         style: AppStyle.interNormal(
                           size: 12,
-                          color: AppStyle.textColor,
+                          color: AppStyle.textGrey,
                           letterSpacing: -0.3,
                         ),
                       ),

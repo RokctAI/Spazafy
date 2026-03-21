@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'checkout_page.dart';
@@ -80,7 +80,7 @@ class _ManagerBillingPageState extends ConsumerState<ManagerBillingPage> {
                   onPressed: () => ref.read(orderCartProvider.notifier).clearAll(),
                   child: Text(
                     AppHelpers.getTranslation(TrKeys.clearAll),
-                    style: AppStyle.interRegular(color: AppStyle.redColor),
+                    style: AppStyle.interRegular(color: AppStyle.red),
                   ),
                 ),
               ],
@@ -141,7 +141,7 @@ class _ManagerBillingPageState extends ConsumerState<ManagerBillingPage> {
                             ),
                             IconButton(
                               onPressed: () => ref.read(orderCartProvider.notifier).deleteStockFromCart(stock: item),
-                              icon: const Icon(Icons.delete_outline, color: AppStyle.redColor),
+                              icon: const Icon(Icons.delete_outline, color: AppStyle.red),
                             ),
                           ],
                         ),
@@ -180,7 +180,7 @@ class _ManagerBillingPageState extends ConsumerState<ManagerBillingPage> {
                       ),
                       Text(
                         AppHelpers.numberFormat(num: cartState.totalPrice),
-                        style: AppStyle.interBold(size: 18.sp, color: AppStyle.blueColor),
+                        style: AppStyle.interBold(size: 18.sp, color: AppStyle.blue),
                       ),
                     ],
                   ),

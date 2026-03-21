@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'widgets/chart.dart';
 import 'widgets/statistics_section.dart';
@@ -75,7 +75,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.greyColor,
+      backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
           AppbarScreen(event: ref.read(statisticsProvider.notifier)),

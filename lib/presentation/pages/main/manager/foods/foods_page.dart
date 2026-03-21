@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'foods/foods_body.dart';
 import 'extras/extras_body.dart';
 import 'addons/addons_body.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -92,7 +92,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
   Widget build(BuildContext context) {
     return KeyboardDisable(
       child: Scaffold(
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         body: Column(
           children: [
             CustomAppBar(
@@ -155,7 +155,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
                                 color: AppStyle.blackColor,
                               ),
                               labelColor: AppStyle.white,
-                              unselectedLabelColor: AppStyle.textColor,
+                              unselectedLabelColor: AppStyle.textGrey,
                               unselectedLabelStyle: AppStyle.interRegular(
                                 size: 14,
                               ),

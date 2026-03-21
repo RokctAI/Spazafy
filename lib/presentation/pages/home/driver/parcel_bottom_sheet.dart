@@ -8,7 +8,7 @@ import 'package:rokctapp/application/home/driver/home_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/presentation/components/buttons/driver/custom_button.dart';
 import 'package:rokctapp/presentation/components/driver/maps_list.dart';
-import 'package:rokctapp/presentation/theme/driver/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'widgets/approve_dialog.dart';
@@ -39,7 +39,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
               builder: (context, scrollController) => Container(
                 width: MediaQuery.sizeOf(context).width,
                 decoration: BoxDecoration(
-                  color: AppStyle.greyColor,
+                  color: AppStyle.bgGrey,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12.r),
                     topLeft: Radius.circular(12.r),
@@ -68,7 +68,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                             (MediaQuery.sizeOf(context).width - 100.w) / 2,
                       ),
                       decoration: BoxDecoration(
-                        color: AppStyle.bottomSheetIconColor,
+                        color: AppStyle.dragElement,
                         borderRadius: BorderRadius.circular(40.r),
                       ),
                     ),

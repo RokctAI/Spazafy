@@ -6,7 +6,7 @@ import 'package:rokctapp/application/order/manager/shipping/section/section_prov
 import 'package:rokctapp/application/order/manager/shipping/table/table_provider.dart';
 
 import 'widgets/payment_item.dart';
-import 'package:rokctapp/presentation/theme/manager/app_style.dart';
+import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/create_order/order/widgets/title_price.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
@@ -40,7 +40,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
     return KeyboardDisable(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: AppStyle.greyColor,
+        backgroundColor: AppStyle.bgGrey,
         body: Container(
           padding: MediaQuery.viewInsetsOf(context),
           child: SingleChildScrollView(
