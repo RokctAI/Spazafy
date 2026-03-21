@@ -92,14 +92,8 @@ class EditProfileNotifier extends StateNotifier<EditProfileState> {
   Future<void> editProfile(BuildContext context, ProfileData user) async {
     state = state.copyWith(isLoading: true, isSuccess: false);
     if (state.imagePath.isNotEmpty) {
-      final connected = await AppConnectivity.connectivity();
-      if (connected) {
-        if (context.mounted) {
-          await updateProfileImage(context, state.imagePath);
-        }
-      } else {
-        debugPrint('==> skip image upload: offline');
-        // We might want to notify the user that the image won't be updated offline
+      if (context.mounted) {
+        await updateProfileImage(context, state.imagePath);
       }
     }
     final response = await _userRepository.editProfile(
@@ -135,35 +129,24 @@ class EditProfileNotifier extends StateNotifier<EditProfileState> {
   }
 
   Future<void> updateProfileImage(BuildContext context, String path) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      String? url;
-      final imageResponse = await _galleryRepository.uploadImage(
-        path,
-        UploadType.users,
-      );
-      imageResponse.when(
-        success: (data) {
-          url = data.imageData?.title;
-          state = state.copyWith(url: url ?? "");
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          debugPrint('==> upload profile image failure: $failure');
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-        },
-      );
-    } else {
-      if (context.mounted) {
+    String? url;
+    final imageResponse = await _galleryRepository.uploadImage(
+      path,
+      UploadType.users,
+    );
+    imageResponse.when(
+      success: (data) {
+        url = data.imageData?.title;
+        state = state.copyWith(url: url ?? "");
+      },
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
+        debugPrint('==> upload profile image failure: $failure');
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+          AppHelpers.getTranslation(status.toString()),
         );
-      }
-    }
+      },
+    );
   }
 }

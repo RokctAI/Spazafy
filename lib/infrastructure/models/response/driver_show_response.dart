@@ -28,8 +28,8 @@ class DeliveryResponse {
 }
 
 class Data {
-  int? id;
-  int? userId;
+  String? id;
+  String? userId;
   String? typeOfTechnique;
   String? brand;
   String? model;
@@ -71,8 +71,8 @@ class Data {
   });
 
   Data.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    userId = json['user_id'];
+    id = json['id']?.toString();
+    userId = json['user_id']?.toString();
     typeOfTechnique = json['type_of_technique'];
     brand = json['brand'];
     model = json['model'];
@@ -152,7 +152,7 @@ class Location {
 }
 
 class DeliveryMan {
-  int? id;
+  String? id;
   String? uuid;
   String? firstname;
   String? lastname;
@@ -179,7 +179,7 @@ class DeliveryMan {
   });
 
   DeliveryMan.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     uuid = json['uuid'];
     firstname = json['firstname'];
     lastname = json['lastname'];
@@ -212,11 +212,11 @@ class DeliveryMan {
 }
 
 class Galleries {
-  int? id;
+  String? id;
   String? title;
   String? type;
   String? loadableType;
-  int? loadableId;
+  String? loadableId;
   String? path;
   String? basePath;
 
@@ -231,11 +231,11 @@ class Galleries {
   });
 
   Galleries.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     title = json['title'];
     type = json['type'];
     loadableType = json['loadable_type'];
-    loadableId = json['loadable_id'];
+    loadableId = json['loadable_id']?.toString();
     path = json['path'];
     basePath = json['base_path'];
   }

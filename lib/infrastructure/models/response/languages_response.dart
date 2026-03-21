@@ -62,7 +62,7 @@ class LanguagesResponse {
 
 class LanguageData {
   LanguageData({
-    int? id,
+    String? id,
     String? title,
     String? locale,
     bool? backward,
@@ -80,7 +80,7 @@ class LanguageData {
   }
 
   LanguageData.fromJson(dynamic json) {
-    _id = json['id'];
+    _id = json['id']?.toString();
     _title = json['title'];
     _locale = json['locale'];
     _backward = json['backward'];
@@ -89,7 +89,7 @@ class LanguageData {
     _img = json['img'];
   }
 
-  int? _id;
+  String? _id;
   String? _title;
   String? _locale;
   bool? _backward;
@@ -98,7 +98,7 @@ class LanguageData {
   String? _img;
 
   LanguageData copyWith({
-    int? id,
+    String? id,
     String? title,
     String? locale,
     bool? backward,
@@ -115,7 +115,7 @@ class LanguageData {
     img: img ?? _img,
   );
 
-  int? get id => _id;
+  String? get id => _id;
 
   String? get title => _title;
 

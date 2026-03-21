@@ -44,8 +44,8 @@ class BannersPaginateResponse {
 
 class BannerData {
   BannerData({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? url,
     List<ShopData>? shops,
     String? img,
@@ -84,8 +84,8 @@ class BannerData {
       );
     }
 
-    _id = json['id'];
-    _shopId = json['shop_id'];
+    _id = json['id']?.toString();
+    _shopId = json['shop_id']?.toString();
     _url = json['url'];
     if (json['shops'] != null) {
       _shops = [];
@@ -140,10 +140,10 @@ class BannerData {
     _buttonText = json['translation']?['button_text'];
     // Store in cache if found
     if (_buttonText != null) {
-      BannerTextCache.storeButtonText(json['id'], _buttonText);
+      BannerTextCache.storeButtonText(json['id']?.toString(), _buttonText);
     } else {
       // Try to get from cache if not found in this response
-      _buttonText = BannerTextCache.getButtonText(json['id']);
+      _buttonText = BannerTextCache.getButtonText(json['id']?.toString());
     }
 
     if (kDebugMode) {
@@ -153,8 +153,8 @@ class BannerData {
     }
   }
 
-  int? _id;
-  int? _shopId;
+  String? _id;
+  String? _shopId;
   String? _url;
   List<ShopData>? _shops;
   String? _img;
@@ -167,8 +167,8 @@ class BannerData {
   Translation? _translation;
 
   BannerData copyWith({
-    int? id,
-    int? shopId,
+    String? id,
+    String? shopId,
     String? url,
     List<ShopData>? shops,
     String? img,
@@ -194,9 +194,9 @@ class BannerData {
     buttonText: buttonText ?? _buttonText, // Include in copyWith
   );
 
-  int? get id => _id;
+  String? get id => _id;
 
-  int? get shopId => _shopId;
+  String? get shopId => _shopId;
 
   String? get url => _url;
 

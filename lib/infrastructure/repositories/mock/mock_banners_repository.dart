@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/models/response/banners_paginate_respons
 
 class MockBannersRepository implements BannersRepositoryFacade {
   final BannerData _demoBanner = BannerData(
-    id: 1,
+    id: "1",
     shops: [
       ShopData(
         id: "demo_shop_1",
@@ -25,7 +25,7 @@ class MockBannersRepository implements BannersRepositoryFacade {
   );
 
   @override
-  Future<ApiResult<BannerData>> getAdsById(int? bannerId) async {
+  Future<ApiResult<BannerData>> getAdsById(String? bannerId) async {
     return ApiResult.success(data: _demoBanner);
   }
 
@@ -39,7 +39,7 @@ class MockBannersRepository implements BannersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<BannerData>> getBannerById(int? bannerId) async {
+  Future<ApiResult<BannerData>> getBannerById(String? bannerId) async {
     return ApiResult.success(data: _demoBanner);
   }
 
@@ -52,7 +52,7 @@ class MockBannersRepository implements BannersRepositoryFacade {
         data: [
           _demoBanner,
           _demoBanner.copyWith(
-            id: 2,
+            id: "2",
             translation: Translation(title: "New Arrivals"),
           ),
         ],
@@ -61,7 +61,7 @@ class MockBannersRepository implements BannersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<void>> likeBanner(int? bannerId) async {
+  Future<ApiResult<void>> likeBanner(String? bannerId) async {
     return ApiResult.success(data: null);
   }
 }

@@ -372,10 +372,6 @@ class ProductNotifier extends StateNotifier<ProductState> {
   }
 
   generateShareLink(String? shopType, String? shopId) async {
-    if (!(await AppConnectivity.connectivity())) {
-      debugPrint("Offline: Skipping dynamic link generation");
-      return;
-    }
     try {
       final productLink =
           '${AppConstants.webUrl}/shop/$shopId?product=${state.productData?.uuid}/';

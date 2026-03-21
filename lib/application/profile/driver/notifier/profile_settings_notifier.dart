@@ -22,50 +22,41 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
     Function(String?)? setImage,
     Function(UserData?)? setUserData,
   }) async {
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(isLoading: true);
-      final response = await _userRepository.getProfileDetails();
-      response.when(
-        success: (data) {
-          state = state.copyWith(userData: data.data, isLoading: false);
-          if (setImage != null) {
-            setImage(data.data?.img);
-          }
-          if (setUserData != null) {
-            setUserData(data.data);
-          }
-          LocalStorage.setUser(data.data);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          debugPrint('==> get profile details failure: $failure');
-        },
-      );
-    } else {
-      checkYourNetwork?.call();
-    }
+    state = state.copyWith(isLoading: true);
+    final response = await _userRepository.getProfileDetails();
+    response.when(
+      success: (data) {
+        state = state.copyWith(userData: data.data, isLoading: false);
+        if (setImage != null) {
+          setImage(data.data?.img);
+        }
+        if (setUserData != null) {
+          setUserData(data.data);
+        }
+        LocalStorage.setUser(data.data);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+        debugPrint('==> get profile details failure: $failure');
+      },
+    );
   }
 
   Future<void> fetchRequestResponse({required BuildContext context}) async {
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(isLoading: true);
-      final response = await _userRepository.getRequestModel();
-      response.when(
-        success: (data) {
-          state = state.copyWith(
-            requestData: (data.data?.isEmpty ?? true) ? null : data.data?.first,
-            isLoading: false,
-          );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          debugPrint('==> get request response failure: $failure');
-        },
-      );
-    } else {
-      // ignore: use_build_context_synchronously
-      AppHelpers.showNoConnectionSnackBar(context);
-    }
+    state = state.copyWith(isLoading: true);
+    final response = await _userRepository.getRequestModel();
+    response.when(
+      success: (data) {
+        state = state.copyWith(
+          requestData: (data.data?.isEmpty ?? true) ? null : data.data?.first,
+          isLoading: false,
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+        debugPrint('==> get request response failure: $failure');
+      },
+    );
   }
 
   void clearRequest() {
@@ -81,57 +72,41 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
   }
 
   Future<void> fetchProfileStatistics({required BuildContext context}) async {
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(isLoading: true);
-      final response = await _userRepository.getDriverStatistics();
-      response.when(
-        success: (data) {
-          state = state.copyWith(statistics: data, isLoading: false);
-        },
-        failure: (failure, status) {
-          if (status == 401) {
-            LocalStorage.logout();
-            context.router.popUntilRoot();
-            context.replaceRoute(const LoginRoute());
-          } else {
-            state = state.copyWith(isLoading: false);
-            AppHelpers.showCheckTopSnackBar(
-              context,
-              AppHelpers.getTranslation(failure),
-            );
-          }
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-        );
-      }
-    }
-  }
-
-  Future<void> deleteAccount(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true);
-      final response = await _userRepository.deleteAccount();
-      response.when(
-        success: (data) async {
+    state = state.copyWith(isLoading: true);
+    final response = await _userRepository.getDriverStatistics();
+    response.when(
+      success: (data) {
+        state = state.copyWith(statistics: data, isLoading: false);
+      },
+      failure: (failure, status) {
+        if (status == 401) {
           LocalStorage.logout();
           context.router.popUntilRoot();
           context.replaceRoute(const LoginRoute());
-        },
-        failure: (fail, status) {
+        } else {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, fail);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            AppHelpers.getTranslation(failure),
+          );
+        }
+      },
+    );
+  }
+
+  Future<void> deleteAccount(BuildContext context) async {
+    state = state.copyWith(isLoading: true);
+    final response = await _userRepository.deleteAccount();
+    response.when(
+      success: (data) async {
+        LocalStorage.logout();
+        context.router.popUntilRoot();
+        context.replaceRoute(const LoginRoute());
+      },
+      failure: (fail, status) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showCheckTopSnackBar(context, fail);
+      },
+    );
   }
 }

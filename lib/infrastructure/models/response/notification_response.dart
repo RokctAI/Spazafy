@@ -25,12 +25,12 @@ class NotificationResponse {
 }
 
 class NotificationModel {
-  int? id;
+  String? id;
   String? type;
   String? title;
   String? body;
   Data? data;
-  int? userId;
+  String? userId;
   DateTime? createdAt;
   DateTime? updatedAt;
   DateTime? readAt;
@@ -54,12 +54,12 @@ class NotificationModel {
   });
 
   NotificationModel copyWith({
-    int? id,
+    String? id,
     String? type,
     String? title,
     String? body,
     Data? data,
-    int? userId,
+    String? userId,
     DateTime? createdAt,
     DateTime? updatedAt,
     DateTime? readAt,
@@ -83,12 +83,12 @@ class NotificationModel {
 
   factory NotificationModel.fromJson(Map<String, dynamic> json) =>
       NotificationModel(
-        id: json["id"],
+        id: json["id"]?.toString(),
         type: json["type"],
         title: json["title"],
         body: json["body"],
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
-        userId: json["user_id"],
+        userId: json["user_id"]?.toString(),
         createdAt: json["created_at"] == null
             ? null
             : DateTime.tryParse(json["created_at"])?.toLocal(),
@@ -121,7 +121,7 @@ class NotificationModel {
 }
 
 class Client {
-  int? id;
+  String? id;
   String? firstname;
   String? lastname;
   bool? emptyP;
@@ -140,7 +140,7 @@ class Client {
   });
 
   Client copyWith({
-    int? id,
+    String? id,
     String? firstname,
     String? lastname,
     bool? emptyP,
@@ -158,7 +158,7 @@ class Client {
   );
 
   factory Client.fromJson(Map<String, dynamic> json) => Client(
-    id: json["id"],
+    id: json["id"]?.toString(),
     firstname: json["firstname"],
     lastname: json["lastname"],
     emptyP: json["empty_p"],
@@ -179,20 +179,20 @@ class Client {
 }
 
 class Data {
-  int? id;
+  String? id;
   String? type;
   String? status;
 
   Data({this.id, this.type, this.status});
 
-  Data copyWith({int? id, String? type, String? status}) => Data(
+  Data copyWith({String? id, String? type, String? status}) => Data(
     id: id ?? this.id,
     type: type ?? this.type,
     status: status ?? this.status,
   );
 
   factory Data.fromJson(Map<String, dynamic> json) =>
-      Data(id: json["id"], type: json["type"], status: json["status"]);
+      Data(id: json["id"]?.toString(), type: json["type"], status: json["status"]);
 
   Map<String, dynamic> toJson() => {"id": id, "type": type, "status": status};
 }

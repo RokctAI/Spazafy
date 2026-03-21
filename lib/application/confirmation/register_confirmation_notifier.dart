@@ -39,86 +39,104 @@ class RegisterConfirmationNotifier
     required String verificationId,
     VoidCallback? onSuccess,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true, isSuccess: false);
-      try {
-        PhoneAuthCredential credential = PhoneAuthProvider.credential(
-          verificationId: state.verificationCode.isNotEmpty
-              ? state.verificationCode
-              : verificationId,
-          smsCode: state.confirmCode,
-        );
+    state = state.copyWith(isLoading: true, isSuccess: false);
+    try {
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: state.verificationCode.isNotEmpty
+            ? state.verificationCode
+            : verificationId,
+        smsCode: state.confirmCode,
+      );
 
-        await FirebaseAuth.instance.signInWithCredential(credential);
-        onSuccess?.call();
-        state = state.copyWith(
-          isLoading: false,
-          isSuccess: onSuccess == null ? true : false,
-        );
-      } catch (e) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation((e as FirebaseAuthException).message ?? ""),
-        );
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      onSuccess?.call();
+      state = state.copyWith(
+        isLoading: false,
+        isSuccess: onSuccess == null ? true : false,
+      );
+    } catch (e) {
+      AppHelpers.showCheckTopSnackBar(
+        context,
+        AppHelpers.getTranslation((e as FirebaseAuthException).message ?? ""),
+      );
+      state = state.copyWith(
+        isLoading: false,
+        isCodeError: true,
+        isSuccess: false,
+      );
+    }
+  }
+
+  Future<void> confirmCode(BuildContext context) async {
+    state = state.copyWith(isLoading: true, isSuccess: false);
+    final response = await _authRepository.verifyEmail(
+      verifyCode: state.confirmCode.trim(),
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isLoading: false, isSuccess: true);
+        _timer?.cancel();
+      },
+      failure: (failure, status) {
         state = state.copyWith(
           isLoading: false,
           isCodeError: true,
           isSuccess: false,
         );
-      }
-    } else {
-      if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-        );
-      }
-    }
-  }
-
-  Future<void> confirmCode(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true, isSuccess: false);
-      final response = await _authRepository.verifyEmail(
-        verifyCode: state.confirmCode.trim(),
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isLoading: false, isSuccess: true);
-          _timer?.cancel();
-        },
-        failure: (failure, status) {
-          state = state.copyWith(
-            isLoading: false,
-            isCodeError: true,
-            isSuccess: false,
-          );
-          AppHelpers.showCheckTopSnackBar(context, failure);
-          debugPrint('==> confirm code failure: $failure');
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-        );
-      }
-    }
+        AppHelpers.showCheckTopSnackBar(context, failure);
+        debugPrint('==> confirm code failure: $failure');
+      },
+    );
   }
 
   Future<void> confirmCodeResetPassword(
     BuildContext context,
     String email,
   ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true, isResetPasswordSuccess: false);
-      final response = await _authRepository.forgotPasswordConfirm(
-        verifyCode: state.confirmCode.trim(),
-        email: email,
+    state = state.copyWith(isLoading: true, isResetPasswordSuccess: false);
+    final response = await _authRepository.forgotPasswordConfirm(
+      verifyCode: state.confirmCode.trim(),
+      email: email,
+    );
+    response.when(
+      success: (data) async {
+        await LocalStorage.setToken(data.token);
+        String? fcmToken = await FirebaseMessaging.instance.getToken();
+        _userRepositoryFacade.updateFirebaseToken(fcmToken);
+        state = state.copyWith(
+          isLoading: false,
+          isResetPasswordSuccess: true,
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false, isCodeError: true);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+        debugPrint('==> confirm reset code failure: $failure');
+      },
+    );
+  }
+
+  Future<void> confirmCodeResetPasswordWithPhone(
+    BuildContext context,
+    String phone,
+    String verificationId,
+  ) async {
+    state = state.copyWith(isLoading: true, isResetPasswordSuccess: false);
+    try {
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: state.verificationCode.isNotEmpty
+            ? state.verificationCode
+            : verificationId,
+        smsCode: state.confirmCode,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+
+      final response = await _authRepository.forgotPasswordConfirmWithPhone(
+        phone: phone,
       );
       response.when(
         success: (data) async {
@@ -139,70 +157,12 @@ class RegisterConfirmationNotifier
           debugPrint('==> confirm reset code failure: $failure');
         },
       );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-        );
-      }
-    }
-  }
-
-  Future<void> confirmCodeResetPasswordWithPhone(
-    BuildContext context,
-    String phone,
-    String verificationId,
-  ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true, isResetPasswordSuccess: false);
-      try {
-        PhoneAuthCredential credential = PhoneAuthProvider.credential(
-          verificationId: state.verificationCode.isNotEmpty
-              ? state.verificationCode
-              : verificationId,
-          smsCode: state.confirmCode,
-        );
-
-        await FirebaseAuth.instance.signInWithCredential(credential);
-
-        final response = await _authRepository.forgotPasswordConfirmWithPhone(
-          phone: phone,
-        );
-        response.when(
-          success: (data) async {
-            await LocalStorage.setToken(data.token);
-            String? fcmToken = await FirebaseMessaging.instance.getToken();
-            _userRepositoryFacade.updateFirebaseToken(fcmToken);
-            state = state.copyWith(
-              isLoading: false,
-              isResetPasswordSuccess: true,
-            );
-          },
-          failure: (failure, status) {
-            state = state.copyWith(isLoading: false, isCodeError: true);
-            AppHelpers.showCheckTopSnackBar(
-              context,
-              AppHelpers.getTranslation(status.toString()),
-            );
-            debugPrint('==> confirm reset code failure: $failure');
-          },
-        );
-      } catch (e) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation((e as FirebaseAuthException).message ?? ""),
-        );
-        state = state.copyWith(isLoading: false, isCodeError: true);
-      }
-    } else {
-      if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-        );
-      }
+    } catch (e) {
+      AppHelpers.showCheckTopSnackBar(
+        context,
+        AppHelpers.getTranslation((e as FirebaseAuthException).message ?? ""),
+      );
+      state = state.copyWith(isLoading: false, isCodeError: true);
     }
   }
 
@@ -211,71 +171,54 @@ class RegisterConfirmationNotifier
     String email, {
     bool isResetPassword = false,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isResending: true);
-      late ApiResult response;
-      if (isResetPassword) {
-        response = await _authRepository.forgotPassword(email: email.trim());
-      } else {
-        response = await _authRepository.sigUp(email: email.trim());
-      }
-
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isResending: false);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isResending: false);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-          debugPrint('==> send otp failure: $failure');
-        },
-      );
+    state = state.copyWith(isResending: true);
+    late ApiResult response;
+    if (isResetPassword) {
+      response = await _authRepository.forgotPassword(email: email.trim());
     } else {
-      if (context.mounted) {
+      response = await _authRepository.sigUp(email: email.trim());
+    }
+
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isResending: false);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isResending: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+          AppHelpers.getTranslation(status.toString()),
         );
-      }
-    }
+        debugPrint('==> send otp failure: $failure');
+      },
+    );
   }
 
   Future<void> sendCodeToNumber(
     BuildContext context,
     String phoneNumber,
   ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isResending: true);
-      await FirebaseAuth.instance.verifyPhoneNumber(
-        phoneNumber: phoneNumber,
-        verificationCompleted: (PhoneAuthCredential credential) {},
-        verificationFailed: (FirebaseAuthException e) {
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(
-              AppHelpers.getTranslation(e.message ?? ""),
-            ),
-          );
-          state = state.copyWith(isResending: false);
-        },
-        codeSent: (String verificationId, int? resendToken) {
-          state = state.copyWith(
-            isResending: false,
-            verificationCode: verificationId,
-          );
-        },
-        codeAutoRetrievalTimeout: (String verificationId) {},
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isResending: true);
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      verificationCompleted: (PhoneAuthCredential credential) {},
+      verificationFailed: (FirebaseAuthException e) {
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(
+            AppHelpers.getTranslation(e.message ?? ""),
+          ),
+        );
+        state = state.copyWith(isResending: false);
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        state = state.copyWith(
+          isResending: false,
+          verificationCode: verificationId,
+        );
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {},
+    );
   }
 
   void disposeTimer() {

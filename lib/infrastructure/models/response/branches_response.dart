@@ -50,7 +50,7 @@ class BranchModel {
     this.locales,
   });
 
-  int? id;
+  String? id;
   Address? address;
   Location? location;
   DateTime? createdAt;
@@ -60,7 +60,7 @@ class BranchModel {
   List<String>? locales;
 
   BranchModel copyWith({
-    int? id,
+    String? id,
     Address? address,
     Location? location,
     DateTime? createdAt,
@@ -80,7 +80,7 @@ class BranchModel {
   );
 
   factory BranchModel.fromJson(Map<String, dynamic> json) => BranchModel(
-    id: json["id"],
+    id: json["id"]?.toString(),
     address: json["address"] == null ? null : Address.fromJson(json["address"]),
     location: json["location"] == null
         ? null

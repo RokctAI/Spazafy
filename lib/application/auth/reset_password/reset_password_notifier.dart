@@ -54,129 +54,105 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
   }
 
   Future<void> sendCodeToNumber(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true, isSuccess: false);
-      if (state.email.trim().isEmpty) {
-        state = state.copyWith(isLoading: false, isSuccess: false);
-        return;
-      }
-      await FirebaseAuth.instance.verifyPhoneNumber(
-        phoneNumber: state.email.trim(),
-        verificationCompleted: (PhoneAuthCredential credential) {},
-        verificationFailed: (FirebaseAuthException e) {
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(
-              AppHelpers.getTranslation(e.message ?? ""),
-            ),
-          );
-          state = state.copyWith(isLoading: false, isSuccess: false);
-        },
-        codeSent: (String verificationId, int? resendToken) {
-          state = state.copyWith(
-            phone: state.email,
-            isLoading: false,
-            verifyId: verificationId,
-            isSuccess: true,
-          );
-        },
-        codeAutoRetrievalTimeout: (String verificationId) {},
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
+    state = state.copyWith(isLoading: true, isSuccess: false);
+    if (state.email.trim().isEmpty) {
+      state = state.copyWith(isLoading: false, isSuccess: false);
+      return;
     }
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: state.email.trim(),
+      verificationCompleted: (PhoneAuthCredential credential) {},
+      verificationFailed: (FirebaseAuthException e) {
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(
+            AppHelpers.getTranslation(e.message ?? ""),
+          ),
+        );
+        state = state.copyWith(isLoading: false, isSuccess: false);
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        state = state.copyWith(
+          phone: state.email,
+          isLoading: false,
+          verifyId: verificationId,
+          isSuccess: true,
+        );
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {},
+    );
   }
 
   Future<void> sendCode(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true, isSuccess: false);
-      final response = await _authRepository.forgotPassword(
-        email: state.email.trim(),
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(
-            verifyId: data.data?.verifyId ?? '',
-            isLoading: false,
-            isSuccess: true,
+    state = state.copyWith(isLoading: true, isSuccess: false);
+    final response = await _authRepository.forgotPassword(
+      email: state.email.trim(),
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(
+          verifyId: data.data?.verifyId ?? '',
+          isLoading: false,
+          isSuccess: true,
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(
+          isLoading: false,
+          isEmailError: true,
+          isSuccess: false,
+        );
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+        debugPrint('==> send otp failure: $failure');
+      },
+    );
+  }
+
+  Future<void> setResetPassword(BuildContext context) async {
+    if (!AppValidators.isValidPassword(state.password)) {
+      state = state.copyWith(isPasswordInvalid: true);
+      return;
+    }
+    if (!AppValidators.isValidConfirmPassword(
+      state.password,
+      state.confirmPassword,
+    )) {
+      state = state.copyWith(isConfirmPasswordInvalid: true);
+      return;
+    }
+    state = state.copyWith(isLoading: true, isSuccess: false);
+    final response = await _userRepositoryFacade.updatePassword(
+      password: state.password,
+      passwordConfirmation: state.confirmPassword,
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isLoading: false, isSuccess: true);
+        if (AppConstants.isDemo) {
+          context.replaceRoute(UiTypeRoute());
+        } else {
+          AppHelpers.goHome(context);
+        }
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false, isSuccess: false);
+        if (status == 400) {
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            AppHelpers.getTranslation(
+              AppHelpers.getTranslation(TrKeys.emailAlreadyExists),
+            ),
           );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(
-            isLoading: false,
-            isEmailError: true,
-            isSuccess: false,
-          );
+        } else {
           AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(status.toString()),
           );
-          debugPrint('==> send otp failure: $failure');
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-        );
-      }
-    }
-  }
-
-  Future<void> setResetPassword(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      if (!AppValidators.isValidPassword(state.password)) {
-        state = state.copyWith(isPasswordInvalid: true);
-        return;
-      }
-      if (!AppValidators.isValidConfirmPassword(
-        state.password,
-        state.confirmPassword,
-      )) {
-        state = state.copyWith(isConfirmPasswordInvalid: true);
-        return;
-      }
-      state = state.copyWith(isLoading: true, isSuccess: false);
-      final response = await _userRepositoryFacade.updatePassword(
-        password: state.password,
-        passwordConfirmation: state.confirmPassword,
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isLoading: false, isSuccess: true);
-          if (AppConstants.isDemo) {
-            context.replaceRoute(UiTypeRoute());
-          } else {
-            AppHelpers.goHome(context);
-          }
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false, isSuccess: false);
-          if (status == 400) {
-            AppHelpers.showCheckTopSnackBar(
-              context,
-              AppHelpers.getTranslation(
-                AppHelpers.getTranslation(TrKeys.emailAlreadyExists),
-              ),
-            );
-          } else {
-            AppHelpers.showCheckTopSnackBar(
-              context,
-              AppHelpers.getTranslation(status.toString()),
-            );
-          }
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+        }
+      },
+    );
   }
 }

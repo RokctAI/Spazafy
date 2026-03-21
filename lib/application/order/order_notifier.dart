@@ -76,45 +76,38 @@ class OrderNotifier extends StateNotifier<OrderState> {
   }
 
   Future<void> fetchDriver(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    state = state.copyWith(isDriverOffline: !connected);
-    if (connected) {
-      if (state.orderData?.deliveryMan?.id == null) {
-        return;
-      }
-      final response = await _orderRepository.getDriverLocation(
-        state.orderData?.deliveryMan?.id ?? "",
-      );
-      response.when(
-        success: (data) async {
-          final ImageCropperForMarker image = ImageCropperForMarker();
-          Map<MarkerId, Marker> list = Map.from(state.markers);
-          list.addAll({
-            const MarkerId("Driver"): Marker(
-              markerId: const MarkerId("Driver"),
-              position: LatLng(
-                data.latitude ?? AppConstants.demoLatitude,
-                data.longitude ?? AppConstants.demoLongitude,
-              ),
-              icon: await image.resizeAndCircle(
-                state.orderData?.deliveryMan?.img ?? "",
-                120,
-              ),
-            ),
-          });
-          state = state.copyWith(markers: list);
-        },
-        failure: (failure, status) {
-          if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          }
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
+    if (state.orderData?.deliveryMan?.id == null) {
+      return;
     }
+    final response = await _orderRepository.getDriverLocation(
+      state.orderData?.deliveryMan?.id ?? "",
+    );
+    response.when(
+      success: (data) async {
+        final ImageCropperForMarker image = ImageCropperForMarker();
+        Map<MarkerId, Marker> list = Map.from(state.markers);
+        list.addAll({
+          const MarkerId("Driver"): Marker(
+            markerId: const MarkerId("Driver"),
+            position: LatLng(
+              data.latitude ?? AppConstants.demoLatitude,
+              data.longitude ?? AppConstants.demoLongitude,
+            ),
+            icon: await image.resizeAndCircle(
+              state.orderData?.deliveryMan?.img ?? "",
+              120,
+            ),
+          ),
+        });
+        state = state.copyWith(markers: list, isDriverOffline: false);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isDriverOffline: true);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        }
+      },
+    );
   }
 
   void checkBox(bool value) {
@@ -325,55 +318,56 @@ class OrderNotifier extends StateNotifier<OrderState> {
     required DeliveryTypeEnum type,
     bool isLoading = true,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      if (isLoading) {
-        state = state.copyWith(isLoading: true);
-      } else {
-        state = state.copyWith(isButtonLoading: true);
-      }
-      final response = await _orderRepository.getCalculate(
-        cartId: cartId,
-        lat: lat,
-        long: long,
-        type: type,
-        coupon: state.promoCode,
-      );
-      response.when(
-        success: (data) async {
-          if (isLoading) {
-            state = state.copyWith(isLoading: false, calculateData: data);
-          } else {
-            state = state.copyWith(isButtonLoading: false, calculateData: data);
-          }
-        },
-        failure: (failure, status) {
-          if (isLoading) {
-            state = state.copyWith(isLoading: false);
-          } else {
-            state = state.copyWith(isButtonLoading: false);
-          }
+    if (isLoading) {
+      state = state.copyWith(isLoading: true);
+    } else {
+      state = state.copyWith(isButtonLoading: true);
+    }
+    final response = await _orderRepository.getCalculate(
+      cartId: cartId,
+      lat: lat,
+      long: long,
+      type: type,
+      coupon: state.promoCode,
+    );
+    response.when(
+      success: (data) async {
+        if (isLoading) {
+          state = state.copyWith(isLoading: false, calculateData: data);
+        } else {
+          state = state.copyWith(isButtonLoading: false, calculateData: data);
+        }
+      },
+      failure: (failure, status) {
+        if (isLoading) {
+          state = state.copyWith(isLoading: false);
+        } else {
+          state = state.copyWith(isButtonLoading: false);
+        }
+        
+        // Check if failure is due to network
+        if (status == NetworkExceptions.getDioStatus(DioError(type: DioErrorType.other))) {
+           // Provide an estimate to unblock checkout flow
+           final estimate = ProductCalculateResponse(
+             totalPrice: 0.0, 
+             isEstimated: true,
+           );
+           state = state.copyWith(calculateData: estimate);
+           if (context.mounted) {
+              AppHelpers.showCheckTopSnackBarInfo(
+                context, 
+                AppHelpers.getTranslation("Pricing is estimated while offline and will be finalized on sync."),
+              );
+           }
+        } else {
           AppHelpers.showCheckTopSnackBar(context, failure);
           if (status == 401) {
             context.router.popUntilRoot();
             context.replaceRoute(const LoginRoute());
           }
-        },
-      );
-    } else {
-      // Offline: Provide an estimate to unblock checkout flow
-      final estimate = ProductCalculateResponse(
-        totalPrice: 0.0, // UI will interpret 0.0 + note as "Estimated"
-        isEstimated: true,
-      );
-      state = state.copyWith(calculateData: estimate);
-      if (context.mounted) {
-         AppHelpers.showCheckTopSnackBarInfo(
-           context, 
-           AppHelpers.getTranslation("Pricing is estimated while offline and will be finalized on sync."),
-         );
-      }
-    }
+        }
+      },
+    );
   }
 
   setNotes({required String stockId, required String note}) {
@@ -439,36 +433,28 @@ class OrderNotifier extends StateNotifier<OrderState> {
     Function(String, bool)? onWebview,
   }) async {
     state = state.copyWith(isButtonLoading: true);
-    final connected = await AppConnectivity.connectivity();
 
     if (data.deliveryType == DeliveryTypeEnum.delivery) {
-      if (connected) {
-        final res = await _shopsRepository.checkDriverZone(
-          LatLng(data.location.latitude ?? 0, data.location.longitude ?? 0),
-          shopId: data.shopId,
-        );
-        res.when(
-          success: (s) async {
-            await _proceedToCreateOrder(
-              context: context, 
-              data: data, 
-              payment: payment, 
-              onWebview: onWebview,
-            );
-          },
-          failure: (failure, e) {
-            state = state.copyWith(isButtonLoading: false);
-            if (context.mounted) {
-              AppHelpers.showCheckTopSnackBar(context, failure);
-            }
-          },
-        );
-      } else {
-        state = state.copyWith(isButtonLoading: false);
-        if (context.mounted) {
-          AppHelpers.showNoConnectionSnackBar(context);
-        }
-      }
+      final res = await _shopsRepository.checkDriverZone(
+        LatLng(data.location.latitude ?? 0, data.location.longitude ?? 0),
+        shopId: data.shopId,
+      );
+      res.when(
+        success: (s) async {
+          await _proceedToCreateOrder(
+            context: context, 
+            data: data, 
+            payment: payment, 
+            onWebview: onWebview,
+          );
+        },
+        failure: (failure, e) {
+          state = state.copyWith(isButtonLoading: false);
+          if (context.mounted) {
+            AppHelpers.showCheckTopSnackBar(context, failure);
+          }
+        },
+      );
       return;
     }
 
@@ -500,102 +486,82 @@ class OrderNotifier extends StateNotifier<OrderState> {
     }
 
     if (payment.tag != "cash" && payment.tag != "wallet") {
-      final connected = await AppConnectivity.connectivity();
-      if (connected) {
-        final res = await _orderRepository.process(
-          data,
-          payment.tag ?? '',
-          context: context,
-        );
-        res.map(
-          success: (key) {
-            onWebview?.call(key.data, payment.tag == 'pay-fast');
-          },
-          failure: (e) {
-            state = state.copyWith(isButtonLoading: false);
-            if (context.mounted) {
-              AppHelpers.showCheckTopSnackBar(context, e.error);
-            }
-          },
-        );
-      } else {
-        // Online payments cannot be processed offline
-        if (context.mounted) {
-          AppHelpers.showCheckTopSnackBarInfo(
-            context,
-            AppHelpers.getTranslation("Online payments are not available offline. Please use Cash/Wallet or connect to internet."),
-          );
-        }
-        state = state.copyWith(isButtonLoading: false);
-      }
-      return;
-    }
-
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      final response = await _orderRepository.createOrder(data);
-      response.when(
-        success: (data) async {
-          final ImageCropperForMarker image = ImageCropperForMarker();
-
-          state = state.copyWith(
-            orderData: data,
-            isButtonLoading: false,
-            isMapLoading: true,
-          );
-
-          Map<MarkerId, Marker> list = {
-            const MarkerId("Shop"): Marker(
-              markerId: const MarkerId("Shop"),
-              position: LatLng(
-                data.shop?.location?.latitude ?? AppConstants.demoLatitude,
-                data.shop?.location?.longitude ?? AppConstants.demoLongitude,
-              ),
-              icon: await image.resizeAndCircle(
-                data.shop?.logoImg ?? "",
-                120,
-              ),
-            ),
-            const MarkerId("User"): Marker(
-              markerId: const MarkerId("User"),
-              position: LatLng(
-                data.location?.latitude ?? AppConstants.demoLatitude,
-                data.location?.longitude ?? AppConstants.demoLongitude,
-              ),
-              icon: await image.resizeAndCircle(
-                data.user?.img ?? "",
-                120,
-              ),
-            ),
-          };
-          state = state.copyWith(markers: list, isMapLoading: false);
-          if (context.mounted) {
-            getRoutingAll(
-              context: context,
-              end: LatLng(
-                data.location?.latitude ?? 0,
-                data.location?.longitude ?? 0,
-              ),
-              start: LatLng(
-                data.shop?.location?.latitude ?? 0,
-                data.shop?.location?.longitude ?? 0,
-              ),
-            );
-          }
+      final res = await _orderRepository.process(
+        data,
+        payment.tag ?? '',
+        context: context,
+      );
+      res.map(
+        success: (key) {
+          onWebview?.call(key.data, payment.tag == 'pay-fast');
         },
-        failure: (failure, status) {
+        failure: (e) {
           state = state.copyWith(isButtonLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
+            AppHelpers.showCheckTopSnackBar(context, e.error);
           }
         },
       );
-    } else {
-      state = state.copyWith(isButtonLoading: false);
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
+      return;
     }
+
+    final response = await _orderRepository.createOrder(data);
+    response.when(
+      success: (data) async {
+        final ImageCropperForMarker image = ImageCropperForMarker();
+
+        state = state.copyWith(
+          orderData: data,
+          isButtonLoading: false,
+          isMapLoading: true,
+        );
+
+        Map<MarkerId, Marker> list = {
+          const MarkerId("Shop"): Marker(
+            markerId: const MarkerId("Shop"),
+            position: LatLng(
+              data.shop?.location?.latitude ?? AppConstants.demoLatitude,
+              data.shop?.location?.longitude ?? AppConstants.demoLongitude,
+            ),
+            icon: await image.resizeAndCircle(
+              data.shop?.logoImg ?? "",
+              120,
+            ),
+          ),
+          const MarkerId("User"): Marker(
+            markerId: const MarkerId("User"),
+            position: LatLng(
+              data.location?.latitude ?? AppConstants.demoLatitude,
+              data.location?.longitude ?? AppConstants.demoLongitude,
+            ),
+            icon: await image.resizeAndCircle(
+              data.user?.img ?? "",
+              120,
+            ),
+          ),
+        };
+        state = state.copyWith(markers: list, isMapLoading: false);
+        if (context.mounted) {
+          getRoutingAll(
+            context: context,
+            end: LatLng(
+              data.location?.latitude ?? 0,
+              data.location?.longitude ?? 0,
+            ),
+            start: LatLng(
+              data.shop?.location?.latitude ?? 0,
+              data.shop?.location?.longitude ?? 0,
+            ),
+          );
+        }
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isButtonLoading: false);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        }
+      },
+    );
   }
   }
 
@@ -737,59 +703,45 @@ class OrderNotifier extends StateNotifier<OrderState> {
     String orderId,
     VoidCallback onSuccess,
   ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isButtonLoading: true);
-      final response = await _orderRepository.cancelOrder(orderId);
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isButtonLoading: false);
-          onSuccess.call();
-          context.maybePop(context);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isButtonLoading: false);
-          if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          }
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isButtonLoading: true);
+    final response = await _orderRepository.cancelOrder(orderId);
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isButtonLoading: false);
+        onSuccess.call();
+        context.maybePop(context);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isButtonLoading: false);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        }
+      },
+    );
   }
 
   Future<void> refundOrder(BuildContext context, String title) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isButtonLoading: true);
-      final response = await _orderRepository.refundOrder(
-        state.orderData?.id ?? "",
-        title,
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isButtonLoading: false);
-          AppHelpers.showCheckTopSnackBarDone(
-            context,
-            AppHelpers.getTranslation(TrKeys.successfully),
-          );
-          context.maybePop(context);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isButtonLoading: false);
-          if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          }
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isButtonLoading: true);
+    final response = await _orderRepository.refundOrder(
+      state.orderData?.id ?? "",
+      title,
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isButtonLoading: false);
+        AppHelpers.showCheckTopSnackBarDone(
+          context,
+          AppHelpers.getTranslation(TrKeys.successfully),
+        );
+        context.maybePop(context);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isButtonLoading: false);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        }
+      },
+    );
   }
 
   Future<void> addReview(
@@ -797,31 +749,24 @@ class OrderNotifier extends StateNotifier<OrderState> {
     String comment,
     double rating,
   ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isButtonLoading: true);
-      final response = await _orderRepository.addReview(
-        (state.orderData?.id ?? "").toString(),
-        rating: rating,
-        comment: comment,
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isButtonLoading: false);
-          context.maybePop(context);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isButtonLoading: false);
-          if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          }
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isButtonLoading: true);
+    final response = await _orderRepository.addReview(
+      (state.orderData?.id ?? "").toString(),
+      rating: rating,
+      comment: comment,
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isButtonLoading: false);
+        context.maybePop(context);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isButtonLoading: false);
+        if (context.mounted) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        }
+      },
+    );
   }
 
   Future<void> getRoutingAll({
@@ -829,26 +774,20 @@ class OrderNotifier extends StateNotifier<OrderState> {
     required LatLng start,
     required LatLng end,
   }) async {
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(polylineCoordinates: []);
-      final response = await _drawRouting.getRouting(start: start, end: end);
-      response.when(
-        success: (data) {
-          List<LatLng> list = [];
-          List ls = data.features[0].geometry.coordinates;
-          for (int i = 0; i < ls.length; i++) {
-            list.add(LatLng(ls[i][1], ls[i][0]));
-          }
-          state = state.copyWith(polylineCoordinates: list);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(polylineCoordinates: []);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(polylineCoordinates: []);
+    final response = await _drawRouting.getRouting(start: start, end: end);
+    response.when(
+      success: (data) {
+        List<LatLng> list = [];
+        List ls = data.features[0].geometry.coordinates;
+        for (int i = 0; i < ls.length; i++) {
+          list.add(LatLng(ls[i][1], ls[i][0]));
+        }
+        state = state.copyWith(polylineCoordinates: list);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(polylineCoordinates: []);
+      },
+    );
   }
 }

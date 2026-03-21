@@ -20,25 +20,18 @@ class PromoCodeNotifier extends StateNotifier<PromoCodeState> {
     String promoCode,
     String shopId,
   ) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true, isActive: false);
-      final response = await _orderRepository.checkCoupon(
-        coupon: promoCode,
-        shopId: shopId,
-      );
-      response.when(
-        success: (data) {
-          state = state.copyWith(isLoading: false, isActive: true);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false, isActive: false);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isLoading: true, isActive: false);
+    final response = await _orderRepository.checkCoupon(
+      coupon: promoCode,
+      shopId: shopId,
+    );
+    response.when(
+      success: (data) {
+        state = state.copyWith(isLoading: false, isActive: true);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false, isActive: false);
+      },
+    );
   }
 }

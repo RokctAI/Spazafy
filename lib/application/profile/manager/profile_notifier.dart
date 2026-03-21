@@ -55,43 +55,36 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       {RefreshController? refreshController,
       ValueChanged<String?>? onSuccess}) async {
     if (LocalStorage.getToken().isNotEmpty) {
-      final connected = await AppConnectivity.connectivity();
-      if (connected) {
-        if (refreshController == null) {
-          state = state.copyWith(isLoading: true);
-        }
-        final response = await _usersRepository.getProfileDetails();
-        response.when(
-          success: (data) async {
-            LocalStorage.setWalletData(data.data?.wallet);
-            LocalStorage.setUser(data.data);
-            onSuccess?.call(data.data?.phone);
-            if (refreshController == null) {
-              state = state.copyWith(isLoading: false, userData: data.data);
-            } else {
-              state = state.copyWith(userData: data.data);
-            }
-            refreshController?.refreshCompleted();
-          },
-          failure: (failure, status) {
-            if (refreshController == null) {
-              state = state.copyWith(isLoading: false);
-            }
-            if (status == 401) {
-              context.router.popUntilRoot();
-              context.replaceRoute(const ManagerAuthRoute());
-            }
-            AppHelpers.showCheckTopSnackBar(
-              context,
-              text: failure,
-            );
-          },
-        );
-      } else {
-        if (context.mounted) {
-          AppHelpers.showNoConnectionSnackBar(context);
-        }
+      if (refreshController == null) {
+        state = state.copyWith(isLoading: true);
       }
+      final response = await _usersRepository.getProfileDetails();
+      response.when(
+        success: (data) async {
+          LocalStorage.setWalletData(data.data?.wallet);
+          LocalStorage.setUser(data.data);
+          onSuccess?.call(data.data?.phone);
+          if (refreshController == null) {
+            state = state.copyWith(isLoading: false, userData: data.data);
+          } else {
+            state = state.copyWith(userData: data.data);
+          }
+          refreshController?.refreshCompleted();
+        },
+        failure: (failure, status) {
+          if (refreshController == null) {
+            state = state.copyWith(isLoading: false);
+          }
+          if (status == 401) {
+            context.router.popUntilRoot();
+            context.replaceRoute(const ManagerAuthRoute());
+          }
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            text: failure,
+          );
+        },
+      );
     }
   }
 
@@ -113,128 +106,111 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     required String deliveryType,
     required num categoryId,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isSaveLoading: true);
-      String? logoImage;
-      String? backgroundImage;
-      List<String>? files;
-      if (state.logoImage.isNotEmpty) {
-        final logoResponse = await _settingsRepository.uploadImage(
-          state.logoImage,
-          UploadType.shopsLogo,
-        );
-        logoResponse.when(
-          success: (data) {
-            logoImage = data.imageData?.title;
-          },
-          failure: (failure, s) {
-            debugPrint('===> upload logo image failure: $failure');
-            AppHelpers.showCheckTopSnackBar(
-              context,
-              text: failure,
-            );
-          },
-        );
-      }
-      if (state.bgImage.isNotEmpty) {
-        final backgroundResponse = await _settingsRepository.uploadImage(
-          state.bgImage,
-          UploadType.shopsBack,
-        );
-        backgroundResponse.when(
-          success: (data) {
-            backgroundImage = data.imageData?.title;
-          },
-          failure: (failure, s) {
-            debugPrint('===> upload background image failure: $failure');
-            AppHelpers.showCheckTopSnackBar(
-              context,
-              text: failure,
-            );
-          },
-        );
-      }
-      if (state.filepath.isNotEmpty) {
-        final fileResponse = await _settingsRepository.uploadMultiImage(
-          state.filepath,
-          UploadType.shopsBack,
-        );
-        fileResponse.when(
-          success: (data) {
-            files = data.data?.title;
-          },
-          failure: (failure, s) {
-            debugPrint('===> upload document failure: $failure');
-            AppHelpers.showCheckTopSnackBar(context, text: failure);
-          },
-        );
-      }
-
-      final response = await _shopsRepository.createShop(
-        logoImage: logoImage,
-        documents: files ?? [],
-        backgroundImage: backgroundImage,
-        tax: double.tryParse(tax) ?? 0,
-        deliveryTo: double.tryParse(deliveryTo) ?? 0,
-        deliveryFrom: double.tryParse(deliveryFrom) ?? 0,
-        deliveryType: deliveryType,
-        phone: phone,
-        name: name,
-        description: desc,
-        startPrice: double.tryParse(startPrice) ?? 0,
-        perKm: double.tryParse(perKm) ?? 0,
-        address: address,
-        category: categoryId,
+    state = state.copyWith(isSaveLoading: true);
+    String? logoImage;
+    String? backgroundImage;
+    List<String>? files;
+    if (state.logoImage.isNotEmpty) {
+      final logoResponse = await _settingsRepository.uploadImage(
+        state.logoImage,
+        UploadType.shopsLogo,
       );
-      response.when(
+      logoResponse.when(
         success: (data) {
-          state = state.copyWith(isSaveLoading: false);
-          fetchUser(context, refreshController: RefreshController());
-          context.maybePop();
+          logoImage = data.imageData?.title;
         },
         failure: (failure, s) {
-          state = state.copyWith(isSaveLoading: false);
+          debugPrint('===> upload logo image failure: $failure');
           AppHelpers.showCheckTopSnackBar(
             context,
             text: failure,
           );
-          debugPrint('==> create shop failure: $failure');
         },
       );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          text: AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
-        );
-      }
     }
-  }
-
-  Future<void> deleteAccount(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true);
-      final response = await _usersRepository.deleteAccount();
-      response.when(
-        success: (data) async {
-          LocalStorage.logout();
-          context.router.popUntilRoot();
-          context.replaceRoute(const ManagerAuthRoute());
+    if (state.bgImage.isNotEmpty) {
+      final backgroundResponse = await _settingsRepository.uploadImage(
+        state.bgImage,
+        UploadType.shopsBack,
+      );
+      backgroundResponse.when(
+        success: (data) {
+          backgroundImage = data.imageData?.title;
         },
-        failure: (fail, status) {
-          state = state.copyWith(isLoading: false);
+        failure: (failure, s) {
+          debugPrint('===> upload background image failure: $failure');
           AppHelpers.showCheckTopSnackBar(
             context,
-            text: fail,
+            text: failure,
           );
         },
       );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
     }
+    if (state.filepath.isNotEmpty) {
+      final fileResponse = await _settingsRepository.uploadMultiImage(
+        state.filepath,
+        UploadType.shopsBack,
+      );
+      fileResponse.when(
+        success: (data) {
+          files = data.data?.title;
+        },
+        failure: (failure, s) {
+          debugPrint('===> upload document failure: $failure');
+          AppHelpers.showCheckTopSnackBar(context, text: failure);
+        },
+      );
+    }
+
+    final response = await _shopsRepository.createShop(
+      logoImage: logoImage,
+      documents: files ?? [],
+      backgroundImage: backgroundImage,
+      tax: double.tryParse(tax) ?? 0,
+      deliveryTo: double.tryParse(deliveryTo) ?? 0,
+      deliveryFrom: double.tryParse(deliveryFrom) ?? 0,
+      deliveryType: deliveryType,
+      phone: phone,
+      name: name,
+      description: desc,
+      startPrice: double.tryParse(startPrice) ?? 0,
+      perKm: double.tryParse(perKm) ?? 0,
+      address: address,
+      category: categoryId,
+    );
+    response.when(
+      success: (data) {
+        state = state.copyWith(isSaveLoading: false);
+        fetchUser(context, refreshController: RefreshController());
+        context.maybePop();
+      },
+      failure: (failure, s) {
+        state = state.copyWith(isSaveLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          text: failure,
+        );
+        debugPrint('==> create shop failure: $failure');
+      },
+    );
+  }
+
+  Future<void> deleteAccount(BuildContext context) async {
+    state = state.copyWith(isLoading: true);
+    final response = await _usersRepository.deleteAccount();
+    response.when(
+      success: (data) async {
+        LocalStorage.logout();
+        context.router.popUntilRoot();
+        context.replaceRoute(const ManagerAuthRoute());
+      },
+      failure: (fail, status) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          text: fail,
+        );
+      },
+    );
   }
 }

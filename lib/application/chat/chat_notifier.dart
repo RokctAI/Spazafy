@@ -64,13 +64,6 @@ class ChatNotifier extends StateNotifier<ChatState> {
     if (text != null && text.isNotEmpty) {
       debugPrint('===> send message chat id ${state.chatId}');
       try {
-        final connected = await AppConnectivity.connectivity();
-        if (!connected) {
-          if (context.mounted) {
-            AppHelpers.showNoConnectionSnackBar(context);
-          }
-          return;
-        }
         CollectionReference message = _fireStore.collection('messages');
         final messageData = {
           'chat_content': text,

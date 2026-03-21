@@ -19,34 +19,27 @@ class PaymentNotifier extends StateNotifier<PaymentState> {
     bool withOutCash = false,
     bool shopEnableCod = true,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isPaymentsLoading: true);
-      final response = await _paymentsRepository.getPayments();
-      response.when(
-        success: (data) {
-          List payments = [];
-          if (withOutCash || !shopEnableCod) {
-            payments =
-                data?.data?.reversed.where((e) => e.tag != "cash").toList() ??
-                [];
-          } else {
-            payments = data?.data?.reversed.toList() ?? [];
-          }
-          state = state.copyWith(payments: payments, isPaymentsLoading: false);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isPaymentsLoading: false);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isPaymentsLoading: true);
+    final response = await _paymentsRepository.getPayments();
+    response.when(
+      success: (data) {
+        List payments = [];
+        if (withOutCash || !shopEnableCod) {
+          payments =
+              data?.data?.reversed.where((e) => e.tag != "cash").toList() ??
+              [];
+        } else {
+          payments = data?.data?.reversed.toList() ?? [];
+        }
+        state = state.copyWith(payments: payments, isPaymentsLoading: false);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isPaymentsLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+      },
+    );
   }
 }

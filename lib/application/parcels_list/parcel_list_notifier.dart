@@ -19,55 +19,48 @@ class ParcelListNotifier extends StateNotifier<ParcelListState> {
     RefreshController controller, {
     bool isRefresh = false,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      if (isRefresh) {
-        activeOrder = 1;
-      }
-      final response = await _parcelRepo.getActiveParcel(
-        isRefresh ? 1 : ++activeOrder,
-      );
-      response.when(
-        success: (data) {
-          if (isRefresh) {
+    if (isRefresh) {
+      activeOrder = 1;
+    }
+    final response = await _parcelRepo.getActiveParcel(
+      isRefresh ? 1 : ++activeOrder,
+    );
+    response.when(
+      success: (data) {
+        if (isRefresh) {
+          state = state.copyWith(
+            activeOrders: data.data ?? [],
+            totalActiveCount: data.meta?.total ?? 0,
+          );
+          controller.refreshCompleted();
+        } else {
+          if (data.data?.isNotEmpty ?? false) {
+            List<ParcelOrder> list = List.from(state.activeOrders);
+            list.addAll(data.data!);
             state = state.copyWith(
-              activeOrders: data.data ?? [],
+              activeOrders: list,
               totalActiveCount: data.meta?.total ?? 0,
             );
-            controller.refreshCompleted();
+            controller.loadComplete();
           } else {
-            if (data.data?.isNotEmpty ?? false) {
-              List<ParcelOrder> list = List.from(state.activeOrders);
-              list.addAll(data.data!);
-              state = state.copyWith(
-                activeOrders: list,
-                totalActiveCount: data.meta?.total ?? 0,
-              );
-              controller.loadComplete();
-            } else {
-              activeOrder--;
-              controller.loadNoData();
-            }
-          }
-        },
-        failure: (failure, status) {
-          if (!isRefresh) {
             activeOrder--;
-            controller.loadFailed();
-          } else {
-            controller.refreshFailed();
+            controller.loadNoData();
           }
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+        }
+      },
+      failure: (failure, status) {
+        if (!isRefresh) {
+          activeOrder--;
+          controller.loadFailed();
+        } else {
+          controller.refreshFailed();
+        }
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+      },
+    );
   }
 
   Future<void> fetchHistoryOrdersPage(
@@ -75,105 +68,84 @@ class ParcelListNotifier extends StateNotifier<ParcelListState> {
     RefreshController controller, {
     bool isRefresh = false,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      if (isRefresh) {
-        historyOrder = 1;
-      }
-      final response = await _parcelRepo.getHistoryParcel(
-        isRefresh ? 1 : ++historyOrder,
-      );
-      response.when(
-        success: (data) {
-          if (isRefresh) {
-            state = state.copyWith(historyOrders: data.data ?? []);
-            controller.refreshCompleted();
-          } else {
-            if (data.data?.isNotEmpty ?? false) {
-              List<ParcelOrder> list = List.from(state.historyOrders);
-              list.addAll(data.data!);
-              state = state.copyWith(historyOrders: list);
-              controller.loadComplete();
-            } else {
-              historyOrder--;
-              controller.loadNoData();
-            }
-          }
-        },
-        failure: (failure, status) {
-          if (!isRefresh) {
-            historyOrder--;
-            controller.loadFailed();
-          } else {
-            controller.refreshFailed();
-          }
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
+    if (isRefresh) {
+      historyOrder = 1;
     }
+    final response = await _parcelRepo.getHistoryParcel(
+      isRefresh ? 1 : ++historyOrder,
+    );
+    response.when(
+      success: (data) {
+        if (isRefresh) {
+          state = state.copyWith(historyOrders: data.data ?? []);
+          controller.refreshCompleted();
+        } else {
+          if (data.data?.isNotEmpty ?? false) {
+            List<ParcelOrder> list = List.from(state.historyOrders);
+            list.addAll(data.data!);
+            state = state.copyWith(historyOrders: list);
+            controller.loadComplete();
+          } else {
+            historyOrder--;
+            controller.loadNoData();
+          }
+        }
+      },
+      failure: (failure, status) {
+        if (!isRefresh) {
+          historyOrder--;
+          controller.loadFailed();
+        } else {
+          controller.refreshFailed();
+        }
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+      },
+    );
   }
 
   Future<void> fetchActiveOrders(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isActiveLoading: true, activeOrders: []);
-      final response = await _parcelRepo.getActiveParcel(1);
-      response.when(
-        success: (data) {
-          state = state.copyWith(
-            activeOrders: data.data ?? [],
-            isActiveLoading: false,
-            totalActiveCount: data.meta?.total ?? 0,
-          );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isActiveLoading: false);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-          debugPrint('==> get active orders failure: $failure');
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isActiveLoading: true, activeOrders: []);
+    final response = await _parcelRepo.getActiveParcel(1);
+    response.when(
+      success: (data) {
+        state = state.copyWith(
+          activeOrders: data.data ?? [],
+          isActiveLoading: false,
+          totalActiveCount: data.meta?.total ?? 0,
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isActiveLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+        debugPrint('==> get active orders failure: $failure');
+      },
+    );
   }
 
   Future<void> fetchHistoryOrders(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(historyOrders: [], isHistoryLoading: true);
-      final response = await _parcelRepo.getHistoryParcel(1);
-      response.when(
-        success: (data) {
-          state = state.copyWith(
-            historyOrders: data.data ?? [],
-            isHistoryLoading: false,
-          );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isHistoryLoading: true);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-          debugPrint('==> get history orders failure: $failure');
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(historyOrders: [], isHistoryLoading: true);
+    final response = await _parcelRepo.getHistoryParcel(1);
+    response.when(
+      success: (data) {
+        state = state.copyWith(
+          historyOrders: data.data ?? [],
+          isHistoryLoading: false,
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isHistoryLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+        debugPrint('==> get history orders failure: $failure');
+      },
+    );
   }
 }

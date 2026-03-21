@@ -45,93 +45,79 @@ class SplashNotifier extends StateNotifier<SplashState> {
     VoidCallback? goNoInternet,
   }) async {
     // This will automatically show dialog if no connection
-    final connect = await AppConnectivity.connectivity();
+    if (LocalStorage.getSettingsFetched()) {
+      final response = await _settingsRepository.getGlobalSettings();
+      response.when(
+        success: (data) {
+          LocalStorage.setSettingsList(data.data ?? []);
+          LocalStorage.setSettingsFetched(true);
+        },
+        failure: (failure, status) {
+          debugPrint('==> error with settings fetched');
+        },
+      );
+    }
 
-    if (connect) {
-      if (LocalStorage.getSettingsFetched()) {
-        final response = await _settingsRepository.getGlobalSettings();
-        response.when(
-          success: (data) {
-            LocalStorage.setSettingsList(data.data ?? []);
-            LocalStorage.setSettingsFetched(true);
-          },
-          failure: (failure, status) {
-            debugPrint('==> error with settings fetched');
-          },
-        );
-      }
-
-      if (LocalStorage.getToken().isEmpty) {
-        goLogin?.call();
-      } else {
-        final profileResponse = await _userRepository.getProfileDetails();
-        profileResponse.when(
-          success: (data) {
-            LocalStorage.setUser(data.data);
-            if (data.data?.wallet != null) {
-              LocalStorage.setWallet(data.data?.wallet);
-            }
-            if (data.data?.role == "deliveryman") {
-              fetchDriverDetails(context: context);
-            } else if (data.data?.role == "seller") {
-              // Manager specific splash logic if needed
-            }
-            goMain?.call();
-          },
-          failure: (failure, status) {
-            if (status == 401) {
-              LocalStorage.logout();
-              goLogin?.call();
-            } else {
-              // On other errors, try to proceed offline if we have a user
-              if (LocalStorage.getUser() != null) {
-                goMain?.call();
-              } else {
-                goLogin?.call();
-              }
-            }
-          },
-        );
-      }
-
-      if (!LocalStorage.getSettingsFetched()) {
-        final response = await _settingsRepository.getGlobalSettings();
-        response.when(
-          success: (data) {
-            LocalStorage.setSettingsList(data.data ?? []);
-            LocalStorage.setSettingsFetched(true);
-          },
-          failure: (failure, status) {
-            debugPrint('==> error with settings fetched');
-          },
-        );
-      }
+    if (LocalStorage.getToken().isEmpty) {
+      goLogin?.call();
     } else {
-      // Offline: Allow proceeding to main page as guest if no token
-      if (LocalStorage.getToken().isEmpty) {
-        LocalStorage.setIsGuest(true);
-      }
-      goMain?.call();
+      final profileResponse = await _userRepository.getProfileDetails();
+      profileResponse.when(
+        success: (data) {
+          LocalStorage.setUser(data.data);
+          if (data.data?.wallet != null) {
+            LocalStorage.setWallet(data.data?.wallet);
+          }
+          if (data.data?.role == "deliveryman") {
+            fetchDriverDetails(context: context);
+          } else if (data.data?.role == "seller") {
+            // Manager specific splash logic if needed
+          }
+          goMain?.call();
+        },
+        failure: (failure, status) {
+          if (status == 401) {
+            LocalStorage.logout();
+            goLogin?.call();
+          } else {
+            // On other errors, try to proceed offline if we have a user
+            if (LocalStorage.getUser() != null) {
+              goMain?.call();
+            } else {
+              goLogin?.call();
+            }
+          }
+        },
+      );
+    }
+
+    if (!LocalStorage.getSettingsFetched()) {
+      final response = await _settingsRepository.getGlobalSettings();
+      response.when(
+        success: (data) {
+          LocalStorage.setSettingsList(data.data ?? []);
+          LocalStorage.setSettingsFetched(true);
+        },
+        failure: (failure, status) {
+          debugPrint('==> error with settings fetched');
+        },
+      );
     }
   }
 
   Future<void> getTranslations(BuildContext context) async {
     // This will automatically show dialog if no connection
-    final connect = await AppConnectivity.connectivityWithDialog(context);
-
-    if (connect) {
-      final response = await _settingsRepository.getMobileTranslations();
-      response.when(
-        success: (data) {
-          LocalStorage.setTranslations(data.data);
-        },
-        failure: (failure, status) {
-          debugPrint('==> error with fetching translations $failure');
-          // Could show dialog here for API failures even with connection
-          // AppHelpers.showNoConnectionDialog(context);
-        },
-      );
-    }
-    // No else block needed - dialog is automatically shown by connectivityWithDialog
+    final response = await _settingsRepository.getMobileTranslations();
+    response.when(
+      success: (data) {
+        LocalStorage.setTranslations(data.data);
+      },
+      failure: (failure, status) {
+        debugPrint('==> error with fetching translations $failure');
+        // Could show dialog here for API failures even with connection
+        // AppHelpers.showNoConnectionDialog(context);
+      },
+    );
+    // No else block needed
   }
 }

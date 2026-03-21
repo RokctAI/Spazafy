@@ -53,34 +53,30 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
       state = state.copyWith(isConfirmPasswordError: true);
       return;
     }
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(isLoading: true);
-      final response = await _userRepository.updateGeneralInfo(
-        firstName: state.firstname.trim(),
-        lastName: state.lastname.trim(),
-        phone: state.isPhoneEditable ? state.phone : null,
-        email: state.isEmailEditable ? state.email : null,
-        password: state.password.isEmpty ? null : state.password,
-        confirmPassword: state.password.isEmpty ? null : state.confirmPassword,
-      );
-      response.when(
-        success: (data) {
-          LocalStorage.setUser(data.data);
-          state = state.copyWith(isLoading: false);
-          updated?.call();
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(failure),
-          );
-          debugPrint('==> update profile details failure: $failure');
-        },
-      );
-    } else {
-      checkYourNetwork?.call();
-    }
+    state = state.copyWith(isLoading: true);
+    final response = await _userRepository.updateGeneralInfo(
+      firstName: state.firstname.trim(),
+      lastName: state.lastname.trim(),
+      phone: state.isPhoneEditable ? state.phone : null,
+      email: state.isEmailEditable ? state.email : null,
+      password: state.password.isEmpty ? null : state.password,
+      confirmPassword: state.password.isEmpty ? null : state.confirmPassword,
+    );
+    response.when(
+      success: (data) {
+        LocalStorage.setUser(data.data);
+        state = state.copyWith(isLoading: false);
+        updated?.call();
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(failure),
+        );
+        debugPrint('==> update profile details failure: $failure');
+      },
+    );
   }
 
   void setInitialInfo(UserData? userData) {
@@ -133,44 +129,35 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
     required String width,
     String? imageUrl,
   }) async {
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(isLoading: true);
-      final response = await _userRepository.editCarInfo(
-        type: type,
-        brand: brand,
-        model: model,
-        number: number,
-        color: color,
-        imageUrl: imageUrl,
-        height: height,
-        weight: weight,
-        length: length,
-        width: width,
-      );
-      response.when(
-        success: (data) {
-          LocalStorage.setDeliveryInfo(data);
-          LocalStorage.setOnline(data.data?.online ?? false);
-          state = state.copyWith(isLoading: false);
-          updated?.call();
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(failure),
-          );
-          debugPrint('==> update profile details failure: $failure');
-        },
-      );
-    } else {
-      if (context.mounted) {
+    state = state.copyWith(isLoading: true);
+    final response = await _userRepository.editCarInfo(
+      type: type,
+      brand: brand,
+      model: model,
+      number: number,
+      color: color,
+      imageUrl: imageUrl,
+      height: height,
+      weight: weight,
+      length: length,
+      width: width,
+    );
+    response.when(
+      success: (data) {
+        LocalStorage.setDeliveryInfo(data);
+        LocalStorage.setOnline(data.data?.online ?? false);
+        state = state.copyWith(isLoading: false);
+        updated?.call();
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+          AppHelpers.getTranslation(failure),
         );
-      }
-    }
+        debugPrint('==> update profile details failure: $failure');
+      },
+    );
   }
 
   Future<void> createCarInfo({
@@ -188,43 +175,34 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
     required String width,
     String? imageUrl,
   }) async {
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(isLoading: true);
-      final response = await _userRepository.createCarInfo(
-        type: type,
-        brand: brand,
-        model: model,
-        number: number,
-        color: color,
-        imageUrl: imageUrl,
-        height: height,
-        weight: weight,
-        length: length,
-        width: width,
-      );
-      response.when(
-        success: (data) {
-          LocalStorage.setDeliveryInfo(data);
-          LocalStorage.setOnline(data.data?.online ?? false);
-          state = state.copyWith(isLoading: false);
-          updated?.call();
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(failure),
-          );
-          debugPrint('==> update profile details failure: $failure');
-        },
-      );
-    } else {
-      if (context.mounted) {
+    state = state.copyWith(isLoading: true);
+    final response = await _userRepository.createCarInfo(
+      type: type,
+      brand: brand,
+      model: model,
+      number: number,
+      color: color,
+      imageUrl: imageUrl,
+      height: height,
+      weight: weight,
+      length: length,
+      width: width,
+    );
+    response.when(
+      success: (data) {
+        LocalStorage.setDeliveryInfo(data);
+        LocalStorage.setOnline(data.data?.online ?? false);
+        state = state.copyWith(isLoading: false);
+        updated?.call();
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+          AppHelpers.getTranslation(failure),
         );
-      }
-    }
+        debugPrint('==> update profile details failure: $failure');
+      },
+    );
   }
 }

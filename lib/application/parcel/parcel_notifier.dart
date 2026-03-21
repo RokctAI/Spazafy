@@ -78,28 +78,21 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
   }
 
   Future<void> getCalculate(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(isLoading: true, error: false);
-      final response = await _parcelRepository.getCalculate(
-        typeId: state.types[state.selectType]?.id ?? "",
-        from: state.locationFrom ?? LocationModel(),
-        to: state.locationTo ?? LocationModel(),
-      );
-      response.when(
-        success: (data) {
-          state = state.copyWith(isLoading: false, calculate: data);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false, error: true);
-          AppHelpers.showCheckTopSnackBar(context, failure);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isLoading: true, error: false);
+    final response = await _parcelRepository.getCalculate(
+      typeId: state.types[state.selectType]?.id ?? "",
+      from: state.locationFrom ?? LocationModel(),
+      to: state.locationTo ?? LocationModel(),
+    );
+    response.when(
+      success: (data) {
+        state = state.copyWith(isLoading: false, calculate: data);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false, error: true);
+        AppHelpers.showCheckTopSnackBar(context, failure);
+      },
+    );
   }
 
   Future<void> orderParcel({
@@ -368,26 +361,20 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     required LatLng start,
     required LatLng end,
   }) async {
-    if (await AppConnectivity.connectivity()) {
-      state = state.copyWith(polylineCoordinates: []);
-      final response = await _drawRouting.getRouting(start: start, end: end);
-      response.when(
-        success: (data) {
-          List<LatLng> list = [];
-          List ls = data.features[0].geometry.coordinates;
-          for (int i = 0; i < ls.length; i++) {
-            list.add(LatLng(ls[i][1], ls[i][0]));
-          }
-          state = state.copyWith(polylineCoordinates: list);
-        },
-        failure: (failure, status) {
-          state = state.copyWith(polylineCoordinates: []);
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(polylineCoordinates: []);
+    final response = await _drawRouting.getRouting(start: start, end: end);
+    response.when(
+      success: (data) {
+        List<LatLng> list = [];
+        List ls = data.features[0].geometry.coordinates;
+        for (int i = 0; i < ls.length; i++) {
+          list.add(LatLng(ls[i][1], ls[i][0]));
+        }
+        state = state.copyWith(polylineCoordinates: list);
+      },
+      failure: (failure, status) {
+        state = state.copyWith(polylineCoordinates: []);
+      },
+    );
   }
 }

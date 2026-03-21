@@ -89,35 +89,27 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     required LatLng location,
     String? shopId,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    state = state.copyWith(isOffline: !connected);
-    if (connected) {
-      state = state.copyWith(isLoading: true, isActive: false);
-      final response = await _shopsRepository.checkDriverZone(
-        location,
-        shopId: shopId,
-      );
-      response.when(
-        success: (data) async {
-          state = state.copyWith(isLoading: false, isActive: data);
-          if (!data) {
-            AppHelpers.showCheckTopSnackBarInfo(
-              context,
-              AppHelpers.getTranslation(TrKeys.noDriverZone),
-            );
-          }
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isLoading: false);
-          if (!(status == 400 || status == 404)) {
-            AppHelpers.showCheckTopSnackBar(context, failure);
-          }
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(isLoading: true, isActive: false);
+    final response = await _shopsRepository.checkDriverZone(
+      location,
+      shopId: shopId,
+    );
+    response.when(
+      success: (data) async {
+        state = state.copyWith(isLoading: false, isActive: data, isOffline: false);
+        if (!data) {
+          AppHelpers.showCheckTopSnackBarInfo(
+            context,
+            AppHelpers.getTranslation(TrKeys.noDriverZone),
+          );
+        }
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isLoading: false, isOffline: true);
+        if (!(status == 400 || status == 404)) {
+          AppHelpers.showCheckTopSnackBar(context, failure);
+        }
+      },
+    );
   }
 }

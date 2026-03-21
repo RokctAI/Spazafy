@@ -174,58 +174,44 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
   }
 
   Future<void> fetchHistoryOrders(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(historyOrders: [], isHistoryLoading: true);
-      final response = await _orderRepository.getHistoryOrders(1);
-      response.when(
-        success: (data) {
-          state = state.copyWith(
-            historyOrders: data.data ?? [],
-            isHistoryLoading: false,
-          );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isHistoryLoading: true);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-          debugPrint('==> get history orders failure: $failure');
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(historyOrders: [], isHistoryLoading: true);
+    final response = await _orderRepository.getHistoryOrders(1);
+    response.when(
+      success: (data) {
+        state = state.copyWith(
+          historyOrders: data.data ?? [],
+          isHistoryLoading: false,
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isHistoryLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+        debugPrint('==> get history orders failure: $failure');
+      },
+    );
   }
 
   Future<void> fetchRefundOrders(BuildContext context) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      state = state.copyWith(refundOrders: [], isRefundLoading: true);
-      final response = await _orderRepository.getRefundOrders(1);
-      response.when(
-        success: (data) {
-          state = state.copyWith(
-            refundOrders: data.data ?? [],
-            isRefundLoading: false,
-          );
-        },
-        failure: (failure, status) {
-          state = state.copyWith(isRefundLoading: true);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(status.toString()),
-          );
-          debugPrint('==> get refund orders failure: $failure');
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-    }
+    state = state.copyWith(refundOrders: [], isRefundLoading: true);
+    final response = await _orderRepository.getRefundOrders(1);
+    response.when(
+      success: (data) {
+        state = state.copyWith(
+          refundOrders: data.data ?? [],
+          isRefundLoading: false,
+        );
+      },
+      failure: (failure, status) {
+        state = state.copyWith(isRefundLoading: false);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(status.toString()),
+        );
+        debugPrint('==> get refund orders failure: $failure');
+      },
+    );
   }
 }

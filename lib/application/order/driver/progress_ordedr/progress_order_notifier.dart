@@ -20,56 +20,48 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
     RefreshController controller, {
     bool isRefresh = false,
   }) async {
-    final connected = await AppConnectivity.connectivity();
-    if (connected) {
-      if (isRefresh) {
-        progressOrder = 1;
-        state = state.copyWith(isLoading: true);
-      }
-      final response = await orderRepository.getProgressOrders(
-        isRefresh ? 1 : ++progressOrder,
-      );
-      response.when(
-        success: (data) {
-          if (isRefresh) {
-            state = state.copyWith(
-              progressOrders: data.data ?? [],
-              isLoading: false,
-            );
-            controller.refreshCompleted();
-          } else {
-            if (data.data?.isNotEmpty ?? false) {
-              List<OrderDetailData> list = List.from(state.progressOrders);
-              list.addAll(data.data ?? []);
-              state = state.copyWith(progressOrders: list, isLoading: false);
-              controller.loadComplete();
-            } else {
-              progressOrder--;
-              controller.loadNoData();
-              state = state.copyWith(isLoading: false);
-            }
-          }
-        },
-        failure: (failure, status) {
-          if (!isRefresh) {
-            progressOrder--;
-            controller.loadFailed();
-            state = state.copyWith(isLoading: false);
-          } else {
-            controller.refreshFailed();
-            state = state.copyWith(isLoading: false);
-          }
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            AppHelpers.getTranslation(failure),
-          );
-        },
-      );
-    } else {
-      if (context.mounted) {
-        AppHelpers.showNoConnectionSnackBar(context);
-      }
-      state = state.copyWith(isLoading: false);
+    if (isRefresh) {
+      progressOrder = 1;
+      state = state.copyWith(isLoading: true);
     }
+    final response = await orderRepository.getProgressOrders(
+      isRefresh ? 1 : ++progressOrder,
+    );
+    response.when(
+      success: (data) {
+        if (isRefresh) {
+          state = state.copyWith(
+            progressOrders: data.data ?? [],
+            isLoading: false,
+          );
+          controller.refreshCompleted();
+        } else {
+          if (data.data?.isNotEmpty ?? false) {
+            List<OrderDetailData> list = List.from(state.progressOrders);
+            list.addAll(data.data ?? []);
+            state = state.copyWith(progressOrders: list, isLoading: false);
+            controller.loadComplete();
+          } else {
+            progressOrder--;
+            controller.loadNoData();
+            state = state.copyWith(isLoading: false);
+          }
+        }
+      },
+      failure: (failure, status) {
+        if (!isRefresh) {
+          progressOrder--;
+          controller.loadFailed();
+          state = state.copyWith(isLoading: false);
+        } else {
+          controller.refreshFailed();
+          state = state.copyWith(isLoading: false);
+        }
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(failure),
+        );
+      },
+    );
   }
 }
