@@ -1,4 +1,4 @@
-import '../address_information.dart';
+import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'notification_data.dart';
 import 'shop_data.dart';
 import 'currency_data.dart';

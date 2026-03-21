@@ -1,5 +1,5 @@
 import 'translation.dart';
-import '../../services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
 class ShopData {
   ShopData({

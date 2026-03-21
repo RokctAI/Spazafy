@@ -8,7 +8,7 @@ import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/application/home/driver/home_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
-import 'package:rokctapp/driver/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';

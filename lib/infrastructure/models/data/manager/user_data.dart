@@ -1,5 +1,5 @@
 import 'shop_data.dart';
-import '../address_information.dart';
+import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'currency_data.dart';
 
 class UserData {

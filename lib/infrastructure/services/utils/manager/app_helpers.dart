@@ -11,7 +11,7 @@ import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/theme/manager/app_style.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/manager/app_constants.dart';
+import 'package:rokctapp/app_constants.dart';
 import 'local_storage.dart';
 
 class AppHelpers {

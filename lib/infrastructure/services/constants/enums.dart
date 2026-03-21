@@ -9,6 +9,7 @@ enum UploadType {
   products,
   reviews,
   users,
+  deliveryCar,
 }
 
 enum PriceFilter { byLow, byHigh }
@@ -42,3 +43,30 @@ enum SignUpType { phone, email, both }
 enum PaymentMethodType { directCard, savedCard }
 
 enum SnackBarType { success, info, error }
+
+enum DayOfWeek { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
+
+enum Gender { male, female }
+
+extension DayOfWeekExtension on DayOfWeek {
+  String get name => toString().split('.').last;
+
+  static DayOfWeek? fromString(String? day) {
+    if (day == null) return null;
+    return DayOfWeek.values.firstWhere(
+      (e) => e.name == day.toLowerCase(),
+      orElse: () => DayOfWeek.monday,
+    );
+  }
+}
+
+extension ShopStatusExtension on ShopStatus {
+  String get name => toString().split('.').last;
+
+  static ShopStatus fromString(String? status) {
+    return ShopStatus.values.firstWhere(
+      (e) => e.name == status?.toLowerCase(),
+      orElse: () => ShopStatus.notRequested,
+    );
+  }
+}

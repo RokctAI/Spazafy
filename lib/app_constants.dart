@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 
-import 'infrastructure/services/enums.dart';
+import 'infrastructure/services/constants/enums.dart';
 
 abstract class AppConstants {
   AppConstants._();
@@ -150,7 +150,7 @@ abstract class AppConstants {
   ];
 
   static const payLater = ["progress", "canceled", "rejected"];
-  static const genderList = ["male", "female"];
+  static List<String> get genderList => Gender.values.map((e) => e.name).toList();
 
   static const bool fixed = true;
 
@@ -170,16 +170,4 @@ abstract class AppConstants {
   static const bool isSpecificNumberEnabled = bool.fromEnvironment(
     'IS_SPECIFIC_NUMBER_ENABLED',
   );
-}
-
-enum UploadType {
-  extras,
-  brands,
-  categories,
-  shopsLogo,
-  shopsBack,
-  products,
-  reviews,
-  users,
-  deliveryCar,
 }

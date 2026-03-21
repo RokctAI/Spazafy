@@ -9,7 +9,7 @@ import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 import 'package:rokctapp/presentation/pages/auth/reset/reset_password_page.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/recommended_one_screen.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/recommended_three_screen.dart';
-import 'package:rokctapp/presentation/pages/initial/splash_page.dart';
+import 'package:rokctapp/presentation/pages/initial/splash/splash_page.dart';
 import 'package:rokctapp/presentation/pages/initial/no_connection/no_connection_page.dart';
 import 'package:rokctapp/presentation/pages/initial/ui_type/ui_type_page.dart';
 import 'package:rokctapp/presentation/pages/like/like_page.dart';
