@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'order_payment_state.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
@@ -100,3 +100,4 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
     );
   }
 }
+

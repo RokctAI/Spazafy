@@ -1,4 +1,4 @@
-﻿import 'package:dio/dio.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import 'package:rokctapp/domain/di/dependency_manager.dart';
@@ -11,7 +11,7 @@ final settingsRepository = driverSettingsRepository;
 final drawRepository = driverDrawRepository;
 final notificationRepo = driverNotificationRepo;
 import 'package:rokctapp/domain/handlers/driver/handlers.dart';
-import 'package:rokctapp/domain/interface/driver/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 
@@ -106,16 +106,16 @@ class SettingsRepositoryImpl implements SettingsRepository {
   }
 
   @override
-  Future<ApiResult<TranslationsResponse>> getTranslations() async {
+  Future<ApiResult<MobileTranslationsResponse>> getTranslations() async {
     final data = {'lang': LocalStorage.getLanguage()?.locale ?? 'en'};
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.language.language.get_translations',
+        '/api/v1/method/paas.api.translation.get_mobile_translations',
         queryParameters: data,
       );
       return ApiResult.success(
-        data: TranslationsResponse.fromJson(response.data),
+        data: MobileTranslationsResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get translations failure: $e');
@@ -152,6 +152,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
     }
   }
 }
+
 
 
 

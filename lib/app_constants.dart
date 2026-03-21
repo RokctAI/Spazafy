@@ -29,6 +29,7 @@ abstract class AppConstants {
     'FIREBASE_API_KEY',
   );
   static const String geminiKey = String.fromEnvironment('GEMINI_KEY');
+  static const String groqApiKey = String.fromEnvironment('GROQ_API_KEY');
   static const String uriPrefix = String.fromEnvironment('URL_PREFIX');
   static const String routingBaseUrl = String.fromEnvironment('ROUTING_API');
   static const String routingKey = String.fromEnvironment('ROUTING_KEY');

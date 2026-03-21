@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/domain/interface/driver/notification.dart';
+import 'package:rokctapp/domain/interface/notification.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 
@@ -125,3 +125,4 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     );
   }
 }
+

@@ -1,23 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:google_place/google_place.dart';
-import 'package:rokctapp/domain/interface/address.dart';
-import 'package:rokctapp/domain/interface/auth.dart';
-import 'package:rokctapp/domain/interface/banners.dart';
-import 'package:rokctapp/domain/interface/blogs.dart';
-import 'package:rokctapp/domain/interface/brands.dart';
-import 'package:rokctapp/domain/interface/cart.dart';
-import 'package:rokctapp/domain/interface/categories.dart';
-import 'package:rokctapp/domain/interface/currencies.dart';
-import 'package:rokctapp/domain/interface/draw.dart';
-import 'package:rokctapp/domain/interface/gallery.dart';
-import 'package:rokctapp/domain/interface/notification.dart';
-import 'package:rokctapp/domain/interface/orders.dart';
-import 'package:rokctapp/domain/interface/parcel.dart';
-import 'package:rokctapp/domain/interface/payments.dart';
-import 'package:rokctapp/domain/interface/products.dart';
-import 'package:rokctapp/domain/interface/settings.dart';
-import 'package:rokctapp/domain/interface/shops.dart';
-import 'package:rokctapp/domain/interface/user.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/repositories/address_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/auth_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/banners_repository.dart';
@@ -41,9 +24,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/repositories/loans_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/wallet_repository.dart';
 import 'package:rokctapp/domain/handlers/http_service.dart';
-import 'package:rokctapp/domain/interface/loans.dart';
-import 'package:rokctapp/domain/interface/wallet.dart';
-import 'package:rokctapp/domain/interface/delivery_points.dart';
+
 import 'package:rokctapp/infrastructure/repositories/delivery_points_repository.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 
@@ -60,14 +41,14 @@ import 'package:rokctapp/infrastructure/repositories/mock/mock_brands_repository
 
 // Driver specific imports
 import 'package:rokctapp/domain/handlers/driver/handlers.dart' as driver_handlers;
-import 'package:rokctapp/domain/interface/driver/interfaces.dart' as driver_interfaces;
+import 'package:rokctapp/domain/interface/interfaces.dart' as driver_interfaces;
 import 'package:rokctapp/infrastructure/repositories/driver/repositories.dart' as driver_repos;
 
 // Manager specific imports
-import 'package:rokctapp/domain/interface/manager/interfaces.dart' as manager_interfaces;
-import 'package:rokctapp/domain/interface/manager/payment_facade.dart';
-import 'package:rokctapp/domain/interface/manager/subscription_facade.dart';
-import 'package:rokctapp/domain/interface/manager/table.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart' as manager_interfaces;
+import 'package:rokctapp/domain/interface/manager_payment.dart';
+import 'package:rokctapp/domain/interface/manager_subscription.dart';
+import 'package:rokctapp/domain/interface/manager_table.dart';
 import 'package:rokctapp/infrastructure/repositories/manager/repositories.dart' as manager_repos;
 import 'package:rokctapp/presentation/routes/app_router.dart';
 
@@ -86,7 +67,7 @@ Future<void> setUpDependencies() async {
       driver_repos.SettingsRepositoryImpl(),
     );
     getIt.registerSingleton<driver_interfaces.AuthRepository>(
-      driver_repos.AuthRepositoryImpl(),
+      AuthRepository(),
     );
     getIt.registerSingleton<driver_interfaces.UserRepository>(
       driver_repos.UserRepositoryImpl(),
@@ -105,7 +86,7 @@ Future<void> setUpDependencies() async {
     );
   } else if (role == 'seller') {
     getIt.registerSingleton<manager_interfaces.AuthInterface>(
-      manager_repos.AuthRepository(),
+      AuthRepository(),
     );
     getIt.registerSingleton<manager_interfaces.TableInterface>(
       manager_repos.TableRepository(),
@@ -234,3 +215,4 @@ final managerNotificationRepository =
     getIt.get<manager_interfaces.NotificationInterface>();
 final managerSubscriptionRepository = getIt.get<SubscriptionsFacade>();
 final managerPaymentRepositoryNew = getIt.get<PaymentsFacade>();
+

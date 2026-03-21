@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
-import 'package:rokctapp/domain/interface/manager/subscription_facade.dart';
+import 'package:rokctapp/domain/interface/manager_subscription.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
@@ -79,3 +79,4 @@ class SubscriptionsRepository implements SubscriptionsFacade {
     }
   }
 }
+

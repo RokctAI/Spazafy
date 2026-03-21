@@ -12,7 +12,7 @@ abstract class SettingsRepository {
 
   Future<ApiResult<SettingsResponse>> getGlobalSettings();
 
-  Future<ApiResult<TranslationsResponse>> getTranslations();
+  Future<ApiResult<MobileTranslationsResponse>> getTranslations();
 
   Future<ApiResult<LanguagesResponse>> getLanguages();
 }

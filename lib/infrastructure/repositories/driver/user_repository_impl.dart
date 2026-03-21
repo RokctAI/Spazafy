@@ -6,7 +6,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final settingsRepository = driverSettingsRepository;
 import 'package:rokctapp/domain/handlers/driver/handlers.dart';
-import 'package:rokctapp/domain/interface/driver/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 
 class UserRepositoryImpl implements UserRepository {
@@ -477,3 +477,4 @@ class UserRepositoryImpl implements UserRepository {
     }
   }
 }
+

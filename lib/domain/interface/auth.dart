@@ -1,5 +1,4 @@
 import 'package:rokctapp/infrastructure/models/models.dart';
-
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
 abstract class AuthRepositoryFacade {
@@ -15,11 +14,17 @@ abstract class AuthRepositoryFacade {
     required String avatar,
   });
 
+  Future<ApiResult<LoginResponse>> loginWithSocial({
+    String? email,
+    String? displayName,
+    String? id,
+  });
+
   Future<ApiResult<dynamic>> sigUp({required String email});
 
-  Future<ApiResult<VerifyData>> sigUpWithData({required UserModel user});
+  Future<ApiResult<VerifyData>> sigUpWithData({required dynamic user});
 
-  Future<ApiResult<VerifyData>> sigUpWithPhone({required UserModel user});
+  Future<ApiResult<VerifyData>> sigUpWithPhone({required dynamic user});
 
   Future<ApiResult<RegisterResponse>> sendOtp({required String phone});
 
@@ -31,8 +36,8 @@ abstract class AuthRepositoryFacade {
   });
 
   Future<ApiResult<VerifyPhoneResponse>> verifyPhone({
-    required String verifyCode,
     required String verifyId,
+    required String verifyCode,
   });
 
   Future<ApiResult<VerifyData>> forgotPasswordConfirm({
@@ -43,4 +48,6 @@ abstract class AuthRepositoryFacade {
   Future<ApiResult<VerifyData>> forgotPasswordConfirmWithPhone({
     required String phone,
   });
+
+  Future<ApiResult<dynamic>> checkPhone({required String phone});
 }

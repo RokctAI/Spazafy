@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'create_new_group_item_state.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class CreateNewGroupItemNotifier
     extends StateNotifier<CreateNewGroupItemState> {
@@ -40,3 +40,4 @@ class CreateNewGroupItemNotifier
     _title = value.trim();
   }
 }
+

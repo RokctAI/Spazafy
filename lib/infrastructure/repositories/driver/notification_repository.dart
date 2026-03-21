@@ -3,7 +3,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final notificationRepositoryFacade = driverNotificationRepo;
 import 'package:rokctapp/domain/handlers/driver/handlers.dart';
-import 'package:rokctapp/domain/interface/driver/notification.dart';
+import 'package:rokctapp/domain/interface/notification.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 
@@ -116,3 +116,4 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
     }
   }
 }
+

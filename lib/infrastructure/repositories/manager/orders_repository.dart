@@ -1,11 +1,11 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class OrdersRepository implements OrdersInterface {
   @override
@@ -335,4 +335,5 @@ class OrdersRepository implements OrdersInterface {
     }
   }
 }
+
 

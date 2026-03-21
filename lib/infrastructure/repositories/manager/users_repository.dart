@@ -6,7 +6,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class UsersRepository implements UsersInterface {
   @override
@@ -460,3 +460,4 @@ class UsersRepository implements UsersInterface {
     }
   }
 }
+

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'today_orders_state.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
@@ -47,3 +47,4 @@ class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
     );
   }
 }
+

@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +6,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class SettingsRepository implements SettingsInterface {
   @override
@@ -137,16 +137,16 @@ class SettingsRepository implements SettingsInterface {
   }
 
   @override
-  Future<ApiResult<TranslationsResponse>> getTranslations() async {
+  Future<ApiResult<MobileTranslationsResponse>> getTranslations() async {
     final data = {'lang': LocalStorage.getLanguage()?.locale ?? 'en'};
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
-        '/api/v1/method/paas.api.language.language.get_translations',
+        '/api/v1/method/paas.api.translation.get_mobile_translations',
         queryParameters: data,
       );
       return ApiResult.success(
-        data: TranslationsResponse.fromJson(response.data),
+        data: MobileTranslationsResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get translations failure: $e');
@@ -161,7 +161,7 @@ class SettingsRepository implements SettingsInterface {
   Future<ApiResult<LanguagesResponse>> getLanguages() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.setting.setting.get_active_languages');
+      final response = await client.get('/api/v1/method/paas.api.language.language.get_languages');
       final languagesResponse = LanguagesResponse.fromJson(response.data);
       if (LocalStorage.getLanguage() != null &&
           !(languagesResponse.data
@@ -197,7 +197,7 @@ class SettingsRepository implements SettingsInterface {
     final client = dioHttp.client(requireAuth: true);
     try {
       final response = await client.post(
-        '/api/v1/method/paas.api.setting.setting.get_ai_translations',
+        '/api/v1/method/paas.api.translation.get_ai_translations',
         data: model.toJson(),
       );
       return ApiResult.success(
@@ -212,6 +212,7 @@ class SettingsRepository implements SettingsInterface {
     }
   }
 }
+
 
 
 

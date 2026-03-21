@@ -6,7 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'delivery_zone_state.dart';
 import 'package:rokctapp/presentation/theme/manager/app_style.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
   final UsersInterface _usersRepository;
@@ -88,3 +88,4 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
     );
   }
 }
+

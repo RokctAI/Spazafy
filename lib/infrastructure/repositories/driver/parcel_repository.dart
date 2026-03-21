@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final parcelRepositoryFacade = driverParcelRepository;
-import 'package:rokctapp/domain/interface/driver/parcel.dart';
+import 'package:rokctapp/domain/interface/parcel.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/parcel_paginate_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
@@ -202,3 +202,4 @@ class ParcelRepository implements ParcelRepositoryFacade {
     }
   }
 }
+

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'edit_extras_item_state.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
   final ProductsInterface _productsRepository;
@@ -44,3 +44,4 @@ class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
     _title = value.trim();
   }
 }
+

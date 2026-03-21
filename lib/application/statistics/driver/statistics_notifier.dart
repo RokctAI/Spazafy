@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'statistics_state.dart';
-import 'package:rokctapp/domain/interface/driver/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class StatisticsNotifier extends StateNotifier<StatisticsState> {
   final UserRepository _userRepository;
@@ -141,3 +141,4 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
     state = state.copyWith(list: newList);
   }
 }
+

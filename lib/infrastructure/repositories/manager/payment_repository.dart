@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
-import 'package:rokctapp/domain/interface/manager/payment_facade.dart';
+import 'package:rokctapp/domain/interface/manager_payment.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
@@ -158,3 +158,4 @@ class PaymentRepository implements PaymentsFacade {
     }
   }
 }
+

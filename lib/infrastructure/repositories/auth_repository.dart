@@ -13,14 +13,10 @@ class AuthRepository implements AuthRepositoryFacade {
   }) async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      // NOTE: Frappe's core login endpoint is `/api/v1/method/login`
-      // NOTE: Using custom PaaS login endpoint to match frontend behavior
       final response = await client.post(
         '/api/v1/method/paas.api.user.user.login',
         data: {'usr': email, 'pwd': password},
       );
-      // Assuming a successful login returns user data that can be adapted to LoginResponse
-      // This part will need careful adaptation based on the actual Frappe response
       return ApiResult.success(data: LoginResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> login failure: $e');
@@ -40,7 +36,6 @@ class AuthRepository implements AuthRepositoryFacade {
         '/api/v1/method/paas.api.user.user.send_phone_verification_code',
         data: data,
       );
-      // The response from this endpoint is simple, may need to adjust RegisterResponse model
       return ApiResult.success(data: RegisterResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> send otp failure: $e');
@@ -121,18 +116,37 @@ class AuthRepository implements AuthRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<VerifyData>> sigUpWithData({required UserModel user}) async {
+  Future<ApiResult<VerifyData>> sigUpWithData({required dynamic user}) async {
     try {
       final client = dioHttp.client(requireAuth: false);
+      var data = {};
+      
+      // Determine field mapping based on the model provided
+      if (user is UserModel) {
+        data = user.toJsonForSignUp();
+      } else {
+        // Assume Driver UserData/Manager model (using common properties if possible)
+        data = {
+          "firstname": user.firstname,
+          "lastname": user.lastname,
+          "phone": user.phone?.replaceAll('+', ""),
+          "email": user.email,
+          "password": user.password,
+          "password_conformation": user.conPassword ?? user.password,
+          "referral": user.referral,
+        };
+      }
+
       var res = await client.post(
         '/api/v1/method/paas.api.user.user.register_user',
-        data: user.toJsonForSignUp(),
+        data: data,
       );
-      // This response will not contain tokens, adaptation needed
+      
       return ApiResult.success(
         data: VerifyData.fromJson(res.data['data'] ?? res.data),
       );
     } catch (e) {
+      debugPrint('==> sigUpWithData failure: $e');
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -140,8 +154,44 @@ class AuthRepository implements AuthRepositoryFacade {
     }
   }
 
-  // Finalized implementation for AuthRepository
-  // Placeholder for unimplemented methods from the interface
+  @override
+  Future<ApiResult<VerifyData>> sigUpWithPhone({required dynamic user}) async {
+    try {
+      final client = dioHttp.client(requireAuth: false);
+      var data = {};
+      
+      if (user is UserModel) {
+        data = user.toJsonForSignUp(typeFirebase: true);
+      } else {
+        data = {
+          "firstname": user.firstname,
+          "lastname": user.lastname,
+          "phone": user.phone?.replaceAll('+', ""),
+          "email": user.email,
+          "password": user.password,
+          "password_conformation": user.conPassword ?? user.password,
+          "type": "firebase",
+          "referral": user.referral,
+        };
+      }
+
+      final response = await client.post(
+        '/api/v1/method/paas.api.user.user.register_user',
+        data: data,
+      );
+      
+      return ApiResult.success(
+        data: VerifyData.fromJson(response.data['data'] ?? response.data),
+      );
+    } catch (e) {
+      debugPrint('==> sigUpWithPhone failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
   @override
   Future<ApiResult<VerifyData>> forgotPasswordConfirm({
     required String verifyCode,
@@ -169,7 +219,7 @@ class AuthRepository implements AuthRepositoryFacade {
   Future<ApiResult<VerifyData>> forgotPasswordConfirmWithPhone({
     required String phone,
   }) async {
-    // Usually followed by sendOtp and verifyPhone
+    // Standardizing on sending OTP to phone for this flow
     return sendOtp(phone: phone).then(
       (value) => value.when(
         success: (data) => ApiResult.success(data: VerifyData()),
@@ -208,6 +258,32 @@ class AuthRepository implements AuthRepositoryFacade {
   }
 
   @override
+  Future<ApiResult<LoginResponse>> loginWithSocial({
+    String? email,
+    String? displayName,
+    String? id,
+  }) async {
+    try {
+      final client = dioHttp.client(requireAuth: false);
+      final response = await client.post(
+        '/api/v1/method/paas.api.user.user.login_with_google',
+        data: {
+          'email': email,
+          'display_name': displayName,
+          'id': id,
+        },
+      );
+      return ApiResult.success(data: LoginResponse.fromJson(response.data));
+    } catch (e) {
+      debugPrint('==> login with social failure: $e');
+      return ApiResult.failure(
+        error: AppHelpers.errorHandler(e),
+        statusCode: NetworkExceptions.getDioStatus(e),
+      );
+    }
+  }
+
+  @override
   Future<ApiResult> sigUp({required String email}) async {
     try {
       final client = dioHttp.client(requireAuth: false);
@@ -226,20 +302,18 @@ class AuthRepository implements AuthRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<VerifyData>> sigUpWithPhone({
-    required UserModel user,
-  }) async {
+  Future<ApiResult<dynamic>> checkPhone({required String phone}) async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.post(
-        '/api/v1/method/paas.api.user.user.register_user',
-        data: user.toJsonForSignUp(),
+        '/api/v1/method/paas.api.user.user.check_phone',
+        data: {'phone': phone.replaceAll("+", "")},
       );
-      return ApiResult.success(
-        data: VerifyData.fromJson(response.data['data'] ?? response.data),
-      );
+      
+      // Attempt generic response parsing for CheckPhoneResponse or Boolean
+      return ApiResult.success(data: response.data);
     } catch (e) {
-      debugPrint('==> signup with phone failure: $e');
+      debugPrint('==> check phone failure: $e');
       return ApiResult.failure(
         error: AppHelpers.errorHandler(e),
         statusCode: NetworkExceptions.getDioStatus(e),
@@ -247,12 +321,3 @@ class AuthRepository implements AuthRepositoryFacade {
     }
   }
 }
-
-
-
-
-
-
-
-
-

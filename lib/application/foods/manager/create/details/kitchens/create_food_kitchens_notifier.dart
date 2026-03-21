@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'create_food_kitchens_state.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class CreateFoodKitchensNotifier extends StateNotifier<CreateFoodKitchensState> {
   final CatalogInterface _catalogRepository;
@@ -46,3 +46,4 @@ class CreateFoodKitchensNotifier extends StateNotifier<CreateFoodKitchensState> 
     state.kitchenController?.text = state.kitchens[index].translation?.title ?? '';
   }
 }
+

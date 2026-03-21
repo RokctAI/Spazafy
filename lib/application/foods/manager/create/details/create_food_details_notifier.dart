@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
 import 'create_food_details_state.dart';
-import 'package:rokctapp/domain/interface/manager/interfaces.dart';
+import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 class CreateFoodDetailsNotifier
@@ -184,3 +184,4 @@ class CreateFoodDetailsNotifier
     state = state.copyWith(images: list, listOfUrls: urls);
   }
 }
+

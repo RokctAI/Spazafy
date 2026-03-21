@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/language.dart';
+import 'package:rokctapp/app_constants.dart';
 
 class AiTranslationRequest {
   final AiTranslationModel model;
@@ -20,6 +21,8 @@ class AiTranslationRequest {
       if (modelId != null) 'model_id': modelId,
       'content': content,
       'lang': lang?.locale,
+      'api_key': AppConstants.groqApiKey,
     };
   }
 }
+

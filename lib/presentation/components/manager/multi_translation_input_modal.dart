@@ -157,8 +157,9 @@ class _MultiTranslationInputModalState
                   ),
                 ],
               ),
-              Padding(
-                padding: REdgeInsets.only(top: 12, bottom: 24),
+              if (AppConstants.groqApiKey.isNotEmpty)
+                Padding(
+                  padding: REdgeInsets.only(top: 12, bottom: 24),
                 child: TextButton(
                   style: ButtonStyle(
                     overlayColor: WidgetStateProperty.resolveWith(
