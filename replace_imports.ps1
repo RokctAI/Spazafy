@@ -61,3 +61,11 @@ if (Test-Path "$PSScriptRoot\validate_endpoints.ps1") {
 } else {
     Write-Host "`n[WARN] validate_endpoints.ps1 not found, skipping API validation." -ForegroundColor Yellow
 }
+
+# Extension: Generate Postman Collection
+if (Test-Path "$PSScriptRoot\generate_postman.ps1") {
+    Write-Host "`n--- Generating Postman Collection ---" -ForegroundColor Cyan
+    powershell -ExecutionPolicy Bypass -File "$PSScriptRoot\generate_postman.ps1"
+} else {
+    Write-Host "`n[WARN] generate_postman.ps1 not found, skipping Postman generation." -ForegroundColor Yellow
+}
