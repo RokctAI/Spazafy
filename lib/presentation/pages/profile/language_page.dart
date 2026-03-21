@@ -12,6 +12,7 @@ import 'package:rokctapp/presentation/components/select_item.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
+class LanguageScreen extends ConsumerStatefulWidget {
   final Function(LanguageData)? afterUpdate;
   final VoidCallback onSave;
 
