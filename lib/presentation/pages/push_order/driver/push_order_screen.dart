@@ -1,6 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -83,7 +83,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                         Icon(FlutterRemix.currency_line, size: 21.r),
                         10.horizontalSpace,
                         Text(
-                          AppHelpers.numberFormat(
+                          help.AppHelpers.numberFormat(
                             number: widget.pushModel.totalPrice ?? 0,
                           ),
                           style: AppStyle.interSemi(size: 12.sp),
@@ -92,7 +92,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                         Icon(FlutterRemix.takeaway_fill, size: 18.sp),
                         10.horizontalSpace,
                         Text(
-                          AppHelpers.numberFormat(
+                          help.AppHelpers.numberFormat(
                             number: widget.pushModel.deliveryFee ?? 0,
                           ),
                           style: AppStyle.interSemi(size: 12.sp),
@@ -114,7 +114,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                       children: [
                         Expanded(
                           child: CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.skip),
+                            title: help.AppHelpers.getTranslation(TrKeys.skip),
                             onPressed: () {
                               Navigator.pop(context);
                             },
@@ -127,8 +127,8 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                           child: CustomButton(
                             isLoading: ref.watch(pushOrderProvider).isLoading,
                             title: widget.isActive
-                                ? AppHelpers.getTranslation(TrKeys.accept)
-                                : AppHelpers.getTranslation(
+                                ? help.AppHelpers.getTranslation(TrKeys.accept)
+                                : help.AppHelpers.getTranslation(
                                     TrKeys.orderInformation,
                                   ),
                             onPressed: () async {
@@ -255,7 +255,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                       ref.watch(pushOrderProvider).timerText.indexOf(' '),
                     ),
               ) /
-              AppHelpers.getAppDeliveryTime(),
+              help.AppHelpers.getAppDeliveryTime(),
           center: Text(
             ref.watch(pushOrderProvider).timerText,
             style: AppStyle.interSemi(size: 18.sp),
@@ -429,7 +429,7 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                     children: [
                       Text(
                         widget.pushModel.user == null
-                            ? AppHelpers.getTranslation(TrKeys.deletedUser)
+                            ? help.AppHelpers.getTranslation(TrKeys.deletedUser)
                             : widget.pushModel.user?.firstname ?? "",
                         style: AppStyle.interNormal(
                           size: 14.sp,

@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -98,7 +98,7 @@ class LogoAndNameSection extends StatelessWidget {
           child: OutlinedBorderTextField(
             validation: validation,
             textController: shopNameController,
-            label: AppHelpers.getTranslation(TrKeys.restaurantName),
+            label: help.AppHelpers.getTranslation(TrKeys.restaurantName),
           ),
         ),
       ],

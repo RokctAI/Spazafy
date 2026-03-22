@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
@@ -127,7 +127,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                 SizedBox(
                   width: 60.w,
                   child: Text(
-                    AppHelpers.getTranslation(TrKeys.appBenefit),
+                    help.AppHelpers.getTranslation(TrKeys.appBenefit),
                     style: AppStyle.interNormal(
                       size: 12.sp,
                       letterSpacing: -0.3,
@@ -138,7 +138,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                 Consumer(
                   builder: (context, ref, child) {
                     return Text(
-                      AppHelpers.numberFormat(
+                      help.AppHelpers.numberFormat(
                         number:
                             (ref
                                 .watch(profileSettingsProvider)
@@ -165,7 +165,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
   Widget _balance(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // AppHelpers.showAlertDialog(
+        // help.AppHelpers.showAlertDialog(
         //   context: context,
         //   child:  PushOrder(),
         // );
@@ -187,7 +187,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppHelpers.getTranslation(TrKeys.balance),
+                    help.AppHelpers.getTranslation(TrKeys.balance),
                     style: AppStyle.interNormal(
                       size: 12.sp,
                       letterSpacing: -0.3,
@@ -195,7 +195,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
                   ),
                   Expanded(
                     child: Text(
-                      AppHelpers.numberFormat(
+                      help.AppHelpers.numberFormat(
                         number: LocalStorage.getUser()?.wallet?.price,
                         maxLength: 3,
                       ),

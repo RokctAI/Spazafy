@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -39,7 +39,7 @@ class ExtrasBody extends StatelessWidget {
                   ),
                 )
               : state.groups.isEmpty
-              ? NoDataInfo(title: AppHelpers.getTranslation(TrKeys.noData))
+              ? NoDataInfo(title: help.AppHelpers.getTranslation(TrKeys.noData))
               : ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
@@ -52,7 +52,7 @@ class ExtrasBody extends StatelessWidget {
                   ),
                   itemBuilder: (context, index) => MainGroupItem(
                     group: state.groups[index],
-                    onTap: () => AppHelpers.showCustomModalBottomSheet(
+                    onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                       context: context,
                       modal: ExtrasGroupDetailsModal(
                         group: state.groups[index],

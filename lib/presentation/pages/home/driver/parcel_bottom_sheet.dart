@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -128,7 +128,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                           horizontal: 6.w,
                                         ),
                                         onPressed: () async {
-                                          AppHelpers.showCustomModalBottomSheet(
+                                          help.AppHelpers.showCustomModalBottomSheet(
                                             context: context,
                                             modal: MapsList(
                                               location: Coords(
@@ -256,7 +256,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                             horizontal: 6.w,
                                           ),
                                           onPressed: () {
-                                            AppHelpers.showCustomModalBottomSheet(
+                                            help.AppHelpers.showCustomModalBottomSheet(
                                               context: context,
                                               modal: MapsList(
                                                 location: Coords(
@@ -340,14 +340,14 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                     ),
                     24.verticalSpace,
                     CustomButton(
-                      title: AppHelpers.getTranslation(
+                      title: help.AppHelpers.getTranslation(
                         state.isGoRestaurant
                             ? TrKeys.completeCheckout
                             : TrKeys.iDeliveredTheOrder,
                       ),
                       onPressed: () {
                         if (state.isGoRestaurant) {
-                          AppHelpers.showAlertDialog(
+                          help.AppHelpers.showAlertDialog(
                             context: context,
                             child: ApproveOrderDialog(parcel: parcel),
                           );
@@ -358,7 +358,7 @@ class ParcelBottomSheetScreen extends StatelessWidget {
                                 context: context,
                                 parcelId: parcel?.id,
                               );
-                          AppHelpers.showCustomModalBottomSheet(
+                          help.AppHelpers.showCustomModalBottomSheet(
                             context: context,
                             modal: RateCustomer(parcel: parcel),
                             isDarkMode: false,

@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/img_service.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +67,7 @@ class DocumentUploadSection extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        AppHelpers.getTranslation(TrKeys.uploadDocuments),
+                        help.AppHelpers.getTranslation(TrKeys.uploadDocuments),
                         style: AppStyle.interSemi(
                           size: 14,
                           color: AppStyle.black,

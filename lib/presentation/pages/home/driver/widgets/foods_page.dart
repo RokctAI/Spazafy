@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +46,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.foods)),
+                TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.foods)),
                 16.verticalSpace,
                 Container(
                   decoration: BoxDecoration(
@@ -82,7 +82,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                                   amount: hasData
                                       ? (widget.order.details?[index].quantity)
                                       : (state.order?.details?[index].quantity),
-                                  price: AppHelpers.numberFormat(
+                                  price: help.AppHelpers.numberFormat(
                                     number: hasData
                                         ? (widget
                                               .order
@@ -97,7 +97,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                                 if (state.order?.details?[index].note != null &&
                                     state.order?.details?[index].note != '')
                                   Text(
-                                    "${AppHelpers.getTranslation(TrKeys.note)}: ${state.order?.details?[index].note}",
+                                    "${help.AppHelpers.getTranslation(TrKeys.note)}: ${state.order?.details?[index].note}",
                                     style: AppStyle.interRegular(
                                       color: AppStyle.blackColor,
                                       size: 14.sp,
@@ -176,7 +176,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    AppHelpers.getTranslation(title),
+                    help.AppHelpers.getTranslation(title),
                     style: isTotal
                         ? AppStyle.interSemi(size: 16.sp, letterSpacing: -0.3)
                         : AppStyle.interNormal(
@@ -187,7 +187,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                   ),
                   Text(
                     (isDiscount ? '-' : '') +
-                        AppHelpers.numberFormat(number: price),
+                        help.AppHelpers.numberFormat(number: price),
                     style: isTotal
                         ? AppStyle.interSemi(size: 16.sp, letterSpacing: -0.3)
                         : AppStyle.interNormal(

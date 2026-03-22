@@ -1,5 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -83,7 +83,7 @@ class _DriverDeliveryZonePageState
                     if (state.tappedPoints.length > 3)
                       Expanded(
                         child: CustomButton(
-                          title: AppHelpers.getTranslation(TrKeys.save),
+                          title: help.AppHelpers.getTranslation(TrKeys.save),
                           isLoading: state.isSaving,
                           onPressed: () => event.updateDeliveryZone(
                             updateSuccess: context.router.maybePop,

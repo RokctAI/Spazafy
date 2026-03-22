@@ -1,5 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
@@ -118,8 +118,8 @@ class _SelectUserPageState extends ConsumerState<SelectUserPage> {
               8.horizontalSpace,
               Expanded(
                 child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.addUser),
-                  onPressed: () => AppHelpers.showCustomModalBottomSheet(
+                  title: help.AppHelpers.getTranslation(TrKeys.addUser),
+                  onPressed: () => help.AppHelpers.showCustomModalBottomSheet(
                     context: context,
                     modal: const CreateUserModal(),
                     isDarkMode: true,

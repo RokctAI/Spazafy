@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
@@ -89,7 +89,7 @@ class _EditFoodAddonsModalState extends ConsumerState<EditFoodAddonsModal> {
                         ),
                 ),
                 CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.save),
+                  title: help.AppHelpers.getTranslation(TrKeys.save),
                   onPressed: () {
                     widget.onSave(state.addons);
                     context.maybePop();

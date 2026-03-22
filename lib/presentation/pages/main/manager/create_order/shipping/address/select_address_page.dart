@@ -1,5 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
@@ -61,9 +61,9 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                   initialCameraPosition: CameraPosition(
                     bearing: 0,
                     target: LatLng(
-                      AppHelpers.getInitialLatitude() ??
+                      help.AppHelpers.getInitialLatitude() ??
                           AppConstants.demoLatitude,
-                      AppHelpers.getInitialLongitude() ??
+                      help.AppHelpers.getInitialLongitude() ??
                           AppConstants.demoLongitude,
                     ),
                     tilt: 0,
@@ -153,7 +153,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                               cursorWidth: 1.r,
                               cursorColor: AppStyle.blackColor,
                               decoration: InputDecoration.collapsed(
-                                hintText: AppHelpers.getTranslation(
+                                hintText: help.AppHelpers.getTranslation(
                                   TrKeys.searchLocation,
                                 ),
                                 hintStyle: GoogleFonts.inter(
@@ -228,7 +228,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                         child: Consumer(
                           builder: (context, ref, child) {
                             return CustomButton(
-                              title: AppHelpers.getTranslation(
+                              title: help.AppHelpers.getTranslation(
                                 TrKeys.confirmLocation,
                               ),
                               onPressed: state.location == null

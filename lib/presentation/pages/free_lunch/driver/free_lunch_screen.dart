@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -78,14 +78,14 @@ class FreeLunchScreen extends StatelessWidget {
                     children: [
                       RichText(
                         text: TextSpan(
-                          text: AppHelpers.getTranslation(TrKeys.freeLunches),
+                          text: help.AppHelpers.getTranslation(TrKeys.freeLunches),
                           style: AppStyle.interSemi(
                             size: 14.sp,
                             letterSpacing: -0.3,
                           ),
                           children: [
                             TextSpan(
-                              text: AppHelpers.getTranslation(
+                              text: help.AppHelpers.getTranslation(
                                 TrKeys.matchingYourRank,
                               ),
                               style: AppStyle.interRegular(
@@ -98,14 +98,14 @@ class FreeLunchScreen extends StatelessWidget {
                       ),
                       RichText(
                         text: TextSpan(
-                          text: AppHelpers.getTranslation(TrKeys.onlyOne),
+                          text: help.AppHelpers.getTranslation(TrKeys.onlyOne),
                           style: AppStyle.interSemi(
                             size: 14.sp,
                             letterSpacing: -0.3,
                           ),
                           children: [
                             TextSpan(
-                              text: AppHelpers.getTranslation(TrKeys.lunchCan),
+                              text: help.AppHelpers.getTranslation(TrKeys.lunchCan),
                               style: AppStyle.interRegular(
                                 size: 14.sp,
                                 letterSpacing: -0.3,
@@ -129,7 +129,7 @@ class FreeLunchScreen extends StatelessWidget {
                 return GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
-                    AppHelpers.showCustomModalBottomSheet(
+                    help.AppHelpers.showCustomModalBottomSheet(
                       paddingTop: MediaQuery.paddingOf(context).top,
                       context: context,
                       modal: const BarCodeScreen(),

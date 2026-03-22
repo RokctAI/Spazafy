@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/loading/manager/tab_bar_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -63,7 +63,7 @@ class FoodsBody extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            AppHelpers.getTranslation(TrKeys.product),
+                            help.AppHelpers.getTranslation(TrKeys.product),
                             style: AppStyle.interSemi(
                               size: 14,
                               color: productsState.productType == 'single'
@@ -103,7 +103,7 @@ class FoodsBody extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            AppHelpers.getTranslation(TrKeys.combo),
+                            help.AppHelpers.getTranslation(TrKeys.combo),
                             style: AppStyle.interSemi(
                               size: 14,
                               color: productsState.productType == 'combo'
@@ -202,7 +202,7 @@ class FoodsBody extends StatelessWidget {
                   ref
                       .read(editFoodCategoriesProvider.notifier)
                       .setFoodCategory(productsState.foods[index].category);
-                  AppHelpers.showCustomModalBottomSheet(
+                  help.AppHelpers.showCustomModalBottomSheet(
                     paddingTop: 60,
                     context: context,
                     modal: EditProductModal(

@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -103,10 +103,10 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                   children: [
                                     Text(
                                       state.order?.user == null
-                                          ? AppHelpers.getTranslation(
+                                          ? help.AppHelpers.getTranslation(
                                               TrKeys.deletedUser,
                                             )
-                                          : '${state.order?.user?.firstname ?? AppHelpers.getTranslation(TrKeys.noName)} ${state.order?.user?.lastname ?? ''}',
+                                          : '${state.order?.user?.firstname ?? help.AppHelpers.getTranslation(TrKeys.noName)} ${state.order?.user?.lastname ?? ''}',
                                       style: AppStyle.interRegular(
                                         size: 14,
                                         color: AppStyle.blackColor,
@@ -115,7 +115,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                     4.verticalSpace,
                                     Text(
                                       isHistoryOrder
-                                          ? AppHelpers.getTranslation(
+                                          ? help.AppHelpers.getTranslation(
                                               state
                                                       .order
                                                       ?.transaction
@@ -123,7 +123,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                       ?.tag ??
                                                   "",
                                             )
-                                          : '${AppHelpers.getTranslation(TrKeys.order)} - №${state.order?.id}',
+                                          : '${help.AppHelpers.getTranslation(TrKeys.order)} - №${state.order?.id}',
                                       style: AppStyle.interNormal(
                                         size: 12,
                                         color: AppStyle.blackColor,
@@ -148,7 +148,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              AppHelpers.getTranslation(
+                              help.AppHelpers.getTranslation(
                                 state.order?.deliveryType == TrKeys.dineIn
                                     ? TrKeys.table
                                     : state
@@ -167,7 +167,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                             Text(
                               state.order?.deliveryType == TrKeys.dineIn
                                   ? state.order?.table?.name ?? ''
-                                  : AppHelpers.numberFormat(
+                                  : help.AppHelpers.numberFormat(
                                       state.order?.totalPrice?.isNegative ??
                                               true
                                           ? 0
@@ -197,7 +197,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '${AppHelpers.getTranslation(TrKeys.order)} - №${state.order?.id}',
+                            '${help.AppHelpers.getTranslation(TrKeys.order)} - №${state.order?.id}',
                             style: AppStyle.interNormal(
                               size: 14,
                               color: AppStyle.blackColor,
@@ -253,7 +253,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          AppHelpers.getTranslation(
+                                          help.AppHelpers.getTranslation(
                                             TrKeys.yourBenefit,
                                           ),
                                           style: AppStyle.interNormal(
@@ -263,7 +263,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                           ),
                                         ),
                                         Text(
-                                          AppHelpers.numberFormat(
+                                          help.AppHelpers.numberFormat(
                                             state.order?.deliveryFee ?? 0,
                                             symbol:
                                                 state.order?.currency?.symbol,
@@ -314,7 +314,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          AppHelpers.getTranslation(
+                                          help.AppHelpers.getTranslation(
                                             TrKeys.appBenefit,
                                           ),
                                           style: AppStyle.interNormal(
@@ -326,7 +326,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                         Text(
-                                          AppHelpers.numberFormat(
+                                          help.AppHelpers.numberFormat(
                                             state.order?.commissionFee ?? 0,
                                             symbol:
                                                 state.order?.currency?.symbol,
@@ -351,7 +351,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                       state.order?.afterDeliveredImage != null)
                     GestureDetector(
                       onTap: () {
-                        AppHelpers.showAlertDialog(
+                        help.AppHelpers.showAlertDialog(
                           context: context,
                           child: ImageDialog(
                             img: state.order?.afterDeliveredImage,
@@ -370,7 +370,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              AppHelpers.getTranslation(TrKeys.orderImage),
+                              help.AppHelpers.getTranslation(TrKeys.orderImage),
                               style: AppStyle.interNormal(
                                 size: 14,
                                 color: AppStyle.blackColor,
@@ -458,7 +458,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          AppHelpers.getTranslation(TrKeys.otpCode),
+                          help.AppHelpers.getTranslation(TrKeys.otpCode),
                           style: AppStyle.interRegular(
                             size: 12,
                             color: AppStyle.textGrey,
@@ -490,17 +490,17 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                             state.isUpdating
                                 ? const Loading()
                                 : CustomButton(
-                                    title: AppHelpers.changeStatusButtonText(
+                                    title: help.AppHelpers.changeStatusButtonText(
                                       state.order?.status,
                                     ),
                                     onPressed: () => event.updateOrderStatus(
                                       context,
-                                      status: AppHelpers.getUpdatableStatus(
+                                      status: help.AppHelpers.getUpdatableStatus(
                                         state.order?.status,
                                       ),
                                       success: () {
                                         Navigator.pop(context);
-                                        switch (AppHelpers.getOrderStatus(
+                                        switch (help.AppHelpers.getOrderStatus(
                                           state.order?.status,
                                         )) {
                                           case OrderStatus.newOrder:
@@ -515,7 +515,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                       appbarState.index,
                                                   updateTotal: (count) =>
                                                       appbarEvent.setAppbarDetails(
-                                                        AppHelpers.getTranslation(
+                                                        help.AppHelpers.getTranslation(
                                                           TrKeys.newOrders,
                                                         ),
                                                         count,
@@ -544,7 +544,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                       .acceptedOrdersController,
                                                   updateTotal: (count) =>
                                                       appbarEvent.setAppbarDetails(
-                                                        AppHelpers.getTranslation(
+                                                        help.AppHelpers.getTranslation(
                                                           TrKeys.acceptedOrders,
                                                         ),
                                                         count,
@@ -593,7 +593,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                       .readyOrdersController,
                                                   updateTotal: (count) =>
                                                       appbarEvent.setAppbarDetails(
-                                                        AppHelpers.getTranslation(
+                                                        help.AppHelpers.getTranslation(
                                                           TrKeys.readyOrders,
                                                         ),
                                                         count,
@@ -620,7 +620,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                       .onAWayOrdersController,
                                                   updateTotal: (count) =>
                                                       appbarEvent.setAppbarDetails(
-                                                        AppHelpers.getTranslation(
+                                                        help.AppHelpers.getTranslation(
                                                           TrKeys.onAWayOrders,
                                                         ),
                                                         count,
@@ -648,7 +648,7 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                                                       appbarState.index,
                                                   updateTotal: (count) =>
                                                       appbarEvent.setAppbarDetails(
-                                                        AppHelpers.getTranslation(
+                                                        help.AppHelpers.getTranslation(
                                                           TrKeys.newOrders,
                                                         ),
                                                         count,

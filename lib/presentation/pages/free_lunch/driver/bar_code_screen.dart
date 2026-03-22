@@ -1,6 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/components/driver/restaurant_item.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
@@ -49,21 +49,21 @@ class BarCodeScreen extends StatelessWidget {
                 12.horizontalSpace,
                 RichText(
                   text: TextSpan(
-                    text: AppHelpers.getTranslation(TrKeys.youWillShow),
+                    text: help.AppHelpers.getTranslation(TrKeys.youWillShow),
                     style: AppStyle.interRegular(
                       size: 14.sp,
                       letterSpacing: -0.3,
                     ),
                     children: [
                       TextSpan(
-                        text: AppHelpers.getTranslation(TrKeys.qRCode),
+                        text: help.AppHelpers.getTranslation(TrKeys.qRCode),
                         style: AppStyle.interSemi(
                           size: 14.sp,
                           letterSpacing: -0.3,
                         ),
                       ),
                       TextSpan(
-                        text: AppHelpers.getTranslation(TrKeys.toTheRestaurant),
+                        text: help.AppHelpers.getTranslation(TrKeys.toTheRestaurant),
                         style: AppStyle.interRegular(
                           size: 14.sp,
                           letterSpacing: -0.3,
@@ -81,7 +81,7 @@ class BarCodeScreen extends StatelessWidget {
           Consumer(
             builder: (context, ref, child) {
               return CustomButton(
-                title: AppHelpers.getTranslation(TrKeys.showOnMap),
+                title: help.AppHelpers.getTranslation(TrKeys.showOnMap),
                 icon: const Icon(
                   FlutterRemix.map_pin_range_fill,
                   color: AppStyle.black,
@@ -89,7 +89,7 @@ class BarCodeScreen extends StatelessWidget {
                 onPressed: () async {
                   Navigator.pop(context);
                   final Uint8List markerMarketIcon =
-                      await AppHelpers.getBytesFromAsset(
+                      await help.AppHelpers.getBytesFromAsset(
                         Assets.imageMarker,
                         100,
                       ).whenComplete(() {});

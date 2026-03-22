@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/driver/filter_screen.dart';
@@ -15,7 +15,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/application/order/driver/all_order/order_provider.dart';
-import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/driver/services.dart' hide AppHelpers;
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
@@ -39,10 +39,10 @@ class _DriverOrderHistoryPageState extends ConsumerState<DriverOrderHistoryPage>
   late TabController _tabController;
 
   final tabs = [
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.allOrders))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.progressOrder))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.deliveredOrder))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.canceledOrder))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.allOrders))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.progressOrder))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.deliveredOrder))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.canceledOrder))),
   ];
 
   @override
@@ -103,11 +103,11 @@ class _DriverOrderHistoryPageState extends ConsumerState<DriverOrderHistoryPage>
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  AppHelpers.getTranslation(TrKeys.orderHistory),
+                  help.AppHelpers.getTranslation(TrKeys.orderHistory),
                   style: AppStyle.interSemi(size: 18.sp),
                 ),
                 Text(
-                  AppHelpers.getTranslation(TrKeys.thereAreOrders),
+                  help.AppHelpers.getTranslation(TrKeys.thereAreOrders),
                   style: AppStyle.interRegular(
                     size: 12.sp,
                     letterSpacing: -0.3,
@@ -152,7 +152,7 @@ class _DriverOrderHistoryPageState extends ConsumerState<DriverOrderHistoryPage>
             const PopButton(),
             GestureDetector(
               onTap: () {
-                AppHelpers.showCustomModalBottomSheet(
+                help.AppHelpers.showCustomModalBottomSheet(
                   paddingTop: MediaQuery.paddingOf(context).top,
                   context: context,
                   radius: 12,

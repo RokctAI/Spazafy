@@ -1,6 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class ApproveOrderDialog extends StatelessWidget {
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-              text: AppHelpers.getTranslation(TrKeys.thatYouHaveIndeed),
+              text: help.AppHelpers.getTranslation(TrKeys.thatYouHaveIndeed),
               style: AppStyle.interNormal(size: 16.sp),
             ),
           ),
@@ -43,7 +43,7 @@ class ApproveOrderDialog extends StatelessWidget {
             children: [
               Expanded(
                 child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.cancel),
+                  title: help.AppHelpers.getTranslation(TrKeys.cancel),
                   background: AppStyle.red,
                   textColor: AppStyle.white,
                   onPressed: () {
@@ -56,7 +56,7 @@ class ApproveOrderDialog extends StatelessWidget {
                 child: Consumer(
                   builder: (context, ref, child) {
                     return CustomButton(
-                      title: AppHelpers.getTranslation(TrKeys.approve),
+                      title: help.AppHelpers.getTranslation(TrKeys.approve),
                       background: AppStyle.black,
                       textColor: AppStyle.white,
                       onPressed: () async {

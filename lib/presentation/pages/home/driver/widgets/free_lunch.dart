@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/pages/free_lunch/driver/free_lunch_screen.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
@@ -15,7 +15,7 @@ class FreeLunch extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        AppHelpers.showCustomModalBottomSheet(
+        help.AppHelpers.showCustomModalBottomSheet(
           paddingTop: MediaQuery.paddingOf(context).top,
           context: context,
           modal: const FreeLunchScreen(),
@@ -37,7 +37,7 @@ class FreeLunch extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.only(top: 16.h, left: 16.w),
           child: Text(
-            AppHelpers.getTranslation(TrKeys.freeLunches),
+            help.AppHelpers.getTranslation(TrKeys.freeLunches),
             style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
           ),
         ),

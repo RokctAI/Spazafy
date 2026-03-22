@@ -1,5 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
@@ -59,11 +59,11 @@ class _ManagerDeliveryZonePageState
                         target: LatLng(
                           state.polygon.isNotEmpty
                               ? state.polygon.first.points.first.latitude
-                              : AppHelpers.getInitialLatitude() ??
+                              : help.AppHelpers.getInitialLatitude() ??
                                     AppConstants.demoLatitude,
                           state.polygon.isNotEmpty
                               ? state.polygon.first.points.first.longitude
-                              : AppHelpers.getInitialLongitude() ??
+                              : help.AppHelpers.getInitialLongitude() ??
                                     AppConstants.demoLongitude,
                         ),
                         tilt: 0,
@@ -84,7 +84,7 @@ class _ManagerDeliveryZonePageState
                     if (state.tappedPoints.length > 3)
                       Expanded(
                         child: CustomButton(
-                          title: AppHelpers.getTranslation(TrKeys.save),
+                          title: help.AppHelpers.getTranslation(TrKeys.save),
                           isLoading: state.isSaving,
                           onPressed: () => event.updateDeliveryZone(
                             updateSuccess: context.maybePop,

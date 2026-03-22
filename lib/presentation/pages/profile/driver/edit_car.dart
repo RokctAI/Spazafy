@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/img_service.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'dart:io';
@@ -125,17 +125,17 @@ class _EditCarState extends ConsumerState<EditCar> {
             child: Column(
               children: [
                 TitleAndIcon(
-                  title: AppHelpers.getTranslation(TrKeys.carSettings),
+                  title: help.AppHelpers.getTranslation(TrKeys.carSettings),
                 ),
                 24.verticalSpace,
                 IgnorePointer(
-                  ignoring: AppHelpers.getDriverCantEdit(),
+                  ignoring: help.AppHelpers.getDriverCantEdit(),
                   child: DropdownButtonFormField(
                     initialValue: dropdownValue,
                     items: items.map((String item) {
                       return DropdownMenuItem(
                         value: item,
-                        child: Text(AppHelpers.getTranslation(item)),
+                        child: Text(help.AppHelpers.getTranslation(item)),
                       );
                     }).toList(),
                     onChanged: (String? newValue) {
@@ -143,7 +143,7 @@ class _EditCarState extends ConsumerState<EditCar> {
                       event.setPhone("");
                     },
                     decoration: InputDecoration(
-                      labelText: AppHelpers.getTranslation(
+                      labelText: help.AppHelpers.getTranslation(
                         TrKeys.typeTechnique,
                       ).toUpperCase(),
                       labelStyle: AppStyle.interNormal(
@@ -170,8 +170,8 @@ class _EditCarState extends ConsumerState<EditCar> {
                 ),
                 24.verticalSpace,
                 UnderlinedBorderTextField(
-                  readOnly: AppHelpers.getDriverCantEdit(),
-                  label: AppHelpers.getTranslation(TrKeys.carBrand),
+                  readOnly: help.AppHelpers.getDriverCantEdit(),
+                  label: help.AppHelpers.getTranslation(TrKeys.carBrand),
                   textController: brand,
                   onChanged: (s) {
                     event.setPhone("");
@@ -179,8 +179,8 @@ class _EditCarState extends ConsumerState<EditCar> {
                 ),
                 24.verticalSpace,
                 UnderlinedBorderTextField(
-                  readOnly: AppHelpers.getDriverCantEdit(),
-                  label: AppHelpers.getTranslation(TrKeys.carModels),
+                  readOnly: help.AppHelpers.getDriverCantEdit(),
+                  label: help.AppHelpers.getTranslation(TrKeys.carModels),
                   textController: model,
                   onChanged: (s) {
                     event.setPhone("");
@@ -192,8 +192,8 @@ class _EditCarState extends ConsumerState<EditCar> {
                     Expanded(
                       flex: 2,
                       child: UnderlinedBorderTextField(
-                        readOnly: AppHelpers.getDriverCantEdit(),
-                        label: AppHelpers.getTranslation(TrKeys.stateNumber),
+                        readOnly: help.AppHelpers.getDriverCantEdit(),
+                        label: help.AppHelpers.getTranslation(TrKeys.stateNumber),
                         textController: number,
                         onChanged: (s) {
                           event.setPhone("");
@@ -204,8 +204,8 @@ class _EditCarState extends ConsumerState<EditCar> {
                     Expanded(
                       flex: 1,
                       child: UnderlinedBorderTextField(
-                        readOnly: AppHelpers.getDriverCantEdit(),
-                        label: AppHelpers.getTranslation(TrKeys.color),
+                        readOnly: help.AppHelpers.getDriverCantEdit(),
+                        label: help.AppHelpers.getTranslation(TrKeys.color),
                         textController: color,
                         onChanged: (s) {
                           event.setPhone("");
@@ -220,8 +220,8 @@ class _EditCarState extends ConsumerState<EditCar> {
                     Expanded(
                       flex: 2,
                       child: UnderlinedBorderTextField(
-                        readOnly: AppHelpers.getDriverCantEdit(),
-                        label: AppHelpers.getTranslation(TrKeys.height),
+                        readOnly: help.AppHelpers.getDriverCantEdit(),
+                        label: help.AppHelpers.getTranslation(TrKeys.height),
                         textController: height,
                         inputType: TextInputType.number,
                         onChanged: (s) {
@@ -233,8 +233,8 @@ class _EditCarState extends ConsumerState<EditCar> {
                     Expanded(
                       flex: 1,
                       child: UnderlinedBorderTextField(
-                        readOnly: AppHelpers.getDriverCantEdit(),
-                        label: AppHelpers.getTranslation(TrKeys.weight),
+                        readOnly: help.AppHelpers.getDriverCantEdit(),
+                        label: help.AppHelpers.getTranslation(TrKeys.weight),
                         textController: weight,
                         inputType: TextInputType.number,
                         onChanged: (s) {
@@ -250,8 +250,8 @@ class _EditCarState extends ConsumerState<EditCar> {
                     Expanded(
                       flex: 2,
                       child: UnderlinedBorderTextField(
-                        readOnly: AppHelpers.getDriverCantEdit(),
-                        label: AppHelpers.getTranslation(TrKeys.length),
+                        readOnly: help.AppHelpers.getDriverCantEdit(),
+                        label: help.AppHelpers.getTranslation(TrKeys.length),
                         textController: length,
                         inputType: TextInputType.number,
                       ),
@@ -260,8 +260,8 @@ class _EditCarState extends ConsumerState<EditCar> {
                     Expanded(
                       flex: 1,
                       child: UnderlinedBorderTextField(
-                        readOnly: AppHelpers.getDriverCantEdit(),
-                        label: AppHelpers.getTranslation(TrKeys.width),
+                        readOnly: help.AppHelpers.getDriverCantEdit(),
+                        label: help.AppHelpers.getTranslation(TrKeys.width),
                         textController: width,
                         inputType: TextInputType.number,
                       ),
@@ -274,7 +274,7 @@ class _EditCarState extends ConsumerState<EditCar> {
           24.verticalSpace,
           InkWell(
             onTap: () async {
-              if (AppHelpers.getDriverCantEdit()) return;
+              if (help.AppHelpers.getDriverCantEdit()) return;
               ImgService.getPhotoGallery((s) {
                 imagePath = s;
                 eventImage.setUrlCar(null);
@@ -300,11 +300,11 @@ class _EditCarState extends ConsumerState<EditCar> {
                               ),
                               16.verticalSpace,
                               Text(
-                                AppHelpers.getTranslation(TrKeys.carPicture),
+                                help.AppHelpers.getTranslation(TrKeys.carPicture),
                                 style: AppStyle.interSemi(size: 14.sp),
                               ),
                               Text(
-                                AppHelpers.getTranslation(
+                                help.AppHelpers.getTranslation(
                                   TrKeys.recommendedSize,
                                 ),
                                 style: AppStyle.interRegular(size: 14.sp),
@@ -354,7 +354,7 @@ class _EditCarState extends ConsumerState<EditCar> {
                   ? AppStyle.primary
                   : AppStyle.shadowColor,
               isLoading: state.isLoading,
-              title: AppHelpers.getTranslation(TrKeys.save),
+              title: help.AppHelpers.getTranslation(TrKeys.save),
               onPressed: () {
                 if ((dropdownValue?.isNotEmpty ?? false) &&
                     brand.text.isNotEmpty &&
@@ -367,7 +367,7 @@ class _EditCarState extends ConsumerState<EditCar> {
                     length.text.isNotEmpty) {
                   event.editCarInfo(
                     context: context,
-                    type: AppHelpers.getTranslationReverse(dropdownValue!),
+                    type: help.AppHelpers.getTranslationReverse(dropdownValue!),
                     brand: brand.text,
                     model: model.text,
                     number: number.text,

@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,7 +37,7 @@ class StatisticsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.statistics)),
+        TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.statistics)),
         16.verticalSpace,
         SizedBox(
           height: 190.h,
@@ -53,7 +53,7 @@ class StatisticsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppHelpers.getTranslation(TrKeys.totalOrders),
+                      help.AppHelpers.getTranslation(TrKeys.totalOrders),
                       style: AppStyle.interNormal(
                         size: 12.sp,
                         color: AppStyle.black,
@@ -71,7 +71,7 @@ class StatisticsScreen extends StatelessWidget {
                     ),
                     RichText(
                       text: TextSpan(
-                        text: AppHelpers.getTranslation(TrKeys.today),
+                        text: help.AppHelpers.getTranslation(TrKeys.today),
                         style: AppStyle.interNormal(
                           size: 12.sp,
                           color: AppStyle.black,
@@ -99,7 +99,7 @@ class StatisticsScreen extends StatelessWidget {
                   Row(
                     children: [
                       StatisticsItem(
-                        title: AppHelpers.getTranslation(TrKeys.acceptedOrders),
+                        title: help.AppHelpers.getTranslation(TrKeys.acceptedOrders),
                         count: acceptedOrders,
                         percentage: acceptedPer == "NaN%" ? "0%" : acceptedPer,
                         bgColor: AppStyle.green,
@@ -108,7 +108,7 @@ class StatisticsScreen extends StatelessWidget {
                       ),
                       8.horizontalSpace,
                       StatisticsItem(
-                        title: AppHelpers.getTranslation(TrKeys.rejectedOrders),
+                        title: help.AppHelpers.getTranslation(TrKeys.rejectedOrders),
                         count: rejectedOrders,
                         percentage: rejectedPer == "NaN%" ? "0%" : rejectedPer,
                         bgColor: AppStyle.red,
@@ -121,7 +121,7 @@ class StatisticsScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       StatisticsItem(
-                        title: AppHelpers.getTranslation(TrKeys.doneOrders),
+                        title: help.AppHelpers.getTranslation(TrKeys.doneOrders),
                         count: doneOrders,
                         percentage: donePer == "NaN%" ? "0%" : donePer,
                         bgColor: AppStyle.white,
@@ -130,7 +130,7 @@ class StatisticsScreen extends StatelessWidget {
                       ),
                       8.horizontalSpace,
                       StatisticsItem(
-                        title: AppHelpers.getTranslation(TrKeys.newOrders),
+                        title: help.AppHelpers.getTranslation(TrKeys.newOrders),
                         count: canceledOrders,
                         percentage: canceledPer == "NaN%" ? "0%" : canceledPer,
                         bgColor: AppStyle.white,

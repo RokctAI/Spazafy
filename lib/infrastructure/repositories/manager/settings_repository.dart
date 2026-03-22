@@ -53,6 +53,9 @@ class SettingsRepository implements SettingsInterface {
       case UploadType.users:
         type = 'users';
         break;
+      case UploadType.deliveryCar:
+        type = 'delivery_car';
+        break;
     }
     final data = FormData.fromMap({
       'image': await MultipartFile.fromFile(filePath),

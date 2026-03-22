@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:auto_route/auto_route.dart';
@@ -29,9 +29,9 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
   late TabController _tabController;
 
   final _tabs = [
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.today))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.weekly))),
-    Tab(child: Text(AppHelpers.getTranslation(TrKeys.monthly))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.today))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.weekly))),
+    Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.monthly))),
   ];
 
   @override
@@ -138,7 +138,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
   Column _chart() {
     return Column(
       children: [
-        TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.earningsChart)),
+        TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.earningsChart)),
         16.verticalSpace,
         Container(
           padding: REdgeInsets.symmetric(horizontal: 16, vertical: 18),
@@ -174,7 +174,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
         //           cornerStrategy: const ConstCornerStrategy(6)),
         //       selectionModels: [
         //         SelectionModelConfig(changedListener: (d) {
-        //           // AppHelpers.showAlertDialog(
+        //           // help.AppHelpers.showAlertDialog(
         //           //   context: context,
         //           //   child: Column(
         //           //     mainAxisSize: MainAxisSize.min,
@@ -183,7 +183,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
         //           //           .day),
         //           //       8.verticalSpace,
         //           //       Text(
-        //           //           "${AppHelpers.trans(TrKeys.price)}: ${(d.selectedSeries.first.data.first as OrdinalSales).sales}"),
+        //           //           "${help.AppHelpers.trans(TrKeys.price)}: ${(d.selectedSeries.first.data.first as OrdinalSales).sales}"),
         //           //     ],
         //           //   ),
         //           // );

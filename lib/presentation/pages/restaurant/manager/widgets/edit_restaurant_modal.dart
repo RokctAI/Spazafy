@@ -1,5 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
@@ -69,7 +69,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                               children: [
                                 const ModalDrag(),
                                 TitleAndIcon(
-                                  title: AppHelpers.getTranslation(
+                                  title: help.AppHelpers.getTranslation(
                                     TrKeys.restaurantSettings,
                                   ),
                                 ),
@@ -158,7 +158,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                       child: UnderlinedTextField(
                                         initialText:
                                             state.shop?.translation?.title,
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.restaurantName,
                                         ),
                                         onChanged: event.setTitle,
@@ -171,7 +171,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                 UnderlinedTextField(
                                   initialText:
                                       state.shop?.translation?.description,
-                                  label: AppHelpers.getTranslation(
+                                  label: help.AppHelpers.getTranslation(
                                     TrKeys.description,
                                   ),
                                   onChanged: event.setDescription,
@@ -189,7 +189,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                       if (AppConstants
                                               .isNumberLengthAlwaysSame &&
                                           (s?.isValidNumber() ?? true)) {
-                                        return AppHelpers.getTranslation(
+                                        return help.AppHelpers.getTranslation(
                                           TrKeys.phoneNumberIsNotValid,
                                         );
                                       }
@@ -207,7 +207,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                               : state.shop?.phone
                                         : "",
                                     invalidNumberMessage:
-                                        AppHelpers.getTranslation(
+                                        help.AppHelpers.getTranslation(
                                           TrKeys.phoneNumberIsNotValid,
                                         ),
                                     inputFormatters: [
@@ -263,7 +263,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                 if (!AppConstants.isSpecificNumberEnabled)
                                   UnderlinedTextField(
                                     initialText: state.shop?.phone,
-                                    label: AppHelpers.getTranslation(
+                                    label: help.AppHelpers.getTranslation(
                                       TrKeys.phoneNumber,
                                     ),
                                     onChanged: event.setPhone,
@@ -277,7 +277,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                             children: [
                               16.horizontalSpace,
                               Text(
-                                AppHelpers.getTranslation(TrKeys.orderPayment),
+                                help.AppHelpers.getTranslation(TrKeys.orderPayment),
                                 style: AppStyle.interNormal(),
                               ),
                               18.horizontalSpace,
@@ -289,7 +289,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                     DropdownMenuItem(
                                       value: "before",
                                       child: Text(
-                                        AppHelpers.getTranslation(
+                                        help.AppHelpers.getTranslation(
                                           TrKeys.before,
                                         ),
                                       ),
@@ -297,7 +297,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                     DropdownMenuItem(
                                       value: "after",
                                       child: Text(
-                                        AppHelpers.getTranslation(TrKeys.after),
+                                        help.AppHelpers.getTranslation(TrKeys.after),
                                       ),
                                     ),
                                   ],
@@ -313,7 +313,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                           GestureDetector(
                             onTap: () {
                               workingDayEvent.changeIndex(null);
-                              AppHelpers.showCustomModalBottomSheet(
+                              help.AppHelpers.showCustomModalBottomSheet(
                                 paddingTop: MediaQuery.paddingOf(context).top,
                                 context: context,
                                 modal: const WorkingTimeModal(),
@@ -337,7 +337,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          AppHelpers.getTranslation(
+                                          help.AppHelpers.getTranslation(
                                             TrKeys.workingHours,
                                           ),
                                           style: AppStyle.interNormal(
@@ -402,7 +402,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                     ),
                                     8.horizontalSpace,
                                     Text(
-                                      AppHelpers.getTranslation(
+                                      help.AppHelpers.getTranslation(
                                         TrKeys.deliveryZone,
                                       ),
                                       style: AppStyle.interNormal(
@@ -426,7 +426,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                           Padding(
                             padding: REdgeInsets.all(16),
                             child: CustomButton(
-                              title: AppHelpers.getTranslation(TrKeys.save),
+                              title: help.AppHelpers.getTranslation(TrKeys.save),
                               isLoading: state.isLoading,
                               onPressed: () {
                                 if (_formKey.currentState?.validate() ??

@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,7 +38,7 @@ class WIngredientScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TitleAndIcon(
-                  title: AppHelpers.getTranslation(TrKeys.ingredients),
+                  title: help.AppHelpers.getTranslation(TrKeys.ingredients),
                 ),
                 16.verticalSpace,
                 ListView.builder(

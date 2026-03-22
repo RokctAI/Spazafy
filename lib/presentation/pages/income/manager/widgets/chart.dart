@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/statistics_income_response.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -47,7 +47,7 @@ class SalesChart extends StatelessWidget {
                   ? LineChart(mainData())
                   : Center(
                       child: Text(
-                        AppHelpers.getTranslation(TrKeys.needOrder),
+                        help.AppHelpers.getTranslation(TrKeys.needOrder),
                         style: AppStyle.interSemi(size: 22),
                       ),
                     ),
@@ -75,7 +75,7 @@ class SalesChart extends StatelessWidget {
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     final style = AppStyle.interRegular(size: 12);
     return AutoSizeText(
-      AppHelpers.numberFormat(
+      help.AppHelpers.numberFormat(
         value.toInt() == 0 ? 0 : price[value.toInt() - 1],
       ),
       style: style,

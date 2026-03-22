@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -56,7 +56,7 @@ class IngredientItem extends ConsumerWidget {
                       ),
                       4.horizontalSpace,
                       Text(
-                        "+${AppHelpers.numberFormat(addon.product?.stock?.totalPrice ?? 0)}",
+                        "+${help.AppHelpers.numberFormat(addon.product?.stock?.totalPrice ?? 0)}",
                         style: AppStyle.interNormal(
                           size: 14,
                           color: AppStyle.black,

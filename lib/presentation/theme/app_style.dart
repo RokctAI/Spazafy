@@ -48,8 +48,8 @@ abstract class AppStyle {
   static const Color discountProduct = Color(0xFFD21234);
   static const Color notificationTime = Color(0xFF8B8B8B);
   static const Color separatorDot = Color(0xFFD9D9D9);
-  static Color shimmerBase = Colors.grey.shade300;
-  static Color shimmerHighlight = Colors.grey.shade100;
+  static const Color shimmerBase = Color(0xFFE0E0E0);
+  static const Color shimmerHighlight = Color(0xFFF5F5F5);
   static const Color locationAddress = Color(0xFF343434);
   static const Color selectedItemsText = Color(0xFFA0A09C);
   static const Color iconButtonBack = Color(0xFFE9E9E6);

@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'package:auto_route/auto_route.dart';
@@ -30,7 +30,7 @@ class AddressSelector extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 4.w, bottom: 12.h),
           child: Text(
-            AppHelpers.getTranslation(TrKeys.address),
+            help.AppHelpers.getTranslation(TrKeys.address),
             style: AppStyle.interSemi(size: 14, color: AppStyle.black),
           ),
         ),
@@ -79,7 +79,7 @@ class AddressSelector extends StatelessWidget {
                       children: [
                         Text(
                           hasAddress
-                              ? AppHelpers.getTranslation(TrKeys.address)
+                              ? help.AppHelpers.getTranslation(TrKeys.address)
                               : 'Select Location',
                           style: AppStyle.interNormal(
                             size: 13,

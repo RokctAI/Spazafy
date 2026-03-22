@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -73,18 +73,18 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           24.verticalSpace,
                           UnderlinedTextField(
                             label:
-                                '${AppHelpers.getTranslation(TrKeys.productTitle)}*',
+                                '${help.AppHelpers.getTranslation(TrKeys.productTitle)}*',
                             readOnly: true,
                             textController: TextEditingController(
                               text: state.title,
                             ),
                             validator: AppValidators.emptyCheck,
                             onTap: () {
-                              AppHelpers.showCustomModalBottomSheet(
+                              help.AppHelpers.showCustomModalBottomSheet(
                                 context: context,
                                 modal: MultiTranslationInputModal(
                                   model: AiTranslationModel.product,
-                                  label: AppHelpers.getTranslation(
+                                  label: help.AppHelpers.getTranslation(
                                     TrKeys.productTitle,
                                   ),
                                   inputs: state.titleTranslations,
@@ -104,15 +104,15 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           24.verticalSpace,
                           UnderlinedTextField(
                             label:
-                                '${AppHelpers.getTranslation(TrKeys.description)}*',
+                                '${help.AppHelpers.getTranslation(TrKeys.description)}*',
                             readOnly: true,
                             onTap: () {
-                              AppHelpers.showCustomModalBottomSheet(
+                              help.AppHelpers.showCustomModalBottomSheet(
                                 context: context,
                                 modal: MultiTranslationInputModal(
                                   model: AiTranslationModel.product,
                                   modelId: state.product?.id,
-                                  label: AppHelpers.getTranslation(
+                                  label: help.AppHelpers.getTranslation(
                                     TrKeys.description,
                                   ),
                                   inputs: state.descriptionTranslations,
@@ -139,14 +139,14 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           UnderlinedTextField(
                             textController: categoryState.categoriesController,
                             label:
-                                '${AppHelpers.getTranslation(TrKeys.productCategory)}*',
+                                '${help.AppHelpers.getTranslation(TrKeys.productCategory)}*',
                             suffixIcon: Icon(
                               FlutterRemix.arrow_down_s_line,
                               color: AppStyle.blackColor,
                               size: 18.r,
                             ),
                             readOnly: true,
-                            onTap: () => AppHelpers.showCustomModalBottomSheet(
+                            onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                               paddingTop:
                                   MediaQuery.paddingOf(context).top + 100.h,
                               context: context,
@@ -159,14 +159,14 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           UnderlinedTextField(
                             textController: unitState.unitController,
                             label:
-                                '${AppHelpers.getTranslation(TrKeys.units)}*',
+                                '${help.AppHelpers.getTranslation(TrKeys.units)}*',
                             suffixIcon: Icon(
                               FlutterRemix.arrow_down_s_line,
                               color: AppStyle.blackColor,
                               size: 18.r,
                             ),
                             readOnly: true,
-                            onTap: () => AppHelpers.showCustomModalBottomSheet(
+                            onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                               paddingTop:
                                   MediaQuery.paddingOf(context).top + 250.h,
                               context: context,
@@ -178,14 +178,14 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           24.verticalSpace,
                           UnderlinedTextField(
                             textController: kitchenState.kitchenController,
-                            label: AppHelpers.getTranslation(TrKeys.kitchen),
+                            label: help.AppHelpers.getTranslation(TrKeys.kitchen),
                             suffixIcon: Icon(
                               FlutterRemix.arrow_down_s_line,
                               color: AppStyle.blackColor,
                               size: 18.r,
                             ),
                             readOnly: true,
-                            onTap: () => AppHelpers.showCustomModalBottomSheet(
+                            onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                               paddingTop:
                                   MediaQuery.paddingOf(context).top + 250.h,
                               context: context,
@@ -196,7 +196,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           24.verticalSpace,
                           UnderlinedTextField(
                             label:
-                                '${AppHelpers.getTranslation(TrKeys.interval)}*',
+                                '${help.AppHelpers.getTranslation(TrKeys.interval)}*',
                             inputType: TextInputType.number,
                             textCapitalization: TextCapitalization.sentences,
                             textInputAction: TextInputAction.next,
@@ -212,7 +212,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                               Expanded(
                                 child: UnderlinedTextField(
                                   label:
-                                      '${AppHelpers.getTranslation(TrKeys.minQuantity)}*',
+                                      '${help.AppHelpers.getTranslation(TrKeys.minQuantity)}*',
                                   inputType: TextInputType.number,
                                   textInputAction: TextInputAction.next,
                                   initialText:
@@ -225,7 +225,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                               Expanded(
                                 child: UnderlinedTextField(
                                   label:
-                                      '${AppHelpers.getTranslation(TrKeys.maxQuantity)}*',
+                                      '${help.AppHelpers.getTranslation(TrKeys.maxQuantity)}*',
                                   inputType: TextInputType.number,
                                   textInputAction: TextInputAction.next,
                                   initialText:
@@ -242,7 +242,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           ),
                           24.verticalSpace,
                           UnderlinedTextField(
-                            label: '${AppHelpers.getTranslation(TrKeys.tax)}*',
+                            label: '${help.AppHelpers.getTranslation(TrKeys.tax)}*',
                             inputType: TextInputType.number,
                             textInputAction: TextInputAction.next,
                             initialText: state.product?.tax == null
@@ -256,7 +256,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                AppHelpers.getTranslation(TrKeys.showProduct),
+                                help.AppHelpers.getTranslation(TrKeys.showProduct),
                                 style: AppStyle.interNormal(
                                   size: 14,
                                   letterSpacing: -0.3,
@@ -273,7 +273,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           ),
                           40.verticalSpace,
                           CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.save),
+                            title: help.AppHelpers.getTranslation(TrKeys.save),
                             isLoading: state.isLoading,
                             onPressed: () {
                               if (_formKey.currentState?.validate() ?? false) {
@@ -284,18 +284,18 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                   category: categoryState.foodCategory,
                                   updated: (product) {
                                     widget.onSave();
-                                    AppHelpers.showCheckTopSnackBar(
+                                    help.AppHelpers.showCheckTopSnackBar(
                                       context,
-                                      text: AppHelpers.getTranslation(
+                                      text: help.AppHelpers.getTranslation(
                                         TrKeys.successfullyUpdated,
                                       ),
                                       type: SnackBarType.success,
                                     );
                                     foodsEvent.updateSingleProduct(product);
                                   },
-                                  failed: () => AppHelpers.showCheckTopSnackBar(
+                                  failed: () => help.AppHelpers.showCheckTopSnackBar(
                                     context,
-                                    text: AppHelpers.getTranslation(
+                                    text: help.AppHelpers.getTranslation(
                                       TrKeys.updateFailed,
                                     ),
                                     type: SnackBarType.error,

@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -105,7 +105,7 @@ class FoodsFilterItem extends StatelessWidget {
                               : const SizedBox.shrink(),
                           isPrice
                               ? Text(
-                                  AppHelpers.numberFormat(double.tryParse(e)),
+                                  help.AppHelpers.numberFormat(double.tryParse(e)),
                                   style: AppStyle.interNormal(
                                     size: 14,
                                     color: AppStyle.blackColor,

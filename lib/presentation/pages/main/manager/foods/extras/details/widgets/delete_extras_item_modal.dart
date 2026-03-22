@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ class DeleteExtrasItemModal extends StatelessWidget {
             const ModalDrag(),
             40.verticalSpace,
             Text(
-              '${AppHelpers.getTranslation(TrKeys.areYouSureToDelete)} ${extras.value}?',
+              '${help.AppHelpers.getTranslation(TrKeys.areYouSureToDelete)} ${extras.value}?',
               textAlign: TextAlign.center,
               style: GoogleFonts.inter(
                 fontSize: 18,
@@ -43,7 +43,7 @@ class DeleteExtrasItemModal extends StatelessWidget {
               children: [
                 Expanded(
                   child: CustomButton(
-                    title: AppHelpers.getTranslation(TrKeys.cancel),
+                    title: help.AppHelpers.getTranslation(TrKeys.cancel),
                     onPressed: context.maybePop,
                     background: AppStyle.transparent,
                     borderColor: AppStyle.blackColor,
@@ -54,7 +54,7 @@ class DeleteExtrasItemModal extends StatelessWidget {
                   child: Consumer(
                     builder: (context, ref, child) {
                       return CustomButton(
-                        title: AppHelpers.getTranslation(TrKeys.yes),
+                        title: help.AppHelpers.getTranslation(TrKeys.yes),
                         isLoading: ref
                             .watch(deleteExtrasItemProvider)
                             .isLoading,

@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
@@ -66,11 +66,11 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      AppHelpers.getTranslation(TrKeys.moreOrders),
+                      help.AppHelpers.getTranslation(TrKeys.moreOrders),
                       style: AppStyle.interSemi(size: 18),
                     ),
                     Text(
-                      AppHelpers.getTranslation(TrKeys.moreOrders),
+                      help.AppHelpers.getTranslation(TrKeys.moreOrders),
                       style: AppStyle.interNormal(
                         size: 14,
                         letterSpacing: -0.3,
@@ -80,7 +80,7 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                 ),
                 InkWell(
                   onTap: () {
-                    AppHelpers.showCustomModalBottomSheet(
+                    help.AppHelpers.showCustomModalBottomSheet(
                       paddingTop: MediaQuery.of(context).padding.top,
                       context: context,
                       radius: 12,
@@ -163,7 +163,7 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    AppHelpers.getTranslation(TrKeys.order),
+                                    help.AppHelpers.getTranslation(TrKeys.order),
                                     style: AppStyle.interSemi(
                                       size: 13,
                                       color: AppStyle.blackColor,
@@ -176,7 +176,7 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                               Column(
                                 children: [
                                   Text(
-                                    AppHelpers.getTranslation(TrKeys.price),
+                                    help.AppHelpers.getTranslation(TrKeys.price),
                                     style: AppStyle.interSemi(
                                       size: 13,
                                       color: AppStyle.blackColor,
@@ -189,7 +189,7 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    AppHelpers.getTranslation(TrKeys.user),
+                                    help.AppHelpers.getTranslation(TrKeys.user),
                                     style: AppStyle.interSemi(
                                       size: 13,
                                       color: AppStyle.blackColor,
@@ -202,7 +202,7 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    AppHelpers.getTranslation(TrKeys.products),
+                                    help.AppHelpers.getTranslation(TrKeys.products),
                                     style: AppStyle.interSemi(
                                       size: 13,
                                       color: AppStyle.blackColor,
@@ -253,7 +253,7 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                                   child: Column(
                                     children: [
                                       Text(
-                                        AppHelpers.numberFormat(
+                                        help.AppHelpers.numberFormat(
                                           ref
                                               .watch(statisticsProvider)
                                               .listOfOrder[i]

@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
@@ -51,7 +51,7 @@ class _ExtrasGroupDetailsModalState
             const ModalDrag(),
             ButtonsBouncingEffect(
               child: GestureDetector(
-                onTap: () => AppHelpers.showCustomModalBottomSheet(
+                onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                   context: context,
                   modal: CreateNewGroupItemModal(group: widget.group),
                   isDarkMode: false,
@@ -66,7 +66,7 @@ class _ExtrasGroupDetailsModalState
                     ),
                     10.horizontalSpace,
                     Text(
-                      AppHelpers.getTranslation(TrKeys.addNewExtras),
+                      help.AppHelpers.getTranslation(TrKeys.addNewExtras),
                       style: AppStyle.interSemi(
                         size: 14,
                         color: AppStyle.blue,
@@ -81,14 +81,14 @@ class _ExtrasGroupDetailsModalState
               label: '',
               readOnly: true,
               initialText: widget.group.translation?.title,
-              onTap: () => AppHelpers.showCustomModalBottomSheet(
+              onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                 context: context,
                 modal: UpdateExtrasGroupModal(group: widget.group),
                 isDarkMode: true,
               ),
               suffixIcon: widget.group.shopId == LocalStorage.getShop()?.id
                   ? GestureDetector(
-                      onTap: () => AppHelpers.showCustomModalBottomSheet(
+                      onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                         context: context,
                         isDarkMode: true,
                         modal: DeleteExtrasGroupModal(group: widget.group),
@@ -125,7 +125,7 @@ class _ExtrasGroupDetailsModalState
                               GroupDetailExtrasItem(
                                 extras: state.extras[index],
                                 onEditTap: () =>
-                                    AppHelpers.showCustomModalBottomSheet(
+                                    help.AppHelpers.showCustomModalBottomSheet(
                                       context: context,
                                       modal: EditExtrasItemModal(
                                         group: widget.group,
@@ -134,7 +134,7 @@ class _ExtrasGroupDetailsModalState
                                       isDarkMode: false,
                                     ),
                                 onDeleteTap: () =>
-                                    AppHelpers.showCustomModalBottomSheet(
+                                    help.AppHelpers.showCustomModalBottomSheet(
                                       context: context,
                                       modal: DeleteExtrasItemModal(
                                         extras: state.extras[index],

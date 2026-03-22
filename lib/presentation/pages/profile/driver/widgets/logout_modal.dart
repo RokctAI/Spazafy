@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:auto_route/auto_route.dart';
@@ -23,7 +23,7 @@ class LogoutModal extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            AppHelpers.getTranslation(
+            help.AppHelpers.getTranslation(
               isDeleteAccount
                   ? TrKeys.areYouSure
                   : TrKeys.doYouReallyWantToLogout,
@@ -38,7 +38,7 @@ class LogoutModal extends StatelessWidget {
                 child: CustomButton(
                   borderColor: AppStyle.black,
                   background: AppStyle.transparent,
-                  title: AppHelpers.getTranslation(TrKeys.cancel),
+                  title: help.AppHelpers.getTranslation(TrKeys.cancel),
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -52,7 +52,7 @@ class LogoutModal extends StatelessWidget {
                       return CustomButton(
                         background: AppStyle.red,
                         textColor: AppStyle.white,
-                        title: AppHelpers.getTranslation(TrKeys.deleteAccount),
+                        title: help.AppHelpers.getTranslation(TrKeys.deleteAccount),
                         onPressed: () {
                           ref
                               .read(profileSettingsProvider.notifier)
@@ -61,7 +61,7 @@ class LogoutModal extends StatelessWidget {
                       );
                     } else {
                       return CustomButton(
-                        title: AppHelpers.getTranslation(TrKeys.logout),
+                        title: help.AppHelpers.getTranslation(TrKeys.logout),
                         onPressed: () {
                           LocalStorage.logout();
                           context.router.popUntilRoot();

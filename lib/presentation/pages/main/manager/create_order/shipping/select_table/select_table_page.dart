@@ -1,5 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -113,7 +113,7 @@ class _SelectTablePageState extends ConsumerState<SelectTablePage> {
               8.horizontalSpace,
               Expanded(
                 child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.close),
+                  title: help.AppHelpers.getTranslation(TrKeys.close),
                   onPressed: context.maybePop,
                 ),
               ),

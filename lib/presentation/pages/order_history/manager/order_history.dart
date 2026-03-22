@@ -1,5 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
@@ -33,8 +33,8 @@ class _ManagerOrderHistoryPageState
   late TabController _tabController;
 
   final List<Tab> tabs = <Tab>[
-    Tab(text: AppHelpers.getTranslation(TrKeys.delivered)),
-    Tab(text: AppHelpers.getTranslation(TrKeys.canceled)),
+    Tab(text: help.AppHelpers.getTranslation(TrKeys.delivered)),
+    Tab(text: help.AppHelpers.getTranslation(TrKeys.canceled)),
   ];
 
   int count = 0;
@@ -78,11 +78,11 @@ class _ManagerOrderHistoryPageState
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  AppHelpers.getTranslation(TrKeys.orderHistory),
+                  help.AppHelpers.getTranslation(TrKeys.orderHistory),
                   style: AppStyle.interSemi(size: 18),
                 ),
                 Text(
-                  '${AppHelpers.getTranslation(TrKeys.thereAre)} ${state.totalCount} ${AppHelpers.getTranslation(TrKeys.orders)}',
+                  '${help.AppHelpers.getTranslation(TrKeys.thereAre)} ${state.totalCount} ${help.AppHelpers.getTranslation(TrKeys.orders)}',
                   style: AppStyle.interRegular(size: 12, letterSpacing: -0.3),
                 ),
               ],
@@ -118,7 +118,7 @@ class _ManagerOrderHistoryPageState
             const PopButton(heroTag: AppConstants.heroTagOrderHistory),
 
             GestureDetector(
-              onTap: () => AppHelpers.showCustomModalBottomSheet(
+              onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                 paddingTop: MediaQuery.paddingOf(context).top,
                 context: context,
                 radius: 12,

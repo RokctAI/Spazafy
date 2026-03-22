@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
@@ -68,9 +68,9 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
               18.verticalSpace,
               TitleAndIcon(
                 title:
-                    '${AppHelpers.getTranslation(TrKeys.filter)} (${!state.isLoading ? state.shopCount : AppHelpers.getTranslation(TrKeys.loading)})',
+                    '${help.AppHelpers.getTranslation(TrKeys.filter)} (${!state.isLoading ? state.shopCount : help.AppHelpers.getTranslation(TrKeys.loading)})',
                 rightTitleColor: AppStyle.red,
-                rightTitle: AppHelpers.getTranslation(TrKeys.clearAll),
+                rightTitle: help.AppHelpers.getTranslation(TrKeys.clearAll),
                 onRightTap: event.clear,
               ),
               state.isTagLoading
@@ -84,7 +84,7 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
                         // _priceRange(state, event),
                         8.verticalSpace,
                         FoodsFilterItem(
-                          title: AppHelpers.getTranslation(TrKeys.rating),
+                          title: help.AppHelpers.getTranslation(TrKeys.rating),
                           list: rating,
                           isRating: true,
                           // currentItem: state.filterModel?.rating,
@@ -99,7 +99,7 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
                         ),
                         8.verticalSpace,
                         // FoodsFilterItem(
-                        //   title: AppHelpers.getTranslation(TrKeys.sortBy),
+                        //   title: help.AppHelpers.getTranslation(TrKeys.sortBy),
                         //   list: sorts,
                         //   isSort: true,
                         //   currentItem: state.filterModel?.sort,
@@ -123,7 +123,7 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
                           background: AppStyle.blackColor,
                           textColor: AppStyle.white,
                           title:
-                              '${AppHelpers.getTranslation(TrKeys.show)} ${state.shopCount} ${AppHelpers.getTranslation(TrKeys.shopAndRestaurants)} ',
+                              '${help.AppHelpers.getTranslation(TrKeys.show)} ${state.shopCount} ${help.AppHelpers.getTranslation(TrKeys.shopAndRestaurants)} ',
                           onPressed: () {
                             // context.pushRoute(const ResultFilter());
                           },
@@ -151,7 +151,7 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //     child: Column(
   //       children: [
   //         Text(
-  //           AppHelpers.getTranslation(TrKeys.priceRange),
+  //           help.AppHelpers.getTranslation(TrKeys.priceRange),
   //           style: Style.interNoSemi(
   //             size: 16,
   //             color: Style.black,
@@ -166,7 +166,7 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //               child: SizedBox(
   //                 width: 46.w,
   //                 child: Text(
-  //                   intl.AppHelpers.numberFormat(
+  //                   intl.help.AppHelpers.numberFormat(
   //                           symbol: LocalStorage
   //                               .getSelectedCurrency()
   //                               .symbol,
@@ -235,7 +235,7 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //               child: SizedBox(
   //                 width: 50.w,
   //                 child: Text(
-  //                   intl.AppHelpers.numberFormat(
+  //                   intl.help.AppHelpers.numberFormat(
   //                           symbol: LocalStorage
   //                               .getSelectedCurrency()
   //                               .symbol,

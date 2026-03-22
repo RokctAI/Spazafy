@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,7 +16,7 @@ class StatisticsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.statistics)),
+        TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.statistics)),
         16.verticalSpace,
         SizedBox(
           height: 190.h,
@@ -35,7 +35,7 @@ class StatisticsSection extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          AppHelpers.getTranslation(TrKeys.totalOrders),
+                          help.AppHelpers.getTranslation(TrKeys.totalOrders),
                           style: AppStyle.interNormal(
                             size: 12,
                             color: AppStyle.blackColor,
@@ -53,7 +53,7 @@ class StatisticsSection extends StatelessWidget {
                         ),
                         RichText(
                           text: TextSpan(
-                            text: AppHelpers.getTranslation(TrKeys.today),
+                            text: help.AppHelpers.getTranslation(TrKeys.today),
                             style: AppStyle.interNormal(
                               size: 12,
                               color: AppStyle.blackColor,
@@ -82,7 +82,7 @@ class StatisticsSection extends StatelessWidget {
                       Row(
                         children: [
                           StatisticsItem(
-                            title: AppHelpers.getTranslation(
+                            title: help.AppHelpers.getTranslation(
                               TrKeys.acceptedOrders,
                             ),
                             count: state.countData?.totalAcceptedCount ?? 0,
@@ -97,7 +97,7 @@ class StatisticsSection extends StatelessWidget {
                           ),
                           8.horizontalSpace,
                           StatisticsItem(
-                            title: AppHelpers.getTranslation(
+                            title: help.AppHelpers.getTranslation(
                               TrKeys.cancelOrders,
                             ),
                             count: state.countData?.totalCanceledCount ?? 0,
@@ -116,7 +116,7 @@ class StatisticsSection extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           StatisticsItem(
-                            title: AppHelpers.getTranslation(
+                            title: help.AppHelpers.getTranslation(
                               TrKeys.deliveredOrdersCount,
                             ),
                             count: state.countData?.totalDeliveredCount ?? 0,
@@ -131,7 +131,7 @@ class StatisticsSection extends StatelessWidget {
                           ),
                           8.horizontalSpace,
                           StatisticsItem(
-                            title: AppHelpers.getTranslation(TrKeys.newOrders),
+                            title: help.AppHelpers.getTranslation(TrKeys.newOrders),
                             count: state.countData?.totalNewCount ?? 0,
                             percentage: state.countData?.totalCount == 0
                                 ? 0

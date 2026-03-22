@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +55,7 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
                   itemBuilder: (context, index) => ExtrasItem(
                     extras: state.groups[index],
                     onTap: () {
-                      AppHelpers.showCustomModalBottomSheet(
+                      help.AppHelpers.showCustomModalBottomSheet(
                         paddingTop: MediaQuery.paddingOf(context).top + 150,
                         context: context,
                         radius: 12,
@@ -88,7 +88,7 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
                         onQuantityChange: (value) =>
                             event.setQuantity(value: value, index: index),
                         onAddonTap: (context) =>
-                            AppHelpers.showCustomModalBottomSheet(
+                            help.AppHelpers.showCustomModalBottomSheet(
                               paddingTop:
                                   MediaQuery.paddingOf(context).top + 150,
                               context: context,
@@ -111,7 +111,7 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
               Padding(
                 padding: REdgeInsets.symmetric(horizontal: 20),
                 child: CustomButton(
-                  title: AppHelpers.getTranslation(TrKeys.save),
+                  title: help.AppHelpers.getTranslation(TrKeys.save),
                   isLoading: state.isSaving,
                   onPressed: () {
                     if (_formKey.currentState?.validate() ?? false) {
@@ -128,19 +128,19 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
                                           2]
                                       .id,
                           );
-                          AppHelpers.showCheckTopSnackBar(
+                          help.AppHelpers.showCheckTopSnackBar(
                             context,
                             type: SnackBarType.success,
-                            text: AppHelpers.getTranslation(
+                            text: help.AppHelpers.getTranslation(
                               TrKeys.successfullyUpdated,
                             ),
                           );
                           context.maybePop();
                         },
-                        failed: () => AppHelpers.showCheckTopSnackBar(
+                        failed: () => help.AppHelpers.showCheckTopSnackBar(
                           context,
                           type: SnackBarType.error,
-                          text: AppHelpers.getTranslation(TrKeys.updateFailed),
+                          text: help.AppHelpers.getTranslation(TrKeys.updateFailed),
                         ),
                       );
                     }

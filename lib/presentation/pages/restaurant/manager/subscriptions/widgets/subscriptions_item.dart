@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/manager/subscriptions_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,7 +39,7 @@ class SubscriptionsItem extends StatelessWidget {
                 style: AppStyle.interNormal(size: 14),
               ),
               Text(
-                AppHelpers.numberFormat(subscription.price),
+                help.AppHelpers.numberFormat(subscription.price),
                 style: AppStyle.interSemi(size: 18),
               ),
               12.verticalSpace,
@@ -48,16 +48,16 @@ class SubscriptionsItem extends StatelessWidget {
                 style: AppStyle.interNormal(size: 14),
               ),
               Text(
-                "${AppHelpers.getTranslation(TrKeys.product)}: ${subscription.productLimit ?? 0}",
+                "${help.AppHelpers.getTranslation(TrKeys.product)}: ${subscription.productLimit ?? 0}",
                 style: AppStyle.interNormal(size: 14),
               ),
               Text(
-                "${AppHelpers.getTranslation(TrKeys.order)}: ${subscription.orderLimit ?? 0}",
+                "${help.AppHelpers.getTranslation(TrKeys.order)}: ${subscription.orderLimit ?? 0}",
                 style: AppStyle.interNormal(size: 14),
               ),
               if (subscription.withReport ?? false)
                 Text(
-                  "+ ${AppHelpers.getTranslation(TrKeys.withReport)}",
+                  "+ ${help.AppHelpers.getTranslation(TrKeys.withReport)}",
                   style: AppStyle.interRegular(size: 12, color: AppStyle.green),
                 ),
               16.verticalSpace,
@@ -73,13 +73,13 @@ class SubscriptionsItem extends StatelessWidget {
             iconSize: 16,
             icon: FlutterRemix.question_mark,
             onTap: () {
-              AppHelpers.openDialog(
+              help.AppHelpers.openDialog(
                 context: context,
                 title:
-                    "${AppHelpers.getTranslation(TrKeys.subscriptionIncludes)}, "
-                    "\n${AppHelpers.getTranslation(TrKeys.productCount)}: ${subscription.productLimit ?? 0}, "
-                    "\n${AppHelpers.getTranslation(TrKeys.orderCount)}: ${subscription.orderLimit ?? 0}, "
-                    "\n${AppHelpers.getTranslation(TrKeys.duration)}: ${subscription.month} ${AppHelpers.getTranslation(TrKeys.month)}",
+                    "${help.AppHelpers.getTranslation(TrKeys.subscriptionIncludes)}, "
+                    "\n${help.AppHelpers.getTranslation(TrKeys.productCount)}: ${subscription.productLimit ?? 0}, "
+                    "\n${help.AppHelpers.getTranslation(TrKeys.orderCount)}: ${subscription.orderLimit ?? 0}, "
+                    "\n${help.AppHelpers.getTranslation(TrKeys.duration)}: ${subscription.month} ${help.AppHelpers.getTranslation(TrKeys.month)}",
               );
             },
           ),

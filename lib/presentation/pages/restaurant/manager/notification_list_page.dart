@@ -1,6 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
@@ -63,7 +63,7 @@ class _ManagerNotificationListPageState
                 children: [
                   CommonAppBar(
                     child: Text(
-                      AppHelpers.getTranslation(TrKeys.notifications),
+                      help.AppHelpers.getTranslation(TrKeys.notifications),
                       style: AppStyle.interSemi(
                         size: 18,
                         color: AppStyle.black,
@@ -109,7 +109,7 @@ class _ManagerNotificationListPageState
                                   null) {
                                 if (state.notifications[index].orderData !=
                                     null) {
-                                  AppHelpers.showCustomModalBottomSheet(
+                                  help.AppHelpers.showCustomModalBottomSheet(
                                     context: context,
                                     modal: OrderDetailsModal(
                                       order:
@@ -135,7 +135,7 @@ class _ManagerNotificationListPageState
                                   enableJavaScript: true,
                                 );
                               } else {
-                                AppHelpers.showAlertDialog(
+                                help.AppHelpers.showAlertDialog(
                                   context: context,
                                   child: Text(
                                     '${state.notifications[index].body ?? state.notifications[index].title}',
@@ -167,7 +167,7 @@ class _ManagerNotificationListPageState
                 child: CustomButton(
                   background: AppStyle.black,
                   textColor: AppStyle.white,
-                  title: AppHelpers.getTranslation(TrKeys.readAll),
+                  title: help.AppHelpers.getTranslation(TrKeys.readAll),
                   onPressed: () async {
                     event.readAll(context);
                   },

@@ -1,6 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
@@ -116,7 +116,7 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
             CustomAppBar(
               bottomPadding: 16,
               child: Text(
-                AppHelpers.getTranslation(TrKeys.becomeSeller),
+                help.AppHelpers.getTranslation(TrKeys.becomeSeller),
                 style: AppStyle.interSemi(size: 18, color: AppStyle.black),
               ),
             ),
@@ -172,7 +172,7 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
                   12.horizontalSpace,
                   Expanded(
                     child: Text(
-                      AppHelpers.getTranslation(TrKeys.pleaseTryAgain),
+                      help.AppHelpers.getTranslation(TrKeys.pleaseTryAgain),
                       style: AppStyle.interSemi(size: 14, color: AppStyle.red),
                     ),
                   ),
@@ -222,12 +222,12 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
           32.verticalSpace,
           CustomButton(
             isLoading: state.isSaveLoading,
-            title: AppHelpers.getTranslation(TrKeys.save),
+            title: help.AppHelpers.getTranslation(TrKeys.save),
             onPressed: () => _handleSave(state, categoryId),
           ),
           16.verticalSpace,
           OutlinedButton(
-            onPressed: () => AppHelpers.showCustomModalBottomSheet(
+            onPressed: () => help.AppHelpers.showCustomModalBottomSheet(
               context: context,
               modal: const LogoutModal(),
               isDarkMode: false,
@@ -243,7 +243,7 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
               ),
             ),
             child: Text(
-              AppHelpers.getTranslation(TrKeys.logout),
+              help.AppHelpers.getTranslation(TrKeys.logout),
               style: AppStyle.interSemi(size: 15, color: AppStyle.red),
             ),
           ),
@@ -260,23 +260,23 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
 
     if (categoryId == 0) {
       if (state.logoImage.isEmpty) {
-        AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(
           context,
-          text: AppHelpers.getTranslation(TrKeys.logoCanNotBeEmpty),
+          text: help.AppHelpers.getTranslation(TrKeys.logoCanNotBeEmpty),
         );
         return;
       }
       if (state.bgImage.isEmpty) {
-        AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(
           context,
-          text: AppHelpers.getTranslation(TrKeys.bgCanNotBeEmpty),
+          text: help.AppHelpers.getTranslation(TrKeys.bgCanNotBeEmpty),
         );
         return;
       }
       if (state.addressModel?.address?.isEmpty ?? true) {
-        AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(
           context,
-          text: AppHelpers.getTranslation(TrKeys.locationCanNotBeEmpty),
+          text: help.AppHelpers.getTranslation(TrKeys.locationCanNotBeEmpty),
         );
         return;
       }

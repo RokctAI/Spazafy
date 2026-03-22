@@ -1,5 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +48,7 @@ class ShopFormFields extends StatelessWidget {
         OutlinedBorderTextField(
           textController: descController,
           validation: AppValidators.emptyCheck,
-          label: AppHelpers.getTranslation(TrKeys.description),
+          label: help.AppHelpers.getTranslation(TrKeys.description),
         ),
         24.verticalSpace,
         if (isSpecificNumberEnabled)
@@ -58,14 +58,14 @@ class ShopFormFields extends StatelessWidget {
             textController: phoneController,
             inputType: TextInputType.phone,
             validation: AppValidators.emptyCheck,
-            label: AppHelpers.getTranslation(TrKeys.phoneNumber),
+            label: help.AppHelpers.getTranslation(TrKeys.phoneNumber),
           ),
         24.verticalSpace,
         OutlinedBorderTextField(
           textController: taxController,
           validation: AppValidators.emptyCheck,
           inputType: TextInputType.number,
-          label: AppHelpers.getTranslation(TrKeys.tax),
+          label: help.AppHelpers.getTranslation(TrKeys.tax),
         ),
         24.verticalSpace,
         _buildDeliveryTypeDropdown(),
@@ -78,7 +78,7 @@ class ShopFormFields extends StatelessWidget {
               child: OutlinedBorderTextField(
                 textController: deliveryTimeFromController,
                 inputType: TextInputType.number,
-                label: AppHelpers.getTranslation(TrKeys.deliveryTimeFrom),
+                label: help.AppHelpers.getTranslation(TrKeys.deliveryTimeFrom),
               ),
             ),
             16.horizontalSpace,
@@ -86,7 +86,7 @@ class ShopFormFields extends StatelessWidget {
               child: OutlinedBorderTextField(
                 inputType: TextInputType.number,
                 textController: deliveryTimeToController,
-                label: AppHelpers.getTranslation(TrKeys.deliveryTimeTo),
+                label: help.AppHelpers.getTranslation(TrKeys.deliveryTimeTo),
               ),
             ),
           ],
@@ -100,7 +100,7 @@ class ShopFormFields extends StatelessWidget {
               child: OutlinedBorderTextField(
                 textController: startPriceController,
                 inputType: TextInputType.number,
-                label: AppHelpers.getTranslation(TrKeys.startPrice),
+                label: help.AppHelpers.getTranslation(TrKeys.startPrice),
               ),
             ),
             16.horizontalSpace,
@@ -108,7 +108,7 @@ class ShopFormFields extends StatelessWidget {
               child: OutlinedBorderTextField(
                 inputType: TextInputType.number,
                 textController: pricePerKmController,
-                label: AppHelpers.getTranslation(TrKeys.pricePerKm),
+                label: help.AppHelpers.getTranslation(TrKeys.pricePerKm),
               ),
             ),
           ],
@@ -134,13 +134,13 @@ class ShopFormFields extends StatelessWidget {
       validator: (s) {
         if (AppConstants.isNumberLengthAlwaysSame &&
             (s?.isValidNumber() ?? true)) {
-          return AppHelpers.getTranslation(TrKeys.phoneNumberIsNotValid);
+          return help.AppHelpers.getTranslation(TrKeys.phoneNumberIsNotValid);
         }
         return null;
       },
       keyboardType: TextInputType.phone,
       initialCountryCode: AppConstants.countryCodeISO,
-      invalidNumberMessage: AppHelpers.getTranslation(
+      invalidNumberMessage: help.AppHelpers.getTranslation(
         TrKeys.phoneNumberIsNotValid,
       ),
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -185,7 +185,7 @@ class ShopFormFields extends StatelessWidget {
           .toList(),
       onChanged: onDeliveryTypeChanged,
       decoration: InputDecoration(
-        labelText: AppHelpers.getTranslation(TrKeys.deliveryType),
+        labelText: help.AppHelpers.getTranslation(TrKeys.deliveryType),
         labelStyle: AppStyle.interNormal(size: 12, color: AppStyle.black),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide.merge(

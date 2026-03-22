@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,7 +40,7 @@ class ProcessingView extends StatelessWidget {
                 ),
                 16.verticalSpace,
                 Text(
-                  AppHelpers.getTranslation(TrKeys.yourRequest),
+                  help.AppHelpers.getTranslation(TrKeys.yourRequest),
                   style: AppStyle.interSemi(size: 18, color: AppStyle.black),
                   textAlign: TextAlign.center,
                 ),
@@ -58,7 +58,7 @@ class ProcessingView extends StatelessWidget {
           ),
           const Spacer(),
           OutlinedButton(
-            onPressed: () => AppHelpers.showCustomModalBottomSheet(
+            onPressed: () => help.AppHelpers.showCustomModalBottomSheet(
               context: context,
               modal: const LogoutModal(),
               isDarkMode: false,
@@ -75,7 +75,7 @@ class ProcessingView extends StatelessWidget {
               ),
             ),
             child: Text(
-              AppHelpers.getTranslation(TrKeys.logout),
+              help.AppHelpers.getTranslation(TrKeys.logout),
               style: AppStyle.interSemi(size: 15, color: AppStyle.red),
             ),
           ),

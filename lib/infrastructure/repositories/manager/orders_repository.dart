@@ -151,6 +151,7 @@ class OrdersRepository implements OrdersInterface {
     String? statusText;
     switch (status) {
       case OrderStatus.newOrder:
+      case OrderStatus.open:
         statusText = 'new';
         break;
       case OrderStatus.accepted:
@@ -162,14 +163,14 @@ class OrdersRepository implements OrdersInterface {
       case OrderStatus.ready:
         statusText = 'ready';
         break;
-      case OrderStatus.onAWay:
+      case OrderStatus.onWay:
         statusText = 'on_a_way';
         break;
       case OrderStatus.delivered:
         statusText = 'delivered';
         break;
       case OrderStatus.canceled:
-        statusText = 'Cancelled';
+        statusText = 'canceled';
         break;
     }
     final data = {'status': statusText};
@@ -233,7 +234,7 @@ class OrdersRepository implements OrdersInterface {
       case OrderStatus.ready:
         statusText = 'ready';
         break;
-      case OrderStatus.onAWay:
+      case OrderStatus.onWay:
         statusText = 'on_a_way';
         break;
       case OrderStatus.delivered:
@@ -243,7 +244,9 @@ class OrdersRepository implements OrdersInterface {
         statusText = 'canceled';
         break;
       case OrderStatus.newOrder:
+      case OrderStatus.open:
         statusText = 'new';
+        break;
       case OrderStatus.cooking:
         statusText = 'cooking';
         break;

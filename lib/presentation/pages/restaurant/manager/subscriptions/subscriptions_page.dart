@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -73,7 +73,7 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
                         icon: Icon(FlutterRemix.arrow_left_s_line),
                       ),
                       Text(
-                        AppHelpers.getTranslation(TrKeys.subscriptions),
+                        help.AppHelpers.getTranslation(TrKeys.subscriptions),
                         style: AppStyle.interNormal(size: 16),
                       ),
                     ],
@@ -106,7 +106,7 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
                                   const HaveSubscription(),
                                 state.list.isEmpty
                                     ? NoDataInfo(
-                                        title: AppHelpers.getTranslation(
+                                        title: help.AppHelpers.getTranslation(
                                           TrKeys.noData,
                                         ),
                                       )
@@ -142,15 +142,15 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
                                                   notifier.selectSubscribe(
                                                     index: index,
                                                   );
-                                                  AppHelpers.showAlertDialog(
+                                                  help.AppHelpers.showAlertDialog(
                                                     context: context,
                                                     child:
                                                         const PaymentDialog(),
                                                   );
                                                 } else {
-                                                  AppHelpers.errorSnackBar(
+                                                  help.AppHelpers.errorSnackBar(
                                                     context,
-                                                    text: AppHelpers.getTranslation(
+                                                    text: help.AppHelpers.getTranslation(
                                                       TrKeys
                                                           .youHaveSubscription,
                                                     ),

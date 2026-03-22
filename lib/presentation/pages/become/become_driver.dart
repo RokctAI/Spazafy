@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'dart:io';
@@ -11,7 +11,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rokctapp/application/profile/driver/notifier/profile_edit_notifier.dart';
 import 'package:rokctapp/application/profile/driver/notifier/profile_image_notifier.dart';
-import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/driver/services.dart' hide AppHelpers;
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.dart';
@@ -44,12 +44,12 @@ class _DriverBecomeDriverPageState
   late ProfileImageNotifier eventImage;
 
   var items = [
-    AppHelpers.getTranslation(TrKeys.benzine),
-    AppHelpers.getTranslation(TrKeys.diesel),
-    AppHelpers.getTranslation(TrKeys.gas),
-    AppHelpers.getTranslation(TrKeys.motorbike),
-    AppHelpers.getTranslation(TrKeys.bike),
-    AppHelpers.getTranslation(TrKeys.foot),
+    help.AppHelpers.getTranslation(TrKeys.benzine),
+    help.AppHelpers.getTranslation(TrKeys.diesel),
+    help.AppHelpers.getTranslation(TrKeys.gas),
+    help.AppHelpers.getTranslation(TrKeys.motorbike),
+    help.AppHelpers.getTranslation(TrKeys.bike),
+    help.AppHelpers.getTranslation(TrKeys.foot),
   ];
 
   @override
@@ -126,7 +126,7 @@ class _DriverBecomeDriverPageState
             CustomAppBar(
               bottomPadding: 16,
               child: Text(
-                AppHelpers.getTranslation(TrKeys.becomeDriver),
+                help.AppHelpers.getTranslation(TrKeys.becomeDriver),
                 style: AppStyle.interSemi(size: 18, color: AppStyle.black),
               ),
             ),
@@ -139,7 +139,7 @@ class _DriverBecomeDriverPageState
                         Lottie.asset('assets/lottie/processing.json'),
                         24.verticalSpace,
                         Text(
-                          AppHelpers.getTranslation(TrKeys.yourRequest),
+                          help.AppHelpers.getTranslation(TrKeys.yourRequest),
                           style: AppStyle.interNormal(
                             size: 18,
                             color: AppStyle.black,
@@ -149,9 +149,9 @@ class _DriverBecomeDriverPageState
                         Padding(
                           padding: REdgeInsets.all(24),
                           child: CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.logout),
+                            title: help.AppHelpers.getTranslation(TrKeys.logout),
                             onPressed: () =>
-                                AppHelpers.showCustomModalBottomSheet(
+                                help.AppHelpers.showCustomModalBottomSheet(
                                   context: context,
                                   modal: const LogoutModal(),
                                   isDarkMode: LocalStorage.getAppThemeMode(),
@@ -198,7 +198,7 @@ class _DriverBecomeDriverPageState
                                     event.setPhone("");
                                   },
                                   decoration: InputDecoration(
-                                    labelText: AppHelpers.getTranslation(
+                                    labelText: help.AppHelpers.getTranslation(
                                       TrKeys.typeTechnique,
                                     ).toUpperCase(),
                                     labelStyle: AppStyle.interNormal(
@@ -211,26 +211,26 @@ class _DriverBecomeDriverPageState
                                     ),
                                     floatingLabelBehavior:
                                         FloatingLabelBehavior.always,
-                                    enabledBorder: const UnderlineInputBorder(
+                                    enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppStyle.shimmerBase,
                                       ),
                                     ),
                                     errorBorder: InputBorder.none,
-                                    border: const UnderlineInputBorder(),
+                                    border: UnderlineInputBorder(),
                                     focusedErrorBorder:
-                                        const UnderlineInputBorder(),
+                                        UnderlineInputBorder(),
                                     disabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppStyle.shimmerBase,
                                       ),
                                     ),
-                                    focusedBorder: const UnderlineInputBorder(),
+                                    focusedBorder: UnderlineInputBorder(),
                                   ),
                                 ),
                                 24.verticalSpace,
                                 UnderlinedBorderTextField(
-                                  label: AppHelpers.getTranslation(
+                                  label: help.AppHelpers.getTranslation(
                                     TrKeys.carBrand,
                                   ),
                                   textController: brand,
@@ -240,7 +240,7 @@ class _DriverBecomeDriverPageState
                                 ),
                                 24.verticalSpace,
                                 UnderlinedBorderTextField(
-                                  label: AppHelpers.getTranslation(
+                                  label: help.AppHelpers.getTranslation(
                                     TrKeys.carModels,
                                   ),
                                   textController: model,
@@ -254,7 +254,7 @@ class _DriverBecomeDriverPageState
                                     Expanded(
                                       flex: 2,
                                       child: UnderlinedBorderTextField(
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.stateNumber,
                                         ),
                                         textController: number,
@@ -267,7 +267,7 @@ class _DriverBecomeDriverPageState
                                     Expanded(
                                       flex: 1,
                                       child: UnderlinedBorderTextField(
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.color,
                                         ),
                                         textController: color,
@@ -284,7 +284,7 @@ class _DriverBecomeDriverPageState
                                     Expanded(
                                       flex: 2,
                                       child: UnderlinedBorderTextField(
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.height,
                                         ),
                                         textController: height,
@@ -298,7 +298,7 @@ class _DriverBecomeDriverPageState
                                     Expanded(
                                       flex: 1,
                                       child: UnderlinedBorderTextField(
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.weight,
                                         ),
                                         textController: weight,
@@ -316,7 +316,7 @@ class _DriverBecomeDriverPageState
                                     Expanded(
                                       flex: 2,
                                       child: UnderlinedBorderTextField(
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.length,
                                         ),
                                         textController: length,
@@ -327,7 +327,7 @@ class _DriverBecomeDriverPageState
                                     Expanded(
                                       flex: 1,
                                       child: UnderlinedBorderTextField(
-                                        label: AppHelpers.getTranslation(
+                                        label: help.AppHelpers.getTranslation(
                                           TrKeys.width,
                                         ),
                                         textController: width,
@@ -376,7 +376,7 @@ class _DriverBecomeDriverPageState
                                               ),
                                               16.verticalSpace,
                                               Text(
-                                                AppHelpers.getTranslation(
+                                                help.AppHelpers.getTranslation(
                                                   TrKeys.carPicture,
                                                 ),
                                                 style: AppStyle.interSemi(
@@ -384,7 +384,7 @@ class _DriverBecomeDriverPageState
                                                 ),
                                               ),
                                               Text(
-                                                AppHelpers.getTranslation(
+                                                help.AppHelpers.getTranslation(
                                                   TrKeys.recommendedSize,
                                                 ),
                                                 style: AppStyle.interRegular(
@@ -440,7 +440,7 @@ class _DriverBecomeDriverPageState
                                       ? AppStyle.primary
                                       : AppStyle.shadowColor,
                                   isLoading: state.isLoading,
-                                  title: AppHelpers.getTranslation(TrKeys.save),
+                                  title: help.AppHelpers.getTranslation(TrKeys.save),
                                   onPressed: () {
                                     if ((dropdownValue?.isNotEmpty ?? false) &&
                                         brand.text.isNotEmpty &&
@@ -453,7 +453,7 @@ class _DriverBecomeDriverPageState
                                         length.text.isNotEmpty) {
                                       event.createCarInfo(
                                         context: context,
-                                        type: AppHelpers.getTranslationReverse(
+                                        type: help.AppHelpers.getTranslationReverse(
                                           dropdownValue!,
                                         ),
                                         brand: brand.text,

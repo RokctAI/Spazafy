@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
@@ -41,7 +41,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
           child: Column(
             children: [
               const ModalDrag(),
-              TitleAndIcon(title: AppHelpers.getTranslation(TrKeys.addons)),
+              TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.addons)),
               Expanded(
                 child: Consumer(
                   builder: (context, ref, child) {
@@ -61,7 +61,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                   24.verticalSpace,
                                   UnderlinedTextField(
                                     label:
-                                        '${AppHelpers.getTranslation(TrKeys.title)}*',
+                                        '${help.AppHelpers.getTranslation(TrKeys.title)}*',
                                     inputType: TextInputType.text,
                                     textCapitalization:
                                         TextCapitalization.sentences,
@@ -72,7 +72,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                   24.verticalSpace,
                                   UnderlinedTextField(
                                     label:
-                                        '${AppHelpers.getTranslation(TrKeys.description)}*',
+                                        '${help.AppHelpers.getTranslation(TrKeys.description)}*',
                                     inputType: TextInputType.text,
                                     textCapitalization:
                                         TextCapitalization.sentences,
@@ -87,7 +87,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                         textController:
                                             unitState.unitController,
                                         label:
-                                            '${AppHelpers.getTranslation(TrKeys.units)}*',
+                                            '${help.AppHelpers.getTranslation(TrKeys.units)}*',
                                         suffixIcon: Icon(
                                           FlutterRemix.arrow_down_s_line,
                                           color: AppStyle.blackColor,
@@ -96,7 +96,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                         readOnly: true,
                                         validator: AppValidators.emptyCheck,
                                         onTap: () =>
-                                            AppHelpers.showCustomModalBottomSheet(
+                                            help.AppHelpers.showCustomModalBottomSheet(
                                               paddingTop:
                                                   MediaQuery.of(
                                                     context,
@@ -113,7 +113,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                   24.verticalSpace,
                                   UnderlinedTextField(
                                     label:
-                                        '${AppHelpers.getTranslation(TrKeys.tax)}*',
+                                        '${help.AppHelpers.getTranslation(TrKeys.tax)}*',
                                     inputType: TextInputType.number,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setTax,
@@ -121,7 +121,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                   ),
                                   24.verticalSpace,
                                   UnderlinedTextField(
-                                    label: AppHelpers.getTranslation(
+                                    label: help.AppHelpers.getTranslation(
                                       TrKeys.sku,
                                     ),
                                     inputType: TextInputType.text,
@@ -136,7 +136,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                       Expanded(
                                         child: UnderlinedTextField(
                                           label:
-                                              '${AppHelpers.getTranslation(TrKeys.price)}*',
+                                              '${help.AppHelpers.getTranslation(TrKeys.price)}*',
                                           inputType: TextInputType.number,
                                           textInputAction: TextInputAction.next,
                                           onChanged: event.setPrice,
@@ -147,7 +147,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                       Expanded(
                                         child: UnderlinedTextField(
                                           label:
-                                              '${AppHelpers.getTranslation(TrKeys.quantity)}*',
+                                              '${help.AppHelpers.getTranslation(TrKeys.quantity)}*',
                                           inputType: TextInputType.number,
                                           textInputAction: TextInputAction.next,
                                           onChanged: event.setQuantity,
@@ -162,7 +162,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        AppHelpers.getTranslation(
+                                        help.AppHelpers.getTranslation(
                                           TrKeys.active,
                                         ),
                                         style: AppStyle.interNormal(
@@ -183,7 +183,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                             ),
                           ),
                           CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.save),
+                            title: help.AppHelpers.getTranslation(TrKeys.save),
                             isLoading: state.isLoading,
                             onPressed: () {
                               if (_formKey.currentState?.validate() ?? false) {
@@ -192,9 +192,9 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                   unitId:
                                       unitState.units[unitState.activeIndex].id,
                                   created: () {
-                                    AppHelpers.showCheckTopSnackBar(
+                                    help.AppHelpers.showCheckTopSnackBar(
                                       context,
-                                      text: AppHelpers.getTranslation(
+                                      text: help.AppHelpers.getTranslation(
                                         TrKeys.successfullyCreated,
                                       ),
                                       type: SnackBarType.success,

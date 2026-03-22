@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class ImageDialog extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                AppHelpers.getTranslation(TrKeys.thisImageWasUploadDriver),
+                help.AppHelpers.getTranslation(TrKeys.thisImageWasUploadDriver),
                 style: AppStyle.interNormal(),
               ),
             ),

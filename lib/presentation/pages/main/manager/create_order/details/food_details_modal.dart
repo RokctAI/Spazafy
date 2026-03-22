@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'dart:io';
@@ -229,7 +229,7 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                       : Padding(
                           padding: REdgeInsets.symmetric(horizontal: 16),
                           child: CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.toBuy),
+                            title: help.AppHelpers.getTranslation(TrKeys.toBuy),
                             onPressed: () {
                               event.increaseStockCount(
                                 updateCart: (count) {

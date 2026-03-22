@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +37,7 @@ class _EditFoodKitchensModalState extends ConsumerState<EditFoodKitchensModal> {
           children: [
             const ModalDrag(),
             TitleAndIcon(
-              title: AppHelpers.getTranslation(TrKeys.kitchens),
+              title: help.AppHelpers.getTranslation(TrKeys.kitchens),
               titleSize: 16,
             ),
             24.verticalSpace,
@@ -68,7 +68,7 @@ class _EditFoodKitchensModalState extends ConsumerState<EditFoodKitchensModal> {
             ),
             24.verticalSpace,
             CustomButton(
-              title: AppHelpers.getTranslation(TrKeys.close),
+              title: help.AppHelpers.getTranslation(TrKeys.close),
               onPressed: context.maybePop,
             ),
             20.verticalSpace,

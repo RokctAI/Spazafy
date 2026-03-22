@@ -1,5 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -70,11 +70,11 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
         player.play(AssetSource("audio/notification.wav"));
       }
       if (mounted) {
-        AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(
           context,
           type: SnackBarType.success,
           text:
-              "${AppHelpers.getTranslation(TrKeys.id)} #${message.notification?.title} ${message.notification?.body}",
+              "${help.AppHelpers.getTranslation(TrKeys.id)} #${message.notification?.title} ${message.notification?.body}",
         );
       }
     });
@@ -146,7 +146,7 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
                               index: 0,
                               selectIcon: FlutterRemix.scan_2_fill,
                               unSelectIcon: FlutterRemix.scan_2_line,
-                              label: AppHelpers.getTranslation(TrKeys.pos),
+                              label: help.AppHelpers.getTranslation(TrKeys.pos),
                             ),
                             BottomNavigatorItem(
                               isScrolling: state.isScrolling,
@@ -155,7 +155,7 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
                               index: 1,
                               selectIcon: FlutterRemix.file_list_2_fill,
                               unSelectIcon: FlutterRemix.file_list_2_line,
-                              label: AppHelpers.getTranslation(TrKeys.orders),
+                              label: help.AppHelpers.getTranslation(TrKeys.orders),
                             ),
                             BottomNavigatorItem(
                               isScrolling: state.isScrolling,
@@ -164,7 +164,7 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
                               currentIndex: state.selectedIndex,
                               selectIcon: FlutterRemix.restaurant_fill,
                               unSelectIcon: FlutterRemix.restaurant_line,
-                              label: AppHelpers.getTranslation(TrKeys.products),
+                              label: help.AppHelpers.getTranslation(TrKeys.products),
                             ),
                             _profileItem(() {
                               event.selectIndex(3);
@@ -193,7 +193,7 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
                                             const ManagerCreateOrderRoute(),
                                           )
                                         : (foodTabState.selectedIndex == 0
-                                              ? AppHelpers.showCustomModalBottomSheet(
+                                              ? help.AppHelpers.showCustomModalBottomSheet(
                                                   paddingTop:
                                                       MediaQuery.paddingOf(
                                                         context,
@@ -205,7 +205,7 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
                                                   isDarkMode: false,
                                                 )
                                               : (foodTabState.selectedIndex == 1
-                                                    ? AppHelpers.showCustomModalBottomSheet(
+                                                    ? help.AppHelpers.showCustomModalBottomSheet(
                                                         paddingTop:
                                                             MediaQuery.paddingOf(
                                                               context,
@@ -216,7 +216,7 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
                                                             const CreateAddonModal(),
                                                         isDarkMode: false,
                                                       )
-                                                    : AppHelpers.showCustomModalBottomSheet(
+                                                    : help.AppHelpers.showCustomModalBottomSheet(
                                                         paddingTop:
                                                             MediaQuery.paddingOf(
                                                               context,

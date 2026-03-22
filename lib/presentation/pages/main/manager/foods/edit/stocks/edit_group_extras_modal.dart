@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +41,7 @@ class _EditGroupsExtrasModalState extends ConsumerState<EditGroupExtrasModal> {
             children: [
               const ModalDrag(),
               TitleAndIcon(
-                title: AppHelpers.getTranslation(TrKeys.extras),
+                title: help.AppHelpers.getTranslation(TrKeys.extras),
                 titleSize: 16,
               ),
               Consumer(

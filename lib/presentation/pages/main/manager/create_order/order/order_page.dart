@@ -1,6 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/components/loading/manager/loading_list.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -95,11 +95,11 @@ class _ManagerOrderPageState extends ConsumerState<ManagerOrderPage> {
                   bottom: 16,
                 ),
                 child: TitleAndIcon(
-                  title: AppHelpers.getTranslation(TrKeys.orders),
+                  title: help.AppHelpers.getTranslation(TrKeys.orders),
                   rightTitleColor: AppStyle.red,
                   rightTitle: state.stocks.isEmpty
                       ? null
-                      : AppHelpers.getTranslation(TrKeys.clearAllOrders),
+                      : help.AppHelpers.getTranslation(TrKeys.clearAllOrders),
                   onRightTap: () {
                     event.clearAll();
                     productsEvent.updateProducts(cartStocks: []);
@@ -154,7 +154,7 @@ class _ManagerOrderPageState extends ConsumerState<ManagerOrderPage> {
                 if (cartState.stocks.isNotEmpty)
                   Expanded(
                     child: CustomButton(
-                      title: AppHelpers.getTranslation(TrKeys.next),
+                      title: help.AppHelpers.getTranslation(TrKeys.next),
                       onPressed: () =>
                           context.pushRoute(const ShippingAddressRoute()),
                     ),

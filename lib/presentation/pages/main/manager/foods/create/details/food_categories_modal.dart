@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
@@ -46,7 +46,7 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
           const ModalDrag(),
           if (!widget.isSubCategory)
             GestureDetector(
-              onTap: () => AppHelpers.showCustomModalBottomSheet(
+              onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                 context: context,
                 paddingTop: 100,
                 modal: const AddCategoryModal(),
@@ -62,7 +62,7 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
                   ),
                   10.horizontalSpace,
                   Text(
-                    AppHelpers.getTranslation(TrKeys.addNewCategory),
+                    help.AppHelpers.getTranslation(TrKeys.addNewCategory),
                     style: AppStyle.interSemi(
                       size: 14,
                       color: AppStyle.blue,
@@ -83,7 +83,7 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
                 child: Column(
                   children: [
                     TitleAndIcon(
-                      title: AppHelpers.getTranslation(TrKeys.categories),
+                      title: help.AppHelpers.getTranslation(TrKeys.categories),
                       titleSize: 16,
                     ),
                     Consumer(

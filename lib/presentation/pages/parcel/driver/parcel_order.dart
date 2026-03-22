@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -84,7 +84,7 @@ class ParcelOrderPage extends StatelessWidget {
                           IconButton(
                             padding: EdgeInsets.symmetric(horizontal: 6.w),
                             onPressed: () async {
-                              AppHelpers.showCustomModalBottomSheet(
+                              help.AppHelpers.showCustomModalBottomSheet(
                                 context: context,
                                 modal: MapsList(
                                   location: Coords(
@@ -218,7 +218,7 @@ class ParcelOrderPage extends StatelessWidget {
                             IconButton(
                               padding: EdgeInsets.symmetric(horizontal: 6.w),
                               onPressed: () {
-                                AppHelpers.showCustomModalBottomSheet(
+                                help.AppHelpers.showCustomModalBottomSheet(
                                   context: context,
                                   modal: MapsList(
                                     location: Coords(
@@ -301,7 +301,7 @@ class ParcelOrderPage extends StatelessWidget {
                     builder: (context, ref, child) {
                       return CustomButton(
                         isLoading: ref.watch(homeProvider).isLoading,
-                        title: AppHelpers.getTranslation(TrKeys.order),
+                        title: help.AppHelpers.getTranslation(TrKeys.order),
                         onPressed: () async {
                           if (parcel?.deliveryman == null) {
                             final ImageCropperMarker image =

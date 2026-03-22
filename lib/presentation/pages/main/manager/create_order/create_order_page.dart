@@ -1,7 +1,7 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/components/loading/manager/tab_bar_loading.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
@@ -147,7 +147,7 @@ class _ManagerCreateOrderPageState
                                     ),
                                     child: Center(
                                       child: Text(
-                                        AppHelpers.getTranslation(
+                                        help.AppHelpers.getTranslation(
                                           TrKeys.product,
                                         ),
                                         style: AppStyle.interSemi(
@@ -197,7 +197,7 @@ class _ManagerCreateOrderPageState
                                     ),
                                     child: Center(
                                       child: Text(
-                                        AppHelpers.getTranslation(TrKeys.combo),
+                                        help.AppHelpers.getTranslation(TrKeys.combo),
                                         style: AppStyle.interSemi(
                                           size: 14,
                                           color:
@@ -317,7 +317,7 @@ class _ManagerCreateOrderPageState
                                         .id,
                             ),
                             onProductTap: (index) =>
-                                AppHelpers.showCustomModalBottomDragSheet(
+                                help.AppHelpers.showCustomModalBottomDragSheet(
                                   paddingTop: 60,
                                   context: context,
                                   maxChildSize: 0.8,
@@ -363,7 +363,7 @@ class _ManagerCreateOrderPageState
                                 child: Row(
                                   children: [
                                     Text(
-                                      AppHelpers.getTranslation(
+                                      help.AppHelpers.getTranslation(
                                         TrKeys.ordering,
                                       ),
                                       style: AppStyle.interSemi(
@@ -385,7 +385,7 @@ class _ManagerCreateOrderPageState
                                         ),
                                       ),
                                       child: Text(
-                                        AppHelpers.numberFormat(
+                                        help.AppHelpers.numberFormat(
                                           cartState.totalPrice,
                                         ),
                                         style: AppStyle.interSemi(

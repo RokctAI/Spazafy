@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/loading/manager/loading_list.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -68,7 +68,7 @@ class _OnAWayOrdersBodyState extends State<OnAWayOrdersBody> {
                   itemBuilder: (context, index) {
                     return OrderItem(
                       order: state.orders[index],
-                      onTap: () => AppHelpers.showCustomModalBottomSheet(
+                      onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                         paddingTop: MediaQuery.paddingOf(context).top + 60,
                         context: context,
                         radius: 12,

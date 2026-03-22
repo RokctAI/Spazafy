@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
@@ -32,7 +32,7 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
   }
 
   void selectLanguage() {
-    AppHelpers.showCustomModalBottomSheet(
+    help.AppHelpers.showCustomModalBottomSheet(
       isDismissible: false,
       isDrag: false,
       context: context,
@@ -73,7 +73,7 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
                   Row(
                     children: [
                       Text(
-                        AppHelpers.getAppName(),
+                        help.AppHelpers.getAppName(),
                         style: AppStyle.interBold(
                           color: AppStyle.white,
                           size: 24,
@@ -88,9 +88,9 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
                       return Column(
                         children: [
                           CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.login),
+                            title: help.AppHelpers.getTranslation(TrKeys.login),
                             onPressed: () =>
-                                AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
+                                help.AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
                                   context: context,
                                   modal: const LoginScreen(role: 'seller'),
                                   isDarkMode: false,
@@ -98,9 +98,9 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
                           ),
                           10.verticalSpace,
                           CustomButton(
-                            title: AppHelpers.getTranslation(TrKeys.register),
+                            title: help.AppHelpers.getTranslation(TrKeys.register),
                             onPressed: () {
-                              AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
+                              help.AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
                                 context: context,
                                 modal: const RegisterPage(
                                   isOnlyEmail: true,

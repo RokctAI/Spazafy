@@ -1,7 +1,7 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -57,7 +57,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
   final _delayed = Delayed(milliseconds: 36000);
 
   Future<void> setCustomMarkerIcon() async {
-    final Uint8List markerMyIcon = await AppHelpers.svgToPng(
+    final Uint8List markerMyIcon = await help.AppHelpers.svgToPng(
       Assets.svgMyLocation,
     );
     myIcon = BitmapDescriptor.bytes(markerMyIcon);
@@ -73,7 +73,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
       debugPrint("New notification on message: ${jsonEncode(message.data)}");
       if (message.data["id"] != null && mounted) {
-        AppHelpers.showCheckTopSnackBarInfo(
+        help.AppHelpers.showCheckTopSnackBarInfo(
           context,
           "${message.notification?.body}",
         );
@@ -230,7 +230,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
   }
 
   Future<void> attachOrder(OrderDetailData? push) async {
-    AppHelpers.showAlertDialog(
+    help.AppHelpers.showAlertDialog(
       context: context,
       child: PushOrder(pushModel: push ?? OrderDetailData(), isActive: false),
     );
@@ -274,7 +274,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
   }
 
   Future<void> newOrder(OrderDetailData? push) async {
-    AppHelpers.showAlertDialog(
+    help.AppHelpers.showAlertDialog(
       context: context,
       child: PushOrder(pushModel: push ?? OrderDetailData(), isActive: true),
     );
