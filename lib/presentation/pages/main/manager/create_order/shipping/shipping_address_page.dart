@@ -1,5 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -89,7 +90,9 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                           8.verticalSpace,
                           DeliveryTypeItem(
                             iconData: FlutterRemix.walk_fill,
-                            title: help.AppHelpers.getTranslation(TrKeys.takeAway),
+                            title: help.AppHelpers.getTranslation(
+                              TrKeys.takeAway,
+                            ),
                             desc:
                                 '${help.AppHelpers.getTranslation(TrKeys.approximateTime)} 25 - 30 min',
                             isActive: deliveryState.type == TrKeys.pickup,
@@ -98,7 +101,9 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                           8.verticalSpace,
                           DeliveryTypeItem(
                             iconData: Icons.table_restaurant,
-                            title: help.AppHelpers.getTranslation(TrKeys.dineIn),
+                            title: help.AppHelpers.getTranslation(
+                              TrKeys.dineIn,
+                            ),
                             desc:
                                 '${help.AppHelpers.getTranslation(TrKeys.approximateTime)} 25 - 30 min',
                             isActive: deliveryState.type == TrKeys.dineIn,
@@ -178,7 +183,8 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                                           if (AppConstants
                                                   .isNumberLengthAlwaysSame &&
                                               (s?.isValidNumber() ?? true)) {
-                                            return help.AppHelpers.getTranslation(
+                                            return help
+                                                .AppHelpers.getTranslation(
                                               TrKeys.phoneNumberIsNotValid,
                                             );
                                           }

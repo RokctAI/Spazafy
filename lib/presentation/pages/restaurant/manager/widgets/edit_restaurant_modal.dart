@@ -1,5 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
@@ -277,7 +278,9 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                             children: [
                               16.horizontalSpace,
                               Text(
-                                help.AppHelpers.getTranslation(TrKeys.orderPayment),
+                                help.AppHelpers.getTranslation(
+                                  TrKeys.orderPayment,
+                                ),
                                 style: AppStyle.interNormal(),
                               ),
                               18.horizontalSpace,
@@ -297,7 +300,9 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                                     DropdownMenuItem(
                                       value: "after",
                                       child: Text(
-                                        help.AppHelpers.getTranslation(TrKeys.after),
+                                        help.AppHelpers.getTranslation(
+                                          TrKeys.after,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -426,7 +431,9 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                           Padding(
                             padding: REdgeInsets.all(16),
                             child: CustomButton(
-                              title: help.AppHelpers.getTranslation(TrKeys.save),
+                              title: help.AppHelpers.getTranslation(
+                                TrKeys.save,
+                              ),
                               isLoading: state.isLoading,
                               onPressed: () {
                                 if (_formKey.currentState?.validate() ??

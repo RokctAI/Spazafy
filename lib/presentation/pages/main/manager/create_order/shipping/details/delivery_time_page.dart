@@ -1,5 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
@@ -149,7 +150,9 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                       child: Column(
                         children: [
                           TitleAndIcon(
-                            title: help.AppHelpers.getTranslation(TrKeys.payment),
+                            title: help.AppHelpers.getTranslation(
+                              TrKeys.payment,
+                            ),
                           ),
                           Consumer(
                             builder: (context, ref, child) {

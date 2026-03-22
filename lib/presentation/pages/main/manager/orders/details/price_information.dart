@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -91,7 +92,8 @@ class PriceInformation extends StatelessWidget {
                     ),
                   const Spacer(),
                   Text(
-                    (isDiscount ? '-' : '') + help.AppHelpers.numberFormat(price),
+                    (isDiscount ? '-' : '') +
+                        help.AppHelpers.numberFormat(price),
                     style: isTotal
                         ? AppStyle.interSemi(size: 16, letterSpacing: -0.3)
                         : AppStyle.interNormal(
