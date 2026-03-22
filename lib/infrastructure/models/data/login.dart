@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 
 class LoginModel {

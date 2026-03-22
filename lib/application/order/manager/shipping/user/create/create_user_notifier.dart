@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

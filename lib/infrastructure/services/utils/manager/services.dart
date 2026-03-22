@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export '../../constants/manager/enums.dart';
 export '../../constants/tr_keys.dart';
 export '../app_helpers.dart';

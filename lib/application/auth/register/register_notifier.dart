@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';

@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:io';
 
 enum PrinterType { bluetooth, usb, tcp, unknown }

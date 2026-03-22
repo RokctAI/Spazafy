@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 
 class TagResponse {

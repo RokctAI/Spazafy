@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rokctapp/printer/models/data/printer_device.dart';

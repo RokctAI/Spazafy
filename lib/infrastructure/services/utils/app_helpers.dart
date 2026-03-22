@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:math';
 import 'package:auto_route/auto_route.dart';
 import 'package:dio/dio.dart';

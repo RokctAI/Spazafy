@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class CountNotificationModel {
   int? notification;
   int? transaction;

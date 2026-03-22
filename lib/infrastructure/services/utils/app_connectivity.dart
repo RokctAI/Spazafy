@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';

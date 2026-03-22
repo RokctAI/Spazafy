@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'translation.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 

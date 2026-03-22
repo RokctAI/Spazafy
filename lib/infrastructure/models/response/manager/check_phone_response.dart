@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:convert';
 
 CheckPhoneResponse checkPhoneResponseFromJson(String str) =>

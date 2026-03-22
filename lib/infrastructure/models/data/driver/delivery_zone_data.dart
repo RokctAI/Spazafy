@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class DeliveryZoneData {
   String? id;
   List<List<double>>? address;

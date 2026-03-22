@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/app_constants.dart';

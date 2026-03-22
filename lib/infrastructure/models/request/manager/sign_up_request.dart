@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class SignUpRequest {
   final String? email;
 

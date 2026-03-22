@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';

@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'currency_data.dart';
 import 'user.dart';
 import 'product_data.dart';

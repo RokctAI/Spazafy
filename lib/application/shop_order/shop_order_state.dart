@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
 import 'package:rokctapp/infrastructure/models/data/cart_product_data.dart';

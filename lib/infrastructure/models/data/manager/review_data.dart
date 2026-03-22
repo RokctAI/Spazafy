@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'image_data.dart';
 import 'user_data.dart';
 

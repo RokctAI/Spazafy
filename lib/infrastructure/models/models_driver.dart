@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export './data/driver/chart.dart';
 // export './data/driver/user_data.dart';
 export 'response/login_response.dart';

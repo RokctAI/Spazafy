@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/infrastructure/models/data/loans/loan_application.dart';
 import 'package:rokctapp/infrastructure/models/data/loans/loan_contract_model.dart';

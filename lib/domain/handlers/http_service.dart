@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:dio/dio.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'token_interceptor.dart';

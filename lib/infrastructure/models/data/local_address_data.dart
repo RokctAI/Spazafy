@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'local_location.dart';
 
 class LocalAddressData {

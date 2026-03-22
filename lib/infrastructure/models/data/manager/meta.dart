@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class Meta {
   Meta({int? total}) {
     _total = total;

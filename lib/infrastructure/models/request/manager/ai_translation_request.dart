@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/language.dart';
 import 'package:rokctapp/app_constants.dart';

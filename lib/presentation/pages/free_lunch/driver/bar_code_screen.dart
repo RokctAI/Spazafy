@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

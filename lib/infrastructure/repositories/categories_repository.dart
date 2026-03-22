@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/domain/interface/categories.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';

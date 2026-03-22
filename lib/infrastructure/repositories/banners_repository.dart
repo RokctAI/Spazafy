@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/banners.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';

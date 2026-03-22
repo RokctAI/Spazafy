@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'review_data.dart';
 import 'translation.dart';
 import 'local_location_data.dart';

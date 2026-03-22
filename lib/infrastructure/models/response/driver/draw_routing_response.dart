@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:convert';
 
 DrawRouting drawRoutingFromJson(String str) =>

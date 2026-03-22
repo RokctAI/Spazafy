@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';

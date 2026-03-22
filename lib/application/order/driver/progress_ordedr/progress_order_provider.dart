@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/application/order/driver/progress_ordedr/progress_order_notifier.dart';
 import 'package:rokctapp/application/order/driver/progress_ordedr/progress_order_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'cart_product_data.dart';
 import 'shop_data.dart';
 

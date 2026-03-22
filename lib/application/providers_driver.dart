@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export 'home/home_provider.dart';
 export 'splash/splash_provider.dart';
 export './push_order/driver/push_order_provider.dart';

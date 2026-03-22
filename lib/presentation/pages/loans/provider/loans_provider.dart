@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:io';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

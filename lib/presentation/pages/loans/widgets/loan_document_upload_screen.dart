@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:file_picker/file_picker.dart';

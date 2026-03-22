@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class LookLikeData {
   final int index;
   final bool isLiking;

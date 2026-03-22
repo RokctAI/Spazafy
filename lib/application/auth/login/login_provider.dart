@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/services/utils/sync_provider.dart';
 import 'login_notifier.dart';
 import 'login_state.dart';

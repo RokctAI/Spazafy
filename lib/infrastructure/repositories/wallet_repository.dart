@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/domain/interface/wallet.dart';

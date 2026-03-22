@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'splash_state.freezed.dart';
 

@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/interface/orders.dart';

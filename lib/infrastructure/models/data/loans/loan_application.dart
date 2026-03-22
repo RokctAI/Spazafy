@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 // Copyright (c) 2024 RokctAI
 //
 // This program is free software: you can redistribute it and/or modify

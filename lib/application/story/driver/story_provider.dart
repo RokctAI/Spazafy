@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'story_notifier.dart';
 import 'story_state.dart';

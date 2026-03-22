@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/parcel_response.dart';
 // To parse this JSON data, do

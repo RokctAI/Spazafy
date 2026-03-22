@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export '../local_storage.dart';
 export '../../../../app_constants.dart';
 export 'app_helpers.dart';

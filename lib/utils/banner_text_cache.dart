@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class BannerTextCache {
   static final Map<int, String> _buttonTexts = {};
 

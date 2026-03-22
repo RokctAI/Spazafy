@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export 'data/esc_pos.dart';
 export 'data/printer_device.dart';
 export 'request/print_receipt_request.dart';

@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export 'auth.dart';
 export 'address.dart';
 export 'banners.dart';

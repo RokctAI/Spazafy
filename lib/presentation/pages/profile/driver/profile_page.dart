@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:rokctapp/application/order/driver/canceled_order/canceled_order_provider.dart';
 import 'package:rokctapp/application/order/driver/delivered_order/delivery_order_provider.dart';

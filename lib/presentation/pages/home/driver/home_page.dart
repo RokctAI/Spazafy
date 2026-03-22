@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';

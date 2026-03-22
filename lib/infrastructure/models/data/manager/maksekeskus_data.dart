@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class MaksekeskusData {
   List<Method>? methods;
   String? paymentId;

@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'foods_filter_state.dart';
 import 'foods_filter_notifier.dart';

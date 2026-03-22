@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/manager/table_statistics_data.dart';
 

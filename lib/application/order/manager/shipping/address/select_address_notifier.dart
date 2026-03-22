@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:osm_nominatim/osm_nominatim.dart';

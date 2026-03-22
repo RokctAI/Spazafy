@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';

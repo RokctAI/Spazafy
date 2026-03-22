@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/data/delivery_point_data.dart';
 

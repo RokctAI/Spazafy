@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export 'register/register_provider.dart';
 export 'login/login_provider.dart';
 export 'reset_password/reset_password_provider.dart';

@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/blog_data.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_data.dart';
 

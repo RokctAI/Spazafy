@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export '../auth_repository.dart';
 export 'users_repository.dart';
 export 'orders_repository.dart';

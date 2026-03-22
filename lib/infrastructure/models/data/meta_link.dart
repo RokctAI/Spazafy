@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class MetaLinks {
   MetaLinks({String? url, String? label, bool? active}) {
     _url = url;

@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'section_state.dart';
 import 'section_notifier.dart';

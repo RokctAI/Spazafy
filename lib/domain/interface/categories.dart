@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 

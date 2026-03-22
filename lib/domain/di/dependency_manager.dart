@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_place/google_place.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';

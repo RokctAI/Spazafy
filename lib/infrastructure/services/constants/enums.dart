@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 enum ShopStatus { notRequested, newShop, edited, approved, rejected }
 
 enum UploadType {

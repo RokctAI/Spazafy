@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class LoanContractModel {
   final String id;
   final String title;

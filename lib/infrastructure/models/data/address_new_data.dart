@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'address_information.dart';
 
 class AddressNewModel {

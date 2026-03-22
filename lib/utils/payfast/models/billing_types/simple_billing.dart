@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class SimpleBilling {
   String amount;
   String itemName;

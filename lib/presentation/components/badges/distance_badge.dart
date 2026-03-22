@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:math' show cos, sqrt, asin;
 import 'dart:ui';
 import 'package:flutter/material.dart';

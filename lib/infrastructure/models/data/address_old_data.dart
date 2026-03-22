@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'location.dart';
 
 class AddressData {

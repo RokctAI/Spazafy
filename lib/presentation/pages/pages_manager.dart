@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export 'package:rokctapp/presentation/pages/main/manager/main_page.dart' show ManagerMainPage;
 export 'package:rokctapp/presentation/pages/become/become_seller.dart' show CreateShopPage;
 export 'package:rokctapp/presentation/pages/view_map/view_map_page.dart' show ManagerViewMapPage;

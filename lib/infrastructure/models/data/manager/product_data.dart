@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'galleries.dart';
 import 'kitchen_data.dart';
 import 'stock.dart';

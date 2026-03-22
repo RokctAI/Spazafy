@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 abstract class StorageKeys {
   StorageKeys._();
 

@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export 'app_connectivity.dart';
 export 'app_helpers.dart';
 export 'app_validators.dart';

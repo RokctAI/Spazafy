@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class StatisticsResponse {
   StatisticsResponse({StatisticsModel? data}) {
     _data = data;

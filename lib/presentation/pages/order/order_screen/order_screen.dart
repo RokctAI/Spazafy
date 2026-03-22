@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:ui';
 import 'package:auto_route/auto_route.dart';
 import 'package:confetti/confetti.dart';

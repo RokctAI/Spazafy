@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 class EscPos {
   static const List<int> init = [0x1B, 0x40];
   static const List<int> alignCenter = [0x1B, 0x61, 0x01];

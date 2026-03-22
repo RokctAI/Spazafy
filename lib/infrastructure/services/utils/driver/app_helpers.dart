@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'dart:ui' as ui;
 import 'dart:ui';
 import 'package:dio/dio.dart';

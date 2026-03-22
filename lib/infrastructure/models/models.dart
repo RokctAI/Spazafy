@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 export 'response/login_response.dart';
 export 'response/products_paginate_response.dart';
 export 'data/product_data.dart';

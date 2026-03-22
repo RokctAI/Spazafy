@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'translation.dart';
 
 // ProductUnit class to handle unit data from API

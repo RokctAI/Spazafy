@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 

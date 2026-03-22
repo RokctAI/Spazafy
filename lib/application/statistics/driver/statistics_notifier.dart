@@ -1,4 +1,3 @@
-import 'package:rokctapp/dummy_types.dart';
 import 'package:community_charts_flutter/community_charts_flutter.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
