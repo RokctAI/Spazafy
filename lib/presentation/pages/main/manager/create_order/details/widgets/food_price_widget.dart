@@ -1,6 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -76,7 +77,9 @@ class FoodPriceWidget extends StatelessWidget {
                           ),
                           8.horizontalSpace,
                           Text(
-                            help.AppHelpers.numberFormat(stock?.totalPrice ?? 0),
+                            help.AppHelpers.numberFormat(
+                              stock?.totalPrice ?? 0,
+                            ),
                             style: AppStyle.interSemi(
                               size: 14,
                               color: AppStyle.blackColor,

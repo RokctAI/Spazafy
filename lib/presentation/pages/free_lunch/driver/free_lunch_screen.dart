@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -78,7 +79,9 @@ class FreeLunchScreen extends StatelessWidget {
                     children: [
                       RichText(
                         text: TextSpan(
-                          text: help.AppHelpers.getTranslation(TrKeys.freeLunches),
+                          text: help.AppHelpers.getTranslation(
+                            TrKeys.freeLunches,
+                          ),
                           style: AppStyle.interSemi(
                             size: 14.sp,
                             letterSpacing: -0.3,
@@ -105,7 +108,9 @@ class FreeLunchScreen extends StatelessWidget {
                           ),
                           children: [
                             TextSpan(
-                              text: help.AppHelpers.getTranslation(TrKeys.lunchCan),
+                              text: help.AppHelpers.getTranslation(
+                                TrKeys.lunchCan,
+                              ),
                               style: AppStyle.interRegular(
                                 size: 14.sp,
                                 letterSpacing: -0.3,

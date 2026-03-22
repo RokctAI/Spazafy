@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -92,7 +93,9 @@ class OrderPricesSection extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        help.AppHelpers.getTranslation(TrKeys.restaurantRevenue),
+                        help.AppHelpers.getTranslation(
+                          TrKeys.restaurantRevenue,
+                        ),
                         style: AppStyle.interNormal(
                           size: 12,
                           color: AppStyle.white,

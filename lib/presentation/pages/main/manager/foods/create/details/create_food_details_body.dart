@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
@@ -75,7 +76,9 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                               ),
                               child: Center(
                                 child: Text(
-                                  help.AppHelpers.getTranslation(TrKeys.product),
+                                  help.AppHelpers.getTranslation(
+                                    TrKeys.product,
+                                  ),
                                   style: AppStyle.interSemi(
                                     size: 14,
                                     color: state.productType == 'single'
@@ -200,13 +203,16 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                           ),
                           readOnly: true,
                           validator: AppValidators.emptyCheck,
-                          onTap: () => help.AppHelpers.showCustomModalBottomSheet(
-                            paddingTop:
-                                MediaQuery.paddingOf(context).top + 100.h,
-                            context: context,
-                            modal: FoodCategoriesModal(type: state.productType),
-                            isDarkMode: false,
-                          ),
+                          onTap: () =>
+                              help.AppHelpers.showCustomModalBottomSheet(
+                                paddingTop:
+                                    MediaQuery.paddingOf(context).top + 100.h,
+                                context: context,
+                                modal: FoodCategoriesModal(
+                                  type: state.productType,
+                                ),
+                                isDarkMode: false,
+                              ),
                         );
                       },
                     ),
@@ -215,7 +221,8 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                       builder: (context, ref, child) {
                         return UnderlinedTextField(
                           textController: unitState.unitController,
-                          label: '${help.AppHelpers.getTranslation(TrKeys.units)}*',
+                          label:
+                              '${help.AppHelpers.getTranslation(TrKeys.units)}*',
                           suffixIcon: Icon(
                             FlutterRemix.arrow_down_s_line,
                             color: AppStyle.blackColor,
@@ -223,13 +230,14 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                           ),
                           readOnly: true,
                           validator: AppValidators.emptyCheck,
-                          onTap: () => help.AppHelpers.showCustomModalBottomSheet(
-                            paddingTop:
-                                MediaQuery.paddingOf(context).top + 300.h,
-                            context: context,
-                            modal: const CreateFoodUnitsModal(),
-                            isDarkMode: false,
-                          ),
+                          onTap: () =>
+                              help.AppHelpers.showCustomModalBottomSheet(
+                                paddingTop:
+                                    MediaQuery.paddingOf(context).top + 300.h,
+                                context: context,
+                                modal: const CreateFoodUnitsModal(),
+                                isDarkMode: false,
+                              ),
                         );
                       },
                     ),
@@ -245,19 +253,21 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                             size: 18.r,
                           ),
                           readOnly: true,
-                          onTap: () => help.AppHelpers.showCustomModalBottomSheet(
-                            paddingTop:
-                                MediaQuery.paddingOf(context).top + 300.h,
-                            context: context,
-                            modal: const CreateFoodKitchensModal(),
-                            isDarkMode: false,
-                          ),
+                          onTap: () =>
+                              help.AppHelpers.showCustomModalBottomSheet(
+                                paddingTop:
+                                    MediaQuery.paddingOf(context).top + 300.h,
+                                context: context,
+                                modal: const CreateFoodKitchensModal(),
+                                isDarkMode: false,
+                              ),
                         );
                       },
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
-                      label: '${help.AppHelpers.getTranslation(TrKeys.interval)}*',
+                      label:
+                          '${help.AppHelpers.getTranslation(TrKeys.interval)}*',
                       inputType: TextInputType.number,
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,

@@ -1,6 +1,7 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/components/driver/restaurant_item.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
@@ -63,7 +64,9 @@ class BarCodeScreen extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: help.AppHelpers.getTranslation(TrKeys.toTheRestaurant),
+                        text: help.AppHelpers.getTranslation(
+                          TrKeys.toTheRestaurant,
+                        ),
                         style: AppStyle.interRegular(
                           size: 14.sp,
                           letterSpacing: -0.3,

@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
@@ -144,7 +145,9 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                         failed: () => help.AppHelpers.showCheckTopSnackBar(
                           context,
                           type: SnackBarType.error,
-                          text: help.AppHelpers.getTranslation(TrKeys.updateFailed),
+                          text: help.AppHelpers.getTranslation(
+                            TrKeys.updateFailed,
+                          ),
                         ),
                       );
                     }

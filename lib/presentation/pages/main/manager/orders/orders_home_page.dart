@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:flutter/material.dart';
@@ -175,7 +176,9 @@ class _OrdersHomePageState extends ConsumerState<OrdersHomePage>
                           children: [
                             Text(
                               state.title.isEmpty
-                                  ? help.AppHelpers.getTranslation(TrKeys.newOrders)
+                                  ? help.AppHelpers.getTranslation(
+                                      TrKeys.newOrders,
+                                    )
                                   : state.title,
                               style: AppStyle.interNormal(size: 12),
                             ),
