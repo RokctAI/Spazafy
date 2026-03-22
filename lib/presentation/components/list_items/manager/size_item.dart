@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class SizeItem extends StatelessWidget {
   final VoidCallback onTap;
   final bool isActive;
@@ -40,9 +39,7 @@ class SizeItem extends StatelessWidget {
                       color: isActive ? AppStyle.green : AppStyle.transparent,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: isActive
-                            ? AppStyle.blackColor
-                            : AppStyle.bgGrey,
+                        color: isActive ? AppStyle.blackColor : AppStyle.bgGrey,
                         width: isActive ? 4.r : 2.r,
                       ),
                     ),

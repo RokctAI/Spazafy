@@ -25,7 +25,6 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
 class GalleryRepository implements GalleryRepositoryFacade {
   @override
   Future<ApiResult<GalleryUploadResponse>> uploadImage(
@@ -77,7 +76,10 @@ class GalleryRepository implements GalleryRepositoryFacade {
     try {
       final client = dioHttp.client(requireAuth: true);
       // NOTE: Using Frappe's standard file upload method
-      final response = await client.post('/api/v1/method/upload_file', data: data);
+      final response = await client.post(
+        '/api/v1/method/upload_file',
+        data: data,
+      );
       // The response will contain the file URL, which needs to be saved
       // to the appropriate document in a separate API call.
       return ApiResult.success(

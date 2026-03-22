@@ -8,8 +8,6 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'addons_state.dart';
 
-
-
 class AddonsNotifier extends StateNotifier<AddonsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;
@@ -34,7 +32,7 @@ class AddonsNotifier extends StateNotifier<AddonsState> {
         _hasMore = addons.length >= 10;
         state = state.copyWith(addons: addons, isLoading: false);
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> search addon fail $fail');
         state = state.copyWith(isLoading: false);
       },
@@ -60,7 +58,7 @@ class AddonsNotifier extends StateNotifier<AddonsState> {
         refreshController?.loadComplete();
         state = state.copyWith(addons: addons);
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch more addons fail $fail');
         refreshController?.loadFailed();
       },
@@ -75,15 +73,17 @@ class AddonsNotifier extends StateNotifier<AddonsState> {
     _hasMore = true;
     _query = '';
     state = state.copyWith(isLoading: true);
-    final response =
-        await _productsRepository.getProducts(page: ++_page, needAddons: true);
+    final response = await _productsRepository.getProducts(
+      page: ++_page,
+      needAddons: true,
+    );
     response.when(
       success: (data) {
         List<ProductData> addons = data.data ?? [];
         _hasMore = addons.length >= 10;
         state = state.copyWith(isLoading: false, addons: addons);
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch addons fail $fail');
         state = state.copyWith(isLoading: false);
       },
@@ -106,7 +106,7 @@ class AddonsNotifier extends StateNotifier<AddonsState> {
         _hasMore = addons.length >= 10;
         refreshController?.refreshCompleted();
       },
-      failure: (error,status) {
+      failure: (error, status) {
         debugPrint('===> refresh addons fail $error');
         refreshController?.refreshFailed();
       },
@@ -136,19 +136,12 @@ class AddonsNotifier extends StateNotifier<AddonsState> {
       if (_timer?.isActive ?? false) {
         _timer?.cancel();
       }
-      _timer = Timer(
-        const Duration(milliseconds: 500),
-        () => _search(),
-      );
+      _timer = Timer(const Duration(milliseconds: 500), () => _search());
     } else {
       if (_timer?.isActive ?? false) {
         _timer?.cancel();
       }
-      _timer = Timer(
-        const Duration(milliseconds: 500),
-        () => _search(),
-      );
+      _timer = Timer(const Duration(milliseconds: 500), () => _search());
     }
   }
 }
-

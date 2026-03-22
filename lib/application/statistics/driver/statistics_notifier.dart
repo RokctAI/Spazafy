@@ -144,4 +144,3 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
     state = state.copyWith(list: newList);
   }
 }
-

@@ -9,7 +9,6 @@ import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 abstract class SettingsRepositoryFacade {
   Future<ApiResult<GlobalSettingsResponse>> getGlobalSettings();
 

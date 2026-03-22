@@ -10,8 +10,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'filter_category_service.dart';
 // ignore_for_file: deprecated_member_use
 
-
-
 @RoutePage()
 class ServiceTwoCategoryPage extends ConsumerStatefulWidget {
   final int index;

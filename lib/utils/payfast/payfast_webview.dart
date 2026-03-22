@@ -10,7 +10,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 // Provider for preloaded WebView state
 final payFastWebViewProvider = StateProvider<PayFastWebViewState?>(
   (ref) => null,

@@ -12,8 +12,6 @@ import 'package:remixicon/remixicon.dart';
 import 'brand_utils.dart';
 import 'product_ui_components.dart';
 
-
-
 // A generic product card that works with both ProductData and Product models
 class ProductCard extends ConsumerWidget {
   final dynamic product; // Can be ProductData or Product

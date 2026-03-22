@@ -12,20 +12,19 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
-
 class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;
   bool _hasMore = true;
 
   EditFoodAddonsNotifier(this._productsRepository)
-      : super(const EditFoodAddonsState());
+    : super(const EditFoodAddonsState());
 
   void toggleAddonSelection(int index) {
     List<ProductData> addons = List.from(state.addons);
-    addons[index] = addons[index]
-        .copyWith(isSelectedAddon: !(addons[index].isSelectedAddon ?? false));
+    addons[index] = addons[index].copyWith(
+      isSelectedAddon: !(addons[index].isSelectedAddon ?? false),
+    );
     state = state.copyWith(addons: addons);
   }
 
@@ -48,7 +47,7 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
         refreshController?.loadComplete();
         state = state.copyWith(addons: addons);
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch more addons fail $fail');
         refreshController?.loadFailed();
       },
@@ -97,11 +96,10 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
         }
         state = state.copyWith(isLoading: false, addons: addons);
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch addons fail $fail');
         state = state.copyWith(isLoading: false, addons: []);
       },
     );
   }
 }
-

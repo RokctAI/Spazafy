@@ -13,8 +13,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
-
 class CatalogRepository implements CatalogInterface {
   @override
   Future<ApiResult<UnitsPaginateResponse>> getUnits() async {
@@ -72,7 +70,10 @@ class CatalogRepository implements CatalogInterface {
     debugPrint('===> create category request ${jsonEncode(data)}');
     try {
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/method/paas.api.seller_product.seller_product.create_seller_category', data: data);
+      await client.post(
+        '/api/v1/method/paas.api.seller_product.seller_product.create_seller_category',
+        data: data,
+      );
       return const ApiResult.success(data: null);
     } catch (e) {
       debugPrint('==> create category failure: $e');
@@ -191,7 +192,9 @@ class CatalogRepository implements CatalogInterface {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
         '/api/v1/method/paas.api.seller_product.seller_product.delete_seller_category',
-        data: {'ids': [id]},
+        data: {
+          'ids': [id],
+        },
       );
       return const ApiResult.success(data: null);
     } catch (e) {
@@ -203,4 +206,3 @@ class CatalogRepository implements CatalogInterface {
     }
   }
 }
-

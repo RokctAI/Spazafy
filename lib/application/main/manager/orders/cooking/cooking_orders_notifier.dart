@@ -8,14 +8,13 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;
   bool _hasMore = true;
 
   CookingOrdersNotifier(this._ordersRepository)
-      : super(const CookingOrdersState());
+    : super(const CookingOrdersState());
 
   Future<void> fetchCookingOrders({
     RefreshController? refreshController,
@@ -78,4 +77,3 @@ class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
     );
   }
 }
-

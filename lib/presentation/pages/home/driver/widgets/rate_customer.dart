@@ -13,7 +13,6 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'add_comment.dart';
 
-
 class RateCustomer extends StatefulWidget {
   final OrderDetailData? order;
   final ParcelOrder? parcel;

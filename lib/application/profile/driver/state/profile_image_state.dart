@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'profile_image_state.freezed.dart';
 
-
 @freezed
 abstract class ProfileImageState with _$ProfileImageState {
   const factory ProfileImageState({

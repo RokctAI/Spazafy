@@ -4,8 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'subscriptions_state.freezed.dart';
 
-
-
 @freezed
 abstract class SubscriptionState with _$SubscriptionState {
   const factory SubscriptionState({

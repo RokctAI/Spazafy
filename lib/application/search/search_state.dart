@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'search_state.freezed.dart';
 
-
 @freezed
 class SearchState with _$SearchState {
   const factory SearchState({

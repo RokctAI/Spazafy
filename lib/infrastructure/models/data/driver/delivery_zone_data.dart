@@ -20,11 +20,11 @@ class DeliveryZoneData {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "address": address == null
-            ? []
-            : List<dynamic>.from(
-                address!.map((x) => List<dynamic>.from(x.map((x) => x))),
-              ),
-      };
+    "id": id,
+    "address": address == null
+        ? []
+        : List<dynamic>.from(
+            address!.map((x) => List<dynamic>.from(x.map((x) => x))),
+          ),
+  };
 }

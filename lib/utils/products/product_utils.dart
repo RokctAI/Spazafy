@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 // lib/infrastructure/utils/product_utils.dart
 
-
 /// Helper class for size information
 class SizeInfo {
   final String? size;

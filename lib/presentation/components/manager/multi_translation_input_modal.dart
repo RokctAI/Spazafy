@@ -167,53 +167,53 @@ class _MultiTranslationInputModalState
               if (AppConstants.groqApiKey.isNotEmpty)
                 Padding(
                   padding: REdgeInsets.only(top: 12, bottom: 24),
-                child: TextButton(
-                  style: ButtonStyle(
-                    overlayColor: WidgetStateProperty.resolveWith(
-                      (states) => AppStyle.bgGrey,
-                    ),
-                  ),
-                  child: state.isLoading
-                      ? SizedBox(width: 60.r, child: Loading())
-                      : Text(
-                          AppHelpers.getTranslation(TrKeys.translateWithAi),
-                          style: AppStyle.interNormal(
-                            textDecoration: TextDecoration.underline,
-                            size: 12,
-                            color: AppStyle.deepPurple,
-                          ),
-                        ),
-                  onPressed: () {
-                    if (AppConstants.baseUrl.contains('foodyman')) {
-                      AppHelpers.errorSnackBar(
-                        context,
-                        text: "Don't using demo mode",
-                      );
-                      return;
-                    }
-                    notifier.getAiTranslation(
-                      model: AiTranslationRequest(
-                        model: widget.model,
-                        content:
-                            (_inputs[state.selectedLanguage?.locale]
-                                    ?.isNotEmpty ??
-                                false)
-                            ? _inputs[state.selectedLanguage?.locale]
-                            : _inputs[_inputs.keys.firstWhereOrNull(
-                                (e) => e != state.selectedLanguage?.locale,
-                              )],
-                        lang: state.selectedLanguage,
-                        modelId: widget.modelId,
+                  child: TextButton(
+                    style: ButtonStyle(
+                      overlayColor: WidgetStateProperty.resolveWith(
+                        (states) => AppStyle.bgGrey,
                       ),
-                      onSuccess: (text) {
-                        _inputs[state.selectedLanguage?.locale ?? 'en'] =
-                            text?.trim() ?? '';
-                        _textController.text = text?.trim() ?? '';
-                      },
-                    );
-                  },
+                    ),
+                    child: state.isLoading
+                        ? SizedBox(width: 60.r, child: Loading())
+                        : Text(
+                            AppHelpers.getTranslation(TrKeys.translateWithAi),
+                            style: AppStyle.interNormal(
+                              textDecoration: TextDecoration.underline,
+                              size: 12,
+                              color: AppStyle.deepPurple,
+                            ),
+                          ),
+                    onPressed: () {
+                      if (AppConstants.baseUrl.contains('foodyman')) {
+                        AppHelpers.errorSnackBar(
+                          context,
+                          text: "Don't using demo mode",
+                        );
+                        return;
+                      }
+                      notifier.getAiTranslation(
+                        model: AiTranslationRequest(
+                          model: widget.model,
+                          content:
+                              (_inputs[state.selectedLanguage?.locale]
+                                      ?.isNotEmpty ??
+                                  false)
+                              ? _inputs[state.selectedLanguage?.locale]
+                              : _inputs[_inputs.keys.firstWhereOrNull(
+                                  (e) => e != state.selectedLanguage?.locale,
+                                )],
+                          lang: state.selectedLanguage,
+                          modelId: widget.modelId,
+                        ),
+                        onSuccess: (text) {
+                          _inputs[state.selectedLanguage?.locale ?? 'en'] =
+                              text?.trim() ?? '';
+                          _textController.text = text?.trim() ?? '';
+                        },
+                      );
+                    },
+                  ),
                 ),
-              ),
               24.verticalSpace,
               CustomButton(
                 title: AppHelpers.getTranslation(TrKeys.save),

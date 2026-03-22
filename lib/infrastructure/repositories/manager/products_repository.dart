@@ -525,4 +525,3 @@ class ProductsRepository implements ProductsInterface {
     }
   }
 }
-

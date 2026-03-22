@@ -7,19 +7,23 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'add_category_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
   final CatalogInterface _catalogRepository;
   String _title = '';
   String _input = '';
 
   AddCategoryNotifier(this._catalogRepository)
-      : super(const AddCategoryState());
+    : super(const AddCategoryState());
 
-  Future<void> createCategory(BuildContext context,
-      {VoidCallback? success}) async {
+  Future<void> createCategory(
+    BuildContext context, {
+    VoidCallback? success,
+  }) async {
     state = state.copyWith(isLoading: true);
-    final response = await _catalogRepository.createCategory(title: _title, input: int.tryParse(_input));
+    final response = await _catalogRepository.createCategory(
+      title: _title,
+      input: int.tryParse(_input),
+    );
     response.when(
       success: (data) {
         state = state.copyWith(isLoading: false);
@@ -28,8 +32,11 @@ class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
       failure: (fail, status) {
         debugPrint('===> create category fail $fail');
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context,
-            text: fail, type: SnackBarType.error);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          text: fail,
+          type: SnackBarType.error,
+        );
       },
     );
   }
@@ -42,4 +49,3 @@ class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
     _input = value.trim();
   }
 }
-

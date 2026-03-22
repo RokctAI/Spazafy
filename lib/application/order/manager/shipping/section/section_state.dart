@@ -4,8 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'section_state.freezed.dart';
 
-
-
 @freezed
 abstract class SectionState with _$SectionState {
   const factory SectionState({

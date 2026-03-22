@@ -17,8 +17,6 @@ import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'widgets/chat_item.dart';
 // ignore_for_file: unused_result
 
-
-
 @RoutePage()
 class ChatPage extends ConsumerStatefulWidget {
   final String roleId;

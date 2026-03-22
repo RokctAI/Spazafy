@@ -14,7 +14,6 @@ import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'food_categories_modal.dart';
 
-
 class AddCategoryModal extends StatefulWidget {
   const AddCategoryModal({super.key});
 

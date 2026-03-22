@@ -5,7 +5,6 @@ import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 part 'filter_state.freezed.dart';
 
-
 @freezed
 class FilterState with _$FilterState {
   const factory FilterState({

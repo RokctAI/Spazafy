@@ -14,7 +14,6 @@ import 'widgets/section_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 
-
 @RoutePage()
 class SelectSectionPage extends ConsumerStatefulWidget {
   const SelectSectionPage({super.key});

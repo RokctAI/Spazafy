@@ -18,16 +18,17 @@ import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/application/providers_driver.dart';
 
-
 @RoutePage()
 class DriverBecomeDriverPage extends ConsumerStatefulWidget {
   const DriverBecomeDriverPage({super.key});
 
   @override
-  ConsumerState<DriverBecomeDriverPage> createState() => _DriverBecomeDriverPageState();
+  ConsumerState<DriverBecomeDriverPage> createState() =>
+      _DriverBecomeDriverPageState();
 }
 
-class _DriverBecomeDriverPageState extends ConsumerState<DriverBecomeDriverPage> {
+class _DriverBecomeDriverPageState
+    extends ConsumerState<DriverBecomeDriverPage> {
   late TextEditingController brand;
   late TextEditingController model;
   late TextEditingController number;

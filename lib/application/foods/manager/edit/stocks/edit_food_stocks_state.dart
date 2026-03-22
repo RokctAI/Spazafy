@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'edit_food_stocks_state.freezed.dart';
 
-
 @freezed
 abstract class EditFoodStocksState with _$EditFoodStocksState {
   const factory EditFoodStocksState({
@@ -15,7 +14,7 @@ abstract class EditFoodStocksState with _$EditFoodStocksState {
     @Default([]) List<Group> groups,
     @Default([]) List<Stock> stocks,
     @Default([]) List<Extras> activeGroupExtras,
-    @Default({}) Map<String,List<Extras?>> selectGroups,
+    @Default({}) Map<String, List<Extras?>> selectGroups,
   }) = _EditFoodStocksState;
 
   const EditFoodStocksState._();

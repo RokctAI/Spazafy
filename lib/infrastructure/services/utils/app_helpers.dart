@@ -21,7 +21,6 @@ import 'app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-
 abstract class AppHelpers {
   AppHelpers._();
 

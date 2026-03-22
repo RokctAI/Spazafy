@@ -65,10 +65,7 @@ class PaymentRepository implements PaymentsFacade {
       final client = dioHttp.client(requireAuth: true);
       final res = await client.post(
         '/api/v1/method/paas.api.payment.payment.initiate_wallet_topup',
-        data: {
-          ...data,
-          'payment_gateway': name,
-        },
+        data: {...data, 'payment_gateway': name},
       );
 
       return ApiResult.success(data: res.data["data"]["data"]["url"] ?? "");
@@ -124,10 +121,7 @@ class PaymentRepository implements PaymentsFacade {
       final client = dioHttp.client(requireAuth: true);
       final res = await client.post(
         '/api/v1/method/paas.api.subscription.subscription.initiate_subscription_payment',
-        data: {
-          ...data,
-          'payment_gateway': name,
-        },
+        data: {...data, 'payment_gateway': name},
       );
 
       return ApiResult.success(data: res.data["data"]["data"]["url"] ?? "");
@@ -152,7 +146,10 @@ class PaymentRepository implements PaymentsFacade {
         "currency_id": LocalStorage.getSelectedCurrency()?.id,
       };
       final client = dioHttp.client(requireAuth: true);
-      await client.post('/api/v1/method/paas.api.user.user.send_wallet_balance', data: data);
+      await client.post(
+        '/api/v1/method/paas.api.user.user.send_wallet_balance',
+        data: data,
+      );
       return const ApiResult.success(data: true);
     } catch (e) {
       debugPrint('==> send wallet failure: $e');
@@ -163,4 +160,3 @@ class PaymentRepository implements PaymentsFacade {
     }
   }
 }
-

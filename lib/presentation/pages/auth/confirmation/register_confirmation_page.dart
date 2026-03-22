@@ -20,7 +20,6 @@ import 'package:rokctapp/application/auth/auth.dart';
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 // ignore_for_file: unused_result
 
-
 @RoutePage()
 class RegisterConfirmationPage extends ConsumerStatefulWidget {
   final UserModel userModel;
@@ -74,10 +73,7 @@ class _RegisterConfirmationPageState
         Navigator.pop(context);
         AppHelpers.showCustomModalBottomSheet(
           context: context,
-          modal: RegisterPage(
-            isOnlyEmail: false,
-            role: widget.role,
-          ),
+          modal: RegisterPage(isOnlyEmail: false, role: widget.role),
           isDarkMode: isDarkMode,
         );
       }

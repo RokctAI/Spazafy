@@ -123,17 +123,19 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                     24.verticalSpace,
                     UnderlinedTextField(
                       label:
-                      '${AppHelpers.getTranslation(TrKeys.productTitle)}*',
+                          '${AppHelpers.getTranslation(TrKeys.productTitle)}*',
                       inputType: TextInputType.text,
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,
                       readOnly: true,
-                      onTap: (){
+                      onTap: () {
                         AppHelpers.showCustomModalBottomSheet(
                           context: context,
                           modal: MultiTranslationInputModal(
                             model: AiTranslationModel.product,
-                            label: AppHelpers.getTranslation(TrKeys.productTitle),
+                            label: AppHelpers.getTranslation(
+                              TrKeys.productTitle,
+                            ),
                             inputs: state.titleTranslations,
                             save: (translations) {
                               event.setTitleTranslations(translations);
@@ -141,7 +143,6 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                           ),
                           isDarkMode: false,
                         );
-
                       },
                       textController: TextEditingController(text: state.title),
                       validator: AppValidators.emptyCheck,
@@ -164,7 +165,9 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                           context: context,
                           modal: MultiTranslationInputModal(
                             model: AiTranslationModel.product,
-                            label: AppHelpers.getTranslation(TrKeys.description),
+                            label: AppHelpers.getTranslation(
+                              TrKeys.description,
+                            ),
                             inputs: state.descriptionTranslations,
                             save: (translations) {
                               event.setDescriptionTranslations(translations);
@@ -173,7 +176,9 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                           isDarkMode: false,
                         );
                       },
-                      textController: TextEditingController(text: state.description),
+                      textController: TextEditingController(
+                        text: state.description,
+                      ),
                       validator: AppValidators.emptyCheck,
                       suffixIcon: Icon(
                         FlutterRemix.translate,

@@ -7,7 +7,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'buttons_bouncing_effect.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class PopButton extends StatelessWidget {
   final String heroTag;
 

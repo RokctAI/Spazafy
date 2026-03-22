@@ -11,7 +11,6 @@ import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 class MarketThreeItem extends StatelessWidget {
   final ShopData shop;
   final bool isSimpleShop;

@@ -14,7 +14,6 @@ import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/service_two_categories_item.dart';
 
-
 class ServicePage extends StatefulWidget {
   const ServicePage({super.key});
 

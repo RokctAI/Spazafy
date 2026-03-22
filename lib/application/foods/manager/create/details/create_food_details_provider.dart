@@ -3,8 +3,7 @@ import 'create_food_details_state.dart';
 import 'create_food_details_notifier.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
-
 final createFoodDetailsProvider =
     StateNotifierProvider<CreateFoodDetailsNotifier, CreateFoodDetailsState>(
-  (ref) => CreateFoodDetailsNotifier(productRepository, settingsRepository),
-);
+      (ref) => CreateFoodDetailsNotifier(productRepository, settingsRepository),
+    );

@@ -11,16 +11,12 @@ import 'create_food_details_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
-class CreateFoodDetailsNotifier
-    extends StateNotifier<CreateFoodDetailsState> {
+class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
   final ProductsInterface _productsRepository;
   final SettingsInterface _settingsRepository;
 
-  CreateFoodDetailsNotifier(
-    this._productsRepository,
-    this._settingsRepository,
-  ) : super(const CreateFoodDetailsState());
+  CreateFoodDetailsNotifier(this._productsRepository, this._settingsRepository)
+    : super(const CreateFoodDetailsState());
 
   void updateAddFoodInfo() {
     state = state.copyWith(
@@ -53,12 +49,13 @@ class CreateFoodDetailsNotifier
     state = state.copyWith(qrcode: value.trim());
   }
 
-  Future<void> createProduct(BuildContext context,{
+  Future<void> createProduct(
+    BuildContext context, {
     int? categoryId,
     int? unitId,
     int? kitchenId,
     VoidCallback? created,
-    VoidCallback? onError
+    VoidCallback? onError,
   }) async {
     state = state.copyWith(isCreating: true);
     List<String> imageUrl = List.from(state.listOfUrls.map((e) => e.path));
@@ -77,8 +74,9 @@ class CreateFoodDetailsNotifier
         },
       );
     }
-    List<Galleries> tempList = List.from(List.from(state.listOfUrls)
-        .where((element) => element.preview != null));
+    List<Galleries> tempList = List.from(
+      List.from(state.listOfUrls).where((element) => element.preview != null),
+    );
     List<String> previews = [];
     for (var element in tempList) {
       if (element.preview?.isNotEmpty ?? false) {
@@ -106,13 +104,13 @@ class CreateFoodDetailsNotifier
         state = state.copyWith(isCreating: false, createdProduct: data.data);
         created?.call();
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> create product fail $fail');
         state = state.copyWith(isCreating: false);
         AppHelpers.showCheckTopSnackBar(
-            context,
-            text: fail,
-            type: SnackBarType.error
+          context,
+          text: fail,
+          type: SnackBarType.error,
         );
         onError?.call();
       },
@@ -190,4 +188,3 @@ class CreateFoodDetailsNotifier
     state = state.copyWith(images: list, listOfUrls: urls);
   }
 }
-

@@ -6,12 +6,11 @@ import 'edit_food_units_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class EditFoodUnitsNotifier extends StateNotifier<EditFoodUnitsState> {
   final CatalogInterface _catalogRepository;
 
   EditFoodUnitsNotifier(this._catalogRepository)
-      : super(EditFoodUnitsState(unitController: TextEditingController()));
+    : super(EditFoodUnitsState(unitController: TextEditingController()));
 
   void setFoodUnit(UnitData? unit) {
     state = state.copyWith(foodUnit: unit);
@@ -31,8 +30,11 @@ class EditFoodUnitsNotifier extends StateNotifier<EditFoodUnitsState> {
         if (state.foodUnit != null) {
           units.insert(0, state.foodUnit!);
         }
-        state =
-            state.copyWith(units: units, activeIndex: 0, foodUnit: units[0]);
+        state = state.copyWith(
+          units: units,
+          activeIndex: 0,
+          foodUnit: units[0],
+        );
         state.unitController?.text = units[0].translation?.title ?? '';
       } else {
         state = state.copyWith(
@@ -80,8 +82,7 @@ class EditFoodUnitsNotifier extends StateNotifier<EditFoodUnitsState> {
               units[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (failure,status) {
-
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         debugPrint('====> fetch units fail $failure');
       },
@@ -97,4 +98,3 @@ class EditFoodUnitsNotifier extends StateNotifier<EditFoodUnitsState> {
     state.unitController?.text = newUnit.translation?.title ?? '';
   }
 }
-

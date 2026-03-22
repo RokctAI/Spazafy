@@ -11,7 +11,6 @@ import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/app_constants.dart';
 
-
 class RecommendedTwoItem extends StatelessWidget {
   final ShopData shop;
   final bool? bgImg;
