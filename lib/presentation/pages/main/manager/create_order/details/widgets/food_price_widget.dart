@@ -9,7 +9,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class FoodPriceWidget extends StatelessWidget {
   final ProductData product;
   final Stock? stock;

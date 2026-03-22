@@ -7,15 +7,15 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'update_extras_group_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
   final ProductsInterface _productsRepository;
   String _title = '';
 
   UpdateExtrasGroupNotifier(this._productsRepository)
-      : super(const UpdateExtrasGroupState());
+    : super(const UpdateExtrasGroupState());
 
-  Future<void> updateExtrasGroup(BuildContext context,{
+  Future<void> updateExtrasGroup(
+    BuildContext context, {
     VoidCallback? success,
     int? groupId,
   }) async {
@@ -29,13 +29,13 @@ class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> update extras group fail $fail');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-            context,
-            text: fail,
-            type: SnackBarType.error
+          context,
+          text: fail,
+          type: SnackBarType.error,
         );
       },
     );
@@ -45,4 +45,3 @@ class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
     _title = value.trim();
   }
 }
-

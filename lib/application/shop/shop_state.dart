@@ -10,8 +10,6 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
 part 'shop_state.freezed.dart';
 
-
-
 @freezed
 class ShopState with _$ShopState {
   const factory ShopState({

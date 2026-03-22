@@ -4,8 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'table_state.freezed.dart';
 
-
-
 @freezed
 abstract class TableState with _$TableState {
   const factory TableState({

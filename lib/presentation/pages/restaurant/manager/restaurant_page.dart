@@ -22,7 +22,6 @@ import 'widgets/edit_restaurant_modal.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class RestaurantPage extends ConsumerStatefulWidget {
   const RestaurantPage({super.key});
 

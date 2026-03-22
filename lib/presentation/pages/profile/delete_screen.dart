@@ -12,8 +12,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 // ignore_for_file: unused_result
 
-
-
 class DeleteScreen extends StatelessWidget {
   final bool isDeleteAccount;
   final VoidCallback onDelete;

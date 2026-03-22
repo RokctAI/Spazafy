@@ -23,13 +23,19 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
   final ShopsInterface _shopsRepository;
 
   ProfileNotifier(
-      this._settingsRepository, this._usersRepository, this._shopsRepository)
-      : super(const ProfileState());
+    this._settingsRepository,
+    this._usersRepository,
+    this._shopsRepository,
+  ) : super(const ProfileState());
   int page = 1;
 
   void resetShopData() {
     state = state.copyWith(
-        bgImage: "", logoImage: "", addressModel: null, isSaveLoading: false);
+      bgImage: "",
+      logoImage: "",
+      addressModel: null,
+      isSaveLoading: false,
+    );
   }
 
   void setBgImage(String bgImage) {
@@ -60,9 +66,11 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     state = state.copyWith(filepath: list);
   }
 
-  Future<void> fetchUser(BuildContext context,
-      {RefreshController? refreshController,
-      ValueChanged<String?>? onSuccess}) async {
+  Future<void> fetchUser(
+    BuildContext context, {
+    RefreshController? refreshController,
+    ValueChanged<String?>? onSuccess,
+  }) async {
     if (LocalStorage.getToken().isNotEmpty) {
       if (refreshController == null) {
         state = state.copyWith(isLoading: true);
@@ -88,10 +96,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
             context.router.popUntilRoot();
             context.replaceRoute(const ManagerAuthRoute());
           }
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            text: failure,
-          );
+          AppHelpers.showCheckTopSnackBar(context, text: failure);
         },
       );
     }
@@ -130,10 +135,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (failure, s) {
           debugPrint('===> upload logo image failure: $failure');
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            text: failure,
-          );
+          AppHelpers.showCheckTopSnackBar(context, text: failure);
         },
       );
     }
@@ -148,10 +150,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (failure, s) {
           debugPrint('===> upload background image failure: $failure');
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            text: failure,
-          );
+          AppHelpers.showCheckTopSnackBar(context, text: failure);
         },
       );
     }
@@ -195,10 +194,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       },
       failure: (failure, s) {
         state = state.copyWith(isSaveLoading: false);
-        AppHelpers.showCheckTopSnackBar(
-          context,
-          text: failure,
-        );
+        AppHelpers.showCheckTopSnackBar(context, text: failure);
         debugPrint('==> create shop failure: $failure');
       },
     );
@@ -217,10 +213,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (fail, status) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(
-            context,
-            text: fail,
-          );
+          AppHelpers.showCheckTopSnackBar(context, text: fail);
         },
       );
     } else {
@@ -233,4 +226,3 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     }
   }
 }
-

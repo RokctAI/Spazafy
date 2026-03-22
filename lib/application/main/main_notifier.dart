@@ -3,7 +3,6 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'main_state.dart';
 
-
 class MainNotifier extends StateNotifier<MainState> {
   MainNotifier() : super(const MainState());
 

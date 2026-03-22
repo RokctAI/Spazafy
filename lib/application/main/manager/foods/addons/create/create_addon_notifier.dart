@@ -8,7 +8,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'create_addon_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
   final ProductsInterface _productsRepository;
   String _title = '';
@@ -20,7 +19,7 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
   bool _active = true;
 
   CreateAddonNotifier(this._productsRepository)
-      : super(const CreateAddonState());
+    : super(const CreateAddonState());
 
   void setQuantity(String value) {
     _quantity = value.trim();
@@ -42,7 +41,8 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
     _barcode = value.trim();
   }
 
-  Future<void> createAddon(BuildContext context,{
+  Future<void> createAddon(
+    BuildContext context, {
     int? unitId,
     VoidCallback? created,
     VoidCallback? failed,
@@ -79,25 +79,25 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
             created?.call();
             state = state.copyWith(isLoading: false);
           },
-          failure: (stockFail,status) {
+          failure: (stockFail, status) {
             debugPrint('===> create addon stock fail $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
-                context,
-                text: stockFail,
-                type: SnackBarType.error
+              context,
+              text: stockFail,
+              type: SnackBarType.error,
             );
           },
         );
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> create addon fail $fail');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-            context,
-            text: fail,
-            type: SnackBarType.error
+          context,
+          text: fail,
+          type: SnackBarType.error,
         );
         failed?.call();
       },
@@ -120,4 +120,3 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
     _title = value.trim();
   }
 }
-

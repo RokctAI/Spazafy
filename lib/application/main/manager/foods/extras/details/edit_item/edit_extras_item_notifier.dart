@@ -7,15 +7,15 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'edit_extras_item_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
   final ProductsInterface _productsRepository;
   String _title = '';
 
   EditExtrasItemNotifier(this._productsRepository)
-      : super(const EditExtrasItemState());
+    : super(const EditExtrasItemState());
 
-  Future<void> updateExtrasItem(BuildContext context,{
+  Future<void> updateExtrasItem(
+    BuildContext context, {
     VoidCallback? success,
     int? groupId,
     int? extrasId,
@@ -31,13 +31,13 @@ class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> update extras item fail $fail');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-            context,
-            text: fail,
-            type: SnackBarType.error
+          context,
+          text: fail,
+          type: SnackBarType.error,
         );
       },
     );
@@ -47,4 +47,3 @@ class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
     _title = value.trim();
   }
 }
-

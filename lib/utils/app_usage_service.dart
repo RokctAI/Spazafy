@@ -8,7 +8,6 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/app_constants.dart';
 // lib/infrastructure/services/app_usage_service.dart
 
-
 class AppUsageService {
   static Future<Map<String, dynamic>> recordAppUsage() async {
     try {

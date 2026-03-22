@@ -93,8 +93,9 @@ class ProductData {
       });
     }
     _shop = json['shop'] != null ? Shop.fromJson(json['shop']) : null;
-    _category =
-        json['category'] != null ? Category.fromJson(json['category']) : null;
+    _category = json['category'] != null
+        ? Category.fromJson(json['category'])
+        : null;
     _brand = json['brand'] != null ? Brand.fromJson(json['brand']) : null;
     _unit = json['unit'] != null ? Unit.fromJson(json['unit']) : null;
     if (json['reviews'] != null) {
@@ -164,34 +165,33 @@ class ProductData {
     Unit? unit,
     List<ReviewData>? reviews,
     List<Galleries>? galleries,
-  }) =>
-      ProductData(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        shopId: shopId ?? _shopId,
-        categoryId: categoryId ?? _categoryId,
-        keywords: keywords ?? _keywords,
-        brandId: brandId ?? _brandId,
-        tax: tax ?? _tax,
-        interval: interval ?? _interval,
-        minQty: minQty ?? _minQty,
-        maxQty: maxQty ?? _maxQty,
-        active: active ?? _active,
-        img: img ?? _img,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        ratingAvg: ratingAvg ?? _ratingAvg,
-        ordersCount: ordersCount ?? _ordersCount,
-        translation: translation ?? _translation,
-        properties: properties ?? _properties,
-        stocks: stocks ?? _stocks,
-        shop: shop ?? _shop,
-        category: category ?? _category,
-        brand: brand ?? _brand,
-        unit: unit ?? _unit,
-        reviews: reviews ?? _reviews,
-        galleries: galleries ?? _galleries,
-      );
+  }) => ProductData(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    shopId: shopId ?? _shopId,
+    categoryId: categoryId ?? _categoryId,
+    keywords: keywords ?? _keywords,
+    brandId: brandId ?? _brandId,
+    tax: tax ?? _tax,
+    interval: interval ?? _interval,
+    minQty: minQty ?? _minQty,
+    maxQty: maxQty ?? _maxQty,
+    active: active ?? _active,
+    img: img ?? _img,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    ratingAvg: ratingAvg ?? _ratingAvg,
+    ordersCount: ordersCount ?? _ordersCount,
+    translation: translation ?? _translation,
+    properties: properties ?? _properties,
+    stocks: stocks ?? _stocks,
+    shop: shop ?? _shop,
+    category: category ?? _category,
+    brand: brand ?? _brand,
+    unit: unit ?? _unit,
+    reviews: reviews ?? _reviews,
+    galleries: galleries ?? _galleries,
+  );
 
   String? get id => _id;
 
@@ -335,15 +335,14 @@ class Unit {
     String? createdAt,
     String? updatedAt,
     Translation? translation,
-  }) =>
-      Unit(
-        id: id ?? _id,
-        active: active ?? _active,
-        position: position ?? _position,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        translation: translation ?? _translation,
-      );
+  }) => Unit(
+    id: id ?? _id,
+    active: active ?? _active,
+    position: position ?? _position,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    translation: translation ?? _translation,
+  );
 
   String? get id => _id;
 
@@ -438,13 +437,12 @@ class Category {
     String? uuid,
     String? parentId,
     Translation? translation,
-  }) =>
-      Category(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        parentId: parentId ?? _parentId,
-        translation: translation ?? _translation,
-      );
+  }) => Category(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    parentId: parentId ?? _parentId,
+    translation: translation ?? _translation,
+  );
 
   String? get id => _id;
 
@@ -585,30 +583,29 @@ class Shop {
     String? createdAt,
     String? updatedAt,
     Translation? translation,
-  }) =>
-      Shop(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        userId: userId ?? _userId,
-        tax: tax ?? _tax,
-        deliveryRange: deliveryRange ?? _deliveryRange,
-        percentage: percentage ?? _percentage,
-        location: location ?? _location,
-        phone: phone ?? _phone,
-        showType: showType ?? _showType,
-        open: open ?? _open,
-        visibility: visibility ?? _visibility,
-        openTime: openTime ?? _openTime,
-        closeTime: closeTime ?? _closeTime,
-        backgroundImg: backgroundImg ?? _backgroundImg,
-        logoImg: logoImg ?? _logoImg,
-        minAmount: minAmount ?? _minAmount,
-        status: status ?? _status,
-        statusNote: statusNote ?? _statusNote,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        translation: translation ?? _translation,
-      );
+  }) => Shop(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    userId: userId ?? _userId,
+    tax: tax ?? _tax,
+    deliveryRange: deliveryRange ?? _deliveryRange,
+    percentage: percentage ?? _percentage,
+    location: location ?? _location,
+    phone: phone ?? _phone,
+    showType: showType ?? _showType,
+    open: open ?? _open,
+    visibility: visibility ?? _visibility,
+    openTime: openTime ?? _openTime,
+    closeTime: closeTime ?? _closeTime,
+    backgroundImg: backgroundImg ?? _backgroundImg,
+    logoImg: logoImg ?? _logoImg,
+    minAmount: minAmount ?? _minAmount,
+    status: status ?? _status,
+    statusNote: statusNote ?? _statusNote,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    translation: translation ?? _translation,
+  );
 
   String? get id => _id;
 
@@ -720,8 +717,9 @@ class Stocks {
         _extras?.add(Extras.fromJson(v));
       });
     }
-    _product =
-        json['product'] != null ? ProductData.fromJson(json['product']) : null;
+    _product = json['product'] != null
+        ? ProductData.fromJson(json['product'])
+        : null;
   }
 
   String? _id;
@@ -744,18 +742,17 @@ class Stocks {
     num? totalPrice,
     List<Extras>? extras,
     ProductData? product,
-  }) =>
-      Stocks(
-        id: id ?? _id,
-        countableId: countableId ?? _countableId,
-        price: price ?? _price,
-        quantity: quantity ?? _quantity,
-        discount: discount ?? _discount,
-        tax: tax ?? _tax,
-        totalPrice: totalPrice ?? _totalPrice,
-        extras: extras ?? _extras,
-        product: product ?? _product,
-      );
+  }) => Stocks(
+    id: id ?? _id,
+    countableId: countableId ?? _countableId,
+    price: price ?? _price,
+    quantity: quantity ?? _quantity,
+    discount: discount ?? _discount,
+    tax: tax ?? _tax,
+    totalPrice: totalPrice ?? _totalPrice,
+    extras: extras ?? _extras,
+    product: product ?? _product,
+  );
 
   String? get id => _id;
 
@@ -829,14 +826,13 @@ class Extras {
     String? value,
     bool? active,
     Group? group,
-  }) =>
-      Extras(
-        id: id ?? _id,
-        extraGroupId: extraGroupId ?? _extraGroupId,
-        value: value ?? _value,
-        active: active ?? _active,
-        group: group ?? _group,
-      );
+  }) => Extras(
+    id: id ?? _id,
+    extraGroupId: extraGroupId ?? _extraGroupId,
+    value: value ?? _value,
+    active: active ?? _active,
+    group: group ?? _group,
+  );
 
   String? get id => _id;
 
@@ -888,13 +884,12 @@ class Group {
     String? type,
     bool? active,
     Translation? translation,
-  }) =>
-      Group(
-        id: id ?? _id,
-        type: type ?? _type,
-        active: active ?? _active,
-        translation: translation ?? _translation,
-      );
+  }) => Group(
+    id: id ?? _id,
+    type: type ?? _type,
+    active: active ?? _active,
+    translation: translation ?? _translation,
+  );
 
   String? get id => _id;
 

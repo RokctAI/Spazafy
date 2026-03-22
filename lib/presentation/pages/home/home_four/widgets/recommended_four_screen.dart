@@ -16,7 +16,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'market_two_item.dart';
 import 'recommended_two_item.dart';
 
-
 class RecommendedFourPage extends ConsumerStatefulWidget {
   final bool isNewsOfPage;
   final bool isShop;

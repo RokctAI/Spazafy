@@ -4,10 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_address_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class OrderAddressNotifier extends StateNotifier<OrderAddressState> {
   OrderAddressNotifier()
-      : super(OrderAddressState(textController: TextEditingController()));
+    : super(OrderAddressState(textController: TextEditingController()));
 
   void setHouse(String value) {
     state = state.copyWith(house: value.trim());

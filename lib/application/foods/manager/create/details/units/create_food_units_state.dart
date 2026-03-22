@@ -4,8 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'create_food_units_state.freezed.dart';
 
-
-
 @freezed
 abstract class CreateFoodUnitsState with _$CreateFoodUnitsState {
   const factory CreateFoodUnitsState({

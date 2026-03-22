@@ -8,7 +8,6 @@ import 'package:rokctapp/infrastructure/services/utils/driver/app_connectivity.d
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
 import 'parcel_state.dart';
 
-
 class ParcelNotifier extends StateNotifier<ParcelState> {
   final ParcelRepositoryFacade _parcelRepo;
 
@@ -276,4 +275,3 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     );
   }
 }
-

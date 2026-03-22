@@ -41,10 +41,7 @@ class ProcessingView extends StatelessWidget {
                 16.verticalSpace,
                 Text(
                   AppHelpers.getTranslation(TrKeys.yourRequest),
-                  style: AppStyle.interSemi(
-                    size: 18,
-                    color: AppStyle.black,
-                  ),
+                  style: AppStyle.interSemi(size: 18, color: AppStyle.black),
                   textAlign: TextAlign.center,
                 ),
                 12.verticalSpace,
@@ -79,10 +76,7 @@ class ProcessingView extends StatelessWidget {
             ),
             child: Text(
               AppHelpers.getTranslation(TrKeys.logout),
-              style: AppStyle.interSemi(
-                size: 15,
-                color: AppStyle.red,
-              ),
+              style: AppStyle.interSemi(size: 15, color: AppStyle.red),
             ),
           ),
           36.verticalSpace,

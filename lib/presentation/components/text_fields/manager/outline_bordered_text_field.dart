@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class OutlinedBorderTextField extends StatelessWidget {
   final String? label;
   final String? hint;

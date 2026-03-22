@@ -2,7 +2,6 @@ import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
-
 class BranchResponse {
   BranchResponse({this.data, this.links, this.meta});
 

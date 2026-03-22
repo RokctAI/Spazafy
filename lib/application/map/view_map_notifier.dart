@@ -12,8 +12,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/add_address.dart';
 import 'view_map_state.dart';
 
-
-
 class ViewMapNotifier extends StateNotifier<ViewMapState> {
   final ShopsRepositoryFacade _shopsRepository;
   final UserRepositoryFacade _userRepository;
@@ -96,7 +94,11 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     );
     response.when(
       success: (data) async {
-        state = state.copyWith(isLoading: false, isActive: data, isOffline: false);
+        state = state.copyWith(
+          isLoading: false,
+          isActive: data,
+          isOffline: false,
+        );
         if (!data) {
           AppHelpers.showCheckTopSnackBarInfo(
             context,

@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-
 class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double minHeight;
   final double maxHeight;

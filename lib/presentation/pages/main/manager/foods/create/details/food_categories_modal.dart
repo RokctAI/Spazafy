@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class FoodCategoriesModal extends ConsumerStatefulWidget {
   final bool isSubCategory;
   final String? type;
@@ -94,13 +93,13 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
                         final currentCategories = widget.isSubCategory
                             ? state.categoriesSub
                             : (isCombo
-                                ? state.comboCategories
-                                : state.categories);
+                                  ? state.comboCategories
+                                  : state.categories);
                         final currentActiveIndex = widget.isSubCategory
                             ? state.activeSubIndex
                             : (isCombo
-                                ? state.activeComboIndex
-                                : state.activeIndex);
+                                  ? state.activeComboIndex
+                                  : state.activeIndex);
 
                         return ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
@@ -125,15 +124,15 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
                               isSelected: currentActiveIndex == index,
                               onDelete:
                                   currentCategories[index].shopId ==
-                                          LocalStorage.getShop()?.id
-                                      ? () {
-                                          ref
-                                              .read(allCategoriesProvider.notifier)
-                                              .deleteCategories(
-                                                currentCategories[index],
-                                              );
-                                        }
-                                      : null,
+                                      LocalStorage.getShop()?.id
+                                  ? () {
+                                      ref
+                                          .read(allCategoriesProvider.notifier)
+                                          .deleteCategories(
+                                            currentCategories[index],
+                                          );
+                                    }
+                                  : null,
                             );
                           },
                         );

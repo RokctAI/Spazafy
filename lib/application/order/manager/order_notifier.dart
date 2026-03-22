@@ -7,7 +7,6 @@ import 'order_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class OrderNotifier extends StateNotifier<OrderState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;
@@ -123,7 +122,9 @@ class OrderNotifier extends StateNotifier<OrderState> {
     );
     response.when(
       success: (data) {
-        List<OrderData> orders = isRefresh ? [] : List.from(state.canceledOrders);
+        List<OrderData> orders = isRefresh
+            ? []
+            : List.from(state.canceledOrders);
         final List<OrderData> newOrders = data.data?.orders ?? [];
         orders.addAll(newOrders);
         _hasMore = newOrders.length >= 10;
@@ -133,7 +134,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
             canceledOrders: orders,
             totalCanceledOrderCount:
                 (data.data?.statistic?.cancelOrdersCount ?? 0),
-              totalCount: (data.data?.statistic?.cancelOrdersCount ?? 0)
+            totalCount: (data.data?.statistic?.cancelOrdersCount ?? 0),
           );
         } else {
           state = state.copyWith(
@@ -141,7 +142,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
             canceledOrders: orders,
             totalCanceledOrderCount:
                 (data.data?.statistic?.cancelOrdersCount ?? 0),
-              totalCount: (data.data?.statistic?.cancelOrdersCount ?? 0)
+            totalCount: (data.data?.statistic?.cancelOrdersCount ?? 0),
           );
         }
         if (isRefresh) {
@@ -190,7 +191,9 @@ class OrderNotifier extends StateNotifier<OrderState> {
     );
     response.when(
       success: (data) {
-        List<OrderData> orders = isRefresh ? [] : List.from(state.deliveredOrders);
+        List<OrderData> orders = isRefresh
+            ? []
+            : List.from(state.deliveredOrders);
         final List<OrderData> newOrders = data.data?.orders ?? [];
         orders.addAll(newOrders);
         _hasMore = newOrders.length >= 10;
@@ -198,15 +201,17 @@ class OrderNotifier extends StateNotifier<OrderState> {
           state = state.copyWith(
             isLoading: false,
             deliveredOrders: orders,
-            totalDeliveredOrderCount: (data.data?.statistic?.deliveredOrdersCount ?? 0),
-              totalCount: (data.data?.statistic?.deliveredOrdersCount ?? 0)
+            totalDeliveredOrderCount:
+                (data.data?.statistic?.deliveredOrdersCount ?? 0),
+            totalCount: (data.data?.statistic?.deliveredOrdersCount ?? 0),
           );
         } else {
           state = state.copyWith(
             isLoading: false,
             deliveredOrders: orders,
-            totalDeliveredOrderCount: (data.data?.statistic?.deliveredOrdersCount ?? 0),
-            totalCount: (data.data?.statistic?.deliveredOrdersCount ?? 0)
+            totalDeliveredOrderCount:
+                (data.data?.statistic?.deliveredOrdersCount ?? 0),
+            totalCount: (data.data?.statistic?.deliveredOrdersCount ?? 0),
           );
         }
         if (isRefresh) {
@@ -229,9 +234,11 @@ class OrderNotifier extends StateNotifier<OrderState> {
     );
   }
 
- void changeIndex(int? index) {
-    state = state.copyWith(totalCount: (index ?? 0)==0?state.totalDeliveredOrderCount : state.totalCanceledOrderCount);
+  void changeIndex(int? index) {
+    state = state.copyWith(
+      totalCount: (index ?? 0) == 0
+          ? state.totalDeliveredOrderCount
+          : state.totalCanceledOrderCount,
+    );
   }
-
 }
-

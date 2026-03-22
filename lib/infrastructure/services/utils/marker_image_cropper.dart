@@ -10,8 +10,6 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:dio/dio.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
-
 class ImageCropperForMarker {
   Future<BitmapDescriptor> resizeAndCircle(String? imageURL, int size) async {
     final File imageFile = await urlToFile(imageURL);

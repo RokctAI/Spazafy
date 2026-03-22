@@ -51,12 +51,13 @@ class AlternativeItemSheet extends ConsumerWidget {
         // If the section title matches the category or if we just want all other products
         // Actually, we can look through all products and find those with same categoryId
         for (final product in section.products ?? []) {
-          if (product.categoryId == categoryId && product.stock?.id != stockId) {
-             // Convert Product to ProductData (if necessary) or just use its fields
-             // The allData products are of type Product (from AllProductsResponse)
-             // ProductData is used in CartDetail.
-             // Let's assume they are compatible or create a simple mapper
-             alternatives.add(ProductData.fromJson(product.toJson()));
+          if (product.categoryId == categoryId &&
+              product.stock?.id != stockId) {
+            // Convert Product to ProductData (if necessary) or just use its fields
+            // The allData products are of type Product (from AllProductsResponse)
+            // ProductData is used in CartDetail.
+            // Let's assume they are compatible or create a simple mapper
+            alternatives.add(ProductData.fromJson(product.toJson()));
           }
         }
       }
@@ -88,7 +89,9 @@ class AlternativeItemSheet extends ConsumerWidget {
           if (alternatives.isEmpty)
             Expanded(
               child: Center(
-                child: Text(AppHelpers.getTranslation(TrKeys.noAlternativesFound)),
+                child: Text(
+                  AppHelpers.getTranslation(TrKeys.noAlternativesFound),
+                ),
               ),
             )
           else
@@ -112,12 +115,20 @@ class AlternativeItemSheet extends ConsumerWidget {
                     ),
                     subtitle: Text(
                       AppHelpers.numberFormat(number: item.stock?.totalPrice),
-                      style: AppStyle.interSemi(size: 14, color: AppStyle.primary),
+                      style: AppStyle.interSemi(
+                        size: 14,
+                        color: AppStyle.primary,
+                      ),
                     ),
-                    trailing: const Icon(Icons.chevron_right, color: AppStyle.textGrey),
+                    trailing: const Icon(
+                      Icons.chevron_right,
+                      color: AppStyle.textGrey,
+                    ),
                     onTap: () {
                       if (item.stock != null) {
-                        ref.read(shopOrderProvider.notifier).setAlternativeStock(
+                        ref
+                            .read(shopOrderProvider.notifier)
+                            .setAlternativeStock(
                               shopId: shopId,
                               stockId: stockId,
                               alternativeStock: item.stock!,

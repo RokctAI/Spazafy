@@ -7,24 +7,23 @@ import 'delivery_zone_state.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
-
 class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
   final UsersInterface _usersRepository;
 
   DeliveryZoneNotifier(this._usersRepository)
-      : super(const DeliveryZoneState());
+    : super(const DeliveryZoneState());
 
   Future<void> updateDeliveryZone({VoidCallback? updateSuccess}) async {
     state = state.copyWith(isSaving: true);
-    final response =
-        await _usersRepository.updateDeliveryZones(points: state.tappedPoints);
+    final response = await _usersRepository.updateDeliveryZones(
+      points: state.tappedPoints,
+    );
     response.when(
       success: (data) {
         state = state.copyWith(isSaving: false);
         updateSuccess?.call();
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         state = state.copyWith(isSaving: false);
         debugPrint('===> update delivery zone failed $fail');
       },
@@ -80,13 +79,11 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
           );
         }
         state = state.copyWith(isLoading: false);
-
       },
-      failure: (failure,stutus) {
+      failure: (failure, stutus) {
         state = state.copyWith(isLoading: false);
         debugPrint('==> error with fetching delivery zone $failure');
       },
     );
   }
 }
-

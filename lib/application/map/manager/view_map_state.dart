@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'view_map_state.freezed.dart';
 
-
 @freezed
 abstract class ViewMapState with _$ViewMapState {
   const factory ViewMapState({

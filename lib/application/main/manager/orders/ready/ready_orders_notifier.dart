@@ -8,7 +8,6 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class ReadyOrdersNotifier extends StateNotifier<ReadyOrdersState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;
@@ -63,7 +62,7 @@ class ReadyOrdersNotifier extends StateNotifier<ReadyOrdersState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -77,4 +76,3 @@ class ReadyOrdersNotifier extends StateNotifier<ReadyOrdersState> {
     );
   }
 }
-

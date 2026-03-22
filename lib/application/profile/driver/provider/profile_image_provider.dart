@@ -3,7 +3,6 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/application/profile/driver/notifier/profile_image_notifier.dart';
 import 'package:rokctapp/application/profile/driver/state/profile_image_state.dart';
 
-
 final userRepository = driverUserRepository;
 final settingsRepository = driverSettingsRepository;
 

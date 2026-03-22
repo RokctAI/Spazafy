@@ -15,7 +15,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'market_two_item.dart';
 import 'package:rokctapp/presentation/pages/home/home_four/widgets/recommended_two_item.dart';
 
-
 @RoutePage()
 class RecommendedTwoPage extends ConsumerStatefulWidget {
   final bool isNewsOfPage;

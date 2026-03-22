@@ -11,7 +11,6 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart'
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class SelectDateModal extends StatefulWidget {
   final String? initialDate;
   final Function(DateTime? date) onDateSaved;

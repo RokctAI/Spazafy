@@ -11,7 +11,6 @@ import 'package:rokctapp/presentation/pages/home/home_zero/filter/filter_page.da
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/category_one_item.dart';
 
-
 class ServiceOneCategory extends StatelessWidget {
   final HomeState state;
   final HomeNotifier event;

@@ -58,7 +58,9 @@ class _ManagerBillingPageState extends ConsumerState<ManagerBillingPage> {
                   final List<Barcode> barcodes = capture.barcodes;
                   for (final barcode in barcodes) {
                     if (barcode.rawValue != null) {
-                      ref.read(orderCartProvider.notifier).addStockByBarcode(barcode.rawValue!);
+                      ref
+                          .read(orderCartProvider.notifier)
+                          .addStockByBarcode(barcode.rawValue!);
                       // Optional: provide haptic feedback or sound
                     }
                   }
@@ -78,7 +80,8 @@ class _ManagerBillingPageState extends ConsumerState<ManagerBillingPage> {
                   style: AppStyle.interSemi(size: 18.sp),
                 ),
                 TextButton(
-                  onPressed: () => ref.read(orderCartProvider.notifier).clearAll(),
+                  onPressed: () =>
+                      ref.read(orderCartProvider.notifier).clearAll(),
                   child: Text(
                     AppHelpers.getTranslation(TrKeys.clearAll),
                     style: AppStyle.interRegular(color: AppStyle.red),
@@ -135,14 +138,22 @@ class _ManagerBillingPageState extends ConsumerState<ManagerBillingPage> {
                                   ),
                                   Text(
                                     '${item.totalPrice} x ${item.cartCount}',
-                                    style: AppStyle.interRegular(size: 12.sp, color: AppStyle.hintColor),
+                                    style: AppStyle.interRegular(
+                                      size: 12.sp,
+                                      color: AppStyle.hintColor,
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
                             IconButton(
-                              onPressed: () => ref.read(orderCartProvider.notifier).deleteStockFromCart(stock: item),
-                              icon: const Icon(Icons.delete_outline, color: AppStyle.red),
+                              onPressed: () => ref
+                                  .read(orderCartProvider.notifier)
+                                  .deleteStockFromCart(stock: item),
+                              icon: const Icon(
+                                Icons.delete_outline,
+                                color: AppStyle.red,
+                              ),
                             ),
                           ],
                         ),
@@ -181,7 +192,10 @@ class _ManagerBillingPageState extends ConsumerState<ManagerBillingPage> {
                       ),
                       Text(
                         AppHelpers.numberFormat(num: cartState.totalPrice),
-                        style: AppStyle.interBold(size: 18.sp, color: AppStyle.blue),
+                        style: AppStyle.interBold(
+                          size: 18.sp,
+                          color: AppStyle.blue,
+                        ),
                       ),
                     ],
                   ),
@@ -191,7 +205,9 @@ class _ManagerBillingPageState extends ConsumerState<ManagerBillingPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const ManagerCheckoutPage()),
+                        MaterialPageRoute(
+                          builder: (_) => const ManagerCheckoutPage(),
+                        ),
                       );
                     },
                   ),

@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'payment_method.dart';
 import 'order_payment_container.dart';
 
-
 class CardAndPromo extends StatelessWidget {
   const CardAndPromo({super.key});
 

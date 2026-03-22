@@ -6,7 +6,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class IngredientPage extends StatelessWidget {
   const IngredientPage({super.key});
 

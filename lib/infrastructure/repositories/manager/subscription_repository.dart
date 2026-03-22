@@ -83,4 +83,3 @@ class SubscriptionsRepository implements SubscriptionsFacade {
     }
   }
 }
-

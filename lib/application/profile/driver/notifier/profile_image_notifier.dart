@@ -10,8 +10,6 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/application/profile/driver/state/profile_image_state.dart';
 
-
-
 class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
   final UserRepository _userRepository;
   final SettingsRepository _settingsRepository;
@@ -104,4 +102,3 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
     state = state.copyWith(path: null, imageUrl: url);
   }
 }
-

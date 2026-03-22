@@ -5,7 +5,6 @@ import 'package:map_launcher/map_launcher.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/driver/buttons_bouncing_effect.dart';
 
-
 class MapsList extends StatefulWidget {
   final Coords location;
   final String title;

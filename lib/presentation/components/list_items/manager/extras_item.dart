@@ -6,7 +6,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class ExtrasItem extends StatelessWidget {
   final Group extras;
   final Function()? onTap;

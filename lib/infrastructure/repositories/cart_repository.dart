@@ -8,7 +8,6 @@ import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 import 'package:flutter/material.dart';
 
-
 class CartRepository implements CartRepositoryFacade {
   @override
   Future<ApiResult<CartModel>> getCart(String shopId) async {
@@ -403,10 +402,3 @@ class CartRepository implements CartRepositoryFacade {
     return ApiResult.failure(error: "Shop ID is required", statusCode: 400);
   }
 }
-
-
-
-
-
-
-

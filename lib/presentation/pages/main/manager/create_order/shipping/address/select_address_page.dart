@@ -17,7 +17,6 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'searched_location_item.dart';
 
-
 @RoutePage()
 class SelectAddressPage extends StatefulWidget {
   const SelectAddressPage({super.key});

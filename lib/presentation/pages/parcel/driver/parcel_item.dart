@@ -8,7 +8,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/pages/parcel/driver/parcel_order.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class ParcelItem extends StatelessWidget {
   final ParcelOrder? parcel;
   final bool isOrder;

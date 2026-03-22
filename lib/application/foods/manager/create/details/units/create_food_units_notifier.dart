@@ -13,7 +13,7 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
   final CatalogInterface _catalogRepository;
 
   CreateFoodUnitsNotifier(this._catalogRepository)
-      : super(CreateFoodUnitsState(unitController: TextEditingController()));
+    : super(CreateFoodUnitsState(unitController: TextEditingController()));
 
   Future<void> fetchUnits(BuildContext context) async {
     if (state.units.isNotEmpty) {
@@ -30,12 +30,12 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
               units[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-            context,
-            text: failure,
-            type: SnackBarType.error
+          context,
+          text: failure,
+          type: SnackBarType.error,
         );
         debugPrint('====> fetch units fail $failure');
       },
@@ -50,4 +50,3 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
     state.unitController?.text = state.units[index].translation?.title ?? '';
   }
 }
-

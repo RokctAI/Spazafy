@@ -18,7 +18,6 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/typing_delay.dart';
 
-
 class PromoCodeScreen extends ConsumerStatefulWidget {
   const PromoCodeScreen({super.key});
 

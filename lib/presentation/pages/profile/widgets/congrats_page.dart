@@ -6,7 +6,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-
 class CongratsPage extends StatelessWidget {
   final bool isOrder;
   final VoidCallback? onTap;

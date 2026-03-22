@@ -15,16 +15,17 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 @RoutePage()
 class DriverParcelHistoryPage extends ConsumerStatefulWidget {
   const DriverParcelHistoryPage({super.key});
 
   @override
-  ConsumerState<DriverParcelHistoryPage> createState() => _DriverParcelHistoryPageState();
+  ConsumerState<DriverParcelHistoryPage> createState() =>
+      _DriverParcelHistoryPageState();
 }
 
-class _DriverParcelHistoryPageState extends ConsumerState<DriverParcelHistoryPage> {
+class _DriverParcelHistoryPageState
+    extends ConsumerState<DriverParcelHistoryPage> {
   late RefreshController historyController;
 
   @override
@@ -61,7 +62,10 @@ class _DriverParcelHistoryPageState extends ConsumerState<DriverParcelHistoryPag
                 ),
                 Text(
                   AppHelpers.getTranslation(TrKeys.thereAreOrders),
-                  style: AppStyle.interRegular(size: 12.sp, letterSpacing: -0.3),
+                  style: AppStyle.interRegular(
+                    size: 12.sp,
+                    letterSpacing: -0.3,
+                  ),
                 ),
               ],
             ),

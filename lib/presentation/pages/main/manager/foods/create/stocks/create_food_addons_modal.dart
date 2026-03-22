@@ -14,7 +14,6 @@ import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class CreateFoodAddonsModal extends ConsumerStatefulWidget {
   final Stock stock;
   final Function(List<ProductData>) onSave;

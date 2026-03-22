@@ -20,7 +20,6 @@ import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'profile_state.dart';
 
-
 class ProfileNotifier extends StateNotifier<ProfileState> {
   final UserRepositoryFacade _userRepository;
   final ShopsRepositoryFacade _shopsRepository;
