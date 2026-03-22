@@ -1,3 +1,6 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
+import 'package:rokctapp/infrastructure/models/data/review_data.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

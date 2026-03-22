@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/translation.dart';
 
 class ParcelTypeResponse {

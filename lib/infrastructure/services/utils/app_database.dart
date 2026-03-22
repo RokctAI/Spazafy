@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/table_bookings_data.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'package:drift/drift.dart';

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
 
 class VerifyPhoneResponse {

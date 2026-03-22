@@ -1,3 +1,8 @@
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/response/branches_response.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/order_data.dart';
 
 class SingleOrderResponse {

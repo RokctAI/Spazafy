@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';

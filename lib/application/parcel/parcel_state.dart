@@ -1,3 +1,8 @@
+import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
+import 'package:rokctapp/infrastructure/models/response/parcel_calculate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/parcel_response.dart';
+import 'package:rokctapp/infrastructure/models/data/location.dart';
+import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';

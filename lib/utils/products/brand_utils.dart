@@ -1,3 +1,6 @@
+import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';

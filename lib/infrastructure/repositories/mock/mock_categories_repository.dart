@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/interface/categories.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';

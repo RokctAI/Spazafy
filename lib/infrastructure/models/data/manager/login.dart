@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 class LoginModel {

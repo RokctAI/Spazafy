@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/order_calculate_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'order_payment_state.freezed.dart';

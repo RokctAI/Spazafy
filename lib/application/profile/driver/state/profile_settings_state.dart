@@ -1,3 +1,6 @@
+import 'package:rokctapp/infrastructure/models/response/driver/statistics_response.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/request_model_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'profile_settings_state.freezed.dart';

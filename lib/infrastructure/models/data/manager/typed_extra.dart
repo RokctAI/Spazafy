@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 
 class UiExtra {

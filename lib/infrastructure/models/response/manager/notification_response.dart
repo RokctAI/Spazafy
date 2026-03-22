@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/blog_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart';
 
 class NotificationResponse {

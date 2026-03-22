@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
 import 'translation.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 

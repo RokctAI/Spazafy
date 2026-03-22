@@ -1,3 +1,7 @@
+import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/network_exceptions.dart';
+import 'package:rokctapp/infrastructure/models/response/gallery_upload_response.dart';
+import 'package:rokctapp/infrastructure/models/response/multi_gallery_upload_response.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
