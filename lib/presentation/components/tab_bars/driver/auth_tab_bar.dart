@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class AuthTabBar extends StatefulWidget {
   final bool isScrollable;
   final TabController tabController;

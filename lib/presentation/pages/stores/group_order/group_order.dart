@@ -20,8 +20,6 @@ import 'package:share_plus/share_plus.dart';
 import 'widgets/check_status_dialog.dart';
 import 'widgets/group_item.dart';
 
-
-
 class GroupOrderScreen extends ConsumerStatefulWidget {
   final ShopData shop;
   final String? cartId;

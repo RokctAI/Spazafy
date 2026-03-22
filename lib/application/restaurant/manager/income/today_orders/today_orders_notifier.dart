@@ -4,7 +4,6 @@ import 'today_orders_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
   final OrdersInterface _ordersRepository;
 
@@ -38,7 +37,7 @@ class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
           );
         }
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         if (state.ordersStatistic == null) {
           state = state.copyWith(isLoading: false);
         }
@@ -47,4 +46,3 @@ class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
     );
   }
 }
-

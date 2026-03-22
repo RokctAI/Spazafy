@@ -3,8 +3,7 @@ import 'order_payment_state.dart';
 import 'order_payment_notifier.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
-
 final orderPaymentProvider =
     StateNotifierProvider<OrderPaymentNotifier, OrderPaymentState>(
-  (ref) => OrderPaymentNotifier(ordersRepository),
-);
+      (ref) => OrderPaymentNotifier(ordersRepository),
+    );

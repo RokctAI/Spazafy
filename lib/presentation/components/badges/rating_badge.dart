@@ -6,7 +6,6 @@ import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 //import '../../../infrastructure/services/tr_keys.dart';
 
 class RatingBadge extends StatelessWidget {

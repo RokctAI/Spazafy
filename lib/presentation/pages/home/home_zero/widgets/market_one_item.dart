@@ -9,7 +9,6 @@ import 'package:rokctapp/presentation/components/shop_avarat.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class MarketOneItem extends StatelessWidget {
   final ShopData shop;
   final bool isSimpleShop;

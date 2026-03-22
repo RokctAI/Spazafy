@@ -16,8 +16,6 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect2.dart';
 
-
-
 class UpComingList extends ConsumerStatefulWidget {
   const UpComingList({super.key});
 

@@ -5,7 +5,6 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class EditAddonNotifier extends StateNotifier<EditAddonState> {
   final ProductsInterface _productsRepository;
   String _oldBarcode = '';
@@ -44,9 +43,7 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
       List<String> list = [_title, _description];
       temp[LocalStorage.getLanguage()?.locale ?? "en"] = list;
     }
-    state = state.copyWith(
-      mapOfDesc: temp,
-    );
+    state = state.copyWith(mapOfDesc: temp);
   }
 
   Future<void> updateAddon(
@@ -92,8 +89,11 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
             debugPrint('===> update addon stock fail $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
-            AppHelpers.showCheckTopSnackBar(context,
-                text: stockFail, type: SnackBarType.error);
+            AppHelpers.showCheckTopSnackBar(
+              context,
+              text: stockFail,
+              type: SnackBarType.error,
+            );
           },
         );
       },
@@ -101,8 +101,11 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
         state = state.copyWith(isLoading: false);
         debugPrint('===> addon update fail $fail');
         failed?.call();
-        AppHelpers.showCheckTopSnackBar(context,
-            text: fail, type: SnackBarType.error);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          text: fail,
+          type: SnackBarType.error,
+        );
       },
     );
   }
@@ -135,11 +138,10 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
       for (int i = 0; i < addon.translations!.length; i++) {
         temp[items?[i].locale ?? "en"] = [
           items?[i].title ?? '',
-          items?[i].description ?? ''
+          items?[i].description ?? '',
         ];
       }
       state = state.copyWith(mapOfDesc: temp);
     }
   }
 }
-

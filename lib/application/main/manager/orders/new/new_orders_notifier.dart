@@ -8,14 +8,13 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;
   bool _hasMore = true;
 
   NewOrdersNotifier(this._ordersRepository)
-      : super(NewOrdersState(refreshController: RefreshController()));
+    : super(NewOrdersState(refreshController: RefreshController()));
 
   Future<void> fetchNewOrders({
     required BuildContext context,
@@ -68,7 +67,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
           state.refreshController?.loadComplete();
         }
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -78,7 +77,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
         } else {
           state.refreshController?.loadFailed();
         }
-        if(status == 401){
+        if (status == 401) {
           LocalStorage.logout();
           context.router.popUntilRoot();
           context.replaceRoute(const ManagerAuthRoute());
@@ -87,4 +86,3 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
     );
   }
 }
-

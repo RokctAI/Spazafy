@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 class Loading extends StatelessWidget {
   final Color bgColor;
 

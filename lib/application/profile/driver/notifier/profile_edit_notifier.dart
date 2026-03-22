@@ -6,8 +6,6 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/application/profile/driver/state/profile_edit_state.dart';
 
-
-
 class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
   final UserRepository _userRepository;
 
@@ -206,4 +204,3 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
     );
   }
 }
-

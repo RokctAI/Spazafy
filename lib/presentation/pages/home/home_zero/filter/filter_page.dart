@@ -17,7 +17,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/filter/filter_provider.dart';
 import 'widgets/filter_item.dart';
 
-
 class FilterPage extends ConsumerStatefulWidget {
   final ScrollController controller;
   final String categoryId;

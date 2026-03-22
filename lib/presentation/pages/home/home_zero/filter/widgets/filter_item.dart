@@ -6,7 +6,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 // ignore_for_file: unrelated_type_equality_checks
 
-
 // ignore: must_be_immutable
 class FilterItem extends StatelessWidget {
   final String title;

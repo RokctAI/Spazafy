@@ -14,7 +14,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'custom_expanded.dart';
 
-
 class SenderWidget extends StatelessWidget {
   final ParcelState state;
   final ParcelNotifier event;

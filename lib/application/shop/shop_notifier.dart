@@ -21,7 +21,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'shop_state.dart';
 
-
 class ShopNotifier extends StateNotifier<ShopState> {
   final ProductsRepositoryFacade _productsRepository;
   final ShopsRepositoryFacade _shopsRepository;
@@ -173,7 +172,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
   void checkWorkingDay() {
     if (state.shopData == null) return;
-    
+
     final result = state.shopData!.checkWorkingDay();
     final bool isOpen = result["isOpen"] ?? false;
     final DateTime? start = result["startTodayTime"];
@@ -181,11 +180,11 @@ class ShopNotifier extends StateNotifier<ShopState> {
 
     state = state.copyWith(
       isTodayWorkingDay: isOpen,
-      startTodayTime: start != null 
-          ? TimeOfDay(hour: start.hour, minute: start.minute) 
+      startTodayTime: start != null
+          ? TimeOfDay(hour: start.hour, minute: start.minute)
           : const TimeOfDay(hour: 0, minute: 0),
-      endTodayTime: end != null 
-          ? TimeOfDay(hour: end.hour, minute: end.minute) 
+      endTodayTime: end != null
+          ? TimeOfDay(hour: end.hour, minute: end.minute)
           : const TimeOfDay(hour: 0, minute: 0),
     );
   }

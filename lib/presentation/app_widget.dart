@@ -13,7 +13,6 @@ import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/custom_scroll_behavior.dart';
 import 'package:rokctapp/presentation/phoenix_widget.dart';
 
-
 class AppWidget extends ConsumerWidget {
   AppWidget({super.key});
 

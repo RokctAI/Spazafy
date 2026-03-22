@@ -169,7 +169,9 @@ class TableRepository extends TableInterface {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
         '/api/v1/method/paas.api.seller_operations.seller_operations.delete_seller_sections',
-        data: {"ids": [id]},
+        data: {
+          "ids": [id],
+        },
       );
       return ApiResult.success(data: TableResponse.fromJson(response.data));
     } catch (e) {
@@ -187,7 +189,9 @@ class TableRepository extends TableInterface {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
         '/api/v1/method/paas.api.seller_operations.seller_operations.delete_seller_tables',
-        data: {"ids": [id]},
+        data: {
+          "ids": [id],
+        },
       );
       return ApiResult.success(data: TableResponse.fromJson(response.data));
     } catch (e) {
@@ -386,4 +390,3 @@ class TableRepository extends TableInterface {
     }
   }
 }
-

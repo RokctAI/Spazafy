@@ -7,7 +7,6 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class CategoriesTabBar extends StatelessWidget {
   final List<CategoryData> categories;
   final int activeIndex;

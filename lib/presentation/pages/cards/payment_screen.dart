@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'payment_card.dart';
 
-
 class PaymentScreen extends ConsumerStatefulWidget {
   final OrderBodyData? orderData;
   final Function(bool) onPaymentComplete;

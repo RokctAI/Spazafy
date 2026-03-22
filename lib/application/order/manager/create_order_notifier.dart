@@ -4,12 +4,10 @@ import 'create_order_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
   final OrdersInterface _ordersRepository;
 
-  CreateOrderNotifier(this._ordersRepository,)
-      : super(const CreateOrderState());
+  CreateOrderNotifier(this._ordersRepository) : super(const CreateOrderState());
 
   Future<void> createOrder({
     required String deliveryType,
@@ -25,7 +23,6 @@ class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
     ValueChanged<int>? orderSuccess,
     Function(String)? failed,
   }) async {
-
     state = state.copyWith(isCreating: true);
     final response = await _ordersRepository.createOrder(
       deliveryType: deliveryType,
@@ -44,7 +41,7 @@ class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
         state = state.copyWith(isCreating: false);
         orderSuccess?.call(data.data?.id ?? 0);
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         debugPrint('===> create order fail $failure');
         failed?.call(failure.toString());
         state = state.copyWith(isCreating: false);
@@ -52,4 +49,3 @@ class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
     );
   }
 }
-

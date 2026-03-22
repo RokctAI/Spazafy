@@ -4,7 +4,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart';
 
-
 class UserItem extends StatelessWidget {
   final UserData user;
   final bool isSelected;
@@ -65,10 +64,7 @@ class UserItem extends StatelessWidget {
                     style: AppStyle.interSemi(size: 15),
                   ),
                   4.verticalSpace,
-                  Text(
-                    user.email ?? '',
-                    style: AppStyle.interNormal(size: 12),
-                  ),
+                  Text(user.email ?? '', style: AppStyle.interNormal(size: 12)),
                 ],
               ),
             ),

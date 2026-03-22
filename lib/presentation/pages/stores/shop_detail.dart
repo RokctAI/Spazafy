@@ -15,7 +15,6 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 
-
 @RoutePage()
 class ShopDetailPage extends ConsumerStatefulWidget {
   final ShopData shop;

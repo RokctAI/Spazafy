@@ -3,7 +3,6 @@ import 'dart:convert';
 //
 //     final statisticsOrderModel = statisticsOrderModelFromJson(jsonString);
 
-
 StatisticsOrderResponse statisticsOrderModelFromJson(String str) =>
     StatisticsOrderResponse.fromJson(json.decode(str));
 

@@ -2,8 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'extras_group_details_state.freezed.dart';
 
-
-
 @freezed
 abstract class ExtrasGroupDetailsState with _$ExtrasGroupDetailsState {
   const factory ExtrasGroupDetailsState({

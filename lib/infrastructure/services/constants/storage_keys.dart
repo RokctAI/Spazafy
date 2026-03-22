@@ -31,7 +31,7 @@ abstract class StorageKeys {
   static const String keyCarInfo = 'keyCarInfo';
   static const String keyOfflineUser = 'keyOfflineUser';
   static const String keyRemoteConfig = 'keyRemoteConfig';
-  
+
   // Manager specific keys
   static const String keyActiveLanguages = 'keyActiveLanguages';
   static const String keyWallet = 'keyWallet';

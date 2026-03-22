@@ -56,7 +56,3 @@ class BlogsRepository implements BlogsRepositoryFacade {
     }
   }
 }
-
-
-
-

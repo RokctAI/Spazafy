@@ -5,7 +5,6 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 
-
 final drawRepository = driverDrawRepository;
 
 class DrawRepositoryImpl implements DrawRepository {
@@ -28,4 +27,3 @@ class DrawRepositoryImpl implements DrawRepository {
     }
   }
 }
-

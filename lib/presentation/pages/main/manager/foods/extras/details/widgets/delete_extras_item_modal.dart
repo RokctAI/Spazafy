@@ -9,7 +9,6 @@ import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class DeleteExtrasItemModal extends StatelessWidget {
   final Extras extras;
 

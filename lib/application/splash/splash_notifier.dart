@@ -5,13 +5,12 @@ import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'splash_state.dart';
 
-
 class SplashNotifier extends StateNotifier<SplashState> {
   final SettingsRepositoryFacade _settingsRepository;
   final UserRepositoryFacade _userRepository;
 
   SplashNotifier(this._settingsRepository, this._userRepository)
-      : super(const SplashState());
+    : super(const SplashState());
 
   Future<void> fetchDriverDetails({required BuildContext context}) async {
     final response = await driverUserRepository.getDriverDetails();

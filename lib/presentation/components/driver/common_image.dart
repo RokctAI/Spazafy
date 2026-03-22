@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class CommonImage extends StatelessWidget {
   final String? imageUrl;
   final double? width;

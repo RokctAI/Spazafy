@@ -3,8 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'edit_addon_units_state.freezed.dart';
 
-
-
 @freezed
 abstract class EditAddonUnitsState with _$EditAddonUnitsState {
   const factory EditAddonUnitsState({

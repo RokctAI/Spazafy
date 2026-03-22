@@ -9,7 +9,6 @@ import 'package:rokctapp/presentation/components/extras/image_extras.dart';
 import 'package:rokctapp/presentation/components/extras/text_extras.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 class WProductExtras extends ConsumerWidget {
   const WProductExtras({super.key});
 
