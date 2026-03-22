@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart' hide ExtrasType;
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart'
+    hide ExtrasType;
 
 class UiExtra {
   final int index;

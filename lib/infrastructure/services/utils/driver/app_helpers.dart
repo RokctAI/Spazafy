@@ -15,7 +15,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
-import 'package:rokctapp/infrastructure/services/constants/driver/enums.dart' hide SignUpType;
+import 'package:rokctapp/infrastructure/services/constants/driver/enums.dart'
+    hide SignUpType;
 import 'img_service.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';

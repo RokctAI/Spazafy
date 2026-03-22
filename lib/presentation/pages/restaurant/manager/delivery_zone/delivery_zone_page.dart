@@ -21,7 +21,8 @@ class ManagerDeliveryZonePage extends ConsumerStatefulWidget {
       _ManagerDeliveryZonePageState();
 }
 
-class _ManagerDeliveryZonePageState extends ConsumerState<ManagerDeliveryZonePage> {
+class _ManagerDeliveryZonePageState
+    extends ConsumerState<ManagerDeliveryZonePage> {
   @override
   void initState() {
     super.initState();

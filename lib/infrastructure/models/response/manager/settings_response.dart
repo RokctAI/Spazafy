@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/driver/setting.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/settings_data.dart' hide SettingsData;
+import 'package:rokctapp/infrastructure/models/data/manager/settings_data.dart'
+    hide SettingsData;
 
 class SettingsResponse {
   SettingsResponse({List<SettingsData>? data}) {

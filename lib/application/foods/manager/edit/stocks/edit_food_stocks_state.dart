@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart' hide Group, Extras;
+import 'package:rokctapp/infrastructure/models/data/product_data.dart'
+    hide Group, Extras;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide Group, Extras;
 part 'edit_food_stocks_state.freezed.dart';
