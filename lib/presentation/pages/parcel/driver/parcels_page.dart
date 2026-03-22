@@ -1,5 +1,6 @@
 import 'package:rokctapp/application/parcel/parcel_notifier.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -13,7 +14,8 @@ import 'package:rokctapp/application/parcel/driver/parcel_notifier.dart'
     hide ParcelNotifier;
 import 'package:rokctapp/application/parcel/driver/parcel_provider.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
-import 'package:rokctapp/infrastructure/services/utils/driver/services.dart' hide AppHelpers;
+import 'package:rokctapp/infrastructure/services/utils/driver/services.dart'
+    hide AppHelpers;
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'parcel_item.dart';
@@ -99,7 +101,9 @@ class _DriverParcelsPageState extends ConsumerState<DriverParcelsPage>
                       ),
                     ),
                     Text(
-                      help.AppHelpers.getTranslation(TrKeys.orders).toLowerCase(),
+                      help.AppHelpers.getTranslation(
+                        TrKeys.orders,
+                      ).toLowerCase(),
                       style: AppStyle.interRegular(
                         size: 12.sp,
                         letterSpacing: -0.3,

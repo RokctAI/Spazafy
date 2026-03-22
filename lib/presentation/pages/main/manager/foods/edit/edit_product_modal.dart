@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,11 @@ class _EditProductModalState extends State<EditProductModal>
               unselectedLabelStyle: AppStyle.interRegular(size: 14),
               labelStyle: AppStyle.interSemi(size: 14),
               tabs: [
-                Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.editProduct))),
+                Tab(
+                  child: Text(
+                    help.AppHelpers.getTranslation(TrKeys.editProduct),
+                  ),
+                ),
                 Tab(child: Text(help.AppHelpers.getTranslation(TrKeys.stocks))),
               ],
             ),

@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -99,7 +100,9 @@ class StatisticsScreen extends StatelessWidget {
                   Row(
                     children: [
                       StatisticsItem(
-                        title: help.AppHelpers.getTranslation(TrKeys.acceptedOrders),
+                        title: help.AppHelpers.getTranslation(
+                          TrKeys.acceptedOrders,
+                        ),
                         count: acceptedOrders,
                         percentage: acceptedPer == "NaN%" ? "0%" : acceptedPer,
                         bgColor: AppStyle.green,
@@ -108,7 +111,9 @@ class StatisticsScreen extends StatelessWidget {
                       ),
                       8.horizontalSpace,
                       StatisticsItem(
-                        title: help.AppHelpers.getTranslation(TrKeys.rejectedOrders),
+                        title: help.AppHelpers.getTranslation(
+                          TrKeys.rejectedOrders,
+                        ),
                         count: rejectedOrders,
                         percentage: rejectedPer == "NaN%" ? "0%" : rejectedPer,
                         bgColor: AppStyle.red,
@@ -121,7 +126,9 @@ class StatisticsScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       StatisticsItem(
-                        title: help.AppHelpers.getTranslation(TrKeys.doneOrders),
+                        title: help.AppHelpers.getTranslation(
+                          TrKeys.doneOrders,
+                        ),
                         count: doneOrders,
                         percentage: donePer == "NaN%" ? "0%" : donePer,
                         bgColor: AppStyle.white,

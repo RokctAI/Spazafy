@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -48,7 +49,9 @@ class IngredientPage extends StatelessWidget {
               );
             },
           ),
-          TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.ingredients)),
+          TitleAndIcon(
+            title: help.AppHelpers.getTranslation(TrKeys.ingredients),
+          ),
           24.verticalSpace,
           ListView.builder(
             shrinkWrap: true,

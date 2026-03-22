@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:auto_route/auto_route.dart';
@@ -138,7 +139,9 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
   Column _chart() {
     return Column(
       children: [
-        TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.earningsChart)),
+        TitleAndIcon(
+          title: help.AppHelpers.getTranslation(TrKeys.earningsChart),
+        ),
         16.verticalSpace,
         Container(
           padding: REdgeInsets.symmetric(horizontal: 16, vertical: 18),
