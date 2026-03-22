@@ -1,7 +1,8 @@
 import 'package:rokctapp/infrastructure/models/data/help_data.dart';
 import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'package:rokctapp/infrastructure/models/data/meta.dart' hide Meta;
-import 'package:rokctapp/infrastructure/models/data/translation.dart' hide Translation;
+import 'package:rokctapp/infrastructure/models/data/translation.dart'
+    hide Translation;
 
 class CategoriesPaginateResponse {
   CategoriesPaginateResponse({List<CategoryData>? data, Meta? meta}) {

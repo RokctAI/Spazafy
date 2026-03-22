@@ -87,16 +87,12 @@ Future<void> setUpDependencies() async {
   final role = user?.role ?? '';
 
   if (role == 'deliveryman') {
-    getIt.registerSingleton<SettingsRepositoryFacade>(
-      SettingsRepository(),
-    );
+    getIt.registerSingleton<SettingsRepositoryFacade>(SettingsRepository());
     getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
     getIt.registerSingleton<UserRepositoryFacade>(
       driver_repos.UserRepositoryImpl(),
     );
-    getIt.registerSingleton<DrawRepositoryFacade>(
-      DrawRepository(),
-    );
+    getIt.registerSingleton<DrawRepositoryFacade>(DrawRepository());
     getIt.registerSingleton<driver_interfaces.OrdersRepositoryFacade>(
       OrdersRepository(),
     );
@@ -133,9 +129,7 @@ Future<void> setUpDependencies() async {
       NotificationRepositoryImpl(),
     );
     getIt.registerSingleton<PaymentsFacade>(PaymentsRepository());
-    getIt.registerSingleton<SubscriptionsFacade>(
-      SubscriptionsRepository(),
-    );
+    getIt.registerSingleton<SubscriptionsFacade>(SubscriptionsRepository());
   }
 
   // Common/Customer dependencies
@@ -212,8 +206,7 @@ final loansRepository = getIt.get<LoansRepositoryFacade>();
 final deliveryPointsRepository = getIt.get<DeliveryPointsRepositoryFacade>();
 
 // Driver specific accessors
-final driverSettingsRepository = getIt
-    .get<SettingsRepositoryFacade>();
+final driverSettingsRepository = getIt.get<SettingsRepositoryFacade>();
 final driverAuthRepository = getIt.get<AuthRepositoryFacade>();
 final driverUserRepository = getIt.get<UserRepositoryFacade>();
 final driverDrawRepository = getIt.get<DrawRepositoryFacade>();

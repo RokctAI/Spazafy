@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart' hide UserData;
+import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart'
+    hide UserData;
 
 class LoginResponse {
   LoginResponse({LoginData? data}) {

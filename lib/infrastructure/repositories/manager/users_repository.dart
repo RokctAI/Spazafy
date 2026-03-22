@@ -10,7 +10,8 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart' hide DeliveryTime;
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart'
+    hide DeliveryTime;
 import 'package:rokctapp/infrastructure/models/response/driver/delivery_zone_paginate.dart';
 import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'dart:convert';
