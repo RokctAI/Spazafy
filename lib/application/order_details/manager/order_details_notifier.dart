@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/models/data/order_data.dart' hide OrderD
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_details_state.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart' hide OrderData;
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' hide OrderStatus;
 import 'package:rokctapp/domain/interface/interfaces.dart';
 

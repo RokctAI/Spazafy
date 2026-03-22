@@ -220,7 +220,7 @@ class _DriverBecomeDriverPageState
                                     border: const UnderlineInputBorder(),
                                     focusedErrorBorder:
                                         const UnderlineInputBorder(),
-                                    disabledBorder: const UnderlineInputBorder(
+                                    disabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppStyle.shimmerBase,
                                       ),
