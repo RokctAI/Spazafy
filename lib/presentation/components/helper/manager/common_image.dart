@@ -8,8 +8,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/animation_button_effect.dart';
 
-
-
 class CommonImage extends StatelessWidget {
   final String? url;
   final File? fileImage;
@@ -56,9 +54,7 @@ class CommonImage extends StatelessWidget {
                     return Container(
                       height: height?.r,
                       width: width?.r,
-                      decoration: BoxDecoration(
-                        color: AppStyle.shimmerBase,
-                      ),
+                      decoration: BoxDecoration(color: AppStyle.shimmerBase),
                       child: (width ?? 0) > 58
                           ? Center(
                               child: Text(

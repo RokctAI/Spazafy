@@ -44,7 +44,15 @@ enum PaymentMethodType { directCard, savedCard }
 
 enum SnackBarType { success, info, error }
 
-enum DayOfWeek { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
+enum DayOfWeek {
+  monday,
+  tuesday,
+  wednesday,
+  thursday,
+  friday,
+  saturday,
+  sunday,
+}
 
 enum Gender { male, female }
 

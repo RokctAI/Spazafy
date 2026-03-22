@@ -4,7 +4,6 @@ import 'working_days_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
   final UsersInterface _usersRepository;
 
@@ -48,4 +47,3 @@ class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
     state = state.copyWith(currentIndex: index);
   }
 }
-

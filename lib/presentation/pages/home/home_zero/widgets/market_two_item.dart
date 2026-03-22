@@ -11,7 +11,6 @@ import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 // import 'two_bonus_discount.dart'; // NOT FOUND IN PROJECT
 
-
 class MarketTwoItem extends StatelessWidget {
   final ShopData shop;
   final bool isSimpleShop;

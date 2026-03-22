@@ -6,8 +6,6 @@ import 'products_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
-
 class ProductsNotifier extends StateNotifier<ProductsState> {
   final ProductsInterface _productsRepository;
   ProductsNotifier(this._productsRepository) : super(const ProductsState());
@@ -29,30 +27,29 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
       final List<int> selectedIndexes = List.filled(groupsCount, 0);
       initialSetSelectedIndexes(selectedIndexes, cartStocks: cartStocks);
     }
-    getProductDetailsById( product.uuid ?? "",);
+    getProductDetailsById(product.uuid ?? "");
   }
 
   Future<void> getProductDetailsById(String productId) async {
-      final response = await _productsRepository.getProductDetails(productId);
-      response.when(
-        success: (data) async {
-          final List<Stock> stocks = data.data?.stocks ?? <Stock>[];
-          state = state.copyWith(
-            productData: data.data,
-            initialStocks: stocks,
-            isLoading: false,
-          );
-          if (stocks.isNotEmpty) {
-            final int groupsCount = stocks[0].extras?.length ?? 0;
-            final List<int> selectedIndexes = List.filled(groupsCount, 0);
-            initialSetSelectedIndexes(selectedIndexes, cartStocks: stocks);
-          }
-        },
-        failure: (failure, s) {
-          debugPrint('==> get product details failure: $failure');
-        },
-      );
-
+    final response = await _productsRepository.getProductDetails(productId);
+    response.when(
+      success: (data) async {
+        final List<Stock> stocks = data.data?.stocks ?? <Stock>[];
+        state = state.copyWith(
+          productData: data.data,
+          initialStocks: stocks,
+          isLoading: false,
+        );
+        if (stocks.isNotEmpty) {
+          final int groupsCount = stocks[0].extras?.length ?? 0;
+          final List<int> selectedIndexes = List.filled(groupsCount, 0);
+          initialSetSelectedIndexes(selectedIndexes, cartStocks: stocks);
+        }
+      },
+      failure: (failure, s) {
+        debugPrint('==> get product details failure: $failure');
+      },
+    );
   }
 
   void updateIngredient(BuildContext context, int selectIndex) {
@@ -65,14 +62,11 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
     state = state.copyWith(productData: newProduct);
   }
 
-  void addIngredient(
-      BuildContext context,
-      int selectIndex,
-      ) {
+  void addIngredient(BuildContext context, int selectIndex) {
     if ((state.selectedStock?.addons?[selectIndex].product?.maxQty ?? 0) >
-        (state.selectedStock?.addons?[selectIndex].quantity ?? 0) &&
+            (state.selectedStock?.addons?[selectIndex].quantity ?? 0) &&
         (state.selectedStock?.addons?[selectIndex].product?.stock?.quantity ??
-            0) >
+                0) >
             (state.selectedStock?.addons?[selectIndex].quantity ?? 0)) {
       List<AddonData>? data = state.selectedStock?.addons;
       data?[selectIndex].setCount = (data[selectIndex].quantity ?? 0) + 1;
@@ -104,8 +98,10 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
   }) {
     final newList = state.selectedIndexes.sublist(0, index);
     newList.add(value);
-    final postList =
-        List.filled(state.selectedIndexes.length - newList.length, 0);
+    final postList = List.filled(
+      state.selectedIndexes.length - newList.length,
+      0,
+    );
     newList.addAll(postList);
     initialSetSelectedIndexes(newList, cartStocks: cartStocks);
   }
@@ -126,8 +122,11 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
         final TypedExtra extras = getFirstExtras(state.selectedIndexes[0]);
         groupExtras.add(extras);
       } else {
-        final TypedExtra extras =
-            getUniqueExtras(groupExtras, state.selectedIndexes, i);
+        final TypedExtra extras = getUniqueExtras(
+          groupExtras,
+          state.selectedIndexes,
+          i,
+        );
         groupExtras.add(extras);
       }
     }
@@ -178,7 +177,8 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
         title =
             state.initialStocks[i].extras?[0].group?.translation?.title ?? '';
         type = AppHelpers.getExtraTypeByValue(
-            state.initialStocks[i].extras?[0].group?.type);
+          state.initialStocks[i].extras?[0].group?.type,
+        );
       }
     }
     final setOfUniques = uniques.toSet().toList();
@@ -211,7 +211,8 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
       uniques.add(includedStocks[i].extras?[index].value ?? '');
       title = includedStocks[i].extras?[index].group?.translation?.title ?? '';
       type = AppHelpers.getExtraTypeByValue(
-          includedStocks[i].extras?[index].group?.type ?? '');
+        includedStocks[i].extras?[index].group?.type ?? '',
+      );
     }
     final setOfUniques = uniques.toSet().toList();
     final List<UiExtra> extras = [];

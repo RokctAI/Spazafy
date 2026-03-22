@@ -36,17 +36,19 @@ import 'package:rokctapp/infrastructure/repositories/mock/mock_cart_repository.d
 import 'package:rokctapp/infrastructure/repositories/mock/mock_orders_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/mock/mock_address_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/mock/mock_brands_repository.dart';
-import 'package:rokctapp/domain/handlers/driver/handlers.dart' as driver_handlers;
+import 'package:rokctapp/domain/handlers/driver/handlers.dart'
+    as driver_handlers;
 import 'package:rokctapp/domain/interface/interfaces.dart' as driver_interfaces;
-import 'package:rokctapp/infrastructure/repositories/driver/repositories.dart' as driver_repos;
-import 'package:rokctapp/domain/interface/interfaces.dart' as manager_interfaces;
+import 'package:rokctapp/infrastructure/repositories/driver/repositories.dart'
+    as driver_repos;
+import 'package:rokctapp/domain/interface/interfaces.dart'
+    as manager_interfaces;
 import 'package:rokctapp/domain/interface/manager_payment.dart';
 import 'package:rokctapp/domain/interface/manager_subscription.dart';
 import 'package:rokctapp/domain/interface/manager_table.dart';
-import 'package:rokctapp/infrastructure/repositories/manager/repositories.dart' as manager_repos;
+import 'package:rokctapp/infrastructure/repositories/manager/repositories.dart'
+    as manager_repos;
 import 'package:rokctapp/presentation/routes/app_router.dart';
-
-
 
 // Driver specific imports
 
@@ -66,9 +68,7 @@ Future<void> setUpDependencies() async {
     getIt.registerSingleton<driver_interfaces.SettingsRepository>(
       driver_repos.SettingsRepositoryImpl(),
     );
-    getIt.registerSingleton<driver_interfaces.AuthRepository>(
-      AuthRepository(),
-    );
+    getIt.registerSingleton<driver_interfaces.AuthRepository>(AuthRepository());
     getIt.registerSingleton<driver_interfaces.UserRepository>(
       driver_repos.UserRepositoryImpl(),
     );
@@ -85,9 +85,7 @@ Future<void> setUpDependencies() async {
       driver_repos.NotificationRepositoryImpl(),
     );
   } else if (role == 'seller') {
-    getIt.registerSingleton<manager_interfaces.AuthInterface>(
-      AuthRepository(),
-    );
+    getIt.registerSingleton<manager_interfaces.AuthInterface>(AuthRepository());
     getIt.registerSingleton<manager_interfaces.TableInterface>(
       manager_repos.TableRepository(),
     );
@@ -192,14 +190,17 @@ final loansRepository = getIt.get<LoansRepositoryFacade>();
 final deliveryPointsRepository = getIt.get<DeliveryPointsRepositoryFacade>();
 
 // Driver specific accessors
-final driverSettingsRepository = getIt.get<driver_interfaces.SettingsRepository>();
+final driverSettingsRepository = getIt
+    .get<driver_interfaces.SettingsRepository>();
 final driverAuthRepository = getIt.get<driver_interfaces.AuthRepository>();
 final driverUserRepository = getIt.get<driver_interfaces.UserRepository>();
 final driverDrawRepository = getIt.get<driver_interfaces.DrawRepository>();
-final driverOrderRepository = getIt.get<driver_interfaces.OrdersRepositoryFacade>();
-final driverParcelRepository = getIt.get<driver_interfaces.ParcelRepositoryFacade>();
-final driverNotificationRepo =
-    getIt.get<driver_interfaces.NotificationRepositoryFacade>();
+final driverOrderRepository = getIt
+    .get<driver_interfaces.OrdersRepositoryFacade>();
+final driverParcelRepository = getIt
+    .get<driver_interfaces.ParcelRepositoryFacade>();
+final driverNotificationRepo = getIt
+    .get<driver_interfaces.NotificationRepositoryFacade>();
 final appRouter = getIt.get<AppRouter>();
 
 // Manager specific accessors
@@ -208,11 +209,13 @@ final managerShopsRepository = getIt.get<manager_interfaces.ShopsInterface>();
 final managerTableRepository = getIt.get<manager_interfaces.TableInterface>();
 final managerUsersRepository = getIt.get<manager_interfaces.UsersInterface>();
 final managerOrdersRepository = getIt.get<manager_interfaces.OrdersInterface>();
-final managerCatalogRepository = getIt.get<manager_interfaces.CatalogInterface>();
-final managerProductRepository = getIt.get<manager_interfaces.ProductsInterface>();
-final managerSettingsRepository = getIt.get<manager_interfaces.SettingsInterface>();
-final managerNotificationRepository =
-    getIt.get<manager_interfaces.NotificationInterface>();
+final managerCatalogRepository = getIt
+    .get<manager_interfaces.CatalogInterface>();
+final managerProductRepository = getIt
+    .get<manager_interfaces.ProductsInterface>();
+final managerSettingsRepository = getIt
+    .get<manager_interfaces.SettingsInterface>();
+final managerNotificationRepository = getIt
+    .get<manager_interfaces.NotificationInterface>();
 final managerSubscriptionRepository = getIt.get<SubscriptionsFacade>();
 final managerPaymentRepositoryNew = getIt.get<PaymentsFacade>();
-

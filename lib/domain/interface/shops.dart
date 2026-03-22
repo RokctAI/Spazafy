@@ -3,7 +3,6 @@ import 'package:rokctapp/infrastructure/models/data/filter_model.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 abstract class ShopsRepositoryFacade {
   Future<ApiResult<ShopsPaginateResponse>> getShopFilter({
     String? categoryId,

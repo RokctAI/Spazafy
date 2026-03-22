@@ -9,7 +9,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 class BannerScreen extends StatelessWidget {
   final String image;
   final int bannerId;

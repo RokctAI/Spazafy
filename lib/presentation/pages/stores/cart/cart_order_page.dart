@@ -23,7 +23,6 @@ import 'widgets/cart_clear_dialog.dart';
 import 'widgets/cart_order_description.dart';
 import 'widgets/cart_order_item.dart';
 
-
 class CartOrderPage extends ConsumerStatefulWidget {
   final bool isGroupOrder;
   final String? cartId;

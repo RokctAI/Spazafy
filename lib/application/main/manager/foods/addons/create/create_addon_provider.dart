@@ -3,8 +3,7 @@ import 'create_addon_state.dart';
 import 'create_addon_notifier.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
-
 final createAddonProvider =
     StateNotifierProvider.autoDispose<CreateAddonNotifier, CreateAddonState>(
-  (ref) => CreateAddonNotifier(productRepository),
-);
+      (ref) => CreateAddonNotifier(productRepository),
+    );

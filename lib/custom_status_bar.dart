@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:remixicon/remixicon.dart';
 import 'presentation/theme/theme.dart';
 
-
 class CustomStatusBar extends StatefulWidget {
   final Widget child;
 

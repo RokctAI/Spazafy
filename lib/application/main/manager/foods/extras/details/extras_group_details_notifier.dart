@@ -3,13 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'extras_group_details_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class ExtrasGroupDetailsNotifier
     extends StateNotifier<ExtrasGroupDetailsState> {
   final ProductsInterface _productsRepository;
 
   ExtrasGroupDetailsNotifier(this._productsRepository)
-      : super(const ExtrasGroupDetailsState());
+    : super(const ExtrasGroupDetailsState());
 
   Future<void> fetchGroupExtras({int? groupId}) async {
     state = state.copyWith(isLoading: true);
@@ -21,11 +20,10 @@ class ExtrasGroupDetailsNotifier
           isLoading: false,
         );
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch extras fail $fail');
         state = state.copyWith(isLoading: false);
       },
     );
   }
 }
-

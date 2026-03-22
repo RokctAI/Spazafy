@@ -8,7 +8,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 
-
 @RoutePage()
 class ShareReferralFaqPage extends StatefulWidget {
   final String terms;

@@ -1,7 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'translation.dart';
 
-
 class CategoryData {
   CategoryData({
     String? id,
@@ -79,21 +78,20 @@ class CategoryData {
     ShopData? shop,
     Translation? translation,
     List<CategoryData>? children,
-  }) =>
-      CategoryData(
-        id: id ?? _id,
-        shopId: shopId ?? _shopId,
-        uuid: uuid ?? _uuid,
-        keywords: keywords ?? _keywords,
-        parentId: parentId ?? _parentId,
-        type: type ?? _type,
-        img: img ?? _img,
-        shop: shop ?? _shop,
-        active: active ?? _active,
-        status: status ?? _status,
-        translation: translation ?? _translation,
-        children: children ?? _children,
-      );
+  }) => CategoryData(
+    id: id ?? _id,
+    shopId: shopId ?? _shopId,
+    uuid: uuid ?? _uuid,
+    keywords: keywords ?? _keywords,
+    parentId: parentId ?? _parentId,
+    type: type ?? _type,
+    img: img ?? _img,
+    shop: shop ?? _shop,
+    active: active ?? _active,
+    status: status ?? _status,
+    translation: translation ?? _translation,
+    children: children ?? _children,
+  );
 
   String? get id => _id;
   String? get shopId => _shopId;

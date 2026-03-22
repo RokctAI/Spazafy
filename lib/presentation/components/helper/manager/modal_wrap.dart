@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'blur_wrap.dart';
 
-
 class ModalWrap extends StatelessWidget {
   final Widget body;
 

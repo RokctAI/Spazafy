@@ -12,7 +12,6 @@ import 'app_bar_screen.dart';
 import 'statistics_screen.dart';
 import 'widgets/income_item.dart';
 
-
 @RoutePage()
 class DriverIncomePage extends ConsumerStatefulWidget {
   const DriverIncomePage({super.key});

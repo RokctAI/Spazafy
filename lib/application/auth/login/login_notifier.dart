@@ -27,8 +27,6 @@ import 'dart:convert';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'login_state.dart';
 
-
-
 class LoginNotifier extends StateNotifier<LoginState> {
   final AuthRepositoryFacade _authRepository;
   final SettingsRepositoryFacade _settingsRepository;
@@ -420,7 +418,6 @@ class LoginNotifier extends StateNotifier<LoginState> {
       }
     }
   }
-
 
   Future<void> loginWithFacebook(BuildContext context) async {
     final connected = await AppConnectivity.connectivity();

@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'extras_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class ExtrasNotifier extends StateNotifier<ExtrasState> {
   final ProductsInterface _productsRepository;
 
@@ -12,14 +11,15 @@ class ExtrasNotifier extends StateNotifier<ExtrasState> {
 
   Future<void> fetchGroups({RefreshController? refreshController}) async {
     state = state.copyWith(isLoading: true);
-    final response =
-        await _productsRepository.getExtrasGroups(needOnlyValid: false);
+    final response = await _productsRepository.getExtrasGroups(
+      needOnlyValid: false,
+    );
     response.when(
       success: (data) {
         state = state.copyWith(groups: data.data ?? [], isLoading: false);
         refreshController?.refreshCompleted();
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch groups fail $fail');
         state = state.copyWith(isLoading: false);
         refreshController?.refreshFailed();
@@ -27,4 +27,3 @@ class ExtrasNotifier extends StateNotifier<ExtrasState> {
     );
   }
 }
-

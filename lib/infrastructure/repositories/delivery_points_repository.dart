@@ -55,5 +55,3 @@ class DeliveryPointsRepository implements DeliveryPointsRepositoryFacade {
     }
   }
 }
-
-

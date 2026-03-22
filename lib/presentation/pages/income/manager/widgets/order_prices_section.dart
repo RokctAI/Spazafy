@@ -7,7 +7,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class OrderPricesSection extends StatelessWidget {
   final DateTime? endTime;
   final DateTime? startTime;

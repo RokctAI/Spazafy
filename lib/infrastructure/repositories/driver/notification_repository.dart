@@ -116,4 +116,3 @@ class NotificationRepositoryImpl extends NotificationRepositoryFacade {
     }
   }
 }
-

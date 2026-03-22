@@ -17,8 +17,6 @@ import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/application/order/driver/progress_ordedr/progress_order_provider.dart';
 
-
-
 @RoutePage()
 class DriverOrderHistoryPage extends ConsumerStatefulWidget {
   const DriverOrderHistoryPage({super.key});
@@ -106,7 +104,10 @@ class _DriverOrderHistoryPageState extends ConsumerState<DriverOrderHistoryPage>
                 ),
                 Text(
                   AppHelpers.getTranslation(TrKeys.thereAreOrders),
-                  style: AppStyle.interRegular(size: 12.sp, letterSpacing: -0.3),
+                  style: AppStyle.interRegular(
+                    size: 12.sp,
+                    letterSpacing: -0.3,
+                  ),
                 ),
               ],
             ),

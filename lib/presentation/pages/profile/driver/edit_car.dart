@@ -15,8 +15,6 @@ import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
-
 class EditCar extends ConsumerStatefulWidget {
   const EditCar({super.key});
 
@@ -153,12 +151,14 @@ class _EditCarState extends ConsumerState<EditCar> {
                         vertical: 8,
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
-                      enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppStyle.shimmerBase),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: AppStyle.shimmerBase),
                       ),
                       errorBorder: InputBorder.none,
                       border: const UnderlineInputBorder(),
                       focusedErrorBorder: const UnderlineInputBorder(),
-                      disabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppStyle.shimmerBase),
+                      disabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: AppStyle.shimmerBase),
                       ),
                       focusedBorder: const UnderlineInputBorder(),
                     ),

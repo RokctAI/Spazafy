@@ -5,7 +5,6 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/statistics_item.dart';
 
-
 class StatisticsScreen extends StatelessWidget {
   final String totalOrders;
   final String todayOrders;

@@ -2,8 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'ready_orders_state.freezed.dart';
 
-
-
 @freezed
 abstract class ReadyOrdersState with _$ReadyOrdersState {
   const factory ReadyOrdersState({

@@ -9,7 +9,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'home_state.dart';
 
-
 final userRepository = driverUserRepository;
 final drawRepository = driverDrawRepository;
 final orderRepository = driverOrderRepository;
@@ -242,12 +241,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
                     AppConstants.demoLongitude,
               ),
               end: LatLng(
-                double.parse(
-                  data.data?.first.shop?.location?.latitude ?? "0",
-                ),
-                double.parse(
-                  data.data?.first.shop?.location?.longitude ?? "0",
-                ),
+                double.parse(data.data?.first.shop?.location?.latitude ?? "0"),
+                double.parse(data.data?.first.shop?.location?.longitude ?? "0"),
               ),
               market: Marker(
                 markerId: const MarkerId("Shop"),
