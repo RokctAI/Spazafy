@@ -4,8 +4,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'delete_extras_item_notifier.dart';
 import 'delete_extras_item_state.dart';
 
-
 final deleteExtrasItemProvider =
     StateNotifierProvider<DeleteExtrasItemNotifier, DeleteExtrasItemState>(
-  (ref) => DeleteExtrasItemNotifier(productRepository),
-);
+      (ref) => DeleteExtrasItemNotifier(productRepository),
+    );

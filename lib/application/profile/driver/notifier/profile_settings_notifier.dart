@@ -9,8 +9,6 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/application/profile/driver/state/profile_settings_state.dart';
 
-
-
 class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
   final UserRepository _userRepository;
 
@@ -121,4 +119,3 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
     }
   }
 }
-

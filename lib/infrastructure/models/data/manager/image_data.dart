@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class ImageData {
   ImageData({
     String? id,
@@ -39,15 +40,14 @@ class ImageData {
     String? loadableId,
     String? path,
     String? basePath,
-  }) =>
-      ImageData(
-        id: id ?? _id,
-        title: title ?? _title,
-        type: type ?? _type,
-        loadableId: loadableId ?? _loadableId,
-        path: path ?? _path,
-        basePath: basePath ?? _basePath,
-      );
+  }) => ImageData(
+    id: id ?? _id,
+    title: title ?? _title,
+    type: type ?? _type,
+    loadableId: loadableId ?? _loadableId,
+    path: path ?? _path,
+    basePath: basePath ?? _basePath,
+  );
 
   String? get id => _id;
 

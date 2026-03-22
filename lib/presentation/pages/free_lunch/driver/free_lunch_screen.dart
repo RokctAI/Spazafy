@@ -8,7 +8,6 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'bar_code_screen.dart';
 
-
 class FreeLunchScreen extends StatelessWidget {
   const FreeLunchScreen({super.key});
 

@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/pages/home/home_four/shimmer/market_shimmer_three.dart';
 
-
 class NewsShopShimmer extends StatelessWidget {
   final String title;
 

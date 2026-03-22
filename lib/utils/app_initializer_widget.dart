@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app_initializer.dart';
 
-
 class AppInitializerWidget extends StatefulWidget {
   final Widget child;
 

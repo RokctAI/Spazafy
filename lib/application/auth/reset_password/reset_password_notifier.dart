@@ -14,8 +14,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'reset_password_state.dart';
 
-
-
 class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
   final AuthRepositoryFacade _authRepository;
   final UserRepositoryFacade _userRepositoryFacade;
@@ -66,9 +64,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
       verificationFailed: (FirebaseAuthException e) {
         AppHelpers.showCheckTopSnackBar(
           context,
-          AppHelpers.getTranslation(
-            AppHelpers.getTranslation(e.message ?? ""),
-          ),
+          AppHelpers.getTranslation(AppHelpers.getTranslation(e.message ?? "")),
         );
         state = state.copyWith(isLoading: false, isSuccess: false);
       },

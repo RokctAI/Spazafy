@@ -9,7 +9,6 @@ import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_de
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class CookingOrdersBody extends StatefulWidget {
   final ScrollController? scrollController;
 

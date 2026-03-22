@@ -15,7 +15,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'image_dialog.dart';
 import 'price_information.dart';
 
-
 class OrderDetailsModal extends ConsumerStatefulWidget {
   final OrderData order;
   final bool? isHistoryOrder;

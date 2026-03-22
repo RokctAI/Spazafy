@@ -4,7 +4,6 @@ import 'group.dart';
 import 'extras.dart';
 import 'product_data.dart';
 
-
 class Stock {
   Stock({
     String? id,
@@ -60,8 +59,9 @@ class Stock {
     _tax = json['tax'];
     _totalPrice = json['total_price'];
     _shopBonus = json['bonus_shop']?.toString().toBool();
-    _product =
-        json['product'] != null ? ProductData.fromJson(json['product']) : null;
+    _product = json['product'] != null
+        ? ProductData.fromJson(json['product'])
+        : null;
     if (json['stock_extras'] != null) {
       _extras = [];
       json['stock_extras'].forEach((v) {
@@ -137,28 +137,27 @@ class Stock {
     ProductData? countable,
     List<AddonData>? addons,
     List<AddonData>? localAddons,
-  }) =>
-      Stock(
-        id: id ?? _id,
-        bonus: bonus ?? _bonus,
-        countableId: countableId ?? _countableId,
-        price: isInitial ? num.tryParse('') : (price ?? _price),
-        discount: isInitial ? num.tryParse('') : (discount ?? _discount),
-        quantity: isInitial ? int.tryParse('') : (quantity ?? _quantity),
-        cartCount: cartCount ?? _cartCount,
-        tax: tax ?? _tax,
-        totalPrice: totalPrice ?? _totalPrice,
-        product: product ?? _product,
-        extras: extras ?? _extras,
-        localGroups: localGroups ?? _localGroups,
-        countableType: countableType ?? _countableType,
-        stock: stock ?? _stock,
-        countable: countable ?? _countable,
-        addons: addons ?? _addons,
-        localAddons: localAddons ?? _localAddons,
-        shopBonus: shopBonus ?? _shopBonus,
-        sku: sku ?? _sku,
-      );
+  }) => Stock(
+    id: id ?? _id,
+    bonus: bonus ?? _bonus,
+    countableId: countableId ?? _countableId,
+    price: isInitial ? num.tryParse('') : (price ?? _price),
+    discount: isInitial ? num.tryParse('') : (discount ?? _discount),
+    quantity: isInitial ? int.tryParse('') : (quantity ?? _quantity),
+    cartCount: cartCount ?? _cartCount,
+    tax: tax ?? _tax,
+    totalPrice: totalPrice ?? _totalPrice,
+    product: product ?? _product,
+    extras: extras ?? _extras,
+    localGroups: localGroups ?? _localGroups,
+    countableType: countableType ?? _countableType,
+    stock: stock ?? _stock,
+    countable: countable ?? _countable,
+    addons: addons ?? _addons,
+    localAddons: localAddons ?? _localAddons,
+    shopBonus: shopBonus ?? _shopBonus,
+    sku: sku ?? _sku,
+  );
 
   String? get id => _id;
 
@@ -255,8 +254,9 @@ class AddonData {
     _quantity = json['quantity'];
     _totalPrice = json["total_price"];
     _stock = json['stock'] != null ? Stock.fromJson(json['stock']) : null;
-    _product =
-        json['product'] != null ? ProductData.fromJson(json['product']) : null;
+    _product = json['product'] != null
+        ? ProductData.fromJson(json['product'])
+        : null;
   }
 
   String? _id;
@@ -277,17 +277,16 @@ class AddonData {
     num? totalPrice,
     Stock? stock,
     ProductData? product,
-  }) =>
-      AddonData(
-        id: id ?? _id,
-        stockId: stockId ?? _stockId,
-        addonId: addonId ?? _addonId,
-        quantity: quantity ?? _quantity,
-        totalPrice: totalPrice ?? _totalPrice,
-        stock: stock ?? _stock,
-        active: active ?? _active,
-        product: product ?? _product,
-      );
+  }) => AddonData(
+    id: id ?? _id,
+    stockId: stockId ?? _stockId,
+    addonId: addonId ?? _addonId,
+    quantity: quantity ?? _quantity,
+    totalPrice: totalPrice ?? _totalPrice,
+    stock: stock ?? _stock,
+    active: active ?? _active,
+    product: product ?? _product,
+  );
 
   String? get id => _id;
 

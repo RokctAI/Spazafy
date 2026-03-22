@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class LocationModel {
   LocationModel({double? latitude, double? longitude}) {
     _latitude = latitude;

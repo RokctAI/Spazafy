@@ -14,12 +14,13 @@ class TableInfoResponse {
     required this.data,
   });
 
-  factory TableInfoResponse.fromJson(Map<String, dynamic> json) => TableInfoResponse(
-    timestamp: DateTime.parse(json["timestamp"]),
-    status: json["status"],
-    message: json["message"],
-    data: TableInfoData.fromJson(json["data"]),
-  );
+  factory TableInfoResponse.fromJson(Map<String, dynamic> json) =>
+      TableInfoResponse(
+        timestamp: DateTime.parse(json["timestamp"]),
+        status: json["status"],
+        message: json["message"],
+        data: TableInfoData.fromJson(json["data"]),
+      );
 
   Map<String, dynamic> toJson() => {
     "timestamp": timestamp.toIso8601String(),
@@ -28,5 +29,3 @@ class TableInfoResponse {
     "data": data.toJson(),
   };
 }
-
-

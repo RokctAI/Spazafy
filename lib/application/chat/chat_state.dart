@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/data/chat_message_data.dart';
 part 'chat_state.freezed.dart';
 
-
 @freezed
 class ChatState with _$ChatState {
   const factory ChatState({

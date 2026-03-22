@@ -8,25 +8,20 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'select_address_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
-
 class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
   Timer? _timer;
 
   SelectAddressNotifier()
-      : super(SelectAddressState(textController: TextEditingController()));
+    : super(SelectAddressState(textController: TextEditingController()));
 
   void setQuery(BuildContext context) {
     if (state.textController?.text.trim().isNotEmpty ?? false) {
       if (_timer?.isActive ?? false) {
         _timer?.cancel();
       }
-      _timer = Timer(
-        const Duration(milliseconds: 500),
-        () {
-          searchLocations();
-        },
-      );
+      _timer = Timer(const Duration(milliseconds: 500), () {
+        searchLocations();
+      });
     }
   }
 

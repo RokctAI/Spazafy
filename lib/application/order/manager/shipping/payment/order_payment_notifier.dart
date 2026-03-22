@@ -7,13 +7,11 @@ import 'order_payment_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
-
 class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
   final OrdersInterface _ordersRepository;
 
   OrderPaymentNotifier(this._ordersRepository)
-      : super(const OrderPaymentState());
+    : super(const OrderPaymentState());
 
   void setSelectedIndex(int index) {
     state = state.copyWith(selectedIndex: index);
@@ -63,15 +61,23 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
   }
 
   Future<void> createTransaction(
-      BuildContext context, int orderId, int? paymentId) async {
+    BuildContext context,
+    int orderId,
+    int? paymentId,
+  ) async {
     var response = await _ordersRepository.createTransaction(
-        orderId: orderId, paymentId: paymentId ?? 0);
+      orderId: orderId,
+      paymentId: paymentId ?? 0,
+    );
     response.when(
       success: (data) {},
       failure: (error, status) {
         debugPrint('====> fetch payments fail $error');
-        AppHelpers.showCheckTopSnackBar(context,
-            text: error, type: SnackBarType.error);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          text: error,
+          type: SnackBarType.error,
+        );
       },
     );
   }
@@ -101,4 +107,3 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
     );
   }
 }
-

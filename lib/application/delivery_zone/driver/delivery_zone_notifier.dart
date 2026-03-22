@@ -8,7 +8,6 @@ import 'delivery_zone_state.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
   final UserRepository _usersRepository;
 
@@ -90,4 +89,3 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
     );
   }
 }
-

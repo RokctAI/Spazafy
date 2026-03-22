@@ -5,32 +5,35 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'delete_extras_item_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {
   final ProductsInterface _productsRepository;
 
   DeleteExtrasItemNotifier(this._productsRepository)
-      : super(const DeleteExtrasItemState());
+    : super(const DeleteExtrasItemState());
 
-  Future<void> deleteExtrasItem(BuildContext context,{VoidCallback? success, int? extrasId}) async {
+  Future<void> deleteExtrasItem(
+    BuildContext context, {
+    VoidCallback? success,
+    int? extrasId,
+  }) async {
     state = state.copyWith(isLoading: true);
-    final response =
-        await _productsRepository.deleteExtrasItem(extrasId: extrasId ?? 0);
+    final response = await _productsRepository.deleteExtrasItem(
+      extrasId: extrasId ?? 0,
+    );
     response.when(
       success: (data) {
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> delete extras item fail $fail');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-            context,
-            text: fail,
-            type: SnackBarType.error
+          context,
+          text: fail,
+          type: SnackBarType.error,
         );
       },
     );
   }
 }
-

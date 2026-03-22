@@ -11,8 +11,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 import 'order_detail.dart';
 
-
-
 class OrdersItem extends StatelessWidget {
   final OrderDetailData order;
   final bool isOrder;

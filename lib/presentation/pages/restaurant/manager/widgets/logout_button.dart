@@ -7,7 +7,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class LogoutButton extends StatelessWidget {
   final bool isOpen;
   final VoidCallback onChange;

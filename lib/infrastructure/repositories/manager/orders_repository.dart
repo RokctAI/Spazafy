@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class OrdersRepository implements OrdersInterface {
   @override
   Future<ApiResult<TransactionsResponse>> createTransaction({
@@ -177,10 +176,15 @@ class OrdersRepository implements OrdersInterface {
   }
 
   @override
-  Future<ApiResult<SingleOrderResponse>> getOrderDetails({String? orderId}) async {
+  Future<ApiResult<SingleOrderResponse>> getOrderDetails({
+    String? orderId,
+  }) async {
     try {
       final client = dioHttp.client(requireAuth: true);
-      final data = {'lang': LocalStorage.getLanguage()?.locale, 'order_id': orderId};
+      final data = {
+        'lang': LocalStorage.getLanguage()?.locale,
+        'order_id': orderId,
+      };
       final response = await client.get(
         '/api/v1/method/paas.api.seller_order.seller_order.get_seller_order_details',
         queryParameters: data,
@@ -336,5 +340,3 @@ class OrdersRepository implements OrdersInterface {
     }
   }
 }
-
-

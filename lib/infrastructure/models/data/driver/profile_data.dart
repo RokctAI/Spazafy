@@ -54,8 +54,8 @@ class ProfileData {
     _registeredAt = json['registered_at'];
     _active = json['active'].runtimeType == int
         ? json['active'] == 1
-            ? true
-            : false
+              ? true
+              : false
         : json['active'];
     _role = json['role'];
     _img = json['img'];
@@ -105,26 +105,25 @@ class ProfileData {
     List<AddressInformation>? addresses,
     ShopData? shop,
     Wallet? wallet,
-  }) =>
-      ProfileData(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        firstname: firstname ?? _firstname,
-        lastname: lastname ?? _lastname,
-        email: email ?? _email,
-        phone: phone ?? _phone,
-        secondPhone: secondPhone ?? _secondPhone,
-        birthday: birthday ?? _birthday,
-        gender: gender ?? _gender,
-        emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
-        registeredAt: registeredAt ?? _registeredAt,
-        active: active ?? _active,
-        img: img ?? _img,
-        role: role ?? _role,
-        addresses: addresses ?? _addresses,
-        shop: shop ?? _shop,
-        wallet: wallet ?? _wallet,
-      );
+  }) => ProfileData(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    firstname: firstname ?? _firstname,
+    lastname: lastname ?? _lastname,
+    email: email ?? _email,
+    phone: phone ?? _phone,
+    secondPhone: secondPhone ?? _secondPhone,
+    birthday: birthday ?? _birthday,
+    gender: gender ?? _gender,
+    emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
+    registeredAt: registeredAt ?? _registeredAt,
+    active: active ?? _active,
+    img: img ?? _img,
+    role: role ?? _role,
+    addresses: addresses ?? _addresses,
+    shop: shop ?? _shop,
+    wallet: wallet ?? _wallet,
+  );
 
   String? get id => _id;
 
@@ -236,16 +235,15 @@ class Wallet {
     String? createdAt,
     String? updatedAt,
     CurrencyData? currency,
-  }) =>
-      Wallet(
-        uuid: uuid ?? _uuid,
-        userId: userId ?? _userId,
-        currencyId: currencyId ?? _currencyId,
-        price: price ?? _price,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        currency: currency ?? _currency,
-      );
+  }) => Wallet(
+    uuid: uuid ?? _uuid,
+    userId: userId ?? _userId,
+    currencyId: currencyId ?? _currencyId,
+    price: price ?? _price,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    currency: currency ?? _currency,
+  );
 
   String? get uuid => _uuid;
 

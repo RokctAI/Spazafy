@@ -10,7 +10,6 @@ import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class ApproveOrderDialog extends StatelessWidget {
   final OrderDetailData? order;
   final ParcelOrder? parcel;

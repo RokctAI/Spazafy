@@ -3,8 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'products_state.freezed.dart';
 
-
-
 @freezed
 abstract class ProductsState with _$ProductsState {
   const factory ProductsState({

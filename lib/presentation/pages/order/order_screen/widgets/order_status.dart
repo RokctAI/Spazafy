@@ -8,7 +8,6 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'order_status_item.dart';
 
-
 class OrderStatusScreen extends StatelessWidget {
   final OrderStatus status;
   final bool parcel;

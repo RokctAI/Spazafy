@@ -1,18 +1,30 @@
 import 'package:rokctapp/dummy_types.dart';
 export 'package:rokctapp/presentation/pages/initial/splash/splash_page.dart';
-export 'package:rokctapp/presentation/pages/initial/no_connection/no_connection_page.dart' show NoConnectionPage, DriverNoConnectionPage;
+export 'package:rokctapp/presentation/pages/initial/no_connection/no_connection_page.dart'
+    show NoConnectionPage, DriverNoConnectionPage;
 export 'package:rokctapp/presentation/pages/auth/login/login_screen.dart';
-export 'package:rokctapp/presentation/pages/income/driver/income_page.dart' show DriverIncomePage;
-export 'package:rokctapp/presentation/pages/home/driver/home_page.dart' show DriverHomePage;
-export 'package:rokctapp/presentation/pages/story/driver/story_page.dart' show DriverStoryPage;
-export 'package:rokctapp/presentation/pages/profile/driver/profile_page.dart' show DriverProfilePage;
-export 'package:rokctapp/presentation/pages/order_history/driver/order_history.dart' show DriverOrderHistoryPage;
-export 'package:rokctapp/presentation/pages/order/driver/orders_page.dart' show DriverOrdersPage;
+export 'package:rokctapp/presentation/pages/income/driver/income_page.dart'
+    show DriverIncomePage;
+export 'package:rokctapp/presentation/pages/home/driver/home_page.dart'
+    show DriverHomePage;
+export 'package:rokctapp/presentation/pages/story/driver/story_page.dart'
+    show DriverStoryPage;
+export 'package:rokctapp/presentation/pages/profile/driver/profile_page.dart'
+    show DriverProfilePage;
+export 'package:rokctapp/presentation/pages/order_history/driver/order_history.dart'
+    show DriverOrderHistoryPage;
+export 'package:rokctapp/presentation/pages/order/driver/orders_page.dart'
+    show DriverOrdersPage;
 export 'package:rokctapp/presentation/pages/profile/driver/edit_car.dart';
-export 'package:rokctapp/presentation/pages/profile/driver/notification_list_page.dart' show DriverNotificationListPage;
+export 'package:rokctapp/presentation/pages/profile/driver/notification_list_page.dart'
+    show DriverNotificationListPage;
 export 'package:rokctapp/presentation/pages/push_order/driver/push_order_screen.dart';
 export 'package:rokctapp/presentation/pages/free_lunch/driver/free_lunch_screen.dart';
-export 'package:rokctapp/presentation/pages/parcel/driver/parcels_page.dart' show DriverParcelsPage;
-export 'package:rokctapp/presentation/pages/become/become_driver.dart' show DriverBecomeDriverPage;
-export 'package:rokctapp/presentation/pages/profile/driver/delivery_zone/delivery_zone_page.dart' show DriverDeliveryZonePage;
-export 'package:rokctapp/presentation/pages/parcels_history/driver/parcel_history.dart' show DriverParcelHistoryPage;
+export 'package:rokctapp/presentation/pages/parcel/driver/parcels_page.dart'
+    show DriverParcelsPage;
+export 'package:rokctapp/presentation/pages/become/become_driver.dart'
+    show DriverBecomeDriverPage;
+export 'package:rokctapp/presentation/pages/profile/driver/delivery_zone/delivery_zone_page.dart'
+    show DriverDeliveryZonePage;
+export 'package:rokctapp/presentation/pages/parcels_history/driver/parcel_history.dart'
+    show DriverParcelHistoryPage;

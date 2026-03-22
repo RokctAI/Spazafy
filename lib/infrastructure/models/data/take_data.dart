@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class TakeModel {
   String? id;
   String? img;

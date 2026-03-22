@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 @RoutePage()
 class ManagerAuthPage extends ConsumerStatefulWidget {
   const ManagerAuthPage({super.key});

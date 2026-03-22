@@ -6,7 +6,6 @@ import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncin
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class FoodCategoryItem extends StatelessWidget {
   final CategoryData category;
   final Function() onTap;

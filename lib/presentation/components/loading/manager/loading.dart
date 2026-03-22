@@ -5,8 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
-
 class Loading extends StatelessWidget {
   final int width;
 

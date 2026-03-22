@@ -2,7 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'register_confirmation_state.freezed.dart';
 
-
 @freezed
 class RegisterConfirmationState with _$RegisterConfirmationState {
   const factory RegisterConfirmationState({

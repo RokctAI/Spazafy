@@ -39,7 +39,6 @@ import 'order_state.dart';
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
 class OrderNotifier extends StateNotifier<OrderState> {
   final OrdersRepositoryFacade _orderRepository;
   final ShopsRepositoryFacade _shopsRepository;
@@ -185,8 +184,9 @@ class OrderNotifier extends StateNotifier<OrderState> {
       if (element.day?.toLowerCase() == yesterday) {
         if (AppHelpers.checkYesterday(element.from, element.to) &&
             yesterday != 'sunday') {
-          TimeOfDay time =
-              i == -1 ? TimeOfDay.now() : const TimeOfDay(hour: 0, minute: 0);
+          TimeOfDay time = i == -1
+              ? TimeOfDay.now()
+              : const TimeOfDay(hour: 0, minute: 0);
           TimeOfDay time2 = time.plusMinutes(
             minute: deliveryTime.hour * 60 + deliveryTime.minute,
           );
@@ -202,8 +202,9 @@ class OrderNotifier extends StateNotifier<OrderState> {
       if (element.day?.toLowerCase() == today) {
         if (today == "monday") {
           if (AppHelpers.checkYesterday(element.from, element.to)) {
-            TimeOfDay time =
-                i == -1 ? TimeOfDay.now() : const TimeOfDay(hour: 0, minute: 0);
+            TimeOfDay time = i == -1
+                ? TimeOfDay.now()
+                : const TimeOfDay(hour: 0, minute: 0);
             TimeOfDay time2 = time.plusMinutes(
               minute: deliveryTime.hour * 60 + deliveryTime.minute,
             );
@@ -220,9 +221,9 @@ class OrderNotifier extends StateNotifier<OrderState> {
         if (AppHelpers.checkYesterday(element.from, element.to)) {
           TimeOfDay time = i == -1
               ? TimeOfDay.now().hour > element.from.toTimeOfDay.hour &&
-                      TimeOfDay.now().minute > element.from.toTimeOfDay.minute
-                  ? TimeOfDay.now()
-                  : element.from.toTimeOfDay
+                        TimeOfDay.now().minute > element.from.toTimeOfDay.minute
+                    ? TimeOfDay.now()
+                    : element.from.toTimeOfDay
               : element.from.toTimeOfDay;
           TimeOfDay time2 = time.plusMinutes(
             minute: deliveryTime.hour * 60 + deliveryTime.minute,
@@ -238,9 +239,9 @@ class OrderNotifier extends StateNotifier<OrderState> {
         } else {
           TimeOfDay time = i == -1
               ? TimeOfDay.now().hour > element.from.toTimeOfDay.hour &&
-                      TimeOfDay.now().minute > element.from.toTimeOfDay.minute
-                  ? TimeOfDay.now()
-                  : element.from.toTimeOfDay
+                        TimeOfDay.now().minute > element.from.toTimeOfDay.minute
+                    ? TimeOfDay.now()
+                    : element.from.toTimeOfDay
               : element.from.toTimeOfDay;
           TimeOfDay time2 = time.plusMinutes(
             minute: deliveryTime.hour * 60 + deliveryTime.minute,
@@ -345,21 +346,26 @@ class OrderNotifier extends StateNotifier<OrderState> {
         } else {
           state = state.copyWith(isButtonLoading: false);
         }
-        
+
         // Check if failure is due to network
-        if (status == NetworkExceptions.getDioStatus(DioError(type: DioErrorType.other))) {
-           // Provide an estimate to unblock checkout flow
-           final estimate = ProductCalculateResponse(
-             totalPrice: 0.0, 
-             isEstimated: true,
-           );
-           state = state.copyWith(calculateData: estimate);
-           if (context.mounted) {
-              AppHelpers.showCheckTopSnackBarInfo(
-                context, 
-                AppHelpers.getTranslation("Pricing is estimated while offline and will be finalized on sync."),
-              );
-           }
+        if (status ==
+            NetworkExceptions.getDioStatus(
+              DioError(type: DioErrorType.other),
+            )) {
+          // Provide an estimate to unblock checkout flow
+          final estimate = ProductCalculateResponse(
+            totalPrice: 0.0,
+            isEstimated: true,
+          );
+          state = state.copyWith(calculateData: estimate);
+          if (context.mounted) {
+            AppHelpers.showCheckTopSnackBarInfo(
+              context,
+              AppHelpers.getTranslation(
+                "Pricing is estimated while offline and will be finalized on sync.",
+              ),
+            );
+          }
         } else {
           AppHelpers.showCheckTopSnackBar(context, failure);
           if (status == 401) {
@@ -443,9 +449,9 @@ class OrderNotifier extends StateNotifier<OrderState> {
       res.when(
         success: (s) async {
           await _proceedToCreateOrder(
-            context: context, 
-            data: data, 
-            payment: payment, 
+            context: context,
+            data: data,
+            payment: payment,
             onWebview: onWebview,
           );
         },
@@ -460,9 +466,9 @@ class OrderNotifier extends StateNotifier<OrderState> {
     }
 
     await _proceedToCreateOrder(
-      context: context, 
-      data: data, 
-      payment: payment, 
+      context: context,
+      data: data,
+      payment: payment,
       onWebview: onWebview,
     );
   }
@@ -524,10 +530,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
               data.shop?.location?.latitude ?? AppConstants.demoLatitude,
               data.shop?.location?.longitude ?? AppConstants.demoLongitude,
             ),
-            icon: await image.resizeAndCircle(
-              data.shop?.logoImg ?? "",
-              120,
-            ),
+            icon: await image.resizeAndCircle(data.shop?.logoImg ?? "", 120),
           ),
           const MarkerId("User"): Marker(
             markerId: const MarkerId("User"),
@@ -535,10 +538,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
               data.location?.latitude ?? AppConstants.demoLatitude,
               data.location?.longitude ?? AppConstants.demoLongitude,
             ),
-            icon: await image.resizeAndCircle(
-              data.user?.img ?? "",
-              120,
-            ),
+            icon: await image.resizeAndCircle(data.user?.img ?? "", 120),
           ),
         };
         state = state.copyWith(markers: list, isMapLoading: false);
@@ -630,10 +630,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
                 data.shop?.location?.latitude ?? AppConstants.demoLatitude,
                 data.shop?.location?.longitude ?? AppConstants.demoLongitude,
               ),
-              icon: await image.resizeAndCircle(
-                data.shop?.logoImg ?? "",
-                120,
-              ),
+              icon: await image.resizeAndCircle(data.shop?.logoImg ?? "", 120),
             ),
             const MarkerId("User"): Marker(
               markerId: const MarkerId("User"),
@@ -670,10 +667,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
                 data.shop?.location?.latitude ?? AppConstants.demoLatitude,
                 data.shop?.location?.longitude ?? AppConstants.demoLongitude,
               ),
-              icon: await image.resizeAndCircle(
-                data.shop?.logoImg ?? "",
-                120,
-              ),
+              icon: await image.resizeAndCircle(data.shop?.logoImg ?? "", 120),
             ),
             const MarkerId("User"): Marker(
               markerId: const MarkerId("User"),

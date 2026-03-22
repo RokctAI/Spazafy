@@ -59,7 +59,7 @@ class PosNotifier extends StateNotifier<bool> {
 
       // 4. Clear Cart
       ref.read(orderCartProvider.notifier).clearAll();
-      
+
       debugPrint('==> POS Sale Finished: $orderId');
     } catch (e) {
       debugPrint('==> POS Sale Error: $e');

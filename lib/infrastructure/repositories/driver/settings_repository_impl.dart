@@ -7,7 +7,6 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 
-
 final authRepository = driverAuthRepository;
 final userRepository = driverUserRepository;
 final orderRepository = driverOrderRepository;
@@ -78,7 +77,9 @@ class SettingsRepositoryImpl implements SettingsRepository {
   Future<ApiResult<CurrenciesResponse>> getCurrencies() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.system.system.get_currencies');
+      final response = await client.get(
+        '/api/v1/method/paas.api.system.system.get_currencies',
+      );
       return ApiResult.success(
         data: CurrenciesResponse.fromJson(response.data),
       );
@@ -95,7 +96,9 @@ class SettingsRepositoryImpl implements SettingsRepository {
   Future<ApiResult<SettingsResponse>> getGlobalSettings() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.system.system.get_global_settings');
+      final response = await client.get(
+        '/api/v1/method/paas.api.system.system.get_global_settings',
+      );
       return ApiResult.success(data: SettingsResponse.fromJson(response.data));
     } catch (e) {
       debugPrint('==> get settings failure: $e');
@@ -131,7 +134,9 @@ class SettingsRepositoryImpl implements SettingsRepository {
   Future<ApiResult<LanguagesResponse>> getLanguages() async {
     try {
       final client = dioHttp.client(requireAuth: false);
-      final response = await client.get('/api/v1/method/paas.api.system.system.get_languages');
+      final response = await client.get(
+        '/api/v1/method/paas.api.system.system.get_languages',
+      );
       if (LocalStorage.getLanguage() != null &&
           !(LanguagesResponse.fromJson(response.data).data
                   ?.map((e) => e.id)
@@ -153,9 +158,3 @@ class SettingsRepositoryImpl implements SettingsRepository {
     }
   }
 }
-
-
-
-
-
-

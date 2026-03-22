@@ -7,7 +7,6 @@ import 'package:rokctapp/presentation/components/text_fields/outline_bordered_te
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-
 class NoteProduct extends StatefulWidget {
   final String? comment;
   final bool isSave;

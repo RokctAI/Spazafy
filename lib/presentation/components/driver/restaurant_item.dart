@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'shop_avarat.dart';
 
-
 class RestaurantItem extends StatelessWidget {
   final String shopName;
   final String shopUid;
@@ -55,7 +54,10 @@ class RestaurantItem extends StatelessWidget {
                     children: [
                       Text(
                         shopName,
-                        style: AppStyle.interSemi(size: 15.sp, color: AppStyle.black),
+                        style: AppStyle.interSemi(
+                          size: 15.sp,
+                          color: AppStyle.black,
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -75,7 +77,10 @@ class RestaurantItem extends StatelessWidget {
                   ),
                   Text(
                     shopText,
-                    style: AppStyle.interNormal(size: 12.sp, color: AppStyle.black),
+                    style: AppStyle.interNormal(
+                      size: 12.sp,
+                      color: AppStyle.black,
+                    ),
                   ),
                 ],
               ),

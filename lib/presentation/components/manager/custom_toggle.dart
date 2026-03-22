@@ -55,7 +55,10 @@ class _CustomToggleState extends State<CustomToggle> {
               padding: REdgeInsets.only(left: 4.r),
               child: Text(
                 AppHelpers.getTranslation(TrKeys.open),
-                style: AppStyle.interNormal(size: 12,color: AppStyle.buttonFontColor),
+                style: AppStyle.interNormal(
+                  size: 12,
+                  color: AppStyle.buttonFontColor,
+                ),
               ),
             )
           : const SizedBox.shrink(),

@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 enum ShopStatus { notRequested, newShop, edited, approved, rejected }
 
 enum UploadType {
@@ -45,7 +46,15 @@ enum PaymentMethodType { directCard, savedCard }
 
 enum SnackBarType { success, info, error }
 
-enum DayOfWeek { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
+enum DayOfWeek {
+  monday,
+  tuesday,
+  wednesday,
+  thursday,
+  friday,
+  saturday,
+  sunday,
+}
 
 enum Gender { male, female }
 

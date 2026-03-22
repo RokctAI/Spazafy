@@ -41,20 +41,19 @@ class RequestModelData {
     UserData? createdBy,
     DateTime? createdAt,
     DateTime? updatedAt,
-  }) =>
-      RequestModelData(
-        id: id ?? this.id,
-        modelId: modelId ?? this.modelId,
-        modelType: modelType ?? this.modelType,
-        datumCreatedBy: datumCreatedBy ?? this.datumCreatedBy,
-        data: data ?? this.data,
-        status: status ?? this.status,
-        statusNote: statusNote ?? this.statusNote,
-        model: model ?? this.model,
-        createdBy: createdBy ?? this.createdBy,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-      );
+  }) => RequestModelData(
+    id: id ?? this.id,
+    modelId: modelId ?? this.modelId,
+    modelType: modelType ?? this.modelType,
+    datumCreatedBy: datumCreatedBy ?? this.datumCreatedBy,
+    data: data ?? this.data,
+    status: status ?? this.status,
+    statusNote: statusNote ?? this.statusNote,
+    model: model ?? this.model,
+    createdBy: createdBy ?? this.createdBy,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
 
   factory RequestModelData.fromJson(Map<String, dynamic> json) =>
       RequestModelData(
@@ -78,18 +77,18 @@ class RequestModelData {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "model_id": modelId,
-        "model_type": modelType,
-        "created_by": datumCreatedBy,
-        "data": data?.toJson(),
-        "status": status,
-        "status_note": statusNote,
-        "model": model?.toJson(),
-        "createdBy": createdBy?.toJson(),
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-      };
+    "id": id,
+    "model_id": modelId,
+    "model_type": modelType,
+    "created_by": datumCreatedBy,
+    "data": data?.toJson(),
+    "status": status,
+    "status_note": statusNote,
+    "model": model?.toJson(),
+    "createdBy": createdBy?.toJson(),
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+  };
 }
 
 class CarData {
@@ -137,54 +136,53 @@ class CarData {
     String? images0,
     String? typeOfTechnique,
     Location? location,
-  }) =>
-      CarData(
-        kg: kg ?? this.kg,
-        role: role ?? this.role,
-        brand: brand ?? this.brand,
-        color: color ?? this.color,
-        model: model ?? this.model,
-        width: width ?? this.width,
-        height: height ?? this.height,
-        length: length ?? this.length,
-        number: number ?? this.number,
-        online: online ?? this.online,
-        images0: images0 ?? this.images0,
-        typeOfTechnique: typeOfTechnique ?? this.typeOfTechnique,
-        location: location ?? this.location,
-      );
+  }) => CarData(
+    kg: kg ?? this.kg,
+    role: role ?? this.role,
+    brand: brand ?? this.brand,
+    color: color ?? this.color,
+    model: model ?? this.model,
+    width: width ?? this.width,
+    height: height ?? this.height,
+    length: length ?? this.length,
+    number: number ?? this.number,
+    online: online ?? this.online,
+    images0: images0 ?? this.images0,
+    typeOfTechnique: typeOfTechnique ?? this.typeOfTechnique,
+    location: location ?? this.location,
+  );
 
   factory CarData.fromJson(Map<String, dynamic> json) => CarData(
-        kg: json["kg"],
-        role: json["role"],
-        brand: json["brand"],
-        color: json["color"],
-        model: json["model"],
-        width: json["width"],
-        height: json["height"],
-        length: json["length"],
-        number: json["number"],
-        online: json["online"],
-        images0: json["images[0]"],
-        typeOfTechnique: json["type_of_technique"],
-        location: json["location"] == null
-            ? null
-            : Location.fromJson(json["location"]),
-      );
+    kg: json["kg"],
+    role: json["role"],
+    brand: json["brand"],
+    color: json["color"],
+    model: json["model"],
+    width: json["width"],
+    height: json["height"],
+    length: json["length"],
+    number: json["number"],
+    online: json["online"],
+    images0: json["images[0]"],
+    typeOfTechnique: json["type_of_technique"],
+    location: json["location"] == null
+        ? null
+        : Location.fromJson(json["location"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "kg": kg,
-        "role": role,
-        "brand": brand,
-        "color": color,
-        "model": model,
-        "width": width,
-        "height": height,
-        "length": length,
-        "number": number,
-        "online": online,
-        "images[0]": images0,
-        "type_of_technique": typeOfTechnique,
-        "location": location?.toJson(),
-      };
+    "kg": kg,
+    "role": role,
+    "brand": brand,
+    "color": color,
+    "model": model,
+    "width": width,
+    "height": height,
+    "length": length,
+    "number": number,
+    "online": online,
+    "images[0]": images0,
+    "type_of_technique": typeOfTechnique,
+    "location": location?.toJson(),
+  };
 }

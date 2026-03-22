@@ -16,7 +16,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 
-
 class OrderItem extends StatelessWidget {
   final OrderDetailData order;
   final bool isDeliveryShop;
@@ -530,7 +529,10 @@ class OrderItem extends StatelessWidget {
                     width: MediaQuery.sizeOf(context).width - 190.w,
                     child: Text(
                       order.address?.address ?? "",
-                      style: AppStyle.interSemi(size: 14.sp, letterSpacing: -0.3),
+                      style: AppStyle.interSemi(
+                        size: 14.sp,
+                        letterSpacing: -0.3,
+                      ),
                       maxLines: 1,
                     ),
                   ),

@@ -27,7 +27,6 @@ import 'package:rokctapp/infrastructure/models/data/loans/loan_application.dart'
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
 class LoansRepository implements LoansRepositoryFacade {
   @override
   Future<ApiResult<dynamic>> submitLoanApplication({
@@ -876,22 +875,3 @@ class LoansRepository implements LoansRepositoryFacade {
     return preApprovalAmount;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

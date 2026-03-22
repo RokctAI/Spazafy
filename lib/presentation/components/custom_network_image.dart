@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 class CustomNetworkImage extends StatelessWidget {
   final String? url;
   final double? height;

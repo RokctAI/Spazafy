@@ -34,7 +34,6 @@ import 'package:rokctapp/presentation/pages/loans/provider/loans_provider.dart';
 
 // import 'package:path/path.dart' as path;
 
-
 @RoutePage()
 class LoanDocumentUploadScreen extends ConsumerStatefulWidget {
   final String? prefilledIdNumber;

@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class ApplyCouponData {
   final String? shopId;
   final String? coupon;

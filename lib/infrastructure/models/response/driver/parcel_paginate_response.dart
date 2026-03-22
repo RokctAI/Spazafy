@@ -2,7 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/meta.dart';
 
-
 class ParcelPaginateResponse {
   ParcelPaginateResponse({List<ParcelOrder>? data, Meta? meta}) {
     _data = data;

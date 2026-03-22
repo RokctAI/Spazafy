@@ -215,10 +215,3 @@ class BannersRepository implements BannersRepositoryFacade {
     }
   }
 }
-
-
-
-
-
-
-

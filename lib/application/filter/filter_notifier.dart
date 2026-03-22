@@ -11,8 +11,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'filter_state.dart';
 
-
-
 class FilterNotifier extends StateNotifier<FilterState> {
   final ShopsRepositoryFacade _shopsRepository;
 

@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class PaymentData {
   PaymentData({
     String? id,
@@ -36,14 +37,13 @@ class PaymentData {
     bool? active,
     String? createdAt,
     String? updatedAt,
-  }) =>
-      PaymentData(
-        id: id ?? _id,
-        tag: tag ?? _tag,
-        active: active ?? _active,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-      );
+  }) => PaymentData(
+    id: id ?? _id,
+    tag: tag ?? _tag,
+    active: active ?? _active,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+  );
 
   String? get id => _id;
 

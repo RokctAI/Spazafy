@@ -1,23 +1,30 @@
-
 // GENERATED DUMMY TYPES TO BYPASS TRIPLE MERGE COMPILER TRAUMA
 import 'package:flutter/material.dart';
 
 class WeekDays {
   static const monday = WeekDays();
 }
+
 extension ExtendedIterableDummy<T> on Iterable<T> {}
+
 abstract class NotificationInterface {}
+
 class ViewMapState {}
+
 class OrderNotifier extends ChangeNotifier {
   void setPayment(dynamic payment) {}
   void changeExpand() {}
 }
+
 class DeliveryZonePage extends StatefulWidget {
   const DeliveryZonePage({Key? key}) : super(key: key);
-  @override State<DeliveryZonePage> createState() => _DeliveryZonePageState();
+  @override
+  State<DeliveryZonePage> createState() => _DeliveryZonePageState();
 }
+
 class _DeliveryZonePageState extends State<DeliveryZonePage> {
-  @override Widget build(BuildContext context) => const Scaffold();
+  @override
+  Widget build(BuildContext context) => const Scaffold();
 }
 
 class KitchenModel {
@@ -27,20 +34,50 @@ class KitchenModel {
 }
 
 class StatisticsIncomeResponse {
-  StatisticsIncomeResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory StatisticsIncomeResponse.fromJson(Map<String, dynamic> json) => StatisticsIncomeResponse();
+  StatisticsIncomeResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory StatisticsIncomeResponse.fromJson(Map<String, dynamic> json) =>
+      StatisticsIncomeResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class UnitsPaginateResponse {
-  UnitsPaginateResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory UnitsPaginateResponse.fromJson(Map<String, dynamic> json) => UnitsPaginateResponse();
+  UnitsPaginateResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory UnitsPaginateResponse.fromJson(Map<String, dynamic> json) =>
+      UnitsPaginateResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class DeliveryZonePaginate {
-  DeliveryZonePaginate([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory DeliveryZonePaginate.fromJson(Map<String, dynamic> json) => DeliveryZonePaginate();
+  DeliveryZonePaginate([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory DeliveryZonePaginate.fromJson(Map<String, dynamic> json) =>
+      DeliveryZonePaginate();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -58,13 +95,24 @@ class ShopTag {
 
 class CloseDayResponse {
   CloseDayResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory CloseDayResponse.fromJson(Map<String, dynamic> json) => CloseDayResponse();
+  factory CloseDayResponse.fromJson(Map<String, dynamic> json) =>
+      CloseDayResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class TableStatisticResponse {
-  TableStatisticResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory TableStatisticResponse.fromJson(Map<String, dynamic> json) => TableStatisticResponse();
+  TableStatisticResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory TableStatisticResponse.fromJson(Map<String, dynamic> json) =>
+      TableStatisticResponse();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -76,13 +124,24 @@ class Series {
 
 class ShopWorkingDays {
   ShopWorkingDays([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory ShopWorkingDays.fromJson(Map<String, dynamic> json) => ShopWorkingDays();
+  factory ShopWorkingDays.fromJson(Map<String, dynamic> json) =>
+      ShopWorkingDays();
   Map<String, dynamic> toJson() => {};
 }
 
 class RequestModelResponse {
-  RequestModelResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory RequestModelResponse.fromJson(Map<String, dynamic> json) => RequestModelResponse();
+  RequestModelResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory RequestModelResponse.fromJson(Map<String, dynamic> json) =>
+      RequestModelResponse();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -100,19 +159,22 @@ class Translation {
 
 class StatisticsOrder {
   StatisticsOrder([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory StatisticsOrder.fromJson(Map<String, dynamic> json) => StatisticsOrder();
+  factory StatisticsOrder.fromJson(Map<String, dynamic> json) =>
+      StatisticsOrder();
   Map<String, dynamic> toJson() => {};
 }
 
 class OrdersStatistic {
   OrdersStatistic([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory OrdersStatistic.fromJson(Map<String, dynamic> json) => OrdersStatistic();
+  factory OrdersStatistic.fromJson(Map<String, dynamic> json) =>
+      OrdersStatistic();
   Map<String, dynamic> toJson() => {};
 }
 
 class WorkingDayResponse {
   WorkingDayResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory WorkingDayResponse.fromJson(Map<String, dynamic> json) => WorkingDayResponse();
+  factory WorkingDayResponse.fromJson(Map<String, dynamic> json) =>
+      WorkingDayResponse();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -124,19 +186,22 @@ class ProductStatus {
 
 class SettingsResponse {
   SettingsResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory SettingsResponse.fromJson(Map<String, dynamic> json) => SettingsResponse();
+  factory SettingsResponse.fromJson(Map<String, dynamic> json) =>
+      SettingsResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class ProfileResponse {
   ProfileResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory ProfileResponse.fromJson(Map<String, dynamic> json) => ProfileResponse();
+  factory ProfileResponse.fromJson(Map<String, dynamic> json) =>
+      ProfileResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class MaksekeskusResponse {
   MaksekeskusResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory MaksekeskusResponse.fromJson(Map<String, dynamic> json) => MaksekeskusResponse();
+  factory MaksekeskusResponse.fromJson(Map<String, dynamic> json) =>
+      MaksekeskusResponse();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -148,7 +213,8 @@ class AddressData {
 
 class BookingsResponse {
   BookingsResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory BookingsResponse.fromJson(Map<String, dynamic> json) => BookingsResponse();
+  factory BookingsResponse.fromJson(Map<String, dynamic> json) =>
+      BookingsResponse();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -165,38 +231,80 @@ class OrdinalSales {
 }
 
 class CreateGroupExtrasResponse {
-  CreateGroupExtrasResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory CreateGroupExtrasResponse.fromJson(Map<String, dynamic> json) => CreateGroupExtrasResponse();
+  CreateGroupExtrasResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory CreateGroupExtrasResponse.fromJson(Map<String, dynamic> json) =>
+      CreateGroupExtrasResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class SettingsRepositoryFacade {
-  SettingsRepositoryFacade([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory SettingsRepositoryFacade.fromJson(Map<String, dynamic> json) => SettingsRepositoryFacade();
+  SettingsRepositoryFacade([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory SettingsRepositoryFacade.fromJson(Map<String, dynamic> json) =>
+      SettingsRepositoryFacade();
   Map<String, dynamic> toJson() => {};
 }
 
 class ShopSectionResponse {
   ShopSectionResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory ShopSectionResponse.fromJson(Map<String, dynamic> json) => ShopSectionResponse();
+  factory ShopSectionResponse.fromJson(Map<String, dynamic> json) =>
+      ShopSectionResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class StatisticsOrderResponse {
-  StatisticsOrderResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory StatisticsOrderResponse.fromJson(Map<String, dynamic> json) => StatisticsOrderResponse();
+  StatisticsOrderResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory StatisticsOrderResponse.fromJson(Map<String, dynamic> json) =>
+      StatisticsOrderResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class SubscriptionResponse {
-  SubscriptionResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory SubscriptionResponse.fromJson(Map<String, dynamic> json) => SubscriptionResponse();
+  SubscriptionResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory SubscriptionResponse.fromJson(Map<String, dynamic> json) =>
+      SubscriptionResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class StatisticsResponse {
   StatisticsResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory StatisticsResponse.fromJson(Map<String, dynamic> json) => StatisticsResponse();
+  factory StatisticsResponse.fromJson(Map<String, dynamic> json) =>
+      StatisticsResponse();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -220,25 +328,47 @@ class TableModel {
 
 class CalculateResponse {
   CalculateResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory CalculateResponse.fromJson(Map<String, dynamic> json) => CalculateResponse();
+  factory CalculateResponse.fromJson(Map<String, dynamic> json) =>
+      CalculateResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class AiTranslationResponse {
-  AiTranslationResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory AiTranslationResponse.fromJson(Map<String, dynamic> json) => AiTranslationResponse();
+  AiTranslationResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory AiTranslationResponse.fromJson(Map<String, dynamic> json) =>
+      AiTranslationResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class OrderCalculate {
   OrderCalculate([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory OrderCalculate.fromJson(Map<String, dynamic> json) => OrderCalculate();
+  factory OrderCalculate.fromJson(Map<String, dynamic> json) =>
+      OrderCalculate();
   Map<String, dynamic> toJson() => {};
 }
 
 class AiTranslationRequest {
-  AiTranslationRequest([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory AiTranslationRequest.fromJson(Map<String, dynamic> json) => AiTranslationRequest();
+  AiTranslationRequest([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory AiTranslationRequest.fromJson(Map<String, dynamic> json) =>
+      AiTranslationRequest();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -280,43 +410,86 @@ class EditProfile {
 
 class TableInfoResponse {
   TableInfoResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory TableInfoResponse.fromJson(Map<String, dynamic> json) => TableInfoResponse();
+  factory TableInfoResponse.fromJson(Map<String, dynamic> json) =>
+      TableInfoResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class AiTranslationModel {
   AiTranslationModel([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory AiTranslationModel.fromJson(Map<String, dynamic> json) => AiTranslationModel();
+  factory AiTranslationModel.fromJson(Map<String, dynamic> json) =>
+      AiTranslationModel();
   Map<String, dynamic> toJson() => {};
 }
 
 class ExtrasGroupsResponse {
-  ExtrasGroupsResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory ExtrasGroupsResponse.fromJson(Map<String, dynamic> json) => ExtrasGroupsResponse();
+  ExtrasGroupsResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory ExtrasGroupsResponse.fromJson(Map<String, dynamic> json) =>
+      ExtrasGroupsResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class SubscriptionData {
   SubscriptionData([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory SubscriptionData.fromJson(Map<String, dynamic> json) => SubscriptionData();
+  factory SubscriptionData.fromJson(Map<String, dynamic> json) =>
+      SubscriptionData();
   Map<String, dynamic> toJson() => {};
 }
 
 class NonExistPaymentResponse {
-  NonExistPaymentResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory NonExistPaymentResponse.fromJson(Map<String, dynamic> json) => NonExistPaymentResponse();
+  NonExistPaymentResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory NonExistPaymentResponse.fromJson(Map<String, dynamic> json) =>
+      NonExistPaymentResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class OrderCalculateDetail {
-  OrderCalculateDetail([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory OrderCalculateDetail.fromJson(Map<String, dynamic> json) => OrderCalculateDetail();
+  OrderCalculateDetail([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory OrderCalculateDetail.fromJson(Map<String, dynamic> json) =>
+      OrderCalculateDetail();
   Map<String, dynamic> toJson() => {};
 }
 
 class SingleExtrasGroupResponse {
-  SingleExtrasGroupResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory SingleExtrasGroupResponse.fromJson(Map<String, dynamic> json) => SingleExtrasGroupResponse();
+  SingleExtrasGroupResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory SingleExtrasGroupResponse.fromJson(Map<String, dynamic> json) =>
+      SingleExtrasGroupResponse();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -327,26 +500,57 @@ class UploadType {
 }
 
 class CountNotificationModel {
-  CountNotificationModel([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory CountNotificationModel.fromJson(Map<String, dynamic> json) => CountNotificationModel();
+  CountNotificationModel([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory CountNotificationModel.fromJson(Map<String, dynamic> json) =>
+      CountNotificationModel();
   Map<String, dynamic> toJson() => {};
 }
 
 class TableBookingResponse {
-  TableBookingResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory TableBookingResponse.fromJson(Map<String, dynamic> json) => TableBookingResponse();
+  TableBookingResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory TableBookingResponse.fromJson(Map<String, dynamic> json) =>
+      TableBookingResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class NotificationResponse {
-  NotificationResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory NotificationResponse.fromJson(Map<String, dynamic> json) => NotificationResponse();
+  NotificationResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory NotificationResponse.fromJson(Map<String, dynamic> json) =>
+      NotificationResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class OrderStatusResponse {
   OrderStatusResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory OrderStatusResponse.fromJson(Map<String, dynamic> json) => OrderStatusResponse();
+  factory OrderStatusResponse.fromJson(Map<String, dynamic> json) =>
+      OrderStatusResponse();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -358,7 +562,8 @@ class ExtrasType {
 
 class NotificationModel {
   NotificationModel([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory NotificationModel.fromJson(Map<String, dynamic> json) => NotificationModel();
+  factory NotificationModel.fromJson(Map<String, dynamic> json) =>
+      NotificationModel();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -369,8 +574,18 @@ class OrderDetail {
 }
 
 class UserRepositoryFacade {
-  UserRepositoryFacade([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory UserRepositoryFacade.fromJson(Map<String, dynamic> json) => UserRepositoryFacade();
+  UserRepositoryFacade([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory UserRepositoryFacade.fromJson(Map<String, dynamic> json) =>
+      UserRepositoryFacade();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -387,14 +602,25 @@ class Data {
 }
 
 class KitchensPaginateResponse {
-  KitchensPaginateResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory KitchensPaginateResponse.fromJson(Map<String, dynamic> json) => KitchensPaginateResponse();
+  KitchensPaginateResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory KitchensPaginateResponse.fromJson(Map<String, dynamic> json) =>
+      KitchensPaginateResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class LanguagesResponse {
   LanguagesResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory LanguagesResponse.fromJson(Map<String, dynamic> json) => LanguagesResponse();
+  factory LanguagesResponse.fromJson(Map<String, dynamic> json) =>
+      LanguagesResponse();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -405,14 +631,25 @@ class ShopSection {
 }
 
 class UsersPaginateResponse {
-  UsersPaginateResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory UsersPaginateResponse.fromJson(Map<String, dynamic> json) => UsersPaginateResponse();
+  UsersPaginateResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory UsersPaginateResponse.fromJson(Map<String, dynamic> json) =>
+      UsersPaginateResponse();
   Map<String, dynamic> toJson() => {};
 }
 
 class GroupExtrasResponse {
   GroupExtrasResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory GroupExtrasResponse.fromJson(Map<String, dynamic> json) => GroupExtrasResponse();
+  factory GroupExtrasResponse.fromJson(Map<String, dynamic> json) =>
+      GroupExtrasResponse();
   Map<String, dynamic> toJson() => {};
 }
 
@@ -423,7 +660,17 @@ class DisableDates {
 }
 
 class OrdersPaginateResponse {
-  OrdersPaginateResponse([var a, var b, var c, var d, var e, var f, var g, var h]);
-  factory OrdersPaginateResponse.fromJson(Map<String, dynamic> json) => OrdersPaginateResponse();
+  OrdersPaginateResponse([
+    var a,
+    var b,
+    var c,
+    var d,
+    var e,
+    var f,
+    var g,
+    var h,
+  ]);
+  factory OrdersPaginateResponse.fromJson(Map<String, dynamic> json) =>
+      OrdersPaginateResponse();
   Map<String, dynamic> toJson() => {};
 }

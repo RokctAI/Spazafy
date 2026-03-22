@@ -5,7 +5,6 @@ import 'blur_wrap.dart';
 import 'common_image.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class ShopBorderedAvatar extends StatelessWidget {
   final String? imageUrl;
   final double size;

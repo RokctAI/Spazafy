@@ -4,7 +4,6 @@ import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
 import 'package:rokctapp/infrastructure/models/data/refund_data.dart';
 part 'orders_list_state.freezed.dart';
 
-
 @freezed
 class OrdersListState with _$OrdersListState {
   const factory OrdersListState({

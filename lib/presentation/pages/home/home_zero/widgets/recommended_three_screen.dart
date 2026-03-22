@@ -16,7 +16,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'market_three_item.dart';
 // import 'recommended_three_item.dart'; // NOT FOUND IN PROJECT
 
-
 @RoutePage()
 class RecommendedThreePage extends ConsumerStatefulWidget {
   final bool isNewsOfPage;

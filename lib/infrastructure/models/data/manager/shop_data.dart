@@ -234,45 +234,44 @@ class ShopData {
     List<ShopWorkingDays>? shopWorkingDays,
     List<ShopTag>? tags,
     String? sharedSecret,
-  }) =>
-      ShopData(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        sharedSecret: sharedSecret ?? _sharedSecret,
-        orderPayment: orderPayment ?? _orderPayment,
-        userId: userId ?? _userId,
-        price: price ?? _price,
-        pricePerKm: pricePerKm ?? _pricePerKm,
-        tax: tax ?? _tax,
-        percentage: percentage ?? _percentage,
-        phone: phone ?? _phone,
-        visibility: visibility ?? _visibility,
-        open: open ?? _open,
-        backgroundImg: backgroundImg ?? _backgroundImg,
-        logoImg: logoImg ?? _logoImg,
-        minAmount: minAmount ?? _minAmount,
-        isRecommended: isRecommended ?? _isRecommended,
-        status: status ?? _status,
-        statusNote: statusNote ?? _statusNote,
-        type: type ?? _type,
-        avgRate: avgRate ?? _avgRate,
-        deliveryTime: deliveryTime ?? _deliveryTime,
-        inviteLink: inviteLink ?? _inviteLink,
-        ratingAvg: ratingAvg ?? _ratingAvg,
-        location: location ?? _location,
-        productsCount: productsCount ?? _productsCount,
-        translation: translation ?? _translation,
-        translations: translations ?? _translations,
-        locales: locales ?? _locales,
-        seller: seller ?? _seller,
-        subscription: subscription ?? _subscription,
-        categories: categories ?? _categories,
-        bonus: bonus ?? _bonus,
-        discount: discount ?? _discount,
-        shopPayments: shopPayments ?? _shopPayments,
-        shopWorkingDays: shopWorkingDays ?? _shopWorkingDays,
-        tags: tags ?? _tags,
-      );
+  }) => ShopData(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    sharedSecret: sharedSecret ?? _sharedSecret,
+    orderPayment: orderPayment ?? _orderPayment,
+    userId: userId ?? _userId,
+    price: price ?? _price,
+    pricePerKm: pricePerKm ?? _pricePerKm,
+    tax: tax ?? _tax,
+    percentage: percentage ?? _percentage,
+    phone: phone ?? _phone,
+    visibility: visibility ?? _visibility,
+    open: open ?? _open,
+    backgroundImg: backgroundImg ?? _backgroundImg,
+    logoImg: logoImg ?? _logoImg,
+    minAmount: minAmount ?? _minAmount,
+    isRecommended: isRecommended ?? _isRecommended,
+    status: status ?? _status,
+    statusNote: statusNote ?? _statusNote,
+    type: type ?? _type,
+    avgRate: avgRate ?? _avgRate,
+    deliveryTime: deliveryTime ?? _deliveryTime,
+    inviteLink: inviteLink ?? _inviteLink,
+    ratingAvg: ratingAvg ?? _ratingAvg,
+    location: location ?? _location,
+    productsCount: productsCount ?? _productsCount,
+    translation: translation ?? _translation,
+    translations: translations ?? _translations,
+    locales: locales ?? _locales,
+    seller: seller ?? _seller,
+    subscription: subscription ?? _subscription,
+    categories: categories ?? _categories,
+    bonus: bonus ?? _bonus,
+    discount: discount ?? _discount,
+    shopPayments: shopPayments ?? _shopPayments,
+    shopWorkingDays: shopWorkingDays ?? _shopWorkingDays,
+    tags: tags ?? _tags,
+  );
 
   String? get id => _id;
 
@@ -400,8 +399,9 @@ class ShopData {
       map['shop_payments'] = _shopPayments?.map((v) => v.toJson()).toList();
     }
     if (_shopWorkingDays != null) {
-      map['shop_working_days'] =
-          _shopWorkingDays?.map((v) => v.toJson()).toList();
+      map['shop_working_days'] = _shopWorkingDays
+          ?.map((v) => v.toJson())
+          .toList();
     }
     if (_tags != null) {
       map['tags'] = _tags?.map((v) => v.toJson()).toList();
@@ -495,17 +495,16 @@ class Discount {
     String? end,
     int? active,
     String? img,
-  }) =>
-      Discount(
-        id: id ?? _id,
-        shopId: shopId ?? _shopId,
-        type: type ?? _type,
-        price: price ?? _price,
-        start: start ?? _start,
-        end: end ?? _end,
-        active: active ?? _active,
-        img: img ?? _img,
-      );
+  }) => Discount(
+    id: id ?? _id,
+    shopId: shopId ?? _shopId,
+    type: type ?? _type,
+    price: price ?? _price,
+    start: start ?? _start,
+    end: end ?? _end,
+    active: active ?? _active,
+    img: img ?? _img,
+  );
 
   String? get id => _id;
 
@@ -594,18 +593,17 @@ class Bonus {
     bool? status,
     String? expiredAt,
     BonusStock? bonusStock,
-  }) =>
-      Bonus(
-        bonusableType: bonusableType ?? _bonusableType,
-        bonusableId: bonusableId ?? _bonusableId,
-        bonusQuantity: bonusQuantity ?? _bonusQuantity,
-        bonusStockId: bonusStockId ?? _bonusStockId,
-        value: value ?? _value,
-        type: type ?? _type,
-        status: status ?? _status,
-        expiredAt: expiredAt ?? _expiredAt,
-        bonusStock: bonusStock ?? _bonusStock,
-      );
+  }) => Bonus(
+    bonusableType: bonusableType ?? _bonusableType,
+    bonusableId: bonusableId ?? _bonusableId,
+    bonusQuantity: bonusQuantity ?? _bonusQuantity,
+    bonusStockId: bonusStockId ?? _bonusStockId,
+    value: value ?? _value,
+    type: type ?? _type,
+    status: status ?? _status,
+    expiredAt: expiredAt ?? _expiredAt,
+    bonusStock: bonusStock ?? _bonusStock,
+  );
 
   String? get bonusableType => _bonusableType;
 
@@ -668,8 +666,9 @@ class BonusStock {
     _quantity = json['quantity'];
     _tax = json['tax'];
     _totalPrice = json['total_price'];
-    _product =
-        json['product'] != null ? ProductData.fromJson(json['product']) : null;
+    _product = json['product'] != null
+        ? ProductData.fromJson(json['product'])
+        : null;
   }
 
   String? _id;
@@ -688,16 +687,15 @@ class BonusStock {
     num? tax,
     num? totalPrice,
     ProductData? product,
-  }) =>
-      BonusStock(
-        id: id ?? _id,
-        countableId: countableId ?? _countableId,
-        price: price ?? _price,
-        quantity: quantity ?? _quantity,
-        tax: tax ?? _tax,
-        totalPrice: totalPrice ?? _totalPrice,
-        product: product ?? _product,
-      );
+  }) => BonusStock(
+    id: id ?? _id,
+    countableId: countableId ?? _countableId,
+    price: price ?? _price,
+    quantity: quantity ?? _quantity,
+    tax: tax ?? _tax,
+    totalPrice: totalPrice ?? _totalPrice,
+    product: product ?? _product,
+  );
 
   String? get id => _id;
 
@@ -751,8 +749,9 @@ class ShopPayments {
     _status = json['status'];
     _clientId = json['client_id']?.toString();
     _secretId = json['secret_id']?.toString();
-    _payment =
-        json['payment'] != null ? PaymentData.fromJson(json['payment']) : null;
+    _payment = json['payment'] != null
+        ? PaymentData.fromJson(json['payment'])
+        : null;
   }
 
   String? _id;
@@ -769,15 +768,14 @@ class ShopPayments {
     dynamic clientId,
     dynamic secretId,
     PaymentData? payment,
-  }) =>
-      ShopPayments(
-        id: id ?? _id,
-        shopId: shopId ?? _shopId,
-        status: status ?? _status,
-        clientId: clientId ?? _clientId,
-        secretId: secretId ?? _secretId,
-        payment: payment ?? _payment,
-      );
+  }) => ShopPayments(
+    id: id ?? _id,
+    shopId: shopId ?? _shopId,
+    status: status ?? _status,
+    clientId: clientId ?? _clientId,
+    secretId: secretId ?? _secretId,
+    payment: payment ?? _payment,
+  );
 
   String? get id => _id;
 
@@ -840,14 +838,13 @@ class ShopWorkingDays {
     String? from,
     String? to,
     bool? disabled,
-  }) =>
-      ShopWorkingDays(
-        id: id ?? _id,
-        day: day ?? _day,
-        from: from ?? _from,
-        to: to ?? _to,
-        disabled: disabled ?? _disabled,
-      );
+  }) => ShopWorkingDays(
+    id: id ?? _id,
+    day: day ?? _day,
+    from: from ?? _from,
+    to: to ?? _to,
+    disabled: disabled ?? _disabled,
+  );
 
   String? get id => _id;
 
@@ -902,13 +899,12 @@ class ShopTag {
     String? img,
     Translation? translation,
     List<String>? locales,
-  }) =>
-      ShopTag(
-        id: id ?? _id,
-        img: img ?? _img,
-        translation: translation ?? _translation,
-        locales: locales ?? _locales,
-      );
+  }) => ShopTag(
+    id: id ?? _id,
+    img: img ?? _img,
+    translation: translation ?? _translation,
+    locales: locales ?? _locales,
+  );
 
   String? get id => _id;
 

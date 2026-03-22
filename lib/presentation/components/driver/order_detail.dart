@@ -15,8 +15,6 @@ import 'image_dialog.dart';
 import 'order_item.dart';
 // ignore_for_file: use_build_context_synchronously
 
-
-
 class OrderDetail extends StatelessWidget {
   final OrderDetailData order;
   final bool isOrder;

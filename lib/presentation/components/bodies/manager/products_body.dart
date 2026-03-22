@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class ProductsBody extends StatelessWidget {
   final RefreshController refreshController;
   final int bottomPadding;

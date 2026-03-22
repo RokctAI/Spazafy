@@ -8,7 +8,6 @@ import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'common_image.dart';
 
-
 class ImageDialog extends StatelessWidget {
   final String? img;
 

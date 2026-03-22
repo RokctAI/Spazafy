@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class CountNotificationModel {
   int? notification;
   int? transaction;
@@ -18,7 +19,7 @@ class CountNotificationModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "notification": notification,
-        "transaction": transaction,
-      };
+    "notification": notification,
+    "transaction": transaction,
+  };
 }

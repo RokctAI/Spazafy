@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
 
-
 class DriverAvatar extends StatelessWidget {
   final String? imageUrl;
   final String name;
@@ -40,10 +39,7 @@ class DriverAvatar extends StatelessWidget {
             4.verticalSpace,
             Text(
               desc,
-              style: AppStyle.interNormal(
-                size: 12,
-                color: AppStyle.blackColor,
-              ),
+              style: AppStyle.interNormal(size: 12, color: AppStyle.blackColor),
             ),
           ],
         ),

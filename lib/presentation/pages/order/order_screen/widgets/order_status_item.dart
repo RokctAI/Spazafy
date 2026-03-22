@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 // ignore_for_file: deprecated_member_use
 
-
 class OrderStatusItem extends StatelessWidget {
   final Widget icon;
   final bool isActive;

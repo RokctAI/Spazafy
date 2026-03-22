@@ -7,7 +7,6 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart';
 
-
 class PaymentItem extends StatelessWidget {
   final PaymentData payment;
   final bool isSelected;
@@ -49,11 +48,7 @@ class PaymentItem extends StatelessWidget {
               Column(
                 children: [
                   14.verticalSpace,
-                  Divider(
-                    thickness: 1.r,
-                    height: 1.r,
-                    color: AppStyle.bgGrey,
-                  ),
+                  Divider(thickness: 1.r, height: 1.r, color: AppStyle.bgGrey),
                   14.verticalSpace,
                 ],
               ),

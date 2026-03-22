@@ -71,14 +71,14 @@ class ShopData {
     _phone = json['phone'];
     _showType = json['show_type'].runtimeType == int
         ? json['show_type'] == 1
-            ? true
-            : false
+              ? true
+              : false
         : json['show_type'];
     _open = json['open'];
     _visibility = json['visibility'].runtimeType == int
         ? json['visibility'] == 1
-            ? true
-            : false
+              ? true
+              : false
         : json['visibility'];
     _openTime = json['open_time'];
     _closeTime = json['close_time'];
@@ -155,34 +155,33 @@ class ShopData {
     Translation? translation,
     Seller? seller,
     List<ShopDelivery>? deliveries,
-  }) =>
-      ShopData(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        userId: userId ?? _userId,
-        tax: tax ?? _tax,
-        deliveryRange: deliveryRange ?? _deliveryRange,
-        percentage: percentage ?? _percentage,
-        location: location ?? _location,
-        phone: phone ?? _phone,
-        showType: showType ?? _showType,
-        open: open ?? _open,
-        visibility: visibility ?? _visibility,
-        openTime: openTime ?? _openTime,
-        closeTime: closeTime ?? _closeTime,
-        backgroundImg: backgroundImg ?? _backgroundImg,
-        logoImg: logoImg ?? _logoImg,
-        minAmount: minAmount ?? _minAmount,
-        status: status ?? _status,
-        statusNote: statusNote ?? _statusNote,
-        ratingAvg: ratingAvg ?? _ratingAvg,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-        deletedAt: deletedAt ?? _deletedAt,
-        translation: translation ?? _translation,
-        seller: seller ?? _seller,
-        deliveries: deliveries ?? _deliveries,
-      );
+  }) => ShopData(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    userId: userId ?? _userId,
+    tax: tax ?? _tax,
+    deliveryRange: deliveryRange ?? _deliveryRange,
+    percentage: percentage ?? _percentage,
+    location: location ?? _location,
+    phone: phone ?? _phone,
+    showType: showType ?? _showType,
+    open: open ?? _open,
+    visibility: visibility ?? _visibility,
+    openTime: openTime ?? _openTime,
+    closeTime: closeTime ?? _closeTime,
+    backgroundImg: backgroundImg ?? _backgroundImg,
+    logoImg: logoImg ?? _logoImg,
+    minAmount: minAmount ?? _minAmount,
+    status: status ?? _status,
+    statusNote: statusNote ?? _statusNote,
+    ratingAvg: ratingAvg ?? _ratingAvg,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+    deletedAt: deletedAt ?? _deletedAt,
+    translation: translation ?? _translation,
+    seller: seller ?? _seller,
+    deliveries: deliveries ?? _deliveries,
+  );
 
   String? get id => _id;
 
@@ -298,13 +297,12 @@ class Seller {
     String? firstname,
     String? lastname,
     String? role,
-  }) =>
-      Seller(
-        id: id ?? _id,
-        firstname: firstname ?? _firstname,
-        lastname: lastname ?? _lastname,
-        role: role ?? _role,
-      );
+  }) => Seller(
+    id: id ?? _id,
+    firstname: firstname ?? _firstname,
+    lastname: lastname ?? _lastname,
+    role: role ?? _role,
+  );
 
   String? get id => _id;
 

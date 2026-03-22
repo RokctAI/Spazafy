@@ -4,8 +4,7 @@ import 'on_a_way_orders_state.dart';
 import 'on_a_way_orders_notifier.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
-
 final onAWayOrdersProvider =
     StateNotifierProvider<OnAWayOrdersNotifier, OnAWayOrdersState>(
-  (ref) => OnAWayOrdersNotifier(ordersRepository),
-);
+      (ref) => OnAWayOrdersNotifier(ordersRepository),
+    );

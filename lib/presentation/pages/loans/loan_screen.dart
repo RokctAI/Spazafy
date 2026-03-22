@@ -21,7 +21,6 @@ import 'widgets/loan_contract_screen.dart';
 import 'widgets/loan_eligibility_screen.dart';
 import 'provider/loans_provider.dart';
 
-
 @RoutePage()
 class LoanScreen extends ConsumerStatefulWidget {
   const LoanScreen({super.key});

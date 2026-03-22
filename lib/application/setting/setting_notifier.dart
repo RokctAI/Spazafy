@@ -8,7 +8,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/data/notification_list_data.dart';
 import 'setting_state.dart';
 
-
 class SettingNotifier extends StateNotifier<SettingState> {
   final SettingsRepositoryFacade _settingsRepository;
   final UserRepositoryFacade _userRepository;

@@ -93,7 +93,7 @@ abstract class AppStyle {
   static const Color green = Color(0xFF16AA16);
   static const Color pending = Color(0xFFFEFAF2);
   static const Color deepPurple = Color(0xFF673AB7);
-  
+
   static List<Color> primaryGradient = [
     AppStyle.primary.withOpacity(0.5),
     AppStyle.transparent,

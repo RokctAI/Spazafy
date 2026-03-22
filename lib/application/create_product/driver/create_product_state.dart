@@ -2,7 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'create_product_state.freezed.dart';
 
-
 @freezed
 abstract class CreateProductState with _$CreateProductState {
   const factory CreateProductState({@Default(0) int currentIndex}) =

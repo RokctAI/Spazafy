@@ -2,7 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/extension.dart';
 import 'group.dart';
 
-
 class Extras {
   Extras({
     String? id,
@@ -43,15 +42,14 @@ class Extras {
     Group? group,
     StockPivot? pivot,
     bool? active,
-  }) =>
-      Extras(
-        id: id ?? _id,
-        extraGroupId: extraGroupId ?? _extraGroupId,
-        value: value ?? _value,
-        group: group ?? _group,
-        pivot: pivot ?? _pivot,
-        active: active ?? _active,
-      );
+  }) => Extras(
+    id: id ?? _id,
+    extraGroupId: extraGroupId ?? _extraGroupId,
+    value: value ?? _value,
+    group: group ?? _group,
+    pivot: pivot ?? _pivot,
+    active: active ?? _active,
+  );
 
   String? get id => _id;
 
@@ -96,9 +94,9 @@ class StockPivot {
   String? _extraValueId;
 
   StockPivot copyWith({String? stockId, String? extraValueId}) => StockPivot(
-        stockId: stockId ?? _stockId,
-        extraValueId: extraValueId ?? _extraValueId,
-      );
+    stockId: stockId ?? _stockId,
+    extraValueId: extraValueId ?? _extraValueId,
+  );
 
   String? get stockId => _stockId;
 

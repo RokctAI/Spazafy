@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class WorkingDayData {
   List<Date> dates;
   Shop shop;
@@ -6,14 +7,14 @@ class WorkingDayData {
   WorkingDayData({required this.dates, required this.shop});
 
   factory WorkingDayData.fromJson(Map<String, dynamic> json) => WorkingDayData(
-        dates: List<Date>.from(json["dates"].map((x) => Date.fromJson(x))),
-        shop: Shop.fromJson(json["shop"]),
-      );
+    dates: List<Date>.from(json["dates"].map((x) => Date.fromJson(x))),
+    shop: Shop.fromJson(json["shop"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "dates": List<dynamic>.from(dates.map((x) => x.toJson())),
-        "shop": shop.toJson(),
-      };
+    "dates": List<dynamic>.from(dates.map((x) => x.toJson())),
+    "shop": shop.toJson(),
+  };
 }
 
 class Date {
@@ -32,20 +33,20 @@ class Date {
   });
 
   factory Date.fromJson(Map<String, dynamic> json) => Date(
-        id: json["id"]?.toString(),
-        day: json["day"],
-        from: json["from"],
-        to: json["to"],
-        disabled: json["disabled"],
-      );
+    id: json["id"]?.toString(),
+    day: json["day"],
+    from: json["from"],
+    to: json["to"],
+    disabled: json["disabled"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "day": day,
-        "from": from,
-        "to": to,
-        "disabled": disabled,
-      };
+    "id": id,
+    "day": day,
+    "from": from,
+    "to": to,
+    "disabled": disabled,
+  };
 }
 
 class Shop {
@@ -56,14 +57,14 @@ class Shop {
   Shop({required this.id, required this.createdAt, required this.updatedAt});
 
   factory Shop.fromJson(Map<String, dynamic> json) => Shop(
-        id: json["id"]?.toString(),
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
-      );
+    id: json["id"]?.toString(),
+    createdAt: DateTime.parse(json["created_at"]),
+    updatedAt: DateTime.parse(json["updated_at"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "created_at": createdAt.toIso8601String(),
-        "updated_at": updatedAt.toIso8601String(),
-      };
+    "id": id,
+    "created_at": createdAt.toIso8601String(),
+    "updated_at": updatedAt.toIso8601String(),
+  };
 }

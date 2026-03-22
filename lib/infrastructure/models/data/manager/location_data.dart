@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class LocationData {
   LocationData({double? latitude, double? longitude}) {
     _latitude = latitude;
@@ -16,9 +17,9 @@ class LocationData {
   double? _longitude;
 
   LocationData copyWith({double? latitude, double? longitude}) => LocationData(
-        latitude: latitude ?? _latitude,
-        longitude: longitude ?? _longitude,
-      );
+    latitude: latitude ?? _latitude,
+    longitude: longitude ?? _longitude,
+  );
 
   double? get latitude => _latitude;
 

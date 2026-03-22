@@ -196,10 +196,10 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
   }
 
   Future<void> fetchCategories(
-      BuildContext context, {
-        bool? isRefresh,
-        RefreshController? controller,
-      }) async {
+    BuildContext context, {
+    bool? isRefresh,
+    RefreshController? controller,
+  }) async {
     if (isRefresh ?? false) {
       controller?.resetNoData();
       _page = 0;

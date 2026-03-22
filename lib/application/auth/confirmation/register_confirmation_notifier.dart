@@ -17,7 +17,6 @@ import 'package:rokctapp/domain/interface/user.dart';
 import 'package:rokctapp/application/main/main_provider.dart';
 import 'register_confirmation_state.dart';
 
-
 class RegisterConfirmationNotifier
     extends StateNotifier<RegisterConfirmationState> {
   final AuthRepositoryFacade _authRepository;
@@ -193,10 +192,7 @@ class RegisterConfirmationNotifier
         await LocalStorage.setToken(data.token);
         String? fcmToken = await FirebaseMessaging.instance.getToken();
         _userRepositoryFacade.updateFirebaseToken(fcmToken);
-        state = state.copyWith(
-          isLoading: false,
-          isResetPasswordSuccess: true,
-        );
+        state = state.copyWith(isLoading: false, isResetPasswordSuccess: true);
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false, isCodeError: true);
@@ -428,9 +424,7 @@ class RegisterConfirmationNotifier
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
     } else {
-      final response = await _authRepository.forgotPassword(
-        email: phoneNumber,
-      );
+      final response = await _authRepository.forgotPassword(email: phoneNumber);
       response.when(
         success: (success) {
           state = state.copyWith(

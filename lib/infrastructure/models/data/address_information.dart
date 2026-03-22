@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class AddressInformation {
   AddressInformation({String? address, String? house, String? floor}) {
     _address = address;
@@ -20,12 +21,11 @@ class AddressInformation {
     String? address,
     String? house,
     String? floor,
-  }) =>
-      AddressInformation(
-        address: address ?? _address,
-        house: house ?? _house,
-        floor: floor ?? _floor,
-      );
+  }) => AddressInformation(
+    address: address ?? _address,
+    house: house ?? _house,
+    floor: floor ?? _floor,
+  );
 
   String? get address => _address;
 

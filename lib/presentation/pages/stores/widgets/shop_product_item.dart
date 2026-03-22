@@ -10,7 +10,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
 import 'bonus_screen.dart';
 
-
 class ShopProductItem extends StatelessWidget {
   final Product product;
 

@@ -5,7 +5,6 @@ import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 part 'home_state.freezed.dart';
 
-
 @freezed
 abstract class HomeState with _$HomeState {
   const factory HomeState({

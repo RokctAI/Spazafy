@@ -5,15 +5,17 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'create_extras_group_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
-
 class CreateExtrasGroupNotifier extends StateNotifier<CreateExtrasGroupState> {
   final ProductsInterface _productsRepository;
   String _title = '';
 
   CreateExtrasGroupNotifier(this._productsRepository)
-      : super(const CreateExtrasGroupState());
+    : super(const CreateExtrasGroupState());
 
-  Future<void> createExtrasGroup(BuildContext context,{VoidCallback? success}) async {
+  Future<void> createExtrasGroup(
+    BuildContext context, {
+    VoidCallback? success,
+  }) async {
     state = state.copyWith(isLoading: true);
     final response = await _productsRepository.createExtrasGroup(title: _title);
     response.when(
@@ -21,13 +23,13 @@ class CreateExtrasGroupNotifier extends StateNotifier<CreateExtrasGroupState> {
         state = state.copyWith(isLoading: false);
         success?.call();
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> create extras group fail $fail');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-            context,
-            text: fail,
-            type: SnackBarType.error
+          context,
+          text: fail,
+          type: SnackBarType.error,
         );
       },
     );
@@ -37,4 +39,3 @@ class CreateExtrasGroupNotifier extends StateNotifier<CreateExtrasGroupState> {
     _title = value.trim();
   }
 }
-

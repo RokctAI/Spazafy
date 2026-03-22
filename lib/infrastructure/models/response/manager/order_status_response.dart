@@ -1,12 +1,14 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class OrderStatusResponse {
   OrderStatusResponse({OrderStatusData? data}) {
     _data = data;
   }
 
   OrderStatusResponse.fromJson(dynamic json) {
-    _data =
-        json['data'] != null ? OrderStatusData.fromJson(json['data']) : null;
+    _data = json['data'] != null
+        ? OrderStatusData.fromJson(json['data'])
+        : null;
   }
 
   OrderStatusData? _data;
@@ -75,17 +77,16 @@ class OrderStatusData {
     String? status,
     String? deliveryDate,
     String? deliveryTime,
-  }) =>
-      OrderStatusData(
-        id: id ?? _id,
-        shopId: shopId ?? _shopId,
-        deliveryFee: deliveryFee ?? _deliveryFee,
-        price: price ?? _price,
-        tax: tax ?? _tax,
-        status: status ?? _status,
-        deliveryDate: deliveryDate ?? _deliveryDate,
-        deliveryTime: deliveryTime ?? _deliveryTime,
-      );
+  }) => OrderStatusData(
+    id: id ?? _id,
+    shopId: shopId ?? _shopId,
+    deliveryFee: deliveryFee ?? _deliveryFee,
+    price: price ?? _price,
+    tax: tax ?? _tax,
+    status: status ?? _status,
+    deliveryDate: deliveryDate ?? _deliveryDate,
+    deliveryTime: deliveryTime ?? _deliveryTime,
+  );
 
   int? get id => _id;
 

@@ -7,7 +7,6 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/badge_item.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
 
-
 class ShopBadge extends StatefulWidget {
   final ShopData shop;
   final double? bottom;

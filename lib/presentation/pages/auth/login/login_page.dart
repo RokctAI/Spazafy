@@ -22,7 +22,6 @@ import 'package:rokctapp/presentation/pages/policy_term/policy_page.dart';
 import 'package:rokctapp/presentation/pages/policy_term/term_page.dart';
 // ignore_for_file: use_build_context_synchronously
 
-
 @RoutePage()
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});

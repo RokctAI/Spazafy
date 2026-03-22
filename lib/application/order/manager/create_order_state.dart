@@ -2,7 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'create_order_state.freezed.dart';
 
-
 @freezed
 abstract class CreateOrderState with _$CreateOrderState {
   const factory CreateOrderState({@Default(false) bool isCreating}) =

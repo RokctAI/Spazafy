@@ -3,8 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'addons_state.freezed.dart';
 
-
-
 @freezed
 abstract class AddonsState with _$AddonsState {
   const factory AddonsState({

@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class MaksekeskusData {
   List<Method>? methods;
   String? paymentId;
@@ -50,24 +51,23 @@ class MaksekeskusData {
     String? deliveryDate,
     String? addressId,
     String? deliveryPointId,
-  }) =>
-      MaksekeskusData(
-        methods: methods ?? this.methods,
-        paymentId: paymentId ?? this.paymentId,
-        modelType: modelType ?? this.modelType,
-        modelId: modelId ?? this.modelId,
-        totalPrice: totalPrice ?? this.totalPrice,
-        currency: currency ?? this.currency,
-        cartId: cartId ?? this.cartId,
-        userId: userId ?? this.userId,
-        status: status ?? this.status,
-        currencyId: currencyId ?? this.currencyId,
-        rate: rate ?? this.rate,
-        deliveryType: deliveryType ?? this.deliveryType,
-        deliveryDate: deliveryDate ?? this.deliveryDate,
-        addressId: addressId ?? this.addressId,
-        deliveryPointId: deliveryPointId ?? this.deliveryPointId,
-      );
+  }) => MaksekeskusData(
+    methods: methods ?? this.methods,
+    paymentId: paymentId ?? this.paymentId,
+    modelType: modelType ?? this.modelType,
+    modelId: modelId ?? this.modelId,
+    totalPrice: totalPrice ?? this.totalPrice,
+    currency: currency ?? this.currency,
+    cartId: cartId ?? this.cartId,
+    userId: userId ?? this.userId,
+    status: status ?? this.status,
+    currencyId: currencyId ?? this.currencyId,
+    rate: rate ?? this.rate,
+    deliveryType: deliveryType ?? this.deliveryType,
+    deliveryDate: deliveryDate ?? this.deliveryDate,
+    addressId: addressId ?? this.addressId,
+    deliveryPointId: deliveryPointId ?? this.deliveryPointId,
+  );
 
   factory MaksekeskusData.fromJson(Map<String, dynamic> json) =>
       MaksekeskusData(
@@ -93,24 +93,24 @@ class MaksekeskusData {
       );
 
   Map<String, dynamic> toJson() => {
-        "methods": methods == null
-            ? []
-            : List<dynamic>.from(methods!.map((x) => x.toJson())),
-        "payment_id": paymentId,
-        "model_type": modelType,
-        "model_id": modelId,
-        "total_price": totalPrice,
-        "currency": currency,
-        "cart_id": cartId,
-        "user_id": userId,
-        "status": status,
-        "currency_id": currencyId,
-        "rate": rate,
-        "delivery_type": deliveryType,
-        "delivery_date": deliveryDate,
-        "address_id": addressId,
-        "delivery_point_id": deliveryPointId,
-      };
+    "methods": methods == null
+        ? []
+        : List<dynamic>.from(methods!.map((x) => x.toJson())),
+    "payment_id": paymentId,
+    "model_type": modelType,
+    "model_id": modelId,
+    "total_price": totalPrice,
+    "currency": currency,
+    "cart_id": cartId,
+    "user_id": userId,
+    "status": status,
+    "currency_id": currencyId,
+    "rate": rate,
+    "delivery_type": deliveryType,
+    "delivery_date": deliveryDate,
+    "address_id": addressId,
+    "delivery_point_id": deliveryPointId,
+  };
 }
 
 class Method {
@@ -143,41 +143,40 @@ class Method {
     int? maxAmount,
     String? name,
     String? url,
-  }) =>
-      Method(
-        channel: channel ?? this.channel,
-        countries: countries ?? this.countries,
-        country: country ?? this.country,
-        displayName: displayName ?? this.displayName,
-        logoUrl: logoUrl ?? this.logoUrl,
-        maxAmount: maxAmount ?? this.maxAmount,
-        name: name ?? this.name,
-        url: url ?? this.url,
-      );
+  }) => Method(
+    channel: channel ?? this.channel,
+    countries: countries ?? this.countries,
+    country: country ?? this.country,
+    displayName: displayName ?? this.displayName,
+    logoUrl: logoUrl ?? this.logoUrl,
+    maxAmount: maxAmount ?? this.maxAmount,
+    name: name ?? this.name,
+    url: url ?? this.url,
+  );
 
   factory Method.fromJson(Map<String, dynamic> json) => Method(
-        channel: json["channel"],
-        countries: json["countries"] == null
-            ? []
-            : List<String>.from(json["countries"]!.map((x) => x)),
-        country: json["country"],
-        displayName: json["display_name"],
-        logoUrl: json["logo_url"],
-        maxAmount: json["max_amount"],
-        name: json["name"],
-        url: json["url"],
-      );
+    channel: json["channel"],
+    countries: json["countries"] == null
+        ? []
+        : List<String>.from(json["countries"]!.map((x) => x)),
+    country: json["country"],
+    displayName: json["display_name"],
+    logoUrl: json["logo_url"],
+    maxAmount: json["max_amount"],
+    name: json["name"],
+    url: json["url"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "channel": channel,
-        "countries": countries == null
-            ? []
-            : List<dynamic>.from(countries!.map((x) => x)),
-        "country": country,
-        "display_name": displayName,
-        "logo_url": logoUrl,
-        "max_amount": maxAmount,
-        "name": name,
-        "url": url,
-      };
+    "channel": channel,
+    "countries": countries == null
+        ? []
+        : List<dynamic>.from(countries!.map((x) => x)),
+    "country": country,
+    "display_name": displayName,
+    "logo_url": logoUrl,
+    "max_amount": maxAmount,
+    "name": name,
+    "url": url,
+  };
 }

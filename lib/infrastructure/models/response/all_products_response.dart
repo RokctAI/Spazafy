@@ -2,7 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
-
 class AllProductsResponse {
   DateTime? timestamp;
   bool? status;

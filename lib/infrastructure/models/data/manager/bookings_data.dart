@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class BookingsData {
   String? id;
   int? maxTime;
@@ -13,16 +14,16 @@ class BookingsData {
   });
 
   factory BookingsData.fromJson(Map<String, dynamic> json) => BookingsData(
-        id: json["id"]?.toString(),
-        maxTime: json["max_time"] ?? 23,
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
-      );
+    id: json["id"]?.toString(),
+    maxTime: json["max_time"] ?? 23,
+    createdAt: DateTime.parse(json["created_at"]),
+    updatedAt: DateTime.parse(json["updated_at"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "max_time": maxTime,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-      };
+    "id": id,
+    "max_time": maxTime,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+  };
 }

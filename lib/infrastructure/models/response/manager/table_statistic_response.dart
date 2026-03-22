@@ -2,9 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/manager/table_statistics_data.dart';
 
-
-
-
 TableStatisticResponse tableStatisticResponseFromJson(String str) =>
     TableStatisticResponse.fromJson(json.decode(str));
 
@@ -33,11 +30,9 @@ class TableStatisticResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        "timestamp": timestamp.toIso8601String(),
-        "status": status,
-        "message": message,
-        "data": data.toJson(),
-      };
+    "timestamp": timestamp.toIso8601String(),
+    "status": status,
+    "message": message,
+    "data": data.toJson(),
+  };
 }
-
-

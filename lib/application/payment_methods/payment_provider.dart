@@ -4,7 +4,6 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'payment_notifier.dart';
 import 'payment_state.dart';
 
-
 final paymentProvider = StateNotifierProvider<PaymentNotifier, PaymentState>(
   (ref) => PaymentNotifier(paymentsRepository),
 );

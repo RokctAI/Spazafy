@@ -2,7 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'push_order_state.freezed.dart';
 
-
 @freezed
 abstract class PushOrderState with _$PushOrderState {
   const factory PushOrderState({

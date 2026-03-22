@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class CouponData {
   CouponData({
     String? id,
@@ -49,17 +50,16 @@ class CouponData {
     String? expiredAt,
     String? createdAt,
     String? updatedAt,
-  }) =>
-      CouponData(
-        id: id ?? _id,
-        name: name ?? _name,
-        type: type ?? _type,
-        qty: qty ?? _qty,
-        price: price ?? _price,
-        expiredAt: expiredAt ?? _expiredAt,
-        createdAt: createdAt ?? _createdAt,
-        updatedAt: updatedAt ?? _updatedAt,
-      );
+  }) => CouponData(
+    id: id ?? _id,
+    name: name ?? _name,
+    type: type ?? _type,
+    qty: qty ?? _qty,
+    price: price ?? _price,
+    expiredAt: expiredAt ?? _expiredAt,
+    createdAt: createdAt ?? _createdAt,
+    updatedAt: updatedAt ?? _updatedAt,
+  );
 
   String? get id => _id;
 

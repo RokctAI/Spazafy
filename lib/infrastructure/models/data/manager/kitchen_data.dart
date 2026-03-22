@@ -14,27 +14,26 @@ class KitchenModel {
     int? active,
     String? shopId,
     Translation? translation,
-  }) =>
-      KitchenModel(
-        id: id ?? this.id,
-        active: active ?? this.active,
-        shopId: shopId ?? this.shopId,
-        translation: translation ?? this.translation,
-      );
+  }) => KitchenModel(
+    id: id ?? this.id,
+    active: active ?? this.active,
+    shopId: shopId ?? this.shopId,
+    translation: translation ?? this.translation,
+  );
 
   factory KitchenModel.fromJson(Map<String, dynamic> json) => KitchenModel(
-        id: json["id"]?.toString(),
-        active: json["active"],
-        shopId: json["shop_id"]?.toString(),
-        translation: json["translation"] == null
-            ? null
-            : Translation.fromJson(json["translation"]),
-      );
+    id: json["id"]?.toString(),
+    active: json["active"],
+    shopId: json["shop_id"]?.toString(),
+    translation: json["translation"] == null
+        ? null
+        : Translation.fromJson(json["translation"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "active": active,
-        "shop_id": shopId,
-        "translation": translation?.toJson(),
-      };
+    "id": id,
+    "active": active,
+    "shop_id": shopId,
+    "translation": translation?.toJson(),
+  };
 }

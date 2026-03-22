@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class TableModel {
   final String name;
   final int chairCount;
@@ -13,9 +14,9 @@ class TableModel {
   });
 
   Map<String, dynamic> toJson() => {
-        "name": name,
-        "chair_count": chairCount,
-        "tax": tax,
-        "shop_section_id": shopSectionId?.toString(),
-      };
+    "name": name,
+    "chair_count": chairCount,
+    "tax": tax,
+    "shop_section_id": shopSectionId?.toString(),
+  };
 }

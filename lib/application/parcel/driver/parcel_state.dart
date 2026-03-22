@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 part 'parcel_state.freezed.dart';
 
-
 @freezed
 abstract class ParcelState with _$ParcelState {
   const factory ParcelState({

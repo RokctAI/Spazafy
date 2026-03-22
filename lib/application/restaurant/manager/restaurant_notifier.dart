@@ -6,7 +6,6 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class RestaurantNotifier extends StateNotifier<RestaurantState> {
   final UsersInterface _usersRepository;
   final SettingsInterface _settingsRepository;
@@ -15,7 +14,7 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
   String _phone = '';
 
   RestaurantNotifier(this._usersRepository, this._settingsRepository)
-      : super(const RestaurantState());
+    : super(const RestaurantState());
 
   Future<void> updateWorkingDays(List<ShopWorkingDays> days) async {
     final shop = state.shop?.copyWith(shopWorkingDays: days);
@@ -28,7 +27,10 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
     response.when(
       success: (data) {
         LocalStorage.setShop(data.data);
-        state = state.copyWith(shop: data.data,orderPayment: data.data?.orderPayment);
+        state = state.copyWith(
+          shop: data.data,
+          orderPayment: data.data?.orderPayment,
+        );
         afterFetched?.call();
       },
       failure: (failure, status) {
@@ -59,8 +61,10 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
     state = state.copyWith(logoImageFile: file);
   }
 
-  Future<void> updateShop(BuildContext context,
-      {VoidCallback? updateSuccess}) async {
+  Future<void> updateShop(
+    BuildContext context, {
+    VoidCallback? updateSuccess,
+  }) async {
     if (state.backgroundImageFile == null && state.logoImageFile == null) {
       updateSuccess?.call();
     }
@@ -77,8 +81,11 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         },
         failure: (failure, status) {
           debugPrint('==> upload shop back image fail: $failure');
-          AppHelpers.showCheckTopSnackBar(context,
-              text: failure, type: SnackBarType.error);
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            text: failure,
+            type: SnackBarType.error,
+          );
         },
       );
     }
@@ -94,16 +101,20 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         },
         failure: (failure, status) {
           debugPrint('==> upload shop logo image fail: $failure');
-          AppHelpers.showCheckTopSnackBar(context,
-              text: failure, type: SnackBarType.error);
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            text: failure,
+            type: SnackBarType.error,
+          );
         },
       );
     }
     Translation? newTranslation = state.shop?.translation;
     newTranslation = newTranslation?.copyWith(
       title: _title.isNotEmpty ? _title : newTranslation.title,
-      description:
-          _description.isNotEmpty ? _description : newTranslation.description,
+      description: _description.isNotEmpty
+          ? _description
+          : newTranslation.description,
     );
 
     final response = await _usersRepository.updateShop(
@@ -138,8 +149,11 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
       failure: (failure, status) {
         debugPrint('===> update shop fail $failure');
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context,
-            text: failure, type: SnackBarType.error);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          text: failure,
+          type: SnackBarType.error,
+        );
       },
     );
   }
@@ -152,4 +166,3 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
     _usersRepository.setOnlineOffline();
   }
 }
-

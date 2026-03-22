@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class MetaLinks {
   MetaLinks({String? url, String? label, bool? active}) {
     _url = url;
@@ -17,10 +18,10 @@ class MetaLinks {
   bool? _active;
 
   MetaLinks copyWith({String? url, String? label, bool? active}) => MetaLinks(
-        url: url ?? _url,
-        label: label ?? _label,
-        active: active ?? _active,
-      );
+    url: url ?? _url,
+    label: label ?? _label,
+    active: active ?? _active,
+  );
 
   String? get url => _url;
 

@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class UserModel {
   UserModel({
     String? id,
@@ -88,25 +89,24 @@ class UserModel {
     String? role,
     String? password,
     String? conPassword,
-  }) =>
-      UserModel(
-        id: id ?? _id,
-        uuid: uuid ?? _uuid,
-        firstname: firstname ?? _firstname,
-        lastname: lastname ?? _lastname,
-        referral: referral ?? _referral,
-        email: email ?? _email,
-        phone: phone ?? _phone,
-        birthday: birthday ?? _birthday,
-        gender: gender ?? _gender,
-        emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
-        registeredAt: registeredAt ?? _registeredAt,
-        active: active ?? _active,
-        img: img ?? _img,
-        role: role ?? _role,
-        confirmPassword: conPassword ?? _confirmPassword,
-        password: password ?? _password,
-      );
+  }) => UserModel(
+    id: id ?? _id,
+    uuid: uuid ?? _uuid,
+    firstname: firstname ?? _firstname,
+    lastname: lastname ?? _lastname,
+    referral: referral ?? _referral,
+    email: email ?? _email,
+    phone: phone ?? _phone,
+    birthday: birthday ?? _birthday,
+    gender: gender ?? _gender,
+    emailVerifiedAt: emailVerifiedAt ?? _emailVerifiedAt,
+    registeredAt: registeredAt ?? _registeredAt,
+    active: active ?? _active,
+    img: img ?? _img,
+    role: role ?? _role,
+    confirmPassword: conPassword ?? _confirmPassword,
+    password: password ?? _password,
+  );
 
   String? get id => _id;
 
@@ -160,14 +160,14 @@ class UserModel {
   }
 
   Map<String, dynamic> toJsonForSignUp({bool typeFirebase = false}) => {
-        "firstname": _firstname,
-        if (_lastname?.isNotEmpty ?? false) "lastname": _lastname,
-        if (_phone?.isNotEmpty ?? false) "phone": _phone?.replaceAll('+', ""),
-        if (_email?.isNotEmpty ?? false) "email": _email,
-        if (_password?.isNotEmpty ?? false) "password": _password,
-        if (_confirmPassword?.isNotEmpty ?? false)
-          "password_conformation": _confirmPassword,
-        if (_referral?.isNotEmpty ?? false) 'referral': _referral,
-        if (typeFirebase) "type": "firebase",
-      };
+    "firstname": _firstname,
+    if (_lastname?.isNotEmpty ?? false) "lastname": _lastname,
+    if (_phone?.isNotEmpty ?? false) "phone": _phone?.replaceAll('+', ""),
+    if (_email?.isNotEmpty ?? false) "email": _email,
+    if (_password?.isNotEmpty ?? false) "password": _password,
+    if (_confirmPassword?.isNotEmpty ?? false)
+      "password_conformation": _confirmPassword,
+    if (_referral?.isNotEmpty ?? false) 'referral': _referral,
+    if (typeFirebase) "type": "firebase",
+  };
 }

@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'notification_state.dart';
 
-
 class NotificationNotifier extends StateNotifier<NotificationState> {
   final NotificationRepositoryFacade _notificationRepository;
 
@@ -46,9 +45,7 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     );
     response.when(
       success: (data) async {
-        final List<NotificationModel> newList = List.from(
-          state.notifications,
-        );
+        final List<NotificationModel> newList = List.from(state.notifications);
         newList.addAll(data.data ?? []);
         state = state.copyWith(
           notifications: isRefresh ? (data.data ?? []) : newList,
@@ -126,4 +123,3 @@ class NotificationNotifier extends StateNotifier<NotificationState> {
     );
   }
 }
-

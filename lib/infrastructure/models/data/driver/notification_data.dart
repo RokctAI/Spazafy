@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class NotificationsModel {
   NotificationsModel({
     this.id,
@@ -22,9 +23,10 @@ class NotificationsModel {
       payload: json["payload"] == null
           ? []
           : json["payload"] == null
-              ? []
-              : List<String?>.from(json["payload"]!.map((x) => x)),
-      active: (json["notification"] != null
+          ? []
+          : List<String?>.from(json["payload"]!.map((x) => x)),
+      active:
+          (json["notification"] != null
                   ? json["notification"]["active"] ?? 0
                   : 0) ==
               0
@@ -37,15 +39,15 @@ class NotificationsModel {
   }
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "payload": payload == null
-            ? []
-            : payload == null
-                ? []
-                : List<dynamic>.from(payload!.map((x) => x)),
-        "active": active,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "type": type,
-      };
+    "id": id,
+    "payload": payload == null
+        ? []
+        : payload == null
+        ? []
+        : List<dynamic>.from(payload!.map((x) => x)),
+    "active": active,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+    "type": type,
+  };
 }

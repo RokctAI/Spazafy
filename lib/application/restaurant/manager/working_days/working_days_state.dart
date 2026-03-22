@@ -3,8 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 part 'working_days_state.freezed.dart';
 
-
-
 @freezed
 abstract class WorkingDaysState with _$WorkingDaysState {
   const factory WorkingDaysState({

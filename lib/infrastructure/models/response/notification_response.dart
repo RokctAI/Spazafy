@@ -192,8 +192,11 @@ class Data {
     status: status ?? this.status,
   );
 
-  factory Data.fromJson(Map<String, dynamic> json) =>
-      Data(id: json["id"]?.toString(), type: json["type"], status: json["status"]);
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
+    id: json["id"]?.toString(),
+    type: json["type"],
+    status: json["status"],
+  );
 
   Map<String, dynamic> toJson() => {"id": id, "type": type, "status": status};
 }

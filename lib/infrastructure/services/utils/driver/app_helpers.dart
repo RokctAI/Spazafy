@@ -19,7 +19,6 @@ import 'img_service.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-
 class AppHelpers {
   AppHelpers._();
 

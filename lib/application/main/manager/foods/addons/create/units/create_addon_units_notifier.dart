@@ -5,12 +5,11 @@ import 'create_addon_units_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class CreateAddonUnitsNotifier extends StateNotifier<CreateAddonUnitsState> {
   final CatalogInterface _catalogRepository;
 
   CreateAddonUnitsNotifier(this._catalogRepository)
-      : super(CreateAddonUnitsState(unitController: TextEditingController()));
+    : super(CreateAddonUnitsState(unitController: TextEditingController()));
 
   Future<void> fetchUnits() async {
     if (state.units.isNotEmpty) {
@@ -27,7 +26,7 @@ class CreateAddonUnitsNotifier extends StateNotifier<CreateAddonUnitsState> {
               units[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         debugPrint('====> fetch units fail $failure');
       },
@@ -42,4 +41,3 @@ class CreateAddonUnitsNotifier extends StateNotifier<CreateAddonUnitsState> {
     state.unitController?.text = state.units[index].translation?.title ?? '';
   }
 }
-

@@ -4,7 +4,6 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
 import 'infrastructure/services/constants/enums.dart';
 
-
 abstract class AppConstants {
   AppConstants._();
 
@@ -152,7 +151,8 @@ abstract class AppConstants {
   ];
 
   static const payLater = ["progress", "canceled", "rejected"];
-  static List<String> get genderList => Gender.values.map((e) => e.name).toList();
+  static List<String> get genderList =>
+      Gender.values.map((e) => e.name).toList();
 
   static const bool fixed = true;
 

@@ -8,7 +8,6 @@ import 'package:rokctapp/application/home/home_state.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/shimmer/category_shimmer.dart';
 import 'tab_bar_item.dart';
 
-
 class CategoryScreen extends StatelessWidget {
   final HomeState state;
   final HomeNotifier event;

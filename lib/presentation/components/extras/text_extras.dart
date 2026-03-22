@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
 import 'package:rokctapp/presentation/pages/product/widgets/size_item.dart';
 
-
 class TextExtras extends StatelessWidget {
   final int groupIndex;
   final List<UiExtra> uiExtras;

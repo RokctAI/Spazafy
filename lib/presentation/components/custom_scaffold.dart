@@ -7,7 +7,6 @@ import 'package:rokctapp/presentation/pages/initial/no_connection/no_connection_
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'keyboard_dismisser.dart';
 
-
 class CustomScaffold extends ConsumerStatefulWidget {
   final Widget body;
   final Widget? floatingActionButton;

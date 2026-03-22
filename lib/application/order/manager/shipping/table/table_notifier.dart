@@ -7,8 +7,6 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'table_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
-
 class TableNotifier extends StateNotifier<TableState> {
   String _query = '';
   bool _hasMore = true;
@@ -64,12 +62,9 @@ class TableNotifier extends StateNotifier<TableState> {
     }
     _query = text.trim();
     _timer?.cancel();
-    _timer = Timer(
-      const Duration(milliseconds: 300),
-      () {
-        _search(refreshController: refreshController,sectionId: sectionId);
-      },
-    );
+    _timer = Timer(const Duration(milliseconds: 300), () {
+      _search(refreshController: refreshController, sectionId: sectionId);
+    });
   }
 
   Future<void> fetchMoreTables({

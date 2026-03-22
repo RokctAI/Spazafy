@@ -4,8 +4,7 @@ import 'create_order_state.dart';
 import 'create_order_notifier.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
-
 final createOrderProvider =
     StateNotifierProvider<CreateOrderNotifier, CreateOrderState>(
-  (ref) => CreateOrderNotifier(ordersRepository),
-);
+      (ref) => CreateOrderNotifier(ordersRepository),
+    );

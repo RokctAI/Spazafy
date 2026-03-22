@@ -20,7 +20,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
 class WebViewPage extends StatefulWidget {
   final String url;
   final WebViewController? preloadedController;

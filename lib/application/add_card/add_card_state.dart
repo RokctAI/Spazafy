@@ -2,7 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'add_card_state.freezed.dart';
 
-
 @freezed
 class AddCardState with _$AddCardState {
   const factory AddCardState({

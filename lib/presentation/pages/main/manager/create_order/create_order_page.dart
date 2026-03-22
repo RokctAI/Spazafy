@@ -12,16 +12,17 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 @RoutePage()
 class ManagerCreateOrderPage extends ConsumerStatefulWidget {
   const ManagerCreateOrderPage({super.key});
 
   @override
-  ConsumerState<ManagerCreateOrderPage> createState() => _ManagerCreateOrderPageState();
+  ConsumerState<ManagerCreateOrderPage> createState() =>
+      _ManagerCreateOrderPageState();
 }
 
-class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage> {
+class _ManagerCreateOrderPageState
+    extends ConsumerState<ManagerCreateOrderPage> {
   late RefreshController _categoryController;
   late RefreshController _productController;
 
@@ -249,8 +250,7 @@ class _ManagerCreateOrderPageState extends ConsumerState<ManagerCreateOrderPage>
                                         refreshController: _productController,
                                         categoryId: index == 1
                                             ? null
-                                            : currentCategories[index - 2]
-                                                  .id,
+                                            : currentCategories[index - 2].id,
                                         isRefresh: true,
                                         cartStocks: ref
                                             .watch(orderCartProvider)

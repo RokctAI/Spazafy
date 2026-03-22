@@ -15,7 +15,6 @@ import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 // ignore_for_file: deprecated_member_use
 
-
 @RoutePage()
 class DriverNotificationListPage extends ConsumerStatefulWidget {
   const DriverNotificationListPage({super.key});
@@ -60,7 +59,10 @@ class _DriverNotificationListPageState
                   CommonAppBar(
                     child: Text(
                       AppHelpers.getTranslation(TrKeys.notifications),
-                      style: AppStyle.interSemi(size: 18, color: AppStyle.black),
+                      style: AppStyle.interSemi(
+                        size: 18,
+                        color: AppStyle.black,
+                      ),
                     ),
                   ),
                   Expanded(
@@ -191,7 +193,10 @@ class _DriverNotificationListPageState
                   children: [
                     Text(
                       '${notification.client?.firstname ?? ''} ${notification.client?.lastname?.substring(0, 1) ?? ''}.',
-                      style: AppStyle.interSemi(size: 16, color: AppStyle.black),
+                      style: AppStyle.interSemi(
+                        size: 16,
+                        color: AppStyle.black,
+                      ),
                     ),
                     15.horizontalSpace,
                     Container(
@@ -217,7 +222,10 @@ class _DriverNotificationListPageState
                       '${notification.body ?? notification.title}',
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
-                      style: AppStyle.interRegular(size: 14, color: AppStyle.black),
+                      style: AppStyle.interRegular(
+                        size: 14,
+                        color: AppStyle.black,
+                      ),
                     ),
                   ),
                   if (notification.client == null)
@@ -239,7 +247,10 @@ class _DriverNotificationListPageState
                 Jiffy.parseFromDateTime(
                   notification.createdAt ?? DateTime.now(),
                 ).fromNow(),
-                style: AppStyle.interRegular(size: 12, color: AppStyle.textGrey),
+                style: AppStyle.interRegular(
+                  size: 12,
+                  color: AppStyle.textGrey,
+                ),
               ),
             ],
           ),

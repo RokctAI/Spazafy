@@ -8,8 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
-
 class ShopAvatar extends StatelessWidget {
   final double size;
   final double padding;

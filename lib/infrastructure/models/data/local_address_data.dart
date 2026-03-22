@@ -43,15 +43,14 @@ class LocalAddressData {
     LocalLocation? location,
     bool? isDefault,
     bool? isSelected,
-  }) =>
-      LocalAddressData(
-        id: id ?? _id,
-        title: title ?? _title,
-        address: address ?? _address,
-        location: location ?? _location,
-        isDefault: isDefault ?? _default,
-        isSelected: isSelected ?? _isSelected,
-      );
+  }) => LocalAddressData(
+    id: id ?? _id,
+    title: title ?? _title,
+    address: address ?? _address,
+    location: location ?? _location,
+    isDefault: isDefault ?? _default,
+    isSelected: isSelected ?? _isSelected,
+  );
 
   String? get id => _id;
 
@@ -66,12 +65,12 @@ class LocalAddressData {
   bool? get isSelected => _isSelected;
 
   Map<String, dynamic> toJson() => {
-        'address': _address,
-        'location': '${_location?.latitude},${_location?.longitude}',
-        'active': 1,
-        if (_title?.isNotEmpty ?? false) 'title': _title,
-        'default': (_isSelected ?? false) ? 1 : 0,
-      };
+    'address': _address,
+    'location': '${_location?.latitude},${_location?.longitude}',
+    'active': 1,
+    if (_title?.isNotEmpty ?? false) 'title': _title,
+    'default': (_isSelected ?? false) ? 1 : 0,
+  };
 
   @override
   String toString() {

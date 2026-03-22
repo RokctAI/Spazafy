@@ -2,7 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'home_appbar_state.dart';
 
-
 class HomeAppbarNotifier extends StateNotifier<HomeAppbarState> {
   HomeAppbarNotifier() : super(const HomeAppbarState());
 

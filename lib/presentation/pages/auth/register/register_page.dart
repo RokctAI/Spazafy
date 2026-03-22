@@ -430,7 +430,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                             22.verticalSpace,
                             if (widget.role == null)
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: [
                                   if (isIOS)
                                     SocialButton(
@@ -448,7 +449,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                                           ? FlutterRemix.mail_fill
                                           : FlutterRemix.phone_fill,
                                       onPressed: toggleSignUpType,
-                                      title: currentSignUpType == SignUpType.phone
+                                      title:
+                                          currentSignUpType == SignUpType.phone
                                           ? "Email"
                                           : "Phone",
                                     ),

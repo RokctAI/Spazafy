@@ -15,7 +15,6 @@ import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/edit_car.dart';
 
-
 class EditProfileModal extends ConsumerStatefulWidget {
   const EditProfileModal({super.key});
 

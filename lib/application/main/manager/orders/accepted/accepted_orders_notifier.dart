@@ -6,14 +6,13 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;
   bool _hasMore = true;
 
   AcceptedOrdersNotifier(this._ordersRepository)
-      : super(const AcceptedOrdersState());
+    : super(const AcceptedOrdersState());
 
   Future<void> fetchAcceptedOrders({
     RefreshController? refreshController,
@@ -62,7 +61,7 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         _page--;
         if (_page == 0) {
           state = state.copyWith(isLoading: false);
@@ -76,4 +75,3 @@ class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
     );
   }
 }
-

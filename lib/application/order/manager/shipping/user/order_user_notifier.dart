@@ -8,8 +8,6 @@ import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
-
 class OrderUserNotifier extends StateNotifier<OrderUserState> {
   final UsersInterface _usersRepository;
   String _query = '';
@@ -18,7 +16,7 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
   Timer? _timer;
 
   OrderUserNotifier(this._usersRepository)
-      : super(OrderUserState(userTextController: TextEditingController()));
+    : super(OrderUserState(userTextController: TextEditingController()));
 
   void addCreatedUser(UserData? user) {
     List<UserData> users = List.from(state.users);
@@ -40,8 +38,10 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         '${selectedUser.firstname ?? AppHelpers.getTranslation(TrKeys.noName)} ${selectedUser.lastname ?? ''}';
   }
 
-  void setPhone(String value){
-    state=state.copyWith(selectedUser: state.selectedUser?.copyWith(phone: value));
+  void setPhone(String value) {
+    state = state.copyWith(
+      selectedUser: state.selectedUser?.copyWith(phone: value),
+    );
   }
 
   Future<void> _search({RefreshController? refreshController}) async {
@@ -59,28 +59,22 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         state = state.copyWith(users: users, isLoading: false);
         _hasMore = users.length >= 14;
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> search user fail $fail');
         state = state.copyWith(isLoading: false);
       },
     );
   }
 
-  void setQuery({
-    RefreshController? refreshController,
-    required String text,
-  }) {
+  void setQuery({RefreshController? refreshController, required String text}) {
     if (text.trim() == _query) {
       return;
     }
     _query = text.trim();
     _timer?.cancel();
-    _timer = Timer(
-      const Duration(milliseconds: 300),
-      () {
-        _search(refreshController: refreshController);
-      },
-    );
+    _timer = Timer(const Duration(milliseconds: 300), () {
+      _search(refreshController: refreshController);
+    });
   }
 
   Future<void> fetchMoreUsers({RefreshController? refreshController}) async {
@@ -101,7 +95,7 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         state = state.copyWith(users: users);
         refreshController?.loadComplete();
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         refreshController?.loadFailed();
         debugPrint('===> fetch more users fail $fail');
       },
@@ -123,7 +117,7 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         refreshController?.refreshCompleted();
         refreshController?.resetNoData();
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> refresh users fail $fail');
         refreshController?.refreshFailed();
       },
@@ -167,11 +161,10 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         }
         _hasMore = users.length >= 14;
       },
-      failure: (error,status) {
+      failure: (error, status) {
         debugPrint('====> fetch users fail $error');
         state = state.copyWith(isLoading: false);
       },
     );
   }
 }
-

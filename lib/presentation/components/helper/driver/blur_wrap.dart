@@ -2,7 +2,6 @@ import 'package:rokctapp/dummy_types.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-
 class BlurWrap extends StatelessWidget {
   final Widget child;
   final BorderRadius radius;

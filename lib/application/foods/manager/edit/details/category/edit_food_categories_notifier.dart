@@ -4,15 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_food_categories_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class EditFoodCategoriesNotifier
     extends StateNotifier<EditFoodCategoriesState> {
   EditFoodCategoriesNotifier()
-      : super(
-          EditFoodCategoriesState(
-            categoriesController: TextEditingController(),
-          ),
-        );
+    : super(
+        EditFoodCategoriesState(categoriesController: TextEditingController()),
+      );
 
   void setCategories(List<CategoryData> list) {
     List<CategoryData> categories = List.from(list);

@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/driver/buttons_bouncing_effect.dart';
 
-
 class SelectItem extends StatelessWidget {
   final VoidCallback onTap;
   final bool isActive;

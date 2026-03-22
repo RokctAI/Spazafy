@@ -12,8 +12,6 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 // ignore_for_file: deprecated_member_use
 
-
-
 class BarCodeScreen extends StatelessWidget {
   const BarCodeScreen({super.key});
 
@@ -48,7 +46,10 @@ class BarCodeScreen extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     text: AppHelpers.getTranslation(TrKeys.youWillShow),
-                    style: AppStyle.interRegular(size: 14.sp, letterSpacing: -0.3),
+                    style: AppStyle.interRegular(
+                      size: 14.sp,
+                      letterSpacing: -0.3,
+                    ),
                     children: [
                       TextSpan(
                         text: AppHelpers.getTranslation(TrKeys.qRCode),

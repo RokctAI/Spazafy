@@ -7,8 +7,6 @@ import 'foods_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
-
 class FoodsNotifier extends StateNotifier<FoodsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;
@@ -40,7 +38,7 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
         refreshController?.loadComplete();
         state = state.copyWith(foods: products);
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch more products fail $fail');
         refreshController?.loadFailed();
       },
@@ -68,7 +66,7 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
         _hasMore = products.length >= 10;
         state = state.copyWith(foods: products, isLoading: false);
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch category products fail $fail');
         state = state.copyWith(foods: [], isLoading: false);
       },
@@ -94,7 +92,7 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
         _hasMore = products.length >= 10;
         state = state.copyWith(isLoading: false, foods: products);
       },
-      failure: (fail,status) {
+      failure: (fail, status) {
         debugPrint('===> fetch products fail $fail');
         state = state.copyWith(isLoading: false);
       },
@@ -118,7 +116,7 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
         _hasMore = products.length >= 10;
         refreshController?.refreshCompleted();
       },
-      failure: (error,status) {
+      failure: (error, status) {
         debugPrint('===> initial fetch products fail $error');
         refreshController?.refreshFailed();
       },
@@ -161,22 +159,16 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
       if (_timer?.isActive ?? false) {
         _timer?.cancel();
       }
-      _timer = Timer(
-        const Duration(milliseconds: 500),
-        () {
-          fetchProducts(isRefresh: true, categoryId: categoryId);
-        },
-      );
+      _timer = Timer(const Duration(milliseconds: 500), () {
+        fetchProducts(isRefresh: true, categoryId: categoryId);
+      });
     } else {
       if (_timer?.isActive ?? false) {
         _timer?.cancel();
       }
-      _timer = Timer(
-        const Duration(milliseconds: 500),
-        () {
-          fetchProducts(isRefresh: true, categoryId: categoryId);
-        },
-      );
+      _timer = Timer(const Duration(milliseconds: 500), () {
+        fetchProducts(isRefresh: true, categoryId: categoryId);
+      });
     }
   }
 
@@ -226,7 +218,7 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
           refreshController?.loadComplete();
         }
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         debugPrint('====> fetch products fail $failure');
         _page--;
         if (_page == 0) {
@@ -241,4 +233,3 @@ class FoodsNotifier extends StateNotifier<FoodsState> {
     );
   }
 }
-

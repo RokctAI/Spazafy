@@ -4,7 +4,6 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'promo_code_notifier.dart';
 import 'promo_code_state.dart';
 
-
 final promoCodeProvider =
     StateNotifierProvider<PromoCodeNotifier, PromoCodeState>(
       (ref) => PromoCodeNotifier(ordersRepository),

@@ -8,7 +8,6 @@ import 'package:rokctapp/infrastructure/models/response/draw_routing_response.da
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 
-
 class DrawRepository implements DrawRepositoryFacade {
   @override
   Future<ApiResult<DrawRouting>> getRouting({

@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class UnderlinedTextField extends StatelessWidget {
   final String label;
   final String? hint;
@@ -94,14 +93,16 @@ class UnderlinedTextField extends StatelessWidget {
             ),
             contentPadding: REdgeInsets.symmetric(horizontal: 0, vertical: 8),
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppStyle.shimmerBase),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: AppStyle.shimmerBase),
             ),
             errorBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: AppStyle.red),
             ),
             border: const UnderlineInputBorder(),
             focusedErrorBorder: const UnderlineInputBorder(),
-            disabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppStyle.shimmerBase),
+            disabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: AppStyle.shimmerBase),
             ),
             focusedBorder: const UnderlineInputBorder(),
           ),

@@ -3,7 +3,6 @@ import 'package:shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class ImageShimmer extends StatelessWidget {
   final double size;
   final bool isCircle;

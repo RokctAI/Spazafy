@@ -1,4 +1,5 @@
 import 'package:rokctapp/dummy_types.dart';
+
 class LanguageData {
   LanguageData({
     String? id,
@@ -44,16 +45,15 @@ class LanguageData {
     bool? isDefault,
     bool? active,
     String? img,
-  }) =>
-      LanguageData(
-        id: id ?? _id,
-        title: title ?? _title,
-        locale: locale ?? _locale,
-        backward: backward ?? _backward,
-        isDefault: isDefault ?? _default,
-        active: active ?? _active,
-        img: img ?? _img,
-      );
+  }) => LanguageData(
+    id: id ?? _id,
+    title: title ?? _title,
+    locale: locale ?? _locale,
+    backward: backward ?? _backward,
+    isDefault: isDefault ?? _default,
+    active: active ?? _active,
+    img: img ?? _img,
+  );
 
   String? get id => _id;
 

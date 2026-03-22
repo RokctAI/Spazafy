@@ -5,12 +5,11 @@ import 'edit_addon_units_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 
-
 class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
   final CatalogInterface _catalogRepository;
 
   EditAddonUnitsNotifier(this._catalogRepository)
-      : super(EditAddonUnitsState(unitController: TextEditingController()));
+    : super(EditAddonUnitsState(unitController: TextEditingController()));
 
   void setAddonUnit(UnitData? unit) {
     state = state.copyWith(foodUnit: unit);
@@ -30,8 +29,11 @@ class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
         if (state.foodUnit != null) {
           units.insert(0, state.foodUnit!);
         }
-        state =
-            state.copyWith(units: units, activeIndex: 0, foodUnit: units[0]);
+        state = state.copyWith(
+          units: units,
+          activeIndex: 0,
+          foodUnit: units[0],
+        );
         state.unitController?.text = units[0].translation?.title ?? '';
       } else {
         state = state.copyWith(
@@ -79,7 +81,7 @@ class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
               units[state.activeIndex].translation?.title ?? '';
         }
       },
-      failure: (failure,status) {
+      failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         debugPrint('====> fetch units fail $failure');
       },
@@ -95,4 +97,3 @@ class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
     state.unitController?.text = newUnit.translation?.title ?? '';
   }
 }
-

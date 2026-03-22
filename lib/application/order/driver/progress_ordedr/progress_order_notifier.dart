@@ -8,7 +8,6 @@ import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
 
-
 final orderRepository = driverOrderRepository;
 
 class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
