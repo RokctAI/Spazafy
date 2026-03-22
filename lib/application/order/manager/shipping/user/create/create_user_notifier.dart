@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'create_user_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 
 class CreateUserNotifier extends StateNotifier<CreateUserState> {
   final UsersInterface _usersRepository;

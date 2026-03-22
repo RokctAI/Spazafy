@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/language.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/language.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/language.dart' hide LanguageData;
 import 'package:rokctapp/app_constants.dart';
 
 class AiTranslationRequest {

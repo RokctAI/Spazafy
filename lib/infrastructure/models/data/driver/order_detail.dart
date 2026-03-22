@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/push_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/push_data.dart' hide AddressModel;
 import 'product_data.dart';
 
 class OrderDetailModel {

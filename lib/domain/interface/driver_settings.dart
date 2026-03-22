@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/models/response/gallery_upload_response.
 import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/domain/handlers/driver/handlers.dart';
+import 'package:rokctapp/domain/handlers/driver/handlers.dart' hide ApiResult;
 
 abstract class SettingsRepository {
   Future<ApiResult<GalleryUploadResponse>> uploadImage(

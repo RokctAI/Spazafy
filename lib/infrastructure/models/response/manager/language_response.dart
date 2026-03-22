@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/driver/language.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/language.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/language.dart' hide LanguageData;
 
 class LanguagesResponse {
   LanguagesResponse({List<LanguageData>? data}) {

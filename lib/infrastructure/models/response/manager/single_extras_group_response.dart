@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/group.dart' hide Group;
 
 class SingleExtrasGroupResponse {
   SingleExtrasGroupResponse({Group? data}) {

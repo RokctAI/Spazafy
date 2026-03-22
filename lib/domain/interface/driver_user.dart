@@ -9,7 +9,7 @@ import 'package:rokctapp/infrastructure/models/response/driver_show_response.dar
 import 'package:rokctapp/infrastructure/models/response/driver/delivery_zone_paginate.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
-import 'package:rokctapp/domain/handlers/driver/handlers.dart';
+import 'package:rokctapp/domain/handlers/driver/handlers.dart' hide ApiResult;
 
 abstract class UserRepository {
   Future<ApiResult<DeliveryResponse>> getDriverDetails();

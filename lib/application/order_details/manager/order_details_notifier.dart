@@ -2,12 +2,12 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_data.dart';
-import 'package:rokctapp/infrastructure/models/data/order_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart' hide OrderData;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_details_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' hide OrderStatus;
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {

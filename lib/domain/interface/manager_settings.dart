@@ -10,7 +10,7 @@ import 'package:rokctapp/infrastructure/models/response/multi_gallery_upload_res
 import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' hide UploadType;
 
 abstract class SettingsInterface {
   Future<ApiResult<GalleryUploadResponse>> uploadImage(

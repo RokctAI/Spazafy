@@ -12,7 +12,7 @@ import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'package:rokctapp/infrastructure/models/data/cashback_model.dart';
 import 'package:rokctapp/infrastructure/models/response/coupon_response.dart';
-import 'package:rokctapp/infrastructure/models/response/order_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/order_paginate_response.dart' hide OrderPaginateResponse;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
 class MockOrdersRepository implements OrdersRepositoryFacade {

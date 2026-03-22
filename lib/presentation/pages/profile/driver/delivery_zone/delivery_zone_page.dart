@@ -22,7 +22,7 @@ class DriverDeliveryZonePage extends ConsumerStatefulWidget {
       _DriverDeliveryZonePageState();
 }
 
-class _DeliveryZonePageState extends ConsumerState<DeliveryZonePage> {
+class _DriverDeliveryZonePageState extends ConsumerState<DriverDeliveryZonePage> {
   @override
   void initState() {
     super.initState();

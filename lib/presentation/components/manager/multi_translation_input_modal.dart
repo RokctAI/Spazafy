@@ -11,7 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:collection/collection.dart';
 import 'package:rokctapp/application/ai_translation/manager/ai_translation_provider.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart' hide LanguageData;
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';

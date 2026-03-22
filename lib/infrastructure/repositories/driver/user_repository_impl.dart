@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/domain/handlers/driver/handlers.dart';
+import 'package:rokctapp/domain/handlers/driver/handlers.dart' hide ApiResult;
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 

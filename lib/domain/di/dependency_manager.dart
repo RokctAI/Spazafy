@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/repositories/manager/notification_repository.dart';
 import 'package:rokctapp/domain/interface/loans.dart';
 import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/domain/interface/wallet.dart';
@@ -86,27 +87,27 @@ Future<void> setUpDependencies() async {
   final role = user?.role ?? '';
 
   if (role == 'deliveryman') {
-    getIt.registerSingleton<driver_interfaces.SettingsRepository>(
-      driver_repos.SettingsRepositoryImpl(),
+    getIt.registerSingleton<SettingsRepositoryFacade>(
+      SettingsRepository(),
     );
-    getIt.registerSingleton<driver_interfaces.AuthRepository>(AuthRepository());
-    getIt.registerSingleton<driver_interfaces.UserRepository>(
+    getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
+    getIt.registerSingleton<UserRepositoryFacade>(
       driver_repos.UserRepositoryImpl(),
     );
-    getIt.registerSingleton<driver_interfaces.DrawRepository>(
-      driver_repos.DrawRepositoryImpl(),
+    getIt.registerSingleton<DrawRepositoryFacade>(
+      DrawRepository(),
     );
     getIt.registerSingleton<driver_interfaces.OrdersRepositoryFacade>(
-      driver_repos.OrdersRepository(),
+      OrdersRepository(),
     );
     getIt.registerSingleton<driver_interfaces.ParcelRepositoryFacade>(
-      driver_repos.ParcelRepository(),
+      ParcelRepository(),
     );
     getIt.registerSingleton<driver_interfaces.NotificationRepositoryFacade>(
-      driver_repos.NotificationRepositoryImpl(),
+      NotificationRepositoryImpl(),
     );
   } else if (role == 'seller') {
-    getIt.registerSingleton<manager_interfaces.AuthInterface>(AuthRepository());
+    getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
     getIt.registerSingleton<manager_interfaces.TableInterface>(
       manager_repos.TableRepository(),
     );
@@ -129,11 +130,11 @@ Future<void> setUpDependencies() async {
       manager_repos.ProductsRepository(),
     );
     getIt.registerSingleton<manager_interfaces.NotificationInterface>(
-      manager_repos.NotificationRepository(),
+      NotificationRepositoryImpl(),
     );
-    getIt.registerSingleton<PaymentsFacade>(manager_repos.PaymentRepository());
+    getIt.registerSingleton<PaymentsFacade>(PaymentsRepository());
     getIt.registerSingleton<SubscriptionsFacade>(
-      manager_repos.SubscriptionsRepository(),
+      SubscriptionsRepository(),
     );
   }
 
@@ -212,10 +213,10 @@ final deliveryPointsRepository = getIt.get<DeliveryPointsRepositoryFacade>();
 
 // Driver specific accessors
 final driverSettingsRepository = getIt
-    .get<driver_interfaces.SettingsRepository>();
-final driverAuthRepository = getIt.get<driver_interfaces.AuthRepository>();
-final driverUserRepository = getIt.get<driver_interfaces.UserRepository>();
-final driverDrawRepository = getIt.get<driver_interfaces.DrawRepository>();
+    .get<SettingsRepositoryFacade>();
+final driverAuthRepository = getIt.get<AuthRepositoryFacade>();
+final driverUserRepository = getIt.get<UserRepositoryFacade>();
+final driverDrawRepository = getIt.get<DrawRepositoryFacade>();
 final driverOrderRepository = getIt
     .get<driver_interfaces.OrdersRepositoryFacade>();
 final driverParcelRepository = getIt
@@ -225,7 +226,7 @@ final driverNotificationRepo = getIt
 final appRouter = getIt.get<AppRouter>();
 
 // Manager specific accessors
-final managerAuthRepository = getIt.get<manager_interfaces.AuthInterface>();
+final managerAuthRepository = getIt.get<AuthRepositoryFacade>();
 final managerShopsRepository = getIt.get<manager_interfaces.ShopsInterface>();
 final managerTableRepository = getIt.get<manager_interfaces.TableInterface>();
 final managerUsersRepository = getIt.get<manager_interfaces.UsersInterface>();

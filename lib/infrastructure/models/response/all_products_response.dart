@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart' hide Translation;
 
 class AllProductsResponse {
   DateTime? timestamp;

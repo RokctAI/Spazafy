@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models.dart' hide LanguageData, SettingsData;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rokctapp/infrastructure/models/response/driver_show_response.dart';
 import 'package:rokctapp/infrastructure/services/constants/storage_keys.dart';

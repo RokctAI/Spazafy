@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/help_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
-import 'package:rokctapp/infrastructure/models/data/meta.dart';
+import 'package:rokctapp/infrastructure/models/data/meta.dart' hide Meta;
 
 class OrderPaginateResponse {
   OrderPaginateResponse({List<OrderActiveModel>? data, Meta? meta}) {

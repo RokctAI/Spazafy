@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/statistics/driver/statistics_provider.dart';
-import 'package:rokctapp/application/statistics/driver/statistics_state.dart';
+import 'package:rokctapp/application/statistics/driver/statistics_state.dart' hide StatisticsState;
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
