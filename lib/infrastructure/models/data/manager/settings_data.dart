@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class SettingsData {
   SettingsData({String? id, String? key, String? value}) {
     _id = id;

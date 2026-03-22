@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'dart:convert';
 import 'package:crypto/crypto.dart' as crypto;
 import 'package:flutter/material.dart';

@@ -1,11 +1,12 @@
+import 'package:rokctapp/dummy_types.dart';
 export 'home/home_provider.dart';
 export 'splash/splash_provider.dart';
 export './push_order/driver/push_order_provider.dart';
 export './story/driver/story_provider.dart';
 export './app/driver/app_provider.dart';
 export './profile/driver/provider/profile_edit_provider.dart';
-export './profile/driver/provider/profile_image_provider.dart';
-export './profile/driver/provider/profile_settings_provider.dart';
+// export './profile/driver/provider/profile_image_provider.dart';
+// export './profile/driver/provider/profile_settings_provider.dart';
 export 'driver/driver_provider.dart';
 export 'auth/register/register_provider.dart';
 export 'auth/login/login_provider.dart';

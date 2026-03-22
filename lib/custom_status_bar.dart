@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:battery_plus/battery_plus.dart';

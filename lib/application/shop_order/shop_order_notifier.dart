@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';

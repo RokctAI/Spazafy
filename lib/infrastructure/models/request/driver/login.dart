@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class LoginModel {
   final String? email;
   final String? password;

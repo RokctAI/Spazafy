@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/user.dart';

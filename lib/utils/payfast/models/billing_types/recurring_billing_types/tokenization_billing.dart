@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class TokenizationBilling {
   String? itemName;
   String? amount;

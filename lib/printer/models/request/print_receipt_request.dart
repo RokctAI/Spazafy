@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class PrintReceiptRequest {
   final String shopName;
   final String address1;

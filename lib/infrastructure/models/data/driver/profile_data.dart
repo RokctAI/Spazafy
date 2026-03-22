@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'currency_data.dart';
 import 'shop_data.dart';

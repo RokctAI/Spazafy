@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/data/poi_data.dart';
 // poi_data_provider.dart

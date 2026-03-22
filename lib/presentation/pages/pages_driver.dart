@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 export 'package:rokctapp/presentation/pages/initial/splash/splash_page.dart';
 export 'package:rokctapp/presentation/pages/initial/no_connection/no_connection_page.dart' show NoConnectionPage, DriverNoConnectionPage;
 export 'package:rokctapp/presentation/pages/auth/login/login_screen.dart';

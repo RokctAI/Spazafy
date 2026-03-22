@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class PayFastCredentials {
   //final String merchantId;
   final String merchantKey;

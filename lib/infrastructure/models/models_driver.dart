@@ -1,5 +1,6 @@
+import 'package:rokctapp/dummy_types.dart';
 export './data/driver/chart.dart';
-export './data/driver/user_data.dart';
+// export './data/driver/user_data.dart';
 export 'response/login_response.dart';
 export 'response/profile_response.dart';
 export 'response/register_response.dart';
@@ -20,7 +21,7 @@ export 'response/gallery_upload_response.dart';
 export 'response/driver_show_response.dart';
 export './data/driver/request_model_data.dart';
 export './response/driver/statistics_response.dart';
-export 'response/notification_response.dart';
+// export 'response/notification_response.dart';
 export 'data/count_of_notifications_data.dart';
 export './data/driver/local_location_data.dart';
 export './response/driver/request_model_response.dart';

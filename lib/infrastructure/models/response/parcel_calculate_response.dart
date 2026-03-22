@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 // ignore_for_file: file_names
 
 class ParcelCalculateResponse {

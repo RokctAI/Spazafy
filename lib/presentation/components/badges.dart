@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 export 'badges/ad_badge.dart';
 export 'badges/new_tag.dart';
 export 'badges/empty_badge.dart';

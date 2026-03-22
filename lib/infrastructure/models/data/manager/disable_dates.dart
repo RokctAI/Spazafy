@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 List<DisableDates> disableDatesFromJson(dynamic str) =>
     List<DisableDates>.from(str.map((x) => DisableDates.fromJson(x)));
 

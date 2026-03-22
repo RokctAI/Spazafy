@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'all_categories_notifier.dart';
 import 'all_categories_state.dart';

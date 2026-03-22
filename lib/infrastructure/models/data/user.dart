@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'address_new_data.dart';
 
 class UserModel {

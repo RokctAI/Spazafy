@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class TableBookingData {
   String? id;
   String? bookingId;

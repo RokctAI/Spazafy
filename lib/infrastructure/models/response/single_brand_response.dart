@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
 
 class SingleBrandResponse {

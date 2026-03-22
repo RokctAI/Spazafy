@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -56,7 +57,7 @@ class CommonImage extends StatelessWidget {
                     return Container(
                       height: height?.r,
                       width: width?.r,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: AppStyle.shimmerBase,
                       ),
                       child: (width ?? 0) > 58
@@ -146,7 +147,7 @@ class CommonImage extends StatelessWidget {
               progressIndicatorBuilder: (_, _, _) => Container(
                 height: height?.r,
                 width: width?.r,
-                decoration: const BoxDecoration(color: AppStyle.shimmerBase),
+                decoration: BoxDecoration(color: AppStyle.shimmerBase),
                 child: (width ?? 0) > 58
                     ? Center(
                         child: Text(

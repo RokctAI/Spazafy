@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/response/parcel_paginate_response.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';

@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'product_data.dart';
 
 class CartProductData {

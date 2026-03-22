@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class Links {
   Links({String? first, String? last, dynamic prev, String? next}) {
     _first = first;

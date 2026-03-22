@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/extension.dart';
 import 'group.dart';
 import 'extras.dart';

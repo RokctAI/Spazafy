@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/printer/models/data/printer_device.dart';
 
 class UsbConnector {

@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -153,14 +154,12 @@ class _EditCarState extends ConsumerState<EditCar> {
                         vertical: 8,
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
-                      enabledBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(color: AppStyle.shimmerBase),
+                      enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppStyle.shimmerBase),
                       ),
                       errorBorder: InputBorder.none,
                       border: const UnderlineInputBorder(),
                       focusedErrorBorder: const UnderlineInputBorder(),
-                      disabledBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(color: AppStyle.shimmerBase),
+                      disabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppStyle.shimmerBase),
                       ),
                       focusedBorder: const UnderlineInputBorder(),
                     ),

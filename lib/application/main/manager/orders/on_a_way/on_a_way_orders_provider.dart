@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'on_a_way_orders_state.dart';
 import 'on_a_way_orders_notifier.dart';

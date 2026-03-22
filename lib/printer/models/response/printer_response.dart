@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class PrinterResponse {
   final bool isSuccess;
   final String? message;

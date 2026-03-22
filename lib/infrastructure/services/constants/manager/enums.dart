@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 enum OrderStatus {
   newOrder,
   cooking,

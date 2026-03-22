@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class GenerateImageModel {
   GenerateImageModel({this.created, this.data});
 

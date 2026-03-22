@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 
 class GroupExtrasResponse {

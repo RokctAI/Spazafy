@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
@@ -42,7 +43,7 @@ class IngredientPage extends StatelessWidget {
                     ],
                   ),
                   16.verticalSpace,
-                  const Divider(color: AppStyle.shimmerBase),
+                  Divider(color: AppStyle.shimmerBase),
                 ],
               );
             },
@@ -75,7 +76,7 @@ class IngredientPage extends StatelessWidget {
                     ],
                   ),
                   16.verticalSpace,
-                  const Divider(color: AppStyle.shimmerBase),
+                  Divider(color: AppStyle.shimmerBase),
                 ],
               );
             },

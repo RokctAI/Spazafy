@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 // ignore_for_file: prefer_null_aware_operators
 
 class DeliveryResponse {

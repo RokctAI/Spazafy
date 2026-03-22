@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/models/data/review_data.dart';
 import 'package:rokctapp/infrastructure/models/data/user.dart';
 import 'package:rokctapp/infrastructure/models/response/parcel_response.dart';

@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 class SearchProductModel {

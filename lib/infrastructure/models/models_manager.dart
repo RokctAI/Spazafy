@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 export 'data/manager/user.dart';
 export 'data/manager/login.dart';
 export 'data/manager/chart.dart';

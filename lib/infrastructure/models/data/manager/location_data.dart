@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class LocationData {
   LocationData({double? latitude, double? longitude}) {
     _latitude = latitude;

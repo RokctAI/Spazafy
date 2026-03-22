@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 export 'manager/title_icon.dart';
 export 'manager/select_item.dart';
 export 'manager/orders_item.dart';

@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class TrKeys {
   TrKeys._();
 
@@ -331,7 +332,6 @@ class TrKeys {
   static const String theme = 'theme';
   static const String notifications = 'notifications';
   static const String filter = 'filter';
-  static const String clearAll = 'clear_all';
   static const String categories = 'categories';
   static const String brands = 'brands';
   static const String apply = 'apply';
@@ -692,7 +692,6 @@ class TrKeys {
   static const String productCategory = 'product_category';
   static const String productTitle = 'product.title';
   static const String addProduct = 'add_product';
-  static const String payment = 'payment';
   static const String cashPayment = 'cash_payment_when_the_courier_arrives';
   static const String selectedTimeAndDay = 'selected_time_and_day';
   static const String approximateTime = 'spproximate_preparation_time: ';
@@ -800,7 +799,6 @@ class TrKeys {
   static const String areYouSureToDelete = 'are_you_sure_to_delete';
   static const String noData = 'no_data';
   static const String demoLoginPassword = 'demo_login_password';
-  static const String emailOrPhone = 'email_or_phone';
   static const String pleaseTryAgain = 'your_request_rejected_please_try_again';
   static const String defaultWord = 'default';
   static const String enterTitle = 'enter.title';

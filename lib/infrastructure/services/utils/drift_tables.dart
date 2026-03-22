@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:drift/drift.dart';
 
 @DataClassName('ProductEntity')

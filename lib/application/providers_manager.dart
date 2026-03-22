@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 export 'main/manager/main_provider.dart';
 export 'foods/manager/foods_provider.dart';
 export 'order/manager/order_provider.dart';

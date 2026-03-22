@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class TableModel {
   final String name;
   final int chairCount;

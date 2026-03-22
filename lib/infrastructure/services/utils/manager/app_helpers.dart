@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:dio/dio.dart';
 import 'package:ftoast/ftoast.dart';
 import 'package:intl/intl.dart';

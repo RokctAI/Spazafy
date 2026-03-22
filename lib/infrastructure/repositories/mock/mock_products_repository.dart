@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/interface/products.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';

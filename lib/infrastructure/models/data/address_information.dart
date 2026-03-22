@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class AddressInformation {
   AddressInformation({String? address, String? house, String? floor}) {
     _address = address;

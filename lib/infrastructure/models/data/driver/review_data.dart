@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'user_data.dart';
 
 class ReviewData {

@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/manager/table_bookings_data.dart';
 // To parse this JSON data, do

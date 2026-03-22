@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'dart:convert';
 
 HelpModel helpModelFromJson(String str) => HelpModel.fromJson(json.decode(str));

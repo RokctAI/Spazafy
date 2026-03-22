@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 
 class AppValidators {

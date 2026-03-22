@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/driver/request_model_data.dart';
 import 'parcel_response.dart';

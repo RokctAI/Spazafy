@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -285,7 +286,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                   ),
                                 ),
                                 16.verticalSpace,
-                                const Divider(color: AppStyle.shimmerBase),
+                                Divider(color: AppStyle.shimmerBase),
                                 16.verticalSpace,
                                 TitleAndPrice(
                                   title: AppHelpers.getTranslation(

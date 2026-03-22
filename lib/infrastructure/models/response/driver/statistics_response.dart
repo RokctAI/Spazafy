@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 class StatisticsResponse {
   StatisticsResponse({this.timestamp, this.status, this.message, this.data});
 

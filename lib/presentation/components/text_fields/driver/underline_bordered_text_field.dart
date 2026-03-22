@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -86,14 +87,12 @@ class UnderlinedBorderTextField extends StatelessWidget {
             labelStyle: AppStyle.interNormal(size: 14.sp, color: AppStyle.black),
             contentPadding: REdgeInsets.symmetric(horizontal: 0, vertical: 8),
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            enabledBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: AppStyle.shimmerBase),
+            enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppStyle.shimmerBase),
             ),
             errorBorder: InputBorder.none,
             border: const UnderlineInputBorder(),
             focusedErrorBorder: const UnderlineInputBorder(),
-            disabledBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: AppStyle.shimmerBase),
+            disabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: AppStyle.shimmerBase),
             ),
             focusedBorder: const UnderlineInputBorder(),
           ),

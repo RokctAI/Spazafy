@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'dart:math' show cos, sqrt, asin;
 
 double calculateDistance(double lat1, double lon1, double lat2, double lon2) {

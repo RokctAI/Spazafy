@@ -1,3 +1,4 @@
+import 'package:rokctapp/dummy_types.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 class DefaultFirebaseOptions {
