@@ -1,4 +1,4 @@
-import 'package:charts_flutter/flutter.dart';
+import 'package:community_charts_flutter/community_charts_flutter.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'statistics_state.freezed.dart';

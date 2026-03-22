@@ -69,7 +69,7 @@ dependencies:
   remixicon: ^1.0.1
   google_sign_in: any
   sign_in_with_apple: any
-  charts_flutter: any
+  community_charts_flutter: any
   flutter_staggered_grid_view: any
   image_cropper: any
   map_launcher: any
