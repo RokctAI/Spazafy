@@ -29,7 +29,7 @@ class BluetoothConnector {
           .map(
             (e) => PrinterDevice(
               name: e.name,
-              address: e.macPrinterAddress,
+              address: e.macAdress,
               type: PrinterType.bluetooth,
             ),
           )
