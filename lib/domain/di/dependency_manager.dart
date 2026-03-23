@@ -71,6 +71,7 @@ import 'package:rokctapp/domain/handlers/driver/handlers.dart'
     as driver_handlers
     hide ApiResult;
 import 'package:rokctapp/domain/interface/interfaces.dart' as driver_interfaces;
+import 'package:rokctapp/domain/interface/interfaces.dart' as manager_interfaces;
 import 'package:rokctapp/infrastructure/repositories/driver/repositories.dart'
     as driver_repos;
 import 'package:rokctapp/domain/interface/manager_payment.dart';
