@@ -133,7 +133,7 @@ Future<void> setUpDependencies() async {
       manager_repos.ProductsRepository(),
     );
     getIt.registerSingleton<manager_interfaces.NotificationInterface>(
-      NotificationRepositoryImpl(),
+      manager_repos.NotificationRepository(),
     );
     getIt.registerSingleton<PaymentsFacade>(manager_repos.PaymentRepository());
     getIt.registerSingleton<SubscriptionsFacade>(
