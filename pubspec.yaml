@@ -106,6 +106,12 @@ dependencies:
   firebase_remote_config: ^5.5.0
   crypto: ^3.0.7
   package_info_plus: ^9.0.0
+  community_charts_flutter: ^1.0.4
+  percent_indicator: ^4.2.5
+  image_cropper: ^12.0.0
+  map_launcher: ^4.5.0
+  google_sign_in: ^7.2.0
+  sign_in_with_apple: ^7.0.1
 
 dev_dependencies:
   flutter_test:
