@@ -1,5 +1,5 @@
 param (
-    [Parameter(Mandatory=$false)] [string]$LegacyPackage = ""
+    [Parameter(Mandatory = $false)] [string]$LegacyPackage = ""
 )
 
 # 1. Detect the actual target package name from pubspec.yaml
@@ -14,9 +14,9 @@ if (Test-Path "pubspec.yaml") {
 
 # 2. Build the replacement map
 $replacements = @{
-    'package:foodyman' = "package:$targetPackage"
+    'package:foodyman'       = "package:$targetPackage"
     'package:vendorfoodyman' = "package:$targetPackage"
-    'package:driver' = "package:$targetPackage"
+    'package:driver'         = "package:$targetPackage"
 }
 
 # If the current pubspec name is NOT rokctapp, we want to replace it too
@@ -58,7 +58,8 @@ $backendPath = "C:\Users\sinya\Desktop\RokctAI\paas"
 if (Test-Path "$PSScriptRoot\validate_endpoints.ps1") {
     Write-Host "`n--- Validating & Auto-Fixing API Endpoints ---" -ForegroundColor Cyan
     powershell -ExecutionPolicy Bypass -File "$PSScriptRoot\validate_endpoints.ps1" -BackendRoot $backendPath -AppRoot $PSScriptRoot -AutoFix
-} else {
+}
+else {
     Write-Host "`n[WARN] validate_endpoints.ps1 not found, skipping API validation." -ForegroundColor Yellow
 }
 
@@ -66,6 +67,7 @@ if (Test-Path "$PSScriptRoot\validate_endpoints.ps1") {
 if (Test-Path "$PSScriptRoot\generate_postman.ps1") {
     Write-Host "`n--- Generating Postman Collection ---" -ForegroundColor Cyan
     powershell -ExecutionPolicy Bypass -File "$PSScriptRoot\generate_postman.ps1"
-} else {
+}
+else {
     Write-Host "`n[WARN] generate_postman.ps1 not found, skipping Postman generation." -ForegroundColor Yellow
 }

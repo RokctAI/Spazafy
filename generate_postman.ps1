@@ -6,7 +6,7 @@ param(
 
 Write-Host "Scanning directory: $LibDir" -ForegroundColor Cyan
 
-if (-Not (Test-Path $LibDir)) {
+if (-not (Test-Path $LibDir)) {
     Write-Host "Error: Directory '$LibDir' not found." -ForegroundColor Red
     # using return instead of exit to not break the powershell session if sourced
     return
@@ -47,7 +47,8 @@ foreach ($file in $files) {
         $callEndMatch = [regex]::Match($followingText, "(?s).*?;")
         if ($callEndMatch.Success) {
             $callText = $callEndMatch.Value
-        } else {
+        }
+        else {
             $callText = $followingText
         }
 
@@ -75,11 +76,11 @@ foreach ($file in $files) {
 
         $endpointObj = [PSCustomObject]@{
             Method = $method
-            Url = $url
+            Url    = $url
             Module = $module
-            Name = $name
+            Name   = $name
             Params = $params
-            File = $file.Name
+            File   = $file.Name
         }
 
         $endpoints += $endpointObj
@@ -102,8 +103,8 @@ foreach ($group in $groupedEndpoints) {
         $requestObj = @{
             method = $ep.Method
             header = @()
-            url = @{
-                raw = "{{baseUrl}}$($ep.Url)"
+            url    = @{
+                raw  = "{{baseUrl}}$($ep.Url)"
                 host = @("{{baseUrl}}")
                 path = $ep.Url.TrimStart("/").Split("/")
             }
@@ -118,8 +119,8 @@ foreach ($group in $groupedEndpoints) {
         # Add body if it's POST/PUT
         if (($ep.Method -eq "POST" -or $ep.Method -eq "PUT") -and $ep.Params -ne "{}") {
             $requestObj.body = @{
-                mode = "raw"
-                raw = $ep.Params
+                mode    = "raw"
+                raw     = $ep.Params
                 options = @{
                     raw = @{
                         language = "json"
@@ -129,8 +130,8 @@ foreach ($group in $groupedEndpoints) {
         }
 
         $itemObj = @{
-            name = $ep.Name
-            request = $requestObj
+            name     = $ep.Name
+            request  = $requestObj
             response = @()
         }
 
@@ -147,17 +148,17 @@ foreach ($group in $groupedEndpoints) {
 
 # Construct the full Postman collection
 $collection = @{
-    info = @{
-        name = "Spazafy Auto-Generated API Collection"
+    info     = @{
+        name        = "Spazafy Auto-Generated API Collection"
         description = "Automatically extracted API endpoints from Flutter source code."
-        schema = "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+        schema      = "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     }
-    item = $folders
+    item     = $folders
     variable = @(
         @{
-            key = "baseUrl"
+            key   = "baseUrl"
             value = "https://your-frappe-backend.com"
-            type = "string"
+            type  = "string"
         }
     )
 }
