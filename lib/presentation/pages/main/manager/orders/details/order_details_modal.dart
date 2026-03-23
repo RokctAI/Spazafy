@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -490,14 +491,16 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
                             state.isUpdating
                                 ? const Loading()
                                 : CustomButton(
-                                    title: help.AppHelpers.changeStatusButtonText(
-                                      state.order?.status,
-                                    ),
+                                    title:
+                                        help.AppHelpers.changeStatusButtonText(
+                                          state.order?.status,
+                                        ),
                                     onPressed: () => event.updateOrderStatus(
                                       context,
-                                      status: help.AppHelpers.getUpdatableStatus(
-                                        state.order?.status,
-                                      ),
+                                      status:
+                                          help.AppHelpers.getUpdatableStatus(
+                                            state.order?.status,
+                                          ),
                                       success: () {
                                         Navigator.pop(context);
                                         switch (help.AppHelpers.getOrderStatus(

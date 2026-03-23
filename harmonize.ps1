@@ -1,5 +1,5 @@
 param (
-    [Parameter(Mandatory=$false)] [string]$PackageName = ""
+    [Parameter(Mandatory = $false)] [string]$PackageName = ""
 )
 
 # 1. Detect target package name (Priority: Parameter > Pubspec > Default)
@@ -54,10 +54,12 @@ Get-ChildItem -Path "lib" -Recurse -Filter *.dart | ForEach-Object {
                     $isPackageImport = $true
                     $innerPath = $rawPath.Replace("package:$targetPackage/", "").Replace('/', [System.IO.Path]::DirectorySeparatorChar)
                     $targetAbsPath = Join-Path $libPath $innerPath
-                } elseif ($rawPath.Contains("../")) {
+                }
+                elseif ($rawPath.Contains("../")) {
                     try {
                         $targetAbsPath = [System.IO.Path]::GetFullPath([System.IO.Path]::Combine($currentDir, $rawPath))
-                    } catch { }
+                    }
+                    catch { }
                 }
 
                 if ($targetAbsPath) {
@@ -67,7 +69,8 @@ Get-ChildItem -Path "lib" -Recurse -Filter *.dart | ForEach-Object {
                             $relativeToLib = $targetAbsPath.Substring($libPath.Length).TrimStart([System.IO.Path]::DirectorySeparatorChar).Replace('\', '/')
                             $newLine = "import 'package:$targetPackage/$relativeToLib';"
                         }
-                    } else {
+                    }
+                    else {
                         $brokenCount++
                         $logEntry = "[$($file.FullName):$($i+1)] Missing: $rawPath"
                         $logEntry | Add-Content -Path $logFile
@@ -90,6 +93,7 @@ Get-ChildItem -Path "lib" -Recurse -Filter *.dart | ForEach-Object {
 if ($brokenCount -eq 0) {
     if (Test-Path $logFile) { Remove-Item $logFile }
     Write-Host "`n✨ Harmonization complete for $($targetPackage). No broken paths." -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "`n⚠️ Harmonization complete for $($targetPackage), but found $brokenCount broken paths. See $logFile" -ForegroundColor Yellow
 }

@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -146,13 +147,14 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                               size: 18.r,
                             ),
                             readOnly: true,
-                            onTap: () => help.AppHelpers.showCustomModalBottomSheet(
-                              paddingTop:
-                                  MediaQuery.paddingOf(context).top + 100.h,
-                              context: context,
-                              modal: const EditFoodCategoriesModal(),
-                              isDarkMode: false,
-                            ),
+                            onTap: () =>
+                                help.AppHelpers.showCustomModalBottomSheet(
+                                  paddingTop:
+                                      MediaQuery.paddingOf(context).top + 100.h,
+                                  context: context,
+                                  modal: const EditFoodCategoriesModal(),
+                                  isDarkMode: false,
+                                ),
                             validator: AppValidators.emptyCheck,
                           ),
                           24.verticalSpace,
@@ -166,32 +168,36 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                               size: 18.r,
                             ),
                             readOnly: true,
-                            onTap: () => help.AppHelpers.showCustomModalBottomSheet(
-                              paddingTop:
-                                  MediaQuery.paddingOf(context).top + 250.h,
-                              context: context,
-                              modal: const EditFoodUnitsModal(),
-                              isDarkMode: false,
-                            ),
+                            onTap: () =>
+                                help.AppHelpers.showCustomModalBottomSheet(
+                                  paddingTop:
+                                      MediaQuery.paddingOf(context).top + 250.h,
+                                  context: context,
+                                  modal: const EditFoodUnitsModal(),
+                                  isDarkMode: false,
+                                ),
                             validator: AppValidators.emptyCheck,
                           ),
                           24.verticalSpace,
                           UnderlinedTextField(
                             textController: kitchenState.kitchenController,
-                            label: help.AppHelpers.getTranslation(TrKeys.kitchen),
+                            label: help.AppHelpers.getTranslation(
+                              TrKeys.kitchen,
+                            ),
                             suffixIcon: Icon(
                               FlutterRemix.arrow_down_s_line,
                               color: AppStyle.blackColor,
                               size: 18.r,
                             ),
                             readOnly: true,
-                            onTap: () => help.AppHelpers.showCustomModalBottomSheet(
-                              paddingTop:
-                                  MediaQuery.paddingOf(context).top + 250.h,
-                              context: context,
-                              modal: const EditFoodKitchensModal(),
-                              isDarkMode: false,
-                            ),
+                            onTap: () =>
+                                help.AppHelpers.showCustomModalBottomSheet(
+                                  paddingTop:
+                                      MediaQuery.paddingOf(context).top + 250.h,
+                                  context: context,
+                                  modal: const EditFoodKitchensModal(),
+                                  isDarkMode: false,
+                                ),
                           ),
                           24.verticalSpace,
                           UnderlinedTextField(
@@ -242,7 +248,8 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           ),
                           24.verticalSpace,
                           UnderlinedTextField(
-                            label: '${help.AppHelpers.getTranslation(TrKeys.tax)}*',
+                            label:
+                                '${help.AppHelpers.getTranslation(TrKeys.tax)}*',
                             inputType: TextInputType.number,
                             textInputAction: TextInputAction.next,
                             initialText: state.product?.tax == null
@@ -256,7 +263,9 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                help.AppHelpers.getTranslation(TrKeys.showProduct),
+                                help.AppHelpers.getTranslation(
+                                  TrKeys.showProduct,
+                                ),
                                 style: AppStyle.interNormal(
                                   size: 14,
                                   letterSpacing: -0.3,
@@ -293,13 +302,14 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                     );
                                     foodsEvent.updateSingleProduct(product);
                                   },
-                                  failed: () => help.AppHelpers.showCheckTopSnackBar(
-                                    context,
-                                    text: help.AppHelpers.getTranslation(
-                                      TrKeys.updateFailed,
-                                    ),
-                                    type: SnackBarType.error,
-                                  ),
+                                  failed: () =>
+                                      help.AppHelpers.showCheckTopSnackBar(
+                                        context,
+                                        text: help.AppHelpers.getTranslation(
+                                          TrKeys.updateFailed,
+                                        ),
+                                        type: SnackBarType.error,
+                                      ),
                                 );
                               }
                             },

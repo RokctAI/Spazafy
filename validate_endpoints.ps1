@@ -11,7 +11,7 @@ $errorLog = Join-Path $AppRoot "endpoint_errors.log"
 "API Endpoint Error Log - Generated $(Get-Date)" | Out-File $errorLog -Encoding utf8
 
 $apps = @{
-    "paas" = Join-Path $BackendBase "paas\paas"
+    "paas"  = Join-Path $BackendBase "paas\paas"
     "rcore" = Join-Path $BackendBase "rcore\rcore"
 }
 $libPath = Join-Path $AppRoot "lib"
@@ -112,7 +112,7 @@ foreach ($endpoint in $endpointsUsed.Keys) {
             $content = Get-Content $fullPath
             for ($i = 0; $i -lt $content.Count; $i++) {
                 if ($content[$i] -match "def\s+$funcName\(") {
-                    for ($j = [Math]::Max(0, $i-3); $j -lt $i; $j++) {
+                    for ($j = [Math]::Max(0, $i - 3); $j -lt $i; $j++) {
                         if ($content[$j] -match "@frappe\.whitelist") { return $true }
                     }
                 }
@@ -131,12 +131,12 @@ foreach ($endpoint in $endpointsUsed.Keys) {
     $foundLocations = @()
     foreach ($searchAppName in $apps.Keys) {
         $searchAppPath = $apps[$searchAppName]
-        Get-ChildItem -Path $searchAppPath -Recurse -Filter *.py -Exclude "venv","node_modules" | ForEach-Object {
+        Get-ChildItem -Path $searchAppPath -Recurse -Filter *.py -Exclude "venv", "node_modules" | ForEach-Object {
             $pyFile = $_
             $pyContent = Get-Content $pyFile.FullName
             for ($i = 0; $i -lt $pyContent.Count; $i++) {
                 if ($pyContent[$i] -match "def\s+$funcName\(") {
-                    for ($j = [Math]::Max(0, $i-3); $j -lt $i; $j++) {
+                    for ($j = [Math]::Max(0, $i - 3); $j -lt $i; $j++) {
                         if ($pyContent[$j] -match "@frappe\.whitelist") {
                             $relToApp = $pyFile.FullName.Substring($searchAppPath.Length + 1)
                             $dotPath = "$searchAppName." + $relToApp.Replace(".py", "").Replace("\", ".").Replace(".__init__", "") + "." + $funcName
@@ -177,17 +177,21 @@ foreach ($endpoint in $endpointsUsed.Keys) {
             }
             Write-Host "  [FIXED] $endpoint -> $trueHome" -ForegroundColor Green
             $fixedCount++
-        } elseif ($AutoFix -and -not $isSafeMatch) {
+        }
+        elseif ($AutoFix -and -not $isSafeMatch) {
             Log-Error "Risky Match Blocked: '$funcName' found at $trueHome, but domains ($oldMod -> $newMod) mismatched!"
             $errors++
-        } else {
+        }
+        else {
             Log-Error "Mismatch: $endpoint found at $trueHome. Use -AutoFix to standardize."
             $errors++
         }
-    } elseif ($foundLocations.Length -gt 1) {
+    }
+    elseif ($foundLocations.Length -gt 1) {
         Log-Error "Ambiguous: $funcName found in multiple modules ($($foundLocations -join ', '))."
         $errors++
-    } else {
+    }
+    else {
         Log-Error "Not Found: Function '$funcName' not found or whitelisted in any app (Endpoint: $endpoint)."
         $errors++
     }
@@ -196,6 +200,7 @@ foreach ($endpoint in $endpointsUsed.Keys) {
 Write-Host ""
 if ($errors -eq 0) {
     Write-Host "Success! $valid already correct, $fixedCount fixed. See $errorLog for details." -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "Finished with $errors unresolved issues. $fixedCount fixed. Check $errorLog." -ForegroundColor Yellow
 }

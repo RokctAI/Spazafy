@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -164,17 +165,23 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
                               tabs: [
                                 Tab(
                                   child: Text(
-                                    help.AppHelpers.getTranslation(TrKeys.foods),
+                                    help.AppHelpers.getTranslation(
+                                      TrKeys.foods,
+                                    ),
                                   ),
                                 ),
                                 Tab(
                                   child: Text(
-                                    help.AppHelpers.getTranslation(TrKeys.addons),
+                                    help.AppHelpers.getTranslation(
+                                      TrKeys.addons,
+                                    ),
                                   ),
                                 ),
                                 Tab(
                                   child: Text(
-                                    help.AppHelpers.getTranslation(TrKeys.extras),
+                                    help.AppHelpers.getTranslation(
+                                      TrKeys.extras,
+                                    ),
                                   ),
                                 ),
                               ],

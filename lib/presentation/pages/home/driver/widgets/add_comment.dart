@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,9 @@ class AddComment extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         children: [
-          TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.addComment)),
+          TitleAndIcon(
+            title: help.AppHelpers.getTranslation(TrKeys.addComment),
+          ),
           24.verticalSpace,
           UnderlinedBorderTextField(
             label: help.AppHelpers.getTranslation(TrKeys.comment),

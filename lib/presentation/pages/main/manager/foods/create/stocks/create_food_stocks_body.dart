@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
@@ -140,7 +141,9 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
                         failed: () => help.AppHelpers.showCheckTopSnackBar(
                           context,
                           type: SnackBarType.error,
-                          text: help.AppHelpers.getTranslation(TrKeys.updateFailed),
+                          text: help.AppHelpers.getTranslation(
+                            TrKeys.updateFailed,
+                          ),
                         ),
                       );
                     }

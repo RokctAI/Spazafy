@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -34,7 +35,9 @@ class _RateCustomerState extends State<RateCustomer> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.evaluation)),
+          TitleAndIcon(
+            title: help.AppHelpers.getTranslation(TrKeys.evaluation),
+          ),
           Text(
             help.AppHelpers.getTranslation(TrKeys.yourFeedbackService),
             style: AppStyle.interNormal(size: 14.sp),

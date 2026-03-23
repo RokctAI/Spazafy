@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,9 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.foods)),
+                TitleAndIcon(
+                  title: help.AppHelpers.getTranslation(TrKeys.foods),
+                ),
                 16.verticalSpace,
                 Container(
                   decoration: BoxDecoration(

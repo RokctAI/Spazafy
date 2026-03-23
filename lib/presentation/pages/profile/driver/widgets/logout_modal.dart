@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:auto_route/auto_route.dart';
@@ -52,7 +53,9 @@ class LogoutModal extends StatelessWidget {
                       return CustomButton(
                         background: AppStyle.red,
                         textColor: AppStyle.white,
-                        title: help.AppHelpers.getTranslation(TrKeys.deleteAccount),
+                        title: help.AppHelpers.getTranslation(
+                          TrKeys.deleteAccount,
+                        ),
                         onPressed: () {
                           ref
                               .read(profileSettingsProvider.notifier)

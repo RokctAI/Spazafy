@@ -31,19 +31,25 @@ import 'package:rokctapp/infrastructure/repositories/brands_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/cart_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/categories_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/currencies_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/draw_repository.dart' hide DrawRepository;
-import 'package:rokctapp/infrastructure/repositories/draw_repository.dart' as cust_draw;
+import 'package:rokctapp/infrastructure/repositories/draw_repository.dart'
+    hide DrawRepository;
+import 'package:rokctapp/infrastructure/repositories/draw_repository.dart'
+    as cust_draw;
 import 'package:rokctapp/infrastructure/repositories/gallery_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/notification_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/orders_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/parcel_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/payments_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/products_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/settings_repository.dart' hide SettingsRepository;
-import 'package:rokctapp/infrastructure/repositories/settings_repository.dart' as cust_settings;
+import 'package:rokctapp/infrastructure/repositories/settings_repository.dart'
+    hide SettingsRepository;
+import 'package:rokctapp/infrastructure/repositories/settings_repository.dart'
+    as cust_settings;
 import 'package:rokctapp/infrastructure/repositories/shops_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/user_repository.dart' hide UserRepository;
-import 'package:rokctapp/infrastructure/repositories/user_repository.dart' as cust_user;
+import 'package:rokctapp/infrastructure/repositories/user_repository.dart'
+    hide UserRepository;
+import 'package:rokctapp/infrastructure/repositories/user_repository.dart'
+    as cust_user;
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/repositories/loans_repository.dart';
@@ -62,7 +68,8 @@ import 'package:rokctapp/infrastructure/repositories/mock/mock_orders_repository
 import 'package:rokctapp/infrastructure/repositories/mock/mock_address_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/mock/mock_brands_repository.dart';
 import 'package:rokctapp/domain/handlers/driver/handlers.dart'
-    as driver_handlers hide ApiResult;
+    as driver_handlers
+    hide ApiResult;
 import 'package:rokctapp/domain/interface/interfaces.dart' as driver_interfaces;
 import 'package:rokctapp/infrastructure/repositories/driver/repositories.dart'
     as driver_repos;
@@ -84,7 +91,9 @@ Future<void> setUpDependencies() async {
   final role = user?.role ?? '';
 
   if (role == 'deliveryman') {
-    getIt.registerSingleton<SettingsRepositoryFacade>(cust_settings.SettingsRepository());
+    getIt.registerSingleton<SettingsRepositoryFacade>(
+      cust_settings.SettingsRepository(),
+    );
     getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
     getIt.registerSingleton<driver_interfaces.UserRepository>(
       driver_repos.UserRepositoryImpl(),
@@ -126,7 +135,9 @@ Future<void> setUpDependencies() async {
       NotificationRepositoryImpl(),
     );
     getIt.registerSingleton<PaymentsFacade>(manager_repos.PaymentRepository());
-    getIt.registerSingleton<SubscriptionsFacade>(manager_repos.SubscriptionsRepository());
+    getIt.registerSingleton<SubscriptionsFacade>(
+      manager_repos.SubscriptionsRepository(),
+    );
   }
 
   // Common/Customer dependencies
@@ -144,7 +155,9 @@ Future<void> setUpDependencies() async {
     getIt.registerSingleton<AddressRepositoryFacade>(MockAddressRepository());
     getIt.registerSingleton<BrandsRepositoryFacade>(MockBrandsRepository());
   } else {
-    getIt.registerSingleton<SettingsRepositoryFacade>(cust_settings.SettingsRepository());
+    getIt.registerSingleton<SettingsRepositoryFacade>(
+      cust_settings.SettingsRepository(),
+    );
     getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
     getIt.registerSingleton<ShopsRepositoryFacade>(ShopsRepository());
     getIt.registerSingleton<ProductsRepositoryFacade>(ProductsRepository());

@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
@@ -163,7 +164,9 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    help.AppHelpers.getTranslation(TrKeys.order),
+                                    help.AppHelpers.getTranslation(
+                                      TrKeys.order,
+                                    ),
                                     style: AppStyle.interSemi(
                                       size: 13,
                                       color: AppStyle.blackColor,
@@ -176,7 +179,9 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                               Column(
                                 children: [
                                   Text(
-                                    help.AppHelpers.getTranslation(TrKeys.price),
+                                    help.AppHelpers.getTranslation(
+                                      TrKeys.price,
+                                    ),
                                     style: AppStyle.interSemi(
                                       size: 13,
                                       color: AppStyle.blackColor,
@@ -202,7 +207,9 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    help.AppHelpers.getTranslation(TrKeys.products),
+                                    help.AppHelpers.getTranslation(
+                                      TrKeys.products,
+                                    ),
                                     style: AppStyle.interSemi(
                                       size: 13,
                                       color: AppStyle.blackColor,

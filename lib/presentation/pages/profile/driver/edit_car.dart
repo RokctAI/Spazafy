@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/utils/img_service.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'dart:io';
@@ -193,7 +194,9 @@ class _EditCarState extends ConsumerState<EditCar> {
                       flex: 2,
                       child: UnderlinedBorderTextField(
                         readOnly: help.AppHelpers.getDriverCantEdit(),
-                        label: help.AppHelpers.getTranslation(TrKeys.stateNumber),
+                        label: help.AppHelpers.getTranslation(
+                          TrKeys.stateNumber,
+                        ),
                         textController: number,
                         onChanged: (s) {
                           event.setPhone("");
@@ -300,7 +303,9 @@ class _EditCarState extends ConsumerState<EditCar> {
                               ),
                               16.verticalSpace,
                               Text(
-                                help.AppHelpers.getTranslation(TrKeys.carPicture),
+                                help.AppHelpers.getTranslation(
+                                  TrKeys.carPicture,
+                                ),
                                 style: AppStyle.interSemi(size: 14.sp),
                               ),
                               Text(

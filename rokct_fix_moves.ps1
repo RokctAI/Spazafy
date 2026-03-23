@@ -35,7 +35,8 @@ foreach ($line in $statusLines) {
         if (Test-Path $path -PathType Container) {
             $files = Get-ChildItem -Path $path -Recurse -Filter *.dart
             foreach ($f in $files) { $newPaths += $f.FullName.Replace((Get-Location).Path, "").TrimStart('\') }
-        } else {
+        }
+        else {
             if ($path.EndsWith(".dart")) { $newPaths += $path }
         }
     }

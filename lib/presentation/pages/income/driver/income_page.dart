@@ -1,5 +1,6 @@
 import 'package:rokctapp/application/restaurant/manager/income/statistics/statistics_state.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -9,8 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/statistics/driver/statistics_provider.dart';
-import 'package:rokctapp/application/statistics/driver/statistics_state.dart' hide StatisticsState;
-import 'package:rokctapp/infrastructure/services/utils/driver/services.dart' hide AppHelpers;
+import 'package:rokctapp/application/statistics/driver/statistics_state.dart'
+    hide StatisticsState;
+import 'package:rokctapp/infrastructure/services/utils/driver/services.dart'
+    hide AppHelpers;
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'app_bar_screen.dart';
@@ -203,7 +206,9 @@ class _DriverIncomePageState extends ConsumerState<DriverIncomePage>
   Column _chart(StatisticsState state) {
     return Column(
       children: [
-        TitleAndIcon(title: help.AppHelpers.getTranslation(TrKeys.earningsChart)),
+        TitleAndIcon(
+          title: help.AppHelpers.getTranslation(TrKeys.earningsChart),
+        ),
         16.verticalSpace,
         Container(
           width: double.infinity,
