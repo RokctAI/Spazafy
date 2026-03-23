@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/models/response/payments_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/maksekeskus_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
