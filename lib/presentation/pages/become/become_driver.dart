@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'dart:io';
@@ -11,7 +12,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rokctapp/application/profile/driver/notifier/profile_edit_notifier.dart';
 import 'package:rokctapp/application/profile/driver/notifier/profile_image_notifier.dart';
-import 'package:rokctapp/infrastructure/services/utils/driver/services.dart' hide AppHelpers;
+import 'package:rokctapp/infrastructure/services/utils/driver/services.dart'
+    hide AppHelpers;
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.dart';
@@ -149,7 +151,9 @@ class _DriverBecomeDriverPageState
                         Padding(
                           padding: REdgeInsets.all(24),
                           child: CustomButton(
-                            title: help.AppHelpers.getTranslation(TrKeys.logout),
+                            title: help.AppHelpers.getTranslation(
+                              TrKeys.logout,
+                            ),
                             onPressed: () =>
                                 help.AppHelpers.showCustomModalBottomSheet(
                                   context: context,
@@ -218,8 +222,7 @@ class _DriverBecomeDriverPageState
                                     ),
                                     errorBorder: InputBorder.none,
                                     border: UnderlineInputBorder(),
-                                    focusedErrorBorder:
-                                        UnderlineInputBorder(),
+                                    focusedErrorBorder: UnderlineInputBorder(),
                                     disabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: AppStyle.shimmerBase,
@@ -440,7 +443,9 @@ class _DriverBecomeDriverPageState
                                       ? AppStyle.primary
                                       : AppStyle.shadowColor,
                                   isLoading: state.isLoading,
-                                  title: help.AppHelpers.getTranslation(TrKeys.save),
+                                  title: help.AppHelpers.getTranslation(
+                                    TrKeys.save,
+                                  ),
                                   onPressed: () {
                                     if ((dropdownValue?.isNotEmpty ?? false) &&
                                         brand.text.isNotEmpty &&
@@ -453,9 +458,10 @@ class _DriverBecomeDriverPageState
                                         length.text.isNotEmpty) {
                                       event.createCarInfo(
                                         context: context,
-                                        type: help.AppHelpers.getTranslationReverse(
-                                          dropdownValue!,
-                                        ),
+                                        type:
+                                            help.AppHelpers.getTranslationReverse(
+                                              dropdownValue!,
+                                            ),
                                         brand: brand.text,
                                         model: model.text,
                                         number: number.text,

@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -197,7 +198,8 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                         label: 'Note',
                                         validator: (p0) {
                                           if (p0?.isEmpty ?? true) {
-                                            return help.AppHelpers.getTranslation(
+                                            return help
+                                                .AppHelpers.getTranslation(
                                               TrKeys.cannotBeEmpty,
                                             );
                                           }
@@ -213,9 +215,10 @@ class _DeliverBottomSheetScreenState extends State<DeliverBottomSheetScreen> {
                                       children: [
                                         Expanded(
                                           child: CustomButton(
-                                            title: help.AppHelpers.getTranslation(
-                                              TrKeys.cancel,
-                                            ),
+                                            title:
+                                                help.AppHelpers.getTranslation(
+                                                  TrKeys.cancel,
+                                                ),
                                             background: AppStyle.red,
                                             textColor: AppStyle.white,
                                             onPressed: () {

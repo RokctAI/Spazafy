@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
@@ -98,7 +99,9 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
                           ),
                           10.verticalSpace,
                           CustomButton(
-                            title: help.AppHelpers.getTranslation(TrKeys.register),
+                            title: help.AppHelpers.getTranslation(
+                              TrKeys.register,
+                            ),
                             onPressed: () {
                               help.AppHelpers.showCustomModalBottomSheetWithoutIosIcon(
                                 context: context,

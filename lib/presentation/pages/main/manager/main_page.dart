@@ -1,5 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -155,7 +156,9 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
                               index: 1,
                               selectIcon: FlutterRemix.file_list_2_fill,
                               unSelectIcon: FlutterRemix.file_list_2_line,
-                              label: help.AppHelpers.getTranslation(TrKeys.orders),
+                              label: help.AppHelpers.getTranslation(
+                                TrKeys.orders,
+                              ),
                             ),
                             BottomNavigatorItem(
                               isScrolling: state.isScrolling,
@@ -164,7 +167,9 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
                               currentIndex: state.selectedIndex,
                               selectIcon: FlutterRemix.restaurant_fill,
                               unSelectIcon: FlutterRemix.restaurant_line,
-                              label: help.AppHelpers.getTranslation(TrKeys.products),
+                              label: help.AppHelpers.getTranslation(
+                                TrKeys.products,
+                              ),
                             ),
                             _profileItem(() {
                               event.selectIndex(3);

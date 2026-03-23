@@ -1,5 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -38,7 +39,9 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
             checkYourNetwork: () {
               help.AppHelpers.showCheckTopSnackBar(
                 context,
-                help.AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+                help.AppHelpers.getTranslation(
+                  TrKeys.checkYourNetworkConnection,
+                ),
               );
             },
             setImage: (url) {
@@ -165,7 +168,9 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                           ),
                           24.verticalSpace,
                           UnderlinedBorderTextField(
-                            label: help.AppHelpers.getTranslation(TrKeys.lastname),
+                            label: help.AppHelpers.getTranslation(
+                              TrKeys.lastname,
+                            ),
                             initialText: editState.lastname,
                             onChanged: editNotifier.setLastname,
                             descriptionText: editState.isLastnameError
@@ -217,9 +222,10 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                                       "+${editState.phone.replaceAll('+', "")}",
                                 ).number,
                                 enabled: editState.isPhoneEditable,
-                                invalidNumberMessage: help.AppHelpers.getTranslation(
-                                  TrKeys.phoneNumberIsNotValid,
-                                ),
+                                invalidNumberMessage:
+                                    help.AppHelpers.getTranslation(
+                                      TrKeys.phoneNumberIsNotValid,
+                                    ),
                                 inputFormatters: [
                                   FilteringTextInputFormatter.digitsOnly,
                                 ],
@@ -273,7 +279,9 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                           ),
                           24.verticalSpace,
                           UnderlinedBorderTextField(
-                            label: help.AppHelpers.getTranslation(TrKeys.password),
+                            label: help.AppHelpers.getTranslation(
+                              TrKeys.password,
+                            ),
                             obscure: editState.showPassword,
                             onChanged: editNotifier.setPassword,
                             isError: editState.isPasswordError,

@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
@@ -43,7 +44,8 @@ class _CreateUserModalState extends State<CreateUserModal> {
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
-                      label: '${help.AppHelpers.getTranslation(TrKeys.firstname)}*',
+                      label:
+                          '${help.AppHelpers.getTranslation(TrKeys.firstname)}*',
                       inputType: TextInputType.text,
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,
@@ -52,7 +54,8 @@ class _CreateUserModalState extends State<CreateUserModal> {
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
-                      label: '${help.AppHelpers.getTranslation(TrKeys.lastname)}*',
+                      label:
+                          '${help.AppHelpers.getTranslation(TrKeys.lastname)}*',
                       inputType: TextInputType.text,
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,
@@ -93,7 +96,9 @@ class _CreateUserModalState extends State<CreateUserModal> {
                             },
                             failed: () => help.AppHelpers.showCheckTopSnackBar(
                               context,
-                              text: help.AppHelpers.getTranslation(TrKeys.failed),
+                              text: help.AppHelpers.getTranslation(
+                                TrKeys.failed,
+                              ),
                               type: SnackBarType.error,
                             ),
                           );

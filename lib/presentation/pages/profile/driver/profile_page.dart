@@ -1,6 +1,7 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
@@ -125,7 +126,9 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  help.AppHelpers.getTranslation(TrKeys.balance),
+                                  help.AppHelpers.getTranslation(
+                                    TrKeys.balance,
+                                  ),
                                   style: AppStyle.interNormal(
                                     size: 12.sp,
                                     letterSpacing: -0.3,
@@ -153,7 +156,9 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  help.AppHelpers.getTranslation(TrKeys.lastProfit),
+                                  help.AppHelpers.getTranslation(
+                                    TrKeys.lastProfit,
+                                  ),
                                   style: AppStyle.interNormal(
                                     size: 12.sp,
                                     letterSpacing: -0.3,
@@ -198,7 +203,9 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              help.AppHelpers.getTranslation(TrKeys.deliveredOrder),
+                              help.AppHelpers.getTranslation(
+                                TrKeys.deliveredOrder,
+                              ),
                               style: AppStyle.interNormal(
                                 size: 12.sp,
                                 letterSpacing: -0.3,
@@ -270,7 +277,9 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                   // _notifications(context),
                   20.verticalSpace,
                   SectionsItem(
-                    title: help.AppHelpers.getTranslation(TrKeys.profileSettings),
+                    title: help.AppHelpers.getTranslation(
+                      TrKeys.profileSettings,
+                    ),
                     icon: FlutterRemix.user_settings_line,
                     onTap: () {
                       help.AppHelpers.showCustomModalBottomSheet(
@@ -370,7 +379,9 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                   ),
                   if (!AppConstants.isDemo)
                     SectionsItem(
-                      title: help.AppHelpers.getTranslation(TrKeys.deleteAccount),
+                      title: help.AppHelpers.getTranslation(
+                        TrKeys.deleteAccount,
+                      ),
                       icon: FlutterRemix.logout_box_r_line,
                       onTap: () {
                         help.AppHelpers.showCustomModalBottomSheet(

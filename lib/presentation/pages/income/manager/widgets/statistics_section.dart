@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -131,7 +132,9 @@ class StatisticsSection extends StatelessWidget {
                           ),
                           8.horizontalSpace,
                           StatisticsItem(
-                            title: help.AppHelpers.getTranslation(TrKeys.newOrders),
+                            title: help.AppHelpers.getTranslation(
+                              TrKeys.newOrders,
+                            ),
                             count: state.countData?.totalNewCount ?? 0,
                             percentage: state.countData?.totalCount == 0
                                 ? 0

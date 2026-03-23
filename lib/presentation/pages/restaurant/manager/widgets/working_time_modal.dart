@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
@@ -93,10 +94,14 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                     children: [
                       const ModalDrag(),
                       TitleAndIcon(
-                        title: help.AppHelpers.getTranslation(TrKeys.workingHours),
+                        title: help.AppHelpers.getTranslation(
+                          TrKeys.workingHours,
+                        ),
                       ),
                       Text(
-                        help.AppHelpers.getTranslation(TrKeys.enterOpeningHours),
+                        help.AppHelpers.getTranslation(
+                          TrKeys.enterOpeningHours,
+                        ),
                         style: AppStyle.interNormal(
                           size: 14,
                           color: AppStyle.blackColor,
@@ -131,7 +136,9 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            help.AppHelpers.getTranslation(TrKeys.setBusinessDay),
+                            help.AppHelpers.getTranslation(
+                              TrKeys.setBusinessDay,
+                            ),
                             style: AppStyle.interNormal(
                               size: 16,
                               letterSpacing: -0.3,

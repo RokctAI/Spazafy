@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
@@ -40,7 +41,9 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                 children: [
                   const ModalDrag(),
                   TitleAndIcon(
-                    title: help.AppHelpers.getTranslation(TrKeys.addNewCategory),
+                    title: help.AppHelpers.getTranslation(
+                      TrKeys.addNewCategory,
+                    ),
                   ),
                   24.verticalSpace,
                   Consumer(
@@ -112,7 +115,8 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                                   16.verticalSpace,
                                   if (help.AppHelpers.getAppPhone() != null)
                                     CustomButton(
-                                      title: help.AppHelpers.getAppPhone() ?? "",
+                                      title:
+                                          help.AppHelpers.getAppPhone() ?? "",
                                       onPressed: () {
                                         final Uri launchUri = Uri(
                                           scheme: 'tel',
