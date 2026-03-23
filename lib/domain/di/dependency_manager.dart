@@ -217,7 +217,8 @@ final loansRepository = getIt.get<LoansRepositoryFacade>();
 final deliveryPointsRepository = getIt.get<DeliveryPointsRepositoryFacade>();
 
 // Driver specific accessors
-final driverSettingsRepository = getIt.get<driver_interfaces.SettingsRepository>();
+final driverSettingsRepository = getIt
+    .get<driver_interfaces.SettingsRepository>();
 final driverAuthRepository = getIt.get<AuthRepositoryFacade>();
 final driverUserRepository = getIt.get<driver_interfaces.UserRepository>();
 final driverDrawRepository = getIt.get<DrawRepositoryFacade>();
