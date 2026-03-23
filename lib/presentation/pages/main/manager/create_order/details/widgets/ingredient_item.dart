@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
-import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
