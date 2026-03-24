@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -50,7 +50,7 @@ class _CreateUserModalState extends State<CreateUserModal> {
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,
                       onChanged: event.setFirstname,
-                      validator: AppValidators.emptyCheck,
+                      validator: AppValidators.isNotEmptyValidator,
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
@@ -60,7 +60,7 @@ class _CreateUserModalState extends State<CreateUserModal> {
                       textCapitalization: TextCapitalization.sentences,
                       textInputAction: TextInputAction.next,
                       onChanged: event.setLastname,
-                      validator: AppValidators.emptyCheck,
+                      validator: AppValidators.isNotEmptyValidator,
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
@@ -69,7 +69,7 @@ class _CreateUserModalState extends State<CreateUserModal> {
                       inputType: TextInputType.phone,
                       textInputAction: TextInputAction.next,
                       onChanged: event.setPhone,
-                      validator: AppValidators.emptyCheck,
+                      validator: AppValidators.isNotEmptyValidator,
                     ),
                     24.verticalSpace,
                     UnderlinedTextField(
@@ -78,7 +78,7 @@ class _CreateUserModalState extends State<CreateUserModal> {
                       textCapitalization: TextCapitalization.none,
                       textInputAction: TextInputAction.done,
                       onChanged: event.setEmail,
-                      validator: AppValidators.emptyCheck,
+                      validator: AppValidators.isNotEmptyValidator,
                     ),
                     24.verticalSpace,
                     CustomButton(

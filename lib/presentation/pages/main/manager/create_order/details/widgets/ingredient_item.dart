@@ -57,7 +57,7 @@ class IngredientItem extends ConsumerWidget {
                       ),
                       4.horizontalSpace,
                       Text(
-                        "+${help.AppHelpers.numberFormat(addon.product?.stock?.totalPrice ?? 0)}",
+                        "+${help.AppHelpers.numberFormat(number: addon.product?.stock?.totalPrice ?? 0)}",
                         style: AppStyle.interNormal(
                           size: 14,
                           color: AppStyle.black,

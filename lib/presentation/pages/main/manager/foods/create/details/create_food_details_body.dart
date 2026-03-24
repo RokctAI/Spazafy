@@ -148,7 +148,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                         );
                       },
                       textController: TextEditingController(text: state.title),
-                      validator: AppValidators.emptyCheck,
+                      validator: AppValidators.isNotEmptyValidator,
                       suffixIcon: Icon(
                         FlutterRemix.translate,
                         color: AppStyle.blackColor,
@@ -182,7 +182,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                       textController: TextEditingController(
                         text: state.description,
                       ),
-                      validator: AppValidators.emptyCheck,
+                      validator: AppValidators.isNotEmptyValidator,
                       suffixIcon: Icon(
                         FlutterRemix.translate,
                         color: AppStyle.blackColor,
@@ -202,7 +202,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                             size: 18.r,
                           ),
                           readOnly: true,
-                          validator: AppValidators.emptyCheck,
+                          validator: AppValidators.isNotEmptyValidator,
                           onTap: () =>
                               help.AppHelpers.showCustomModalBottomSheet(
                                 paddingTop:
@@ -229,7 +229,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                             size: 18.r,
                           ),
                           readOnly: true,
-                          validator: AppValidators.emptyCheck,
+                          validator: AppValidators.isNotEmptyValidator,
                           onTap: () =>
                               help.AppHelpers.showCustomModalBottomSheet(
                                 paddingTop:
@@ -309,7 +309,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                       inputType: TextInputType.number,
                       textInputAction: TextInputAction.next,
                       onChanged: event.setTax,
-                      validator: AppValidators.emptyCheck,
+                      validator: AppValidators.isNotEmptyValidator,
                     ),
                     24.verticalSpace,
                     Row(

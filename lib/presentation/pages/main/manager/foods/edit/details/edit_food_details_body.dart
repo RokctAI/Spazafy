@@ -79,7 +79,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                             textController: TextEditingController(
                               text: state.title,
                             ),
-                            validator: AppValidators.emptyCheck,
+                            validator: AppValidators.isNotEmptyValidator,
                             onTap: () {
                               help.AppHelpers.showCustomModalBottomSheet(
                                 context: context,
@@ -129,7 +129,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                             textController: TextEditingController(
                               text: state.description,
                             ),
-                            validator: AppValidators.emptyCheck,
+                            validator: AppValidators.isNotEmptyValidator,
                             suffixIcon: Icon(
                               FlutterRemix.translate,
                               color: AppStyle.blackColor,
@@ -155,7 +155,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                   modal: const EditFoodCategoriesModal(),
                                   isDarkMode: false,
                                 ),
-                            validator: AppValidators.emptyCheck,
+                            validator: AppValidators.isNotEmptyValidator,
                           ),
                           24.verticalSpace,
                           UnderlinedTextField(
@@ -176,7 +176,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                   modal: const EditFoodUnitsModal(),
                                   isDarkMode: false,
                                 ),
-                            validator: AppValidators.emptyCheck,
+                            validator: AppValidators.isNotEmptyValidator,
                           ),
                           24.verticalSpace,
                           UnderlinedTextField(
@@ -209,7 +209,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                             onChanged: event.setInterval,
                             initialText: (state.product?.interval ?? 1)
                                 .toString(),
-                            validator: AppValidators.emptyCheck,
+                            validator: AppValidators.isNotEmptyValidator,
                           ),
                           24.verticalSpace,
                           Row(
@@ -224,7 +224,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                   initialText:
                                       state.product?.minQty.toString() ?? '',
                                   onChanged: event.setMinQty,
-                                  validator: AppValidators.emptyCheck,
+                                  validator: AppValidators.isNotEmptyValidator,
                                 ),
                               ),
                               10.horizontalSpace,
@@ -256,7 +256,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                 ? ''
                                 : state.product?.tax.toString(),
                             onChanged: event.setTax,
-                            validator: AppValidators.emptyCheck,
+                            validator: AppValidators.isNotEmptyValidator,
                           ),
                           24.verticalSpace,
                           Row(

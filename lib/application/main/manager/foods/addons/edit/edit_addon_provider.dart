@@ -5,5 +5,5 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final editAddonProvider =
     StateNotifierProvider<EditAddonNotifier, EditAddonState>(
-      (ref) => EditAddonNotifier(productRepository),
+      (ref) => EditAddonNotifier(managerProductRepository),
     );

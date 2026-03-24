@@ -3,7 +3,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -64,7 +64,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                         TextCapitalization.sentences,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setTitle,
-                                    validator: AppValidators.emptyCheck,
+                                    validator: AppValidators.isNotEmptyValidator,
                                     initialText:
                                         widget.addon.translation?.title,
                                   ),
@@ -77,7 +77,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                         TextCapitalization.sentences,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setDescription,
-                                    validator: AppValidators.emptyCheck,
+                                    validator: AppValidators.isNotEmptyValidator,
                                     initialText:
                                         widget.addon.translation?.description,
                                   ),
@@ -92,7 +92,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                       size: 18.r,
                                     ),
                                     readOnly: true,
-                                    validator: AppValidators.emptyCheck,
+                                    validator: AppValidators.isNotEmptyValidator,
                                     onTap: () =>
                                         help.AppHelpers.showCustomModalBottomSheet(
                                           paddingTop:
@@ -112,7 +112,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                     inputType: TextInputType.number,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setTax,
-                                    validator: AppValidators.emptyCheck,
+                                    validator: AppValidators.isNotEmptyValidator,
                                     initialText: widget.addon.tax == null
                                         ? ''
                                         : widget.addon.tax.toString(),
@@ -124,7 +124,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                     inputType: TextInputType.text,
                                     textInputAction: TextInputAction.done,
                                     onChanged: event.setBarcode,
-                                    validator: AppValidators.emptyCheck,
+                                    validator: AppValidators.isNotEmptyValidator,
                                     initialText: widget.addon.barCode ?? '',
                                   ),
                                   24.verticalSpace,
@@ -139,7 +139,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                           inputType: TextInputType.number,
                                           textInputAction: TextInputAction.next,
                                           onChanged: event.setPrice,
-                                          validator: AppValidators.emptyCheck,
+                                          validator: AppValidators.isNotEmptyValidator,
                                           initialText:
                                               help.AppHelpers.getInitialAddonPrice(
                                                 widget.addon,
@@ -154,7 +154,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                           inputType: TextInputType.number,
                                           textInputAction: TextInputAction.next,
                                           onChanged: event.setQuantity,
-                                          validator: AppValidators.emptyCheck,
+                                          validator: AppValidators.isNotEmptyValidator,
                                           initialText:
                                               help.AppHelpers.getInitialAddonQuantity(
                                                 widget.addon,

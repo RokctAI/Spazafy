@@ -7,4 +7,4 @@ final editFoodStocksProvider =
     StateNotifierProvider.autoDispose<
       EditFoodStocksNotifier,
       EditFoodStocksState
-    >((ref) => EditFoodStocksNotifier(productRepository));
+    >((ref) => EditFoodStocksNotifier(managerProductRepository));

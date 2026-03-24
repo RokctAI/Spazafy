@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +70,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                         TextCapitalization.sentences,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setTitle,
-                                    validator: AppValidators.emptyCheck,
+                                    validator: AppValidators.isNotEmptyValidator,
                                   ),
                                   24.verticalSpace,
                                   UnderlinedTextField(
@@ -81,7 +81,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                         TextCapitalization.sentences,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setDescription,
-                                    validator: AppValidators.emptyCheck,
+                                    validator: AppValidators.isNotEmptyValidator,
                                   ),
                                   24.verticalSpace,
                                   Consumer(
@@ -97,7 +97,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                           size: 18.r,
                                         ),
                                         readOnly: true,
-                                        validator: AppValidators.emptyCheck,
+                                        validator: AppValidators.isNotEmptyValidator,
                                         onTap: () =>
                                             help.AppHelpers.showCustomModalBottomSheet(
                                               paddingTop:
