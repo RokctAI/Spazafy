@@ -1,6 +1,6 @@
 import 'package:rokctapp/domain/interface/manager_users.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_user_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 
 class OrderUserNotifier extends StateNotifier<OrderUserState> {
   final UsersInterface _usersRepository;
@@ -38,7 +38,7 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
     final selectedUser = state.users[index];
     state = state.copyWith(selectedIndex: index, selectedUser: selectedUser);
     state.userTextController?.text =
-        '${selectedUser.firstname ?? AppHelpers.getTranslation(TrKeys.noName)} ${selectedUser.lastname ?? ''}';
+        '${selectedUser.firstname ?? mgr.AppHelpers.getTranslation(TrKeys.noName)} ${selectedUser.lastname ?? ''}';
   }
 
   void setPhone(String value) {
@@ -134,7 +134,7 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         final selectedUser = state.users[0];
         state = state.copyWith(selectedIndex: 0, selectedUser: selectedUser);
         state.userTextController?.text =
-            '${selectedUser.firstname ?? AppHelpers.getTranslation(TrKeys.noName)} ${selectedUser.lastname ?? ''}';
+            '${selectedUser.firstname ?? mgr.AppHelpers.getTranslation(TrKeys.noName)} ${selectedUser.lastname ?? ''}';
       }
       return;
     }

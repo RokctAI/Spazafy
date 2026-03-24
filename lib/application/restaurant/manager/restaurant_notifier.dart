@@ -1,7 +1,7 @@
 import 'package:rokctapp/domain/interface/manager_users.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
 import 'package:rokctapp/infrastructure/models/data/take_data.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'restaurant_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 
 class RestaurantNotifier extends StateNotifier<RestaurantState> {
   final UsersInterface _usersRepository;
@@ -87,7 +87,7 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         },
         failure: (failure, status) {
           debugPrint('==> upload shop back image fail: $failure');
-          AppHelpers.showCheckTopSnackBar(
+          mgr.AppHelpers.showCheckTopSnackBar(
             context,
             text: failure,
             type: SnackBarType.error,
@@ -107,7 +107,7 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         },
         failure: (failure, status) {
           debugPrint('==> upload shop logo image fail: $failure');
-          AppHelpers.showCheckTopSnackBar(
+          mgr.AppHelpers.showCheckTopSnackBar(
             context,
             text: failure,
             type: SnackBarType.error,
@@ -155,7 +155,7 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
       failure: (failure, status) {
         debugPrint('===> update shop fail $failure');
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: failure,
           type: SnackBarType.error,

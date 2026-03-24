@@ -1,8 +1,8 @@
 import 'package:rokctapp/infrastructure/models/models_manager.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 import 'edit_food_stocks_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -110,7 +110,7 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
   void combination() {
     List<Stock> stocks = [];
     if (state.selectGroups.values.isNotEmpty) {
-      List<List<Extras>> list = AppHelpers.cartesian(
+      List<List<Extras>> list = mgr.AppHelpers.cartesian(
         List.from(state.selectGroups.values),
       );
       stocks = List.generate(
@@ -176,7 +176,7 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
       },
       failure: (fail, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: fail.toString(),
           type: SnackBarType.error,
@@ -228,7 +228,7 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
       },
       failure: (fail, status) {
         state = state.copyWith(isSaving: false);
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: fail.toString(),
           type: SnackBarType.error,

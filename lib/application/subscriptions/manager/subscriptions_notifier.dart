@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/infrastructure/models/data/manager/subscriptions_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/manager_payment.dart';
 import 'package:rokctapp/domain/interface/manager_subscription.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'subscriptions_state.dart';
 
@@ -53,7 +53,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         state = state.copyWith(isLoading: false);
         debugPrint(" ==> fetch ads fail: $failure");
         if (context != null) {
-          AppHelpers.errorSnackBar(context, text: failure);
+          mgr.AppHelpers.errorSnackBar(context, text: failure);
         }
       },
     );
@@ -69,9 +69,9 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
       final num walletPrice = LocalStorage.getUser()?.wallet?.price ?? 0;
       final num orderPrice = state.list[state.selectSubscribe].price ?? 0;
       if (walletPrice < orderPrice) {
-        AppHelpers.errorSnackBar(
+        mgr.AppHelpers.errorSnackBar(
           context,
-          text: AppHelpers.getTranslation(TrKeys.notEnoughMoney),
+          text: mgr.AppHelpers.getTranslation(TrKeys.notEnoughMoney),
         );
         state = state.copyWith(isPaymentLoading: false);
         return;
@@ -99,7 +99,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         },
         failure: (failure, s) {
           state = state.copyWith(isPaymentLoading: false);
-          AppHelpers.errorSnackBar(context, text: failure);
+          mgr.AppHelpers.errorSnackBar(context, text: failure);
         },
       );
     } else {
@@ -116,7 +116,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         },
         failure: (failure, s) {
           state = state.copyWith(isPaymentLoading: false);
-          AppHelpers.errorSnackBar(context, text: failure);
+          mgr.AppHelpers.errorSnackBar(context, text: failure);
         },
       );
     }
@@ -135,7 +135,7 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
         state = state.copyWith(payments: list, selectPayment: 0);
       },
       failure: (failure, s) {
-        AppHelpers.errorSnackBar(context, text: failure);
+        mgr.AppHelpers.errorSnackBar(context, text: failure);
       },
     );
   }

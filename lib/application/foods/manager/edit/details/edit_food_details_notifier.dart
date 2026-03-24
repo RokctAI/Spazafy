@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
@@ -13,7 +13,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_food_details_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 
 class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
   final ProductsInterface _productsRepository;
@@ -69,7 +69,7 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
         },
         failure: (failure, status) {
           debugPrint('==> upload product image fail: $failure');
-          AppHelpers.showCheckTopSnackBar(context, text: failure);
+          mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
           state = state.copyWith(isLoading: true);
         },
       );
@@ -121,7 +121,7 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
         updated?.call(updatedProduct);
       },
       failure: (fail, status) {
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: fail,
           type: SnackBarType.error,

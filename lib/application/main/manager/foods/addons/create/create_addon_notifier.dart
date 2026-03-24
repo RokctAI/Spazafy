@@ -1,10 +1,10 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 import 'create_addon_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 
@@ -83,7 +83,7 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
             debugPrint('===> create addon stock fail $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
-            AppHelpers.showCheckTopSnackBar(
+            mgr.AppHelpers.showCheckTopSnackBar(
               context,
               text: stockFail,
               type: SnackBarType.error,
@@ -94,7 +94,7 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
       failure: (fail, status) {
         debugPrint('===> create addon fail $fail');
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: fail,
           type: SnackBarType.error,

@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'dart:async';
@@ -11,7 +11,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 import 'create_food_addons_state.dart';
 
 class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
@@ -54,7 +54,7 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
       },
       failure: (fail, status) {
         debugPrint('===> fetch more addons fail $fail');
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: fail,
           type: SnackBarType.error,
@@ -108,7 +108,7 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
       },
       failure: (fail, status) {
         debugPrint('===> fetch addons fail $fail');
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: fail,
           type: SnackBarType.error,

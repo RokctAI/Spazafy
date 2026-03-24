@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 import 'order_payment_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -79,7 +79,7 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
       success: (data) {},
       failure: (error, status) {
         debugPrint('====> fetch payments fail $error');
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: error,
           type: SnackBarType.error,

@@ -1,7 +1,7 @@
 import 'package:rokctapp/domain/interface/manager_shops.dart';
 import 'package:rokctapp/domain/interface/manager_users.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
@@ -13,7 +13,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'profile_state.dart';
 
@@ -96,7 +96,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
             context.router.popUntilRoot();
             context.replaceRoute(const ManagerAuthRoute());
           }
-          AppHelpers.showCheckTopSnackBar(context, text: failure);
+          mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
         },
       );
     }
@@ -135,7 +135,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (failure, s) {
           debugPrint('===> upload logo image failure: $failure');
-          AppHelpers.showCheckTopSnackBar(context, text: failure);
+          mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
         },
       );
     }
@@ -150,7 +150,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (failure, s) {
           debugPrint('===> upload background image failure: $failure');
-          AppHelpers.showCheckTopSnackBar(context, text: failure);
+          mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
         },
       );
     }
@@ -165,7 +165,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (failure, s) {
           debugPrint('===> upload document failure: $failure');
-          AppHelpers.showCheckTopSnackBar(context, text: failure);
+          mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
         },
       );
     }
@@ -194,7 +194,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       },
       failure: (failure, s) {
         state = state.copyWith(isSaveLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, text: failure);
+        mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
         debugPrint('==> create shop failure: $failure');
       },
     );
@@ -213,14 +213,14 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (fail, status) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, text: fail);
+          mgr.AppHelpers.showCheckTopSnackBar(context, text: fail);
         },
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
-          text: AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+          text: mgr.AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
       }
     }
