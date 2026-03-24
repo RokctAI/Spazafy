@@ -11,7 +11,7 @@ class ExtrasGroupDetailsNotifier
   ExtrasGroupDetailsNotifier(this._productsRepository)
     : super(const ExtrasGroupDetailsState());
 
-  Future<void> fetchGroupExtras({int? groupId}) async {
+  Future<void> fetchGroupExtras({String? groupId}) async {
     state = state.copyWith(isLoading: true);
     final response = await _productsRepository.getExtras(groupId: groupId);
     response.when(

@@ -18,7 +18,7 @@ class CreateNewGroupItemNotifier
   Future<void> createExtrasItem(
     BuildContext context, {
     VoidCallback? success,
-    int? groupId,
+    String? groupId,
   }) async {
     state = state.copyWith(isLoading: true);
     final response = await _productsRepository.createExtrasItem(

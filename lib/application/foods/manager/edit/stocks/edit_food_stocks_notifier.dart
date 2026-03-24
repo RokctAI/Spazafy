@@ -1,12 +1,7 @@
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'edit_food_stocks_state.dart';
 import 'package:flutter/material.dart';

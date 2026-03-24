@@ -5,5 +5,5 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final workingDaysProvider =
     StateNotifierProvider<WorkingDaysNotifier, WorkingDaysState>(
-      (ref) => WorkingDaysNotifier(usersRepository),
+      (ref) => WorkingDaysNotifier(managerUsersRepository),
     );

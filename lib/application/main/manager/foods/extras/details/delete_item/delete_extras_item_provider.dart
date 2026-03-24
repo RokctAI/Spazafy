@@ -5,5 +5,5 @@ import 'delete_extras_item_state.dart';
 
 final deleteExtrasItemProvider =
     StateNotifierProvider<DeleteExtrasItemNotifier, DeleteExtrasItemState>(
-      (ref) => DeleteExtrasItemNotifier(productRepository),
+      (ref) => DeleteExtrasItemNotifier(managerProductRepository),
     );

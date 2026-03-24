@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 class EditGroupExtrasModal extends ConsumerStatefulWidget {
@@ -70,13 +71,13 @@ class _EditGroupsExtrasModalState extends ConsumerState<EditGroupExtrasModal> {
                               itemIndex: index,
                               groupIndex: widget.groupIndex,
                             ),
-                            isSelected: (state.selectGroups.values.any(
-                              (element) => element.any(
-                                (element) =>
-                                    element?.id ==
-                                    state.activeGroupExtras[index].id,
-                              ),
-                            )),
+                             isSelected: (state.selectGroups.values.any(
+                               (List<Extras?> element) => element.any(
+                                 (Extras? item) =>
+                                     item?.id ==
+                                     state.activeGroupExtras[index].id,
+                               ),
+                             )),
                           ),
                         );
                 },

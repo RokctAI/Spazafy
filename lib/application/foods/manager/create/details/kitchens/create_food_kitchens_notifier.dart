@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
     as mgr;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'create_food_kitchens_state.dart';
 
 class CreateFoodKitchensNotifier
@@ -35,7 +36,7 @@ class CreateFoodKitchensNotifier
         mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: failure,
-          type: mgr.SnackBarType.error,
+          type: SnackBarType.error,
         );
         debugPrint('====> fetch kitchens fail $failure');
       },

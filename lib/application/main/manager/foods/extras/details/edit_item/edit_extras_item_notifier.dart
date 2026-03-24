@@ -17,7 +17,7 @@ class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
   Future<void> updateExtrasItem(
     BuildContext context, {
     VoidCallback? success,
-    int? groupId,
+    String? groupId,
     int? extrasId,
   }) async {
     state = state.copyWith(isLoading: true);
