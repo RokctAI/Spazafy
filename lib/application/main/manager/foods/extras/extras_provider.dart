@@ -4,5 +4,5 @@ import 'extras_notifier.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final extrasProvider = StateNotifierProvider<ExtrasNotifier, ExtrasState>(
-  (ref) => ExtrasNotifier(managermanagerProductRepository),
+  (ref) => ExtrasNotifier(managerProductRepository),
 );

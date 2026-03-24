@@ -5,5 +5,5 @@ import 'create_user_state.dart';
 
 final createUserProvider =
     StateNotifierProvider.autoDispose<CreateUserNotifier, CreateUserState>(
-      (ref) => CreateUserNotifier(usersRepository),
+      (ref) => CreateUserNotifier(managerUsersRepository),
     );

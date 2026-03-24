@@ -1,18 +1,18 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'all_categories_state.dart';
 
 class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
+  final CatalogInterface __catalogRepository;
   int _page = 0;
 
-  AllCategoriesNotifier()
+  AllCategoriesNotifier(this.__catalogRepository)
     : super(AllCategoriesState(categoryController: TextEditingController()));
 
   Future<void> updateCategories(
@@ -24,7 +24,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       _page = 0;
     }
 
-    final response = await catalogRepository.getCategories(
+    final response = await _catalogRepository.getCategories(
       page: ++_page,
       type: type,
     );
@@ -73,7 +73,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       failure: (failure, status) {
         debugPrint('====> fetch categories fail $failure');
         _page--;
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: failure,
           type: SnackBarType.error,
@@ -90,7 +90,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       _page = 0;
     }
 
-    final response = await catalogRepository.getCategoriesSub(page: ++_page);
+    final response = await _catalogRepository.getCategoriesSub(page: ++_page);
     response.when(
       success: (data) {
         List<CategoryData> categories = List.from(state.categoriesSub);
@@ -121,7 +121,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       failure: (failure, status) {
         debugPrint('====> fetch categories fail $failure');
         _page--;
-        AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: failure,
           type: SnackBarType.error,
@@ -173,7 +173,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
   }
 
   Future<void> deleteCategories(CategoryData category) async {
-    final res = await catalogRepository.deleteCategory(id: category.id);
+    final res = await _catalogRepository.deleteCategory(id: category.id);
     res.when(
       success: (success) {
         final List<CategoryData> list = List.from(state.categories);
@@ -207,7 +207,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       _page = 0;
       state = state.copyWith(categories: [], isLoading: true);
     }
-    final res = await catalogRepository.getCategories(
+    final res = await _catalogRepository.getCategories(
       page: ++_page,
       hasProducts: true,
     );
@@ -228,7 +228,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.errorSnackBar(context, text: failure);
+        mgr.AppHelpers.errorSnackBar(context, text: failure);
       },
     );
   }
