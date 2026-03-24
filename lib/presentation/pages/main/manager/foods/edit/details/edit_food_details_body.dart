@@ -1,8 +1,10 @@
-import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart'
+    hide SnackBarType;
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart' hide Loading;
+import 'package:rokctapp/presentation/components/components_manager.dart'
+    hide Loading;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
@@ -112,7 +114,9 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                 context: context,
                                 modal: MultiTranslationInputModal(
                                   model: AiTranslationModel.product,
-                                  modelId: int.tryParse(state.product?.id ?? ""),
+                                  modelId: int.tryParse(
+                                    state.product?.id ?? "",
+                                  ),
                                   label: help.AppHelpers.getTranslation(
                                     TrKeys.description,
                                   ),

@@ -7,7 +7,9 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    as mgr
+    hide SnackBarType;
 import 'create_food_stocks_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide Group;
