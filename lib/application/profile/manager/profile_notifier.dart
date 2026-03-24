@@ -13,7 +13,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    as mgr
+    hide SnackBarType;
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'profile_state.dart';
 
@@ -220,7 +222,9 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       if (context.mounted) {
         mgr.AppHelpers.showCheckTopSnackBar(
           context,
-          text: mgr.AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
+          text: mgr.AppHelpers.getTranslation(
+            TrKeys.checkYourNetworkConnection,
+          ),
         );
       }
     }

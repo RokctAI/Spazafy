@@ -1,7 +1,9 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'main_state.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    as mgr
+    hide SnackBarType;
 
 class MainNotifier extends StateNotifier<MainState> {
   MainNotifier() : super(const MainState());
