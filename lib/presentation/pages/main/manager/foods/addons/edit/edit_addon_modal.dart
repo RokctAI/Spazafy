@@ -64,7 +64,8 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                         TextCapitalization.sentences,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setTitle,
-                                    validator: AppValidators.isNotEmptyValidator,
+                                    validator:
+                                        AppValidators.isNotEmptyValidator,
                                     initialText:
                                         widget.addon.translation?.title,
                                   ),
@@ -77,7 +78,8 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                         TextCapitalization.sentences,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setDescription,
-                                    validator: AppValidators.isNotEmptyValidator,
+                                    validator:
+                                        AppValidators.isNotEmptyValidator,
                                     initialText:
                                         widget.addon.translation?.description,
                                   ),
@@ -92,7 +94,8 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                       size: 18.r,
                                     ),
                                     readOnly: true,
-                                    validator: AppValidators.isNotEmptyValidator,
+                                    validator:
+                                        AppValidators.isNotEmptyValidator,
                                     onTap: () =>
                                         help.AppHelpers.showCustomModalBottomSheet(
                                           paddingTop:
@@ -112,7 +115,8 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                     inputType: TextInputType.number,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setTax,
-                                    validator: AppValidators.isNotEmptyValidator,
+                                    validator:
+                                        AppValidators.isNotEmptyValidator,
                                     initialText: widget.addon.tax == null
                                         ? ''
                                         : widget.addon.tax.toString(),
@@ -124,7 +128,8 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                     inputType: TextInputType.text,
                                     textInputAction: TextInputAction.done,
                                     onChanged: event.setBarcode,
-                                    validator: AppValidators.isNotEmptyValidator,
+                                    validator:
+                                        AppValidators.isNotEmptyValidator,
                                     initialText: widget.addon.barCode ?? '',
                                   ),
                                   24.verticalSpace,
@@ -139,7 +144,8 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                           inputType: TextInputType.number,
                                           textInputAction: TextInputAction.next,
                                           onChanged: event.setPrice,
-                                          validator: AppValidators.isNotEmptyValidator,
+                                          validator:
+                                              AppValidators.isNotEmptyValidator,
                                           initialText:
                                               help.AppHelpers.getInitialAddonPrice(
                                                 widget.addon,
@@ -154,7 +160,8 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                           inputType: TextInputType.number,
                                           textInputAction: TextInputAction.next,
                                           onChanged: event.setQuantity,
-                                          validator: AppValidators.isNotEmptyValidator,
+                                          validator:
+                                              AppValidators.isNotEmptyValidator,
                                           initialText:
                                               help.AppHelpers.getInitialAddonQuantity(
                                                 widget.addon,
