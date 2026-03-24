@@ -5,5 +5,5 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final createFoodKitchensProvider =
     StateNotifierProvider<CreateFoodKitchensNotifier, CreateFoodKitchensState>(
-      (ref) => CreateFoodKitchensNotifier(catalogRepository),
+      (ref) => CreateFoodKitchensNotifier(managerCatalogRepository),
     );

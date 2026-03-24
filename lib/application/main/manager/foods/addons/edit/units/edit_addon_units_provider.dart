@@ -5,5 +5,5 @@ import 'edit_addon_units_state.dart';
 
 final editAddonUnitsProvider =
     StateNotifierProvider<EditAddonUnitsNotifier, EditAddonUnitsState>(
-      (ref) => EditAddonUnitsNotifier(catalogRepository),
+      (ref) => EditAddonUnitsNotifier(managerCatalogRepository),
     );

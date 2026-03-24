@@ -8,7 +8,7 @@ class TableBookingData {
   String? status;
   Booking? booking;
   User? user;
-  Table? table;
+  BookingTable? table;
 
   TableBookingData({
     required this.id,
@@ -33,7 +33,7 @@ class TableBookingData {
     String? status,
     Booking? booking,
     User? user,
-    Table? table,
+    BookingTable? table,
   }) => TableBookingData(
     id: id ?? this.id,
     bookingId: bookingId ?? this.bookingId,
@@ -58,7 +58,7 @@ class TableBookingData {
     status: json["status"],
     booking: json["booking"] == null ? null : Booking.fromJson(json["booking"]),
     user: json["user"] == null ? null : User.fromJson(json["user"]),
-    table: json["table"] == null ? null : Table.fromJson(json["table"]),
+    table: json["table"] == null ? null : BookingTable.fromJson(json["table"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -71,7 +71,7 @@ class TableBookingData {
     "status": status,
     "booking": booking?.toJson(),
     "user": user?.toJson(),
-    "table": table?.toJson(),
+    "table": BookingTable?.toJson(),
   };
 }
 
@@ -87,7 +87,7 @@ class Booking {
   Map<String, dynamic> toJson() => {"id": id, "max_time": maxTime};
 }
 
-class Table {
+class BookingTable {
   String? id;
   String name;
   String? shopSectionId;
@@ -102,7 +102,7 @@ class Table {
     required this.active,
   });
 
-  factory Table.fromJson(Map<String, dynamic> json) => Table(
+  factory BookingTable.fromJson(Map<String, dynamic> json) => Table(
     id: json["id"]?.toString(),
     name: json["name"],
     shopSectionId: json["shop_section_id"]?.toString(),

@@ -1,14 +1,12 @@
 import 'package:rokctapp/domain/interface/manager_users.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
-import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 import 'create_user_state.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 
 class CreateUserNotifier extends StateNotifier<CreateUserState> {
   final UsersInterface _usersRepository;
@@ -37,7 +35,7 @@ class CreateUserNotifier extends StateNotifier<CreateUserState> {
 
   Future<void> createUser(
     BuildContext context, {
-    Function(UserData?)? created,
+    Function(ProfileData?)? created,
     VoidCallback? failed,
   }) async {
     state = state.copyWith(isLoading: true);

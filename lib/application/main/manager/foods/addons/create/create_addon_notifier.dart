@@ -3,10 +3,9 @@ import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
 import 'create_addon_state.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
 
 class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
   final ProductsInterface _productsRepository;
@@ -43,7 +42,7 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
 
   Future<void> createAddon(
     BuildContext context, {
-    int? unitId,
+    String? unitId,
     VoidCallback? created,
     VoidCallback? failed,
   }) async {

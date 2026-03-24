@@ -5,5 +5,5 @@ import 'create_food_addons_state.dart';
 
 final createFoodAddonsProvider =
     StateNotifierProvider<CreateFoodAddonsNotifier, CreateFoodAddonsState>(
-      (ref) => CreateFoodAddonsNotifier(productRepository),
+      (ref) => CreateFoodAddonsNotifier(managerProductRepository),
     );
