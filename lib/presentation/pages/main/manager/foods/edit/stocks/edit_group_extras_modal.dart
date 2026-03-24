@@ -71,13 +71,13 @@ class _EditGroupsExtrasModalState extends ConsumerState<EditGroupExtrasModal> {
                               itemIndex: index,
                               groupIndex: widget.groupIndex,
                             ),
-                             isSelected: (state.selectGroups.values.any(
-                               (List<Extras?> element) => element.any(
-                                 (Extras? item) =>
-                                     item?.id ==
-                                     state.activeGroupExtras[index].id,
-                               ),
-                             )),
+                            isSelected: (state.selectGroups.values.any(
+                              (List<Extras?> element) => element.any(
+                                (Extras? item) =>
+                                    item?.id ==
+                                    state.activeGroupExtras[index].id,
+                              ),
+                            )),
                           ),
                         );
                 },
