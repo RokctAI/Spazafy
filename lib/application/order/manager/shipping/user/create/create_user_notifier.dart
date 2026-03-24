@@ -5,7 +5,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    as mgr
+    hide SnackBarType;
 import 'create_user_state.dart';
 
 class CreateUserNotifier extends StateNotifier<CreateUserState> {

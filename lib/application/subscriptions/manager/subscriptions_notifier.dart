@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/infrastructure/models/data/manager/subscriptions_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
@@ -10,7 +9,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/manager_payment.dart';
 import 'package:rokctapp/domain/interface/manager_subscription.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    as mgr
+    hide SnackBarType;
 import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'subscriptions_state.dart';
 
