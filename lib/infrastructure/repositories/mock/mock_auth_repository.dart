@@ -10,17 +10,28 @@ import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 
 class MockAuthRepository implements AuthRepositoryFacade {
   @override
-  Future<dynamic> checkPhone({required String phone}) async {
-    return null;
+  Future<ApiResult<dynamic>> checkPhone({required String phone}) async {
+    return const ApiResult.success(data: null);
   }
 
   @override
-  Future<dynamic> loginWithSocial({
-    required dynamic email,
-    required dynamic displayName,
-    required dynamic id,
+  Future<ApiResult<LoginResponse>> loginWithSocial({
+    String? email,
+    String? displayName,
+    String? id,
   }) async {
-    return null;
+    return ApiResult.success(
+      data: LoginResponse(
+        data: UserData(
+          accessToken: "demo_social_token",
+          tokenType: "Bearer",
+          user: _demoUser.copyWith(
+            email: email ?? '',
+            firstname: displayName ?? '',
+          ),
+        ),
+      ),
+    );
   }
 
   final UserModel _demoUser = UserModel(
