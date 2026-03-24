@@ -94,7 +94,7 @@ class BookingTable {
   int chairCount;
   bool active;
 
-  Table({
+  BookingTable({
     required this.id,
     required this.name,
     required this.shopSectionId,
@@ -102,7 +102,7 @@ class BookingTable {
     required this.active,
   });
 
-  factory BookingTable.fromJson(Map<String, dynamic> json) => Table(
+  factory BookingTable.fromJson(Map<String, dynamic> json) => BookingTable(
     id: json["id"]?.toString(),
     name: json["name"],
     shopSectionId: json["shop_section_id"]?.toString(),

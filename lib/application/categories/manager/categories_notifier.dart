@@ -9,7 +9,9 @@ import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as
 import 'categories_state.dart';
 
 class CategoriesNotifier extends StateNotifier<CategoriesState> {
-  CategoriesNotifier() : super(const CategoriesState());
+  final CatalogInterface _catalogRepository;
+
+  CategoriesNotifier(this._catalogRepository) : super(const CategoriesState());
 
   int _page = 0;
   int _comboPage = 0;
@@ -24,7 +26,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
       _page = 0;
       state = state.copyWith(categories: [], isLoading: true);
     }
-    final res = await catalogRepository.getCategories(
+    final res = await _catalogRepository.getCategories(
       page: ++_page,
       hasProducts: true,
     );
@@ -60,7 +62,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
       _comboPage = 0;
       state = state.copyWith(comboCategories: [], isComboLoading: true);
     }
-    final res = await catalogRepository.getCategories(
+    final res = await _catalogRepository.getCategories(
       page: ++_comboPage,
       type: 'combo',
       hasProducts: true,

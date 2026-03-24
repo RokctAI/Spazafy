@@ -9,10 +9,10 @@ import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'all_categories_state.dart';
 
 class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
-  final CatalogInterface __catalogRepository;
+  final CatalogInterface _catalogRepository;
   int _page = 0;
 
-  AllCategoriesNotifier(this.__catalogRepository)
+  AllCategoriesNotifier(this._catalogRepository)
     : super(AllCategoriesState(categoryController: TextEditingController()));
 
   Future<void> updateCategories(

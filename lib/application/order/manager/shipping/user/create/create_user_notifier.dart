@@ -35,7 +35,7 @@ class CreateUserNotifier extends StateNotifier<CreateUserState> {
 
   Future<void> createUser(
     BuildContext context, {
-    Function(ProfileData?)? created,
+    Function(UserData?)? created,
     VoidCallback? failed,
   }) async {
     state = state.copyWith(isLoading: true);
