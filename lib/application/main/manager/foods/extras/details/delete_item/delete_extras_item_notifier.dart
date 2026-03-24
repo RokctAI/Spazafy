@@ -16,7 +16,7 @@ class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {
   Future<void> deleteExtrasItem(
     BuildContext context, {
     VoidCallback? success,
-    int? extrasId,
+    String? extrasId,
   }) async {
     state = state.copyWith(isLoading: true);
     final response = await _productsRepository.deleteExtrasItem(

@@ -659,8 +659,15 @@ class Extras {
 }
 
 class Group {
-  Group({String? id, String? type, bool? active, Translation? translation}) {
+  Group({
+    String? id,
+    String? shopId,
+    String? type,
+    bool? active,
+    Translation? translation,
+  }) {
     _id = id;
+    _shopId = shopId;
     _type = type;
     _active = active;
     _translation = translation;
@@ -668,6 +675,7 @@ class Group {
 
   Group.fromJson(dynamic json) {
     _id = json['id']?.toString();
+    _shopId = json['shop_id']?.toString();
     _type = json['type'];
     _translation = json['translation'] != null
         ? Translation.fromJson(json['translation'])
@@ -675,23 +683,28 @@ class Group {
   }
 
   String? _id;
+  String? _shopId;
   String? _type;
   bool? _active;
   Translation? _translation;
 
   Group copyWith({
     String? id,
+    String? shopId,
     String? type,
     bool? active,
     Translation? translation,
   }) => Group(
     id: id ?? _id,
+    shopId: shopId ?? _shopId,
     type: type ?? _type,
     active: active ?? _active,
     translation: translation ?? _translation,
   );
 
   String? get id => _id;
+
+  String? get shopId => _shopId;
 
   String? get type => _type;
 
@@ -702,6 +715,7 @@ class Group {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = _id;
+    map['shop_id'] = _shopId;
     map['type'] = _type;
     map['active'] = _active;
     if (_translation != null) {

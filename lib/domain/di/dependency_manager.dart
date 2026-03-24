@@ -57,16 +57,6 @@ import 'package:rokctapp/infrastructure/repositories/wallet_repository.dart';
 import 'package:rokctapp/domain/handlers/http_service.dart';
 import 'package:rokctapp/infrastructure/repositories/delivery_points_repository.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
-import 'package:rokctapp/infrastructure/repositories/mock/mock_auth_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/mock/mock_settings_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/mock/mock_shops_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/mock/mock_products_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/mock/mock_categories_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/mock/mock_banners_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/mock/mock_cart_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/mock/mock_orders_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/mock/mock_address_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/mock/mock_brands_repository.dart';
 import 'package:rokctapp/domain/handlers/driver/handlers.dart'
     as driver_handlers
     hide ApiResult;
@@ -143,33 +133,18 @@ Future<void> setUpDependencies() async {
   }
 
   // Common/Customer dependencies
-  if (AppConstants.isDemo) {
-    getIt.registerSingleton<SettingsRepositoryFacade>(MockSettingsRepository());
-    getIt.registerSingleton<AuthRepositoryFacade>(MockAuthRepository());
-    getIt.registerSingleton<ShopsRepositoryFacade>(MockShopsRepository());
-    getIt.registerSingleton<ProductsRepositoryFacade>(MockProductsRepository());
-    getIt.registerSingleton<CategoriesRepositoryFacade>(
-      MockCategoriesRepository(),
-    );
-    getIt.registerSingleton<BannersRepositoryFacade>(MockBannersRepository());
-    getIt.registerSingleton<CartRepositoryFacade>(MockCartRepository());
-    getIt.registerSingleton<OrdersRepositoryFacade>(MockOrdersRepository());
-    getIt.registerSingleton<AddressRepositoryFacade>(MockAddressRepository());
-    getIt.registerSingleton<BrandsRepositoryFacade>(MockBrandsRepository());
-  } else {
-    getIt.registerSingleton<SettingsRepositoryFacade>(
-      cust_settings.SettingsRepository(),
-    );
-    getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
-    getIt.registerSingleton<ShopsRepositoryFacade>(ShopsRepository());
-    getIt.registerSingleton<ProductsRepositoryFacade>(ProductsRepository());
-    getIt.registerSingleton<CategoriesRepositoryFacade>(CategoriesRepository());
-    getIt.registerSingleton<BannersRepositoryFacade>(BannersRepository());
-    getIt.registerSingleton<CartRepositoryFacade>(CartRepository());
-    getIt.registerSingleton<OrdersRepositoryFacade>(OrdersRepository());
-    getIt.registerSingleton<AddressRepositoryFacade>(AddressRepository());
-    getIt.registerSingleton<BrandsRepositoryFacade>(BrandsRepository());
-  }
+  getIt.registerSingleton<SettingsRepositoryFacade>(
+    cust_settings.SettingsRepository(),
+  );
+  getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
+  getIt.registerSingleton<ShopsRepositoryFacade>(ShopsRepository());
+  getIt.registerSingleton<ProductsRepositoryFacade>(ProductsRepository());
+  getIt.registerSingleton<CategoriesRepositoryFacade>(CategoriesRepository());
+  getIt.registerSingleton<BannersRepositoryFacade>(BannersRepository());
+  getIt.registerSingleton<CartRepositoryFacade>(CartRepository());
+  getIt.registerSingleton<OrdersRepositoryFacade>(OrdersRepository());
+  getIt.registerSingleton<AddressRepositoryFacade>(AddressRepository());
+  getIt.registerSingleton<BrandsRepositoryFacade>(BrandsRepository());
 
   getIt.registerSingleton<GalleryRepositoryFacade>(GalleryRepository());
   getIt.registerSingleton<CurrenciesRepositoryFacade>(CurrenciesRepository());

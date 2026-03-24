@@ -1,7 +1,8 @@
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType;
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/presentation/components/components_manager.dart' hide Loading;
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
@@ -12,7 +13,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/foods/manager/edit/details/kitchen/edit_food_kitchens_provider.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/edit/details/edit_food_kitchens_modal.dart';
 import 'edit_food_units_modal.dart';
@@ -112,7 +112,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                 context: context,
                                 modal: MultiTranslationInputModal(
                                   model: AiTranslationModel.product,
-                                  modelId: state.product?.id,
+                                  modelId: int.tryParse(state.product?.id ?? ""),
                                   label: help.AppHelpers.getTranslation(
                                     TrKeys.description,
                                   ),
@@ -293,22 +293,20 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                   category: categoryState.foodCategory,
                                   updated: (product) {
                                     widget.onSave();
-                                    help.AppHelpers.showCheckTopSnackBar(
+                                    help.AppHelpers.showCheckTopSnackBarDone(
                                       context,
-                                      text: help.AppHelpers.getTranslation(
+                                      help.AppHelpers.getTranslation(
                                         TrKeys.successfullyUpdated,
                                       ),
-                                      type: SnackBarType.success,
                                     );
                                     foodsEvent.updateSingleProduct(product);
                                   },
                                   failed: () =>
                                       help.AppHelpers.showCheckTopSnackBar(
                                         context,
-                                        text: help.AppHelpers.getTranslation(
+                                        help.AppHelpers.getTranslation(
                                           TrKeys.updateFailed,
                                         ),
-                                        type: SnackBarType.error,
                                       ),
                                 );
                               }

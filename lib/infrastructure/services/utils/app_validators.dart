@@ -43,4 +43,18 @@ abstract class AppValidators {
 
   static bool arePasswordsTheSame(String password, String confirmPassword) =>
       password == confirmPassword;
+
+  static String? maxQtyCheck(String? value, num? minQty) {
+    if (value == null || value.isEmpty) {
+      return AppHelpers.getTranslation(TrKeys.thisFieldIsRequired);
+    }
+    final num? qty = num.tryParse(value);
+    if (qty == null) {
+      return AppHelpers.getTranslation(TrKeys.thisFieldIsRequired);
+    }
+    if (minQty != null && qty < minQty) {
+      return "Max quantity must be greater than min quantity";
+    }
+    return null;
+  }
 }
