@@ -4,5 +4,5 @@ import 'addons_notifier.dart';
 import 'addons_state.dart';
 
 final addonsProvider = StateNotifierProvider<AddonsNotifier, AddonsState>(
-  (ref) => AddonsNotifier(productRepository),
+  (ref) => AddonsNotifier(managerProductRepository),
 );

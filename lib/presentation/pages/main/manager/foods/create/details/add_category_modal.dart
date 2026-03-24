@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -60,7 +60,7 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                           size: 18.r,
                         ),
                         readOnly: true,
-                        validator: AppValidators.emptyCheck,
+                        validator: AppValidators.isNotEmptyValidator,
                         onTap: () => help.AppHelpers.showCustomModalBottomSheet(
                           paddingTop: MediaQuery.paddingOf(context).top + 100.h,
                           context: context,
@@ -77,7 +77,7 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
                     textCapitalization: TextCapitalization.sentences,
                     textInputAction: TextInputAction.next,
                     onChanged: event.setTitle,
-                    validator: AppValidators.emptyCheck,
+                    validator: AppValidators.isNotEmptyValidator,
                   ),
                   24.verticalSpace,
                   UnderlinedTextField(

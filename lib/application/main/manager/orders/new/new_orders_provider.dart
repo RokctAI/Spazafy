@@ -5,5 +5,5 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final newOrdersProvider =
     StateNotifierProvider<NewOrdersNotifier, NewOrdersState>(
-      (ref) => NewOrdersNotifier(ordersRepository),
+      (ref) => NewOrdersNotifier(managerOrdersRepository),
     );

@@ -24,9 +24,8 @@ class _EditFoodCategoriesScreenState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final product = ref.read(editFoodDetailsProvider).product;
-      final type = product?.type;
       final allCategoriesState = ref.read(allCategoriesProvider);
-      final isCombo = type == 'combo';
+      final isCombo = false;
       final categories = isCombo
           ? allCategoriesState.comboCategories
           : allCategoriesState.categories;

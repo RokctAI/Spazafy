@@ -5,5 +5,5 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final restaurantProvider =
     StateNotifierProvider<RestaurantNotifier, RestaurantState>(
-      (ref) => RestaurantNotifier(usersRepository, settingsRepository),
+      (ref) => RestaurantNotifier(managerUsersRepository, managerSettingsRepository),
     );
