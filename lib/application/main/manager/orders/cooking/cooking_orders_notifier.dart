@@ -6,7 +6,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/main/manager/orders/cooking/cooking_orders_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    as mgr
+    hide SnackBarType;
 
 class CookingOrdersNotifier extends StateNotifier<CookingOrdersState> {
   final OrdersInterface _ordersRepository;

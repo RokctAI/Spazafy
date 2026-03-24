@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
 import 'package:rokctapp/domain/interface/manager_notification.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/interface/notification.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    as mgr
+    hide SnackBarType;
 import 'notification_state.dart';
 
 class NotificationNotifier extends StateNotifier<NotificationState> {
