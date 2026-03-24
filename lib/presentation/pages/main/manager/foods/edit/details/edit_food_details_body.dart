@@ -244,7 +244,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                   validator: (value) =>
                                       AppValidators.maxQtyCheck(
                                         value,
-                                        state.minQty,
+                                        num.tryParse(state.minQty),
                                       ),
                                 ),
                               ),
