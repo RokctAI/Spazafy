@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/manager/table_bookings_data.dart';
 import 'dart:convert';
 import 'dart:io';
-import 'package:drift/drift.dart' hide Table;
+import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
