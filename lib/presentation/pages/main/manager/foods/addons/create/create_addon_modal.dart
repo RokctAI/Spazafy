@@ -70,7 +70,8 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                         TextCapitalization.sentences,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setTitle,
-                                    validator: AppValidators.isNotEmptyValidator,
+                                    validator:
+                                        AppValidators.isNotEmptyValidator,
                                   ),
                                   24.verticalSpace,
                                   UnderlinedTextField(
@@ -81,7 +82,8 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                         TextCapitalization.sentences,
                                     textInputAction: TextInputAction.next,
                                     onChanged: event.setDescription,
-                                    validator: AppValidators.isNotEmptyValidator,
+                                    validator:
+                                        AppValidators.isNotEmptyValidator,
                                   ),
                                   24.verticalSpace,
                                   Consumer(
@@ -97,7 +99,8 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                           size: 18.r,
                                         ),
                                         readOnly: true,
-                                        validator: AppValidators.isNotEmptyValidator,
+                                        validator:
+                                            AppValidators.isNotEmptyValidator,
                                         onTap: () =>
                                             help.AppHelpers.showCustomModalBottomSheet(
                                               paddingTop:

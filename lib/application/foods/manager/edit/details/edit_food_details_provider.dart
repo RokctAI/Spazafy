@@ -5,5 +5,8 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final editFoodDetailsProvider =
     StateNotifierProvider<EditFoodDetailsNotifier, EditFoodDetailsState>(
-      (ref) => EditFoodDetailsNotifier(managerProductRepository, managerSettingsRepository),
+      (ref) => EditFoodDetailsNotifier(
+        managerProductRepository,
+        managerSettingsRepository,
+      ),
     );
