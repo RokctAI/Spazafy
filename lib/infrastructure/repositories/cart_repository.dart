@@ -97,7 +97,7 @@ class CartRepository implements CartRepositoryFacade {
       } catch (mergeError) {
         debugPrint('==> sync merge failure: $mergeError');
       }
-      return ApiResult.success(data: cart);
+      return ApiResult.success(data: cart!);
     }
 
     return ApiResult.failure(
@@ -207,7 +207,7 @@ class CartRepository implements CartRepositoryFacade {
           method: 'POST',
           payload: {'cart_id': cartId},
         );
-        return const ApiResult.success(data: null);
+        return ApiResult.success(data: CartModel());
       } catch (syncError) {
         debugPrint('==> deleteCart sync queue failure: $syncError');
       }
@@ -272,7 +272,7 @@ class CartRepository implements CartRepositoryFacade {
           method: 'POST',
           payload: {'cart_detail_id': cartDetailId},
         );
-        return const ApiResult.success(data: null);
+        return ApiResult.success(data: CartModel());
       } catch (syncError) {
         debugPrint('==> removeProductCart sync queue failure: $syncError');
       }
@@ -337,7 +337,7 @@ class CartRepository implements CartRepositoryFacade {
         );
 
         // Return a dummy success to keep UI flow moving (it will sync later)
-        return const ApiResult.success(data: null);
+        return ApiResult.success(data: CartModel());
       } catch (syncError) {
         debugPrint('==> sync queue failure: $syncError');
       }
@@ -382,7 +382,7 @@ class CartRepository implements CartRepositoryFacade {
         );
 
         // Return a dummy success to keep UI flow moving (it will sync later)
-        return const ApiResult.success(data: null);
+        return ApiResult.success(data: CartModel());
       } catch (syncError) {
         debugPrint('==> sync queue failure: $syncError');
       }
