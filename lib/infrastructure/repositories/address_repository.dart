@@ -1,4 +1,5 @@
 import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/local_address_data.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/response/single_address_response.dart';
@@ -83,7 +84,15 @@ class AddressRepository implements AddressRepositoryFacade {
           payload: {'address_data': address.toJson()},
         );
         // Return dummy response for offline success
-        return ApiResult.success(data: SingleAddressResponse(data: address));
+        return ApiResult.success(
+          data: SingleAddressResponse(
+            data: AddressNewModel(
+              id: address.id,
+              title: address.title,
+              location: [address.location?.latitude, address.location?.longitude],
+            ),
+          ),
+        );
       } catch (syncError) {
         debugPrint('==> sync queue failure: $syncError');
       }

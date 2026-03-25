@@ -13,7 +13,8 @@ import 'edit_food_addons_modal.dart';
 import 'edit_group_extras_modal.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart'
+    hide ProductData;
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
     hide AppHelpers, SnackBarType;
 
