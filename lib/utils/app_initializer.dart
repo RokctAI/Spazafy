@@ -27,6 +27,10 @@ class AppInitializer extends StatefulWidget {
     await _checkAppStatusFromAPIStatic();
   }
 
+  Future<void> initializeRemoteConfigWithoutAPICall() async {
+    await _loadCachedPOIData(providerContainer);
+  }
+
   @override
   State<AppInitializer> createState() => _AppInitializerState();
 

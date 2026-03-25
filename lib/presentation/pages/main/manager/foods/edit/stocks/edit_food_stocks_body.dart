@@ -1,8 +1,10 @@
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart'
+    hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,8 +13,10 @@ import 'edit_food_addons_modal.dart';
 import 'edit_group_extras_modal.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart'
+    hide ProductData;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    hide AppHelpers, SnackBarType;
 
 class EditFoodStocksBody extends ConsumerStatefulWidget {
   final ProductData product;
@@ -133,10 +137,9 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                                           2]
                                       .id,
                           );
-                          help.AppHelpers.showCheckTopSnackBar(
+                          help.AppHelpers.showCheckTopSnackBarDone(
                             context,
-                            type: SnackBarType.success,
-                            text: help.AppHelpers.getTranslation(
+                            help.AppHelpers.getTranslation(
                               TrKeys.successfullyUpdated,
                             ),
                           );
@@ -144,10 +147,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                         },
                         failed: () => help.AppHelpers.showCheckTopSnackBar(
                           context,
-                          type: SnackBarType.error,
-                          text: help.AppHelpers.getTranslation(
-                            TrKeys.updateFailed,
-                          ),
+                          help.AppHelpers.getTranslation(TrKeys.updateFailed),
                         ),
                       );
                     }

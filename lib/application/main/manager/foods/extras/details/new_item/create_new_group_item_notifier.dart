@@ -24,7 +24,7 @@ class CreateNewGroupItemNotifier
     state = state.copyWith(isLoading: true);
     final response = await _productsRepository.createExtrasItem(
       title: _title,
-      groupId: groupId ?? 0,
+      groupId: groupId ?? '0',
     );
     response.when(
       success: (data) {
@@ -34,7 +34,7 @@ class CreateNewGroupItemNotifier
       failure: (fail, status) {
         debugPrint('===> create extras item fail $fail');
         state = state.copyWith(isLoading: false);
-        mgr.mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: fail,
           type: SnackBarType.error,

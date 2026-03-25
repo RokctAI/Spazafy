@@ -31,7 +31,7 @@ class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {
       failure: (fail, status) {
         debugPrint('===> delete extras item fail $fail');
         state = state.copyWith(isLoading: false);
-        mgr.mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(
           context,
           text: fail,
           type: SnackBarType.error,
