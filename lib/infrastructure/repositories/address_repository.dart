@@ -89,7 +89,10 @@ class AddressRepository implements AddressRepositoryFacade {
             data: AddressNewModel(
               id: address.id,
               title: address.title,
-              location: [address.location?.latitude, address.location?.longitude],
+              location: [
+                address.location?.latitude,
+                address.location?.longitude,
+              ],
             ),
           ),
         );
