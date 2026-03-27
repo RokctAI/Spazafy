@@ -18,7 +18,7 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/payment_dialog.dart';
 import 'widgets/subscriptions_item.dart';
 
-@RoutePage()
+// // // // @RoutePage()
 class SubscriptionsPage extends ConsumerStatefulWidget {
   const SubscriptionsPage({super.key});
 

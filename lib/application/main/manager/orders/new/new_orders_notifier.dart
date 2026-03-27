@@ -6,7 +6,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'new_orders_state.dart';
 import 'package:rokctapp/domain/interface/interfaces.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
@@ -86,7 +86,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
         if (status == 401) {
           LocalStorage.logout();
           context.router.popUntilRoot();
-          context.replaceRoute(const ManagerAuthRoute());
+          context.replaceRouteNamed('/manager/auth');
         }
       },
     );

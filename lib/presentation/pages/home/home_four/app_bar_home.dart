@@ -12,7 +12,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/app_assets.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar2.dart';
 import 'package:rokctapp/presentation/components/sellect_address_screen.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:rokctapp/app_constants.dart';
@@ -161,14 +161,14 @@ class _AppBarHomeState extends ConsumerState<AppBarHome>
               child: InkWell(
                 onTap: () {
                   if (!LocalStorage.getToken().isNotEmpty) {
-                    context.pushRoute(ViewMapRoute());
+                    context.pushRouteNamed('/map');
                     return;
                   }
                   AppHelpers.showCustomModalBottomSheet(
                     context: context,
                     modal: SelectAddressScreen(
                       addAddress: () async {
-                        await context.pushRoute(ViewMapRoute());
+                        await context.pushRouteNamed('/map');
                       },
                     ),
                     isDarkMode: false,
@@ -469,7 +469,7 @@ class WelcomeText extends StatelessWidget {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            context.router.push(const LoginRoute());
+                            context.router.push('/login');
                           },
                       ),
                       const TextSpan(text: ' or '),
@@ -481,7 +481,7 @@ class WelcomeText extends StatelessWidget {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            context.router.push(const LoginRoute());
+                            context.router.push('/login');
                           },
                       ),
                       TextSpan(

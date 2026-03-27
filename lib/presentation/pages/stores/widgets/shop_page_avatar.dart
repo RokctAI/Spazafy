@@ -14,7 +14,7 @@ import 'package:rokctapp/presentation/components/buttons/animation_button_effect
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/pages/stores/group_order/group_order.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/badges.dart';
 import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
@@ -250,7 +250,7 @@ class ShopPageAvatar extends StatelessWidget {
                       radius: 12,
                     );
             } else {
-              context.pushRoute(const LoginRoute());
+              context.pushRouteNamed('/login');
             }
           },
         );
@@ -294,7 +294,7 @@ class ShopPageAvatar extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        context.pushRoute(
+                        context.pushRouteNamed(
                           ShopDetailRoute(shop: shop, workTime: workTime),
                         );
                       },
@@ -340,10 +340,10 @@ class ShopPageAvatar extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   if (LocalStorage.getToken().isEmpty) {
-                    context.replaceRoute(const LoginRoute());
+                    context.replaceRouteNamed('/login');
                     return;
                   }
-                  context.pushRoute(
+                  context.pushRouteNamed(
                     ChatRoute(
                       roleId: shop.id.toString(),
                       name: shop.translation?.title ?? "",

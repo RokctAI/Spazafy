@@ -9,7 +9,7 @@ import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/typing_delay.dart';
@@ -571,7 +571,7 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           }
           LocalStorage.logout();
           context.router.popUntilRoot();
-          context.replaceRoute(const LoginRoute());
+          context.replaceRouteNamed('/login');
         }
       },
     );

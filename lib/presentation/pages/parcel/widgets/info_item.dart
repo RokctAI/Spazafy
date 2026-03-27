@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class InfoItem extends StatelessWidget {
@@ -18,7 +18,7 @@ class InfoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.pushRoute(InfoRoute(index: index));
+        context.pushRouteNamed(InfoRoute(index: index));
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 10.r),

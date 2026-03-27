@@ -15,7 +15,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/custom_checkbox.dart';
 import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
 import 'package:rokctapp/presentation/pages/profile/phone_verify.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/time_delivery.dart';
 import 'order_container.dart';
@@ -98,7 +98,7 @@ class _OrderDeliveryState extends State<OrderDelivery> {
                       context: context,
                       modal: SelectAddressScreen(
                         addAddress: () async {
-                          await context.pushRoute(
+                          await context.pushRouteNamed(
                             ViewMapRoute(shopId: widget.shopId),
                           );
                           widget.getLocation();

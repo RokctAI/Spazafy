@@ -16,14 +16,13 @@ import 'package:rokctapp/presentation/pages/profile/driver/widgets/edit_profile_
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
 import 'widgets/logout_modal.dart';
 import 'widgets/sections_item.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class DriverProfilePage extends ConsumerStatefulWidget {
   const DriverProfilePage({super.key});
 
@@ -295,7 +294,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                     title: help.AppHelpers.getTranslation(TrKeys.deliveryZone),
                     icon: FlutterRemix.navigation_fill,
                     onTap: () async {
-                      await context.pushRoute(const DriverDeliveryZoneRoute());
+                      await context.pushRouteNamed('/driver/delivery-zone');
                       ref
                           .read(homeProvider.notifier)
                           .fetchDeliveryZone(isFetch: true);
@@ -305,41 +304,41 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                     title: help.AppHelpers.getTranslation(TrKeys.orders),
                     icon: FlutterRemix.order_play_line,
                     onTap: () {
-                      context.pushRoute(const DriverOrdersRoute());
+                      context.pushRouteNamed('/driver/orders');
                     },
                   ),
                   SectionsItem(
                     title: help.AppHelpers.getTranslation(TrKeys.parcels),
                     icon: FlutterRemix.archive_line,
                     onTap: () {
-                      context.pushRoute(const DriverParcelsRoute());
+                      context.pushRouteNamed('/driver/parcels');
                     },
                   ),
                   SectionsItem(
                     title: help.AppHelpers.getTranslation(TrKeys.notifications),
                     icon: FlutterRemix.notification_2_line,
                     onTap: () =>
-                        context.pushRoute(const DriverNotificationListRoute()),
+                        context.pushRouteNamed('/driver/list-notification'),
                   ),
                   SectionsItem(
                     title: help.AppHelpers.getTranslation(TrKeys.orderHistory),
                     icon: FlutterRemix.history_line,
                     onTap: () {
-                      context.pushRoute(const DriverOrderHistoryRoute());
+                      context.pushRouteNamed('/driver/order-history');
                     },
                   ),
                   SectionsItem(
                     title: help.AppHelpers.getTranslation(TrKeys.parcelHistory),
                     icon: FlutterRemix.folder_history_fill,
                     onTap: () {
-                      context.pushRoute(const DriverParcelHistoryRoute());
+                      context.pushRouteNamed('/driver/order-history');
                     },
                   ),
                   SectionsItem(
                     title: help.AppHelpers.getTranslation(TrKeys.income),
                     icon: FlutterRemix.line_chart_line,
                     onTap: () {
-                      context.pushRoute(const DriverIncomeRoute());
+                      context.pushRouteNamed('/driver/income');
                     },
                   ),
                   Consumer(

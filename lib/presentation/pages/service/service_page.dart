@@ -10,7 +10,7 @@ import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/service_two_categories_item.dart';
 
@@ -54,7 +54,7 @@ class _ServicePageState extends State<ServicePage> {
               const Spacer(),
               IconButton(
                 onPressed: () {
-                  context.pushRoute(SearchRoute());
+                  context.pushRouteNamed('/searchPage');
                 },
                 icon: const Icon(FlutterRemix.search_2_line),
               ),
@@ -101,7 +101,7 @@ class _ServicePageState extends State<ServicePage> {
                           notifier.setSelectCategory(index, context);
                         }
 
-                        context.pushRoute(
+                        context.pushRouteNamed(
                           ServiceTwoCategoryRoute(index: index),
                         );
                       },

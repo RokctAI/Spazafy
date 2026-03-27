@@ -14,7 +14,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/domain/interface/gallery.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -200,7 +200,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
             }
             if (status == 401) {
               context.router.popUntilRoot();
-              context.replaceRoute(const LoginRoute());
+              context.replaceRouteNamed('/login');
             }
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -253,7 +253,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     response.when(
       success: (data) async {
         context.router.popUntilRoot();
-        context.replaceRoute(const LoginRoute());
+        context.replaceRouteNamed('/login');
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);

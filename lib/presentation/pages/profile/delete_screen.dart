@@ -7,7 +7,7 @@ import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 // ignore_for_file: unused_result
@@ -67,7 +67,7 @@ class DeleteScreen extends StatelessWidget {
                           ref.refresh(shopOrderProvider);
                           ref.refresh(profileProvider);
                           context.router.popUntilRoot();
-                          context.replaceRoute(const LoginRoute());
+                          context.replaceRouteNamed('/login');
                         },
                       );
                     },

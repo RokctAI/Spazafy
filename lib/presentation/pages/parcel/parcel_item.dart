@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/time_service.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class ParcelItem extends StatelessWidget {
@@ -21,7 +21,7 @@ class ParcelItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRoute(ParcelProgressRoute(parcelId: (parcel?.id ?? "")));
+        context.pushRouteNamed(ParcelProgressRoute(parcelId: (parcel?.id ?? "")));
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 10.h),

@@ -11,7 +11,6 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/application/auth/login/login_provider.dart';
 import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 import 'login_screen.dart';
@@ -22,7 +21,7 @@ import 'package:rokctapp/presentation/pages/policy_term/policy_page.dart';
 import 'package:rokctapp/presentation/pages/policy_term/term_page.dart';
 // ignore_for_file: use_build_context_synchronously
 
-@RoutePage()
+// // // @RoutePage()
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
@@ -69,7 +68,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           if (link.toString().contains("product") ||
               link.toString().contains("shop")) {
             if (AppConstants.isDemo) {
-              context.replaceRoute(UiTypeRoute());
+              context.replaceRouteNamed('/ui-type');
               return;
             }
             AppHelpers.goHome(context);
@@ -86,7 +85,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     if (deepLink.toString().contains("product") ||
         deepLink.toString().contains("shop")) {
       if (AppConstants.isDemo) {
-        context.replaceRoute(UiTypeRoute());
+        context.replaceRouteNamed('/ui-type');
         return;
       }
       AppHelpers.goHome(context);

@@ -9,7 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class LogoutModal extends StatelessWidget {
@@ -68,7 +68,7 @@ class LogoutModal extends StatelessWidget {
                         onPressed: () {
                           LocalStorage.logout();
                           context.router.popUntilRoot();
-                          context.replaceRoute(const LoginRoute());
+                          context.replaceRouteNamed('/login');
                         },
                       );
                     }

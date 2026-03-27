@@ -16,11 +16,10 @@ import 'package:rokctapp/application/order/manager/shipping/table/table_provider
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/delivery_type_item.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class ShippingAddressPage extends StatefulWidget {
   const ShippingAddressPage({super.key});
 
@@ -479,10 +478,10 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                             );
                             return;
                           }
-                          context.pushRoute(const DeliveryTimeRoute());
+                          context.pushRouteNamed('/manager/delivery-time');
                           return;
                         }
-                        context.pushRoute(const DeliveryTimeRoute());
+                        context.pushRouteNamed('/manager/delivery-time');
                       },
                     ),
                   ),

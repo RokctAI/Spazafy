@@ -25,7 +25,6 @@ import 'package:rokctapp/application/providers_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/main.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'bottom_sheet_screen.dart';
 import 'delivery_bottom_sheet.dart';
@@ -33,7 +32,7 @@ import 'parcel_bottom_sheet.dart';
 
 final orderRepository = driverOrderRepository;
 
-@RoutePage()
+// // // @RoutePage()
 class DriverHomePage extends ConsumerStatefulWidget {
   const DriverHomePage({super.key});
 
@@ -339,7 +338,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
                   child: ButtonsBouncingEffect(
                     child: GestureDetector(
                       onTap: () =>
-                          context.pushRoute(const DriverProfileRoute()),
+                          context.pushRouteNamed('/driver/profile'),
                       child: Hero(
                         tag: AppConstants.heroTagProfileAvatar,
                         child: Consumer(

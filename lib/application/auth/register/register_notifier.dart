@@ -21,7 +21,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/background_sync_service.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'dart:convert';
@@ -268,7 +268,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
             ),
           );
           if (AppConstants.isDemo) {
-            context.replaceRoute(UiTypeRoute());
+            context.replaceRouteNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -324,7 +324,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
 
         if (context.mounted) {
           if (AppConstants.isDemo) {
-            context.replaceRoute(UiTypeRoute());
+            context.replaceRouteNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -425,7 +425,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
             ),
           );
           if (AppConstants.isDemo) {
-            context.replaceRoute(UiTypeRoute());
+            context.replaceRouteNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -486,7 +486,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         success: (data) async {
           state = state.copyWith(isLoading: false);
           if (AppConstants.isDemo) {
-            context.replaceRoute(UiTypeRoute());
+            context.replaceRouteNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -596,7 +596,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           );
           context.router.popUntilRoot();
           if (AppConstants.isDemo) {
-            context.replaceRoute(UiTypeRoute());
+            context.replaceRouteNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -828,7 +828,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
             );
             context.router.popUntilRoot();
             if (AppConstants.isDemo) {
-              context.replaceRoute(UiTypeRoute());
+              context.replaceRouteNamed('/ui-type');
             } else {
               AppHelpers.goHome(context);
             }

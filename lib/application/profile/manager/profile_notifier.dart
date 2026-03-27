@@ -16,7 +16,7 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
     as mgr
     hide SnackBarType;
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'profile_state.dart';
 
 class ProfileNotifier extends StateNotifier<ProfileState> {
@@ -96,7 +96,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           }
           if (status == 401) {
             context.router.popUntilRoot();
-            context.replaceRoute(const ManagerAuthRoute());
+            context.replaceRouteNamed('/manager/auth');
           }
           mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
         },
@@ -211,7 +211,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         success: (data) async {
           LocalStorage.logout();
           context.router.popUntilRoot();
-          context.replaceRoute(const ManagerAuthRoute());
+          context.replaceRouteNamed('/manager/auth');
         },
         failure: (fail, status) {
           state = state.copyWith(isLoading: false);

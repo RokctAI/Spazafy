@@ -18,7 +18,7 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'working_time_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
@@ -392,7 +392,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                           ),
                           const Divider(),
                           GestureDetector(
-                            onTap: () => context.pushRoute(
+                            onTap: () => context.pushRouteNamed(
                               const ManagerDeliveryZoneRoute(),
                             ),
                             child: Container(

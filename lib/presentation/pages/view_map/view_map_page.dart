@@ -25,7 +25,6 @@ import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'package:rokctapp/presentation/pages/view_map/view_map_modal.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/map/view_map_notifier.dart';
 import 'package:rokctapp/application/map/view_map_provider.dart';
@@ -36,7 +35,7 @@ import 'package:rokctapp/app_constants.dart';
 // ignore_for_file: prefer_interpolation_to_compose_strings, use_build_context_synchronously
 //import 'package:flutter_svg/flutter_svg.dart';
 
-@RoutePage()
+// // // // @RoutePage()
 class ViewMapPage extends ConsumerStatefulWidget {
   final bool isParcel;
   final bool isPop;
@@ -60,10 +59,10 @@ class ViewMapPage extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<ViewMapPage> createState() => _ViewMapPageState();
+  ConsumerState<ViewMapPage> createState() => ViewMapPageState();
 }
 
-class _ViewMapPageState extends ConsumerState<ViewMapPage>
+class ViewMapPageState extends ConsumerState<ViewMapPage>
     with TickerProviderStateMixin {
   late final AnimationController _animationController = AnimationController(
     vsync: this,
@@ -312,8 +311,8 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
                     latLng: latLng,
                     isShopLocation: widget.isShopLocation,
                     onSearch: () async {
-                      final placeId = await context.pushRoute(
-                        const MapSearchRoute(),
+                      final placeId = await context.pushRouteNamed(
+                        '/map_search',
                       );
                       if (placeId != null) {
                         _handleSearchSelected(placeId.toString());
@@ -735,8 +734,8 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
                                     latLng: latLng,
                                     isShopLocation: widget.isShopLocation,
                                     onSearch: () async {
-                                      final placeId = await context.pushRoute(
-                                        const MapSearchRoute(),
+                                      final placeId = await context.pushRouteNamed(
+                                        '/map_search',
                                       );
                                       if (placeId != null) {
                                         final res = await googlePlace.details
@@ -835,19 +834,3 @@ class _ViewMapPageState extends ConsumerState<ViewMapPage>
   }
 }
 
-@RoutePage()
-class DriverViewMapPage extends ViewMapPage {
-  const DriverViewMapPage({super.key});
-}
-
-@RoutePage()
-class ManagerViewMapPage extends ViewMapPage {
-  final VoidCallback onChanged;
-
-  const ManagerViewMapPage(
-    this.onChanged, {
-    super.key,
-    super.isShopLocation = false,
-    super.shopId,
-  }) : super(useSlidingPanel: true, onChanged: onChanged);
-}

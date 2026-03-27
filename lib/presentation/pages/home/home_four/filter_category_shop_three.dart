@@ -13,7 +13,7 @@ import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/pages/home/home_four/filter/filter_page.dart';
 import 'package:rokctapp/presentation/components/badges.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'shimmer/news_shop_shimmer.dart';
 import 'widgets/market_three_item.dart';
@@ -185,7 +185,7 @@ class FilterCategoryShopThree extends StatelessWidget {
           'We are adding more stores to more locations. You can suggest your local favorite.\n',
       linkText: 'Chat with us',
       onLinkTap: () {
-        context.pushRoute(ChatRoute(roleId: "admin", name: "Admin"));
+        context.pushRouteNamed(ChatRoute(roleId: "admin", name: "Admin"));
       },
     );
   }

@@ -19,7 +19,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:rokctapp/domain/interface/settings.dart';
@@ -233,7 +233,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
             );
           }
           if (AppConstants.isDemo) {
-            context.replaceRoute(UiTypeRoute());
+            context.replaceRouteNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -399,7 +399,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
             );
           }
           if (AppConstants.isDemo) {
-            context.replaceRoute(UiTypeRoute());
+            context.replaceRouteNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -520,7 +520,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
               );
               context.router.popUntilRoot();
               if (AppConstants.isDemo) {
-                context.replaceRoute(UiTypeRoute());
+                context.replaceRouteNamed('/ui-type');
               } else {
                 AppHelpers.goHome(context);
               }
@@ -635,7 +635,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
             );
             context.router.popUntilRoot();
             if (AppConstants.isDemo) {
-              context.replaceRoute(UiTypeRoute());
+              context.replaceRouteNamed('/ui-type');
             } else {
               AppHelpers.goHome(context);
             }

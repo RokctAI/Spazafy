@@ -18,7 +18,7 @@ import 'package:rokctapp/presentation/components/market_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/market_two_item.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class ShopsBannerPage extends ConsumerStatefulWidget {
   final int bannerId;
   final bool isAds;

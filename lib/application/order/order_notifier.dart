@@ -17,7 +17,7 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/domain/interface/payments.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
@@ -374,7 +374,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           AppHelpers.showCheckTopSnackBar(context, failure);
           if (status == 401) {
             context.router.popUntilRoot();
-            context.replaceRoute(const LoginRoute());
+            context.replaceRouteNamed('/login');
           }
         }
       },

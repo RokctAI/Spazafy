@@ -11,7 +11,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class AddAddress extends StatelessWidget {
@@ -37,7 +37,7 @@ class AddAddress extends StatelessWidget {
                 background: AppStyle.transparent,
                 onPressed: () {
                   Navigator.pop(context);
-                  context.pushRoute(ViewMapRoute(isPop: true));
+                  context.pushRouteNamed('/map?isPop=true');
                 },
               ),
             ),

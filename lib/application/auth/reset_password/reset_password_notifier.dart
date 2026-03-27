@@ -10,7 +10,7 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'reset_password_state.dart';
 
 class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
@@ -128,7 +128,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
       success: (data) async {
         state = state.copyWith(isLoading: false, isSuccess: true);
         if (AppConstants.isDemo) {
-          context.replaceRoute(UiTypeRoute());
+          context.replaceRouteNamed('/ui-type');
         } else {
           AppHelpers.goHome(context);
         }

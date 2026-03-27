@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/models/data/refund_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
 //import 'package:flutter/cupertino.dart';
@@ -34,7 +34,7 @@ class OrdersItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRoute(
+        context.pushRouteNamed(
           OrderProgressRoute(
             orderId: isRefund ? (refund?.order?.id ?? "") : (order?.id ?? ""),
           ),
@@ -215,7 +215,7 @@ class OrdersItem extends StatelessWidget {
               isIcon: true,
               //title: AppHelpers.getTranslation(TrKeys.favouriteBrand),
               onRightTap: () {
-                context.pushRoute(
+                context.pushRouteNamed(
                   OrderProgressRoute(
                     orderId: isRefund
                         ? (refund?.order?.id ?? "")

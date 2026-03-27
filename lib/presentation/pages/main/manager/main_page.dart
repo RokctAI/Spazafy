@@ -19,7 +19,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'orders/orders_home_page.dart';
 import 'billing/home_page.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/pages/main/widgets/bottom_navigator_item.dart';
 import 'package:rokctapp/presentation/pages/restaurant/manager/restaurant_page.dart';
 import 'package:rokctapp/application/providers_manager.dart';
@@ -28,7 +27,7 @@ import 'foods/addons/create/create_addon_modal.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'foods/extras/create/create_extras_group_modal.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class ManagerMainPage extends StatefulWidget {
   const ManagerMainPage({super.key});
 

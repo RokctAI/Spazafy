@@ -17,7 +17,7 @@ import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/pages/stores/group_order/widgets/check_status_dialog.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
 import 'widgets/cart_clear_dialog.dart';
@@ -433,7 +433,7 @@ class _ShopOrderState extends ConsumerState<CartOrderPage> {
                               );
                             } else {
                               Navigator.pop(context);
-                              context.pushRoute(const OrderRoute());
+                              context.pushRouteNamed('/orderScreen');
                             }
                           },
                         ),
@@ -445,11 +445,11 @@ class _ShopOrderState extends ConsumerState<CartOrderPage> {
                       );
                     } else {
                       Navigator.pop(context);
-                      context.pushRoute(const OrderRoute());
+                      context.pushRouteNamed('/orderScreen');
                     }
                   } else {
                     Navigator.pop(context);
-                    context.pushRoute(const OrderRoute());
+                    context.pushRouteNamed('/orderScreen');
                   }
                 }
               },

@@ -1,6 +1,5 @@
 import 'package:rokctapp/infrastructure/models/response/manager/maksekeskus_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/non_exist_payment_response.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';

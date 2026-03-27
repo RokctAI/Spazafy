@@ -10,7 +10,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'components/custom_range_slider.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/manager/custom_scroll_behavior.dart';
 import 'package:rokctapp/presentation/phoenix_widget.dart';
 

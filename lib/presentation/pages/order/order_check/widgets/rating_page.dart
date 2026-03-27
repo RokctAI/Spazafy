@@ -16,7 +16,7 @@ import 'package:rokctapp/presentation/components/text_fields/outline_bordered_te
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/components/web_view.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/payment_method.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class RatingPage extends ConsumerStatefulWidget {
@@ -268,7 +268,7 @@ class _RatingPageState extends ConsumerState<RatingPage> {
                                                   rating,
                                                 );
                                           }
-                                          context.replaceRoute(
+                                          context.replaceRouteNamed(
                                             const OrdersListRoute(),
                                           );
                                         }
@@ -301,7 +301,7 @@ class _RatingPageState extends ConsumerState<RatingPage> {
                               );
                         }
 
-                        context.replaceRoute(const OrdersListRoute());
+                        context.replaceRouteNamed('/order');
                       }
                     },
                   );

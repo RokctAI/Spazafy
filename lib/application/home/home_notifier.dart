@@ -21,7 +21,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/domain/interface/brands.dart';
 import 'package:rokctapp/domain/interface/products.dart';
 import 'home_state.dart';

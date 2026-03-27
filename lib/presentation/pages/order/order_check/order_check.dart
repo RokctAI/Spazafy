@@ -29,7 +29,7 @@ import 'package:rokctapp/presentation/pages/order/order_check/price_information.
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/auto_order_modal.dart';
 import 'package:rokctapp/presentation/pages/order/order_screen/widgets/image_dialog.dart';
 import 'package:rokctapp/presentation/pages/profile/phone_verify.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/application/orders_list/orders_list_provider.dart';
@@ -466,7 +466,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
                           context,
                           () {
                             context.maybePop();
-                            context.pushRoute(const OrderRoute());
+                            context.pushRouteNamed('/orderScreen');
                           },
                         );
                       },

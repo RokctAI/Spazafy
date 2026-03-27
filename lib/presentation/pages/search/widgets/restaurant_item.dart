@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class RestaurantItem extends StatelessWidget {
@@ -20,7 +20,7 @@ class RestaurantItem extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 8.h),
       child: GestureDetector(
         onTap: () {
-          context.pushRoute(ShopRoute(shopId: (shop.id ?? 0).toString()));
+          context.pushRouteNamed('/shop?shopId=' + (shop.id ?? 0).toString());
         },
         child: Container(
           decoration: BoxDecoration(

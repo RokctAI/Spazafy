@@ -13,7 +13,7 @@ import 'package:rokctapp/presentation/components/loading.dart';
 //import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 //import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class PolicyPage extends ConsumerStatefulWidget {
   const PolicyPage({super.key});
 

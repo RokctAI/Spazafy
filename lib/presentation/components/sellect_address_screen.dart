@@ -17,7 +17,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/home/home_provider.dart';
 import 'select_address_item.dart';
@@ -104,15 +103,7 @@ class _SelectAddressScreenState extends ConsumerState<SelectAddressScreen> {
                             .userData
                             ?.addresses?[index],
                         update: () async {
-                          await context.pushRoute(
-                            ViewMapRoute(
-                              address: ref
-                                  .watch(profileProvider)
-                                  .userData
-                                  ?.addresses?[index],
-                              indexAddress: index,
-                            ),
-                          );
+                          await context.pushRouteNamed('/map?indexAddress=$index');
                           if (context.mounted) {
                             ref
                                 .read(profileProvider.notifier)

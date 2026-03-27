@@ -12,12 +12,11 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class ManagerOrderPage extends ConsumerStatefulWidget {
   const ManagerOrderPage({super.key});
 
@@ -157,7 +156,7 @@ class _ManagerOrderPageState extends ConsumerState<ManagerOrderPage> {
                     child: CustomButton(
                       title: help.AppHelpers.getTranslation(TrKeys.next),
                       onPressed: () =>
-                          context.pushRoute(const ShippingAddressRoute()),
+                          context.pushRouteNamed('/manager/shipping-address'),
                     ),
                   ),
               ],

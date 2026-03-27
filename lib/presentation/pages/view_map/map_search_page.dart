@@ -11,15 +11,15 @@ import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-@RoutePage()
+// // // // @RoutePage()
 class MapSearchPage extends StatefulWidget {
   const MapSearchPage({super.key});
 
   @override
-  State<MapSearchPage> createState() => _MapSearchPageState();
+  State<MapSearchPage> createState() => MapSearchPageState();
 }
 
-class _MapSearchPageState extends State<MapSearchPage> {
+class MapSearchPageState extends State<MapSearchPage> {
   List<AutocompletePrediction> searchResult = [];
 
   @override
@@ -103,7 +103,3 @@ class _MapSearchPageState extends State<MapSearchPage> {
   }
 }
 
-@RoutePage()
-class ManagerMapSearchPage extends MapSearchPage {
-  const ManagerMapSearchPage({super.key});
-}

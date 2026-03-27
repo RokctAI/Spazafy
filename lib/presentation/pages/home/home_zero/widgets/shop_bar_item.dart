@@ -7,7 +7,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/infrastructure/models/data/story_data.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class ShopBarItem extends StatelessWidget {
@@ -26,7 +26,7 @@ class ShopBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRoute(StoryListRoute(controller: controller, index: index));
+        context.pushRouteNamed('/storyList?index=$index');
       },
       child: Container(
         margin: EdgeInsets.only(right: 9.r),

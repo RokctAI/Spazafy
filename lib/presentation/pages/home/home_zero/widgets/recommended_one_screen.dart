@@ -14,7 +14,7 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'market_one_item.dart';
 // import 'recommended_one_item.dart'; // NOT FOUND IN PROJECT
 
-@RoutePage()
+// // // @RoutePage()
 class RecommendedOnePage extends ConsumerStatefulWidget {
   final bool isNewsOfPage;
   final bool isShop;

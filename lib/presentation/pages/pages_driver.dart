@@ -27,3 +27,5 @@ export 'package:rokctapp/presentation/pages/profile/driver/delivery_zone/deliver
     show DriverDeliveryZonePage;
 export 'package:rokctapp/presentation/pages/parcels_history/driver/parcel_history.dart'
     show DriverParcelHistoryPage;
+export 'package:rokctapp/presentation/pages/view_map/driver_view_map_page.dart'
+    show DriverViewMapPage;

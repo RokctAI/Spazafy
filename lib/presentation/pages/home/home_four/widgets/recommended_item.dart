@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/badges.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class RecommendedItem extends StatelessWidget {
@@ -28,8 +28,8 @@ class RecommendedItem extends StatelessWidget {
         final isNarrow = constraints.maxWidth < screenWidth / 2;
         return GestureDetector(
           onTap: () {
-            context.pushRoute(
-              ShopRoute(shopId: (shop.id ?? 0).toString(), shop: shop),
+            context.pushRouteNamed(
+              '/shop?shopId=' + (shop.id ?? 0).toString(),
             );
           },
           child: Container(

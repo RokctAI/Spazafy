@@ -15,7 +15,7 @@ import 'package:rokctapp/presentation/components/market_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'recommended_item.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class RecommendedPage extends ConsumerStatefulWidget {
   final bool isNewsOfPage;
   final bool isShop;

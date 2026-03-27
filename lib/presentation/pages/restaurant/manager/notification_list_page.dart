@@ -21,7 +21,7 @@ import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_de
 import 'package:rokctapp/presentation/theme/app_style.dart';
 // ignore_for_file: deprecated_member_use
 
-@RoutePage()
+// // // @RoutePage()
 class ManagerNotificationListPage extends ConsumerStatefulWidget {
   const ManagerNotificationListPage({super.key});
 

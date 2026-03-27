@@ -22,7 +22,7 @@ import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 // ignore_for_file: deprecated_member_use
 
-@RoutePage()
+// // // @RoutePage()
 class DriverNotificationListPage extends ConsumerStatefulWidget {
   const DriverNotificationListPage({super.key});
 

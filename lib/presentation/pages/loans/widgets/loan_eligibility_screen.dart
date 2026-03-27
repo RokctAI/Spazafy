@@ -17,7 +17,7 @@ import 'loan_document_upload_screen.dart';
 import 'loan_ineligibility_dialog.dart';
 import 'loan_qualification_dialog.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class LoanEligibilityScreen extends ConsumerStatefulWidget {
   final Map<String, dynamic>? financialDetails;
 

@@ -28,7 +28,6 @@ import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/application/like/like_provider.dart';
 import 'package:rokctapp/presentation/pages/profile/delete_screen.dart';
 import 'package:rokctapp/presentation/pages/profile/help_page.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/policy_term/policy_page.dart';
 import 'package:rokctapp/presentation/pages/policy_term/term_page.dart';
@@ -45,7 +44,7 @@ import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
 import 'widgets/wallet_topup_screen.dart';
 import 'widgets/wallet_send_screen.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {
   final bool isBackButton;
   final Function()? onCardAdded;
@@ -191,7 +190,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                         ),
                         IconButton(
                           onPressed: () {
-                            context.pushRoute(LikeRoute());
+                            context.pushRouteNamed('/like_page');
                           },
                           icon: Badge(
                             label: Text(
@@ -207,7 +206,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                         ),
                         IconButton(
                           onPressed: () {
-                            context.pushRoute(const NotificationListRoute());
+                            context.pushRouteNamed('/notification_list_page');
                           },
                           icon: Badge(
                             label: Text(
@@ -710,7 +709,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                       TrKeys.help,
                                     ),
                                     onTap: () =>
-                                        context.pushRoute(const HelpRoute()),
+                                        context.pushRouteNamed('/help'),
                                   ),
                                 if (!hasMembership)
                                   _buildSquareButton(

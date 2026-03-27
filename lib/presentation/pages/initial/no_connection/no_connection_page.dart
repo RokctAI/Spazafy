@@ -8,11 +8,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class NoConnectionPage extends ConsumerStatefulWidget {
   const NoConnectionPage({super.key});
 
@@ -107,7 +106,7 @@ class NoConnectionDialog extends ConsumerWidget {
       if (hasConnection) {
         // Connection restored, go back to splash to reinitialize
         if (context.mounted) {
-          context.replaceRoute(const SplashRoute());
+          context.replaceRouteNamed('/');
         }
       } else {
         // Still no connection, show snackbar and reopen dialog
@@ -150,12 +149,12 @@ class NoConnectionDialog extends ConsumerWidget {
   }
 }
 
-@RoutePage()
+// // // @RoutePage()
 class DriverNoConnectionPage extends NoConnectionPage {
   const DriverNoConnectionPage({super.key});
 }
 
-@RoutePage()
+// // // @RoutePage()
 class ManagerNoConnectionPage extends NoConnectionPage {
   const ManagerNoConnectionPage({super.key});
 }

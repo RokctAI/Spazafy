@@ -15,10 +15,9 @@ import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/select_address_item.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class AddressListPage extends StatefulWidget {
   const AddressListPage({super.key});
 
@@ -115,7 +114,7 @@ class _AddressListPageState extends State<AddressListPage> {
                     child: CustomButton(
                       title: AppHelpers.getTranslation(TrKeys.addAddress),
                       onPressed: () {
-                        context.pushRoute(ViewMapRoute());
+                        context.pushRouteNamed('/map');
                       },
                     ),
                   ),

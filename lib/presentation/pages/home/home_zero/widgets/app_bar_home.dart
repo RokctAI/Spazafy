@@ -10,7 +10,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/sellect_address_screen.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class AppBarHome extends StatelessWidget {
@@ -25,14 +25,14 @@ class AppBarHome extends StatelessWidget {
       child: InkWell(
         onTap: () {
           if (LocalStorage.getToken().isEmpty) {
-            context.pushRoute(ViewMapRoute());
+            context.pushRouteNamed('/map');
             return;
           }
           AppHelpers.showCustomModalBottomSheet(
             context: context,
             modal: SelectAddressScreen(
               addAddress: () async {
-                await context.pushRoute(ViewMapRoute());
+                await context.pushRouteNamed('/map');
               },
             ),
             isDarkMode: false,

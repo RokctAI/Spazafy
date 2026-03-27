@@ -1,5 +1,4 @@
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -14,10 +13,9 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-@RoutePage()
+// // // // @RoutePage()
 class StoryListPage extends StatefulWidget {
   final RefreshController controller;
   final int index;
@@ -56,7 +54,7 @@ class _StoryListPageState extends State<StoryListPage> {
           itemCount: ref.watch(homeProvider).story?.length ?? 0,
           physics: const PageScrollPhysics(),
           itemBuilder: (context, index) {
-            return StoryPage(
+            return StoryItemPage(
               story: ref.watch(homeProvider).story?[index],
               nextPage: () {
                 if (index == ref.watch(homeProvider).story!.length - 2) {
@@ -95,12 +93,12 @@ class _StoryListPageState extends State<StoryListPage> {
   }
 }
 
-class StoryPage extends StatefulWidget {
+class StoryItemPage extends StatefulWidget {
   final List<StoryModel?>? story;
   final VoidCallback nextPage;
   final VoidCallback prevPage;
 
-  const StoryPage({
+  const StoryItemPage({
     super.key,
     required this.story,
     required this.nextPage,
@@ -108,10 +106,10 @@ class StoryPage extends StatefulWidget {
   });
 
   @override
-  State<StoryPage> createState() => _StoryPageState();
+  State<StoryItemPage> createState() => _StoryItemPageState();
 }
 
-class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
+class _StoryItemPageState extends State<StoryItemPage> with TickerProviderStateMixin {
   late AnimationController controller;
   final pageController = PageController(initialPage: 0);
   GlobalKey imageKey = GlobalKey();
@@ -391,10 +389,8 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      context.pushRoute(
-                        ShopRoute(
-                          shopId: (widget.story?.first?.shopId ?? 0).toString(),
-                        ),
+                  context.pushRouteNamed(
+                    '/shop?shopId=${(widget.story?.first?.shopId ?? 0).toString()}',
                       );
                     },
                     child: Row(
@@ -459,12 +455,8 @@ class _StoryPageState extends State<StoryPage> with TickerProviderStateMixin {
               child: CustomButton(
                 title: AppHelpers.getTranslation(TrKeys.order),
                 onPressed: () {
-                  context.pushRoute(
-                    ShopRoute(
-                      shopId: (widget.story?[currentIndex]?.shopId ?? 0)
-                          .toString(),
-                      productId: widget.story?[currentIndex]?.productUuid ?? "",
-                    ),
+                  context.pushRouteNamed(
+                    '/shop?shopId=${(widget.story?[currentIndex]?.shopId ?? 0).toString()}&productId=${widget.story?[currentIndex]?.productUuid ?? ""}',
                   );
                 },
               ),

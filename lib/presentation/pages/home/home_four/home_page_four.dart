@@ -19,6 +19,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/user.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/add_address.dart';
 import 'app_bar_home.dart';
 import 'category_screen.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
@@ -112,7 +113,7 @@ class _HomePageState extends ConsumerState<HomePageFour> {
 
       if (!mounted) return;
       // Map and user data
-      ref.read(viewMapProvider.notifier).checkAddress(context);
+      ref.read(viewMapProvider.notifier).checkAddress(context, const AddAddress());
       ref.read(currencyProvider.notifier).fetchCurrency(context);
       if (LocalStorage.getToken().isNotEmpty) {
         ref.read(shopOrderProvider.notifier).getCart(context, () {});

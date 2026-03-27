@@ -1,6 +1,5 @@
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/utils/app_usage_service.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'dart:async';
 import 'package:rokctapp/infrastructure/services/utils/sync_provider.dart';
@@ -28,7 +27,6 @@ import 'package:rokctapp/presentation/pages/like/like_page.dart';
 import 'package:rokctapp/presentation/pages/profile/profile_page.dart';
 import 'package:rokctapp/presentation/pages/search/search_page.dart';
 import 'package:rokctapp/presentation/pages/service/service_page.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/application/home/home_provider.dart';
@@ -58,7 +56,7 @@ import 'package:rokctapp/presentation/pages/profile/wallet_history.dart';
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@RoutePage()
+// // @RoutePage()
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -262,27 +260,20 @@ class _MainPageState extends State<MainPage> {
               if (!mounted) return;
               context.router.popUntilRoot();
               if (!mounted) return;
-              context.pushRoute(
-                ShopRoute(
-                  shopId: link.pathSegments.last,
-                  cartId: link.queryParameters['group'],
-                  ownerId: link.queryParameters['owner_id'] ?? '',
-                ),
+              context.pushRouteNamed(
+                '/shop?shopId=${link.pathSegments.last}&cartId=${link.queryParameters['group']}&ownerId=${link.queryParameters['owner_id'] ?? ''}',
               );
             } else if (!link.queryParameters.keys.contains("product") &&
                 link.pathSegments.contains("shop")) {
               if (!mounted) return;
               context.router.popUntilRoot();
-              context.pushRoute(ShopRoute(shopId: link.pathSegments.last));
+              context.pushRouteNamed('/shop?shopId=${link.pathSegments.last}');
             } else if (link.pathSegments.contains("shop")) {
               if (!mounted) return;
               context.router.popUntilRoot();
               if (!mounted) return;
-              context.pushRoute(
-                ShopRoute(
-                  shopId: link.pathSegments.last,
-                  productId: link.queryParameters['product'],
-                ),
+              context.pushRouteNamed(
+                '/shop?shopId=${link.pathSegments.last}&productId=${link.queryParameters['product']}',
               );
             }
           })
@@ -298,24 +289,17 @@ class _MainPageState extends State<MainPage> {
         if (!context.mounted) return;
         context.router.popUntilRoot();
         if (!mounted) return;
-        context.pushRoute(
-          ShopRoute(
-            shopId: deepLink?.pathSegments.last ?? '',
-            cartId: deepLink?.queryParameters['group'],
-            ownerId: deepLink?.queryParameters['owner_id'] ?? "",
-          ),
+        context.pushRouteNamed(
+          '/shop?shopId=${deepLink?.pathSegments.last ?? ''}&cartId=${deepLink?.queryParameters['group']}&ownerId=${deepLink?.queryParameters['owner_id'] ?? ""}',
         );
       } else if (!(deepLink?.queryParameters.keys.contains("product") ??
               false) &&
           (deepLink?.pathSegments.contains("shop") ?? false)) {
         if (!context.mounted) return;
-        context.pushRoute(ShopRoute(shopId: deepLink?.pathSegments.last ?? ""));
+        context.pushRouteNamed('/shop?shopId=${deepLink?.pathSegments.last ?? ""}');
       } else if (deepLink?.pathSegments.contains("shop") ?? false) {
-        context.pushRoute(
-          ShopRoute(
-            shopId: deepLink?.pathSegments.last ?? "",
-            productId: deepLink?.queryParameters['product'],
-          ),
+        context.pushRouteNamed(
+          '/shop?shopId=${deepLink?.pathSegments.last ?? ""}&productId=${deepLink?.queryParameters['product']}',
         );
       }
     } catch (e) {
@@ -389,10 +373,10 @@ class _MainPageState extends State<MainPage> {
           GestureDetector(
             onTap: () {
               if (LocalStorage.getToken().isEmpty) {
-                context.pushRoute(LoginRoute());
+                context.pushRouteNamed('/login');
                 return;
               }
-              context.pushRoute(OrderRoute());
+              context.pushRouteNamed('/orderScreen');
             },
             child: Stack(
               alignment: Alignment.bottomRight,
@@ -555,7 +539,7 @@ class _MainPageState extends State<MainPage> {
                           if (event.checkGuest()) {
                             event.selectIndex(0);
                             event.changeScrolling(false);
-                            context.replaceRoute(LoginRoute());
+                            context.replaceRouteNamed('/login');
                           } else {
                             event.changeScrolling(false);
                             event.selectIndex(3);
@@ -595,10 +579,10 @@ class _MainPageState extends State<MainPage> {
                     child: GestureDetector(
                       onTap: () {
                         if (LocalStorage.getToken().isEmpty) {
-                          context.pushRoute(LoginRoute());
+                          context.pushRouteNamed('/login');
                           return;
                         }
-                        context.pushRoute(OrderRoute());
+                        context.pushRouteNamed('/orderScreen');
                       },
                       child: Container(
                         margin: EdgeInsets.only(left: 8.w),

@@ -7,10 +7,9 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class InfoPage extends StatelessWidget {
   final int index;
 
@@ -51,7 +50,7 @@ class InfoPage extends StatelessWidget {
                         context.maybePop();
                         return;
                       }
-                      context.replaceRoute(InfoRoute(index: index + 1));
+                      context.replaceRouteNamed('/info_screen?index=${index + 1}');
                     },
                   ),
                   32.verticalSpace,

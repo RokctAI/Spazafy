@@ -25,7 +25,7 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
 //import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class ParcelProgressPage extends ConsumerStatefulWidget {
   final String? parcelId;
 

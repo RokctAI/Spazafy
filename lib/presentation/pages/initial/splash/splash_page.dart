@@ -6,7 +6,6 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/application/splash/splash_provider.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 // Copyright (c) 2024 RokctAI
 //
@@ -23,7 +22,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@RoutePage()
+// @RoutePage()
 class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
 
@@ -46,7 +45,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       if (AppConstants.isMaintain) {
         if (!mounted) return;
         FlutterNativeSplash.remove();
-        context.replaceRoute(const ClosedRoute());
+        context.replaceRouteNamed('/ClosedPage');
         return;
       }
 
@@ -64,7 +63,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
           // No offline data and no internet - show no connection page
           FlutterNativeSplash.remove();
           if (!mounted) return;
-          context.replaceRoute(const NoConnectionRoute());
+          context.replaceRouteNamed('/no-connection');
           return;
         }
       } else {
@@ -79,7 +78,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       } else {
         FlutterNativeSplash.remove();
         if (!mounted) return;
-        context.replaceRoute(const NoConnectionRoute());
+        context.replaceRouteNamed('/no-connection');
       }
     }
   }
@@ -123,12 +122,12 @@ class _SplashPageState extends ConsumerState<SplashPage> {
             goLogin: () {
               FlutterNativeSplash.remove();
               if (!mounted) return;
-              context.replaceRoute(const LoginRoute());
+              context.replaceRouteNamed('/login');
             },
             goNoInternet: () {
               FlutterNativeSplash.remove();
               if (!mounted) return;
-              context.replaceRoute(const NoConnectionRoute());
+              context.replaceRouteNamed('/no-connection');
             },
           );
     } catch (e) {
@@ -153,7 +152,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     } else {
       // User not logged in, go to login
       if (!mounted) return;
-      context.replaceRoute(const LoginRoute());
+      context.replaceRouteNamed('/login');
     }
   }
 

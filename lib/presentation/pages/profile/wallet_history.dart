@@ -29,7 +29,7 @@ extension StringExtension on String {
   }
 }
 
-@RoutePage()
+// // // @RoutePage()
 class WalletHistoryPage extends ConsumerStatefulWidget {
   final bool isBackButton;
   const WalletHistoryPage({super.key, this.isBackButton = true});

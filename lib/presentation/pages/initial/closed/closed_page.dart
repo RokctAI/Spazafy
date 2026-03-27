@@ -12,7 +12,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 
 //import 'package:rokctapp/presentation/component/components.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class ClosedPage extends ConsumerStatefulWidget {
   const ClosedPage({super.key});
 

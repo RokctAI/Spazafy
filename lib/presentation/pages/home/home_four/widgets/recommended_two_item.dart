@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/app_constants.dart';
 
@@ -22,7 +22,7 @@ class RecommendedTwoItem extends StatelessWidget {
     final shouldUseBgImg = bgImg ?? AppConstants.bgImg;
     return GestureDetector(
       onTap: () {
-        context.pushRoute(ShopRoute(shopId: (shop.id ?? 0).toString()));
+        context.pushRouteNamed('/shop?shopId=' + (shop.id ?? 0).toString());
       },
       child: Container(
         margin: EdgeInsets.only(left: 0, right: 9.r),

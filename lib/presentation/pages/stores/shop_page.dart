@@ -33,9 +33,8 @@ import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
 import 'cart/cart_order_page.dart';
 import 'widgets/shop_page_avatar.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 
-@RoutePage()
+// // // // @RoutePage()
 class ShopPage extends ConsumerStatefulWidget {
   final ShopData? shop;
   final String shopId;
@@ -306,7 +305,7 @@ class _ShopPageState extends ConsumerState<ShopPage>
           GestureDetector(
             onTap: () {
               if (LocalStorage.getToken().isEmpty) {
-                context.pushRoute(LoginRoute());
+                context.pushRouteNamed('/login');
                 return;
               }
               AppHelpers.showCustomModalBottomDragSheet(
@@ -552,7 +551,7 @@ class _ShopPageState extends ConsumerState<ShopPage>
               child: GestureDetector(
                 onTap: () {
                   if (LocalStorage.getToken().isEmpty) {
-                    context.pushRoute(LoginRoute());
+                    context.pushRouteNamed('/login');
                     return;
                   }
 

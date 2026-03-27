@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/buttons/button_item.dart';
 import 'package:rokctapp/presentation/pages/profile/edit_profile_page.dart';
@@ -83,7 +83,7 @@ class MyAccount extends StatelessWidget {
               icon: FlutterRemix.hotel_line,
               title: AppHelpers.getTranslation(TrKeys.deliveryTo),
               onTap: () {
-                context.pushRoute(const AddressListRoute());
+                context.pushRouteNamed('/address_list_page');
               },
             ),
             ButtonItem(
@@ -91,7 +91,7 @@ class MyAccount extends StatelessWidget {
               icon: FlutterRemix.settings_3_line,
               title: AppHelpers.getTranslation(TrKeys.notifications),
               onTap: () {
-                context.pushRoute(const SettingRoute());
+                context.pushRouteNamed('/setting');
               },
             ),
             ButtonItem(

@@ -14,7 +14,6 @@ import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect2.dart';
 
 class UpComingList extends ConsumerStatefulWidget {
@@ -126,7 +125,7 @@ class _UpComingListState extends ConsumerState<UpComingList> {
   ) {
     return ButtonEffectAnimation(
       onTap: () {
-        context.pushRoute(OrderProgressRoute(orderId: (order.id ?? "")));
+        context.pushRouteNamed('/order_progress?orderId=${(order.id ?? "")}');
       },
       child: UpcomingOrderWidget(
         order: order,

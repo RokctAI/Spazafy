@@ -70,14 +70,12 @@ import 'package:rokctapp/domain/interface/manager_subscription.dart';
 import 'package:rokctapp/domain/interface/manager_table.dart';
 import 'package:rokctapp/infrastructure/repositories/manager/repositories.dart'
     as manager_repos;
-import 'package:rokctapp/presentation/routes/app_router.dart';
 
 final GetIt getIt = GetIt.instance;
 
 Future<void> setUpDependencies() async {
   getIt.registerSingleton<AppDatabase>(AppDatabase());
   getIt.registerLazySingleton<HttpService>(() => HttpService());
-  getIt.registerSingleton<AppRouter>(AppRouter());
 
   final user = LocalStorage.getUser();
   final role = user?.role ?? '';
@@ -203,7 +201,6 @@ final driverParcelRepository = getIt
     .get<driver_interfaces.ParcelRepositoryFacade>();
 final driverNotificationRepo = getIt
     .get<driver_interfaces.NotificationRepositoryFacade>();
-final appRouter = getIt.get<AppRouter>();
 
 // Manager specific accessors
 final managerAuthRepository = getIt.get<AuthRepositoryFacade>();

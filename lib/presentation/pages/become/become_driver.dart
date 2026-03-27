@@ -20,7 +20,7 @@ import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/application/providers_driver.dart';
 
-@RoutePage()
+// // // @RoutePage()
 class DriverBecomeDriverPage extends ConsumerStatefulWidget {
   const DriverBecomeDriverPage({super.key});
 

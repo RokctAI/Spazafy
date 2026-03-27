@@ -1,9 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
-    as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
-    hide SnackBarType;
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+    hide SnackBarType, OrderStatus, ExtrasType;
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -13,10 +9,7 @@ import 'edit_food_addons_modal.dart';
 import 'edit_group_extras_modal.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart'
-    hide ProductData;
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    hide AppHelpers, SnackBarType;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 class EditFoodStocksBody extends ConsumerStatefulWidget {
   final ProductData product;
@@ -65,7 +58,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                     extras: state.groups[index],
                     onTap: () {
                       event.toggleCheckedGroup(index);
-                      help.AppHelpers.showCustomModalBottomSheet(
+                        AppHelpers.showCustomModalBottomSheet(
                         paddingTop: MediaQuery.paddingOf(context).top + 150,
                         context: context,
                         radius: 12,
@@ -98,7 +91,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                         onQuantityChange: (value) =>
                             event.setQuantity(value: value, index: index),
                         onAddonTap: (context) =>
-                            help.AppHelpers.showCustomModalBottomSheet(
+                            AppHelpers.showCustomModalBottomSheet(
                               paddingTop:
                                   MediaQuery.paddingOf(context).top + 150,
                               context: context,
@@ -120,7 +113,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
               Padding(
                 padding: REdgeInsets.symmetric(horizontal: 20),
                 child: CustomButton(
-                  title: help.AppHelpers.getTranslation(TrKeys.save),
+                  title: AppHelpers.getTranslation(TrKeys.save),
                   isLoading: state.isSaving,
                   onPressed: () {
                     if (_formKey.currentState?.validate() ?? false) {
@@ -137,17 +130,19 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                                           2]
                                       .id,
                           );
-                          help.AppHelpers.showCheckTopSnackBarDone(
+                          AppHelpers.showCheckTopSnackBar(
                             context,
-                            help.AppHelpers.getTranslation(
+                            type: SnackBarType.success,
+                            text: AppHelpers.getTranslation(
                               TrKeys.successfullyUpdated,
                             ),
                           );
                           context.maybePop();
                         },
-                        failed: () => help.AppHelpers.showCheckTopSnackBar(
+                        failed: () => AppHelpers.showCheckTopSnackBar(
                           context,
-                          help.AppHelpers.getTranslation(TrKeys.updateFailed),
+                          type: SnackBarType.error,
+                          text: AppHelpers.getTranslation(TrKeys.updateFailed),
                         ),
                       );
                     }

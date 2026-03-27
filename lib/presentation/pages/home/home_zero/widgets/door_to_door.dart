@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class DoorToDoor extends StatelessWidget {
@@ -41,10 +41,10 @@ class DoorToDoor extends StatelessWidget {
             title: AppHelpers.getTranslation(TrKeys.learnMore),
             onPressed: () {
               if (LocalStorage.getToken().isEmpty) {
-                context.pushRoute(const LoginRoute());
+                context.pushRouteNamed('/login');
                 return;
               }
-              context.pushRoute(ParcelRoute());
+              context.pushRouteNamed('/parcel_page');
               return;
             },
             background: AppStyle.transparent,

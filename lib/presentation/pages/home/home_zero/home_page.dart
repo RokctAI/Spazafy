@@ -21,7 +21,8 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/market_item.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/door_to_door.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/add_address.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/app_bar_home.dart';
 import 'widgets/category_screen.dart';
@@ -64,7 +65,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         ..fetchNewShops(context)
         ..fetchAds(context)
         ..fetchCategories(context);
-      ref.read(viewMapProvider.notifier).checkAddress(context);
+      ref.read(viewMapProvider.notifier).checkAddress(context, const AddAddress());
       ref.read(currencyProvider.notifier).fetchCurrency(context);
       if (LocalStorage.getToken().isNotEmpty) {
         ref.read(shopOrderProvider.notifier).getCart(context, () {});
@@ -265,7 +266,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     isIcon: true,
                     title: AppHelpers.getTranslation(TrKeys.favouriteBrand),
                     onRightTap: () {
-                      context.pushRoute(RecommendedRoute(isShop: true));
+                      context.pushRouteNamed(RecommendedRoute(isShop: true));
                     },
                   ),
                   12.verticalSpace,
@@ -348,7 +349,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     isIcon: true,
                     title: AppHelpers.getTranslation(TrKeys.recommended),
                     onRightTap: () {
-                      context.pushRoute(RecommendedRoute());
+                      context.pushRouteNamed('/recommended');
                     },
                   ),
                   12.verticalSpace,
@@ -392,7 +393,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     isIcon: true,
                     title: AppHelpers.getTranslation(TrKeys.newsOfWeek),
                     onRightTap: () {
-                      context.pushRoute(RecommendedRoute(isNewsOfPage: true));
+                      context.pushRouteNamed(RecommendedRoute(isNewsOfPage: true));
                     },
                   ),
                   12.verticalSpace,

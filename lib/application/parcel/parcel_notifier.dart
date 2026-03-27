@@ -12,7 +12,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/domain/interface/draw.dart';
 import 'parcel_state.dart';
@@ -160,14 +160,14 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
               orderId: data ?? 0,
               paymentId: id,
             );
-            context.replaceRoute(const ParcelListRoute());
+            context.replaceRouteNamed('/parcel_list_page');
             break;
           default:
             _parcelRepository.createTransaction(
               orderId: data ?? 0,
               paymentId: id,
             );
-            context.replaceRoute(const ParcelListRoute());
+            context.replaceRouteNamed('/parcel_list_page');
             await makePayment(
               context,
               state.selectPayment?.tag ?? 'cash',

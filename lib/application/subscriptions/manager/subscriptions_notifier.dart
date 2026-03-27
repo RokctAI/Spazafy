@@ -12,7 +12,7 @@ import 'package:rokctapp/infrastructure/models/models.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
     as mgr
     hide SnackBarType;
-import 'package:rokctapp/presentation/routes/app_router.dart';
+
 import 'subscriptions_state.dart';
 
 class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
