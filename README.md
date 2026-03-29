@@ -3,7 +3,7 @@
 
 Spazafy is a high-performance, hyper-local SuperApp ecosystem designed to digitize the spaza shop economy. It unifies Customer, Store, Driver, and Manager roles into a single high-performance Flutter core, enabling seamless commerce, real-time logistics tracking, and AI-driven demand forecasting.
 
-![Spazafy Banner](assets/image/background.png)
+<img src="assets/image/background.png" alt="Spazafy Banner" width="50%">
 
 ## 🎯 Project Vision
 Spazafy solves the critical pain points of fragmented logistics, lack of financial inclusion, and digital invisibility for small-scale vendors. It operates as a "SuperApp-in-a-Box" architecture, allowing rapid deployment of localized services with a premium, ultra-fast experience even on low-bandwidth devices.
