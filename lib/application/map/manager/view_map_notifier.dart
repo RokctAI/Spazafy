@@ -20,10 +20,7 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     AddressData? data = LocalStorage.getAddressSelected();
     if (data == null) {
       state = state.copyWith(isSetAddress: false);
-      mgr.AppHelpers.showAlertDialog(
-        context: context,
-        child: addAddressWidget,
-      );
+      mgr.AppHelpers.showAlertDialog(context: context, child: addAddressWidget);
     } else {
       state = state.copyWith(isSetAddress: true);
     }

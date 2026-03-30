@@ -36,22 +36,22 @@ class TaskModel {
   }
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'title': title,
-        'note': note,
-        'isDone': isDone,
-        'createdAt': createdAt.toIso8601String(),
-        'createdBy': createdBy,
-      };
+    'id': id,
+    'title': title,
+    'note': note,
+    'isDone': isDone,
+    'createdAt': createdAt.toIso8601String(),
+    'createdBy': createdBy,
+  };
 
   factory TaskModel.fromJson(Map<String, dynamic> json) => TaskModel(
-        id: json['id'] as String,
-        title: json['title'] as String,
-        note: json['note'] as String? ?? '',
-        isDone: json['isDone'] as bool? ?? false,
-        createdAt: DateTime.parse(json['createdAt'] as String),
-        createdBy: json['createdBy'] as String? ?? '',
-      );
+    id: json['id'] as String,
+    title: json['title'] as String,
+    note: json['note'] as String? ?? '',
+    isDone: json['isDone'] as bool? ?? false,
+    createdAt: DateTime.parse(json['createdAt'] as String),
+    createdBy: json['createdBy'] as String? ?? '',
+  );
 
   static String encodeList(List<TaskModel> tasks) =>
       jsonEncode(tasks.map((t) => t.toJson()).toList());
