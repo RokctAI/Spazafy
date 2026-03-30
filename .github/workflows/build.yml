@@ -92,6 +92,7 @@ jobs:
   # --- 2. UNIFIED PIPELINE (Smart) ---
   pipeline:
     needs: detect
+    permissions: write-all
     uses: RokctAI/shared-workflows/.github/workflows/universal-pipeline.yml@main
     with:
       backfill_ai_notes_cutoff_version: ${{ inputs.backfill_ai_notes_cutoff_version }}

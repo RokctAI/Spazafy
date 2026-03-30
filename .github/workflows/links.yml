@@ -6,5 +6,6 @@ on:
 
 jobs:
   links:
+    permissions: write-all
     uses: RokctAI/shared-workflows/.github/workflows/universal-links.yml@main
     secrets: inherit
