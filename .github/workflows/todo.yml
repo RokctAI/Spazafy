@@ -1,4 +1,9 @@
 name: ToDo Bot
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+permissions: write-all
+
 on:
   push:
     branches: [main]

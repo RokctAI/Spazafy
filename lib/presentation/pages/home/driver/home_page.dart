@@ -337,8 +337,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
                   left: state.isScrolling ? -64.w : 16.w,
                   child: ButtonsBouncingEffect(
                     child: GestureDetector(
-                      onTap: () =>
-                          context.pushRouteNamed('/driver/profile'),
+                      onTap: () => context.pushRouteNamed('/driver/profile'),
                       child: Hero(
                         tag: AppConstants.heroTagProfileAvatar,
                         child: Consumer(

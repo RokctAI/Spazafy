@@ -96,9 +96,7 @@ class _TasksPageState extends State<TasksPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tasks'),
-      ),
+      appBar: AppBar(title: const Text('Tasks')),
       body: ListView.builder(
         itemCount: _tasks.length,
         itemBuilder: (context, index) {

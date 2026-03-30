@@ -296,7 +296,9 @@ class _MainPageState extends State<MainPage> {
               false) &&
           (deepLink?.pathSegments.contains("shop") ?? false)) {
         if (!context.mounted) return;
-        context.pushRouteNamed('/shop?shopId=${deepLink?.pathSegments.last ?? ""}');
+        context.pushRouteNamed(
+          '/shop?shopId=${deepLink?.pathSegments.last ?? ""}',
+        );
       } else if (deepLink?.pathSegments.contains("shop") ?? false) {
         context.pushRouteNamed(
           '/shop?shopId=${deepLink?.pathSegments.last ?? ""}&productId=${deepLink?.queryParameters['product']}',

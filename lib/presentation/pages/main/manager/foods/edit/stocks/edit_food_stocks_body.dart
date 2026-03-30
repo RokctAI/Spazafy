@@ -58,7 +58,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                     extras: state.groups[index],
                     onTap: () {
                       event.toggleCheckedGroup(index);
-                        AppHelpers.showCustomModalBottomSheet(
+                      AppHelpers.showCustomModalBottomSheet(
                         paddingTop: MediaQuery.paddingOf(context).top + 150,
                         context: context,
                         radius: 12,

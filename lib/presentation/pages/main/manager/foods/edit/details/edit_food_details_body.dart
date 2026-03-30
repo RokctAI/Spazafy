@@ -68,7 +68,9 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           state.isLoading
                               ? const Loading()
                               : MultiImagePicker(
-                                  imageUrls: List<Galleries?>.from(state.listOfUrls),
+                                  imageUrls: List<Galleries?>.from(
+                                    state.listOfUrls,
+                                  ),
                                   listOfImages: state.images,
                                   onImageChange: event.setImageFile,
                                   onDelete: event.deleteImage,
