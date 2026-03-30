@@ -4,5 +4,6 @@ on:
 
 jobs:
   license:
+    permissions: write-all
     uses: RokctAI/shared-workflows/.github/workflows/universal-license.yml@main
     secrets: inherit
