@@ -17,7 +17,7 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class ManagerCreateOrderPage extends ConsumerStatefulWidget {
   const ManagerCreateOrderPage({super.key});
 

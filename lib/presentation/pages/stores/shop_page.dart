@@ -34,7 +34,7 @@ import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
 import 'cart/cart_order_page.dart';
 import 'widgets/shop_page_avatar.dart';
 
-// // // // @RoutePage()
+@RoutePage()
 class ShopPage extends ConsumerStatefulWidget {
   final ShopData? shop;
   final String shopId;

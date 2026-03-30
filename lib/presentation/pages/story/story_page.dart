@@ -15,7 +15,7 @@ import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/shop_avarat.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-// // // // @RoutePage()
+@RoutePage()
 class StoryListPage extends StatefulWidget {
   final RefreshController controller;
   final int index;

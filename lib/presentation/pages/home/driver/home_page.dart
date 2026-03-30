@@ -32,7 +32,7 @@ import 'parcel_bottom_sheet.dart';
 
 final orderRepository = driverOrderRepository;
 
-// // // @RoutePage()
+@RoutePage()
 class DriverHomePage extends ConsumerStatefulWidget {
   const DriverHomePage({super.key});
 

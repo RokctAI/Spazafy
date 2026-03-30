@@ -11,7 +11,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class NoConnectionPage extends ConsumerStatefulWidget {
   const NoConnectionPage({super.key});
 
@@ -149,12 +149,12 @@ class NoConnectionDialog extends ConsumerWidget {
   }
 }
 
-// // // @RoutePage()
+@RoutePage()
 class DriverNoConnectionPage extends NoConnectionPage {
   const DriverNoConnectionPage({super.key});
 }
 
-// // // @RoutePage()
+@RoutePage()
 class ManagerNoConnectionPage extends NoConnectionPage {
   const ManagerNoConnectionPage({super.key});
 }

@@ -17,7 +17,7 @@ import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/select_address_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class AddressListPage extends StatefulWidget {
   const AddressListPage({super.key});
 

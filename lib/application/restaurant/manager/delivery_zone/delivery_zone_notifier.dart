@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'delivery_zone_state.dart';
-import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
+import 'package:rokctapp/infrastructure/services/constants/style_constants.dart';
 
 class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
   final UsersInterface _usersRepository;
@@ -39,8 +38,8 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
         Polygon(
           polygonId: const PolygonId('1'),
           points: points,
-          fillColor: AppStyle.primary.withOpacity(0.3),
-          strokeColor: AppStyle.primary,
+          fillColor: StyleConstants.primary.withOpacity(0.3),
+          strokeColor: StyleConstants.primary,
           geodesic: false,
           strokeWidth: 4,
         ),
@@ -66,8 +65,8 @@ class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
             Polygon(
               polygonId: const PolygonId('1'),
               points: points,
-              fillColor: AppStyle.primary.withOpacity(0.3),
-              strokeColor: AppStyle.primary,
+              fillColor: StyleConstants.primary.withOpacity(0.3),
+              strokeColor: StyleConstants.primary,
               geodesic: false,
               strokeWidth: 4,
             ),

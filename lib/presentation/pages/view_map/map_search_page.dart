@@ -11,7 +11,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-// // // // @RoutePage()
+@RoutePage()
 class MapSearchPage extends StatefulWidget {
   const MapSearchPage({super.key});
 

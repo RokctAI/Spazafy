@@ -20,7 +20,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 // ignore_for_file: deprecated_member_use
 
-// // // @RoutePage()
+@RoutePage()
 class NotificationListPage extends ConsumerStatefulWidget {
   const NotificationListPage({super.key});
 

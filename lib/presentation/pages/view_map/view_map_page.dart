@@ -35,7 +35,7 @@ import 'package:rokctapp/app_constants.dart';
 // ignore_for_file: prefer_interpolation_to_compose_strings, use_build_context_synchronously
 //import 'package:flutter_svg/flutter_svg.dart';
 
-// // // // @RoutePage()
+@RoutePage()
 class ViewMapPage extends ConsumerStatefulWidget {
   final bool isParcel;
   final bool isPop;
