@@ -122,7 +122,8 @@ class EditProfileNotifier extends StateNotifier<EditProfileState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -144,7 +145,8 @@ class EditProfileNotifier extends StateNotifier<EditProfileState> {
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );

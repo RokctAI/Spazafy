@@ -33,7 +33,8 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -53,7 +54,8 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> update profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -75,7 +77,8 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );

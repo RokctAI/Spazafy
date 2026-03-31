@@ -261,21 +261,24 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
 
     if (categoryId == 0) {
       if (state.logoImage.isEmpty) {
-        help.AppHelpers.showCheckTopSnackBar(context, 
+        help.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: help.AppHelpers.getTranslation(TrKeys.logoCanNotBeEmpty),
         );
         return;
       }
       if (state.bgImage.isEmpty) {
-        help.AppHelpers.showCheckTopSnackBar(context, 
+        help.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: help.AppHelpers.getTranslation(TrKeys.bgCanNotBeEmpty),
         );
         return;
       }
       if (state.addressModel?.address?.isEmpty ?? true) {
-        help.AppHelpers.showCheckTopSnackBar(context, 
+        help.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: help.AppHelpers.getTranslation(TrKeys.locationCanNotBeEmpty),
         );

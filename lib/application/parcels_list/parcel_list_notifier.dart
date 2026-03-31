@@ -55,7 +55,8 @@ class ParcelListNotifier extends StateNotifier<ParcelListState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -98,7 +99,8 @@ class ParcelListNotifier extends StateNotifier<ParcelListState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -119,7 +121,8 @@ class ParcelListNotifier extends StateNotifier<ParcelListState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isActiveLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -140,7 +143,8 @@ class ParcelListNotifier extends StateNotifier<ParcelListState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );

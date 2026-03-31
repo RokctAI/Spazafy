@@ -348,7 +348,8 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                                 : null,
                             created: () {
                               widget.onSave();
-                              help.AppHelpers.showCheckTopSnackBar(context, 
+                              help.AppHelpers.showCheckTopSnackBar(
+                                context,
                                 context,
                                 text: help.AppHelpers.getTranslation(
                                   TrKeys.successfullyCreated,

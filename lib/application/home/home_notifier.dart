@@ -1016,7 +1016,8 @@ class HomeNotifier extends StateNotifier<HomeState> {
       debugPrint("❌ Exception in fetchDiscountProducts: $e");
       state = state.copyWith(isDiscountProductsLoading: false);
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           "Failed to load discount products: $e",
         );

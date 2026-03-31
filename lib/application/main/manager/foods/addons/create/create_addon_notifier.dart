@@ -84,7 +84,8 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
             debugPrint('===> create addon stock fail $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
-            mgr.AppHelpers.showCheckTopSnackBar(context, 
+            mgr.AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               text: stockFail,
               type: SnackBarType.error,
@@ -95,7 +96,8 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
       failure: (fail, status) {
         debugPrint('===> create addon fail $fail');
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: fail,
           type: SnackBarType.error,

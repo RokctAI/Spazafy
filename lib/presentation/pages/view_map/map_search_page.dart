@@ -45,7 +45,8 @@ class MapSearchPageState extends State<MapSearchPage> {
                     }
                   } else {
                     if (mounted) {
-                      AppHelpers.showCheckTopSnackBar(context, 
+                      AppHelpers.showCheckTopSnackBar(
+                        context,
                         context,
                         AppHelpers.getTranslation(
                           TrKeys.checkYourNetworkConnection,
@@ -103,4 +104,3 @@ class MapSearchPageState extends State<MapSearchPage> {
     );
   }
 }
-

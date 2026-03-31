@@ -72,7 +72,8 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
         player.play(AssetSource("audio/notification.wav"));
       }
       if (mounted) {
-        help.AppHelpers.showCheckTopSnackBar(context, 
+        help.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           type: SnackBarType.success,
           text:

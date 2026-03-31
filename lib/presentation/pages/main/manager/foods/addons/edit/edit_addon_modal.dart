@@ -209,7 +209,8 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                   uuid: widget.addon.uuid,
                                   unit: unitState.foodUnit,
                                   updated: () {
-                                    help.AppHelpers.showCheckTopSnackBar(context, 
+                                    help.AppHelpers.showCheckTopSnackBar(
+                                      context,
                                       context,
                                       text: help.AppHelpers.getTranslation(
                                         TrKeys.successfullyCreated,

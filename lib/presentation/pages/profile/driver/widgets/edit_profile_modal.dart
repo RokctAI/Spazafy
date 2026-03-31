@@ -38,7 +38,8 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
           .fetchProfileDetails(
             context: context,
             checkYourNetwork: () {
-              help.AppHelpers.showCheckTopSnackBar(context, 
+              help.AppHelpers.showCheckTopSnackBar(
+                context,
                 context,
                 help.AppHelpers.getTranslation(
                   TrKeys.checkYourNetworkConnection,
@@ -391,7 +392,8 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                           editNotifier.updateGeneralInfo(
                             context: context,
                             checkYourNetwork: () {
-                              help.AppHelpers.showCheckTopSnackBar(context, 
+                              help.AppHelpers.showCheckTopSnackBar(
+                                context,
                                 context,
                                 help.AppHelpers.getTranslation(
                                   TrKeys.checkYourNetworkConnection,

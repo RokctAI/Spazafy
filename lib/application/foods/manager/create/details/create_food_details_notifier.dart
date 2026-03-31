@@ -109,7 +109,8 @@ class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
       failure: (fail, status) {
         debugPrint('===> create product fail $fail');
         state = state.copyWith(isCreating: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: fail,
           type: SnackBarType.error,

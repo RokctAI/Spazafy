@@ -217,7 +217,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           },
           failure: (failure, status) {
             state = state.copyWith(isAddAndRemoveLoading: false);
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(status.toString()),
             );
@@ -325,7 +326,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isAddAndRemoveLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             AppHelpers.getTranslation(status.toString()),
           );
@@ -442,7 +444,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           },
           failure: (failure, status) {
             state = state.copyWith(isAddAndRemoveLoading: false);
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(status.toString()),
             );
@@ -481,7 +484,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           },
           failure: (failure, status) {
             state = state.copyWith(isAddAndRemoveLoading: false);
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(status.toString()),
             );
@@ -502,7 +506,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           },
           failure: (failure, status) {
             state = state.copyWith(isAddAndRemoveLoading: false);
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(status.toString()),
             );
@@ -561,7 +566,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           if (isShowLoading) {
             state = state.copyWith(isLoading: false);
           }
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             AppHelpers.getTranslation(status.toString()),
           );
@@ -605,7 +611,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isDeleteLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -670,7 +677,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isStartGroup: false, isStartGroupLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -697,7 +705,8 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           // In multi-shop mode, 400 doesn't mean "Clear cart", but we handle it gracefully
           state = state.copyWith(isOtherShop: true);
         } else {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             AppHelpers.getTranslation(status.toString()),
           );

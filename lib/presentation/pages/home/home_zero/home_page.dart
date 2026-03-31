@@ -66,7 +66,9 @@ class _HomePageState extends ConsumerState<HomePage> {
         ..fetchNewShops(context)
         ..fetchAds(context)
         ..fetchCategories(context);
-      ref.read(viewMapProvider.notifier).checkAddress(context, const AddAddress());
+      ref
+          .read(viewMapProvider.notifier)
+          .checkAddress(context, const AddAddress());
       ref.read(currencyProvider.notifier).fetchCurrency(context);
       if (LocalStorage.getToken().isNotEmpty) {
         ref.read(shopOrderProvider.notifier).getCart(context, () {});
@@ -394,7 +396,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                     isIcon: true,
                     title: AppHelpers.getTranslation(TrKeys.newsOfWeek),
                     onRightTap: () {
-                      context.pushRouteNamed(RecommendedRoute(isNewsOfPage: true));
+                      context.pushRouteNamed(
+                        RecommendedRoute(isNewsOfPage: true),
+                      );
                     },
                   ),
                   12.verticalSpace,

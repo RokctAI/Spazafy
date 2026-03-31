@@ -104,7 +104,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           if (status == 400) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(
                 AppHelpers.getTranslation(TrKeys.emailAlreadyExists),
@@ -134,7 +135,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           phoneNumber: state.email,
           verificationCompleted: (PhoneAuthCredential credential) {},
           verificationFailed: (FirebaseAuthException e) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(e.message ?? ""),
             );
@@ -173,7 +175,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -278,7 +281,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(
                 AppHelpers.getTranslation(TrKeys.referralIncorrect),
@@ -435,7 +439,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(
                 AppHelpers.getTranslation(TrKeys.referralIncorrect),
@@ -448,7 +453,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -496,7 +502,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(
                 AppHelpers.getTranslation(TrKeys.referralIncorrect),
@@ -509,7 +516,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -528,7 +536,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         state = state.copyWith(isLoading: false);
         debugPrint('===> login with google exception: $e');
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             AppHelpers.getTranslation(e.toString()),
           );
@@ -610,7 +619,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -728,7 +738,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         } else {
           state = state.copyWith(isLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(TrKeys.somethingWentWrongWithTheServer),
             );
@@ -740,7 +751,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -837,7 +849,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           },
           failure: (failure, s) {
             state = state.copyWith(isLoading: false);
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               AppHelpers.getTranslation(s.toString()),
             );
@@ -847,7 +860,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         state = state.copyWith(isLoading: false);
         debugPrint('===> login with apple exception: $e');
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             AppHelpers.getTranslation(e.toString()),
           );
@@ -855,7 +869,8 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );

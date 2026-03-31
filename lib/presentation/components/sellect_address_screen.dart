@@ -104,7 +104,9 @@ class _SelectAddressScreenState extends ConsumerState<SelectAddressScreen> {
                             .userData
                             ?.addresses?[index],
                         update: () async {
-                          await context.pushRouteNamed('/map?indexAddress=$index');
+                          await context.pushRouteNamed(
+                            '/map?indexAddress=$index',
+                          );
                           if (context.mounted) {
                             ref
                                 .read(profileProvider.notifier)

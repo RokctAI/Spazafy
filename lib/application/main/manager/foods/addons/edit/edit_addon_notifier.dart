@@ -99,7 +99,8 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
             debugPrint('===> update addon stock fail $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
-            mgr.AppHelpers.showCheckTopSnackBar(context, 
+            mgr.AppHelpers.showCheckTopSnackBar(
+              context,
               context,
               text: stockFail,
               type: SnackBarType.error,
@@ -111,7 +112,8 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
         state = state.copyWith(isLoading: false);
         debugPrint('===> addon update fail $fail');
         failed?.call();
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: fail,
           type: SnackBarType.error,

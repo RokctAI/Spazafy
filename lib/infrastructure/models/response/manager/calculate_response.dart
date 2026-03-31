@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart'
     hide Stock;
 

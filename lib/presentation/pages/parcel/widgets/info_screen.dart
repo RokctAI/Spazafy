@@ -51,7 +51,9 @@ class InfoPage extends StatelessWidget {
                         context.popRoute();
                         return;
                       }
-                      context.replaceRouteNamed('/info_screen?index=${index + 1}');
+                      context.replaceRouteNamed(
+                        '/info_screen?index=${index + 1}',
+                      );
                     },
                   ),
                   32.verticalSpace,

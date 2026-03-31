@@ -95,7 +95,8 @@ class _CreateUserModalState extends State<CreateUserModal> {
                                   .read(orderUserProvider.notifier)
                                   .addCreatedUser(user);
                             },
-                            failed: () => help.AppHelpers.showCheckTopSnackBar(context, 
+                            failed: () => help.AppHelpers.showCheckTopSnackBar(
+                              context,
                               context,
                               text: help.AppHelpers.getTranslation(
                                 TrKeys.failed,
