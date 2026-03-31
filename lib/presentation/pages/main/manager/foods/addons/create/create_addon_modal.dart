@@ -198,7 +198,7 @@ class _CreateAddonModalState extends ConsumerState<CreateAddonModal> {
                                   unitId:
                                       unitState.units[unitState.activeIndex].id,
                                   created: () {
-                                    help.AppHelpers.showCheckTopSnackBar(
+                                    help.AppHelpers.showCheckTopSnackBar(context, 
                                       context,
                                       text: help.AppHelpers.getTranslation(
                                         TrKeys.successfullyCreated,

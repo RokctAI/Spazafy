@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
 import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

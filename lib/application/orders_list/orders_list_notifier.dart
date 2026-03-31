@@ -57,7 +57,7 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -100,7 +100,7 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -143,7 +143,7 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -164,7 +164,7 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isActiveLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -185,7 +185,7 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -206,7 +206,7 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isRefundLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:auto_route/auto_route.dart';
@@ -18,7 +19,7 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/payment_dialog.dart';
 import 'widgets/subscriptions_item.dart';
 
-// // // // @RoutePage()
+@RoutePage()
 class SubscriptionsPage extends ConsumerStatefulWidget {
   const SubscriptionsPage({super.key});
 
@@ -70,7 +71,7 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
                   child: Row(
                     children: [
                       IconButton(
-                        onPressed: () => context.maybePop(),
+                        onPressed: () => context.popRoute(),
                         icon: Icon(FlutterRemix.arrow_left_s_line),
                       ),
                       Text(

@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +71,7 @@ class _StoryListPageState extends State<StoryListPage> {
                   );
                   setState(() {});
                 } else {
-                  context.maybePop();
+                  context.popRoute();
                 }
               },
               prevPage: () {
@@ -82,7 +83,7 @@ class _StoryListPageState extends State<StoryListPage> {
                   );
                   setState(() {});
                 } else {
-                  context.maybePop();
+                  context.popRoute();
                 }
               },
             );
@@ -109,8 +110,7 @@ class StoryItemPage extends StatefulWidget {
   State<StoryItemPage> createState() => _StoryItemPageState();
 }
 
-class _StoryItemPageState extends State<StoryItemPage>
-    with TickerProviderStateMixin {
+class _StoryItemPageState extends State<StoryItemPage> with TickerProviderStateMixin {
   late AnimationController controller;
   final pageController = PageController(initialPage: 0);
   GlobalKey imageKey = GlobalKey();
@@ -390,8 +390,8 @@ class _StoryItemPageState extends State<StoryItemPage>
                 children: [
                   GestureDetector(
                     onTap: () {
-                      context.pushRouteNamed(
-                        '/shop?shopId=${(widget.story?.first?.shopId ?? 0).toString()}',
+                  context.pushRouteNamed(
+                    '/shop?shopId=${(widget.story?.first?.shopId ?? 0).toString()}',
                       );
                     },
                     child: Row(
@@ -428,7 +428,7 @@ class _StoryItemPageState extends State<StoryItemPage>
                   const Spacer(),
                   GestureDetector(
                     onTap: () {
-                      context.maybePop();
+                      context.popRoute();
                     },
                     child: Container(
                       color: AppStyle.transparent,

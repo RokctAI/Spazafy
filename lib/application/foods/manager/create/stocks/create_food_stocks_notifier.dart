@@ -1,4 +1,8 @@
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
+
 import 'package:rokctapp/infrastructure/models/data/product_data.dart'
     hide Group;
 import 'package:rokctapp/domain/interface/manager_products.dart';
@@ -180,7 +184,7 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
       },
       failure: (fail, status) {
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: fail,
           type: SnackBarType.error,
@@ -230,7 +234,7 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
       },
       failure: (fail, status) {
         state = state.copyWith(isSaving: false);
-        mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: fail,
           type: SnackBarType.error,

@@ -37,7 +37,7 @@ class PromoCodeNotifier extends StateNotifier<PromoCodeState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );

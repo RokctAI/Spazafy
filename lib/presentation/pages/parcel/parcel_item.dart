@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +22,7 @@ class ParcelItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRouteNamed(
-          ParcelProgressRoute(parcelId: (parcel?.id ?? "")),
-        );
+        context.pushRouteNamed(ParcelProgressRoute(parcelId: (parcel?.id ?? "")));
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 10.h),

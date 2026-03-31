@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'create_new_group_item_notifier.dart';

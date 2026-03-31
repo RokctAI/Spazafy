@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
@@ -92,7 +93,7 @@ class _EditFoodAddonsModalState extends ConsumerState<EditFoodAddonsModal> {
                   title: help.AppHelpers.getTranslation(TrKeys.save),
                   onPressed: () {
                     widget.onSave(state.addons);
-                    context.maybePop();
+                    context.popRoute();
                   },
                 ),
                 20.verticalSpace,

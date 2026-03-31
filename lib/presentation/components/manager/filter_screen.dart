@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
@@ -135,7 +136,7 @@ class _FilterScreenState extends State<FilterScreen>
                 return CustomButton(
                   title: AppHelpers.getTranslation(TrKeys.save),
                   onPressed: () {
-                    context.maybePop();
+                    context.popRoute();
                     widget.onChangeDay(_rangeDatePicker);
                   },
                 );

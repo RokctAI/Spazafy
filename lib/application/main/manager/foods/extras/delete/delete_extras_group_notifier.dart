@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +33,7 @@ class DeleteExtrasGroupNotifier extends StateNotifier<DeleteExtrasGroupState> {
       failure: (fail, status) {
         debugPrint('===> delete extras group fail $fail');
         state = state.copyWith(isLoading: false);
-        mgr.mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: fail,
           type: SnackBarType.error,

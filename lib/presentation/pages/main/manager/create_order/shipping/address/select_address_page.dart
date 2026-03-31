@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -18,7 +19,7 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'searched_location_item.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class SelectAddressPage extends StatefulWidget {
   const SelectAddressPage({super.key});
 
@@ -243,7 +244,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                                                 '',
                                             location: state.location,
                                           );
-                                      context.maybePop();
+                                      context.popRoute();
                                     },
                             );
                           },

@@ -113,9 +113,7 @@ class _HomePageState extends ConsumerState<HomePageFour> {
 
       if (!mounted) return;
       // Map and user data
-      ref
-          .read(viewMapProvider.notifier)
-          .checkAddress(context, const AddAddress());
+      ref.read(viewMapProvider.notifier).checkAddress(context, const AddAddress());
       ref.read(currencyProvider.notifier).fetchCurrency(context);
       if (LocalStorage.getToken().isNotEmpty) {
         ref.read(shopOrderProvider.notifier).getCart(context, () {});

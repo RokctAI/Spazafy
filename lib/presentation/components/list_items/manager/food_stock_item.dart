@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart' hide Meta;
 import 'package:flutter/material.dart';

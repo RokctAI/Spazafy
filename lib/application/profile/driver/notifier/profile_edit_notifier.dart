@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'package:rokctapp/domain/interface/driver_user.dart';
 import 'dart:async';
@@ -72,7 +72,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -153,7 +153,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -199,7 +199,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );

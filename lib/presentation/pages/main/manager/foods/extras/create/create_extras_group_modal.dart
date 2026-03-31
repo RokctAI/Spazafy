@@ -1,3 +1,6 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -60,7 +63,7 @@ class _CreateExtrasGroupModalState extends State<CreateExtrasGroupModal> {
                           context,
                           success: () {
                             ref.read(extrasProvider.notifier).fetchGroups();
-                            context.maybePop();
+                            context.popRoute();
                           },
                         );
                       }

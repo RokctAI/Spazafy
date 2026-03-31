@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/close_day_response.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/table_model.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/disable_dates.dart';

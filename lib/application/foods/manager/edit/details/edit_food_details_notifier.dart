@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
@@ -123,7 +124,7 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
         updated?.call(updatedProduct);
       },
       failure: (fail, status) {
-        mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: fail,
           type: SnackBarType.error,

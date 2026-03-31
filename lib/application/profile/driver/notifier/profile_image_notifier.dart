@@ -1,5 +1,5 @@
 import 'package:rokctapp/domain/interface/driver_settings.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/interface/driver_user.dart';
@@ -33,7 +33,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -53,7 +53,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> update profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -75,7 +75,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );

@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -89,7 +89,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
           context.replaceRouteNamed('/login');
         } else {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(
+          AppHelpers.showCheckTopSnackBar(context, 
             context,
             AppHelpers.getTranslation(failure),
           );
@@ -116,7 +116,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr;
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -26,7 +27,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(
+    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
     //         context,
     //         mgr.AppHelpers.getTranslation(status.toString()),
     //       );
@@ -58,7 +59,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(
+    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
     //         context,
     //         mgr.AppHelpers.getTranslation(status.toString()),
     //       );
@@ -93,7 +94,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isTagLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(
+    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
     //         context,
     //         mgr.AppHelpers.getTranslation(status.toString()),
     //       );
@@ -110,7 +111,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isTagLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(
+    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
     //         context,
     //         mgr.AppHelpers.getTranslation(status.toString()),
     //       );
@@ -136,7 +137,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isRestaurantLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(
+    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
     //         context,
     //         mgr.AppHelpers.getTranslation(status.toString()),
     //       );
@@ -192,7 +193,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //       } else {
     //         shopController.refreshFailed();
     //       }
-    //       mgr.AppHelpers.showCheckTopSnackBar(
+    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
     //         context,
     //         mgr.AppHelpers.getTranslation(status.toString()),
     //       );
@@ -217,7 +218,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isShopLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(
+    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
     //         context,
     //         mgr.AppHelpers.getTranslation(status.toString()),
     //       );
@@ -272,7 +273,7 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //       } else {
     //         shopController.refreshFailed();
     //       }
-    //       mgr.AppHelpers.showCheckTopSnackBar(
+    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
     //         context,
     //         mgr.AppHelpers.getTranslation(status.toString()),
     //       );

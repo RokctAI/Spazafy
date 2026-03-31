@@ -220,13 +220,13 @@ class LoginNotifier extends StateNotifier<LoginState> {
             ),
           );
           if (data.data?.user?.role == 'seller') {
-            AppHelpers.showCheckTopSnackBar(
+            AppHelpers.showCheckTopSnackBar(context, 
               context,
               text: AppHelpers.getTranslation(TrKeys.youAreASeller),
               type: SnackBarType.success,
             );
           } else if (data.data?.user?.role == 'deliveryman') {
-            AppHelpers.showCheckTopSnackBar(
+            AppHelpers.showCheckTopSnackBar(context, 
               context,
               text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
               type: SnackBarType.success,
@@ -318,7 +318,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       } catch (e) {
         state = state.copyWith(isLoading: false);
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(
+          AppHelpers.showCheckTopSnackBar(context, 
             context,
             AppHelpers.getTranslation(e.toString()),
           );
@@ -386,13 +386,13 @@ class LoginNotifier extends StateNotifier<LoginState> {
           );
           context.router.popUntilRoot();
           if (data.data?.user?.role == 'seller') {
-            AppHelpers.showCheckTopSnackBar(
+            AppHelpers.showCheckTopSnackBar(context, 
               context,
               text: AppHelpers.getTranslation(TrKeys.youAreASeller),
               type: SnackBarType.success,
             );
           } else if (data.data?.user?.role == 'deliveryman') {
-            AppHelpers.showCheckTopSnackBar(
+            AppHelpers.showCheckTopSnackBar(context, 
               context,
               text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
               type: SnackBarType.success,
@@ -413,7 +413,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -535,7 +535,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
         } else {
           state = state.copyWith(isLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(
+            AppHelpers.showCheckTopSnackBar(context, 
               context,
               AppHelpers.getTranslation(TrKeys.somethingWentWrongWithTheServer),
             );
@@ -547,7 +547,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -653,7 +653,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );

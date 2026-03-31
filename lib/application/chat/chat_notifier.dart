@@ -31,7 +31,7 @@ class ChatNotifier extends StateNotifier<ChatState> {
       } catch (e) {
         state = state.copyWith(isLoading: false);
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(
+          AppHelpers.showCheckTopSnackBar(context, 
             context,
             AppHelpers.getTranslation(TrKeys.errorWithConnectingToFirebase),
           );
@@ -61,7 +61,7 @@ class ChatNotifier extends StateNotifier<ChatState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -102,7 +102,7 @@ class ChatNotifier extends StateNotifier<ChatState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -132,7 +132,7 @@ class ChatNotifier extends StateNotifier<ChatState> {
   // Additional method to check if the user is authorized or logged in
   void checkAuthorized(BuildContext context) {
     // if (LocalStorage.instance.getUserId() == null) {
-    //   AppHelpers.showCheckTopSnackBar(
+    //   AppHelpers.showCheckTopSnackBar(context, 
     //     context,
     //     AppHelpers.getTranslation(TrKeys.youNeedToLoginFirst),
     //   );

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -103,9 +104,7 @@ class _SelectAddressScreenState extends ConsumerState<SelectAddressScreen> {
                             .userData
                             ?.addresses?[index],
                         update: () async {
-                          await context.pushRouteNamed(
-                            '/map?indexAddress=$index',
-                          );
+                          await context.pushRouteNamed('/map?indexAddress=$index');
                           if (context.mounted) {
                             ref
                                 .read(profileProvider.notifier)
@@ -244,7 +243,7 @@ class _SelectAddressScreenState extends ConsumerState<SelectAddressScreen> {
                                 ? DeliveryTypeEnum.pickup
                                 : DeliveryTypeEnum.delivery,
                           );
-                      context.maybePop();
+                      context.popRoute();
                     },
                   ),
                   32.verticalSpace,

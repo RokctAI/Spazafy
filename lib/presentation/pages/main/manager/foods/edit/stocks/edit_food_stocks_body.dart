@@ -1,3 +1,7 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType, OrderStatus, ExtrasType;
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
@@ -58,7 +62,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                     extras: state.groups[index],
                     onTap: () {
                       event.toggleCheckedGroup(index);
-                      AppHelpers.showCustomModalBottomSheet(
+                        AppHelpers.showCustomModalBottomSheet(
                         paddingTop: MediaQuery.paddingOf(context).top + 150,
                         context: context,
                         radius: 12,
@@ -130,16 +134,16 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                                           2]
                                       .id,
                           );
-                          AppHelpers.showCheckTopSnackBar(
+                          AppHelpers.showCheckTopSnackBar(context, 
                             context,
                             type: SnackBarType.success,
                             text: AppHelpers.getTranslation(
                               TrKeys.successfullyUpdated,
                             ),
                           );
-                          context.maybePop();
+                          context.popRoute();
                         },
-                        failed: () => AppHelpers.showCheckTopSnackBar(
+                        failed: () => AppHelpers.showCheckTopSnackBar(context, 
                           context,
                           type: SnackBarType.error,
                           text: AppHelpers.getTranslation(TrKeys.updateFailed),

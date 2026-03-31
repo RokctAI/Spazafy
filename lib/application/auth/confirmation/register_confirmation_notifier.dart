@@ -65,7 +65,7 @@ class RegisterConfirmationNotifier
         );
       } catch (e) {
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(
+          AppHelpers.showCheckTopSnackBar(context, 
             context,
             AppHelpers.getTranslation(
               (e as FirebaseAuthException).message ?? "",
@@ -195,7 +195,7 @@ class RegisterConfirmationNotifier
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false, isCodeError: true);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -236,7 +236,7 @@ class RegisterConfirmationNotifier
           },
           failure: (failure, status) {
             state = state.copyWith(isLoading: false, isCodeError: true);
-            AppHelpers.showCheckTopSnackBar(
+            AppHelpers.showCheckTopSnackBar(context, 
               context,
               AppHelpers.getTranslation(status.toString()),
             );
@@ -245,7 +245,7 @@ class RegisterConfirmationNotifier
         );
       } catch (e) {
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(
+          AppHelpers.showCheckTopSnackBar(context, 
             context,
             AppHelpers.getTranslation(
               (e as FirebaseAuthException).message ?? "",
@@ -348,7 +348,7 @@ class RegisterConfirmationNotifier
       },
       failure: (failure, status) {
         state = state.copyWith(isResending: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -367,7 +367,7 @@ class RegisterConfirmationNotifier
         phoneNumber: phoneNumber,
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (FirebaseAuthException e) {
-          AppHelpers.showCheckTopSnackBar(
+          AppHelpers.showCheckTopSnackBar(context, 
             context,
             AppHelpers.getTranslation(e.message ?? ""),
           );
@@ -408,7 +408,7 @@ class RegisterConfirmationNotifier
         phoneNumber: phoneNumber,
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (FirebaseAuthException e) {
-          AppHelpers.showCheckTopSnackBar(
+          AppHelpers.showCheckTopSnackBar(context, 
             context,
             AppHelpers.getTranslation(e.message ?? ""),
           );

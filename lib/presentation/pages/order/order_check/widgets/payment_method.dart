@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:auto_route/auto_route.dart';
@@ -184,7 +185,7 @@ class _PaymentMethodsState extends ConsumerState<PaymentMethods> {
                               child: CustomButton(
                                 title: AppHelpers.getTranslation(TrKeys.pay),
                                 onPressed: () {
-                                  context.maybePop();
+                                  context.popRoute();
                                   widget.payLater?.call(
                                     PaymentData(
                                       id: state.payments[state.currentIndex].id,
@@ -202,7 +203,7 @@ class _PaymentMethodsState extends ConsumerState<PaymentMethods> {
                               child: CustomButton(
                                 title: AppHelpers.getTranslation(TrKeys.pay),
                                 onPressed: () {
-                                  context.maybePop();
+                                  context.popRoute();
                                   widget.tips?.call(
                                     PaymentData(
                                       id: state.payments[state.currentIndex].id,

@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
@@ -348,7 +348,7 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
                                 : null,
                             created: () {
                               widget.onSave();
-                              help.AppHelpers.showCheckTopSnackBar(
+                              help.AppHelpers.showCheckTopSnackBar(context, 
                                 context,
                                 text: help.AppHelpers.getTranslation(
                                   TrKeys.successfullyCreated,

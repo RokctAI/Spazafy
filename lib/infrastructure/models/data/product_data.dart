@@ -15,8 +15,8 @@ class ProductData {
     String? brandId,
     num? tax,
     num? interval,
-    int? minQty,
-    int? maxQty,
+  num? minQty,
+  num? maxQty,
     bool? active,
     String? img,
     String? createdAt,
@@ -116,8 +116,8 @@ class ProductData {
   String? _brandId;
   num? _tax;
   num? _interval;
-  int? _minQty;
-  int? _maxQty;
+  num? _minQty;
+  num? _maxQty;
   bool? _active;
   String? _img;
   String? _createdAt;
@@ -147,8 +147,8 @@ class ProductData {
     String? brandId,
     num? tax,
     num? interval,
-    int? minQty,
-    int? maxQty,
+    num? minQty,
+    num? maxQty,
     bool? active,
     String? img,
     String? createdAt,
@@ -210,9 +210,9 @@ class ProductData {
 
   num? get interval => _interval;
 
-  int? get minQty => _minQty;
+  num? get minQty => _minQty;
 
-  int? get maxQty => _maxQty;
+  num? get maxQty => _maxQty;
 
   bool? get active => _active;
 

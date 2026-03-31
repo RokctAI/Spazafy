@@ -70,7 +70,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -178,7 +178,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -210,7 +210,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       );
     } catch (e) {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(TrKeys.paymentMethodFailed),
         );

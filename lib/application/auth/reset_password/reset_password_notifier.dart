@@ -61,7 +61,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
       phoneNumber: state.email.trim(),
       verificationCompleted: (PhoneAuthCredential credential) {},
       verificationFailed: (FirebaseAuthException e) {
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(AppHelpers.getTranslation(e.message ?? "")),
         );
@@ -98,7 +98,7 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
           isEmailError: true,
           isSuccess: false,
         );
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -136,14 +136,14 @@ class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
       failure: (failure, status) {
         state = state.copyWith(isLoading: false, isSuccess: false);
         if (status == 400) {
-          AppHelpers.showCheckTopSnackBar(
+          AppHelpers.showCheckTopSnackBar(context, 
             context,
             AppHelpers.getTranslation(
               AppHelpers.getTranslation(TrKeys.emailAlreadyExists),
             ),
           );
         } else {
-          AppHelpers.showCheckTopSnackBar(
+          AppHelpers.showCheckTopSnackBar(context, 
             context,
             AppHelpers.getTranslation(status.toString()),
           );

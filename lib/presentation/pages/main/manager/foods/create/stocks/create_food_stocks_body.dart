@@ -1,3 +1,6 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -129,16 +132,16 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
                                           2]
                                       .id,
                           );
-                          help.AppHelpers.showCheckTopSnackBar(
+                          help.AppHelpers.showCheckTopSnackBar(context, 
                             context,
                             type: SnackBarType.success,
                             text: help.AppHelpers.getTranslation(
                               TrKeys.successfullyUpdated,
                             ),
                           );
-                          context.maybePop();
+                          context.popRoute();
                         },
-                        failed: () => help.AppHelpers.showCheckTopSnackBar(
+                        failed: () => help.AppHelpers.showCheckTopSnackBar(context, 
                           context,
                           type: SnackBarType.error,
                           text: help.AppHelpers.getTranslation(

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'filter_category_service.dart';
 // ignore_for_file: deprecated_member_use
 
-// // // // @RoutePage()
+@RoutePage()
 class ServiceTwoCategoryPage extends ConsumerStatefulWidget {
   final int index;
   const ServiceTwoCategoryPage({super.key, required this.index});
@@ -39,7 +40,7 @@ class _ServiceTwoCategoryPageState
     return WillPopScope(
       onWillPop: () {
         notifier.setSelectCategory(-1, context);
-        // context.maybePop();
+        // context.popRoute();
         return Future.value(true);
       },
       child: Scaffold(

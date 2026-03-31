@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
@@ -337,7 +338,8 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
                   left: state.isScrolling ? -64.w : 16.w,
                   child: ButtonsBouncingEffect(
                     child: GestureDetector(
-                      onTap: () => context.pushRouteNamed('/driver/profile'),
+                      onTap: () =>
+                          context.pushRouteNamed('/driver/profile'),
                       child: Hero(
                         tag: AppConstants.heroTagProfileAvatar,
                         child: Consumer(

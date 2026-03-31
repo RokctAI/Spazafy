@@ -75,7 +75,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       failure: (failure, status) {
         debugPrint('====> fetch categories fail $failure');
         _page--;
-        mgr.mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: failure,
           type: SnackBarType.error,
@@ -123,7 +123,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       failure: (failure, status) {
         debugPrint('====> fetch categories fail $failure');
         _page--;
-        mgr.mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: failure,
           type: SnackBarType.error,

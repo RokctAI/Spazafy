@@ -1,3 +1,6 @@
+import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'galleries.dart';
 import 'kitchen_data.dart';
 import 'stock.dart';

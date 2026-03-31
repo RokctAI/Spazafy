@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/application/map/view_map_state.dart';
 import 'dart:typed_data';
@@ -645,7 +646,7 @@ class ViewMapPageState extends ConsumerState<ViewMapPage>
                         index: widget.indexAddress ?? 0,
                         id: widget.address?.id,
                       );
-                  context.maybePop();
+                  context.popRoute();
                 },
                 child: Container(
                   width: 48.r,
@@ -734,8 +735,9 @@ class ViewMapPageState extends ConsumerState<ViewMapPage>
                                     latLng: latLng,
                                     isShopLocation: widget.isShopLocation,
                                     onSearch: () async {
-                                      final placeId = await context
-                                          .pushRouteNamed('/map_search');
+                                      final placeId = await context.pushRouteNamed(
+                                        '/map_search',
+                                      );
                                       if (placeId != null) {
                                         final res = await googlePlace.details
                                             .get(placeId.toString());
@@ -832,3 +834,4 @@ class ViewMapPageState extends ConsumerState<ViewMapPage>
     );
   }
 }
+

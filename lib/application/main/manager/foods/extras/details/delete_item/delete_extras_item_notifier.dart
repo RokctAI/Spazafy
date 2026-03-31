@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {
       failure: (fail, status) {
         debugPrint('===> delete extras item fail $fail');
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: fail,
           type: SnackBarType.error,

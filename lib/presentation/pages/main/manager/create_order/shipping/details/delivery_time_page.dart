@@ -18,7 +18,7 @@ import 'package:rokctapp/presentation/components/components_manager.dart';
 import 'package:rokctapp/application/providers_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class DeliveryTimePage extends ConsumerStatefulWidget {
   const DeliveryTimePage({super.key});
 
@@ -343,7 +343,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                           final num orderPrice =
                               paymentState.orderCalculate?.totalPrice ?? 0;
                           if (walletPrice < orderPrice) {
-                            help.AppHelpers.showCheckTopSnackBar(
+                            help.AppHelpers.showCheckTopSnackBar(context, 
                               context,
                               type: SnackBarType.error,
                               text: help.AppHelpers.getTranslation(
@@ -406,7 +406,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                     );
                               },
                               failed: (message) =>
-                                  help.AppHelpers.showCheckTopSnackBar(
+                                  help.AppHelpers.showCheckTopSnackBar(context, 
                                     context,
                                     text: message,
                                     type: SnackBarType.error,

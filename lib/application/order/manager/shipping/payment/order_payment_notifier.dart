@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -76,7 +77,7 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
       success: (data) {},
       failure: (error, status) {
         debugPrint('====> fetch payments fail $error');
-        mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: error,
           type: SnackBarType.error,

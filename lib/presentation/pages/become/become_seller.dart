@@ -25,7 +25,7 @@ import 'package:rokctapp/presentation/pages/become/widgets/shop_form_fields.dart
 import 'package:rokctapp/presentation/pages/restaurant/manager/widgets/logout_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class CreateShopPage extends ConsumerStatefulWidget {
   const CreateShopPage({super.key});
 
@@ -261,21 +261,21 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
 
     if (categoryId == 0) {
       if (state.logoImage.isEmpty) {
-        help.AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: help.AppHelpers.getTranslation(TrKeys.logoCanNotBeEmpty),
         );
         return;
       }
       if (state.bgImage.isEmpty) {
-        help.AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: help.AppHelpers.getTranslation(TrKeys.bgCanNotBeEmpty),
         );
         return;
       }
       if (state.addressModel?.address?.isEmpty ?? true) {
-        help.AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: help.AppHelpers.getTranslation(TrKeys.locationCanNotBeEmpty),
         );

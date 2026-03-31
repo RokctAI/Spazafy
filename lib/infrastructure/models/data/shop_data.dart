@@ -42,6 +42,7 @@ class ShopData {
   });
 
   String? id;
+  String? uuid;
   String? userId;
   num? tax;
   num? pricePerKm;
@@ -95,7 +96,7 @@ class ShopData {
 
     return ShopData(
       id: json["id"]?.toString(),
-      // uuid: json["uuid"]?.toString() ?? 0.toString(),
+      uuid: json["uuid"]?.toString(),
       userId: json["user_id"]?.toString(),
       tax: json["tax"] ?? 0,
       pricePerKm: json["price_per_km"] ?? 0,
@@ -175,6 +176,7 @@ class ShopData {
 
   Map<String, dynamic> toJson() => {
     "id": id,
+    "uuid": uuid,
     "user_id": userId,
     "tax": tax,
     "price_per_km": pricePerKm,
@@ -313,13 +315,14 @@ class Location {
 }
 
 class Seller {
-  Seller({this.id, this.firstname, this.lastname, this.active, this.role});
+  Seller({this.id, this.firstname, this.lastname, this.active, this.role, this.wallet});
 
   String? id;
   String? firstname;
   String? lastname;
   bool? active;
   String? role;
+  Wallet? wallet;
 
   factory Seller.fromJson(Map<String, dynamic> json) => Seller(
     id: json["id"]?.toString(),
@@ -327,6 +330,7 @@ class Seller {
     lastname: json["lastname"],
     active: json["active"],
     role: json["role"],
+    wallet: json['wallet'] != null ? Wallet.fromJson(json['wallet']) : null,
   );
 
   Map<String, dynamic> toJson() => {
@@ -335,6 +339,24 @@ class Seller {
     "lastname": lastname,
     "active": active,
     "role": role,
+    "wallet": wallet?.toJson(),
+  };
+}
+
+class Wallet {
+  String? id;
+  num? price;
+
+  Wallet({this.id, this.price});
+
+  factory Wallet.fromJson(Map<String, dynamic> json) => Wallet(
+    id: json["id"]?.toString(),
+    price: json["price"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "price": price,
   };
 }
 

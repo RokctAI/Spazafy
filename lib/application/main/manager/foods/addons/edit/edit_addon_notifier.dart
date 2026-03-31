@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
@@ -97,7 +99,7 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
             debugPrint('===> update addon stock fail $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
-            mgr.AppHelpers.showCheckTopSnackBar(
+            mgr.AppHelpers.showCheckTopSnackBar(context, 
               context,
               text: stockFail,
               type: SnackBarType.error,
@@ -109,7 +111,7 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
         state = state.copyWith(isLoading: false);
         debugPrint('===> addon update fail $fail');
         failed?.call();
-        mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: fail,
           type: SnackBarType.error,

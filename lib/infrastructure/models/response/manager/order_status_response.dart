@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 class OrderStatusResponse {
   OrderStatusResponse({OrderStatusData? data}) {
     _data = data;

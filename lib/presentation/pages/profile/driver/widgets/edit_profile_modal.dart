@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -37,7 +38,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
           .fetchProfileDetails(
             context: context,
             checkYourNetwork: () {
-              help.AppHelpers.showCheckTopSnackBar(
+              help.AppHelpers.showCheckTopSnackBar(context, 
                 context,
                 help.AppHelpers.getTranslation(
                   TrKeys.checkYourNetworkConnection,
@@ -390,7 +391,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                           editNotifier.updateGeneralInfo(
                             context: context,
                             checkYourNetwork: () {
-                              help.AppHelpers.showCheckTopSnackBar(
+                              help.AppHelpers.showCheckTopSnackBar(context, 
                                 context,
                                 help.AppHelpers.getTranslation(
                                   TrKeys.checkYourNetworkConnection,

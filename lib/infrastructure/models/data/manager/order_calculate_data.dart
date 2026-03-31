@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'stock.dart';
 
 class OrderCalculate {

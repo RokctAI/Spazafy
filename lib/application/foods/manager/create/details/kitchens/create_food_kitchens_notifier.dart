@@ -33,7 +33,7 @@ class CreateFoodKitchensNotifier
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: failure,
           type: SnackBarType.error,

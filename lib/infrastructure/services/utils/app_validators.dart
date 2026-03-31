@@ -57,4 +57,25 @@ abstract class AppValidators {
     }
     return null;
   }
+
+  static String? minQtyCheck(String? value) {
+    if (value == null || value.isEmpty) {
+      return AppHelpers.getTranslation(TrKeys.thisFieldIsRequired);
+    }
+    final num? qty = num.tryParse(value);
+    if (qty == null) {
+      return AppHelpers.getTranslation(TrKeys.thisFieldIsRequired);
+    }
+    if (qty <= 0) {
+      return "Min quantity must be greater than 0";
+    }
+    return null;
+  }
+
+  static String? emptyCheck(String? text) {
+    if (text == null || text.trim().isEmpty) {
+      return AppHelpers.getTranslation(TrKeys.thisFieldIsRequired);
+    }
+    return null;
+  }
 }

@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -70,7 +72,7 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
         player.play(AssetSource("audio/notification.wav"));
       }
       if (mounted) {
-        help.AppHelpers.showCheckTopSnackBar(
+        help.AppHelpers.showCheckTopSnackBar(context, 
           context,
           type: SnackBarType.success,
           text:

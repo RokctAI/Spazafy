@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart'
     hide Stock;
 

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'edit_extras_item_state.freezed.dart';
 

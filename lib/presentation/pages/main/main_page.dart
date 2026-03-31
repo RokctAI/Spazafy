@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/utils/app_usage_service.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -296,9 +297,7 @@ class _MainPageState extends State<MainPage> {
               false) &&
           (deepLink?.pathSegments.contains("shop") ?? false)) {
         if (!context.mounted) return;
-        context.pushRouteNamed(
-          '/shop?shopId=${deepLink?.pathSegments.last ?? ""}',
-        );
+        context.pushRouteNamed('/shop?shopId=${deepLink?.pathSegments.last ?? ""}');
       } else if (deepLink?.pathSegments.contains("shop") ?? false) {
         context.pushRouteNamed(
           '/shop?shopId=${deepLink?.pathSegments.last ?? ""}&productId=${deepLink?.queryParameters['product']}',

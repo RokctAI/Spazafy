@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/extension.dart';
 import 'kitchen_data.dart';
 import 'payment_data.dart';

@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/components/loading/manager/loading_list.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -208,7 +209,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                   uuid: widget.addon.uuid,
                                   unit: unitState.foodUnit,
                                   updated: () {
-                                    help.AppHelpers.showCheckTopSnackBar(
+                                    help.AppHelpers.showCheckTopSnackBar(context, 
                                       context,
                                       text: help.AppHelpers.getTranslation(
                                         TrKeys.successfullyCreated,

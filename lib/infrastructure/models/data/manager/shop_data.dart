@@ -1,3 +1,6 @@
+import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'payment_data.dart';
 import 'user_data.dart';
 import 'translation.dart';

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -15,7 +16,7 @@ import 'widgets/table_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_manager.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class SelectTablePage extends ConsumerStatefulWidget {
   final int? sectionId;
 
@@ -95,7 +96,7 @@ class _SelectTablePageState extends ConsumerState<SelectTablePage> {
                               isSelected: index == state.selectedIndex,
                               onTap: () {
                                 event.setSelectTable(index);
-                                context.maybePop();
+                                context.popRoute();
                               },
                             ),
                           ),

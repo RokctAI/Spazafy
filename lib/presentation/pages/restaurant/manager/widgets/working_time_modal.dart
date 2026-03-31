@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -244,7 +245,7 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                               shopUuid: shopState.shop?.uuid,
                               updateSuccess: () {
                                 shopEvent.updateWorkingDays(_savingWorkingDays);
-                                context.maybePop();
+                                context.popRoute();
                               },
                             );
                           }

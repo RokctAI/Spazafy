@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'widgets/chat_item.dart';
 // ignore_for_file: unused_result
 
-// // // @RoutePage()
+@RoutePage()
 class ChatPage extends ConsumerStatefulWidget {
   final String roleId;
   final String name;

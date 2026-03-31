@@ -192,7 +192,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isSaveLoading: false);
         fetchUser(context, refreshController: RefreshController());
-        context.maybePop();
+        context.popRoute();
       },
       failure: (failure, s) {
         state = state.copyWith(isSaveLoading: false);
@@ -220,7 +220,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       );
     } else {
       if (context.mounted) {
-        mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: mgr.AppHelpers.getTranslation(
             TrKeys.checkYourNetworkConnection,

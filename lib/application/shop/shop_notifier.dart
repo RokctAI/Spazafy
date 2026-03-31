@@ -482,7 +482,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
   //       },
   //       failure: (failure, status) {
   //         state = state.copyWith(isProductLoading: false);
-  //         AppHelpers.showCheckTopSnackBar(
+  //         AppHelpers.showCheckTopSnackBar(context, 
   //           context,
   //           failure,
   //         );
@@ -579,7 +579,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
   //       },
   //       failure: (failure, status) {
   //         controller?.loadComplete();
-  //         AppHelpers.showCheckTopSnackBar(
+  //         AppHelpers.showCheckTopSnackBar(context, 
   //           context,
   //           failure,
   //         );
@@ -614,7 +614,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
   //       },
   //       failure: (failure, status) {
   //         controller?.loadComplete();
-  //         AppHelpers.showCheckTopSnackBar(
+  //         AppHelpers.showCheckTopSnackBar(context, 
   //           context,
   //           failure,
   //         );

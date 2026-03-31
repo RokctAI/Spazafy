@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -89,12 +90,12 @@ class _CreateUserModalState extends State<CreateUserModal> {
                           event.createUser(
                             context,
                             created: (user) {
-                              context.maybePop();
+                              context.popRoute();
                               ref
                                   .read(orderUserProvider.notifier)
                                   .addCreatedUser(user);
                             },
-                            failed: () => help.AppHelpers.showCheckTopSnackBar(
+                            failed: () => help.AppHelpers.showCheckTopSnackBar(context, 
                               context,
                               text: help.AppHelpers.getTranslation(
                                 TrKeys.failed,

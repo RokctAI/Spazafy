@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,9 @@ class RecommendedItem extends StatelessWidget {
         final isNarrow = constraints.maxWidth < screenWidth / 2;
         return GestureDetector(
           onTap: () {
-            context.pushRouteNamed('/shop?shopId=' + (shop.id ?? 0).toString());
+            context.pushRouteNamed(
+              '/shop?shopId=' + (shop.id ?? 0).toString(),
+            );
           },
           child: Container(
             margin: EdgeInsets.only(left: 0, right: 9.r),

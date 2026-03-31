@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -174,7 +175,7 @@ class ProductFilter extends ConsumerWidget {
               CustomButton(
                 title: AppHelpers.getTranslation(TrKeys.show),
                 onPressed: () {
-                  context.maybePop();
+                  context.popRoute();
                   event.fetchProductsByCategory(context, shopId, categoryId);
                 },
               ),

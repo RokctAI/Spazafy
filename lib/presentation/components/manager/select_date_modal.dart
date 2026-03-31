@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
+
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/cupertino.dart';
@@ -84,7 +85,7 @@ class _SelectDateModalState extends State<SelectDateModal> {
               title: AppHelpers.getTranslation(TrKeys.save),
               onPressed: () {
                 widget.onDateSaved(_date);
-                context.maybePop();
+                context.popRoute();
               },
             ),
           ),

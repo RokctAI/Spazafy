@@ -1,3 +1,5 @@
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'extras_group_details_state.dart';
 import 'extras_group_details_notifier.dart';

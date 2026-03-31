@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -37,7 +37,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -67,7 +67,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
   //       },
   //       failure: (failure, status) {
   //
-  //         AppHelpers.showCheckTopSnackBar(
+  //         AppHelpers.showCheckTopSnackBar(context, 
   //           context,
   //           AppHelpers.getTranslation(failure),
   //         );
@@ -90,7 +90,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isActiveLoading: false);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -111,7 +111,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isAvailableLoading: true);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -155,7 +155,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -198,7 +198,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -223,7 +223,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: true);
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -267,7 +267,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(
+        AppHelpers.showCheckTopSnackBar(context, 
           context,
           AppHelpers.getTranslation(failure),
         );

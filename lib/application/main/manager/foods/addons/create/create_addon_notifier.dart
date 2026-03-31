@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:flutter/material.dart';
@@ -83,7 +84,7 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
             debugPrint('===> create addon stock fail $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
-            mgr.AppHelpers.showCheckTopSnackBar(
+            mgr.AppHelpers.showCheckTopSnackBar(context, 
               context,
               text: stockFail,
               type: SnackBarType.error,
@@ -94,7 +95,7 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
       failure: (fail, status) {
         debugPrint('===> create addon fail $fail');
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(
+        mgr.AppHelpers.showCheckTopSnackBar(context, 
           context,
           text: fail,
           type: SnackBarType.error,

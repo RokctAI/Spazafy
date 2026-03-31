@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -14,7 +15,7 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class DriverDeliveryZonePage extends ConsumerStatefulWidget {
   const DriverDeliveryZonePage({super.key});
 

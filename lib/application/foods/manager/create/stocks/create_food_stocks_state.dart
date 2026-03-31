@@ -1,4 +1,7 @@
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
+
 import 'package:rokctapp/infrastructure/models/data/product_data.dart'
     hide Group, Extras;
 import 'package:freezed_annotation/freezed_annotation.dart';

@@ -1,3 +1,4 @@
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_food_stocks_state.dart';
 import 'edit_food_stocks_notifier.dart';
