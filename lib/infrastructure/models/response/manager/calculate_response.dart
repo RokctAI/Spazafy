@@ -1,6 +1,4 @@
-
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart'
-    hide Stock;
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 
 class CalculateResponse {
   CalculateResponse({NeedntData? data}) {

@@ -6,7 +6,7 @@ export 'response/single_brand_response.dart';
 export 'data/brand_data.dart';
 export 'response/banners_paginate_response.dart';
 export 'response/shops_paginate_response.dart';
-export 'data/shop_data.dart';
+export 'data/shop_data.dart' hide Wallet;
 export 'response/addresses_response.dart';
 export 'data/location.dart';
 export 'data/local_address_data.dart';

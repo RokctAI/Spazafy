@@ -120,7 +120,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       success: (data) {},
       failure: (failure, status) {
         if (status != 501) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(failure),
           );
@@ -150,7 +150,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(failure),
           );
@@ -184,7 +184,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(failure),
           );
@@ -270,7 +270,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -295,7 +295,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     response.when(
       success: (data) {},
       failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -321,7 +321,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     response.when(
       success: (data) {},
       failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -409,7 +409,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final res = await settingsRepository.uploadImage(path, UploadType.products);
     res.when(
       success: (success) {
-        orderRepository.uploadImage(orderId, success.imageData?.title);
+        orderRepository.uploadImage(orderId.toString(), success.imageData?.title);
       },
       failure: (failure, status) {
         AppHelpers.showCheckTopSnackBar(context, failure);
@@ -424,7 +424,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         LocalStorage.setOnline(!LocalStorage.getOnline());
       },
       failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(failure),
         );

@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/driver/setting.dart';
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart' hide Wallet;
 import 'package:rokctapp/infrastructure/models/data/driver/language.dart';
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
@@ -11,11 +11,8 @@ import 'package:rokctapp/infrastructure/models/models.dart'
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rokctapp/infrastructure/models/response/driver_show_response.dart';
 import 'package:rokctapp/infrastructure/services/constants/storage_keys.dart';
-import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
-import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
-import 'package:rokctapp/infrastructure/models/response/global_settings_response.dart';
-import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
+import 'package:rokctapp/infrastructure/models/response/global_settings_response.dart' hide SettingsData;
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart' hide LanguageData;
 
 abstract class LocalStorage {
   LocalStorage._();
@@ -418,6 +415,22 @@ abstract class LocalStorage {
     return LanguageData.fromJson(map);
   }
 
+  static Future<void> setOnline(bool online) async {
+    if (_preferences != null) {
+      await _preferences!.setBool(StorageKeys.keyOnline, online);
+    }
+  }
+
+  static bool getOnline() {
+    final online = _preferences?.getBool(StorageKeys.keyOnline);
+    if (online == null) {
+      return false;
+    }
+    return online;
+  }
+
+  static void _deleteOnline() => _preferences?.remove(StorageKeys.keyOnline);
+
   static void logout() {
     deleteWalletData();
     deleteWallet();
@@ -431,5 +444,6 @@ abstract class LocalStorage {
     deleteIsGuest();
     deleteOfflineUser();
     deleteShop();
+    _deleteOnline();
   }
 }
