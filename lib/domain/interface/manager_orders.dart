@@ -9,10 +9,12 @@ import 'package:rokctapp/infrastructure/models/response/manager/order_status_res
 import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/response/create_order_response.dart';
-import 'package:rokctapp/infrastructure/models/response/payments_response.dart' hide PaymentsResponse;
+import 'package:rokctapp/infrastructure/models/response/payments_response.dart'
+    hide PaymentsResponse;
 import 'package:rokctapp/infrastructure/models/response/single_order_response.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
-import 'package:rokctapp/infrastructure/models/models.dart' hide UserData, OrderPaginateResponse;
+import 'package:rokctapp/infrastructure/models/models.dart'
+    hide UserData, OrderPaginateResponse;
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
     hide OrderStatus;
 

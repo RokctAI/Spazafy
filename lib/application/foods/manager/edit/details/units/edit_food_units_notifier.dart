@@ -5,9 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_food_units_state.dart';
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
 
-
-
-
 class EditFoodUnitsNotifier extends StateNotifier<EditFoodUnitsState> {
   final CatalogInterface _catalogRepository;
 

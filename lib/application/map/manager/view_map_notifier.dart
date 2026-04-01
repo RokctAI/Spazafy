@@ -9,7 +9,6 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'view_map_state.dart';
 
-
 class ViewMapNotifier extends StateNotifier<ViewMapState> {
   ViewMapNotifier() : super(const ViewMapState());
 
@@ -21,10 +20,7 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     AddressData? data = LocalStorage.getAddressSelected();
     if (data == null) {
       state = state.copyWith(isSetAddress: false);
-      AppHelpers.showAlertDialog(
-        context: context,
-        child: addAddressWidget,
-      );
+      AppHelpers.showAlertDialog(context: context, child: addAddressWidget);
     } else {
       state = state.copyWith(isSetAddress: true);
     }

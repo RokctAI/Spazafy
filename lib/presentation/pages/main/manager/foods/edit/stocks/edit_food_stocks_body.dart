@@ -16,7 +16,6 @@ import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class EditFoodStocksBody extends ConsumerStatefulWidget {
   final ProductData product;
 
@@ -64,7 +63,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                     extras: state.groups[index],
                     onTap: () {
                       event.toggleCheckedGroup(index);
-                        AppHelpers.showCustomModalBottomSheet(
+                      AppHelpers.showCustomModalBottomSheet(
                         paddingTop: MediaQuery.paddingOf(context).top + 150,
                         context: context,
                         radius: 12,

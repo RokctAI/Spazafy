@@ -9,7 +9,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 @RoutePage()
 class DriverStoryPage extends ConsumerStatefulWidget {
   const DriverStoryPage({super.key});

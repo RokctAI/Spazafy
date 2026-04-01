@@ -25,7 +25,6 @@ import 'package:rokctapp/presentation/pages/main/manager/foods/create/details/cr
 import 'food_categories_modal.dart';
 import 'create_food_units_modal.dart';
 
-
 class CreateFoodDetailsBody extends StatefulWidget {
   final Function() onSave;
 

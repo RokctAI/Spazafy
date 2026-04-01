@@ -79,7 +79,8 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
       failure: (error, status) {
         debugPrint('====> fetch payments fail $error');
         AppHelpers.showCheckTopSnackBar(
-          context, error,
+          context,
+          error,
           type: SnackBarType.error,
         );
       },

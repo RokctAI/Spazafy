@@ -34,7 +34,8 @@ class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
         debugPrint('===> update extras item fail $fail');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-          context, fail,
+          context,
+          fail,
           type: SnackBarType.error,
         );
       },

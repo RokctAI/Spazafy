@@ -19,7 +19,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class EditExtrasItemModal extends ConsumerStatefulWidget {
   final Group group;
   final Extras extras;

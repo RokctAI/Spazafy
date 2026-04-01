@@ -5,7 +5,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/table_data.dart';
 
-
 class SectionItem extends StatelessWidget {
   final ShopSection? section;
   final bool isSelected;

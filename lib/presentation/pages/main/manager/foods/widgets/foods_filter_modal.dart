@@ -16,7 +16,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class FoodsFilterModal extends ConsumerStatefulWidget {
   const FoodsFilterModal({super.key});
 

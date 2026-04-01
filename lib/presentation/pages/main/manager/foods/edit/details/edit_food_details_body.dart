@@ -28,7 +28,6 @@ import 'package:rokctapp/presentation/pages/main/manager/foods/edit/details/edit
 import 'edit_food_units_modal.dart';
 import 'edit_food_categories_modal.dart';
 
-
 class EditFoodDetailsBody extends StatefulWidget {
   final Function() onSave;
   final ScrollController controller;
@@ -77,7 +76,9 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                           state.isLoading
                               ? const Loading()
                               : MultiImagePicker(
-                                  imageUrls: List<Galleries?>.from(state.listOfUrls),
+                                  imageUrls: List<Galleries?>.from(
+                                    state.listOfUrls,
+                                  ),
                                   listOfImages: state.images,
                                   onImageChange: event.setImageFile,
                                   onDelete: event.deleteImage,

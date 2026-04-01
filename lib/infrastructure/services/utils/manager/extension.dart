@@ -3,7 +3,6 @@ import 'package:rokctapp/infrastructure/models/response/driver/statistics_income
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
-
 extension BoolParsing on String {
   bool toBool() {
     return this == "true" || this == "1";

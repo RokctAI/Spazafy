@@ -56,7 +56,8 @@ class CreateUserNotifier extends StateNotifier<CreateUserState> {
         failed?.call();
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-          context, error,
+          context,
+          error,
           type: SnackBarType.error,
         );
       },

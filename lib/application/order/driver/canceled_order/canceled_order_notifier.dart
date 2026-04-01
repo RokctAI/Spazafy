@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/application/order/driver/canceled_order/canceled_order_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -55,7 +54,8 @@ class CanceledOrderNotifier extends StateNotifier<CanceledOrderState> {
           state = state.copyWith(isLoading: false);
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );

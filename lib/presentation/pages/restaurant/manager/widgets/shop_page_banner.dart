@@ -9,7 +9,6 @@ import 'package:rokctapp/presentation/components/helper/manager/shop_bordered_av
 
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
-
 class ShopBanner extends StatelessWidget {
   const ShopBanner({super.key});
 

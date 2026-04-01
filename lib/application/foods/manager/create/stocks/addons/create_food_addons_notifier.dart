@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'create_food_addons_state.dart';
@@ -59,7 +58,8 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
       failure: (fail, status) {
         debugPrint('===> fetch more addons fail $fail');
         AppHelpers.showCheckTopSnackBar(
-          context, fail,
+          context,
+          fail,
           type: SnackBarType.error,
         );
         refreshController?.loadFailed();
@@ -112,7 +112,8 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
       failure: (fail, status) {
         debugPrint('===> fetch addons fail $fail');
         AppHelpers.showCheckTopSnackBar(
-          context, fail,
+          context,
+          fail,
           type: SnackBarType.error,
         );
         state = state.copyWith(isLoading: false, addons: []);

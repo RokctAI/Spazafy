@@ -83,7 +83,8 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
             failed?.call();
             state = state.copyWith(isLoading: false);
             AppHelpers.showCheckTopSnackBar(
-              context, stockFail,
+              context,
+              stockFail,
               type: SnackBarType.error,
             );
           },
@@ -93,7 +94,8 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
         debugPrint('===> create addon fail $fail');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-          context, fail,
+          context,
+          fail,
           type: SnackBarType.error,
         );
         failed?.call();

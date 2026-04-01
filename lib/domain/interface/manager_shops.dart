@@ -2,8 +2,6 @@ import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-
-
 abstract class ShopsInterface {
   Future<ApiResult<void>> createShop({
     required double tax,
