@@ -31,7 +31,8 @@ class CreateExtrasGroupNotifier extends StateNotifier<CreateExtrasGroupState> {
       failure: (fail, status) {
         debugPrint('===> create extras group fail $fail');
         state = state.copyWith(isLoading: false);
-        mgr.mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: fail,
           type: SnackBarType.error,

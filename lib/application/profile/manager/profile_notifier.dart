@@ -220,7 +220,8 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       );
     } else {
       if (context.mounted) {
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: mgr.AppHelpers.getTranslation(
             TrKeys.checkYourNetworkConnection,

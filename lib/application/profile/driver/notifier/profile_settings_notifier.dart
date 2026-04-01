@@ -89,7 +89,8 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
           context.replaceRouteNamed('/login');
         } else {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             AppHelpers.getTranslation(failure),
           );
@@ -116,7 +117,8 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );

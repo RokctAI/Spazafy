@@ -132,7 +132,8 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
                                           2]
                                       .id,
                           );
-                          help.AppHelpers.showCheckTopSnackBar(context, 
+                          help.AppHelpers.showCheckTopSnackBar(
+                            context,
                             context,
                             type: SnackBarType.success,
                             text: help.AppHelpers.getTranslation(
@@ -141,7 +142,8 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
                           );
                           context.popRoute();
                         },
-                        failed: () => help.AppHelpers.showCheckTopSnackBar(context, 
+                        failed: () => help.AppHelpers.showCheckTopSnackBar(
+                          context,
                           context,
                           type: SnackBarType.error,
                           text: help.AppHelpers.getTranslation(

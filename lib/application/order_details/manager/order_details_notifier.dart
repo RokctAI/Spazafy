@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+    as mgr;
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 
@@ -37,7 +38,8 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
       failure: (failure, status) {
         debugPrint('===> update order status fail $failure');
         state = state.copyWith(isUpdating: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: failure,
           type: SnackBarType.error,

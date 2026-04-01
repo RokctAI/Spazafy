@@ -182,7 +182,8 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
       },
       failure: (fail, status) {
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: fail.toString(),
           type: SnackBarType.error,
@@ -234,7 +235,8 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
       },
       failure: (fail, status) {
         state = state.copyWith(isSaving: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: fail.toString(),
           type: SnackBarType.error,

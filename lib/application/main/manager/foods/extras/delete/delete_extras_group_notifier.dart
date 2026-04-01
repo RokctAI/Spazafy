@@ -33,7 +33,8 @@ class DeleteExtrasGroupNotifier extends StateNotifier<DeleteExtrasGroupState> {
       failure: (fail, status) {
         debugPrint('===> delete extras group fail $fail');
         state = state.copyWith(isLoading: false);
-        mgr.mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: fail,
           type: SnackBarType.error,

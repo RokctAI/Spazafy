@@ -33,7 +33,8 @@ class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
       failure: (fail, status) {
         debugPrint('===> create category fail $fail');
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: fail,
           type: SnackBarType.error,

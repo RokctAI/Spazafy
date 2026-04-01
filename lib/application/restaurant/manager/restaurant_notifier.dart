@@ -89,7 +89,8 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         },
         failure: (failure, status) {
           debugPrint('==> upload shop back image fail: $failure');
-          mgr.AppHelpers.showCheckTopSnackBar(context, 
+          mgr.AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             text: failure,
             type: SnackBarType.error,
@@ -109,7 +110,8 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
         },
         failure: (failure, status) {
           debugPrint('==> upload shop logo image fail: $failure');
-          mgr.AppHelpers.showCheckTopSnackBar(context, 
+          mgr.AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             text: failure,
             type: SnackBarType.error,
@@ -157,7 +159,8 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
       failure: (failure, status) {
         debugPrint('===> update shop fail $failure');
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: failure,
           type: SnackBarType.error,

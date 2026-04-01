@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 import 'package:flutter/material.dart';

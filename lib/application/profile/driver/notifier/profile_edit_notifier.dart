@@ -72,7 +72,8 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -153,7 +154,8 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -199,7 +201,8 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );

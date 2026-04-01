@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -39,7 +38,8 @@ class OrderNotifier extends StateNotifier<OrderState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -70,7 +70,8 @@ class OrderNotifier extends StateNotifier<OrderState> {
         onSuccess();
       },
       failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -92,7 +93,8 @@ class OrderNotifier extends StateNotifier<OrderState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isActiveLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -113,7 +115,8 @@ class OrderNotifier extends StateNotifier<OrderState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isAvailableLoading: true);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -160,7 +163,8 @@ class OrderNotifier extends StateNotifier<OrderState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -203,7 +207,8 @@ class OrderNotifier extends StateNotifier<OrderState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -228,7 +233,8 @@ class OrderNotifier extends StateNotifier<OrderState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: true);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -277,7 +283,8 @@ class OrderNotifier extends StateNotifier<OrderState> {
           state = state.copyWith(isLoading: false);
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -329,7 +336,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
   //           state=state.copyWith(isLoading: false);
   //           controller.refreshFailed();
   //         }
-  //         AppHelpers.showCheckTopSnackBar(context, 
+  //         AppHelpers.showCheckTopSnackBar(context,
   //           context,
   //           AppHelpers.getTranslation(failure),
   //         );
@@ -382,7 +389,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
   //         } else {
   //           controller.refreshFailed();
   //         }
-  //         AppHelpers.showCheckTopSnackBar(context, 
+  //         AppHelpers.showCheckTopSnackBar(context,
   //           context,
   //           AppHelpers.getTranslation(failure),
   //         );

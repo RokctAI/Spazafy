@@ -62,7 +62,7 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                     extras: state.groups[index],
                     onTap: () {
                       event.toggleCheckedGroup(index);
-                        AppHelpers.showCustomModalBottomSheet(
+                      AppHelpers.showCustomModalBottomSheet(
                         paddingTop: MediaQuery.paddingOf(context).top + 150,
                         context: context,
                         radius: 12,
@@ -134,7 +134,8 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                                           2]
                                       .id,
                           );
-                          AppHelpers.showCheckTopSnackBar(context, 
+                          AppHelpers.showCheckTopSnackBar(
+                            context,
                             context,
                             type: SnackBarType.success,
                             text: AppHelpers.getTranslation(
@@ -143,7 +144,8 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                           );
                           context.popRoute();
                         },
-                        failed: () => AppHelpers.showCheckTopSnackBar(context, 
+                        failed: () => AppHelpers.showCheckTopSnackBar(
+                          context,
                           context,
                           type: SnackBarType.error,
                           text: AppHelpers.getTranslation(TrKeys.updateFailed),

@@ -124,7 +124,8 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
         updated?.call(updatedProduct);
       },
       failure: (fail, status) {
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: fail,
           type: SnackBarType.error,

@@ -56,7 +56,8 @@ class CreateUserNotifier extends StateNotifier<CreateUserState> {
         debugPrint('====> create user fail $error');
         failed?.call();
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: error,
           type: SnackBarType.error,

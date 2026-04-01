@@ -472,7 +472,8 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                             TrKeys.delivery) {
                           if (ref.watch(orderAddressProvider).location ==
                               null) {
-                            help.AppHelpers.showCheckTopSnackBar(context, 
+                            help.AppHelpers.showCheckTopSnackBar(
+                              context,
                               context,
                               type: SnackBarType.info,
                               text: TrKeys.selectedAddress,

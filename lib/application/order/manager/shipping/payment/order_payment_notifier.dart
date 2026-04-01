@@ -77,7 +77,8 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
       success: (data) {},
       failure: (error, status) {
         debugPrint('====> fetch payments fail $error');
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
+        mgr.AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           text: error,
           type: SnackBarType.error,
