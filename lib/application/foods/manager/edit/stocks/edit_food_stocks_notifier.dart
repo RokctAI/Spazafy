@@ -181,7 +181,8 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
       failure: (fail, status) {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-          context, fail.toString(),
+          context,
+          fail.toString(),
           type: SnackBarType.error,
         );
         debugPrint('===> group extras fetching failed $fail');
@@ -232,7 +233,8 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
       failure: (fail, status) {
         state = state.copyWith(isSaving: false);
         AppHelpers.showCheckTopSnackBar(
-          context, fail.toString(),
+          context,
+          fail.toString(),
           type: SnackBarType.error,
         );
         failed?.call();

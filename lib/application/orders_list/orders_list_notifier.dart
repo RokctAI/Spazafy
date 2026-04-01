@@ -57,7 +57,8 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -100,7 +101,8 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -143,7 +145,8 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
         } else {
           controller.refreshFailed();
         }
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -164,7 +167,8 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isActiveLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -185,7 +189,8 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -206,7 +211,8 @@ class OrdersListNotifier extends StateNotifier<OrdersListState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isRefundLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );

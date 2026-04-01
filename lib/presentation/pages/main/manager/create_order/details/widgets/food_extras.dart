@@ -9,10 +9,8 @@ import 'package:rokctapp/presentation/components/extras/manager/color_extras.dar
 import 'package:rokctapp/presentation/components/extras/manager/image_extras.dart';
 import 'package:rokctapp/presentation/components/extras/manager/text_extras.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
-
 
 class FoodExtras extends ConsumerWidget {
   const FoodExtras({super.key});

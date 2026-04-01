@@ -38,7 +38,8 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
         debugPrint('===> update order status fail $failure');
         state = state.copyWith(isUpdating: false);
         AppHelpers.showCheckTopSnackBar(
-          context, failure,
+          context,
+          failure,
           type: SnackBarType.error,
         );
       },

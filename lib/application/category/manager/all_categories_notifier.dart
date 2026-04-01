@@ -76,7 +76,8 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         debugPrint('====> fetch categories fail $failure');
         _page--;
         AppHelpers.showCheckTopSnackBar(
-          context, failure,
+          context,
+          failure,
           type: SnackBarType.error,
         );
       },
@@ -123,7 +124,8 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         debugPrint('====> fetch categories fail $failure');
         _page--;
         AppHelpers.showCheckTopSnackBar(
-          context, failure,
+          context,
+          failure,
           type: SnackBarType.error,
         );
       },

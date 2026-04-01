@@ -21,7 +21,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart'
 import 'canceled_orders_body.dart';
 import 'delivered_order_body.dart';
 
-
 @RoutePage()
 class ManagerOrderHistoryPage extends ConsumerStatefulWidget {
   const ManagerOrderHistoryPage({super.key});

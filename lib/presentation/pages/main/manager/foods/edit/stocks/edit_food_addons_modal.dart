@@ -18,7 +18,6 @@ import 'package:rokctapp/presentation/components/list_items/manager/selectable_a
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class EditFoodAddonsModal extends ConsumerStatefulWidget {
   final Stock stock;
   final Function(List<ProductData>) onSave;
