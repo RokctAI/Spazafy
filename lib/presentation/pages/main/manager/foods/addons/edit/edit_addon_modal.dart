@@ -1,5 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -13,10 +13,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'edit_addon_units_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
+import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
+
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 
 class EditAddonModal extends StatefulWidget {
   final ProductData addon;
@@ -209,7 +219,7 @@ class _EditAddonModalState extends State<EditAddonModal> {
                                   uuid: widget.addon.uuid,
                                   unit: unitState.foodUnit,
                                   updated: () {
-                                    help.AppHelpers.showCheckTopSnackBar(context, 
+                                    help.AppHelpers.showCheckTopSnackBar(
                                       context,
                                       text: help.AppHelpers.getTranslation(
                                         TrKeys.successfullyCreated,

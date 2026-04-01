@@ -8,9 +8,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'foods_filter_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
+import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
+
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+
 
 class FoodsFilterModal extends ConsumerStatefulWidget {
   const FoodsFilterModal({super.key});

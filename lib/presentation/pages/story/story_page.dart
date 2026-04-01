@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +70,7 @@ class _StoryListPageState extends State<StoryListPage> {
                   );
                   setState(() {});
                 } else {
-                  context.popRoute();
+                  context.maybePop();
                 }
               },
               prevPage: () {
@@ -83,7 +82,7 @@ class _StoryListPageState extends State<StoryListPage> {
                   );
                   setState(() {});
                 } else {
-                  context.popRoute();
+                  context.maybePop();
                 }
               },
             );
@@ -428,7 +427,7 @@ class _StoryItemPageState extends State<StoryItemPage> with TickerProviderStateM
                   const Spacer(),
                   GestureDetector(
                     onTap: () {
-                      context.popRoute();
+                      context.maybePop();
                     },
                     child: Container(
                       color: AppStyle.transparent,

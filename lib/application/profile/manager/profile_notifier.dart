@@ -11,13 +11,19 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
 import 'profile_state.dart';
+import 'package:rokctapp/infrastructure/models/response/login_response.dart';
+import 'package:rokctapp/domain/interface/manager_settings.dart';
+import 'package:rokctapp/domain/interface/manager_shops.dart';
+import 'package:rokctapp/domain/interface/manager_users.dart';
 
 class ProfileNotifier extends StateNotifier<ProfileState> {
   final SettingsInterface _settingsRepository;
@@ -98,7 +104,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
             context.router.popUntilRoot();
             context.replaceRouteNamed('/manager/auth');
           }
-          mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
+          AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
     }
@@ -137,7 +143,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (failure, s) {
           debugPrint('===> upload logo image failure: $failure');
-          mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
+          AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
     }
@@ -152,7 +158,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (failure, s) {
           debugPrint('===> upload background image failure: $failure');
-          mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
+          AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
     }
@@ -167,7 +173,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (failure, s) {
           debugPrint('===> upload document failure: $failure');
-          mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
+          AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
     }
@@ -192,11 +198,11 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isSaveLoading: false);
         fetchUser(context, refreshController: RefreshController());
-        context.popRoute();
+        context.maybePop();
       },
       failure: (failure, s) {
         state = state.copyWith(isSaveLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
+        AppHelpers.showCheckTopSnackBar(context, failure);
         debugPrint('==> create shop failure: $failure');
       },
     );
@@ -215,14 +221,13 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         },
         failure: (fail, status) {
           state = state.copyWith(isLoading: false);
-          mgr.AppHelpers.showCheckTopSnackBar(context, text: fail);
+          AppHelpers.showCheckTopSnackBar(context, fail);
         },
       );
     } else {
       if (context.mounted) {
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
-          context,
-          text: mgr.AppHelpers.getTranslation(
+        AppHelpers.showCheckTopSnackBar(
+          context, AppHelpers.getTranslation(
             TrKeys.checkYourNetworkConnection,
           ),
         );

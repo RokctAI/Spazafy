@@ -1,14 +1,16 @@
 import 'package:rokctapp/domain/interface/driver_settings.dart';
-
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/interface/driver_user.dart';
 import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/application/profile/driver/state/profile_image_state.dart';
+import 'package:rokctapp/domain/interface/driver_settings.dart';
+import 'package:rokctapp/domain/interface/driver_user.dart';
 
 class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
   final UserRepository _userRepository;
@@ -33,7 +35,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -53,7 +55,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> update profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -75,7 +77,7 @@ class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
       },
       failure: (failure, status) {
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(failure),
         );

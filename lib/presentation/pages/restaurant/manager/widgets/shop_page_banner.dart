@@ -1,11 +1,14 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
+import 'package:rokctapp/presentation/components/helper/manager/shop_bordered_avatar.dart';
+
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+
 
 class ShopBanner extends StatelessWidget {
   const ShopBanner({super.key});

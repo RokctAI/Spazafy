@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -14,12 +13,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
-import 'package:rokctapp/application/providers_driver.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/edit_car.dart';
+
 
 class EditProfileModal extends ConsumerStatefulWidget {
   const EditProfileModal({super.key});
@@ -38,7 +38,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
           .fetchProfileDetails(
             context: context,
             checkYourNetwork: () {
-              help.AppHelpers.showCheckTopSnackBar(context, 
+              help.AppHelpers.showCheckTopSnackBar(
                 context,
                 help.AppHelpers.getTranslation(
                   TrKeys.checkYourNetworkConnection,
@@ -391,7 +391,7 @@ class _EditProfileModalState extends ConsumerState<EditProfileModal> {
                           editNotifier.updateGeneralInfo(
                             context: context,
                             checkYourNetwork: () {
-                              help.AppHelpers.showCheckTopSnackBar(context, 
+                              help.AppHelpers.showCheckTopSnackBar(
                                 context,
                                 help.AppHelpers.getTranslation(
                                   TrKeys.checkYourNetworkConnection,

@@ -10,8 +10,9 @@ import 'package:rokctapp/application/webview/preloaded_webview_provider.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
 
 /// PayFast integration service
 class PayFastService {

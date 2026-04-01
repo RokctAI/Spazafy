@@ -1,5 +1,3 @@
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -20,14 +18,22 @@ import 'foods/foods_page.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'orders/orders_home_page.dart';
 import 'billing/home_page.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
+import 'package:rokctapp/presentation/components/helper/manager/blur_wrap.dart';
+import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
+import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
 import 'package:rokctapp/presentation/pages/main/widgets/bottom_navigator_item.dart';
 import 'package:rokctapp/presentation/pages/restaurant/manager/restaurant_page.dart';
-import 'package:rokctapp/application/providers_manager.dart';
+
 import 'foods/create/create_product_modal.dart';
 import 'foods/addons/create/create_addon_modal.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'foods/extras/create/create_extras_group_modal.dart';
+
 
 @RoutePage()
 class ManagerMainPage extends StatefulWidget {
@@ -72,7 +78,7 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
         player.play(AssetSource("audio/notification.wav"));
       }
       if (mounted) {
-        help.AppHelpers.showCheckTopSnackBar(context, 
+        help.AppHelpers.showCheckTopSnackBar(
           context,
           type: SnackBarType.success,
           text:

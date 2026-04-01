@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -18,11 +17,25 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 import 'working_time_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/blur_wrap.dart';
+import 'package:rokctapp/presentation/components/helper/manager/horizontal_image_picker.dart';
+import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/helper/manager/shop_bordered_avatar.dart';
+import 'package:rokctapp/presentation/components/list_items/manager/small_weekday_item.dart';
+import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
+
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+
+
 
 class EditRestaurantModal extends ConsumerStatefulWidget {
   const EditRestaurantModal({super.key});

@@ -1,6 +1,8 @@
 import 'package:rokctapp/infrastructure/models/data/blog_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/blog_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
+
 
 class NotificationResponse {
   List<NotificationModel>? data;

@@ -1,8 +1,8 @@
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
 import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/presentation/components/list_items/manager/text_extras_item.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
+
 
 class TextExtras extends StatelessWidget {
   final int groupIndex;

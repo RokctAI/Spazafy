@@ -1,6 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
@@ -16,11 +15,18 @@ import 'widgets/delete_extras_item_modal.dart';
 import 'widgets/group_detail_extras_item.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/extras/delete/delete_extras_group_modal.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/extras/update/update_extras_group_modal.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 import 'widgets/create_new_group_item_modal.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
+
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 
 class ExtrasGroupDetailsModal extends ConsumerStatefulWidget {
   final Group group;

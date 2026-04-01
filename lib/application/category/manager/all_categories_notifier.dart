@@ -3,12 +3,12 @@ import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'all_categories_state.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 
 class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
   final CatalogInterface _catalogRepository;
@@ -75,9 +75,8 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       failure: (failure, status) {
         debugPrint('====> fetch categories fail $failure');
         _page--;
-        mgr.mgr.AppHelpers.showCheckTopSnackBar(context, 
-          context,
-          text: failure,
+        AppHelpers.showCheckTopSnackBar(
+          context, failure,
           type: SnackBarType.error,
         );
       },
@@ -123,9 +122,8 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       failure: (failure, status) {
         debugPrint('====> fetch categories fail $failure');
         _page--;
-        mgr.mgr.AppHelpers.showCheckTopSnackBar(context, 
-          context,
-          text: failure,
+        AppHelpers.showCheckTopSnackBar(
+          context, failure,
           type: SnackBarType.error,
         );
       },
@@ -230,7 +228,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        mgr.mgr.AppHelpers.errorSnackBar(context, text: failure);
+        AppHelpers.errorSnackBar(context, text: failure);
       },
     );
   }

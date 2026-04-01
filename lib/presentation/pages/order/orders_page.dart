@@ -15,9 +15,10 @@ import 'package:rokctapp/presentation/components/custom_tab_bar.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/orders_item.dart';
-import 'package:rokctapp/presentation/components/badges.dart';
+import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
 
-// // // @RoutePage()
+
+@RoutePage()
 class OrdersListPage extends ConsumerStatefulWidget {
   const OrdersListPage({super.key});
 

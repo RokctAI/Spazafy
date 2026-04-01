@@ -1,8 +1,9 @@
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
-
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/domain/interface/manager_products.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'dart:async';
@@ -10,11 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_food_addons_state.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/domain/interface/manager_products.dart';
 
 class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
   final ProductsInterface _productsRepository;

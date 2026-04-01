@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/application/edit_profile/edit_profile_provider.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
@@ -22,6 +22,7 @@ import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'phone_verify.dart';
+import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 
 class EditProfileScreen extends ConsumerStatefulWidget {
   final ScrollController controller;

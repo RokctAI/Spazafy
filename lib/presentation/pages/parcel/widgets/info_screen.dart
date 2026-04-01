@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +47,7 @@ class InfoPage extends StatelessWidget {
                         : AppHelpers.getTranslation(TrKeys.next),
                     onPressed: () {
                       if (index == 3) {
-                        context.popRoute();
+                        context.maybePop();
                         return;
                       }
                       context.replaceRouteNamed('/info_screen?index=${index + 1}');
@@ -64,7 +63,7 @@ class InfoPage extends StatelessWidget {
             right: 8.r,
             child: IconButton(
               onPressed: () {
-                context.popRoute();
+                context.maybePop();
               },
               icon: Icon(
                 FlutterRemix.close_line,

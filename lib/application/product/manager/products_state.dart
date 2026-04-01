@@ -1,11 +1,10 @@
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
-
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
+
 part 'products_state.freezed.dart';
 
 @freezed

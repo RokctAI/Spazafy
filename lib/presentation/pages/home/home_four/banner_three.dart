@@ -6,10 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/application/home/home_notifier.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:rokctapp/presentation/pages/home/home_four/widgets/banner_item_three.dart';
+import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
 
 class BannerThree extends StatefulWidget {
   final RefreshController bannerController;

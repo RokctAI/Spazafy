@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'dart:ui';
 import 'package:auto_route/auto_route.dart';
@@ -17,7 +16,7 @@ import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/pages/stores/group_order/group_order.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/presentation/components/badges.dart';
+
 import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
 import 'bonus_screen.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
@@ -25,6 +24,11 @@ import 'bonus_screen.dart';
 //import 'package:rokctapp/presentation/components/badge_item.dart';
 //import 'package:rokctapp/presentation/components/shop_avarat.dart';
 //import 'shop_description_item.dart';
+import 'package:rokctapp/presentation/components/badges/delivery_fee_badge.dart';
+import 'package:rokctapp/presentation/components/badges/distance_badge.dart';
+import 'package:rokctapp/presentation/components/badges/rating_badge.dart';
+import 'package:rokctapp/presentation/components/badges/storelogo_badge.dart';
+import 'package:rokctapp/presentation/components/bonus_discount_popular.dart';
 
 class ShopPageAvatar extends StatelessWidget {
   final ShopData shop;

@@ -1,6 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
-
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
@@ -11,12 +11,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/presentation/pages/home/driver/widgets/foods_page.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/application/providers_driver.dart';
+
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/buttons/driver/custom_button.dart';
 import 'image_dialog.dart';
 import 'order_item.dart';
+
 // ignore_for_file: use_build_context_synchronously
 
 class OrderDetail extends StatelessWidget {

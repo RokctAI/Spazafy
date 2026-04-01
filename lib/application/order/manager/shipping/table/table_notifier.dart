@@ -5,7 +5,8 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'table_state.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
+
 
 class TableNotifier extends StateNotifier<TableState> {
   String _query = '';

@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -12,12 +11,18 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_icon_button.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'searched_location_item.dart';
+
 
 @RoutePage()
 class SelectAddressPage extends StatefulWidget {
@@ -244,7 +249,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                                                 '',
                                             location: state.location,
                                           );
-                                      context.popRoute();
+                                      context.maybePop();
                                     },
                             );
                           },

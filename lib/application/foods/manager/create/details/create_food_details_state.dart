@@ -1,8 +1,9 @@
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 import 'package:rokctapp/infrastructure/models/data/review_data.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/review_data.dart';
+
 part 'create_food_details_state.freezed.dart';
 
 @freezed

@@ -5,7 +5,7 @@ import 'package:location/location.dart' as location;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'select_address_state.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
 
 class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
   Timer? _timer;

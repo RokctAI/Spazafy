@@ -8,7 +8,13 @@ import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/data/filter_model.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/story_data.dart';
+import 'package:rokctapp/infrastructure/models/response/branches_response.dart';
+import 'package:rokctapp/infrastructure/models/response/shops_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
+import 'package:rokctapp/infrastructure/models/response/tag_response.dart';
+
 
 abstract class ShopsRepositoryFacade {
   Future<ApiResult<ShopsPaginateResponse>> getShopFilter({

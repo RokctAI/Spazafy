@@ -10,13 +10,19 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart';
+import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
+import 'package:rokctapp/presentation/components/manager/filter_screen.dart';
+import 'package:rokctapp/presentation/components/tab_bars/manager/custom_tab_bar.dart';
+
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'canceled_orders_body.dart';
 import 'delivered_order_body.dart';
 
-// // // @RoutePage()
+
+@RoutePage()
 class ManagerOrderHistoryPage extends ConsumerStatefulWidget {
   const ManagerOrderHistoryPage({super.key});
 

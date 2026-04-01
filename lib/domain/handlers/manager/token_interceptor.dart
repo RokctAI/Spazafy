@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:dio/dio.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 class TokenInterceptor extends Interceptor {
   final bool requireAuth;

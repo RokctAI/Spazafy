@@ -1,5 +1,3 @@
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -13,9 +11,14 @@ import 'foods/foods_body.dart';
 import 'extras/extras_body.dart';
 import 'addons/addons_body.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
+import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
+import 'package:rokctapp/presentation/components/text_fields/manager/search_text_field.dart';
+
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+
 
 class FoodsPage extends ConsumerStatefulWidget {
   const FoodsPage({super.key});

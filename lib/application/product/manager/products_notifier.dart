@@ -1,7 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
-
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
@@ -13,10 +10,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/products.dart';
 import 'products_state.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
 
 class ProductsNotifier extends StateNotifier<ProductsState> {
   final ProductsInterface _productsRepository;
@@ -188,7 +186,7 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
         uniques.add(state.initialStocks[i].extras?[0].value ?? '');
         title =
             state.initialStocks[i].extras?[0].group?.translation?.title ?? '';
-        type = mgr.AppHelpers.getExtraTypeByValue(
+        type = AppHelpers.getExtraTypeByValue(
           state.initialStocks[i].extras?[0].group?.type,
         );
       }
@@ -222,7 +220,7 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
     for (int i = 0; i < includedStocks.length; i++) {
       uniques.add(includedStocks[i].extras?[index].value ?? '');
       title = includedStocks[i].extras?[index].group?.translation?.title ?? '';
-      type = mgr.AppHelpers.getExtraTypeByValue(
+      type = AppHelpers.getExtraTypeByValue(
         includedStocks[i].extras?[index].group?.type ?? '',
       );
     }

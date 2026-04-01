@@ -9,7 +9,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -19,6 +19,10 @@ import 'package:rokctapp/domain/interface/gallery.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'profile_state.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location.dart';
+import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+import 'package:rokctapp/infrastructure/models/response/wallet_histories_response.dart';
 
 class ProfileNotifier extends StateNotifier<ProfileState> {
   final UserRepositoryFacade _userRepository;
@@ -411,7 +415,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isSaveLoading: false);
         fetchUser(context, refreshController: RefreshController());
-        context.popRoute();
+        context.maybePop();
       },
       failure: (failure, s) {
         state = state.copyWith(isSaveLoading: false);

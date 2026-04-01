@@ -1,4 +1,4 @@
-
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +6,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
+import 'package:rokctapp/presentation/components/list_items/manager/category_tab_bar_item.dart';
+import 'package:rokctapp/presentation/components/tab_bars/manager/categories_tab_bar.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 
 class CategoriesTabBar extends StatelessWidget {
   final List<CategoryData> categories;

@@ -9,7 +9,7 @@ import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart';
 import 'package:rokctapp/application/pos/pos_provider.dart';
 import 'package:rokctapp/printer/providers/billing_printer_provider.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';

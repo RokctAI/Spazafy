@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -243,7 +242,7 @@ class _SelectAddressScreenState extends ConsumerState<SelectAddressScreen> {
                                 ? DeliveryTypeEnum.pickup
                                 : DeliveryTypeEnum.delivery,
                           );
-                      context.popRoute();
+                      context.maybePop();
                     },
                   ),
                   32.verticalSpace,

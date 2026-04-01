@@ -13,7 +13,7 @@ import 'package:rokctapp/domain/interface/brands.dart';
 import 'package:rokctapp/domain/interface/categories.dart';
 import 'package:rokctapp/domain/interface/products.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
@@ -25,6 +25,9 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'shop_state.dart';
+import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 
 class ShopNotifier extends StateNotifier<ShopState> {
   final ProductsRepositoryFacade _productsRepository;
@@ -482,7 +485,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
   //       },
   //       failure: (failure, status) {
   //         state = state.copyWith(isProductLoading: false);
-  //         AppHelpers.showCheckTopSnackBar(context, 
+  //         AppHelpers.showCheckTopSnackBar(
   //           context,
   //           failure,
   //         );
@@ -579,7 +582,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
   //       },
   //       failure: (failure, status) {
   //         controller?.loadComplete();
-  //         AppHelpers.showCheckTopSnackBar(context, 
+  //         AppHelpers.showCheckTopSnackBar(
   //           context,
   //           failure,
   //         );
@@ -614,7 +617,7 @@ class ShopNotifier extends StateNotifier<ShopState> {
   //       },
   //       failure: (failure, status) {
   //         controller?.loadComplete();
-  //         AppHelpers.showCheckTopSnackBar(context, 
+  //         AppHelpers.showCheckTopSnackBar(
   //           context,
   //           failure,
   //         );

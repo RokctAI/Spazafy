@@ -1,19 +1,22 @@
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/domain/interface/manager_orders.dart';
-
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
+import 'package:rokctapp/domain/interface/manager_orders.dart';
+import 'package:rokctapp/domain/interface/manager_orders.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
+import 'package:rokctapp/domain/interface/manager_orders.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'new_orders_state.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
+import 'package:rokctapp/domain/interface/manager_orders.dart';
 
 class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
   final OrdersInterface _ordersRepository;

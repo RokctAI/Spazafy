@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/close_day_response.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/table_model.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/disable_dates.dart';
@@ -11,7 +10,8 @@ import 'package:rokctapp/infrastructure/models/response/manager/bookings_respons
 import 'package:rokctapp/infrastructure/models/response/manager/table_info_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/table_statistic_response.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
+
 
 abstract class TableInterface {
   Future<ApiResult<ShopSection>> createNewSection({

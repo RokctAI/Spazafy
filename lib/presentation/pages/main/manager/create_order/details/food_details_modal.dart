@@ -1,7 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -14,11 +12,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/food_extras.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/food_price_widget.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+
+
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'widgets/w_ingredient.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 
 class FoodDetailsModal extends ConsumerStatefulWidget {
   final ProductData product;

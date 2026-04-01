@@ -51,8 +51,10 @@ import 'package:rokctapp/presentation/pages/order/orders_main.dart';
 import 'package:rokctapp/presentation/pages/loans/widgets/loan_document_upload_screen.dart';
 import 'package:rokctapp/presentation/pages/loans/widgets/loan_eligibility_screen.dart';
 import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
-import 'package:rokctapp/presentation/pages/pages_driver.dart';
-import 'package:rokctapp/presentation/pages/pages_manager.dart';
+
+
+
+
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()

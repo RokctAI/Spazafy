@@ -9,9 +9,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'add_category_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/list_items/manager/food_category_item.dart';
+
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+
 
 class FoodCategoriesModal extends ConsumerStatefulWidget {
   final bool isSubCategory;

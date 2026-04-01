@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
@@ -15,6 +15,8 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'package:rokctapp/application/main/main_provider.dart';
 import 'register_confirmation_state.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location.dart';
 
 class RegisterConfirmationNotifier
     extends StateNotifier<RegisterConfirmationState> {
@@ -65,7 +67,7 @@ class RegisterConfirmationNotifier
         );
       } catch (e) {
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(
               (e as FirebaseAuthException).message ?? "",
@@ -195,7 +197,7 @@ class RegisterConfirmationNotifier
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false, isCodeError: true);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -236,7 +238,7 @@ class RegisterConfirmationNotifier
           },
           failure: (failure, status) {
             state = state.copyWith(isLoading: false, isCodeError: true);
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(status.toString()),
             );
@@ -245,7 +247,7 @@ class RegisterConfirmationNotifier
         );
       } catch (e) {
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(
               (e as FirebaseAuthException).message ?? "",
@@ -348,7 +350,7 @@ class RegisterConfirmationNotifier
       },
       failure: (failure, status) {
         state = state.copyWith(isResending: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -367,7 +369,7 @@ class RegisterConfirmationNotifier
         phoneNumber: phoneNumber,
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (FirebaseAuthException e) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(e.message ?? ""),
           );
@@ -408,7 +410,7 @@ class RegisterConfirmationNotifier
         phoneNumber: phoneNumber,
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (FirebaseAuthException e) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(e.message ?? ""),
           );

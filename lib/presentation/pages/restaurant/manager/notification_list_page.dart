@@ -14,14 +14,22 @@ import 'package:jiffy/jiffy.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/application/notification/notification_provider.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
+
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
+import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
+import 'package:rokctapp/presentation/components/manager/common_app_bar.dart';
 import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_details_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
+
 // ignore_for_file: deprecated_member_use
 
-// // // @RoutePage()
+@RoutePage()
 class ManagerNotificationListPage extends ConsumerStatefulWidget {
   const ManagerNotificationListPage({super.key});
 

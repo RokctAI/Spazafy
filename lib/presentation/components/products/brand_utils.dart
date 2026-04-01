@@ -3,11 +3,14 @@ import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/application/shop/shop_provider.dart';
+import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 // lib/infrastructure/utils/brand_utils.dart
 
 class BrandUtils {

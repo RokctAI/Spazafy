@@ -3,11 +3,12 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'view_map_state.dart';
+
 
 class ViewMapNotifier extends StateNotifier<ViewMapState> {
   ViewMapNotifier() : super(const ViewMapState());
@@ -20,7 +21,7 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     AddressData? data = LocalStorage.getAddressSelected();
     if (data == null) {
       state = state.copyWith(isSetAddress: false);
-      mgr.AppHelpers.showAlertDialog(
+      AppHelpers.showAlertDialog(
         context: context,
         child: addAddressWidget,
       );

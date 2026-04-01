@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -9,9 +8,16 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+
 
 class CreateUserModal extends StatefulWidget {
   const CreateUserModal({super.key});
@@ -90,12 +96,12 @@ class _CreateUserModalState extends State<CreateUserModal> {
                           event.createUser(
                             context,
                             created: (user) {
-                              context.popRoute();
+                              context.maybePop();
                               ref
                                   .read(orderUserProvider.notifier)
                                   .addCreatedUser(user);
                             },
-                            failed: () => help.AppHelpers.showCheckTopSnackBar(context, 
+                            failed: () => help.AppHelpers.showCheckTopSnackBar(
                               context,
                               text: help.AppHelpers.getTranslation(
                                 TrKeys.failed,

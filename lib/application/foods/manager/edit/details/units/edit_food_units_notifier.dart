@@ -3,8 +3,10 @@ import 'package:rokctapp/infrastructure/models/data/manager/unit_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_food_units_state.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/domain/interface/manager_catalog.dart';
+
+
+
 
 class EditFoodUnitsNotifier extends StateNotifier<EditFoodUnitsState> {
   final CatalogInterface _catalogRepository;

@@ -1,14 +1,16 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'package:rokctapp/domain/interface/driver_user.dart';
 import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
+
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/application/profile/driver/state/profile_edit_state.dart';
+import 'package:rokctapp/infrastructure/models/response/login_response.dart';
+import 'package:rokctapp/domain/interface/driver_user.dart';
 
 class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
   final UserRepository _userRepository;
@@ -72,7 +74,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -153,7 +155,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -199,7 +201,7 @@ class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(failure),
         );

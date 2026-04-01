@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr;
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,15 +26,15 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
+    //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         mgr.AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(status.toString()),
     //       );
     //     },
     //   );
     // } else {
     //   if (context.mounted) {
-    //     mgr.AppHelpers.showNoConnectionSnackBar(context);
+    //     AppHelpers.showNoConnectionSnackBar(context);
     //   }
     // }
   }
@@ -59,15 +58,15 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
+    //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         mgr.AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(status.toString()),
     //       );
     //     },
     //   );
     // } else {
     //   if (context.mounted) {
-    //     mgr.AppHelpers.showNoConnectionSnackBar(context);
+    //     AppHelpers.showNoConnectionSnackBar(context);
     //   }
     // }
   }
@@ -94,9 +93,9 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isTagLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
+    //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         mgr.AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(status.toString()),
     //       );
     //     },
     //   );
@@ -111,15 +110,15 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isTagLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
+    //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         mgr.AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(status.toString()),
     //       );
     //     },
     //   );
     // } else {
     //   if (context.mounted) {
-    //     mgr.AppHelpers.showNoConnectionSnackBar(context);
+    //     AppHelpers.showNoConnectionSnackBar(context);
     //   }
     // }
   }
@@ -137,15 +136,15 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isRestaurantLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
+    //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         mgr.AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(status.toString()),
     //       );
     //     },
     //   );
     // } else {
     //   if (context.mounted) {
-    //     mgr.AppHelpers.showNoConnectionSnackBar(context);
+    //     AppHelpers.showNoConnectionSnackBar(context);
     //   }
     // }
   }
@@ -193,15 +192,15 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //       } else {
     //         shopController.refreshFailed();
     //       }
-    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
+    //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         mgr.AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(status.toString()),
     //       );
     //     },
     //   );
     // } else {
     //   if (context.mounted) {
-    //     mgr.AppHelpers.showNoConnectionSnackBar(context);
+    //     AppHelpers.showNoConnectionSnackBar(context);
     //   }
     // }
   }
@@ -218,15 +217,15 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //     },
     //     failure: (activeFailure, status) {
     //       state = state.copyWith(isShopLoading: false);
-    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
+    //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         mgr.AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(status.toString()),
     //       );
     //     },
     //   );
     // } else {
     //   if (context.mounted) {
-    //     mgr.AppHelpers.showNoConnectionSnackBar(context);
+    //     AppHelpers.showNoConnectionSnackBar(context);
     //   }
     // }
   }
@@ -273,15 +272,15 @@ class FoodsFilterNotifier extends StateNotifier<FoodsFilterState> {
     //       } else {
     //         shopController.refreshFailed();
     //       }
-    //       mgr.AppHelpers.showCheckTopSnackBar(context, 
+    //       AppHelpers.showCheckTopSnackBar(
     //         context,
-    //         mgr.AppHelpers.getTranslation(status.toString()),
+    //         AppHelpers.getTranslation(status.toString()),
     //       );
     //     },
     //   );
     // } else {
     //   if (context.mounted) {
-    //     mgr.AppHelpers.showNoConnectionSnackBar(context);
+    //     AppHelpers.showNoConnectionSnackBar(context);
     //   }
     // }
   }

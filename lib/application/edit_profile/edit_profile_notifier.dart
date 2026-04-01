@@ -6,7 +6,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:rokctapp/domain/interface/gallery.dart';
 import 'package:rokctapp/domain/interface/user.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
@@ -16,6 +16,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
 import 'edit_profile_state.dart';
+import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 
 class EditProfileNotifier extends StateNotifier<EditProfileState> {
   final UserRepositoryFacade _userRepository;
@@ -122,7 +123,7 @@ class EditProfileNotifier extends StateNotifier<EditProfileState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -144,7 +145,7 @@ class EditProfileNotifier extends StateNotifier<EditProfileState> {
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         debugPrint('==> upload profile image failure: $failure');
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(status.toString()),
         );

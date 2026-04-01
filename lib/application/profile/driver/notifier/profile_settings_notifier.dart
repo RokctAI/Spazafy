@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -9,10 +9,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/domain/interface/interfaces.dart';
+
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/application/profile/driver/state/profile_settings_state.dart';
+import 'package:rokctapp/infrastructure/models/response/login_response.dart';
+import 'package:rokctapp/domain/interface/driver_user.dart';
 
 class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
   final UserRepository _userRepository;
@@ -89,7 +91,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
           context.replaceRouteNamed('/login');
         } else {
           state = state.copyWith(isLoading: false);
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(failure),
           );
@@ -116,7 +118,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );

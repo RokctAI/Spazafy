@@ -11,7 +11,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/app_constants.dart';
@@ -26,6 +26,9 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'dart:convert';
 import 'register_state.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
 
 class RegisterNotifier extends StateNotifier<RegisterState> {
   final AuthRepositoryFacade _authRepository;
@@ -104,7 +107,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false, isSuccess: false);
           if (status == 400) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(
                 AppHelpers.getTranslation(TrKeys.emailAlreadyExists),
@@ -134,7 +137,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           phoneNumber: state.email,
           verificationCompleted: (PhoneAuthCredential credential) {},
           verificationFailed: (FirebaseAuthException e) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(e.message ?? ""),
             );
@@ -173,7 +176,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -278,7 +281,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(
                 AppHelpers.getTranslation(TrKeys.referralIncorrect),
@@ -435,7 +438,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(
                 AppHelpers.getTranslation(TrKeys.referralIncorrect),
@@ -448,7 +451,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -496,7 +499,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         failure: (failure, status) {
           state = state.copyWith(isLoading: false);
           if (status == 400) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(
                 AppHelpers.getTranslation(TrKeys.referralIncorrect),
@@ -509,7 +512,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -528,7 +531,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         state = state.copyWith(isLoading: false);
         debugPrint('===> login with google exception: $e');
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(e.toString()),
           );
@@ -610,7 +613,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -728,7 +731,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         } else {
           state = state.copyWith(isLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(TrKeys.somethingWentWrongWithTheServer),
             );
@@ -740,7 +743,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -837,7 +840,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           },
           failure: (failure, s) {
             state = state.copyWith(isLoading: false);
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(s.toString()),
             );
@@ -847,7 +850,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         state = state.copyWith(isLoading: false);
         debugPrint('===> login with apple exception: $e');
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(e.toString()),
           );
@@ -855,7 +858,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );

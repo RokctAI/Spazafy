@@ -14,9 +14,17 @@ import 'package:rokctapp/application/order/manager/shipping/table/table_provider
 import 'widgets/payment_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/create_order/order/widgets/title_price.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
+import 'package:rokctapp/presentation/components/manager/select_date_modal.dart';
+
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+
 
 @RoutePage()
 class DeliveryTimePage extends ConsumerStatefulWidget {
@@ -343,7 +351,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                           final num orderPrice =
                               paymentState.orderCalculate?.totalPrice ?? 0;
                           if (walletPrice < orderPrice) {
-                            help.AppHelpers.showCheckTopSnackBar(context, 
+                            help.AppHelpers.showCheckTopSnackBar(
                               context,
                               type: SnackBarType.error,
                               text: help.AppHelpers.getTranslation(
@@ -406,7 +414,7 @@ class _DeliveryTimePageState extends ConsumerState<DeliveryTimePage> {
                                     );
                               },
                               failed: (message) =>
-                                  help.AppHelpers.showCheckTopSnackBar(context, 
+                                  help.AppHelpers.showCheckTopSnackBar(
                                     context,
                                     text: message,
                                     type: SnackBarType.error,

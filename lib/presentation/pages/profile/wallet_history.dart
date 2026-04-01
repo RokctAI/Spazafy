@@ -12,7 +12,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
-import 'package:rokctapp/presentation/components/badges.dart';
+
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/buttons/second_button.dart';
@@ -21,6 +21,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
 import 'widgets/wallet_topup_screen.dart';
 import 'widgets/wallet_send_screen.dart';
+import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
 
 // Add this extension for the capitalize method
 extension StringExtension on String {
@@ -29,7 +30,7 @@ extension StringExtension on String {
   }
 }
 
-// // // @RoutePage()
+@RoutePage()
 class WalletHistoryPage extends ConsumerStatefulWidget {
   final bool isBackButton;
   const WalletHistoryPage({super.key, this.isBackButton = true});

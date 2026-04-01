@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 import 'package:rokctapp/infrastructure/services/utils/background_sync_service.dart';
 import 'package:uuid/uuid.dart';
+import 'package:rokctapp/infrastructure/models/data/refund_data.dart';
 
 class PosNotifier extends StateNotifier<bool> {
   final Ref ref;

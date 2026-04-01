@@ -11,11 +11,14 @@ import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 import 'package:rokctapp/presentation/pages/auth/login/login_screen.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 
-// // // @RoutePage()
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+
+
+@RoutePage()
 class ManagerAuthPage extends ConsumerStatefulWidget {
   const ManagerAuthPage({super.key});
 

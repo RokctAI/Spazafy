@@ -8,7 +8,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/extension.dart';
 import 'package:intl/intl.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
@@ -19,6 +19,7 @@ import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/models/response/global_settings_response.dart';
 
 abstract class AppHelpers {
   AppHelpers._();

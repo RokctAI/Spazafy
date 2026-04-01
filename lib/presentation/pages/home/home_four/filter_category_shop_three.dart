@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +12,13 @@ import 'package:rokctapp/presentation/components/buttons/animation_button_effect
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
 import 'package:rokctapp/presentation/pages/home/home_four/filter/filter_page.dart';
-import 'package:rokctapp/presentation/components/badges.dart';
+
 
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'shimmer/news_shop_shimmer.dart';
 import 'widgets/market_three_item.dart';
 import 'widgets/tab_bar_item_three.dart';
+import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
 
 class FilterCategoryShopThree extends StatelessWidget {
   final HomeState state;

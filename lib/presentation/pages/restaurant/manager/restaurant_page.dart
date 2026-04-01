@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -15,14 +14,19 @@ import 'widgets/logout_button.dart';
 import 'widgets/logout_modal.dart';
 import 'widgets/sections_item.dart';
 import 'widgets/shop_page_banner.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
+
 import 'package:rokctapp/presentation/phoenix_widget.dart';
 import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
 
 import 'widgets/edit_restaurant_modal.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/presentation/components/manager/title_icon.dart';
+
 
 class RestaurantPage extends ConsumerStatefulWidget {
   const RestaurantPage({super.key});

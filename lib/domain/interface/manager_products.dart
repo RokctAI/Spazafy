@@ -1,10 +1,7 @@
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/create_group_extras_response.dart';
-
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/single_extras_group_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/extras_groups_response.dart';
 import 'package:rokctapp/infrastructure/models/response/products_paginate_response.dart';
@@ -12,8 +9,10 @@ import 'package:rokctapp/infrastructure/models/response/single_product_response.
 import 'package:rokctapp/infrastructure/models/response/manager/group_extras_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/calculate_response.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/models/response/products_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/single_product_response.dart';
 
 abstract class ProductsInterface {
   Future<ApiResult<void>> deleteExtrasGroup({String? groupId});

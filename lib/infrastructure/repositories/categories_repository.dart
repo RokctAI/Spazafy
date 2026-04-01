@@ -7,6 +7,7 @@ import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 
 class CategoriesRepository implements CategoriesRepositoryFacade {
   @override

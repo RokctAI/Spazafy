@@ -1,8 +1,7 @@
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/interface/cart.dart';
 import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr;
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';

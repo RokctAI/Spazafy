@@ -1,7 +1,5 @@
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart' as mgr;
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
-
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_data.dart'
     hide OrderData;
@@ -9,9 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_details_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide OrderData;
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    hide OrderStatus;
-import 'package:rokctapp/domain/interface/interfaces.dart';
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+
+import 'package:rokctapp/infrastructure/models/data/order_data.dart';
+import 'package:rokctapp/domain/interface/manager_orders.dart';
 
 class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
   final OrdersInterface _ordersRepository;
@@ -37,9 +37,8 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
       failure: (failure, status) {
         debugPrint('===> update order status fail $failure');
         state = state.copyWith(isUpdating: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
-          context,
-          text: failure,
+        AppHelpers.showCheckTopSnackBar(
+          context, failure,
           type: SnackBarType.error,
         );
       },

@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +44,7 @@ class MapSearchPageState extends State<MapSearchPage> {
                     }
                   } else {
                     if (mounted) {
-                      AppHelpers.showCheckTopSnackBar(context, 
+                      AppHelpers.showCheckTopSnackBar(
                         context,
                         AppHelpers.getTranslation(
                           TrKeys.checkYourNetworkConnection,

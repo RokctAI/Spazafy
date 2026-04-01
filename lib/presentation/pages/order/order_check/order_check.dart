@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:auto_route/auto_route.dart';
@@ -466,7 +465,7 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
                         ref.read(shopOrderProvider.notifier).getCart(
                           context,
                           () {
-                            context.popRoute();
+                            context.maybePop();
                             context.pushRouteNamed('/orderScreen');
                           },
                         );

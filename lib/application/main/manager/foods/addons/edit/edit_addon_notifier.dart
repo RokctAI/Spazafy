@@ -1,6 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -9,11 +8,13 @@ import 'package:rokctapp/infrastructure/models/data/manager/unit_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_addon_state.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/domain/interface/manager_products.dart';
 
 class EditAddonNotifier extends StateNotifier<EditAddonState> {
   final ProductsInterface _productsRepository;
@@ -99,9 +100,8 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
             debugPrint('===> update addon stock fail $stockFail');
             failed?.call();
             state = state.copyWith(isLoading: false);
-            mgr.AppHelpers.showCheckTopSnackBar(context, 
-              context,
-              text: stockFail,
+            AppHelpers.showCheckTopSnackBar(
+              context, stockFail,
               type: SnackBarType.error,
             );
           },
@@ -111,9 +111,8 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
         state = state.copyWith(isLoading: false);
         debugPrint('===> addon update fail $fail');
         failed?.call();
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
-          context,
-          text: fail,
+        AppHelpers.showCheckTopSnackBar(
+          context, fail,
           type: SnackBarType.error,
         );
       },
@@ -139,8 +138,8 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
     _description = addon.translation?.description ?? '';
     _oldBarcode = addon.barCode ?? '';
     _barcode = addon.barCode ?? '';
-    _price = mgr.AppHelpers.getInitialAddonPrice(addon);
-    _quantity = mgr.AppHelpers.getInitialAddonQuantity(addon);
+    _price = AppHelpers.getInitialAddonPrice(addon);
+    _quantity = AppHelpers.getInitialAddonQuantity(addon);
     _active = addon.active ?? false;
     if (addon.translations != null) {
       Map<String, List<String>> temp = Map.from(state.mapOfDesc);

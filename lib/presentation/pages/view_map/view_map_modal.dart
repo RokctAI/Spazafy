@@ -10,7 +10,7 @@ import 'package:rokctapp/application/map/view_map_provider.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -18,6 +18,8 @@ import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
 import 'package:rokctapp/presentation/components/text_fields/search_text_field.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location.dart';
 
 class ViewMapModal extends ConsumerStatefulWidget {
   final TextEditingController controller;

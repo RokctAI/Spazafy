@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
@@ -10,11 +9,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/list_items/manager/small_weekday_item.dart';
+import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
+
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+
+
 
 class WorkingTimeModal extends ConsumerStatefulWidget {
   const WorkingTimeModal({super.key});
@@ -245,7 +251,7 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                               shopUuid: shopState.shop?.uuid,
                               updateSuccess: () {
                                 shopEvent.updateWorkingDays(_savingWorkingDays);
-                                context.popRoute();
+                                context.maybePop();
                               },
                             );
                           }

@@ -1,9 +1,10 @@
 import 'package:rokctapp/infrastructure/models/response/driver/statistics_income_response.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 part 'statistics_state.freezed.dart';
 // import 'package:charts_flutter_new/flutter.dart';
+
 
 @freezed
 abstract class StatisticsState with _$StatisticsState {

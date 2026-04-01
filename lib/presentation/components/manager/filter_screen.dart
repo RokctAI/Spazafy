@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +11,8 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart'
 import 'custom_date_picker.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/tab_bars/manager/custom_tab_bar.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
 class FilterScreen extends StatefulWidget {
   final bool isTabBar;
@@ -136,7 +136,7 @@ class _FilterScreenState extends State<FilterScreen>
                 return CustomButton(
                   title: AppHelpers.getTranslation(TrKeys.save),
                   onPressed: () {
-                    context.popRoute();
+                    context.maybePop();
                     widget.onChangeDay(_rangeDatePicker);
                   },
                 );

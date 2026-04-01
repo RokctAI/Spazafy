@@ -7,11 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_user_state.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
+
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/response/login_response.dart';
+import 'package:rokctapp/domain/interface/manager_users.dart';
 
 class OrderUserNotifier extends StateNotifier<OrderUserState> {
   final UsersInterface _usersRepository;
@@ -40,7 +42,7 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
     final selectedUser = state.users[index];
     state = state.copyWith(selectedIndex: index, selectedUser: selectedUser);
     state.userTextController?.text =
-        '${selectedUser.firstname ?? mgr.AppHelpers.getTranslation(TrKeys.noName)} ${selectedUser.lastname ?? ''}';
+        '${selectedUser.firstname ?? AppHelpers.getTranslation(TrKeys.noName)} ${selectedUser.lastname ?? ''}';
   }
 
   void setPhone(String value) {
@@ -136,7 +138,7 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
         final selectedUser = state.users[0];
         state = state.copyWith(selectedIndex: 0, selectedUser: selectedUser);
         state.userTextController?.text =
-            '${selectedUser.firstname ?? mgr.AppHelpers.getTranslation(TrKeys.noName)} ${selectedUser.lastname ?? ''}';
+            '${selectedUser.firstname ?? AppHelpers.getTranslation(TrKeys.noName)} ${selectedUser.lastname ?? ''}';
       }
       return;
     }

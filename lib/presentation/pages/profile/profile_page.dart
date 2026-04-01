@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'dart:async';
@@ -21,7 +20,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
-import 'package:rokctapp/presentation/components/badges.dart';
+
 import 'package:rokctapp/presentation/components/badges/alert_dialog.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
@@ -44,6 +43,7 @@ import 'reservation_shops.dart';
 import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
 import 'widgets/wallet_topup_screen.dart';
 import 'widgets/wallet_send_screen.dart';
+import 'package:rokctapp/presentation/components/badges/alert_dialog.dart';
 
 @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {

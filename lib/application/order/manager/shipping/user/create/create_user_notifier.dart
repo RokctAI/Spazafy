@@ -4,10 +4,9 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'create_user_state.dart';
 
 class CreateUserNotifier extends StateNotifier<CreateUserState> {
@@ -56,9 +55,8 @@ class CreateUserNotifier extends StateNotifier<CreateUserState> {
         debugPrint('====> create user fail $error');
         failed?.call();
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
-          context,
-          text: error,
+        AppHelpers.showCheckTopSnackBar(
+          context, error,
           type: SnackBarType.error,
         );
       },

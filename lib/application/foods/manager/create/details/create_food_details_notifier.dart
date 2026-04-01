@@ -4,14 +4,19 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
 import 'package:rokctapp/infrastructure/models/data/review_data.dart';
+import 'package:rokctapp/domain/interface/manager_products.dart';
+import 'package:rokctapp/domain/interface/manager_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'create_food_details_state.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/data/review_data.dart';
+import 'package:rokctapp/domain/interface/manager_products.dart';
+import 'package:rokctapp/domain/interface/manager_settings.dart';
 
 class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
   final ProductsInterface _productsRepository;
@@ -72,7 +77,7 @@ class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
         },
         failure: (failure, status) {
           debugPrint('==> upload product image fail: $failure');
-          mgr.AppHelpers.showCheckTopSnackBar(context, text: failure);
+          AppHelpers.showCheckTopSnackBar(context, failure);
         },
       );
     }
@@ -109,9 +114,8 @@ class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
       failure: (fail, status) {
         debugPrint('===> create product fail $fail');
         state = state.copyWith(isCreating: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
-          context,
-          text: fail,
+        AppHelpers.showCheckTopSnackBar(
+          context, fail,
           type: SnackBarType.error,
         );
         onError?.call();

@@ -1,8 +1,6 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
-
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -13,10 +11,16 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/list_items/manager/selectable_addon_item.dart';
+
+
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 
 class CreateFoodAddonsModal extends ConsumerStatefulWidget {
   final Stock stock;
@@ -96,7 +100,7 @@ class _CreateFoodAddonsModalState extends ConsumerState<CreateFoodAddonsModal> {
                   title: help.AppHelpers.getTranslation(TrKeys.save),
                   onPressed: () {
                     widget.onSave(state.addons);
-                    context.popRoute();
+                    context.maybePop();
                   },
                 ),
                 20.verticalSpace,

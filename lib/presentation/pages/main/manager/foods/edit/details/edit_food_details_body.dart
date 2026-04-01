@@ -3,8 +3,13 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart'
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart'
-    hide Loading;
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/helper/manager/multi_image_picker.dart';
+import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
+import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
+import 'package:rokctapp/presentation/components/manager/multi_translation_input_modal.dart';
+import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 import 'package:rokctapp/presentation/components/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
@@ -13,12 +18,16 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/foods/manager/edit/details/kitchen/edit_food_kitchens_provider.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/edit/details/edit_food_kitchens_modal.dart';
 import 'edit_food_units_modal.dart';
 import 'edit_food_categories_modal.dart';
+
 
 class EditFoodDetailsBody extends StatefulWidget {
   final Function() onSave;
@@ -306,7 +315,7 @@ class _EditFoodDetailsBodyState extends State<EditFoodDetailsBody> {
                                     foodsEvent.updateSingleProduct(product);
                                   },
                                   failed: () =>
-                                      help.AppHelpers.showCheckTopSnackBar(context, 
+                                      help.AppHelpers.showCheckTopSnackBar(
                                         context,
                                         help.AppHelpers.getTranslation(
                                           TrKeys.updateFailed,

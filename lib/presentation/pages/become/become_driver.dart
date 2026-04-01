@@ -18,9 +18,10 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/components/driver/loading.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/application/providers_driver.dart';
 
-// // // @RoutePage()
+
+
+@RoutePage()
 class DriverBecomeDriverPage extends ConsumerStatefulWidget {
   const DriverBecomeDriverPage({super.key});
 

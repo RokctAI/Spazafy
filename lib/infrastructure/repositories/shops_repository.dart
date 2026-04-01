@@ -9,12 +9,19 @@ import 'package:rokctapp/infrastructure/models/response/branches_response.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/data/filter_model.dart';
 import 'package:flutter/material.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/story_data.dart';
+import 'package:rokctapp/infrastructure/models/response/branches_response.dart';
+import 'package:rokctapp/infrastructure/models/response/shops_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
+import 'package:rokctapp/infrastructure/models/response/tag_response.dart';
 
 class ShopsRepository implements ShopsRepositoryFacade {
   @override

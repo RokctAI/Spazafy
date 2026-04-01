@@ -1,7 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType, OrderStatus, ExtrasType;
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
@@ -11,9 +7,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'edit_food_addons_modal.dart';
 import 'edit_group_extras_modal.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/application/providers_manager.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/list_items/manager/editable_food_stock_item.dart';
+import 'package:rokctapp/presentation/components/list_items/manager/extras_item.dart';
+
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+
 
 class EditFoodStocksBody extends ConsumerStatefulWidget {
   final ProductData product;
@@ -134,16 +136,16 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
                                           2]
                                       .id,
                           );
-                          AppHelpers.showCheckTopSnackBar(context, 
+                          AppHelpers.showCheckTopSnackBar(
                             context,
                             type: SnackBarType.success,
                             text: AppHelpers.getTranslation(
                               TrKeys.successfullyUpdated,
                             ),
                           );
-                          context.popRoute();
+                          context.maybePop();
                         },
-                        failed: () => AppHelpers.showCheckTopSnackBar(context, 
+                        failed: () => AppHelpers.showCheckTopSnackBar(
                           context,
                           type: SnackBarType.error,
                           text: AppHelpers.getTranslation(TrKeys.updateFailed),

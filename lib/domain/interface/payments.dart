@@ -2,9 +2,12 @@ import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/response/payments_response.dart';
 import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
+import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
+import 'package:rokctapp/infrastructure/models/response/payments_response.dart';
+import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
 
 abstract class PaymentsRepositoryFacade {
   Future<ApiResult<PaymentsResponse?>> getPayments();

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/products.dart';
 import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -17,6 +17,9 @@ import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'product_state.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/review_data.dart';
+import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
 
 class ProductNotifier extends StateNotifier<ProductState> {
   final ProductsRepositoryFacade _productsRepository;

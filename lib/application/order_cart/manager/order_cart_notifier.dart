@@ -1,14 +1,13 @@
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
-
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_cart_state.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'dart:convert';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 class OrderCartNotifier extends StateNotifier<OrderCartState> {
   OrderCartNotifier() : super(const OrderCartState());

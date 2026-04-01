@@ -1,10 +1,13 @@
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+import 'package:rokctapp/presentation/components/bodies/manager/products_body.dart';
+import 'package:rokctapp/presentation/components/list_items/manager/food_item.dart';
+import 'package:rokctapp/presentation/components/list_items/manager/order_food_item.dart';
+import 'package:rokctapp/presentation/components/loading/manager/loading_list.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 
 class ProductsBody extends StatelessWidget {
   final RefreshController refreshController;

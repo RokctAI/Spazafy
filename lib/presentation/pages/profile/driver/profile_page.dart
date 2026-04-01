@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
@@ -14,7 +13,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/edit_profile_modal.dart';
-import 'package:rokctapp/application/providers_driver.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
@@ -22,6 +21,7 @@ import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
 import 'widgets/logout_modal.dart';
 import 'widgets/sections_item.dart';
+
 
 @RoutePage()
 class DriverProfilePage extends ConsumerStatefulWidget {

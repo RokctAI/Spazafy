@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/interface/parcel.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
@@ -16,6 +16,8 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/domain/interface/draw.dart';
 import 'parcel_state.dart';
+import 'package:rokctapp/infrastructure/models/data/location.dart';
+import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
 
 class ParcelNotifier extends StateNotifier<ParcelState> {
   final ParcelRepositoryFacade _parcelRepository;
@@ -70,7 +72,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -178,7 +180,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -210,7 +212,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       );
     } catch (e) {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.paymentMethodFailed),
         );

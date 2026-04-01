@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/title_icon.dart';
@@ -17,6 +17,7 @@ import 'package:rokctapp/infrastructure/models/response/all_products_response.da
 import 'package:rokctapp/utils/products/product_card.dart';
 import 'package:rokctapp/utils/products/product_utils.dart';
 import 'package:rokctapp/presentation/pages/product/product_page.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 extension MyExtension1 on Iterable<Product> {
   List<Product> search(ShopState state) {

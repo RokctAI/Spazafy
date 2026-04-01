@@ -2,8 +2,11 @@ import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/review_data.dart';
 import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
 import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'translation.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/review_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 
 class ProductData {
   ProductData({
@@ -15,8 +18,8 @@ class ProductData {
     String? brandId,
     num? tax,
     num? interval,
-  num? minQty,
-  num? maxQty,
+    int? minQty,
+    int? maxQty,
     bool? active,
     String? img,
     String? createdAt,
@@ -116,8 +119,8 @@ class ProductData {
   String? _brandId;
   num? _tax;
   num? _interval;
-  num? _minQty;
-  num? _maxQty;
+  int? _minQty;
+  int? _maxQty;
   bool? _active;
   String? _img;
   String? _createdAt;
@@ -147,8 +150,8 @@ class ProductData {
     String? brandId,
     num? tax,
     num? interval,
-    num? minQty,
-    num? maxQty,
+    int? minQty,
+    int? maxQty,
     bool? active,
     String? img,
     String? createdAt,
@@ -210,9 +213,9 @@ class ProductData {
 
   num? get interval => _interval;
 
-  num? get minQty => _minQty;
+  int? get minQty => _minQty;
 
-  num? get maxQty => _maxQty;
+  int? get maxQty => _maxQty;
 
   bool? get active => _active;
 

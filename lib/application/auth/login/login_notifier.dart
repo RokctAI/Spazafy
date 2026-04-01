@@ -28,6 +28,10 @@ import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'login_state.dart';
+import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location.dart';
+import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 
 class LoginNotifier extends StateNotifier<LoginState> {
   final AuthRepositoryFacade _authRepository;
@@ -220,13 +224,13 @@ class LoginNotifier extends StateNotifier<LoginState> {
             ),
           );
           if (data.data?.user?.role == 'seller') {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               text: AppHelpers.getTranslation(TrKeys.youAreASeller),
               type: SnackBarType.success,
             );
           } else if (data.data?.user?.role == 'deliveryman') {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
               type: SnackBarType.success,
@@ -318,7 +322,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       } catch (e) {
         state = state.copyWith(isLoading: false);
         if (context.mounted) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
             context,
             AppHelpers.getTranslation(e.toString()),
           );
@@ -386,13 +390,13 @@ class LoginNotifier extends StateNotifier<LoginState> {
           );
           context.router.popUntilRoot();
           if (data.data?.user?.role == 'seller') {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               text: AppHelpers.getTranslation(TrKeys.youAreASeller),
               type: SnackBarType.success,
             );
           } else if (data.data?.user?.role == 'deliveryman') {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
               type: SnackBarType.success,
@@ -413,7 +417,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       );
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -535,7 +539,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
         } else {
           state = state.copyWith(isLoading: false);
           if (context.mounted) {
-            AppHelpers.showCheckTopSnackBar(context, 
+            AppHelpers.showCheckTopSnackBar(
               context,
               AppHelpers.getTranslation(TrKeys.somethingWentWrongWithTheServer),
             );
@@ -547,7 +551,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -653,7 +657,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
       }
     } else {
       if (context.mounted) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );

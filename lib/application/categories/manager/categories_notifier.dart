@@ -5,10 +5,10 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr
-    hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'categories_state.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 
 class CategoriesNotifier extends StateNotifier<CategoriesState> {
   final CatalogInterface _catalogRepository;
@@ -49,7 +49,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.errorSnackBar(context, text: failure);
+        AppHelpers.errorSnackBar(context, text: failure);
       },
     );
   }
@@ -86,7 +86,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
       },
       failure: (failure, status) {
         state = state.copyWith(isComboLoading: false);
-        mgr.AppHelpers.errorSnackBar(context, text: failure);
+        AppHelpers.errorSnackBar(context, text: failure);
       },
     );
   }

@@ -11,6 +11,11 @@ import 'package:rokctapp/infrastructure/models/models.dart'
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rokctapp/infrastructure/models/response/driver_show_response.dart';
 import 'package:rokctapp/infrastructure/services/constants/storage_keys.dart';
+import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
+import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/response/global_settings_response.dart';
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 
 abstract class LocalStorage {
   LocalStorage._();

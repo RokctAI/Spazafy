@@ -2,8 +2,8 @@ import 'package:rokctapp/infrastructure/models/data/manager/kitchen_data.dart';
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    as mgr;
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'create_food_kitchens_state.dart';
 
@@ -33,9 +33,8 @@ class CreateFoodKitchensNotifier
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
-        mgr.AppHelpers.showCheckTopSnackBar(context, 
-          context,
-          text: failure,
+        AppHelpers.showCheckTopSnackBar(
+          context, failure,
           type: SnackBarType.error,
         );
         debugPrint('====> fetch kitchens fail $failure');

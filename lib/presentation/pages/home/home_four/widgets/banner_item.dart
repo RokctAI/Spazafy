@@ -1,16 +1,19 @@
 import 'package:rokctapp/presentation/components/badges/ad_badge.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
+import 'package:rokctapp/presentation/components/badges/ad_badge.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/models/models.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
-import 'package:rokctapp/presentation/components/badges.dart';
+
 import 'package:rokctapp/presentation/pages/home/home_four/banner_screen.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 //import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
+import 'package:rokctapp/presentation/components/badges/ad_badge.dart';
 
 class BannerItem extends StatelessWidget {
   final BannerData banner;

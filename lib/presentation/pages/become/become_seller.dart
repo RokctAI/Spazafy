@@ -14,8 +14,14 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'package:rokctapp/application/profile/profile_notifier.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/application/profile/profile_state.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-import 'package:rokctapp/presentation/components/components_manager.dart';
+import 'package:rokctapp/app_constants.dart';
+import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
+import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
+import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
 import 'package:rokctapp/presentation/pages/become/widgets/address_selector.dart';
 import 'package:rokctapp/presentation/pages/become/widgets/background_image_picker.dart';
 import 'package:rokctapp/presentation/pages/become/widgets/document_upload_section.dart';
@@ -261,21 +267,21 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
 
     if (categoryId == 0) {
       if (state.logoImage.isEmpty) {
-        help.AppHelpers.showCheckTopSnackBar(context, 
+        help.AppHelpers.showCheckTopSnackBar(
           context,
           text: help.AppHelpers.getTranslation(TrKeys.logoCanNotBeEmpty),
         );
         return;
       }
       if (state.bgImage.isEmpty) {
-        help.AppHelpers.showCheckTopSnackBar(context, 
+        help.AppHelpers.showCheckTopSnackBar(
           context,
           text: help.AppHelpers.getTranslation(TrKeys.bgCanNotBeEmpty),
         );
         return;
       }
       if (state.addressModel?.address?.isEmpty ?? true) {
-        help.AppHelpers.showCheckTopSnackBar(context, 
+        help.AppHelpers.showCheckTopSnackBar(
           context,
           text: help.AppHelpers.getTranslation(TrKeys.locationCanNotBeEmpty),
         );

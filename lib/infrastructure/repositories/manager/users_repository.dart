@@ -2,10 +2,11 @@ import 'package:rokctapp/infrastructure/models/response/manager/users_paginate_r
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/statistics_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
+import 'package:rokctapp/domain/interface/manager_users.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
 import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
-
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
@@ -19,9 +20,15 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/domain/interface/interfaces.dart';
+
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
+import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
+import 'package:rokctapp/domain/interface/manager_users.dart';
 
 class UsersRepository implements UsersInterface {
   @override

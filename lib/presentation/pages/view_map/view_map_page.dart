@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/application/map/view_map_state.dart';
 import 'dart:typed_data';
@@ -646,7 +645,7 @@ class ViewMapPageState extends ConsumerState<ViewMapPage>
                         index: widget.indexAddress ?? 0,
                         id: widget.address?.id,
                       );
-                  context.popRoute();
+                  context.maybePop();
                 },
                 child: Container(
                   width: 48.r,
