@@ -9,7 +9,6 @@ import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'notification_state.dart';
 
-
 class NotificationNotifier extends StateNotifier<NotificationState> {
   final NotificationInterface _notificationRepository;
 

@@ -23,7 +23,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class CreateAddonModal extends ConsumerStatefulWidget {
   const CreateAddonModal({super.key});
 

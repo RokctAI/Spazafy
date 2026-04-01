@@ -14,7 +14,6 @@ import 'package:rokctapp/presentation/components/list_items/manager/food_unit_it
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class CreateFoodUnitsModal extends ConsumerStatefulWidget {
   const CreateFoodUnitsModal({super.key});
 

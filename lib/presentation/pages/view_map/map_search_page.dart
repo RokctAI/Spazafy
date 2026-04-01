@@ -102,4 +102,3 @@ class MapSearchPageState extends State<MapSearchPage> {
     );
   }
 }
-

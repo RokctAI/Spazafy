@@ -6,8 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'section_state.dart';
 
-
-
 class SectionNotifier extends StateNotifier<SectionState> {
   String _query = '';
   bool _hasMore = true;

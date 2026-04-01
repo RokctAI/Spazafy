@@ -11,8 +11,6 @@ import 'package:rokctapp/infrastructure/models/response/manager/table_info_respo
 import 'package:rokctapp/infrastructure/models/response/manager/table_statistic_response.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 
-
-
 abstract class TableInterface {
   Future<ApiResult<ShopSection>> createNewSection({
     required String name,

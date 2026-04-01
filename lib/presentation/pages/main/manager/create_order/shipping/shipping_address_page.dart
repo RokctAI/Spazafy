@@ -26,7 +26,6 @@ import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 @RoutePage()
 class ShippingAddressPage extends StatefulWidget {
   const ShippingAddressPage({super.key});

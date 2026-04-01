@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 
-
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 //import 'package:rokctapp/presentation/pages/home_two/widget/two_bonus_discount.dart';
@@ -41,9 +40,7 @@ class MarketTwoItem extends StatelessWidget {
         final isNarrow = constraints.maxWidth < screenWidth / 2;
         return GestureDetector(
           onTap: () {
-            context.pushRouteNamed(
-              '/shop?shopId=' + (shop.id ?? 0).toString(),
-            );
+            context.pushRouteNamed('/shop?shopId=' + (shop.id ?? 0).toString());
           },
           child: isShop
               ? _shopItem()

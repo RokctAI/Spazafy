@@ -8,7 +8,6 @@ import 'today_orders_state.dart';
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 
-
 class TodayOrdersNotifier extends StateNotifier<TodayOrdersState> {
   final OrdersInterface _ordersRepository;
 

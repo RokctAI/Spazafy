@@ -4,8 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
-
 class SmallWeekdayItem extends StatelessWidget {
   final bool isSelected;
   final ShopWorkingDays day;
