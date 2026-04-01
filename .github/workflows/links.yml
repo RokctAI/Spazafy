@@ -3,7 +3,6 @@ name: Link Checker
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 permissions: write-all
-
 on:
   schedule:
     - cron: '30 2 * * 0' # Weekly on Sunday
