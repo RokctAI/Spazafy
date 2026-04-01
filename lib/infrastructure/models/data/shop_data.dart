@@ -5,6 +5,7 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 class ShopData {
   ShopData({
     this.id,
+    this.uuid,
     this.userId,
     this.tax,
     this.pricePerKm,

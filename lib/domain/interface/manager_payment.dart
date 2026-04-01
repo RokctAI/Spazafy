@@ -2,7 +2,6 @@ import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/payments_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/non_exist_payment_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/maksekeskus_response.dart';
-import 'package:rokctapp/infrastructure/models/response/payments_response.dart';
 import 'package:rokctapp/infrastructure/models/models.dart'
     hide PaymentsResponse;
 import 'package:rokctapp/domain/handlers/manager/handlers.dart' hide ApiResult;

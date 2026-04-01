@@ -72,8 +72,8 @@ class BonusStock {
   ProductData? product;
 
   factory BonusStock.fromJson(Map<String, dynamic> json) => BonusStock(
-    id: json["id"]?.toString(),
-    countableId: json["countable_id"]?.toString(),
+    id: json["id"],
+    countableId: json["countable_id"],
     price: json["price"],
     quantity: json["quantity"],
     tax: json["tax"],

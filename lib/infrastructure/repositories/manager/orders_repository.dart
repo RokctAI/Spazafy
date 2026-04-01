@@ -2,35 +2,27 @@ import 'package:rokctapp/infrastructure/models/response/manager/orders_paginate_
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/response/single_order_response.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/order_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/response/create_order_response.dart';
-import 'package:rokctapp/infrastructure/models/response/payments_response.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/models/response/manager/payments_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/order_status_response.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/infrastructure/models/models.dart' hide UserData, Stock, AddonData, OrderPaginateResponse, PaymentsResponse;
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-import 'package:rokctapp/infrastructure/models/response/create_order_response.dart';
-import 'package:rokctapp/infrastructure/models/response/login_response.dart';
-import 'package:rokctapp/infrastructure/models/response/payments_response.dart';
-import 'package:rokctapp/infrastructure/models/response/single_order_response.dart';
-import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
-import 'package:rokctapp/domain/interface/manager_orders.dart';
+import 'package:rokctapp/infrastructure/models/response/login_response.dart' hide UserData;
 
 class OrdersRepository implements OrdersInterface {
   @override

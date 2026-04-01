@@ -65,7 +65,6 @@ class SettingsRepository implements SettingsRepositoryFacade {
   @override
   Future<ApiResult<MobileTranslationsResponse>> getMobileTranslations() async {
     final data = {'lang': LocalStorage.getLanguage()?.locale ?? 'en'};
-    final data = {'lang': LocalStorage.getLanguage()?.locale ?? 'en'};
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
