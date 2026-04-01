@@ -12,7 +12,6 @@ import 'package:rokctapp/infrastructure/models/response/parcel_calculate_respons
 import 'package:rokctapp/infrastructure/models/response/parcel_response.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
 
-
 abstract class ParcelRepositoryFacade {
   Future<ApiResult<ParcelTypeResponse>> getTypes();
 

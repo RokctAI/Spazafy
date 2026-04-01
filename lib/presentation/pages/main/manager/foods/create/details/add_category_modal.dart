@@ -20,7 +20,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'food_categories_modal.dart';
 
-
 class AddCategoryModal extends StatefulWidget {
   const AddCategoryModal({super.key});
 

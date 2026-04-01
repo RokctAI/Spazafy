@@ -26,8 +26,6 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/time_service.dart';
 
-
-
 class TableRepository extends TableInterface {
   @override
   Future<ApiResult<ShopSection>> createNewSection({

@@ -34,7 +34,6 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'foods/extras/create/create_extras_group_modal.dart';
 
-
 @RoutePage()
 class ManagerMainPage extends StatefulWidget {
   const ManagerMainPage({super.key});

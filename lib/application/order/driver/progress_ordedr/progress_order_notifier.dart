@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/application/order/driver/progress_ordedr/progress_order_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -57,7 +56,8 @@ class ProgressOrderNotifier extends StateNotifier<ProgressOrderState> {
           controller.refreshFailed();
           state = state.copyWith(isLoading: false);
         }
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(failure),
         );

@@ -10,7 +10,6 @@ import 'package:rokctapp/infrastructure/models/data/referral_data.dart';
 import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
 import 'package:rokctapp/infrastructure/models/response/wallet_histories_response.dart';
 
-
 abstract class UserRepositoryFacade {
   Future<ApiResult<ProfileResponse>> getProfileDetails();
 

@@ -13,7 +13,6 @@ import 'details/extras_group_details_modal.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class ExtrasBody extends StatelessWidget {
   final RefreshController refreshController;
 

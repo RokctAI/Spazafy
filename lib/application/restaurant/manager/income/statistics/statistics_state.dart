@@ -5,7 +5,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'statistics_state.freezed.dart';
 // import 'package:charts_flutter_new/flutter.dart';
 
-
 @freezed
 abstract class StatisticsState with _$StatisticsState {
   const factory StatisticsState({

@@ -20,7 +20,6 @@ import 'app_bar_screen.dart';
 
 // import 'package:charts_flutter_new/flutter.dart';
 
-
 @RoutePage()
 class ManagerIncomePage extends ConsumerStatefulWidget {
   const ManagerIncomePage({super.key});

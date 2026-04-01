@@ -315,7 +315,14 @@ class Location {
 }
 
 class Seller {
-  Seller({this.id, this.firstname, this.lastname, this.active, this.role, this.wallet});
+  Seller({
+    this.id,
+    this.firstname,
+    this.lastname,
+    this.active,
+    this.role,
+    this.wallet,
+  });
 
   String? id;
   String? firstname;
@@ -349,15 +356,10 @@ class Wallet {
 
   Wallet({this.id, this.price});
 
-  factory Wallet.fromJson(Map<String, dynamic> json) => Wallet(
-    id: json["id"]?.toString(),
-    price: json["price"],
-  );
+  factory Wallet.fromJson(Map<String, dynamic> json) =>
+      Wallet(id: json["id"]?.toString(), price: json["price"]);
 
-  Map<String, dynamic> toJson() => {
-    "id": id,
-    "price": price,
-  };
+  Map<String, dynamic> toJson() => {"id": id, "price": price};
 }
 
 class ShopClosedDate {

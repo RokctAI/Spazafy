@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart'
 import 'delete_extras_item_state.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
-
 class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {
   final ProductsInterface _productsRepository;
 
@@ -32,7 +31,8 @@ class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {
         debugPrint('===> delete extras item fail $fail');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-          context, fail,
+          context,
+          fail,
           type: SnackBarType.error,
         );
       },

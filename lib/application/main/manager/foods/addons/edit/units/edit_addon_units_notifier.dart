@@ -5,9 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_addon_units_state.dart';
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
 
-
-
-
 class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
   final CatalogInterface _catalogRepository;
 

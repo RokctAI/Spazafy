@@ -8,7 +8,6 @@ import 'package:rokctapp/presentation/components/list_items/manager/order_food_i
 import 'package:rokctapp/presentation/components/loading/manager/loading_list.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
-
 class ProductsBody extends StatelessWidget {
   final RefreshController refreshController;
   final int bottomPadding;

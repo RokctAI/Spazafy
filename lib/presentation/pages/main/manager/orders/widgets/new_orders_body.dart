@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/components/loading/manager/loading_list.da
 
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class NewOrdersBody extends StatelessWidget {
   final ScrollController? scrollController;
 

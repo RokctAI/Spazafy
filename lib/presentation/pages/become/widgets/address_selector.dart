@@ -12,7 +12,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart'
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 
-
 class AddressSelector extends StatelessWidget {
   final AddressData? addressModel;
   final Function(dynamic) onAddressSelected;

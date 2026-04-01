@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
-
 class SelectableAddonItem extends StatelessWidget {
   final ProductData addon;
   final bool isLast;

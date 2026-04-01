@@ -19,7 +19,6 @@ import 'package:rokctapp/presentation/components/text_fields/manager/search_text
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class FoodsPage extends ConsumerStatefulWidget {
   const FoodsPage({super.key});
 

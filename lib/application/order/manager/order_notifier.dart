@@ -9,7 +9,6 @@ import 'order_state.dart';
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 
-
 class OrderNotifier extends StateNotifier<OrderState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;

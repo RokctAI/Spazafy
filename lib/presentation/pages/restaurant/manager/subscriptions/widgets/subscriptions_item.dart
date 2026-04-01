@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/components/buttons/manager/circle_button.d
 import 'package:rokctapp/presentation/components/buttons/manager/second_button.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class SubscriptionsItem extends StatelessWidget {
   final SubscriptionData subscription;
   final VoidCallback purchase;
