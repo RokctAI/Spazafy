@@ -2,8 +2,6 @@ import 'package:rokctapp/infrastructure/models/response/notification_response.da
 import 'package:rokctapp/infrastructure/models/data/count_of_notifications_data.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 
-
-
 abstract class NotificationInterface {
   Future<ApiResult<NotificationResponse>> getNotifications({int? page});
 

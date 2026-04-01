@@ -9,7 +9,6 @@ import 'delivery_zone_state.dart';
 import 'package:rokctapp/infrastructure/services/constants/style_constants.dart';
 import 'package:rokctapp/domain/interface/driver_user.dart';
 
-
 class DeliveryZoneNotifier extends StateNotifier<DeliveryZoneState> {
   final UserRepository _usersRepository;
 

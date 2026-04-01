@@ -23,7 +23,6 @@ import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'searched_location_item.dart';
 
-
 @RoutePage()
 class SelectAddressPage extends StatefulWidget {
   const SelectAddressPage({super.key});

@@ -12,7 +12,6 @@ import 'package:rokctapp/infrastructure/models/response/mobile_translations_resp
 import 'package:rokctapp/infrastructure/models/data/translation.dart'
     hide Translation;
 
-
 abstract class SettingsRepositoryFacade {
   Future<ApiResult<GlobalSettingsResponse>> getGlobalSettings();
 

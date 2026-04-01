@@ -15,7 +15,6 @@ import 'package:rokctapp/infrastructure/models/response/shops_paginate_response.
 import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
 import 'package:rokctapp/infrastructure/models/response/tag_response.dart';
 
-
 abstract class ShopsRepositoryFacade {
   Future<ApiResult<ShopsPaginateResponse>> getShopFilter({
     String? categoryId,

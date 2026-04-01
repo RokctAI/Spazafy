@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/components/components_driver.dart';
 
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class LogoutModal extends StatelessWidget {
   final bool isDeleteAccount;
 

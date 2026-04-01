@@ -10,7 +10,6 @@ import 'package:rokctapp/infrastructure/models/response/product_calculate_respon
 import 'package:rokctapp/infrastructure/models/response/products_paginate_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_product_response.dart';
 
-
 abstract class ProductsRepositoryFacade {
   Future<ApiResult<ProductsPaginateResponse>> searchProducts({
     required String text,

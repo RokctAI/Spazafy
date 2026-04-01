@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
@@ -227,9 +226,8 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     } else {
       if (context.mounted) {
         AppHelpers.showCheckTopSnackBar(
-          context, AppHelpers.getTranslation(
-            TrKeys.checkYourNetworkConnection,
-          ),
+          context,
+          AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
       }
     }

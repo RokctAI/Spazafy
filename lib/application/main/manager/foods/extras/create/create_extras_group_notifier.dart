@@ -7,7 +7,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart'
 import 'create_extras_group_state.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
-
 class CreateExtrasGroupNotifier extends StateNotifier<CreateExtrasGroupState> {
   final ProductsInterface _productsRepository;
   String _title = '';
@@ -30,7 +29,8 @@ class CreateExtrasGroupNotifier extends StateNotifier<CreateExtrasGroupState> {
         debugPrint('===> create extras group fail $fail');
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-          context, fail,
+          context,
+          fail,
           type: SnackBarType.error,
         );
       },

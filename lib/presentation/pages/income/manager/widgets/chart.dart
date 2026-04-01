@@ -14,7 +14,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart'
 import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class SalesChart extends StatelessWidget {
   final List<num> price;
   final List<DateTime> times;

@@ -14,11 +14,9 @@ import 'package:rokctapp/presentation/components/buttons/manager/custom_button.d
 import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
 
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-
 
 class DeleteExtrasGroupModal extends StatelessWidget {
   final Group group;

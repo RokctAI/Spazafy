@@ -14,7 +14,6 @@ import 'details/create_food_details_body.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class CreateProductModal extends ConsumerStatefulWidget {
   const CreateProductModal({super.key});
 

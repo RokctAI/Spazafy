@@ -6,8 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'table_state.dart';
 
-
-
 class TableNotifier extends StateNotifier<TableState> {
   String _query = '';
   bool _hasMore = true;

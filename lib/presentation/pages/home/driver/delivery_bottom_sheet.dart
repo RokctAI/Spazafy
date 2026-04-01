@@ -13,7 +13,6 @@ import 'widgets/approve_dialog.dart';
 import 'widgets/foods_page.dart';
 import 'widgets/rate_customer.dart';
 
-
 class DeliverBottomSheetScreen extends StatefulWidget {
   final OrderDetailData order;
 

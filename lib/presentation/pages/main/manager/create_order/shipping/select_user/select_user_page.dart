@@ -21,7 +21,6 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 @RoutePage()
 class SelectUserPage extends ConsumerStatefulWidget {
   const SelectUserPage({super.key});
