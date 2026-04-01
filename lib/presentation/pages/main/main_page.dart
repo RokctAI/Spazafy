@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/utils/app_usage_service.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -346,7 +347,6 @@ class _MainPageState extends State<MainPage> {
     MainNotifier event,
     BuildContext context,
     ProfileData? user,
-    Cart? orders,
   ) {
     final orders = ref.watch(shopOrderProvider).cart;
     final bool isCartEmpty =

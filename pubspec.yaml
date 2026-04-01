@@ -61,6 +61,7 @@ dependencies:
   confetti: ^0.7.0
   flutter_html: ^3.0.0-beta.2
   visibility_detector: ^0.4.0+2
+  smooth_page_indicator: ^2.0.1
   share_plus: any
   cloud_firestore: any
   flutter_rating_bar: any

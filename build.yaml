@@ -1,13 +1,6 @@
 targets:
   $default:
     builders:
-      hive_generator:
-        generate_for:
-          exclude:
-            - test/**
-            - lib_old/**
-            - customer/**
-            - driver/**
       freezed:
         generate_for:
           exclude:
