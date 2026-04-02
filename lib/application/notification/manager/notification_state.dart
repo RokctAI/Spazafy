@@ -2,7 +2,6 @@ import 'package:rokctapp/infrastructure/models/response/notification_response.da
 import 'package:rokctapp/infrastructure/models/data/count_of_notifications_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'notification_state.freezed.dart';
 
 @freezed

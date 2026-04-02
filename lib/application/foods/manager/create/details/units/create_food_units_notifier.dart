@@ -8,9 +8,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart'
 import 'create_food_units_state.dart';
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
 
-
-
-
 class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
   final CatalogInterface _catalogRepository;
 
@@ -35,7 +32,8 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-          context, failure,
+          context,
+          failure,
           type: SnackBarType.error,
         );
         debugPrint('====> fetch units fail $failure');

@@ -11,7 +11,6 @@ import 'package:rokctapp/presentation/components/text_fields/manager/underlined_
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class AddFoodCategoryModal extends StatelessWidget {
   const AddFoodCategoryModal({super.key});
 

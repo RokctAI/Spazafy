@@ -129,7 +129,8 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
       },
       failure: (fail, status) {
         AppHelpers.showCheckTopSnackBar(
-          context, fail,
+          context,
+          fail,
           type: SnackBarType.error,
         );
         state = state.copyWith(isLoading: false);

@@ -3,7 +3,6 @@ import 'package:rokctapp/infrastructure/models/response/transactions_response.da
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
 
-
 abstract class SubscriptionsFacade {
   Future<ApiResult<SubscriptionResponse>> getSubscriptions({required int page});
 

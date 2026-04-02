@@ -14,12 +14,10 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart'
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-
 
 class UpdateExtrasGroupModal extends ConsumerStatefulWidget {
   final Group group;

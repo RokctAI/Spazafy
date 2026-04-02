@@ -28,14 +28,10 @@ import 'package:rokctapp/presentation/components/helper/manager/shop_bordered_av
 import 'package:rokctapp/presentation/components/list_items/manager/small_weekday_item.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 
-
-
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
-
-
 
 class EditRestaurantModal extends ConsumerStatefulWidget {
   const EditRestaurantModal({super.key});

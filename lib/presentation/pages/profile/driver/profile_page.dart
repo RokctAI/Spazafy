@@ -22,7 +22,6 @@ import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
 import 'widgets/logout_modal.dart';
 import 'widgets/sections_item.dart';
 
-
 @RoutePage()
 class DriverProfilePage extends ConsumerStatefulWidget {
   const DriverProfilePage({super.key});

@@ -10,7 +10,6 @@ import 'foods_state.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
-
 class FoodsNotifier extends StateNotifier<FoodsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;

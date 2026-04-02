@@ -53,7 +53,8 @@ class RegisterConfirmationNotifier
         isSuccess: onSuccess == null ? true : false,
       );
     } catch (e) {
-      AppHelpers.showCheckTopSnackBar(context, 
+      AppHelpers.showCheckTopSnackBar(
+        context,
         context,
         AppHelpers.getTranslation((e as FirebaseAuthException).message ?? ""),
       );
@@ -105,7 +106,8 @@ class RegisterConfirmationNotifier
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false, isCodeError: true);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -145,7 +147,8 @@ class RegisterConfirmationNotifier
         },
         failure: (failure, status) {
           state = state.copyWith(isLoading: false, isCodeError: true);
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             AppHelpers.getTranslation(status.toString()),
           );
@@ -153,7 +156,8 @@ class RegisterConfirmationNotifier
         },
       );
     } catch (e) {
-      AppHelpers.showCheckTopSnackBar(context, 
+      AppHelpers.showCheckTopSnackBar(
+        context,
         context,
         AppHelpers.getTranslation((e as FirebaseAuthException).message ?? ""),
       );
@@ -180,7 +184,8 @@ class RegisterConfirmationNotifier
       },
       failure: (failure, status) {
         state = state.copyWith(isResending: false);
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(status.toString()),
         );
@@ -198,7 +203,8 @@ class RegisterConfirmationNotifier
       phoneNumber: phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) {},
       verificationFailed: (FirebaseAuthException e) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(AppHelpers.getTranslation(e.message ?? "")),
         );
