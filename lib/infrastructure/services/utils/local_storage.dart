@@ -1,5 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart' as driver;
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
@@ -69,6 +70,18 @@ abstract class LocalStorage {
       return null;
     }
     return ProfileData.fromJson(map);
+  }
+
+  static driver.UserData? getDriver() {
+    final savedString = _preferences?.getString(StorageKeys.keyUser);
+    if (savedString == null) {
+      return null;
+    }
+    final map = jsonDecode(savedString);
+    if (map == null) {
+      return null;
+    }
+    return driver.UserData.fromJson(map);
   }
 
   static void _deleteUser() => _preferences?.remove(StorageKeys.keyUser);
