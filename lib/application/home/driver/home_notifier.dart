@@ -208,9 +208,9 @@ class HomeNotifier extends StateNotifier<HomeState> {
               // ignore: use_build_context_synchronously
               context: context,
               start: LatLng(
-                LocalStorage.getAddressSelected()?.latitude ??
+                LocalStorage.getAddressSelected()?.location?.latitude ??
                     AppConstants.demoLatitude,
-                LocalStorage.getAddressSelected()?.longitude ??
+                LocalStorage.getAddressSelected()?.location?.longitude ??
                     AppConstants.demoLongitude,
               ),
               end: LatLng(
@@ -240,9 +240,9 @@ class HomeNotifier extends StateNotifier<HomeState> {
               // ignore: use_build_context_synchronously
               context: context,
               start: LatLng(
-                LocalStorage.getAddressSelected()?.latitude ??
+                LocalStorage.getAddressSelected()?.location?.latitude ??
                     AppConstants.demoLatitude,
-                LocalStorage.getAddressSelected()?.longitude ??
+                LocalStorage.getAddressSelected()?.location?.longitude ??
                     AppConstants.demoLongitude,
               ),
               end: LatLng(
