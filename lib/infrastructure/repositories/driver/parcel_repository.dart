@@ -150,8 +150,8 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
   @override
   Future<ApiResult<dynamic>> updateParcel(
-    String? parcelId,
-    String? status,
+    int parcelId,
+    String status,
   ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
@@ -171,7 +171,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
   @override
   Future<ApiResult<void>> addReviewParcel(
-    String orderId, {
+    int orderId, {
     required double rating,
     required String comment,
   }) async {

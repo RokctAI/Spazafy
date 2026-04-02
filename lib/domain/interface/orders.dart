@@ -1,5 +1,5 @@
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart' as driver;
 import 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
 import 'package:rokctapp/infrastructure/models/data/cashback_model.dart';
@@ -69,7 +69,7 @@ abstract class OrdersRepositoryFacade {
 
   Future<ApiResult<LocalLocation>> getDriverLocation(String deliveryId);
 
-  Future<ApiResult<void>> cancelOrder(String orderId);
+  Future<ApiResult<void>> cancelOrder(String orderId, [String? note]);
 
   Future<ApiResult<void>> refundOrder(String orderId, String title);
 
@@ -101,4 +101,14 @@ abstract class OrdersRepositoryFacade {
     required String shopId,
     required double amount,
   });
+
+  Future<ApiResult<driver.OrderPaginateResponse>> fetchCurrentOrder();
+
+  Future<ApiResult<dynamic>> updateOrder(int orderId, String status);
+
+  Future<ApiResult<dynamic>> uploadImage(String orderId, String? image);
+
+  Future<ApiResult<dynamic>> setCurrentOrder(String? orderId);
+
+  Future<ApiResult<dynamic>> setOrder(String orderId);
 }
