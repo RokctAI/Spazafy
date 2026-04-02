@@ -1,7 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'working_days_state.freezed.dart';
 
 @freezed

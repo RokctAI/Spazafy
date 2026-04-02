@@ -409,7 +409,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
     final res = await settingsRepository.uploadImage(path, UploadType.products);
     res.when(
       success: (success) {
-        orderRepository.uploadImage(orderId.toString(), success.imageData?.title);
+        orderRepository.uploadImage(
+          orderId.toString(),
+          success.imageData?.title,
+        );
       },
       failure: (failure, status) {
         AppHelpers.showCheckTopSnackBar(context, failure);

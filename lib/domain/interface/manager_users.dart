@@ -13,7 +13,8 @@ import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
-import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData, ShopWorkingDays, ShopTag, DeliveryTime, Translation;
+import 'package:rokctapp/infrastructure/models/models.dart'
+    hide CategoryData, ShopWorkingDays, ShopTag, DeliveryTime, Translation;
 
 abstract class UsersInterface {
   Future<ApiResult<ProfileResponse>> createUser({

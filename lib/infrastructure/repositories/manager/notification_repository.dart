@@ -13,7 +13,6 @@ import 'package:rokctapp/domain/interface/notification.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
 class NotificationRepository extends NotificationInterface {
   @override
   Future<ApiResult<NotificationResponse>> getNotifications({int? page}) async {

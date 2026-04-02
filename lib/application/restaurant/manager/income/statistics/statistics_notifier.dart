@@ -10,7 +10,6 @@ import 'statistics_state.dart';
 // import 'package:charts_flutter_new/flutter.dart';
 import 'package:rokctapp/domain/interface/manager_users.dart';
 
-
 class StatisticsNotifier extends StateNotifier<StatisticsState> {
   final UsersInterface _usersRepository;
   int page = 1;

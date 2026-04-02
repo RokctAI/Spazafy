@@ -182,13 +182,15 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
       },
       failure: (error, statusCode) {
         if (error.toString().contains("Suggest Topup")) {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             AppHelpers.getTranslation(error),
           );
           _showTopUpDialog(context);
         } else {
-          AppHelpers.showCheckTopSnackBar(context, 
+          AppHelpers.showCheckTopSnackBar(
+            context,
             context,
             AppHelpers.getTranslation(error),
           );
@@ -227,7 +229,8 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
   Future<void> _processTopUp(BuildContext context) async {
     final amount = (state.orderTotal - state.availableBalance).abs();
     if (state.savedCardId == null) {
-      AppHelpers.showCheckTopSnackBar(context, 
+      AppHelpers.showCheckTopSnackBar(
+        context,
         context,
         "Please select a Saved Card first.",
       );
@@ -248,7 +251,8 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
         fetchBalance();
       },
       failure: (e, s) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           "Top-up failed: ${e.toString()}",
         );
@@ -263,7 +267,8 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
         AppHelpers.showCheckTopSnackBarDone(context, "Order paused");
       },
       failure: (error, _) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(error),
         );
@@ -278,7 +283,8 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
         AppHelpers.showCheckTopSnackBarDone(context, "Order resumed");
       },
       failure: (error, _) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(error),
         );
@@ -301,7 +307,8 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
         context.router.maybePop();
       },
       failure: (error, statusCode) {
-        AppHelpers.showCheckTopSnackBar(context, 
+        AppHelpers.showCheckTopSnackBar(
+          context,
           context,
           AppHelpers.getTranslation(error),
         );

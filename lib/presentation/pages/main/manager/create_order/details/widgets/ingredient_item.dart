@@ -9,7 +9,6 @@ import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart'
 import 'package:rokctapp/presentation/components/custom_checkbox.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class IngredientItem extends ConsumerWidget {
   final VoidCallback onTap;
   final VoidCallback add;

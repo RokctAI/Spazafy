@@ -12,7 +12,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData, ShopWorkingDays, ShopTag, DeliveryTime, Translation, SingleShopResponse;
+import 'package:rokctapp/infrastructure/models/models.dart'
+    hide
+        CategoryData,
+        ShopWorkingDays,
+        ShopTag,
+        DeliveryTime,
+        Translation,
+        SingleShopResponse;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';

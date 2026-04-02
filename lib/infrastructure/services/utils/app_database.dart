@@ -384,7 +384,8 @@ class AppDatabase extends _$AppDatabase {
         totalCost: Value((json['total_cost'] as num?)?.toDouble()),
         status: Value(json['status']),
         paymentType: Value(json['payment_type']),
-        createdAt: DateTime.tryParse(json['created_at'] ?? '') ?? DateTime.now(),
+        createdAt:
+            DateTime.tryParse(json['created_at'] ?? '') ?? DateTime.now(),
         synced: const Value(true), // If coming from API, it's synced
         data: jsonEncode(json),
       ),

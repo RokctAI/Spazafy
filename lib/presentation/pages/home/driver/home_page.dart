@@ -30,8 +30,6 @@ import 'bottom_sheet_screen.dart';
 import 'delivery_bottom_sheet.dart';
 import 'parcel_bottom_sheet.dart';
 
-
-
 final orderRepository = driverOrderRepository;
 
 @RoutePage()
@@ -339,8 +337,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
                   left: state.isScrolling ? -64.w : 16.w,
                   child: ButtonsBouncingEffect(
                     child: GestureDetector(
-                      onTap: () =>
-                          context.pushRouteNamed('/driver/profile'),
+                      onTap: () => context.pushRouteNamed('/driver/profile'),
                       child: Hero(
                         tag: AppConstants.heroTagProfileAvatar,
                         child: Consumer(

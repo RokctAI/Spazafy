@@ -20,8 +20,6 @@ import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
-
 class WorkingTimeModal extends ConsumerStatefulWidget {
   const WorkingTimeModal({super.key});
 

@@ -110,7 +110,8 @@ class StoryItemPage extends StatefulWidget {
   State<StoryItemPage> createState() => _StoryItemPageState();
 }
 
-class _StoryItemPageState extends State<StoryItemPage> with TickerProviderStateMixin {
+class _StoryItemPageState extends State<StoryItemPage>
+    with TickerProviderStateMixin {
   late AnimationController controller;
   final pageController = PageController(initialPage: 0);
   GlobalKey imageKey = GlobalKey();
@@ -390,8 +391,8 @@ class _StoryItemPageState extends State<StoryItemPage> with TickerProviderStateM
                 children: [
                   GestureDetector(
                     onTap: () {
-                  context.pushRouteNamed(
-                    '/shop?shopId=${(widget.story?.first?.shopId ?? 0).toString()}',
+                      context.pushRouteNamed(
+                        '/shop?shopId=${(widget.story?.first?.shopId ?? 0).toString()}',
                       );
                     },
                     child: Row(

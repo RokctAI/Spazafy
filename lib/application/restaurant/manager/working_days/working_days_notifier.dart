@@ -5,9 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'working_days_state.dart';
 import 'package:rokctapp/domain/interface/manager_users.dart';
 
-
-
-
 class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
   final UsersInterface _usersRepository;
 

@@ -2,7 +2,6 @@ import 'package:rokctapp/infrastructure/models/data/manager/unit_data.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'create_addon_units_state.freezed.dart';
 
 @freezed
