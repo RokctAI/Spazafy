@@ -14,7 +14,7 @@ import 'package:rokctapp/infrastructure/models/response/payments_response.dart'
 import 'package:rokctapp/infrastructure/models/response/single_order_response.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
 import 'package:rokctapp/infrastructure/models/models.dart'
-    hide UserData, OrderPaginateResponse;
+    hide UserData, OrderPaginateResponse, PaymentsResponse;
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
     hide OrderStatus;
 

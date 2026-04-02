@@ -209,8 +209,8 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
   @override
   Future<ApiResult<dynamic>> updateOrder(
-    String? orderId,
-    String? status,
+    int orderId,
+    String status,
   ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
@@ -229,7 +229,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> uploadImage(String? orderId, String? image) async {
+  Future<ApiResult<dynamic>> uploadImage(String orderId, String? image) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -288,7 +288,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<void>> cancelOrder(String orderId, String note) async {
+  Future<ApiResult<void>> cancelOrder(String orderId, [String? note]) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(

@@ -61,4 +61,14 @@ abstract class ParcelRepositoryFacade {
     required String orderId,
     required String paymentId,
   });
+
+  Future<ApiResult<dynamic>> updateParcel(int parcelId, String status);
+
+  Future<ApiResult<void>> addReviewParcel(
+    int orderId, {
+    required double rating,
+    required String comment,
+  });
+
+  Future<ApiResult<ParcelOrder>> setParcel(String parcelId);
 }
