@@ -1,6 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart' as driver;
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
@@ -111,18 +112,34 @@ abstract class LocalStorage {
   static void deleteSavedShopsList() =>
       _preferences?.remove(StorageKeys.keySavedStores);
 
-  static Future<void> setAddressSelected(AddressData data) async {
-    await _preferences?.setString(
-      StorageKeys.keyAddressSelected,
-      jsonEncode(data.toJson()),
-    );
+  static Future<void> setAddressSelected(dynamic data) async {
+    if (data is AddressData) {
+      await _preferences?.setString(
+        StorageKeys.keyAddressSelected,
+        jsonEncode(data.toJson()),
+      );
+    } else if (data is LatLng) {
+      await _preferences?.setString(
+        StorageKeys.keyAddressSelected,
+        jsonEncode(data.toJson()),
+      );
+    }
   }
 
   static AddressData? getAddressSelected() {
     String dataString =
         _preferences?.getString(StorageKeys.keyAddressSelected) ?? "";
     if (dataString.isNotEmpty) {
-      AddressData data = AddressData.fromJson(jsonDecode(dataString));
+      final json = jsonDecode(dataString);
+      if (json.containsKey('latitude') && json.containsKey('longitude')) {
+        return AddressData(
+          location: LocationModel(
+            latitude: double.tryParse(json['latitude'].toString()),
+            longitude: double.tryParse(json['longitude'].toString()),
+          ),
+        );
+      }
+      AddressData data = AddressData.fromJson(json);
       // Check if the address ends with a number
       RegExp numericRegex = RegExp(r'\d$');
       if (numericRegex.hasMatch(data.address ?? "")) {
