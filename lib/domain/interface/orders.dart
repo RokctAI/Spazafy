@@ -69,12 +69,12 @@ abstract class OrdersRepositoryFacade {
 
   Future<ApiResult<LocalLocation>> getDriverLocation(String deliveryId);
 
-  Future<ApiResult<void>> cancelOrder(String orderId, [String? note]);
+  Future<ApiResult<void>> cancelOrder(dynamic orderId, [String? note]);
 
   Future<ApiResult<void>> refundOrder(String orderId, String title);
 
   Future<ApiResult<void>> addReview(
-    String orderId, {
+    dynamic orderId, {
     required double rating,
     required String comment,
   });
@@ -104,9 +104,9 @@ abstract class OrdersRepositoryFacade {
 
   Future<ApiResult<driver.OrderPaginateResponse>> fetchCurrentOrder();
 
-  Future<ApiResult<dynamic>> updateOrder(int orderId, String status);
+  Future<ApiResult<dynamic>> updateOrder(dynamic orderId, String status);
 
-  Future<ApiResult<dynamic>> uploadImage(String orderId, String? image);
+  Future<ApiResult<dynamic>> uploadImage(dynamic orderId, String? image);
 
   Future<ApiResult<dynamic>> setCurrentOrder(String? orderId);
 

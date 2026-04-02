@@ -140,7 +140,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
   @override
   Future<ApiResult<void>> addReview(
-    String orderId, {
+    dynamic orderId, {
     required double rating,
     required String comment,
   }) async {
@@ -203,7 +203,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<void>> cancelOrder(String orderId, [String? note]) async {
+  Future<ApiResult<void>> cancelOrder(dynamic orderId, [String? note]) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -567,7 +567,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateOrder(int orderId, String status) async {
+  Future<ApiResult<dynamic>> updateOrder(dynamic orderId, String status) async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),
@@ -575,7 +575,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> uploadImage(String orderId, String? image) async {
+  Future<ApiResult<dynamic>> uploadImage(dynamic orderId, String? image) async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),

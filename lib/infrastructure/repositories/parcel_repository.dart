@@ -24,7 +24,7 @@ import 'package:rokctapp/infrastructure/models/response/transactions_response.da
 class ParcelRepository implements ParcelRepositoryFacade {
   @override
   Future<ApiResult<void>> addReview(
-    String orderId, {
+    dynamic orderId, {
     required double rating,
     required String comment,
   }) async {
@@ -400,13 +400,13 @@ class ParcelRepository implements ParcelRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateParcel(int parcelId, String status) async {
+  Future<ApiResult<dynamic>> updateParcel(dynamic parcelId, String status) async {
     return const ApiResult.success(data: null);
   }
 
   @override
   Future<ApiResult<void>> addReviewParcel(
-    int orderId, {
+    dynamic orderId, {
     required double rating,
     required String comment,
   }) async {

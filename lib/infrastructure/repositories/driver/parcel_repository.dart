@@ -150,7 +150,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
   @override
   Future<ApiResult<dynamic>> updateParcel(
-    int parcelId,
+    dynamic parcelId,
     String status,
   ) async {
     try {
@@ -171,7 +171,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
   @override
   Future<ApiResult<void>> addReviewParcel(
-    int orderId, {
+    dynamic orderId, {
     required double rating,
     required String comment,
   }) async {
