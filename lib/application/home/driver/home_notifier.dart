@@ -36,7 +36,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         },
       );
     } else {
-      setDeliveryZone(LocalStorage.getUser()?.deliveryZone);
+      setDeliveryZone(LocalStorage.getDriver()?.deliveryZone);
     }
   }
 
