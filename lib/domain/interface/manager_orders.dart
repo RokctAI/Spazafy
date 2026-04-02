@@ -1,6 +1,7 @@
 import 'package:rokctapp/infrastructure/models/response/manager/orders_paginate_response.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart' hide Stock;
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart'
+    hide Stock;
 import 'package:rokctapp/infrastructure/models/data/manager/order_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/payments_response.dart';

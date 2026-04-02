@@ -1,6 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart' as driver;
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart'
+    as driver;
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
