@@ -3,7 +3,6 @@ name: Auto Label
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 permissions: write-all
-
 on:
   issues:
     types: [opened, edited]
