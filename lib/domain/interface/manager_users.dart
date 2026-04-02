@@ -9,8 +9,7 @@ import 'package:rokctapp/infrastructure/models/response/driver/delivery_zone_pag
 import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
-    hide CategoryData;
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' hide CategoryData;
 import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
 import 'package:rokctapp/infrastructure/models/models.dart'

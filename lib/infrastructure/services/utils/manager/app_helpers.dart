@@ -1,5 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart'
-    hide Extras;
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart' hide Extras;
 import 'package:rokctapp/infrastructure/models/data/product_data.dart'
     hide Extras;
 import 'package:rokctapp/infrastructure/models/data/driver/setting.dart';
