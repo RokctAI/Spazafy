@@ -1,5 +1,6 @@
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart' as driver;
+import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart'
+    as driver;
 import 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
 import 'package:rokctapp/infrastructure/models/data/cashback_model.dart';
