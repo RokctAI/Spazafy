@@ -432,7 +432,11 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page) {
+  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page, {
+    DateTime? start,
+    DateTime? end,
+    List<String>? status,
+  }) {
     return getOrders(page: page);
   }
 
@@ -592,6 +596,14 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
   @override
   Future<ApiResult<dynamic>> setOrder(String orderId) async {
+    return ApiResult.failure(
+      error: "Not implemented",
+      statusCode: NetworkExceptions.getDioStatus(404),
+    );
+  }
+
+  @override
+  Future<ApiResult<OrderDetailModel>> showOrders(dynamic id) async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),

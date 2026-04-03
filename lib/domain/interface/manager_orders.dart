@@ -4,7 +4,7 @@ import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart' hi
 import 'package:rokctapp/infrastructure/models/data/manager/order_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/payments_response.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart' as mgr;
 import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/order_status_response.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
@@ -47,14 +47,14 @@ abstract class OrdersInterface {
   });
 
   Future<ApiResult<OrderStatusResponse>> updateOrderStatus({
-    required OrderStatus status,
+    required mgr.OrderStatus status,
     String? orderId,
   });
 
   Future<ApiResult<SingleOrderResponse>> getOrderDetails({String? orderId});
 
   Future<ApiResult<OrdersPaginateResponse>> getOrders({
-    OrderStatus? status,
+    mgr.OrderStatus? status,
     int? page,
     String? from,
     String? to,
