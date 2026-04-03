@@ -40,7 +40,7 @@ import 'package:rokctapp/infrastructure/repositories/notification_repository.dar
 import 'package:rokctapp/infrastructure/repositories/orders_repository.dart' as cust;
 import 'package:rokctapp/infrastructure/repositories/parcel_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/payments_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/products_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/products_repository.dart' as cust;
 import 'package:rokctapp/infrastructure/repositories/settings_repository.dart'
     hide SettingsRepository;
 import 'package:rokctapp/infrastructure/repositories/settings_repository.dart'
@@ -182,7 +182,7 @@ Future<void> setUpDependencies() async {
   );
   getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
   getIt.registerSingleton<ShopsRepositoryFacade>(cust.ShopsRepository());
-  getIt.registerSingleton<ProductsRepositoryFacade>(ProductsRepository());
+  getIt.registerSingleton<ProductsRepositoryFacade>(cust.ProductsRepository());
   getIt.registerSingleton<CategoriesRepositoryFacade>(CategoriesRepository());
   getIt.registerSingleton<BannersRepositoryFacade>(BannersRepository());
   getIt.registerSingleton<CartRepositoryFacade>(CartRepository());

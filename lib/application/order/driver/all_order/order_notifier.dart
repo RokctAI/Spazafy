@@ -106,7 +106,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
     response.when(
       success: (data) {
         state = state.copyWith(
-          availableOrders: data,
+          availableOrders: data.data ?? [],
           isAvailableLoading: false,
         );
       },
@@ -181,12 +181,12 @@ class OrderNotifier extends StateNotifier<OrderState> {
     response.when(
       success: (data) {
         if (isRefresh) {
-          state = state.copyWith(availableOrders: data);
+          state = state.copyWith(availableOrders: data.data ?? []);
           controller.refreshCompleted();
         } else {
-          if (data.isNotEmpty) {
+          if (data.data?.isNotEmpty ?? false) {
             List<OrderDetailData> list = List.from(state.availableOrders);
-            list.addAll(data);
+            list.addAll(data.data ?? []);
             state = state.copyWith(availableOrders: list);
             controller.loadComplete();
           } else {
@@ -223,7 +223,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
     );
     response.when(
       success: (data) {
-        state = state.copyWith(historyOrders: data, isHistoryLoading: false);
+        state = state.copyWith(historyOrders: data.data ?? [], isHistoryLoading: false);
       },
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: true);
@@ -251,12 +251,12 @@ class OrderNotifier extends StateNotifier<OrderState> {
     response.when(
       success: (data) {
         if (isRefresh) {
-          state = state.copyWith(historyOrders: data, isLoading: false);
+          state = state.copyWith(historyOrders: data.data ?? [], isLoading: false);
           controller.refreshCompleted();
         } else {
-          if (data.isNotEmpty) {
+          if (data.data?.isNotEmpty ?? false) {
             List<OrderDetailData> list = List.from(state.historyOrders);
-            list.addAll(data);
+            list.addAll(data.data ?? []);
             state = state.copyWith(historyOrders: list, isLoading: false);
             controller.loadComplete();
           } else {

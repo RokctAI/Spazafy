@@ -1,5 +1,6 @@
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart' as driver;
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
 import 'package:rokctapp/infrastructure/models/data/cashback_model.dart';
@@ -60,6 +61,8 @@ abstract class OrdersRepositoryFacade {
   Future<ApiResult<OrderPaginateResponse>> getCompletedOrders(int page);
 
   Future<ApiResult<OrderPaginateResponse>> getActiveOrders(int page);
+
+  Future<ApiResult<OrderPaginateResponse>> getAvailableOrders(int page);
 
   Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page, {
     DateTime? start,
