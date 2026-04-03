@@ -76,7 +76,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<List<OrderDetailData>>> getAvailableOrders(int page) async {
+  Future<ApiResult<OrderPaginateResponse>> getAvailableOrders(int page) async {
     final data = {
       'currency_id': LocalStorage.getSelectedCurrency()!.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
@@ -101,7 +101,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
         queryParameters: data,
       );
       return ApiResult.success(
-        data: OrderPaginateResponse.fromJson(response.data).data ?? [],
+        data: OrderPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get canceled orders failure: $e');
@@ -135,7 +135,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<List<OrderDetailData>>> getHistoryOrders(
+  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(
     int page, {
     DateTime? start,
     DateTime? end,
@@ -159,7 +159,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
       );
 
       return ApiResult.success(
-        data: OrderPaginateResponse.fromJson(response.data).data ?? [],
+        data: OrderPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get delivered orders failure: $e');
