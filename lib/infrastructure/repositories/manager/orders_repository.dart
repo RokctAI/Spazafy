@@ -10,7 +10,8 @@ import 'package:rokctapp/infrastructure/models/response/manager/payments_respons
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart' as mgr;
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart'
+    as mgr;
 import 'package:rokctapp/infrastructure/models/response/manager/order_status_response.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
