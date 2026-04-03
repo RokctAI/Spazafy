@@ -1,5 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart' as mgr;
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 import 'package:rokctapp/domain/interface/categories.dart';
@@ -7,7 +8,6 @@ import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 
 class CategoriesRepository implements CategoriesRepositoryFacade {
   @override
@@ -44,11 +44,12 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
       try {
         final localCategories = await appDatabase.getCategoriesLocally();
         if (localCategories.isNotEmpty) {
+          final List<CategoryData> categories = localCategories
+              .map((e) => CategoryData.fromJson(e))
+              .toList();
           return ApiResult.success(
             data: CategoriesPaginateResponse(
-              data: localCategories
-                  .map((e) => CategoryData.fromJson(e))
-                  .toList(),
+              data: categories,
             ),
           );
         }
@@ -84,12 +85,14 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
       try {
         final localCategories = await appDatabase.getCategoriesLocally();
         if (localCategories.isNotEmpty) {
-          final filtered = localCategories
+          final List<CategoryData> filtered = localCategories
               .map((e) => CategoryData.fromJson(e))
               .where(
                 (c) =>
-                    (c.title?.toLowerCase().contains(text.toLowerCase()) ??
-                    false),
+                    (c.translation?.title
+                            ?.toLowerCase()
+                            .contains(text.toLowerCase()) ??
+                        false),
               )
               .toList();
 

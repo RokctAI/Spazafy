@@ -457,6 +457,13 @@ abstract class LocalStorage {
 
   static void _deleteOnline() => _preferences?.remove(StorageKeys.keyOnline);
 
+  static Future<void> setDeliveryInfo(DeliveryResponse? info) async {
+    if (_preferences != null) {
+      final String infoString = (info != null ? jsonEncode(info.toJson()) : '');
+      await _preferences!.setString(StorageKeys.keyCarInfo, infoString);
+    }
+  }
+
   static void logout() {
     deleteWalletData();
     deleteWallet();

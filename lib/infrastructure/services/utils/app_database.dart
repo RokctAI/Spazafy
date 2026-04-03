@@ -450,7 +450,7 @@ class AppDatabase extends _$AppDatabase {
         return BannersTableCompanion.insert(id: id, data: data);
       case 'notifications':
         return NotificationsTableCompanion.insert(
-          id: Value(int.tryParse(id) ?? 0),
+        id: int.tryParse(id) ?? 0,
           data: data,
         );
       default:
@@ -546,7 +546,7 @@ LazyDatabase _openConnection() {
     final file = File(p.join(dbFolder.path, 'db.sqlite'));
 
     if (Platform.isAndroid) {
-      await applyWorkaroundToOpenSqlite3OnOldAndroidVersions();
+      // applyWorkaroundToOpenSqlite3OnOldAndroidVersions is provided by sqlite3_flutter_libs
     }
 
     final cachebase = (await getTemporaryDirectory()).path;
