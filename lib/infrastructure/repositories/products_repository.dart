@@ -25,6 +25,11 @@ class ProductsRepository implements ProductsRepositoryFacade {
     required String text,
     int? page,
   }) async {
+    final params = {
+      'search': text,
+      if (page != null) 'page': page,
+      'limit_page_length': 10,
+    };
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
@@ -115,6 +120,14 @@ class ProductsRepository implements ProductsRepositoryFacade {
     int? page,
     String? orderBy,
   }) async {
+    final params = {
+      'limit_page_length': 10,
+      if (page != null) 'page': page,
+      if (shopId != null) 'shop_id': shopId,
+      if (categoryId != null) 'category_id': categoryId,
+      if (brandId != null) 'brand_id': brandId,
+      if (orderBy != null) 'order_by': orderBy,
+    };
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
@@ -412,8 +425,8 @@ class ProductsRepository implements ProductsRepositoryFacade {
       final responseData = AllProductsResponse.fromJson(response.data);
 
       // Persistence: Cache these products
-      if (responseData.data != null) {
-        for (final product in responseData.data!) {
+      if (responseData.data != null && responseData.data!.recommended != null) {
+        for (final product in responseData.data!.recommended!) {
           await appDatabase.upsertProduct(product.toJson());
         }
       }
@@ -424,13 +437,14 @@ class ProductsRepository implements ProductsRepositoryFacade {
 
       // Fallback: Fetch from local DB
       try {
-        final localProducts = await appDatabase.searchProducts(shopId: shopId);
+        final localProducts = await appDatabase.searchProducts(query: shopId);
         if (localProducts.isNotEmpty) {
+          final List<ProductData> products = localProducts
+              .map((e) => ProductData.fromJson(jsonDecode(e.data)))
+              .toList();
           return ApiResult.success(
             data: AllProductsResponse(
-              data: localProducts
-                  .map((e) => ProductData.fromJson(jsonDecode(e.data)))
-                  .toList(),
+              data: products as dynamic,
             ),
           );
         }

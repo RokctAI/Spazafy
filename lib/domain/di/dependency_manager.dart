@@ -37,15 +37,15 @@ import 'package:rokctapp/infrastructure/repositories/draw_repository.dart'
     as cust_draw;
 import 'package:rokctapp/infrastructure/repositories/gallery_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/notification_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/orders_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/orders_repository.dart' as cust;
 import 'package:rokctapp/infrastructure/repositories/parcel_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/payments_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/products_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/products_repository.dart' as cust;
 import 'package:rokctapp/infrastructure/repositories/settings_repository.dart'
     hide SettingsRepository;
 import 'package:rokctapp/infrastructure/repositories/settings_repository.dart'
     as cust_settings;
-import 'package:rokctapp/infrastructure/repositories/shops_repository.dart';
+import 'package:rokctapp/infrastructure/repositories/shops_repository.dart' as cust;
 import 'package:rokctapp/infrastructure/repositories/user_repository.dart'
     hide UserRepository;
 import 'package:rokctapp/infrastructure/repositories/user_repository.dart'
@@ -136,7 +136,7 @@ Future<void> setUpDependencies() async {
     );
     getIt.registerSingleton<DrawRepositoryFacade>(cust_draw.DrawRepository());
     getIt.registerSingleton<driver_interfaces.OrdersRepositoryFacade>(
-      OrdersRepository(),
+      cust.OrdersRepository(),
     );
     getIt.registerSingleton<driver_interfaces.ParcelRepositoryFacade>(
       ParcelRepository(),
@@ -181,12 +181,12 @@ Future<void> setUpDependencies() async {
     cust_settings.SettingsRepository(),
   );
   getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
-  getIt.registerSingleton<ShopsRepositoryFacade>(ShopsRepository());
-  getIt.registerSingleton<ProductsRepositoryFacade>(ProductsRepository());
+  getIt.registerSingleton<ShopsRepositoryFacade>(cust.ShopsRepository());
+  getIt.registerSingleton<ProductsRepositoryFacade>(cust.ProductsRepository());
   getIt.registerSingleton<CategoriesRepositoryFacade>(CategoriesRepository());
   getIt.registerSingleton<BannersRepositoryFacade>(BannersRepository());
   getIt.registerSingleton<CartRepositoryFacade>(CartRepository());
-  getIt.registerSingleton<OrdersRepositoryFacade>(OrdersRepository());
+  getIt.registerSingleton<OrdersRepositoryFacade>(cust.OrdersRepository());
   getIt.registerSingleton<AddressRepositoryFacade>(AddressRepository());
   getIt.registerSingleton<BrandsRepositoryFacade>(BrandsRepository());
 

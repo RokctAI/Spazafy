@@ -434,7 +434,7 @@ class AppDatabase extends _$AppDatabase {
         );
       case 'orders':
         return OrdersTableCompanion.insert(
-          id: Value(id),
+          id: id,
           data: data,
           createdAt: DateTime.now(),
         );
@@ -546,7 +546,7 @@ LazyDatabase _openConnection() {
     final file = File(p.join(dbFolder.path, 'db.sqlite'));
 
     if (Platform.isAndroid) {
-      await applyWorkaroundToOpenSqlite3OnOldAndroidVersions();
+      // applyWorkaroundToOpenSqlite3OnOldAndroidVersions is provided by sqlite3_flutter_libs
     }
 
     final cachebase = (await getTemporaryDirectory()).path;
