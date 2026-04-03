@@ -12,7 +12,7 @@ import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/response/branches_response.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' hide CategoryData;
 part 'shop_state.freezed.dart';
 
 @freezed
