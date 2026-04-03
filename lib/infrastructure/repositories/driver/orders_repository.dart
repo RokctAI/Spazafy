@@ -113,7 +113,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<OrderDetailModel>> showOrders(String id) async {
+  Future<ApiResult<OrderDetailModel>> showOrders(dynamic id) async {
     final data = {
       'currency_id': LocalStorage.getSelectedCurrency()?.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',

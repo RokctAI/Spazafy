@@ -61,11 +61,17 @@ abstract class OrdersRepositoryFacade {
 
   Future<ApiResult<OrderPaginateResponse>> getActiveOrders(int page);
 
-  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page);
+  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page, {
+    DateTime? start,
+    DateTime? end,
+    List<String>? status,
+  });
 
   Future<ApiResult<RefundOrdersModel>> getRefundOrders(int page);
 
   Future<ApiResult<OrderActiveModel>> getSingleOrder(String orderId);
+
+  Future<ApiResult<OrderDetailModel>> showOrders(dynamic id);
 
   Future<ApiResult<LocalLocation>> getDriverLocation(String deliveryId);
 

@@ -40,7 +40,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
         debugPrint('==> get order failure: $failure');
@@ -63,7 +62,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
       return element;
     }).toList();
     state = state.copyWith(activeOrders: newList);
-    final response = await _orderRepository.setCurrentOrder(orderId);
+    final response = await _orderRepository.setCurrentOrder(orderId.toString());
 
     response.when(
       success: (data) {
@@ -71,7 +70,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
       },
       failure: (failure, status) {
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -95,7 +93,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
         state = state.copyWith(isActiveLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
         debugPrint('==> get active orders failure: $failure');
@@ -116,7 +113,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
       failure: (failure, status) {
         state = state.copyWith(isAvailableLoading: true);
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -165,7 +161,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
         }
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
       },
@@ -209,7 +204,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
         }
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
       },
@@ -235,7 +229,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
         state = state.copyWith(isHistoryLoading: true);
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
         debugPrint('==> get history orders failure: $failure');
@@ -254,7 +247,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
     }
     final response = await _orderRepository.getHistoryOrders(
       isRefresh ? 1 : ++historyOrder,
-      status: null,
     );
     response.when(
       success: (data) {
@@ -284,7 +276,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
           controller.refreshFailed();
         }
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
