@@ -425,8 +425,8 @@ class ProductsRepository implements ProductsRepositoryFacade {
       final responseData = AllProductsResponse.fromJson(response.data);
 
       // Persistence: Cache these products
-      if (responseData.data != null) {
-        for (final product in responseData.data!) {
+      if (responseData.data != null && responseData.data!.recommended != null) {
+        for (final product in responseData.data!.recommended!) {
           await appDatabase.upsertProduct(product.toJson());
         }
       }
