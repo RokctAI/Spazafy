@@ -450,7 +450,7 @@ class AppDatabase extends _$AppDatabase {
         return BannersTableCompanion.insert(id: id, data: data);
       case 'notifications':
         return NotificationsTableCompanion.insert(
-        id: int.tryParse(id) ?? 0,
+          id: int.tryParse(id) ?? 0,
           data: data,
         );
       default:

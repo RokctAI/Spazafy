@@ -443,9 +443,7 @@ class ProductsRepository implements ProductsRepositoryFacade {
               .map((e) => ProductData.fromJson(jsonDecode(e.data)))
               .toList();
           return ApiResult.success(
-            data: AllProductsResponse(
-              data: products as dynamic,
-            ),
+            data: AllProductsResponse(data: products as dynamic),
           );
         }
       } catch (localError) {
