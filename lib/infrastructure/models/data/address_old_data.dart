@@ -71,6 +71,10 @@ class AddressData {
 
   LocationModel? get location => _location;
 
+  double? get latitude => _location?.latitude;
+
+  double? get longitude => _location?.longitude;
+
   bool? get isDefault => _default;
 
   bool? get active => _active;

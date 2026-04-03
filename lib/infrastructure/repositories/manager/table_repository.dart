@@ -13,6 +13,7 @@ import 'package:rokctapp/infrastructure/models/response/manager/bookings_respons
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/working_day_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/table_statistic_response.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';

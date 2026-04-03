@@ -201,7 +201,7 @@ class SettingsRepository implements SettingsInterface {
               true)) {
         languagesResponse.data?.forEach((element) {
           if (element.isDefault ?? false) {
-            LocalStorage.setLanguageData(element);
+            LocalStorage.setLanguageData(element as dynamic);
           }
         });
       }
