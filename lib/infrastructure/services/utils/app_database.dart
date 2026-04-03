@@ -434,7 +434,7 @@ class AppDatabase extends _$AppDatabase {
         );
       case 'orders':
         return OrdersTableCompanion.insert(
-          id: Value(id),
+          id: id,
           data: data,
           createdAt: DateTime.now(),
         );

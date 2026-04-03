@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/models/response/manager/extras_groups_re
 import 'package:rokctapp/infrastructure/models/response/products_paginate_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_product_response.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' hide AppHelpers;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/group_extras_response.dart';

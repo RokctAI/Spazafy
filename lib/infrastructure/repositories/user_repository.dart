@@ -56,7 +56,7 @@ class UserRepository implements UserRepositoryFacade {
         await appDatabase.enqueueSyncRequest(
           url: '/api/v1/method/paas.api.user.user.add_user_address',
           method: 'POST',
-          payload: address?.toJson(),
+          payload: address?.toJson() ?? {},
         );
         return const ApiResult.success(data: null);
       } catch (syncError) {
