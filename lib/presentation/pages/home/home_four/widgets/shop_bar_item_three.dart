@@ -24,7 +24,7 @@ class ShopBarItemThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRouteNamed('/storyList?index=$index');
+        context.router.pushNamed('/storyList?index=$index');
       },
       child: Container(
         margin: EdgeInsets.only(right: 9.r),

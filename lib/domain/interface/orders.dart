@@ -1,4 +1,4 @@
-import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/driver/handlers.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart' as driver;
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
@@ -58,13 +58,14 @@ abstract class OrdersRepositoryFacade {
     required String repeatingOrderId,
   });
 
-  Future<ApiResult<OrderPaginateResponse>> getCompletedOrders(int page);
+  Future<ApiResult<dynamic>> getCompletedOrders(int page);
 
-  Future<ApiResult<OrderPaginateResponse>> getActiveOrders(int page);
+  Future<ApiResult<dynamic>> getActiveOrders(int page);
 
-  Future<ApiResult<OrderPaginateResponse>> getAvailableOrders(int page);
+  Future<ApiResult<dynamic>> getAvailableOrders(int page);
 
-  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page, {
+  Future<ApiResult<dynamic>> getHistoryOrders(
+    int page, {
     DateTime? start,
     DateTime? end,
     List<String>? status,

@@ -85,7 +85,7 @@ class _SelectDateModalState extends State<SelectDateModal> {
               title: AppHelpers.getTranslation(TrKeys.save),
               onPressed: () {
                 widget.onDateSaved(_date);
-                context.maybePop();
+                context.router.maybePop();
               },
             ),
           ),

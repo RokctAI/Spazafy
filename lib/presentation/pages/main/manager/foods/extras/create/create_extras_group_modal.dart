@@ -65,7 +65,7 @@ class _CreateExtrasGroupModalState extends State<CreateExtrasGroupModal> {
                           context,
                           success: () {
                             ref.read(extrasProvider.notifier).fetchGroups();
-                            context.maybePop();
+                            context.router.maybePop();
                           },
                         );
                       }

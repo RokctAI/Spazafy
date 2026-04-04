@@ -54,7 +54,7 @@ class _ServicePageState extends State<ServicePage> {
               const Spacer(),
               IconButton(
                 onPressed: () {
-                  context.pushRouteNamed('/searchPage');
+                  context.router.pushNamed('/searchPage');
                 },
                 icon: const Icon(FlutterRemix.search_2_line),
               ),
@@ -101,7 +101,7 @@ class _ServicePageState extends State<ServicePage> {
                           notifier.setSelectCategory(index, context);
                         }
 
-                        context.pushRouteNamed(
+                        context.router.pushNamed(
                           ServiceTwoCategoryRoute(index: index),
                         );
                       },

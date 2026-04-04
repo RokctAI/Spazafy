@@ -29,7 +29,7 @@ class RecommendedItem extends StatelessWidget {
         final isNarrow = constraints.maxWidth < screenWidth / 2;
         return GestureDetector(
           onTap: () {
-            context.pushRouteNamed('/shop?shopId=' + (shop.id ?? 0).toString());
+            context.router.pushNamed('/shop?shopId=' + (shop.id ?? 0).toString());
           },
           child: Container(
             margin: EdgeInsets.only(left: 0, right: 9.r),

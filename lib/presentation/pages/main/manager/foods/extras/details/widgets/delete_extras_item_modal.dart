@@ -73,7 +73,7 @@ class DeleteExtrasItemModal extends StatelessWidget {
                                     .fetchGroupExtras(
                                       groupId: extras.extraGroupId,
                                     );
-                                context.maybePop();
+                                context.router.maybePop();
                               },
                             ),
                         background: AppStyle.red,

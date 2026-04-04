@@ -1,4 +1,4 @@
-import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/driver/handlers.dart';
 import 'package:rokctapp/infrastructure/models/response/mobile_translations_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/models/response/gallery_upload_response.
 import 'package:rokctapp/infrastructure/models/response/currencies_response.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/setting_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart' as common;
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
@@ -141,24 +141,25 @@ class SettingsRepositoryImpl implements SettingsRepository {
   }
 
   @override
-  Future<ApiResult<LanguagesResponse>> getLanguages() async {
+  Future<ApiResult<common.LanguagesResponse>> getLanguages() async {
     try {
       final client = dioHttp.client(requireAuth: false);
       final response = await client.get(
         '/api/v1/method/paas.api.system.system.get_languages',
       );
+      final data = LanguagesResponse.fromJson(response.data);
       if (LocalStorage.getLanguage() != null &&
-          !(LanguagesResponse.fromJson(response.data).data
+          !(data.data
                   ?.map((e) => e.id)
                   .contains(LocalStorage.getLanguage()?.id) ??
               true)) {
-        LanguagesResponse.fromJson(response.data).data?.forEach((element) {
+        data.data?.forEach((element) {
           if (element.isDefault ?? false) {
             LocalStorage.setLanguageData(element);
           }
         });
       }
-      return ApiResult.success(data: LanguagesResponse.fromJson(response.data));
+      return ApiResult.success(data: data);
     } catch (e) {
       debugPrint('==> get languages failure: $e');
       return ApiResult.failure(

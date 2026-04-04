@@ -28,7 +28,7 @@ class MarketItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRouteNamed('/shop?shopId=${(shop.id ?? "")}');
+        context.router.pushNamed('/shop?shopId=${(shop.id ?? "")}');
       },
       child: isShop
           ? _shopItem(context)

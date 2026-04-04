@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide OrderStatus;
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 import 'package:auto_route/auto_route.dart';
@@ -89,7 +89,7 @@ class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
         if (status == 401) {
           LocalStorage.logout();
           context.router.popUntilRoot();
-          context.replaceRouteNamed('/manager/auth');
+          context.router.replaceNamed('/manager/auth');
         }
       },
     );

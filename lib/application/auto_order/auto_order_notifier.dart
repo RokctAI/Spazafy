@@ -184,13 +184,11 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
         if (error.toString().contains("Suggest Topup")) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            context,
             AppHelpers.getTranslation(error),
           );
           _showTopUpDialog(context);
         } else {
           AppHelpers.showCheckTopSnackBar(
-            context,
             context,
             AppHelpers.getTranslation(error),
           );
@@ -231,7 +229,6 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
     if (state.savedCardId == null) {
       AppHelpers.showCheckTopSnackBar(
         context,
-        context,
         "Please select a Saved Card first.",
       );
       return;
@@ -253,7 +250,6 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
       failure: (e, s) {
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           "Top-up failed: ${e.toString()}",
         );
       },
@@ -269,7 +265,6 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
       failure: (error, _) {
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(error),
         );
       },
@@ -284,7 +279,6 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
       },
       failure: (error, _) {
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(error),
         );
@@ -308,7 +302,6 @@ class AutoOrderNotifier extends StateNotifier<AutoOrderState> {
       },
       failure: (error, statusCode) {
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(error),
         );

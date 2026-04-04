@@ -114,7 +114,7 @@ class _AddressListPageState extends State<AddressListPage> {
                     child: CustomButton(
                       title: AppHelpers.getTranslation(TrKeys.addAddress),
                       onPressed: () {
-                        context.pushRouteNamed('/map');
+                        context.router.pushNamed('/map');
                       },
                     ),
                   ),

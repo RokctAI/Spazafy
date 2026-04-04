@@ -191,7 +191,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                         ),
                         IconButton(
                           onPressed: () {
-                            context.pushRouteNamed('/like_page');
+                            context.router.pushNamed('/like_page');
                           },
                           icon: Badge(
                             label: Text(
@@ -207,7 +207,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                         ),
                         IconButton(
                           onPressed: () {
-                            context.pushRouteNamed('/notification_list_page');
+                            context.router.pushNamed('/notification_list_page');
                           },
                           icon: Badge(
                             label: Text(
@@ -710,7 +710,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage>
                                       TrKeys.help,
                                     ),
                                     onTap: () =>
-                                        context.pushRouteNamed('/help'),
+                                        context.router.pushNamed('/help'),
                                   ),
                                 if (!hasMembership)
                                   _buildSquareButton(

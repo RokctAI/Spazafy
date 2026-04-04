@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType;
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/unit_data.dart';
 import 'package:flutter/material.dart';

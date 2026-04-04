@@ -305,7 +305,7 @@ class _ShopPageState extends ConsumerState<ShopPage>
           GestureDetector(
             onTap: () {
               if (LocalStorage.getToken().isEmpty) {
-                context.pushRouteNamed('/login');
+                context.router.pushNamed('/login');
                 return;
               }
               AppHelpers.showCustomModalBottomDragSheet(
@@ -551,7 +551,7 @@ class _ShopPageState extends ConsumerState<ShopPage>
               child: GestureDetector(
                 onTap: () {
                   if (LocalStorage.getToken().isEmpty) {
-                    context.pushRouteNamed('/login');
+                    context.router.pushNamed('/login');
                     return;
                   }
 

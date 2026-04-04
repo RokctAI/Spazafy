@@ -363,7 +363,7 @@ class _ManagerCreateOrderPageState
                         ? ButtonsBouncingEffect(
                             child: GestureDetector(
                               onTap: () =>
-                                  context.pushRouteNamed('/manager/order'),
+                                  context.router.pushNamed('/manager/order'),
                               child: Container(
                                 height: 48.r,
                                 decoration: BoxDecoration(

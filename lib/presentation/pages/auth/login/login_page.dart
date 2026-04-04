@@ -68,7 +68,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           if (link.toString().contains("product") ||
               link.toString().contains("shop")) {
             if (AppConstants.isDemo) {
-              context.replaceRouteNamed('/ui-type');
+              context.router.replaceNamed('/ui-type');
               return;
             }
             AppHelpers.goHome(context);
@@ -85,7 +85,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     if (deepLink.toString().contains("product") ||
         deepLink.toString().contains("shop")) {
       if (AppConstants.isDemo) {
-        context.replaceRouteNamed('/ui-type');
+        context.router.replaceNamed('/ui-type');
         return;
       }
       AppHelpers.goHome(context);

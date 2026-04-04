@@ -136,7 +136,7 @@ class ProductMainButton extends StatelessWidget {
                         userUuid: userUuid,
                       );
                     } else {
-                      context.pushRouteNamed('/login');
+                      context.router.pushNamed('/login');
                     }
                   },
                 ),

@@ -95,7 +95,7 @@ class _CreateUserModalState extends State<CreateUserModal> {
                           event.createUser(
                             context,
                             created: (user) {
-                              context.maybePop();
+                              context.router.maybePop();
                               ref
                                   .read(orderUserProvider.notifier)
                                   .addCreatedUser(user);

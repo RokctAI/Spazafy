@@ -1,5 +1,5 @@
 import 'package:rokctapp/domain/interface/manager_users.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType;
 
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -57,7 +57,7 @@ class CreateUserNotifier extends StateNotifier<CreateUserState> {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          error,
+          text: error,
           type: SnackBarType.error,
         );
       },

@@ -1,15 +1,13 @@
-import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/driver/handlers.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
-import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart';
 
 final ordersRepositoryFacade = driverOrderRepository;
@@ -270,7 +268,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<OrderDetailModel>> setOrder(String orderId) async {
+  Future<ApiResult<dynamic>> setOrder(String orderId) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       final response = await client.post(
