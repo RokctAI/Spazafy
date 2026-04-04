@@ -2,7 +2,7 @@ import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/response/mobile_translations_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/ai_translation_response.dart';
 import 'package:rokctapp/infrastructure/models/request/manager/ai_translation_request.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' hide AppHelpers;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/response/gallery_upload_response.dart';
@@ -201,7 +201,7 @@ class SettingsRepository implements SettingsInterface {
               true)) {
         languagesResponse.data?.forEach((element) {
           if (element.isDefault ?? false) {
-            LocalStorage.setLanguageData(element);
+            LocalStorage.setLanguageData(element as dynamic);
           }
         });
       }

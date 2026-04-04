@@ -213,7 +213,7 @@ class AppDatabase extends _$AppDatabase {
   }) {
     return insertSyncRequest(
       SyncQueueTableCompanion.insert(
-        id: Value(const Uuid().v4()),
+        id: const Uuid().v4(),
         url: url,
         method: method,
         payload: jsonEncode(payload),
@@ -546,7 +546,7 @@ LazyDatabase _openConnection() {
     final file = File(p.join(dbFolder.path, 'db.sqlite'));
 
     if (Platform.isAndroid) {
-      await applyWorkaroundToOpenSqlite3OnOldAndroidVersions();
+      // applyWorkaroundToOpenSqlite3OnOldAndroidVersions is provided by sqlite3_flutter_libs
     }
 
     final cachebase = (await getTemporaryDirectory()).path;

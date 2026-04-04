@@ -50,7 +50,7 @@ abstract class ParcelRepositoryFacade {
   Future<ApiResult<ParcelOrder>> getSingleParcel(String orderId);
 
   Future<ApiResult<void>> addReview(
-    String orderId, {
+    dynamic orderId, {
     required double rating,
     required String comment,
   });
@@ -61,4 +61,14 @@ abstract class ParcelRepositoryFacade {
     required String orderId,
     required String paymentId,
   });
+
+  Future<ApiResult<dynamic>> updateParcel(dynamic parcelId, String status);
+
+  Future<ApiResult<void>> addReviewParcel(
+    dynamic orderId, {
+    required double rating,
+    required String comment,
+  });
+
+  Future<ApiResult<ParcelOrder>> setParcel(String parcelId);
 }

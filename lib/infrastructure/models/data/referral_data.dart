@@ -1,6 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/take_data.dart';
-import 'package:rokctapp/infrastructure/models/data/translation.dart'
-    hide Translation;
+import 'package:rokctapp/infrastructure/models/data/manager/translation.dart';
 
 class ReferralModel {
   String? id;

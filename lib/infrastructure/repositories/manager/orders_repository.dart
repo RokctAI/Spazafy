@@ -10,7 +10,7 @@ import 'package:rokctapp/infrastructure/models/response/manager/payments_respons
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart' as mgr;
 import 'package:rokctapp/infrastructure/models/response/manager/order_status_response.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
@@ -147,31 +147,30 @@ class OrdersRepository implements OrdersInterface {
 
   @override
   Future<ApiResult<OrderStatusResponse>> updateOrderStatus({
-    required OrderStatus status,
+    required mgr.OrderStatus status,
     String? orderId,
   }) async {
     String? statusText;
     switch (status) {
-      case OrderStatus.newOrder:
-      case OrderStatus.open:
+      case mgr.OrderStatus.newOrder:
         statusText = 'new';
         break;
-      case OrderStatus.accepted:
+      case mgr.OrderStatus.accepted:
         statusText = 'accepted';
         break;
-      case OrderStatus.cooking:
+      case mgr.OrderStatus.cooking:
         statusText = 'cooking';
         break;
-      case OrderStatus.ready:
+      case mgr.OrderStatus.ready:
         statusText = 'ready';
         break;
-      case OrderStatus.onWay:
+      case mgr.OrderStatus.onAWay:
         statusText = 'on_a_way';
         break;
-      case OrderStatus.delivered:
+      case mgr.OrderStatus.delivered:
         statusText = 'delivered';
         break;
-      case OrderStatus.canceled:
+      case mgr.OrderStatus.canceled:
         statusText = 'canceled';
         break;
     }
@@ -223,33 +222,32 @@ class OrdersRepository implements OrdersInterface {
 
   @override
   Future<ApiResult<OrdersPaginateResponse>> getOrders({
-    OrderStatus? status,
+    mgr.OrderStatus? status,
     int? page,
     String? from,
     String? to,
   }) async {
     String? statusText;
     switch (status) {
-      case OrderStatus.accepted:
+      case mgr.OrderStatus.accepted:
         statusText = 'accepted';
         break;
-      case OrderStatus.ready:
+      case mgr.OrderStatus.ready:
         statusText = 'ready';
         break;
-      case OrderStatus.onWay:
+      case mgr.OrderStatus.onAWay:
         statusText = 'on_a_way';
         break;
-      case OrderStatus.delivered:
+      case mgr.OrderStatus.delivered:
         statusText = 'delivered';
         break;
-      case OrderStatus.canceled:
+      case mgr.OrderStatus.canceled:
         statusText = 'canceled';
         break;
-      case OrderStatus.newOrder:
-      case OrderStatus.open:
+      case mgr.OrderStatus.newOrder:
         statusText = 'new';
         break;
-      case OrderStatus.cooking:
+      case mgr.OrderStatus.cooking:
         statusText = 'cooking';
         break;
       default:

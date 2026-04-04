@@ -171,6 +171,8 @@ class ProfileData {
 
   String? get id => _id;
 
+  String? get id_ => _id;
+
   String? get uuid => _uuid;
 
   String? get firstname => _firstname;
@@ -208,6 +210,8 @@ class ProfileData {
   MembershipData? get membership => _membership;
 
   String? get secondPhone => _secondPhone;
+
+  List<List<double>>? get deliveryZone => [];
 
   List<AddressNewModel>? get addresses => _addresses;
 

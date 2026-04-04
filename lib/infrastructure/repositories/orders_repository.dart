@@ -1,5 +1,6 @@
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart' as driver;
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
 import 'package:rokctapp/infrastructure/models/data/cashback_model.dart';
@@ -140,7 +141,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
 
   @override
   Future<ApiResult<void>> addReview(
-    String orderId, {
+    dynamic orderId, {
     required double rating,
     required String comment,
   }) async {
@@ -203,7 +204,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<void>> cancelOrder(String orderId) async {
+  Future<ApiResult<void>> cancelOrder(dynamic orderId, [String? note]) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(
@@ -432,7 +433,19 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page) {
+  Future<ApiResult<OrderPaginateResponse>> getAvailableOrders(int page) async {
+    return ApiResult.failure(
+      error: "Not implemented",
+      statusCode: NetworkExceptions.getDioStatus(404),
+    );
+  }
+
+  @override
+  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page, {
+    DateTime? start,
+    DateTime? end,
+    List<String>? status,
+  }) {
     return getOrders(page: page);
   }
 
@@ -556,6 +569,54 @@ class OrdersRepository implements OrdersRepositoryFacade {
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
+  }
+
+  @override
+  Future<ApiResult<driver.OrderPaginateResponse>> fetchCurrentOrder() async {
+    return ApiResult.failure(
+      error: "Not implemented",
+      statusCode: NetworkExceptions.getDioStatus(404),
+    );
+  }
+
+  @override
+  Future<ApiResult<dynamic>> updateOrder(dynamic orderId, String status) async {
+    return ApiResult.failure(
+      error: "Not implemented",
+      statusCode: NetworkExceptions.getDioStatus(404),
+    );
+  }
+
+  @override
+  Future<ApiResult<dynamic>> uploadImage(dynamic orderId, String? image) async {
+    return ApiResult.failure(
+      error: "Not implemented",
+      statusCode: NetworkExceptions.getDioStatus(404),
+    );
+  }
+
+  @override
+  Future<ApiResult<dynamic>> setCurrentOrder(String? orderId) async {
+    return ApiResult.failure(
+      error: "Not implemented",
+      statusCode: NetworkExceptions.getDioStatus(404),
+    );
+  }
+
+  @override
+  Future<ApiResult<dynamic>> setOrder(String orderId) async {
+    return ApiResult.failure(
+      error: "Not implemented",
+      statusCode: NetworkExceptions.getDioStatus(404),
+    );
+  }
+
+  @override
+  Future<ApiResult<OrderDetailModel>> showOrders(dynamic id) async {
+    return ApiResult.failure(
+      error: "Not implemented",
+      statusCode: NetworkExceptions.getDioStatus(404),
+    );
   }
 
   @override

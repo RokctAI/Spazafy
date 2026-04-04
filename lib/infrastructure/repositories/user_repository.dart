@@ -14,6 +14,7 @@ import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/referral_data.dart';
+import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 import 'package:rokctapp/infrastructure/models/response/login_response.dart';
 import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
 import 'package:rokctapp/infrastructure/models/response/wallet_histories_response.dart';
@@ -55,7 +56,7 @@ class UserRepository implements UserRepositoryFacade {
         await appDatabase.enqueueSyncRequest(
           url: '/api/v1/method/paas.api.user.user.add_user_address',
           method: 'POST',
-          payload: address?.toJson(),
+          payload: address?.toJson() ?? {},
         );
         return const ApiResult.success(data: null);
       } catch (syncError) {
@@ -172,7 +173,7 @@ class UserRepository implements UserRepositoryFacade {
           payload: {'profile_data': data},
         );
         // Return dummy response for offline success
-        return ApiResult.success(data: ProfileResponse(data: UserData()));
+        return ApiResult.success(data: ProfileResponse(data: ProfileData()));
       } catch (syncError) {
         debugPrint('==> sync queue failure: $syncError');
       }
@@ -337,7 +338,7 @@ class UserRepository implements UserRepositoryFacade {
           method: 'PUT',
           payload: {'image_url': imageUrl},
         );
-        return ApiResult.success(data: ProfileResponse(data: UserData()));
+        return ApiResult.success(data: ProfileResponse(data: ProfileData()));
       } catch (syncError) {
         debugPrint('==> sync queue failure: $syncError');
       }
@@ -371,7 +372,7 @@ class UserRepository implements UserRepositoryFacade {
           method: 'POST',
           payload: {'password': password},
         );
-        return ApiResult.success(data: ProfileResponse(data: UserData()));
+        return ApiResult.success(data: ProfileResponse(data: ProfileData()));
       } catch (syncError) {
         debugPrint('==> sync queue failure: $syncError');
       }

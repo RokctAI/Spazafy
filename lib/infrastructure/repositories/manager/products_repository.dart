@@ -1,13 +1,13 @@
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/create_group_extras_response.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/single_extras_group_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/extras_groups_response.dart';
 import 'package:rokctapp/infrastructure/models/response/products_paginate_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_product_response.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' hide AppHelpers;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/group_extras_response.dart';
@@ -183,7 +183,7 @@ class ProductsRepository implements ProductsInterface {
     final data = {'currency_id': LocalStorage.getSelectedCurrency()?.id};
     for (int i = 0; i < stocks.length; i++) {
       data['products[$i][stock_id]'] = stocks[i].id;
-      data['products[$i][quantity]'] = stocks[i].cartCount;
+      data['products[$i][quantity]'] = stocks[i].cartCount?.toString();
     }
     debugPrint('===> get calculation ${jsonEncode(data)}');
     try {
@@ -236,14 +236,14 @@ class ProductsRepository implements ProductsInterface {
       List<int> addonsIds = [];
       if (stock.extras != null && (stock.extras?.isNotEmpty ?? false)) {
         for (final item in stock.extras!) {
-          ids.add(item.id ?? 0);
+          ids.add(int.tryParse(item.id ?? "0") ?? 0);
         }
       }
       ids = ids.toSet().toList();
       if (stock.localAddons != null &&
           (stock.localAddons?.isNotEmpty ?? false)) {
         for (final item in stock.localAddons!) {
-          addonsIds.add(item.product?.id ?? 0);
+          addonsIds.add(int.tryParse(item.product?.id ?? "0") ?? 0);
         }
       }
       addonsIds = addonsIds.toSet().toList();
