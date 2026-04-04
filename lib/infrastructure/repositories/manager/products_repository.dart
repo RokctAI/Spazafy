@@ -1,6 +1,7 @@
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/create_group_extras_response.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart' hide Stock, Location, Shop, Translation, Currency, User, Details, Transaction, PaymentSystem;
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/single_extras_group_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/extras_groups_response.dart';
@@ -183,7 +184,7 @@ class ProductsRepository implements ProductsInterface {
     final data = {'currency_id': LocalStorage.getSelectedCurrency()?.id};
     for (int i = 0; i < stocks.length; i++) {
       data['products[$i][stock_id]'] = stocks[i].id;
-      data['products[$i][quantity]'] = stocks[i].cartCount?.toString();
+      data['products[$i][quantity]'] = stocks[i].cartCount?.toString() ?? "1";
     }
     debugPrint('===> get calculation ${jsonEncode(data)}');
     try {
@@ -251,7 +252,7 @@ class ProductsRepository implements ProductsInterface {
         'price': stock.price,
         if (stock.sku?.isNotEmpty ?? false) 'sku': stock.sku,
         'quantity': stock.quantity,
-        if (stock.id != -1 && stock.id != null) "stock_id": stock.id,
+        if (stock.id != "-1" && stock.id != null) "stock_id": stock.id.toString(),
         'ids': ids,
         if (addonsIds.isNotEmpty) 'addons': addonsIds,
       });

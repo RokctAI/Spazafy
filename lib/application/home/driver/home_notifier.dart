@@ -415,7 +415,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
         );
       },
       failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(context, failure);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(failure),
+        );
       },
     );
   }

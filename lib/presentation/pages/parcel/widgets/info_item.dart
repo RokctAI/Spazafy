@@ -18,7 +18,7 @@ class InfoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.pushRouteNamed(InfoRoute(index: index));
+        context.router.pushNamed(InfoRoute(index: index));
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 10.r),

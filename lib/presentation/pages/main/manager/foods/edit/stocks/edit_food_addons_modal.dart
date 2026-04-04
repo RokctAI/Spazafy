@@ -96,7 +96,7 @@ class _EditFoodAddonsModalState extends ConsumerState<EditFoodAddonsModal> {
                   title: help.AppHelpers.getTranslation(TrKeys.save),
                   onPressed: () {
                     widget.onSave(state.addons);
-                    context.maybePop();
+                    context.router.maybePop();
                   },
                 ),
                 20.verticalSpace,

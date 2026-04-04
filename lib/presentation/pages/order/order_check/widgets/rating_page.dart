@@ -268,7 +268,7 @@ class _RatingPageState extends ConsumerState<RatingPage> {
                                                   rating,
                                                 );
                                           }
-                                          context.replaceRouteNamed(
+                                          context.router.replaceNamed(
                                             const OrdersListRoute(),
                                           );
                                         }
@@ -301,7 +301,7 @@ class _RatingPageState extends ConsumerState<RatingPage> {
                               );
                         }
 
-                        context.replaceRouteNamed('/order');
+                        context.router.replaceNamed('/order');
                       }
                     },
                   );

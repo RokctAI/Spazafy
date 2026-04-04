@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/models/data/driver/language.dart';
 import 'package:rokctapp/infrastructure/models/request/manager/ai_translation_request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,7 +6,6 @@ import 'package:rokctapp/infrastructure/models/models_manager.dart'
     hide LanguageData;
 import 'ai_translation_state.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/language.dart';
-import 'package:rokctapp/infrastructure/models/request/manager/ai_translation_request.dart';
 
 final settingsRepository = managerSettingsRepository;
 

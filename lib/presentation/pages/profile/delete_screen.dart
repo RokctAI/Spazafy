@@ -67,7 +67,7 @@ class DeleteScreen extends StatelessWidget {
                           ref.refresh(shopOrderProvider);
                           ref.refresh(profileProvider);
                           context.router.popUntilRoot();
-                          context.replaceRouteNamed('/login');
+                          context.router.replaceNamed('/login');
                         },
                       );
                     },

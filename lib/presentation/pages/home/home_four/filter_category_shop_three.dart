@@ -185,7 +185,7 @@ class FilterCategoryShopThree extends StatelessWidget {
           'We are adding more stores to more locations. You can suggest your local favorite.\n',
       linkText: 'Chat with us',
       onLinkTap: () {
-        context.pushRouteNamed(ChatRoute(roleId: "admin", name: "Admin"));
+        context.router.pushNamed(ChatRoute(roleId: "admin", name: "Admin"));
       },
     );
   }

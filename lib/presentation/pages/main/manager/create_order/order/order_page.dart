@@ -164,7 +164,7 @@ class _ManagerOrderPageState extends ConsumerState<ManagerOrderPage> {
                     child: CustomButton(
                       title: help.AppHelpers.getTranslation(TrKeys.next),
                       onPressed: () =>
-                          context.pushRouteNamed('/manager/shipping-address'),
+                          context.router.pushNamed('/manager/shipping-address'),
                     ),
                   ),
               ],

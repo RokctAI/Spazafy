@@ -41,10 +41,10 @@ class DoorToDoor extends StatelessWidget {
             title: AppHelpers.getTranslation(TrKeys.learnMore),
             onPressed: () {
               if (LocalStorage.getToken().isEmpty) {
-                context.pushRouteNamed('/login');
+                context.router.pushNamed('/login');
                 return;
               }
-              context.pushRouteNamed('/parcel_page');
+              context.router.pushNamed('/parcel_page');
               return;
             },
             background: AppStyle.transparent,

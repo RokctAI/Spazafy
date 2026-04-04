@@ -21,7 +21,7 @@ class ParcelItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRouteNamed(
+        context.router.pushNamed(
           ParcelProgressRoute(parcelId: (parcel?.id ?? "")),
         );
       },

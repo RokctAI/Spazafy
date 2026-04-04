@@ -20,7 +20,7 @@ class RestaurantItem extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 8.h),
       child: GestureDetector(
         onTap: () {
-          context.pushRouteNamed('/shop?shopId=' + (shop.id ?? 0).toString());
+          context.router.pushNamed('/shop?shopId=' + (shop.id ?? 0).toString());
         },
         child: Container(
           decoration: BoxDecoration(

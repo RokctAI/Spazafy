@@ -1,5 +1,5 @@
 import 'package:rokctapp/domain/interface/manager_orders.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -80,7 +80,7 @@ class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
         debugPrint('====> fetch payments fail $error');
         AppHelpers.showCheckTopSnackBar(
           context,
-          error,
+          text: error,
           type: SnackBarType.error,
         );
       },

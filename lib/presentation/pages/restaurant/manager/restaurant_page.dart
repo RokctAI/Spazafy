@@ -319,17 +319,17 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
         SectionsItem(
           title: help.AppHelpers.getTranslation(TrKeys.income),
           icon: FlutterRemix.line_chart_line,
-          onTap: () => context.pushRouteNamed('/manager/income'),
+          onTap: () => context.router.pushNamed('/manager/income'),
         ),
         SectionsItem(
           title: help.AppHelpers.getTranslation(TrKeys.myOrderHistory),
           icon: FlutterRemix.history_line,
-          onTap: () => context.pushRouteNamed('/manager/order-history'),
+          onTap: () => context.router.pushNamed('/manager/order-history'),
         ),
         SectionsItem(
           title: help.AppHelpers.getTranslation(TrKeys.notifications),
           icon: FlutterRemix.notification_2_line,
-          onTap: () => context.pushRouteNamed('/manager/list-notification'),
+          onTap: () => context.router.pushNamed('/manager/list-notification'),
         ),
         SectionsItem(
           title: help.AppHelpers.getTranslation(TrKeys.language),
@@ -361,7 +361,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
           SectionsItem(
             title: help.AppHelpers.getTranslation(TrKeys.subscriptions),
             icon: Icons.verified_outlined,
-            onTap: () => context.pushRouteNamed('/manager/subscription'),
+            onTap: () => context.router.pushNamed('/manager/subscription'),
           ),
         if (!AppConstants.isDemo)
           SectionsItem(
@@ -412,7 +412,7 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
   //           ),
   //           const Spacer(),
   //           GestureDetector(
-  //             onTap: () => context.pushRouteNamed(const ListNotificationRoute()),
+  //             onTap: () => context.router.pushNamed(const ListNotificationRoute()),
   //             child: Padding(
   //               padding: const EdgeInsets.all(4.0),
   //               child: Text(

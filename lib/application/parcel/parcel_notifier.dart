@@ -40,7 +40,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     response.when(
       success: (data) async {
         state = state.copyWith(isButtonLoading: false);
-        context.maybePop(context);
+        context.router.maybePop(context);
       },
       failure: (failure, status) {
         state = state.copyWith(isButtonLoading: false);
@@ -162,14 +162,14 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
               orderId: data ?? 0,
               paymentId: id,
             );
-            context.replaceRouteNamed('/parcel_list_page');
+            context.router.replaceNamed('/parcel_list_page');
             break;
           default:
             _parcelRepository.createTransaction(
               orderId: data ?? 0,
               paymentId: id,
             );
-            context.replaceRouteNamed('/parcel_list_page');
+            context.router.replaceNamed('/parcel_list_page');
             await makePayment(
               context,
               state.selectPayment?.tag ?? 'cash',

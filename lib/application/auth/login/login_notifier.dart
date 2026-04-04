@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/models/data/driver/language.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 import 'dart:io';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
@@ -224,20 +223,18 @@ class LoginNotifier extends StateNotifier<LoginState> {
             ),
           );
           if (data.data?.user?.role == 'seller') {
-            AppHelpers.showCheckTopSnackBar(
+            AppHelpers.showCheckTopSnackBarDone(
               context,
-              text: AppHelpers.getTranslation(TrKeys.youAreASeller),
-              type: SnackBarType.success,
+              AppHelpers.getTranslation(TrKeys.youAreASeller),
             );
           } else if (data.data?.user?.role == 'deliveryman') {
-            AppHelpers.showCheckTopSnackBar(
+            AppHelpers.showCheckTopSnackBarDone(
               context,
-              text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
-              type: SnackBarType.success,
+              AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
             );
           }
           if (AppConstants.isDemo) {
-            context.replaceRouteNamed('/ui-type');
+            context.router.replaceNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -390,20 +387,18 @@ class LoginNotifier extends StateNotifier<LoginState> {
           );
           context.router.popUntilRoot();
           if (data.data?.user?.role == 'seller') {
-            AppHelpers.showCheckTopSnackBar(
+            AppHelpers.showCheckTopSnackBarDone(
               context,
-              text: AppHelpers.getTranslation(TrKeys.youAreASeller),
-              type: SnackBarType.success,
+              AppHelpers.getTranslation(TrKeys.youAreASeller),
             );
           } else if (data.data?.user?.role == 'deliveryman') {
-            AppHelpers.showCheckTopSnackBar(
+            AppHelpers.showCheckTopSnackBarDone(
               context,
-              text: AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
-              type: SnackBarType.success,
+              AppHelpers.getTranslation(TrKeys.youAreNotADeliveryman),
             );
           }
           if (AppConstants.isDemo) {
-            context.replaceRouteNamed('/ui-type');
+            context.router.replaceNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -524,7 +519,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
               );
               context.router.popUntilRoot();
               if (AppConstants.isDemo) {
-                context.replaceRouteNamed('/ui-type');
+                context.router.replaceNamed('/ui-type');
               } else {
                 AppHelpers.goHome(context);
               }
@@ -639,7 +634,7 @@ class LoginNotifier extends StateNotifier<LoginState> {
             );
             context.router.popUntilRoot();
             if (AppConstants.isDemo) {
-              context.replaceRouteNamed('/ui-type');
+              context.router.replaceNamed('/ui-type');
             } else {
               AppHelpers.goHome(context);
             }

@@ -379,7 +379,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           AppHelpers.showCheckTopSnackBar(context, failure);
           if (status == 401) {
             context.router.popUntilRoot();
-            context.replaceRouteNamed('/login');
+            context.router.replaceNamed('/login');
           }
         }
       },
@@ -712,7 +712,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
       success: (data) async {
         state = state.copyWith(isButtonLoading: false);
         onSuccess.call();
-        context.maybePop(context);
+        context.router.maybePop(context);
       },
       failure: (failure, status) {
         state = state.copyWith(isButtonLoading: false);
@@ -736,7 +736,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
           context,
           AppHelpers.getTranslation(TrKeys.successfully),
         );
-        context.maybePop(context);
+        context.router.maybePop(context);
       },
       failure: (failure, status) {
         state = state.copyWith(isButtonLoading: false);
@@ -761,7 +761,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
     response.when(
       success: (data) async {
         state = state.copyWith(isButtonLoading: false);
-        context.maybePop(context);
+        context.router.maybePop(context);
       },
       failure: (failure, status) {
         state = state.copyWith(isButtonLoading: false);

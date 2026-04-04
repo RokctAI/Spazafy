@@ -61,7 +61,7 @@ class MapSearchPageState extends State<MapSearchPage> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        context.maybePop(searchResult[index].placeId);
+                        context.router.maybePop(searchResult[index].placeId);
                       },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

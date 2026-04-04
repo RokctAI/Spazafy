@@ -47,10 +47,10 @@ class InfoPage extends StatelessWidget {
                         : AppHelpers.getTranslation(TrKeys.next),
                     onPressed: () {
                       if (index == 3) {
-                        context.maybePop();
+                        context.router.maybePop();
                         return;
                       }
-                      context.replaceRouteNamed(
+                      context.router.replaceNamed(
                         '/info_screen?index=${index + 1}',
                       );
                     },
@@ -65,7 +65,7 @@ class InfoPage extends StatelessWidget {
             right: 8.r,
             child: IconButton(
               onPressed: () {
-                context.maybePop();
+                context.router.maybePop();
               },
               icon: Icon(
                 FlutterRemix.close_line,

@@ -125,7 +125,7 @@ class _UpComingListState extends ConsumerState<UpComingList> {
   ) {
     return ButtonEffectAnimation(
       onTap: () {
-        context.pushRouteNamed('/order_progress?orderId=${(order.id ?? "")}');
+        context.router.pushNamed('/order_progress?orderId=${(order.id ?? "")}');
       },
       child: UpcomingOrderWidget(
         order: order,

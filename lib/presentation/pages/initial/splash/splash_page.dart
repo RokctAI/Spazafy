@@ -45,7 +45,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       if (AppConstants.isMaintain) {
         if (!mounted) return;
         FlutterNativeSplash.remove();
-        context.replaceRouteNamed('/ClosedPage');
+        context.router.replaceNamed('/ClosedPage');
         return;
       }
 
@@ -63,7 +63,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
           // No offline data and no internet - show no connection page
           FlutterNativeSplash.remove();
           if (!mounted) return;
-          context.replaceRouteNamed('/no-connection');
+          context.router.replaceNamed('/no-connection');
           return;
         }
       } else {
@@ -78,7 +78,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       } else {
         FlutterNativeSplash.remove();
         if (!mounted) return;
-        context.replaceRouteNamed('/no-connection');
+        context.router.replaceNamed('/no-connection');
       }
     }
   }
@@ -122,12 +122,12 @@ class _SplashPageState extends ConsumerState<SplashPage> {
             goLogin: () {
               FlutterNativeSplash.remove();
               if (!mounted) return;
-              context.replaceRouteNamed('/login');
+              context.router.replaceNamed('/login');
             },
             goNoInternet: () {
               FlutterNativeSplash.remove();
               if (!mounted) return;
-              context.replaceRouteNamed('/no-connection');
+              context.router.replaceNamed('/no-connection');
             },
           );
     } catch (e) {
@@ -152,7 +152,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     } else {
       // User not logged in, go to login
       if (!mounted) return;
-      context.replaceRouteNamed('/login');
+      context.router.replaceNamed('/login');
     }
   }
 
