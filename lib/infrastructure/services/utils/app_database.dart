@@ -213,7 +213,7 @@ class AppDatabase extends _$AppDatabase {
   }) {
     return insertSyncRequest(
       SyncQueueTableCompanion.insert(
-        id: Value(const Uuid().v4()),
+        id: const Uuid().v4(),
         url: url,
         method: method,
         payload: jsonEncode(payload),

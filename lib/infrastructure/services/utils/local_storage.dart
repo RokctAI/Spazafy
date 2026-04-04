@@ -464,6 +464,11 @@ abstract class LocalStorage {
     }
   }
 
+  static Future<void> setActiveLanguages(List<LanguageData> list) async {
+    final List<String> strings = list.map((e) => jsonEncode(e.toJson())).toList();
+    await _preferences?.setStringList(StorageKeys.keyLanguageData, strings);
+  }
+
   static void logout() {
     deleteWalletData();
     deleteWallet();
