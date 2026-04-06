@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/services/constants/enums.dart' as common;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart'
+    as common;
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

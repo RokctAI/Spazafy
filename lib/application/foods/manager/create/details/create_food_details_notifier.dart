@@ -1,6 +1,7 @@
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType, UploadType;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart'
+    hide SnackBarType, UploadType;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
 import 'package:rokctapp/infrastructure/models/data/review_data.dart';

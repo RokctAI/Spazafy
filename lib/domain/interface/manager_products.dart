@@ -1,7 +1,8 @@
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/create_group_extras_response.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart' hide Stock;
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart'
+    hide Stock;
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/single_extras_group_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/extras_groups_response.dart';
