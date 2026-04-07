@@ -83,7 +83,7 @@ class MyAccount extends StatelessWidget {
               icon: FlutterRemix.hotel_line,
               title: AppHelpers.getTranslation(TrKeys.deliveryTo),
               onTap: () {
-                context.pushRouteNamed('/address_list_page');
+                context.router.pushNamed('/address_list_page');
               },
             ),
             ButtonItem(
@@ -91,7 +91,7 @@ class MyAccount extends StatelessWidget {
               icon: FlutterRemix.settings_3_line,
               title: AppHelpers.getTranslation(TrKeys.notifications),
               onTap: () {
-                context.pushRouteNamed('/setting');
+                context.router.pushNamed('/setting');
               },
             ),
             ButtonItem(

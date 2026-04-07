@@ -204,7 +204,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
             }
             if (status == 401) {
               context.router.popUntilRoot();
-              context.replaceRouteNamed('/login');
+              context.router.replaceNamed('/login');
             }
             AppHelpers.showCheckTopSnackBar(context, failure);
           },
@@ -257,7 +257,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
     response.when(
       success: (data) async {
         context.router.popUntilRoot();
-        context.replaceRouteNamed('/login');
+        context.router.replaceNamed('/login');
       },
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
@@ -415,7 +415,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
       success: (data) {
         state = state.copyWith(isSaveLoading: false);
         fetchUser(context, refreshController: RefreshController());
-        context.maybePop();
+        context.router.maybePop();
       },
       failure: (failure, s) {
         state = state.copyWith(isSaveLoading: false);

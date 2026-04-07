@@ -37,7 +37,7 @@ class AddAddress extends StatelessWidget {
                 background: AppStyle.transparent,
                 onPressed: () {
                   Navigator.pop(context);
-                  context.pushRouteNamed('/map?isPop=true');
+                  context.router.pushNamed('/map?isPop=true');
                 },
               ),
             ),

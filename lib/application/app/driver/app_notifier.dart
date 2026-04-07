@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/language.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/models_driver.dart';
+import 'package:rokctapp/infrastructure/models/models_driver.dart' hide LanguageData;
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'app_state.dart';
 

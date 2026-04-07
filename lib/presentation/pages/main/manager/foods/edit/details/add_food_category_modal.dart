@@ -45,7 +45,7 @@ class AddFoodCategoryModal extends StatelessWidget {
                     ref
                         .read(allCategoriesProvider.notifier)
                         .updateCategories(context);
-                    context.maybePop();
+                    context.router.maybePop();
                   },
                 ),
               ),

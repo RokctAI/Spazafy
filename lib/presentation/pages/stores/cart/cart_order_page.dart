@@ -433,7 +433,7 @@ class _ShopOrderState extends ConsumerState<CartOrderPage> {
                               );
                             } else {
                               Navigator.pop(context);
-                              context.pushRouteNamed('/orderScreen');
+                              context.router.pushNamed('/orderScreen');
                             }
                           },
                         ),
@@ -445,11 +445,11 @@ class _ShopOrderState extends ConsumerState<CartOrderPage> {
                       );
                     } else {
                       Navigator.pop(context);
-                      context.pushRouteNamed('/orderScreen');
+                      context.router.pushNamed('/orderScreen');
                     }
                   } else {
                     Navigator.pop(context);
-                    context.pushRouteNamed('/orderScreen');
+                    context.router.pushNamed('/orderScreen');
                   }
                 }
               },

@@ -103,7 +103,7 @@ class _SelectAddressScreenState extends ConsumerState<SelectAddressScreen> {
                             .userData
                             ?.addresses?[index],
                         update: () async {
-                          await context.pushRouteNamed(
+                          await context.router.pushNamed(
                             '/map?indexAddress=$index',
                           );
                           if (context.mounted) {
@@ -244,7 +244,7 @@ class _SelectAddressScreenState extends ConsumerState<SelectAddressScreen> {
                                 ? DeliveryTypeEnum.pickup
                                 : DeliveryTypeEnum.delivery,
                           );
-                      context.maybePop();
+                      context.router.maybePop();
                     },
                   ),
                   32.verticalSpace,

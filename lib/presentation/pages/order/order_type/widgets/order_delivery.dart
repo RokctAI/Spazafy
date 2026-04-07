@@ -98,7 +98,7 @@ class _OrderDeliveryState extends State<OrderDelivery> {
                       context: context,
                       modal: SelectAddressScreen(
                         addAddress: () async {
-                          await context.pushRouteNamed(
+                          await context.router.pushNamed(
                             ViewMapRoute(shopId: widget.shopId),
                           );
                           widget.getLocation();

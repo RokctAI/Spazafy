@@ -102,7 +102,7 @@ class _SelectTablePageState extends ConsumerState<SelectTablePage> {
                               isSelected: index == state.selectedIndex,
                               onTap: () {
                                 event.setSelectTable(index);
-                                context.maybePop();
+                                context.router.maybePop();
                               },
                             ),
                           ),

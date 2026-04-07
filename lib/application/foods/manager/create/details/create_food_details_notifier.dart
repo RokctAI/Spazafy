@@ -1,6 +1,6 @@
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType, UploadType;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
 import 'package:rokctapp/infrastructure/models/data/review_data.dart';
@@ -99,9 +99,9 @@ class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
       active: state.active,
       qrcode: state.qrcode,
       interval: state.interval,
-      categoryId: categoryId,
-      unitId: unitId,
-      kitchenId: kitchenId,
+      categoryId: categoryId?.toString(),
+      unitId: unitId?.toString(),
+      kitchenId: kitchenId?.toString(),
       images: imageUrl,
       type: state.productType,
       uid: state.uid.isNotEmpty ? state.uid : null,

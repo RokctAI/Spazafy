@@ -268,7 +268,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     isIcon: true,
                     title: AppHelpers.getTranslation(TrKeys.favouriteBrand),
                     onRightTap: () {
-                      context.pushRouteNamed(RecommendedRoute(isShop: true));
+                      context.router.pushNamed(RecommendedRoute(isShop: true));
                     },
                   ),
                   12.verticalSpace,
@@ -351,7 +351,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     isIcon: true,
                     title: AppHelpers.getTranslation(TrKeys.recommended),
                     onRightTap: () {
-                      context.pushRouteNamed('/recommended');
+                      context.router.pushNamed('/recommended');
                     },
                   ),
                   12.verticalSpace,
@@ -395,7 +395,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     isIcon: true,
                     title: AppHelpers.getTranslation(TrKeys.newsOfWeek),
                     onRightTap: () {
-                      context.pushRouteNamed(
+                      context.router.pushNamed(
                         RecommendedRoute(isNewsOfPage: true),
                       );
                     },

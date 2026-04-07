@@ -33,7 +33,6 @@ class ChatNotifier extends StateNotifier<ChatState> {
         if (context.mounted) {
           AppHelpers.showCheckTopSnackBar(
             context,
-            context,
             AppHelpers.getTranslation(TrKeys.errorWithConnectingToFirebase),
           );
         }
@@ -63,7 +62,6 @@ class ChatNotifier extends StateNotifier<ChatState> {
     } else {
       if (context.mounted) {
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );
@@ -105,7 +103,6 @@ class ChatNotifier extends StateNotifier<ChatState> {
     } else {
       if (context.mounted) {
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(TrKeys.checkYourNetworkConnection),
         );

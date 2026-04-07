@@ -1,5 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart' as driver;
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
@@ -71,6 +73,18 @@ abstract class LocalStorage {
     return ProfileData.fromJson(map);
   }
 
+  static driver.UserData? getDriver() {
+    final savedString = _preferences?.getString(StorageKeys.keyUser);
+    if (savedString == null) {
+      return null;
+    }
+    final map = jsonDecode(savedString);
+    if (map == null) {
+      return null;
+    }
+    return driver.UserData.fromJson(map);
+  }
+
   static void _deleteUser() => _preferences?.remove(StorageKeys.keyUser);
 
   static Future<void> setSearchHistory(List<String> list) async {
@@ -98,18 +112,34 @@ abstract class LocalStorage {
   static void deleteSavedShopsList() =>
       _preferences?.remove(StorageKeys.keySavedStores);
 
-  static Future<void> setAddressSelected(AddressData data) async {
-    await _preferences?.setString(
-      StorageKeys.keyAddressSelected,
-      jsonEncode(data.toJson()),
-    );
+  static Future<void> setAddressSelected(dynamic data) async {
+    if (data is AddressData) {
+      await _preferences?.setString(
+        StorageKeys.keyAddressSelected,
+        jsonEncode(data.toJson()),
+      );
+    } else if (data is LatLng) {
+      await _preferences?.setString(
+        StorageKeys.keyAddressSelected,
+        jsonEncode(data.toJson()),
+      );
+    }
   }
 
   static AddressData? getAddressSelected() {
     String dataString =
         _preferences?.getString(StorageKeys.keyAddressSelected) ?? "";
     if (dataString.isNotEmpty) {
-      AddressData data = AddressData.fromJson(jsonDecode(dataString));
+      final json = jsonDecode(dataString);
+      if (json.containsKey('latitude') && json.containsKey('longitude')) {
+        return AddressData(
+          location: LocationModel(
+            latitude: double.tryParse(json['latitude'].toString()),
+            longitude: double.tryParse(json['longitude'].toString()),
+          ),
+        );
+      }
+      AddressData data = AddressData.fromJson(json);
       // Check if the address ends with a number
       RegExp numericRegex = RegExp(r'\d$');
       if (numericRegex.hasMatch(data.address ?? "")) {
@@ -426,6 +456,18 @@ abstract class LocalStorage {
   }
 
   static void _deleteOnline() => _preferences?.remove(StorageKeys.keyOnline);
+
+  static Future<void> setDeliveryInfo(DeliveryResponse? info) async {
+    if (_preferences != null) {
+      final String infoString = (info != null ? jsonEncode(info.toJson()) : '');
+      await _preferences!.setString(StorageKeys.keyCarInfo, infoString);
+    }
+  }
+
+  static Future<void> setActiveLanguages(List<LanguageData> list) async {
+    final List<String> strings = list.map((e) => jsonEncode(e.toJson())).toList();
+    await _preferences?.setStringList(StorageKeys.keyLanguageData, strings);
+  }
 
   static void logout() {
     deleteWalletData();

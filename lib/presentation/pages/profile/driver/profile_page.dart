@@ -294,7 +294,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                     title: help.AppHelpers.getTranslation(TrKeys.deliveryZone),
                     icon: FlutterRemix.navigation_fill,
                     onTap: () async {
-                      await context.pushRouteNamed('/driver/delivery-zone');
+                      await context.router.pushNamed('/driver/delivery-zone');
                       ref
                           .read(homeProvider.notifier)
                           .fetchDeliveryZone(isFetch: true);
@@ -304,41 +304,41 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                     title: help.AppHelpers.getTranslation(TrKeys.orders),
                     icon: FlutterRemix.order_play_line,
                     onTap: () {
-                      context.pushRouteNamed('/driver/orders');
+                      context.router.pushNamed('/driver/orders');
                     },
                   ),
                   SectionsItem(
                     title: help.AppHelpers.getTranslation(TrKeys.parcels),
                     icon: FlutterRemix.archive_line,
                     onTap: () {
-                      context.pushRouteNamed('/driver/parcels');
+                      context.router.pushNamed('/driver/parcels');
                     },
                   ),
                   SectionsItem(
                     title: help.AppHelpers.getTranslation(TrKeys.notifications),
                     icon: FlutterRemix.notification_2_line,
                     onTap: () =>
-                        context.pushRouteNamed('/driver/list-notification'),
+                        context.router.pushNamed('/driver/list-notification'),
                   ),
                   SectionsItem(
                     title: help.AppHelpers.getTranslation(TrKeys.orderHistory),
                     icon: FlutterRemix.history_line,
                     onTap: () {
-                      context.pushRouteNamed('/driver/order-history');
+                      context.router.pushNamed('/driver/order-history');
                     },
                   ),
                   SectionsItem(
                     title: help.AppHelpers.getTranslation(TrKeys.parcelHistory),
                     icon: FlutterRemix.folder_history_fill,
                     onTap: () {
-                      context.pushRouteNamed('/driver/order-history');
+                      context.router.pushNamed('/driver/order-history');
                     },
                   ),
                   SectionsItem(
                     title: help.AppHelpers.getTranslation(TrKeys.income),
                     icon: FlutterRemix.line_chart_line,
                     onTap: () {
-                      context.pushRouteNamed('/driver/income');
+                      context.router.pushNamed('/driver/income');
                     },
                   ),
                   Consumer(

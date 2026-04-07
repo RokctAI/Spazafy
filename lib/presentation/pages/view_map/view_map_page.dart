@@ -311,7 +311,7 @@ class ViewMapPageState extends ConsumerState<ViewMapPage>
                     latLng: latLng,
                     isShopLocation: widget.isShopLocation,
                     onSearch: () async {
-                      final placeId = await context.pushRouteNamed(
+                      final placeId = await context.router.pushNamed(
                         '/map_search',
                       );
                       if (placeId != null) {
@@ -645,7 +645,7 @@ class ViewMapPageState extends ConsumerState<ViewMapPage>
                         index: widget.indexAddress ?? 0,
                         id: widget.address?.id,
                       );
-                  context.maybePop();
+                  context.router.maybePop();
                 },
                 child: Container(
                   width: 48.r,

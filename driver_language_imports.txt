@@ -1,0 +1,8 @@
+lib/infrastructure/models/response/manager/language_response.dart
+lib/infrastructure/models/response/driver/language_response.dart
+lib/infrastructure/models/request/manager/ai_translation_request.dart
+lib/presentation/components/manager/multi_translation_input_modal.dart
+lib/presentation/pages/profile/language_page.dart
+lib/application/app/driver/app_state.dart
+lib/application/language/language_notifier.dart
+lib/application/language/language_state.dart

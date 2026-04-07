@@ -56,7 +56,7 @@ class RecipientWidget extends StatelessWidget {
           ),
         InkWell(
           onTap: () async {
-            final data = await context.pushRouteNamed(
+            final data = await context.router.pushNamed(
               ViewMapRoute(isShopLocation: true, isParcel: true),
             );
             if (data.runtimeType == AddressNewModel) {

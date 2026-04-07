@@ -1,5 +1,5 @@
 import 'package:rokctapp/domain/interface/manager_products.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
@@ -32,7 +32,7 @@ class DeleteExtrasGroupNotifier extends StateNotifier<DeleteExtrasGroupState> {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          fail,
+          text: fail,
           type: SnackBarType.error,
         );
       },

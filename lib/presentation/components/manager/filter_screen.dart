@@ -136,7 +136,7 @@ class _FilterScreenState extends State<FilterScreen>
                 return CustomButton(
                   title: AppHelpers.getTranslation(TrKeys.save),
                   onPressed: () {
-                    context.maybePop();
+                    context.router.maybePop();
                     widget.onChangeDay(_rangeDatePicker);
                   },
                 );

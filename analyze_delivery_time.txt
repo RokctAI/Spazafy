@@ -1,0 +1,16 @@
+Analyzing 2 items...
+
+  error • Target of URI doesn't exist: 'package:rokctapp/infrastructure/models/data/manager/translation.dart' • lib/domain/interface/manager_users.dart:9:8 • uri_does_not_exist
+warning • Unused import: 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' • lib/domain/interface/manager_users.dart:12:8 • unused_import
+   info • The import of 'package:rokctapp/infrastructure/models/response/profile_response.dart' is unnecessary because all of the used elements are also provided by the import of 'package:rokctapp/infrastructure/models/models.dart' • lib/domain/interface/manager_users.dart:13:8 • unnecessary_import
+   info • The import of 'package:rokctapp/infrastructure/models/response/single_shop_response.dart' is unnecessary because all of the used elements are also provided by the import of 'package:rokctapp/infrastructure/models/models.dart' • lib/domain/interface/manager_users.dart:14:8 • unnecessary_import
+warning • The library 'package:rokctapp/infrastructure/models/models.dart' doesn't export a member with the hidden name 'ShopWorkingDays' • lib/domain/interface/manager_users.dart:16:24 • undefined_hidden_name
+warning • The library 'package:rokctapp/infrastructure/models/models.dart' doesn't export a member with the hidden name 'ShopTag' • lib/domain/interface/manager_users.dart:16:41 • undefined_hidden_name
+warning • The library 'package:rokctapp/infrastructure/models/models.dart' doesn't export a member with the hidden name 'Translation' • lib/domain/interface/manager_users.dart:16:64 • undefined_hidden_name
+   info • The import of 'package:rokctapp/domain/handlers/api_result.dart' is unnecessary because all of the used elements are also provided by the import of 'package:rokctapp/domain/handlers/handlers.dart' • lib/infrastructure/repositories/manager/users_repository.dart:2:8 • unnecessary_import
+  error • Target of URI doesn't exist: 'package:rokctapp/infrastructure/models/data/manager/translation.dart' • lib/infrastructure/repositories/manager/users_repository.dart:9:8 • uri_does_not_exist
+warning • The library 'package:rokctapp/infrastructure/models/models.dart' doesn't export a member with the hidden name 'ShopWorkingDays' • lib/infrastructure/repositories/manager/users_repository.dart:17:9 • undefined_hidden_name
+warning • The library 'package:rokctapp/infrastructure/models/models.dart' doesn't export a member with the hidden name 'ShopTag' • lib/infrastructure/repositories/manager/users_repository.dart:18:9 • undefined_hidden_name
+warning • The library 'package:rokctapp/infrastructure/models/models.dart' doesn't export a member with the hidden name 'Translation' • lib/infrastructure/repositories/manager/users_repository.dart:20:9 • undefined_hidden_name
+
+12 issues found. (ran in 15.1s)

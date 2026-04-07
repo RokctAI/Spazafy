@@ -244,7 +244,7 @@ class _FilterPageState extends ConsumerState<FilterPage> {
                           title:
                               "${AppHelpers.getTranslation(TrKeys.show)} ${state.shopCount} ${AppHelpers.getTranslation(TrKeys.shops)} ",
                           onPressed: () {
-                            context.pushRouteNamed(
+                            context.router.pushNamed(
                               ResultFilterRoute(categoryId: widget.categoryId),
                             );
                           },

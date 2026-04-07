@@ -1,7 +1,7 @@
 import 'package:rokctapp/domain/interface/manager_users.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -12,7 +12,7 @@ import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
-import 'package:rokctapp/infrastructure/models/response/login_response.dart';
+import 'package:rokctapp/infrastructure/models/response/login_response.dart' hide UserData;
 import 'package:rokctapp/domain/interface/manager_users.dart';
 
 class OrderUserNotifier extends StateNotifier<OrderUserState> {
