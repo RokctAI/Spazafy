@@ -223,7 +223,10 @@ class OrderNotifier extends StateNotifier<OrderState> {
     );
     response.when(
       success: (data) {
-        state = state.copyWith(historyOrders: data.data ?? [], isHistoryLoading: false);
+        state = state.copyWith(
+          historyOrders: data.data ?? [],
+          isHistoryLoading: false,
+        );
       },
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: true);
@@ -251,7 +254,10 @@ class OrderNotifier extends StateNotifier<OrderState> {
     response.when(
       success: (data) {
         if (isRefresh) {
-          state = state.copyWith(historyOrders: data.data ?? [], isLoading: false);
+          state = state.copyWith(
+            historyOrders: data.data ?? [],
+            isLoading: false,
+          );
           controller.refreshCompleted();
         } else {
           if (data.data?.isNotEmpty ?? false) {
