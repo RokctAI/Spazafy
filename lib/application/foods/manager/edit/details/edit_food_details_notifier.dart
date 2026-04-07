@@ -2,7 +2,8 @@ import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType, UploadType;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart'
+    hide SnackBarType, UploadType;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/kitchen_data.dart';
@@ -18,7 +19,8 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/infrastructure/models/data/review_data.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' hide CategoryData;
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
+    hide CategoryData;
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
 
