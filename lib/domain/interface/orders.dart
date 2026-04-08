@@ -1,4 +1,4 @@
-import 'package:rokctapp/domain/handlers/driver/handlers.dart';
+import 'package:rokctapp/domain/handlers/driver/handlers.dart' as driver_handlers;
 import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart' as driver;
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
@@ -13,13 +13,6 @@ import 'package:rokctapp/infrastructure/models/models.dart'
     hide OrderPaginateResponse;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/infrastructure/models/data/cashback_model.dart';
-import 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
-import 'package:rokctapp/infrastructure/models/data/local_location.dart';
-import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
-import 'package:rokctapp/infrastructure/models/data/refund_data.dart';
-import 'package:rokctapp/infrastructure/models/response/coupon_response.dart';
-import 'package:rokctapp/infrastructure/models/response/order_paginate_response.dart';
 
 abstract class OrdersRepositoryFacade {
   Future<ApiResult<GetCalculateModel>> getCalculate({
@@ -112,13 +105,13 @@ abstract class OrdersRepositoryFacade {
     required double amount,
   });
 
-  Future<ApiResult<driver.OrderPaginateResponse>> fetchCurrentOrder();
+  Future<driver_handlers.ApiResult<driver.OrderPaginateResponse>> fetchCurrentOrder();
 
-  Future<ApiResult<dynamic>> updateOrder(dynamic orderId, String status);
+  Future<driver_handlers.ApiResult<dynamic>> updateOrder(dynamic orderId, String status);
 
-  Future<ApiResult<dynamic>> uploadImage(dynamic orderId, String? image);
+  Future<driver_handlers.ApiResult<dynamic>> uploadImage(dynamic orderId, String? image);
 
-  Future<ApiResult<dynamic>> setCurrentOrder(String? orderId);
+  Future<driver_handlers.ApiResult<dynamic>> setCurrentOrder(String? orderId);
 
-  Future<ApiResult<dynamic>> setOrder(String orderId);
+  Future<driver_handlers.ApiResult<dynamic>> setOrder(String orderId);
 }

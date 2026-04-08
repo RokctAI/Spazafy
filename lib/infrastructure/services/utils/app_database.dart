@@ -213,7 +213,7 @@ class AppDatabase extends _$AppDatabase {
   }) {
     return insertSyncRequest(
       SyncQueueTableCompanion.insert(
-        id: const Uuid().v4(),
+        id: Value(const Uuid().v4()),
         url: url,
         method: method,
         payload: jsonEncode(payload),
@@ -434,7 +434,7 @@ class AppDatabase extends _$AppDatabase {
         );
       case 'orders':
         return OrdersTableCompanion.insert(
-          id: id,
+          id: Value(id),
           data: data,
           createdAt: DateTime.now(),
         );
@@ -450,7 +450,7 @@ class AppDatabase extends _$AppDatabase {
         return BannersTableCompanion.insert(id: id, data: data);
       case 'notifications':
         return NotificationsTableCompanion.insert(
-        id: int.tryParse(id) ?? 0,
+          id: Value(int.tryParse(id) ?? 0),
           data: data,
         );
       default:

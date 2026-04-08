@@ -30,7 +30,7 @@ import 'login_state.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
-import 'package:rokctapp/infrastructure/models/response/languages_response.dart' hide LanguageData;
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 
 class LoginNotifier extends StateNotifier<LoginState> {
   final AuthRepositoryFacade _authRepository;
