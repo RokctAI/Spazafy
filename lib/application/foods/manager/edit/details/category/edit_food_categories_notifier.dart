@@ -2,7 +2,8 @@ import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_food_categories_state.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' hide CategoryData;
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
+    hide CategoryData;
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 
 class EditFoodCategoriesNotifier
