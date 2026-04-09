@@ -29,7 +29,8 @@ export 'package:rokctapp/infrastructure/models/response/single_order_response.da
 export 'package:rokctapp/infrastructure/models/response/gallery_upload_response.dart';
 export 'package:rokctapp/infrastructure/models/data/review_data.dart';
 export 'package:rokctapp/infrastructure/models/response/profile_response.dart';
-export 'package:rokctapp/infrastructure/models/response/blogs_paginate_response.dart' hide Links, Meta;
+export 'package:rokctapp/infrastructure/models/response/blogs_paginate_response.dart'
+    hide Links, Meta;
 export 'package:rokctapp/infrastructure/models/response/blog_details_response.dart';
 export 'package:rokctapp/infrastructure/models/data/blog_data.dart';
 export 'package:rokctapp/infrastructure/models/data/apply_coupon_data.dart';
@@ -51,16 +52,20 @@ export 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 export 'package:rokctapp/infrastructure/models/response/cashback_response.dart';
 export 'package:rokctapp/infrastructure/models/data/look_like_data.dart';
 export 'package:rokctapp/infrastructure/models/data/payment_data.dart';
-export 'package:rokctapp/infrastructure/models/data/parcel_order.dart' hide Address;
-export 'package:rokctapp/infrastructure/models/response/parcel_calculate_response.dart' hide Data;
+export 'package:rokctapp/infrastructure/models/data/parcel_order.dart'
+    hide Address;
+export 'package:rokctapp/infrastructure/models/response/parcel_calculate_response.dart'
+    hide Data;
 export 'package:rokctapp/infrastructure/models/response/parcel_response.dart';
 export 'package:rokctapp/infrastructure/models/data/user.dart';
 export 'package:rokctapp/infrastructure/models/data/refund_data.dart';
 export 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
-export 'package:rokctapp/infrastructure/models/response/branches_response.dart' hide Links, Meta;
+export 'package:rokctapp/infrastructure/models/response/branches_response.dart'
+    hide Links, Meta;
 export 'package:rokctapp/infrastructure/models/data/referral_data.dart';
 export 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 export 'package:rokctapp/infrastructure/models/data/story_data.dart';
-export 'package:rokctapp/infrastructure/models/response/tag_response.dart' hide Data;
+export 'package:rokctapp/infrastructure/models/response/tag_response.dart'
+    hide Data;
 export 'package:rokctapp/infrastructure/models/data/cashback_model.dart';
 export 'package:rokctapp/infrastructure/models/response/multi_gallery_upload_response.dart';
