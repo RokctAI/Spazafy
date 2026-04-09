@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart' as mgr;
+import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart'
+    as mgr;
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 import 'package:rokctapp/domain/interface/categories.dart';
@@ -48,9 +49,7 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
               .map((e) => CategoryData.fromJson(e))
               .toList();
           return ApiResult.success(
-            data: CategoriesPaginateResponse(
-              data: categories,
-            ),
+            data: CategoriesPaginateResponse(data: categories),
           );
         }
       } catch (localError) {
@@ -89,10 +88,10 @@ class CategoriesRepository implements CategoriesRepositoryFacade {
               .map((e) => CategoryData.fromJson(e))
               .where(
                 (c) =>
-                    (c.translation?.title
-                            ?.toLowerCase()
-                            .contains(text.toLowerCase()) ??
-                        false),
+                    (c.translation?.title?.toLowerCase().contains(
+                      text.toLowerCase(),
+                    ) ??
+                    false),
               )
               .toList();
 
