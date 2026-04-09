@@ -1,6 +1,5 @@
 import 'package:rokctapp/domain/interface/manager_users.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart'
-    hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType;
 
 import 'dart:async';
 import 'package:flutter/material.dart';

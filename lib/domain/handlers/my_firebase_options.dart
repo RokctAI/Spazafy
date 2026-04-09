@@ -2,23 +2,27 @@ import 'package:firebase_core/firebase_core.dart';
 
 class DefaultFirebaseOptions {
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: String.fromEnvironment('FIREBASE_API_KEY'),
-    appId: String.fromEnvironment('FIREBASE_ANDROID_APP_ID'),
-    messagingSenderId: String.fromEnvironment('FIREBASE_MESSAGING_SENDER_ID'),
-    projectId: String.fromEnvironment('FIREBASE_PROJECT_ID'),
-    storageBucket: String.fromEnvironment('FIREBASE_STORAGE_BUCKET'),
-    authDomain: String.fromEnvironment('FIREBASE_AUTH_DOMAIN'),
-    measurementId: String.fromEnvironment('FIREBASE_MEASUREMENT_ID'),
+    apiKey: 'AIzaSyCvbzi4Otmgjw37UZybZk6cgGKb1QeKsgw',
+    appId: '1:732738074097:web:de58947609d53efc6fc050',
+    messagingSenderId: '732738074097',
+    projectId: 'goshops-7c405',
+    // databaseURL: 'https://onlyu-live-default-rtdb.firebaseio.com',
+    storageBucket: 'goshops-7c405.appspot.com',
+    authDomain: 'goshops-7c405.firebaseapp.com',
+    measurementId: 'G-SK0FJ6BCPH',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: String.fromEnvironment('FIREBASE_IOS_API_KEY'),
-    appId: String.fromEnvironment('FIREBASE_IOS_APP_ID'),
-    messagingSenderId: String.fromEnvironment('FIREBASE_MESSAGING_SENDER_ID'),
-    projectId: String.fromEnvironment('FIREBASE_PROJECT_ID'),
-    storageBucket: String.fromEnvironment('FIREBASE_STORAGE_BUCKET'),
-    androidClientId: String.fromEnvironment('FIREBASE_ANDROID_CLIENT_ID'),
-    iosClientId: String.fromEnvironment('FIREBASE_IOS_CLIENT_ID'),
-    iosBundleId: String.fromEnvironment('FIREBASE_IOS_BUNDLE_ID'),
+    apiKey: 'AIzaSyDudBWMn5armfoFLKwpgAjpM7LOyPEu5XU',
+    appId: '1:732738074097:web:de58947609d53efc6fc050',
+    messagingSenderId: '732738074097',
+    projectId: 'goshops-7c405',
+    // databaseURL: 'https://onlyu-live-default-rtdb.firebaseio.com',
+    storageBucket: 'goshops-7c405.appspot.com',
+    androidClientId:
+        '732738074097-4f1op36ibs6481rc03321q89f5dp3krh.apps.googleusercontent.com',
+    iosClientId:
+        '732738074097-4f1op36ibs6481rc03321q89f5dp3krh.apps.googleusercontent.com',
+    iosBundleId: 'org.goshops',
   );
 }

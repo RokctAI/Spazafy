@@ -8,8 +8,7 @@ import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'categories_state.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
-    hide CategoryData;
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' hide CategoryData;
 
 class CategoriesNotifier extends StateNotifier<CategoriesState> {
   final CatalogInterface _catalogRepository;

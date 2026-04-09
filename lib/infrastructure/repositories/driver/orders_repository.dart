@@ -206,7 +206,10 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateOrder(dynamic orderId, String status) async {
+  Future<ApiResult<dynamic>> updateOrder(
+    dynamic orderId,
+    String status,
+  ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
       await client.post(

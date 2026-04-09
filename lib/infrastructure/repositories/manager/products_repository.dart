@@ -1,25 +1,14 @@
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/create_group_extras_response.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart'
-    hide
-        Stock,
-        Location,
-        Shop,
-        Translation,
-        Currency,
-        User,
-        Details,
-        Transaction,
-        PaymentSystem;
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart' hide Stock, Location, Shop, Translation, Currency, User, Details, Transaction, PaymentSystem;
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/single_extras_group_response.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/extras_groups_response.dart';
 import 'package:rokctapp/infrastructure/models/response/products_paginate_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_product_response.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
-    hide AppHelpers;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' hide AppHelpers;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/group_extras_response.dart';
@@ -263,8 +252,7 @@ class ProductsRepository implements ProductsInterface {
         'price': stock.price,
         if (stock.sku?.isNotEmpty ?? false) 'sku': stock.sku,
         'quantity': stock.quantity,
-        if (stock.id != "-1" && stock.id != null)
-          "stock_id": stock.id.toString(),
+        if (stock.id != "-1" && stock.id != null) "stock_id": stock.id.toString(),
         'ids': ids,
         if (addonsIds.isNotEmpty) 'addons': addonsIds,
       });

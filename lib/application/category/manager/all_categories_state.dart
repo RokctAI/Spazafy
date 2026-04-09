@@ -1,8 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
-    hide CategoryData;
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' hide CategoryData;
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 part 'all_categories_state.freezed.dart';
 

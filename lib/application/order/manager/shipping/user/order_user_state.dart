@@ -1,8 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/response/login_response.dart'
-    hide UserData;
+import 'package:rokctapp/infrastructure/models/response/login_response.dart' hide UserData;
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 part 'order_user_state.freezed.dart';
 

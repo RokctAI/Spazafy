@@ -1,6 +1,5 @@
 import 'package:rokctapp/domain/interface/manager_orders.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart'
-    hide OrderStatus;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide OrderStatus;
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';

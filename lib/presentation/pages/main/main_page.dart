@@ -268,9 +268,7 @@ class _MainPageState extends State<MainPage> {
                 link.pathSegments.contains("shop")) {
               if (!mounted) return;
               context.router.popUntilRoot();
-              context.router.pushNamed(
-                '/shop?shopId=${link.pathSegments.last}',
-              );
+              context.router.pushNamed('/shop?shopId=${link.pathSegments.last}');
             } else if (link.pathSegments.contains("shop")) {
               if (!mounted) return;
               context.router.popUntilRoot();

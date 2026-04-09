@@ -7,8 +7,7 @@ import 'package:rokctapp/infrastructure/models/response/gallery_upload_response.
 import 'package:rokctapp/infrastructure/models/response/currencies_response.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/setting_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/models/response/languages_response.dart'
-    as common;
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart' as common;
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';

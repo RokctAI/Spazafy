@@ -3,13 +3,10 @@ import 'package:rokctapp/infrastructure/models/response/driver/statistics_respon
 import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/request_model_response.dart';
 import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
-    hide AppHelpers;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' hide AppHelpers;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/domain/handlers/network_exceptions.dart'
-    hide NetworkExceptions;
-import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart'
-    hide AppConnectivity;
+import 'package:rokctapp/domain/handlers/network_exceptions.dart' hide NetworkExceptions;
+import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart' hide AppConnectivity;
 import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/statistics_income_response.dart';
 import 'package:rokctapp/infrastructure/models/response/driver_show_response.dart';

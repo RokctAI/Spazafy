@@ -59,8 +59,7 @@ class UserData {
     _phone = json['phone'];
     _birthday = json['birthday'];
     _gender = json['gender'];
-    _deliveryZone =
-        (json["delivery_man_delivery_zone"] ?? json["delivery_zone"]) == null
+    _deliveryZone = (json["delivery_man_delivery_zone"] ?? json["delivery_zone"]) == null
         ? []
         : List<List<double>>.from(
             (json["delivery_man_delivery_zone"] ?? json["delivery_zone"])!.map(

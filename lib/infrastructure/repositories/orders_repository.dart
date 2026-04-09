@@ -1,8 +1,6 @@
-import 'package:rokctapp/domain/handlers/driver/handlers.dart'
-    as driver_handlers;
+import 'package:rokctapp/domain/handlers/driver/handlers.dart' as driver_handlers;
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart'
-    as driver;
+import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart' as driver;
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
@@ -437,8 +435,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(
-    int page, {
+  Future<ApiResult<OrderPaginateResponse>> getHistoryOrders(int page, {
     DateTime? start,
     DateTime? end,
     List<String>? status,
@@ -569,8 +566,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<driver_handlers.ApiResult<driver.OrderPaginateResponse>>
-  fetchCurrentOrder() async {
+  Future<driver_handlers.ApiResult<driver.OrderPaginateResponse>> fetchCurrentOrder() async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),
@@ -578,10 +574,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<driver_handlers.ApiResult<dynamic>> updateOrder(
-    dynamic orderId,
-    String status,
-  ) async {
+  Future<driver_handlers.ApiResult<dynamic>> updateOrder(dynamic orderId, String status) async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),
@@ -589,10 +582,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<driver_handlers.ApiResult<dynamic>> uploadImage(
-    dynamic orderId,
-    String? image,
-  ) async {
+  Future<driver_handlers.ApiResult<dynamic>> uploadImage(dynamic orderId, String? image) async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),
@@ -600,9 +590,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<driver_handlers.ApiResult<dynamic>> setCurrentOrder(
-    String? orderId,
-  ) async {
+  Future<driver_handlers.ApiResult<dynamic>> setCurrentOrder(String? orderId) async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),

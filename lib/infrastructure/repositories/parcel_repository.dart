@@ -400,10 +400,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateParcel(
-    dynamic parcelId,
-    String status,
-  ) async {
+  Future<ApiResult<dynamic>> updateParcel(dynamic parcelId, String status) async {
     return const ApiResult.success(data: null);
   }
 

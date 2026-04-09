@@ -1,7 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart'
-    as driver;
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart' as driver;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
@@ -466,9 +465,7 @@ abstract class LocalStorage {
   }
 
   static Future<void> setActiveLanguages(List<LanguageData> list) async {
-    final List<String> strings = list
-        .map((e) => jsonEncode(e.toJson()))
-        .toList();
+    final List<String> strings = list.map((e) => jsonEncode(e.toJson())).toList();
     await _preferences?.setStringList(StorageKeys.keyLanguageData, strings);
   }
 

@@ -106,9 +106,7 @@ class _SelectUserPageState extends ConsumerState<SelectUserPage> {
                               isSelected: index == state.selectedIndex,
                               onTap: () {
                                 event.setSelectedUser(index);
-                                context.router.maybePop(
-                                  state.users[index].phone,
-                                );
+                                context.router.maybePop(state.users[index].phone);
                               },
                             ),
                           ),

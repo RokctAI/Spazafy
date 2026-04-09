@@ -1,7 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
-import 'package:rokctapp/infrastructure/models/response/login_response.dart'
-    hide UserData;
+import 'package:rokctapp/infrastructure/models/response/login_response.dart' hide UserData;
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 

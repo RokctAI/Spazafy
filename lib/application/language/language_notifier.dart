@@ -9,8 +9,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 import 'language_state.dart';
-import 'package:rokctapp/infrastructure/models/response/languages_response.dart'
-    hide LanguageData;
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart' hide LanguageData;
 
 class LanguageNotifier extends StateNotifier<LanguageState> {
   final SettingsRepositoryFacade _settingsRepository;
