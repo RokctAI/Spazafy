@@ -487,7 +487,11 @@ class AppDatabase extends _$AppDatabase {
   // ─── High-Quality Notification Helpers ───
 
   Future<void> upsertNotification(Map<String, dynamic> json) async {
-    final int id = int.tryParse(json['notification_id']?.toString() ?? json['id']?.toString() ?? '0') ?? 0;
+    final int id =
+        int.tryParse(
+          json['notification_id']?.toString() ?? json['id']?.toString() ?? '0',
+        ) ??
+        0;
     if (id == 0) return;
 
     await into(notificationsTable).insertOnConflictUpdate(
