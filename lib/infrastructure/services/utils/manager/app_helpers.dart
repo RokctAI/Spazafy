@@ -68,7 +68,7 @@ class AppHelpers {
     FToast.toast(
       context,
       toast: Column(
-        mainAxisAlignment: Main4Start,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
