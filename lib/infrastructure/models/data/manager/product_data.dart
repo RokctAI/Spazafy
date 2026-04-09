@@ -5,7 +5,7 @@ import 'galleries.dart';
 import 'kitchen_data.dart';
 import 'stock.dart';
 import 'unit_data.dart';
-import 'translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'category_data.dart';
 
 class ProductData {

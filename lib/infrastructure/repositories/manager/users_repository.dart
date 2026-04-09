@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/delivery_zone_paginate.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/translation.dart' as mgr;
+import 'package:rokctapp/infrastructure/models/data/translation.dart' as mgr;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';

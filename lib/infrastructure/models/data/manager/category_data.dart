@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
-import 'translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class CategoryData {
   CategoryData({
