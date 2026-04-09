@@ -8,7 +8,7 @@ export './request/driver/login.dart';
 export 'request/sign_up_request.dart';
 export 'request/edit_profile.dart';
 export 'response/draw_routing_response.dart';
-export './response/language_response.dart';
+export 'package:rokctapp/infrastructure/models/response/language_response.dart';
 export 'response/mobile_translations_response.dart';
 export './response/driver/setting_response.dart';
 export 'data/cart_product_data.dart';

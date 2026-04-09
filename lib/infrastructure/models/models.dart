@@ -41,7 +41,7 @@ export 'data/shop_delivery.dart';
 export 'response/single_address_response.dart';
 export 'data/chat_message_data.dart';
 export 'response/mobile_translations_response.dart';
-export 'response/languages_response.dart';
+export 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 export 'response/shop_deliveries_response.dart';
 export 'response/transactions_response.dart';
 export 'response/create_order_response.dart';

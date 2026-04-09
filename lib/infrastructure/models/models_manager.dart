@@ -51,7 +51,7 @@ export 'response/manager/extras_response.dart';
 export 'response/manager/profile_response.dart';
 export 'response/manager/register_response.dart';
 export 'response/manager/settings_response.dart';
-export 'response/language_response.dart';
+export 'package:rokctapp/infrastructure/models/response/language_response.dart';
 export 'response/manager/payments_response.dart';
 export 'response/manager/calculate_response.dart';
 export 'response/manager/currencies_response.dart';
