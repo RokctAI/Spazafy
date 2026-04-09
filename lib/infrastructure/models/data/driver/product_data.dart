@@ -1,5 +1,5 @@
 import 'review_data.dart';
-import 'translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'local_location_data.dart';
 
 class ProductData {

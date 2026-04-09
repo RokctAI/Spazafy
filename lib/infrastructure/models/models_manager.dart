@@ -10,7 +10,7 @@ export 'data/manager/shop_data.dart';
 export 'data/manager/unit_data.dart';
 export 'data/manager/order_data.dart';
 export 'data/manager/typed_extra.dart';
-export 'data/manager/translation.dart';
+export 'package:rokctapp/infrastructure/models/data/translation.dart';
 export 'data/manager/product_data.dart';
 export 'data/manager/payment_data.dart';
 export 'data/manager/settings_data.dart';

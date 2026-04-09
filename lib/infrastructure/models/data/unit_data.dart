@@ -1,4 +1,4 @@
-import 'translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 // ProductUnit class to handle unit data from API
 class ProductUnit {

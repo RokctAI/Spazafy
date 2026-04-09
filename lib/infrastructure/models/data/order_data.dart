@@ -2,7 +2,7 @@ import 'currency_data.dart';
 import 'user.dart';
 import 'product_data.dart';
 import 'shop_data.dart';
-import 'translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'review_data.dart';
 import 'coupon_data.dart';
 

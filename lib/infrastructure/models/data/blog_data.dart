@@ -1,4 +1,4 @@
-import 'translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart';
 
 class BlogData {
   BlogData({
