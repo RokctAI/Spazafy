@@ -4,17 +4,14 @@ import 'package:rokctapp/infrastructure/models/response/driver/statistics_respon
 import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
 import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart'
-    hide DeliveryTime;
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/delivery_zone_paginate.dart';
-import 'package:rokctapp/infrastructure/models/data/take_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/translation.dart' as mgr;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
-import 'package:rokctapp/infrastructure/models/models.dart'
-    hide CategoryData, ShopWorkingDays, ShopTag, DeliveryTime, Translation;
+import 'package:rokctapp/infrastructure/models/models.dart' as root_models;
 
 abstract class UsersInterface {
   Future<ApiResult<ProfileResponse>> createUser({
@@ -41,7 +38,7 @@ abstract class UsersInterface {
   Future<ApiResult<DeliveryZonePaginate>> getDeliveryZone();
 
   Future<ApiResult<void>> updateShopWorkingDays({
-    required List<ShopWorkingDays> workingDays,
+    required List<root_models.ShopWorkingDays> workingDays,
     String? uuid,
   });
 
@@ -57,9 +54,9 @@ abstract class UsersInterface {
     String? orderPayment,
     String? logoImg,
     List<CategoryData>? categories,
-    List<ShopTag>? tags,
-    DeliveryTime? deliveryTime,
-    Translation? translation,
+    List<root_models.ShopTag>? tags,
+    root_models.DeliveryTime? deliveryTime,
+    mgr.Translation? translation,
   });
 
   Future<ApiResult<UsersPaginateResponse>> searchUsers({

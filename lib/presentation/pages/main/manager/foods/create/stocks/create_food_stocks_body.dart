@@ -141,7 +141,7 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
                               TrKeys.successfullyUpdated,
                             ),
                           );
-                          context.maybePop();
+                          context.router.maybePop();
                         },
                         failed: () => help.AppHelpers.showCheckTopSnackBar(
                           context,

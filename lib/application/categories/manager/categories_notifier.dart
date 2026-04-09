@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'categories_state.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' hide CategoryData;
 
 class CategoriesNotifier extends StateNotifier<CategoriesState> {
   final CatalogInterface _catalogRepository;
@@ -34,7 +34,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
     );
     res.when(
       success: (data) {
-        List<CategoryData> list = List.from(state.categories);
+        final List<CategoryData> list = List.from(state.categories);
         list.addAll(data.data ?? []);
         state = state.copyWith(isLoading: false, categories: list);
         if (isRefresh ?? false) {
@@ -71,7 +71,7 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
     );
     res.when(
       success: (data) {
-        List<CategoryData> list = List.from(state.comboCategories);
+        final List<CategoryData> list = List.from(state.comboCategories);
         list.addAll(data.data ?? []);
         state = state.copyWith(isComboLoading: false, comboCategories: list);
         if (isRefresh ?? false) {

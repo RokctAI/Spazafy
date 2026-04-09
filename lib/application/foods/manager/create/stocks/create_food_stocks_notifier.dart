@@ -1,6 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart'
-    hide Group;
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart' hide Group, Extras;
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -13,7 +12,7 @@ import 'create_food_stocks_state.dart';
 
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
-import 'package:rokctapp/infrastructure/models/models.dart' hide Group;
+import 'package:rokctapp/infrastructure/models/models.dart' hide Group, Extras;
 
 class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
   final ProductsInterface _productsRepository;

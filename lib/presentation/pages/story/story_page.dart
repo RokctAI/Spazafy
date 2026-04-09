@@ -71,7 +71,7 @@ class _StoryListPageState extends State<StoryListPage> {
                   );
                   setState(() {});
                 } else {
-                  context.maybePop();
+                  context.router.maybePop();
                 }
               },
               prevPage: () {
@@ -83,7 +83,7 @@ class _StoryListPageState extends State<StoryListPage> {
                   );
                   setState(() {});
                 } else {
-                  context.maybePop();
+                  context.router.maybePop();
                 }
               },
             );
@@ -391,7 +391,7 @@ class _StoryItemPageState extends State<StoryItemPage>
                 children: [
                   GestureDetector(
                     onTap: () {
-                      context.pushRouteNamed(
+                      context.router.pushNamed(
                         '/shop?shopId=${(widget.story?.first?.shopId ?? 0).toString()}',
                       );
                     },
@@ -429,7 +429,7 @@ class _StoryItemPageState extends State<StoryItemPage>
                   const Spacer(),
                   GestureDetector(
                     onTap: () {
-                      context.maybePop();
+                      context.router.maybePop();
                     },
                     child: Container(
                       color: AppStyle.transparent,
@@ -457,7 +457,7 @@ class _StoryItemPageState extends State<StoryItemPage>
               child: CustomButton(
                 title: AppHelpers.getTranslation(TrKeys.order),
                 onPressed: () {
-                  context.pushRouteNamed(
+                  context.router.pushNamed(
                     '/shop?shopId=${(widget.story?[currentIndex]?.shopId ?? 0).toString()}&productId=${widget.story?[currentIndex]?.productUuid ?? ""}',
                   );
                 },

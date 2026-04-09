@@ -55,7 +55,6 @@ class RegisterConfirmationNotifier
     } catch (e) {
       AppHelpers.showCheckTopSnackBar(
         context,
-        context,
         AppHelpers.getTranslation((e as FirebaseAuthException).message ?? ""),
       );
       state = state.copyWith(
@@ -108,7 +107,6 @@ class RegisterConfirmationNotifier
         state = state.copyWith(isLoading: false, isCodeError: true);
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(status.toString()),
         );
         debugPrint('==> confirm reset code failure: $failure');
@@ -149,7 +147,6 @@ class RegisterConfirmationNotifier
           state = state.copyWith(isLoading: false, isCodeError: true);
           AppHelpers.showCheckTopSnackBar(
             context,
-            context,
             AppHelpers.getTranslation(status.toString()),
           );
           debugPrint('==> confirm reset code failure: $failure');
@@ -157,7 +154,6 @@ class RegisterConfirmationNotifier
       );
     } catch (e) {
       AppHelpers.showCheckTopSnackBar(
-        context,
         context,
         AppHelpers.getTranslation((e as FirebaseAuthException).message ?? ""),
       );
@@ -186,7 +182,6 @@ class RegisterConfirmationNotifier
         state = state.copyWith(isResending: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(status.toString()),
         );
         debugPrint('==> send otp failure: $failure');
@@ -204,7 +199,6 @@ class RegisterConfirmationNotifier
       verificationCompleted: (PhoneAuthCredential credential) {},
       verificationFailed: (FirebaseAuthException e) {
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(AppHelpers.getTranslation(e.message ?? "")),
         );

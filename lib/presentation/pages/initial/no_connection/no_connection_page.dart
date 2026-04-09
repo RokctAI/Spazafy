@@ -106,7 +106,7 @@ class NoConnectionDialog extends ConsumerWidget {
       if (hasConnection) {
         // Connection restored, go back to splash to reinitialize
         if (context.mounted) {
-          context.replaceRouteNamed('/');
+          context.router.replaceNamed('/');
         }
       } else {
         // Still no connection, show snackbar and reopen dialog

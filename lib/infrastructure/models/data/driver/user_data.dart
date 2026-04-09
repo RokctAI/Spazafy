@@ -20,6 +20,7 @@ class UserData {
     String? role,
     List<AddressInformation>? addresses,
     List<List<double>>? deliveryZone,
+    List<List<double>>? deliveryManDeliveryZone,
     ShopData? shop,
     Wallet? wallet,
     String? password,
@@ -34,7 +35,7 @@ class UserData {
     _phone = phone;
     _birthday = birthday;
     _gender = gender;
-    _deliveryZone = deliveryZone;
+    _deliveryZone = deliveryZone ?? deliveryManDeliveryZone;
     _emailVerifiedAt = emailVerifiedAt;
     _registeredAt = registeredAt;
     _active = active;
@@ -58,10 +59,10 @@ class UserData {
     _phone = json['phone'];
     _birthday = json['birthday'];
     _gender = json['gender'];
-    _deliveryZone = json["delivery_man_delivery_zone"] == null
+    _deliveryZone = (json["delivery_man_delivery_zone"] ?? json["delivery_zone"]) == null
         ? []
         : List<List<double>>.from(
-            json["delivery_man_delivery_zone"]!.map(
+            (json["delivery_man_delivery_zone"] ?? json["delivery_zone"])!.map(
               (x) => List<double>.from(x.map((x) => x?.toDouble())),
             ),
           );
@@ -174,6 +175,8 @@ class UserData {
   bool? get active => _active;
 
   List<List<double>>? get deliveryZone => _deliveryZone;
+
+  List<List<double>>? get deliveryManDeliveryZone => _deliveryZone;
 
   String? get img => _img;
 

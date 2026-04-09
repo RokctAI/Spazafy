@@ -19,7 +19,7 @@ class RecommendedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRouteNamed('/shop?shopId=' + (shop.id ?? ""));
+        context.router.pushNamed('/shop?shopId=' + (shop.id ?? ""));
       },
       child: Container(
         margin: EdgeInsets.only(left: 0, right: 9.r),

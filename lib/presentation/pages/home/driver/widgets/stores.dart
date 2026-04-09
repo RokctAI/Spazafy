@@ -16,7 +16,7 @@ class StoresPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushRouteNamed(const StoryRoute());
+        context.router.pushNamed(const StoryRoute());
       },
       child: Container(
         height: 176.h,

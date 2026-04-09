@@ -359,7 +359,7 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                                       );
                                     } else {
                                       Navigator.pop(context);
-                                      context.pushRouteNamed('/orderScreen');
+                                      context.router.pushNamed('/orderScreen');
                                     }
                                   },
                                 ),
@@ -373,7 +373,7 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                               );
                             } else {
                               Navigator.pop(context);
-                              context.pushRouteNamed('/orderScreen');
+                              context.router.pushNamed('/orderScreen');
                             }
                           },
                         ),

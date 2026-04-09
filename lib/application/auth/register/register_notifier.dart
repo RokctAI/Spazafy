@@ -271,7 +271,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
             ),
           );
           if (AppConstants.isDemo) {
-            context.replaceRouteNamed('/ui-type');
+            context.router.replaceNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -327,7 +327,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
 
         if (context.mounted) {
           if (AppConstants.isDemo) {
-            context.replaceRouteNamed('/ui-type');
+            context.router.replaceNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -428,7 +428,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
             ),
           );
           if (AppConstants.isDemo) {
-            context.replaceRouteNamed('/ui-type');
+            context.router.replaceNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -489,7 +489,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
         success: (data) async {
           state = state.copyWith(isLoading: false);
           if (AppConstants.isDemo) {
-            context.replaceRouteNamed('/ui-type');
+            context.router.replaceNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -599,7 +599,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
           );
           context.router.popUntilRoot();
           if (AppConstants.isDemo) {
-            context.replaceRouteNamed('/ui-type');
+            context.router.replaceNamed('/ui-type');
           } else {
             AppHelpers.goHome(context);
           }
@@ -831,7 +831,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
             );
             context.router.popUntilRoot();
             if (AppConstants.isDemo) {
-              context.replaceRouteNamed('/ui-type');
+              context.router.replaceNamed('/ui-type');
             } else {
               AppHelpers.goHome(context);
             }

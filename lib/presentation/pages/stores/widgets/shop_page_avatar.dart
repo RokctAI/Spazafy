@@ -255,7 +255,7 @@ class ShopPageAvatar extends StatelessWidget {
                       radius: 12,
                     );
             } else {
-              context.pushRouteNamed('/login');
+              context.router.pushNamed('/login');
             }
           },
         );
@@ -299,7 +299,7 @@ class ShopPageAvatar extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        context.pushRouteNamed(
+                        context.router.pushNamed(
                           ShopDetailRoute(shop: shop, workTime: workTime),
                         );
                       },
@@ -345,10 +345,10 @@ class ShopPageAvatar extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   if (LocalStorage.getToken().isEmpty) {
-                    context.replaceRouteNamed('/login');
+                    context.router.replaceNamed('/login');
                     return;
                   }
-                  context.pushRouteNamed(
+                  context.router.pushNamed(
                     ChatRoute(
                       roleId: shop.id.toString(),
                       name: shop.translation?.title ?? "",

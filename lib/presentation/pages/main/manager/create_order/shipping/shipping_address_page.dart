@@ -485,10 +485,10 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                             );
                             return;
                           }
-                          context.pushRouteNamed('/manager/delivery-time');
+                          context.router.pushNamed('/manager/delivery-time');
                           return;
                         }
-                        context.pushRouteNamed('/manager/delivery-time');
+                        context.router.pushNamed('/manager/delivery-time');
                       },
                     ),
                   ),

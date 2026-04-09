@@ -1,7 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'create_order_state.dart';
@@ -21,7 +20,7 @@ class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
     required List<Stock> stocks,
     required String deliveryDate,
     required String address,
-    required int? tableId,
+    required String? tableId,
     LocationData? location,
     required String entrance,
     required String floor,
@@ -37,7 +36,7 @@ class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
       deliveryTime: deliveryDate,
       address: address,
       location: location,
-      tableId: tableId,
+      tableId: tableId?.toString(),
       entrance: entrance.isEmpty ? null : entrance.trim(),
       house: house.isEmpty ? null : house.trim(),
       floor: floor.isEmpty ? null : floor.trim(),

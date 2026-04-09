@@ -249,7 +249,7 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
                               shopUuid: shopState.shop?.uuid,
                               updateSuccess: () {
                                 shopEvent.updateWorkingDays(_savingWorkingDays);
-                                context.maybePop();
+                                context.router.maybePop();
                               },
                             );
                           }

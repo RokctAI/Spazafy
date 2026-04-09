@@ -40,7 +40,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
         debugPrint('==> get order failure: $failure');
@@ -63,7 +62,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
       return element;
     }).toList();
     state = state.copyWith(activeOrders: newList);
-    final response = await _orderRepository.setCurrentOrder(orderId);
+    final response = await _orderRepository.setCurrentOrder(orderId.toString());
 
     response.when(
       success: (data) {
@@ -71,7 +70,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
       },
       failure: (failure, status) {
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -95,7 +93,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
         state = state.copyWith(isActiveLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
         debugPrint('==> get active orders failure: $failure');
@@ -109,14 +106,13 @@ class OrderNotifier extends StateNotifier<OrderState> {
     response.when(
       success: (data) {
         state = state.copyWith(
-          availableOrders: data,
+          availableOrders: data.data ?? [],
           isAvailableLoading: false,
         );
       },
       failure: (failure, status) {
         state = state.copyWith(isAvailableLoading: true);
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -165,7 +161,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
         }
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
       },
@@ -186,12 +181,12 @@ class OrderNotifier extends StateNotifier<OrderState> {
     response.when(
       success: (data) {
         if (isRefresh) {
-          state = state.copyWith(availableOrders: data);
+          state = state.copyWith(availableOrders: data.data ?? []);
           controller.refreshCompleted();
         } else {
-          if (data.isNotEmpty) {
+          if (data.data?.isNotEmpty ?? false) {
             List<OrderDetailData> list = List.from(state.availableOrders);
-            list.addAll(data);
+            list.addAll(data.data ?? []);
             state = state.copyWith(availableOrders: list);
             controller.loadComplete();
           } else {
@@ -208,7 +203,6 @@ class OrderNotifier extends StateNotifier<OrderState> {
           controller.refreshFailed();
         }
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -229,12 +223,11 @@ class OrderNotifier extends StateNotifier<OrderState> {
     );
     response.when(
       success: (data) {
-        state = state.copyWith(historyOrders: data, isHistoryLoading: false);
+        state = state.copyWith(historyOrders: data.data ?? [], isHistoryLoading: false);
       },
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: true);
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -254,17 +247,16 @@ class OrderNotifier extends StateNotifier<OrderState> {
     }
     final response = await _orderRepository.getHistoryOrders(
       isRefresh ? 1 : ++historyOrder,
-      status: null,
     );
     response.when(
       success: (data) {
         if (isRefresh) {
-          state = state.copyWith(historyOrders: data, isLoading: false);
+          state = state.copyWith(historyOrders: data.data ?? [], isLoading: false);
           controller.refreshCompleted();
         } else {
-          if (data.isNotEmpty) {
+          if (data.data?.isNotEmpty ?? false) {
             List<OrderDetailData> list = List.from(state.historyOrders);
-            list.addAll(data);
+            list.addAll(data.data ?? []);
             state = state.copyWith(historyOrders: list, isLoading: false);
             controller.loadComplete();
           } else {
@@ -285,120 +277,118 @@ class OrderNotifier extends StateNotifier<OrderState> {
         }
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
       },
     );
   }
 
-  // Future<void> fetchDeliveredOrdersPage(
-  //     BuildContext context, RefreshController controller,
-  //     {bool isRefresh = false}) async {
-  //   final connected = await AppConnectivity.connectivity();
-  //   state=state.copyWith(isLoading: true);
-  //   if (connected) {
-  //     if (isRefresh) {
-  //       deliveredOrder = 1;
-  //     }
-  //     final response =
-  //     await _orderRepository.getHistoryOrders(isRefresh ? 1 : ++deliveredOrder, status:["delivered"]);
-  //     response.when(
-  //       success: (data) {
-  //         if (isRefresh) {
-  //           state = state.copyWith(
-  //             deliveryOrders: data,
-  //             isLoading: false,
-  //           );
-  //           controller.refreshCompleted();
-  //         } else {
-  //           if (data.isNotEmpty) {
-  //             List<OrderDetailData> list = List.from(state.deliveryOrders);
-  //             list.addAll(data);
-  //             state = state.copyWith(
-  //               deliveryOrders: list ,
-  //               isLoading: false,
-  //             );
-  //             controller.loadComplete();
-  //           } else {
-  //              deliveredOrder --;
-  //             controller.loadNoData();
-  //           }
-  //         }
-  //
-  //       },
-  //       failure: (failure, status) {
-  //         if (!isRefresh) {
-  //           deliveredOrder--;
-  //           state=state.copyWith(isLoading: false);
-  //           controller.loadFailed();
-  //         } else {
-  //           state=state.copyWith(isLoading: false);
-  //           controller.refreshFailed();
-  //         }
-  //         AppHelpers.showCheckTopSnackBar(context,
-  //           context,
-  //           AppHelpers.getTranslation(failure),
-  //         );
-  //       },
-  //     );
-  //   } else {
-  //     if (context.mounted) {
-  //       state=state.copyWith(isLoading: false);
-  //       AppHelpers.showNoConnectionSnackBar(context);
-  //     }
-  //   }
-  // }
-  //
-  // Future<void> fetchCanceledOrdersPage(
-  //     BuildContext context, RefreshController controller,
-  //     {bool isRefresh = false}) async {
-  //   final connected = await AppConnectivity.connectivity();
-  //   if (connected) {
-  //     if (isRefresh) {
-  //       canceledOrder = 1;
-  //     }
-  //     final response =
-  //     await _orderRepository.getHistoryOrders(isRefresh ? 1 : ++canceledOrder, status:["canceled"]);
-  //     response.when(
-  //       success: (data) {
-  //         if (isRefresh) {
-  //           state = state.copyWith(
-  //             cancelOrders: data,
-  //           );
-  //           controller.refreshCompleted();
-  //         } else {
-  //           if (data.isNotEmpty) {
-  //             List<OrderDetailData> list = List.from(state.cancelOrders);
-  //             list.addAll(data);
-  //             state = state.copyWith(
-  //               cancelOrders: list ,
-  //             );
-  //             controller.loadComplete();
-  //           } else {
-  //             canceledOrder --;
-  //             controller.loadNoData();
-  //           }
-  //         }
-  //
-  //       },
-  //       failure: (failure, status) {
-  //         if (!isRefresh) {
-  //           canceledOrder--;
-  //           controller.loadFailed();
-  //         } else {
-  //           controller.refreshFailed();
-  //         }
-  //         AppHelpers.showCheckTopSnackBar(context,
-  //           context,
-  //           AppHelpers.getTranslation(failure),
-  //         );
-  //       },
-  //     );
-  //   } else {
-  //     if (context.mounted) {
-  //       AppHelpers.showNoConnectionSnackBar(context);
-  //     }
-  //   }
-  // }
+  Future<void> fetchDeliveredOrdersPage(
+    BuildContext context,
+    RefreshController controller, {
+    bool isRefresh = false,
+  }) async {
+    final connected = await AppConnectivity.connectivity();
+    state = state.copyWith(isLoading: true);
+    if (connected) {
+      if (isRefresh) {
+        deliveredOrder = 1;
+      }
+      final response = await _orderRepository.getHistoryOrders(
+        isRefresh ? 1 : ++deliveredOrder,
+        status: ["delivered"],
+      );
+      response.when(
+        success: (data) {
+          if (isRefresh) {
+            state = state.copyWith(
+              deliveryOrders: data.data ?? [],
+              isLoading: false,
+            );
+            controller.refreshCompleted();
+          } else {
+            if (data.data?.isNotEmpty ?? false) {
+              List<OrderDetailData> list = List.from(state.deliveryOrders);
+              list.addAll(data.data ?? []);
+              state = state.copyWith(deliveryOrders: list, isLoading: false);
+              controller.loadComplete();
+            } else {
+              deliveredOrder--;
+              controller.loadNoData();
+            }
+          }
+        },
+        failure: (failure, status) {
+          if (!isRefresh) {
+            deliveredOrder--;
+            state = state.copyWith(isLoading: false);
+            controller.loadFailed();
+          } else {
+            state = state.copyWith(isLoading: false);
+            controller.refreshFailed();
+          }
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            AppHelpers.getTranslation(failure),
+          );
+        },
+      );
+    } else {
+      if (context.mounted) {
+        state = state.copyWith(isLoading: false);
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
+
+  Future<void> fetchCanceledOrdersPage(
+    BuildContext context,
+    RefreshController controller, {
+    bool isRefresh = false,
+  }) async {
+    final connected = await AppConnectivity.connectivity();
+    if (connected) {
+      if (isRefresh) {
+        canceledOrder = 1;
+      }
+      final response = await _orderRepository.getHistoryOrders(
+        isRefresh ? 1 : ++canceledOrder,
+        status: ["canceled"],
+      );
+      response.when(
+        success: (data) {
+          if (isRefresh) {
+            state = state.copyWith(cancelOrders: data.data ?? []);
+            controller.refreshCompleted();
+          } else {
+            if (data.data?.isNotEmpty ?? false) {
+              List<OrderDetailData> list = List.from(state.cancelOrders);
+              list.addAll(data.data ?? []);
+              state = state.copyWith(cancelOrders: list);
+              controller.loadComplete();
+            } else {
+              canceledOrder--;
+              controller.loadNoData();
+            }
+          }
+        },
+        failure: (failure, status) {
+          if (!isRefresh) {
+            canceledOrder--;
+            controller.loadFailed();
+          } else {
+            controller.refreshFailed();
+          }
+          AppHelpers.showCheckTopSnackBar(
+            context,
+            AppHelpers.getTranslation(failure),
+          );
+        },
+      );
+    } else {
+      if (context.mounted) {
+        AppHelpers.showNoConnectionSnackBar(context);
+      }
+    }
+  }
 }

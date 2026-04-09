@@ -1,4 +1,4 @@
-import 'package:rokctapp/domain/handlers/api_result.dart';
+import 'package:rokctapp/domain/handlers/driver/handlers.dart';
 import 'package:rokctapp/infrastructure/models/response/parcel_paginate_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
@@ -16,7 +16,7 @@ final parcelRepositoryFacade = driverParcelRepository;
 
 class ParcelRepository implements ParcelRepositoryFacade {
   @override
-  Future<ApiResult<List<ParcelOrder>>> getActiveOrders(int page) async {
+  Future<ApiResult<ParcelPaginateResponse>> getActiveParcel(int page) async {
     final data = {
       'currency_id': LocalStorage.getSelectedCurrency()!.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
@@ -34,7 +34,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
         queryParameters: data,
       );
       return ApiResult.success(
-        data: ParcelPaginateResponse.fromJson(response.data).data ?? [],
+        data: ParcelPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get active orders failure: $e');
@@ -46,7 +46,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<List<ParcelOrder>>> getAvailableOrders(int page) async {
+  Future<ApiResult<ParcelPaginateResponse>> getAvailableParcel(int page) async {
     final data = {
       'currency_id': LocalStorage.getSelectedCurrency()!.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
@@ -63,7 +63,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
         queryParameters: data,
       );
       return ApiResult.success(
-        data: ParcelPaginateResponse.fromJson(response.data).data ?? [],
+        data: ParcelPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get canceled orders failure: $e');
@@ -75,7 +75,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<ParcelOrder>> showParcel(String id) async {
+  Future<ApiResult<ParcelOrder>> getSingleParcel(String id) async {
     final data = {
       'currency_id': LocalStorage.getSelectedCurrency()?.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
@@ -97,20 +97,13 @@ class ParcelRepository implements ParcelRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<List<ParcelOrder>>> getHistoryOrders(
-    int page, {
-    DateTime? start,
-    DateTime? end,
-  }) async {
+  Future<ApiResult<ParcelPaginateResponse>> getHistoryParcel(int page) async {
     final data = {
       'currency_id': LocalStorage.getSelectedCurrency()!.id,
       'lang': LocalStorage.getLanguage()?.locale ?? 'en',
       'page': page,
       "status": "delivered",
       "perPage": 10,
-      if (start != null)
-        "delivery_date_from": DateFormat("yyyy-MM-dd").format(start),
-      if (end != null) "delivery_date_to": DateFormat("yyyy-MM-dd").format(end),
     };
     try {
       final client = dioHttp.client(requireAuth: true);
@@ -119,7 +112,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
         queryParameters: data,
       );
       return ApiResult.success(
-        data: ParcelPaginateResponse.fromJson(response.data).data ?? [],
+        data: ParcelPaginateResponse.fromJson(response.data),
       );
     } catch (e) {
       debugPrint('==> get delivered orders failure: $e');
@@ -150,8 +143,8 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
   @override
   Future<ApiResult<dynamic>> updateParcel(
-    String? parcelId,
-    String? status,
+    dynamic parcelId,
+    String status,
   ) async {
     try {
       final client = dioHttp.client(requireAuth: true);
@@ -171,7 +164,7 @@ class ParcelRepository implements ParcelRepositoryFacade {
 
   @override
   Future<ApiResult<void>> addReviewParcel(
-    String orderId, {
+    dynamic orderId, {
     required double rating,
     required String comment,
   }) async {
@@ -208,5 +201,66 @@ class ParcelRepository implements ParcelRepositoryFacade {
         statusCode: NetworkExceptions.getDioStatus(e),
       );
     }
+  }
+
+  @override
+  Future<ApiResult<ParcelTypeResponse>> getTypes() async {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ApiResult<ParcelCalculateResponse>> getCalculate({
+    required String typeId,
+    required LocationModel from,
+    required LocationModel to,
+  }) async {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ApiResult> orderParcel({
+    required String typeId,
+    required LocationModel from,
+    required String fromTitle,
+    required LocationModel to,
+    required String toTitle,
+    required String time,
+    required String note,
+    required String phoneFrom,
+    required String phoneTo,
+    required String usernameTo,
+    required String usernameFrom,
+    required String floorTo,
+    required String floorFrom,
+    required String houseFrom,
+    required String houseTo,
+    required String comment,
+    required String value,
+    required String instruction,
+    required bool notify,
+  }) async {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ApiResult<void>> addReview(
+    dynamic orderId, {
+    required double rating,
+    required String comment,
+  }) async {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ApiResult<String>> process(String orderId, String name) async {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ApiResult<TransactionsResponse>> createTransaction({
+    required String orderId,
+    required String paymentId,
+  }) async {
+    throw UnimplementedError();
   }
 }

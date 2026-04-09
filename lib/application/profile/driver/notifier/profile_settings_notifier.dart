@@ -87,7 +87,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
         if (status == 401) {
           LocalStorage.logout();
           context.router.popUntilRoot();
-          context.replaceRouteNamed('/login');
+          context.router.replaceNamed('/login');
         } else {
           state = state.copyWith(isLoading: false);
           AppHelpers.showCheckTopSnackBar(
@@ -108,7 +108,7 @@ class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
         success: (data) async {
           LocalStorage.logout();
           context.router.popUntilRoot();
-          context.replaceRouteNamed('/login');
+          context.router.replaceNamed('/login');
         },
         failure: (fail, status) {
           state = state.copyWith(isLoading: false);

@@ -95,7 +95,7 @@ class _SelectSectionPageState extends ConsumerState<SelectSectionPage> {
                               isSelected: index == state.selectedIndex,
                               onTap: () {
                                 event.setSelectSection(index);
-                                context.maybePop();
+                                context.router.maybePop();
                               },
                             ),
                           ),

@@ -194,7 +194,7 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
               isAddAndRemoveLoading: false,
               carts: updatedCarts,
             );
-            context.maybePop();
+            context.router.maybePop();
             getCart(context, () {}, isShowLoading: false, shopId: shopId);
           },
           failure: (failure, status) {
@@ -476,7 +476,7 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
               isAddAndRemoveLoading: false,
               carts: updatedCarts,
             );
-            context.maybePop();
+            context.router.maybePop();
             getCart(context, () {}, isShowLoading: false, shopId: shopId);
           },
           failure: (failure, status) {
@@ -571,7 +571,7 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
           }
           LocalStorage.logout();
           context.router.popUntilRoot();
-          context.replaceRouteNamed('/login');
+          context.router.replaceNamed('/login');
         }
       },
     );
@@ -635,7 +635,7 @@ class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
       state = state.copyWith(carts: updatedCarts);
     } else {
       if (context.mounted) {
-        context.maybePop();
+        context.router.maybePop();
       }
       _cartRepository.deleteUser(cartId: currentCart?.id ?? "", userId: userId);
       final updatedCarts = Map<String, Cart?>.from(state.carts);

@@ -83,4 +83,8 @@ abstract class TimeService {
       ),
     );
   }
+
+  static String dateFormatYMDHm(DateTime? time) {
+    return DateFormat("yyyy-MM-dd HH:mm").format(time ?? DateTime.now());
+  }
 }

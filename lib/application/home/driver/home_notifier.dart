@@ -36,7 +36,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
         },
       );
     } else {
-      setDeliveryZone(LocalStorage.getUser()?.deliveryZone);
+      setDeliveryZone(LocalStorage.getDriver()?.deliveryZone);
     }
   }
 
@@ -415,7 +415,10 @@ class HomeNotifier extends StateNotifier<HomeState> {
         );
       },
       failure: (failure, status) {
-        AppHelpers.showCheckTopSnackBar(context, failure);
+        AppHelpers.showCheckTopSnackBar(
+          context,
+          AppHelpers.getTranslation(failure),
+        );
       },
     );
   }

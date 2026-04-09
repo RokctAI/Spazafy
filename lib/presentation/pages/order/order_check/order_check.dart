@@ -465,8 +465,8 @@ class _OrderCheckState extends ConsumerState<OrderCheck> {
                         ref.read(shopOrderProvider.notifier).getCart(
                           context,
                           () {
-                            context.maybePop();
-                            context.pushRouteNamed('/orderScreen');
+                            context.router.maybePop();
+                            context.router.pushNamed('/orderScreen');
                           },
                         );
                       },

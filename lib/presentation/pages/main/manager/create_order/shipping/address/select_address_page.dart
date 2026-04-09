@@ -248,7 +248,7 @@ class _SelectAddressPageState extends State<SelectAddressPage>
                                                 '',
                                             location: state.location,
                                           );
-                                      context.maybePop();
+                                      context.router.maybePop();
                                     },
                             );
                           },

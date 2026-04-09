@@ -402,7 +402,7 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
                           ),
                           const Divider(),
                           GestureDetector(
-                            onTap: () => context.pushRouteNamed(
+                            onTap: () => context.router.pushNamed(
                               const ManagerDeliveryZoneRoute(),
                             ),
                             child: Container(

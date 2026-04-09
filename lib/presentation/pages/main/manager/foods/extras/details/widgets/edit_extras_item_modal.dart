@@ -89,7 +89,7 @@ class _EditExtrasItemModalState extends ConsumerState<EditExtrasItemModal> {
                             ref
                                 .read(extrasGroupDetailsProvider.notifier)
                                 .fetchGroupExtras(groupId: widget.group.id);
-                            context.maybePop();
+                            context.router.maybePop();
                           },
                         );
                       }

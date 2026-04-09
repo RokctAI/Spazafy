@@ -5,10 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' hide SnackBarType;
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'all_categories_state.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' hide CategoryData;
 
 class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
   final CatalogInterface _catalogRepository;
@@ -33,7 +33,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
     response.when(
       success: (data) {
         final bool isCombo = type == 'combo';
-        List<CategoryData> categories = isCombo
+        final List<CategoryData> categories = isCombo
             ? List.from(state.comboCategories)
             : List.from(state.categories);
         final List<CategoryData> newCategories = data.data ?? [];
@@ -77,7 +77,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         _page--;
         AppHelpers.showCheckTopSnackBar(
           context,
-          failure,
+          text: failure,
           type: SnackBarType.error,
         );
       },
@@ -95,7 +95,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
     final response = await _catalogRepository.getCategoriesSub(page: ++_page);
     response.when(
       success: (data) {
-        List<CategoryData> categories = List.from(state.categoriesSub);
+        final List<CategoryData> categories = List.from(state.categoriesSub);
         final List<CategoryData> newCategories = data.data ?? [];
         for (final category in newCategories) {
           bool contains = false;
@@ -125,7 +125,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
         _page--;
         AppHelpers.showCheckTopSnackBar(
           context,
-          failure,
+          text: failure,
           type: SnackBarType.error,
         );
       },
@@ -163,11 +163,11 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
     );
   }
 
-  void setCategories(List<CategoryData> categories) {
+  void setCategories(List<CategoryData> categoriesList) {
     if (state.categories.isEmpty) {
       _page = 0;
-      state = state.copyWith(categories: categories, activeIndex: 0);
-      if (categories.isNotEmpty) {
+      state = state.copyWith(categories: categoriesList, activeIndex: 0);
+      if (categoriesList.isNotEmpty) {
         state.categoryController?.text =
             state.categories[0].translation?.title ?? '';
       }
@@ -188,11 +188,11 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
     );
   }
 
-  void setCategoriesSub(List<CategoryData> categories) {
+  void setCategoriesSub(List<CategoryData> categoriesList) {
     if (state.categoriesSub.isEmpty) {
       _page = 0;
-      state = state.copyWith(categoriesSub: categories, activeSubIndex: 0);
-      if (categories.isNotEmpty) {
+      state = state.copyWith(categoriesSub: categoriesList, activeSubIndex: 0);
+      if (categoriesList.isNotEmpty) {
         state.categorySubController?.text =
             state.categoriesSub[0].translation?.title ?? '';
       }
@@ -215,7 +215,7 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
     );
     res.when(
       success: (data) {
-        List<CategoryData> list = List.from(state.categories);
+        final List<CategoryData> list = List.from(state.categories);
         list.addAll(data.data ?? []);
         state = state.copyWith(isLoading: false, categories: list);
         if (isRefresh ?? false) {

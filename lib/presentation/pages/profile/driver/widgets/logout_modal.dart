@@ -68,7 +68,7 @@ class LogoutModal extends StatelessWidget {
                         onPressed: () {
                           LocalStorage.logout();
                           context.router.popUntilRoot();
-                          context.replaceRouteNamed('/login');
+                          context.router.replaceNamed('/login');
                         },
                       );
                     }

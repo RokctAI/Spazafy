@@ -71,7 +71,7 @@ class _CreateNewGroupItemModalState extends State<CreateNewGroupItemModal> {
                             ref
                                 .read(extrasGroupDetailsProvider.notifier)
                                 .fetchGroupExtras(groupId: widget.group.id);
-                            context.maybePop();
+                            context.router.maybePop();
                           },
                         );
                       }

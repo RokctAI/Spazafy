@@ -4,22 +4,14 @@ import 'package:rokctapp/infrastructure/models/response/driver/statistics_respon
 import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
 import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart'
-    hide DeliveryTime;
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/response/driver/delivery_zone_paginate.dart';
-import 'package:rokctapp/infrastructure/models/data/take_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/translation.dart' as mgr;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart'
-    hide
-        CategoryData,
-        ShopWorkingDays,
-        ShopTag,
-        DeliveryTime,
-        Translation,
-        SingleShopResponse;
+import 'package:rokctapp/infrastructure/models/models.dart' as root_models;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
@@ -186,7 +178,7 @@ class UsersRepository implements UsersInterface {
 
   @override
   Future<ApiResult<void>> updateShopWorkingDays({
-    required List<ShopWorkingDays> workingDays,
+    required List<root_models.ShopWorkingDays> workingDays,
     String? uuid,
   }) async {
     List<Map<String, dynamic>> days = [];
@@ -230,9 +222,9 @@ class UsersRepository implements UsersInterface {
     String? orderPayment,
     String? logoImg,
     List<CategoryData>? categories,
-    DeliveryTime? deliveryTime,
-    Translation? translation,
-    List<ShopTag>? tags,
+    root_models.DeliveryTime? deliveryTime,
+    mgr.Translation? translation,
+    List<root_models.ShopTag>? tags,
   }) async {
     List<String> categoryIds = [];
     List<String> tagIds = [];

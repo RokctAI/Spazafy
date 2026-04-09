@@ -25,14 +25,14 @@ class AppBarHome extends StatelessWidget {
       child: InkWell(
         onTap: () {
           if (LocalStorage.getToken().isEmpty) {
-            context.pushRouteNamed('/map');
+            context.router.pushNamed('/map');
             return;
           }
           AppHelpers.showCustomModalBottomSheet(
             context: context,
             modal: SelectAddressScreen(
               addAddress: () async {
-                await context.pushRouteNamed('/map');
+                await context.router.pushNamed('/map');
               },
             ),
             isDarkMode: false,

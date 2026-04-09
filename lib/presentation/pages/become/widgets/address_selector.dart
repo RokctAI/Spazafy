@@ -41,7 +41,7 @@ class AddressSelector extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.r),
           child: InkWell(
             onTap: () async {
-              final data = await context.pushRouteNamed(
+              final data = await context.router.pushNamed(
                 ViewMapRoute(isShopLocation: true, onChanged: () {}),
               );
               onAddressSelected(data);
