@@ -54,7 +54,11 @@ class ProductUIComponents {
                         ) {
                           final cartDetail = userCart.cartDetails?[i];
                           if (cartDetail?.stock?.id == stockId) {
-                            shopOrderNotifier.removeCount(context, i, cart.cartId ?? "");
+                            shopOrderNotifier.removeCount(
+                              context,
+                              i,
+                              cart.cartId ?? "",
+                            );
                             return;
                           }
                         }
@@ -100,7 +104,11 @@ class ProductUIComponents {
                         ) {
                           final cartDetail = userCart.cartDetails?[i];
                           if (cartDetail?.stock?.id == stockId) {
-                            shopOrderNotifier.addCount(context, i, cart.cartId ?? "");
+                            shopOrderNotifier.addCount(
+                              context,
+                              i,
+                              cart.cartId ?? "",
+                            );
                             return;
                           }
                         }
