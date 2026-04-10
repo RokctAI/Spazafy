@@ -28,7 +28,7 @@ import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/refund_info.dart';
 import 'widgets/order_status.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class OrderProgressPage extends ConsumerStatefulWidget {
   final String? orderId;
 
