@@ -5,8 +5,7 @@ import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart'
 import 'package:rokctapp/infrastructure/models/data/manager/order_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/payments_response.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart'
-    as mgr;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart' as mgr;
 import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/order_status_response.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
