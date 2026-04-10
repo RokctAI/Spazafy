@@ -71,7 +71,7 @@ export 'response/manager/users_paginate_response.dart';
 export 'response/manager/gallery_upload_response.dart';
 export 'response/manager/orders_paginate_response.dart';
 export 'response/manager/products_paginate_response.dart';
-export 'package:rokctapp/infrastructure/models//response/mobile_translations_response.dart';
+export 'package:rokctapp/infrastructure/models/response/mobile_translations_response.dart';
 export 'response/manager/categories_paginate_response.dart';
 export 'response/manager/single_extras_group_response.dart';
 export 'response/manager/create_group_extras_response.dart';

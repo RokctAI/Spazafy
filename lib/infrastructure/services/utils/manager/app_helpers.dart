@@ -5,6 +5,7 @@ import 'package:rokctapp/infrastructure/models/data/product_data.dart'
 import 'package:rokctapp/infrastructure/models/data/driver/setting.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
 import 'package:dio/dio.dart';
 import 'package:ftoast/ftoast.dart';
 import 'package:intl/intl.dart';

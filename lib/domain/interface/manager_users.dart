@@ -38,7 +38,7 @@ abstract class UsersInterface {
   Future<ApiResult<DeliveryZonePaginate>> getDeliveryZone();
 
   Future<ApiResult<void>> updateShopWorkingDays({
-    required List<root_models.ShopWorkingDays> workingDays,
+    required List<ShopWorkingDays> workingDays,
     String? uuid,
   });
 
@@ -54,7 +54,7 @@ abstract class UsersInterface {
     String? orderPayment,
     String? logoImg,
     List<CategoryData>? categories,
-    List<root_models.ShopTag>? tags,
+    List<ShopTag>? tags,
     root_models.DeliveryTime? deliveryTime,
     mgr.Translation? translation,
   });

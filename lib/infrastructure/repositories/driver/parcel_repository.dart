@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/parcel.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/parcel_paginate_response.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 

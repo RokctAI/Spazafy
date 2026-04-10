@@ -29,7 +29,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
 
   Future<void> showOrder(BuildContext context, int orderId) async {
     state = state.copyWith(isLoading: true);
-    final response = await _parcelRepo.showParcel(orderId);
+    final response = await _parcelRepo.getSingleParcel(orderId.toString());
     response.when(
       success: (data) {
         state = state.copyWith(order: data, isLoading: false);
@@ -37,7 +37,6 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       failure: (failure, status) {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -83,7 +82,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
 
   Future<void> fetchActiveOrders(BuildContext context) async {
     state = state.copyWith(isActiveLoading: true, activeOrders: []);
-    final response = await _parcelRepo.getActiveOrders(1);
+    final response = await _parcelRepo.getActiveParcel(1);
     response.when(
       success: (data) {
         state = state.copyWith(activeOrders: data, isActiveLoading: false);
@@ -91,7 +90,6 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       failure: (failure, status) {
         state = state.copyWith(isActiveLoading: false);
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -102,7 +100,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
 
   Future<void> fetchAvailableOrders(BuildContext context) async {
     state = state.copyWith(availableOrders: [], isAvailableLoading: true);
-    final response = await _parcelRepo.getAvailableOrders(1);
+    final response = await _parcelRepo.getActiveParcel(1);
     response.when(
       success: (data) {
         state = state.copyWith(
@@ -113,7 +111,6 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       failure: (failure, status) {
         state = state.copyWith(isAvailableLoading: true);
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -130,7 +127,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     if (isRefresh) {
       activeOrder = 1;
     }
-    final response = await _parcelRepo.getActiveOrders(
+    final response = await _parcelRepo.getActiveParcel(
       isRefresh ? 1 : ++activeOrder,
     );
     response.when(
@@ -159,7 +156,6 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         }
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
       },
@@ -174,7 +170,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     if (isRefresh) {
       availableOrderPage = 1;
     }
-    final response = await _parcelRepo.getAvailableOrders(
+    final response = await _parcelRepo.getActiveParcel(
       isRefresh ? 1 : ++availableOrderPage,
     );
     response.when(
@@ -203,7 +199,6 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
         }
         AppHelpers.showCheckTopSnackBar(
           context,
-          context,
           AppHelpers.getTranslation(failure),
         );
       },
@@ -216,10 +211,8 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     DateTime? end,
   }) async {
     state = state.copyWith(historyOrders: [], isHistoryLoading: true);
-    final response = await _parcelRepo.getHistoryOrders(
+    final response = await _parcelRepo.getHistoryParcel(
       1,
-      start: start,
-      end: end,
     );
     response.when(
       success: (data) {
@@ -228,7 +221,6 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: true);
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );
@@ -245,7 +237,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     if (isRefresh) {
       historyOrder = 1;
     }
-    final response = await _parcelRepo.getHistoryOrders(
+    final response = await _parcelRepo.getHistoryParcel(
       isRefresh ? 1 : ++historyOrder,
     );
     response.when(
@@ -273,7 +265,6 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
           controller.refreshFailed();
         }
         AppHelpers.showCheckTopSnackBar(
-          context,
           context,
           AppHelpers.getTranslation(failure),
         );

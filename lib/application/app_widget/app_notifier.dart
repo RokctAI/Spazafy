@@ -2,8 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide LanguageData;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'app_state.dart';
-import 'package:rokctapp/infrastructure/models/response/languages_response.dart'
-    as languages;
+import 'package:rokctapp/infrastructure/models/data/language_data.dart';
+import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 
 class AppNotifier extends StateNotifier<AppState> {
   AppNotifier() : super(const AppState()) {
@@ -26,7 +26,7 @@ class AppNotifier extends StateNotifier<AppState> {
     state = state.copyWith(isDarkMode: isDarkMode ?? false);
   }
 
-  Future<void> changeLocale(languages.LanguageData? language) async {
+  Future<void> changeLocale(LanguageData? language) async {
     await LocalStorage.setLanguageData(language);
     await LocalStorage.setLangLtr(language?.backward);
     state = state.copyWith(

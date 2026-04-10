@@ -178,7 +178,7 @@ class UsersRepository implements UsersInterface {
 
   @override
   Future<ApiResult<void>> updateShopWorkingDays({
-    required List<root_models.ShopWorkingDays> workingDays,
+    required List<ShopWorkingDays> workingDays,
     String? uuid,
   }) async {
     List<Map<String, dynamic>> days = [];
@@ -224,7 +224,7 @@ class UsersRepository implements UsersInterface {
     List<CategoryData>? categories,
     root_models.DeliveryTime? deliveryTime,
     mgr.Translation? translation,
-    List<root_models.ShopTag>? tags,
+    List<ShopTag>? tags,
   }) async {
     List<String> categoryIds = [];
     List<String> tagIds = [];
