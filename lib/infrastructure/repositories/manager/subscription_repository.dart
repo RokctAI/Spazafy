@@ -10,7 +10,6 @@ import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/domain/interface/manager_subscription.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
 
 class SubscriptionsRepository implements SubscriptionsFacade {

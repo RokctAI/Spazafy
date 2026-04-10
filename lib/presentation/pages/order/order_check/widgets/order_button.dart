@@ -52,6 +52,9 @@ class OrderButton extends ConsumerWidget {
     if (isOrder) {
       // For existing orders, handle different order statuses
       switch (orderStatus) {
+        case OrderStatus.newOrder:
+        case OrderStatus.cooking:
+          return const SizedBox.shrink();
         case OrderStatus.onWay:
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

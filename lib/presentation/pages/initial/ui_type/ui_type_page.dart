@@ -11,7 +11,7 @@ import 'package:rokctapp/presentation/components/buttons/animation_button_effect
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class UiTypePage extends StatelessWidget {
   final bool isBack;
 

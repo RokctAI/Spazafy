@@ -6,4 +6,3 @@ export '../typing_delay.dart';
 export 'marker_image_cropper.dart';
 export 'app_connectivity.dart';
 export 'app_validators.dart';
-export '../../constants/driver/enums.dart';
