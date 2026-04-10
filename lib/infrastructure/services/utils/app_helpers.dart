@@ -160,12 +160,14 @@ abstract class AppHelpers {
         return "accepted";
       case OrderStatus.ready:
         return "ready";
-      case OrderStatus.onWay:
+      case OrderStatus.onAWay:
         return "on_a_way";
       case OrderStatus.delivered:
         return "delivered";
       case OrderStatus.canceled:
         return "canceled";
+      default:
+        return "new";
     }
   }
 

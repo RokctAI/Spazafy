@@ -55,7 +55,7 @@ class OrderButton extends ConsumerWidget {
         case OrderStatus.newOrder:
         case OrderStatus.cooking:
           return const SizedBox.shrink();
-        case OrderStatus.onWay:
+        case OrderStatus.onAWay:
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

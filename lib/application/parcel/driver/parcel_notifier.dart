@@ -243,12 +243,12 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     response.when(
       success: (data) {
         if (isRefresh) {
-          state = state.copyWith(historyOrders: data);
+          state = state.copyWith(historyOrders: data.data ?? []);
           controller.refreshCompleted();
         } else {
-          if (data.isNotEmpty) {
+          if ((data.data ?? []).isNotEmpty) {
             List<ParcelOrder> list = List.from(state.historyOrders);
-            list.addAll(data);
+            list.addAll(data.data ?? []);
             state = state.copyWith(historyOrders: list);
             controller.loadComplete();
           } else {

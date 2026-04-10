@@ -22,7 +22,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/auth/auth.dart';
 import 'package:rokctapp/presentation/pages/auth/confirmation/register_confirmation_page.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class RegisterPage extends ConsumerStatefulWidget {
   final bool isOnlyEmail;
   final String? role;

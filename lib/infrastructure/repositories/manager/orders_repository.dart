@@ -156,6 +156,9 @@ class OrdersRepository implements OrdersInterface {
       case mgr.OrderStatus.newOrder:
         statusText = 'new';
         break;
+      case mgr.OrderStatus.open:
+        statusText = 'new';
+        break;
       case mgr.OrderStatus.accepted:
         statusText = 'accepted';
         break;

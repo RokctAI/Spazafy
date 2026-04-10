@@ -29,7 +29,7 @@ import 'widgets/product_item.dart';
 import 'widgets/restaurant_item.dart';
 import 'widgets/search_result.dart';
 
-// // // // @RoutePage()
+@RoutePage()
 class SearchPage extends ConsumerStatefulWidget {
   final bool isBackButton;
 
