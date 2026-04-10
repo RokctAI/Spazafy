@@ -3,7 +3,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart' as manager_helpers;
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class OutlinedBorderTextField extends StatelessWidget {
@@ -119,6 +119,16 @@ class OutlinedBorderTextField extends StatelessWidget {
                       ? AppStyle.bgGrey
                       : AppStyle.pendingDark,
                 ),
+              ),
+              SvgPicture.asset(
+                actionIcon ?? "assets/svgs/search.svg",
+                colorFilter: ColorFilter.mode(
+                    isError
+                        ? AppStyle.red
+                        : isSuccess
+                            ? AppStyle.green
+                            : manager_helpers.AppHelpers.getManagerColor(),
+                    BlendMode.srcIn),
               ),
             ],
           ),

@@ -234,10 +234,10 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                     ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: state.cart?.userCarts?.length ?? 0,
+                      itemCount: state.carts[widget.cartId ?? widget.shop.id.toString()]?.userCarts?.length ?? 0,
                       itemBuilder: (context, index) {
                         List<CartDetail?>? list =
-                            state.cart?.userCarts?[index].cartDetails;
+                            state.carts[widget.cartId ?? widget.shop.id.toString()]?.userCarts?[index].cartDetails;
                         num total = 0;
                         list?.forEach((element) {
                           total += element?.price ?? 0;
@@ -246,17 +246,17 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                           });
                         });
                         return GroupItem(
-                          name: state.cart?.userCarts?[index].name ?? "",
+                          name: state.carts[widget.cartId ?? widget.shop.id.toString()]?.userCarts?[index].name ?? "",
                           price: total,
                           isChoosing:
-                              state.cart?.userCarts?[index].status ?? false,
+                              state.carts[widget.cartId ?? widget.shop.id.toString()]?.userCarts?[index].status ?? false,
                           onDelete: () {
                             ref
                                 .read(shopOrderProvider.notifier)
                                 .deleteUser(context, index);
                           },
                           isDeleteButton:
-                              LocalStorage.getUser()?.id == state.cart?.ownerId
+                              LocalStorage.getUser()?.id == state.carts[widget.cartId ?? widget.shop.id.toString()]?.ownerId
                               ? index != 0
                               : false,
                         );
@@ -265,24 +265,24 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                   ],
                 ),
                 24.verticalSpace,
-                LocalStorage.getUser()?.id == state.cart?.ownerId
+                LocalStorage.getUser()?.id == state.carts[widget.cartId ?? widget.shop.id.toString()]?.ownerId
                     ? Padding(
                         padding: EdgeInsets.only(bottom: 16.h),
                         child: CustomButton(
                           title:
-                              (state.cart?.userCarts
+                              (state.carts[widget.cartId ?? widget.shop.id.toString()]?.userCarts
                                       ?.where(
                                         (element) =>
                                             element.userId ==
-                                            state.cart?.ownerId,
+                                            state.carts[widget.cartId ?? widget.shop.id.toString()]?.ownerId,
                                       )
                                       .isNotEmpty ??
                                   false)
-                              ? (state.cart?.userCarts
+                              ? (state.carts[widget.cartId ?? widget.shop.id.toString()]?.userCarts
                                             ?.where(
                                               (element) =>
                                                   element.userId ==
-                                                  state.cart?.ownerId,
+                                                  state.carts[widget.cartId ?? widget.shop.id.toString()]?.ownerId,
                                             )
                                             .single
                                             .status ??
@@ -291,39 +291,40 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                                     : AppHelpers.getTranslation(TrKeys.order)
                               : AppHelpers.getTranslation(TrKeys.order),
                           onPressed: () {
-                            if ((state.cart?.userCarts
+                            if ((state.carts[widget.cartId ?? widget.shop.id.toString()]?.userCarts
                                         ?.where(
                                           (element) =>
                                               element.userId ==
-                                              state.cart?.ownerId,
+                                              state.carts[widget.cartId ?? widget.shop.id.toString()]?.ownerId,
                                         )
                                         .isNotEmpty ??
                                     false) &&
-                                (state.cart?.userCarts
+                                (state.carts[widget.cartId ?? widget.shop.id.toString()]?.userCarts
                                         ?.where(
                                           (element) =>
                                               element.userId ==
-                                              state.cart?.ownerId,
+                                              state.carts[widget.cartId ?? widget.shop.id.toString()]?.ownerId,
                                         )
                                         .single
                                         .status ??
                                     true)) {
                               event.changeStatus(
                                 context,
-                                (state.cart?.userCarts
+                                (state.carts[widget.cartId ?? widget.shop.id.toString()])!.userCarts
                                     ?.where(
                                       (element) =>
-                                          element.userId == state.cart?.ownerId,
+                                          element.userId == state.carts[widget.cartId ?? widget.shop.id.toString()]?.ownerId,
                                     )
                                     .single
-                                    .uuid),
+                                    .uuid,
+                                widget.shop.id.toString()
                               );
                               setState(() {});
                               return;
                             }
                             bool check = false;
                             bool checkProduct = false;
-                            for (UserCart cart in state.cart!.userCarts!) {
+                            for (UserCart cart in (state.carts[widget.cartId ?? widget.shop.id.toString()])!.userCarts!) {
                               if (cart.status ?? true) {
                                 check = true;
                                 break;
@@ -342,7 +343,7 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                                   },
                                   onTap: () {
                                     for (UserCart cart
-                                        in state.cart!.userCarts!) {
+                                        in (state.carts[widget.cartId ?? widget.shop.id.toString()])!.userCarts!) {
                                       if (cart.cartDetails?.isNotEmpty ??
                                           false) {
                                         checkProduct = true;
@@ -385,19 +386,20 @@ class _GroupOrderPageState extends ConsumerState<GroupOrderScreen> {
                   ),
                   child: CustomButton(
                     title: AppHelpers.getTranslation(
-                      LocalStorage.getUser()?.id == state.cart?.ownerId
+                      LocalStorage.getUser()?.id == state.carts[widget.cartId ?? widget.shop.id.toString()]?.ownerId
                           ? TrKeys.cancel
                           : TrKeys.leaveGroup,
                     ),
                     borderColor: AppStyle.black,
                     background: AppStyle.transparent,
                     onPressed: () {
-                      if (LocalStorage.getUser()?.id == state.cart?.ownerId) {
-                        event.deleteCart(context);
+                      if (LocalStorage.getUser()?.id == state.carts[widget.cartId ?? widget.shop.id.toString()]?.ownerId) {
+                        event.deleteCart(context, widget.shop.id.toString());
                       } else {
                         event.deleteUser(
                           context,
                           0,
+                          widget.shop.id.toString(),
                           userId: ref.watch(shopProvider).userUuid,
                         );
                         ref.read(shopProvider.notifier).leaveGroup();
