@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/blog_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/blog_data.dart';
+import 'package:rokctapp/infrastructure/models/data/blog_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/order_data.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/notification_response.dart';
 
