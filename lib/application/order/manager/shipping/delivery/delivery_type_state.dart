@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 part 'delivery_type_state.freezed.dart';
 

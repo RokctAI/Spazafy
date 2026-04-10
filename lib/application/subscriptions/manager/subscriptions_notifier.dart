@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/manager_payment.dart';
 import 'package:rokctapp/domain/interface/manager_subscription.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';

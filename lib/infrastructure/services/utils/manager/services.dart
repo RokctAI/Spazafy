@@ -1,4 +1,4 @@
-export '../../constants/manager/enums.dart';
+export '../enums.dart';
 export '../../constants/tr_keys.dart';
 export 'app_helpers.dart';
 export '../local_storage.dart';

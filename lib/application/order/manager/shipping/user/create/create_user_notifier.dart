@@ -6,7 +6,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'create_user_state.dart';
 

@@ -21,7 +21,6 @@ import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
 import 'package:rokctapp/presentation/components/manager/select_date_modal.dart';
 
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 

@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/interface/notification.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'notification_state.dart';
 

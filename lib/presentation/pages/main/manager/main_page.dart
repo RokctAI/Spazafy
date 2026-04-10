@@ -28,7 +28,6 @@ import 'package:rokctapp/presentation/pages/restaurant/manager/restaurant_page.d
 import 'foods/create/create_product_modal.dart';
 import 'foods/addons/create/create_addon_modal.dart';
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';

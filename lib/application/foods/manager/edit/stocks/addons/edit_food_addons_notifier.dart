@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
@@ -12,7 +12,6 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_food_addons_state.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 

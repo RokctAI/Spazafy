@@ -10,7 +10,7 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart'
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/list_items/manager/group_extras_item.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 

@@ -5,7 +5,6 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'order_payment_state.dart';

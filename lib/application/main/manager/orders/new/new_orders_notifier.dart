@@ -13,7 +13,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'new_orders_state.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';

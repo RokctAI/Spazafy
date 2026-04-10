@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_user_state.dart';
 
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
-import 'package:rokctapp/infrastructure/services/constants/manager/enums.dart';
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/response/login_response.dart'
