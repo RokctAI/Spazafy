@@ -5,8 +5,8 @@ import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
 
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/review_data.dart';
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+
+
 
 class ProductData {
   ProductData({

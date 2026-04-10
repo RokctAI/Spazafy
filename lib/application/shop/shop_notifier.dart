@@ -25,9 +25,9 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
 import 'shop_state.dart';
-import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+
+
+
 
 class ShopNotifier extends StateNotifier<ShopState> {
   final ProductsRepositoryFacade _productsRepository;

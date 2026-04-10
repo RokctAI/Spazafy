@@ -11,7 +11,7 @@ import 'package:rokctapp/utils/products/product_utils.dart';
 import 'package:remixicon/remixicon.dart';
 import 'brand_utils.dart';
 import 'product_ui_components.dart';
-import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
+
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 // A generic product card that works with both ProductData and Product models

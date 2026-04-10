@@ -1,6 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
-    as help;
+
 import 'package:rokctapp/presentation/components/loading/manager/tab_bar_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -9,11 +8,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/foods/manager/edit/details/kitchen/edit_food_kitchens_provider.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/edit/edit_product_modal.dart';
 import 'package:rokctapp/presentation/components/bodies/manager/products_body.dart';
-import 'package:rokctapp/presentation/components/loading/manager/tab_bar_loading.dart';
+
 import 'package:rokctapp/presentation/components/tab_bars/manager/categories_tab_bar.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
 class FoodsBody extends StatelessWidget {

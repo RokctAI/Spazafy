@@ -17,9 +17,9 @@ import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'product_state.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/review_data.dart';
-import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
+
+
+
 
 class ProductNotifier extends StateNotifier<ProductState> {
   final ProductsRepositoryFacade _productsRepository;

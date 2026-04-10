@@ -9,8 +9,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/application/profile/driver/state/profile_image_state.dart';
-import 'package:rokctapp/domain/interface/driver_settings.dart';
-import 'package:rokctapp/domain/interface/driver_user.dart';
+
+
 
 class ProfileImageNotifier extends StateNotifier<ProfileImageState> {
   final UserRepository _userRepository;

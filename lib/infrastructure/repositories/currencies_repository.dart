@@ -7,7 +7,7 @@ import 'package:rokctapp/domain/interface/currencies.dart';
 
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/models/response/currencies_response.dart';
+
 
 class CurrenciesRepository implements CurrenciesRepositoryFacade {
   @override

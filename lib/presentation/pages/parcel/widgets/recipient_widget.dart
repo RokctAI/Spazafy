@@ -14,7 +14,7 @@ import 'package:rokctapp/presentation/components/text_fields/outline_bordered_te
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 import 'custom_expanded.dart';
-import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 
 class RecipientWidget extends StatelessWidget {

@@ -4,7 +4,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 
 class MainGroupItem extends StatelessWidget {
   final Group group;

@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/services/utils/navigation_extension.dart
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
-import 'package:rokctapp/infrastructure/services/utils/img_service.dart';
+
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'dart:io';
 import 'package:auto_route/auto_route.dart';

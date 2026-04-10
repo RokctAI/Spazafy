@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart'
     hide ShopData;
 

@@ -7,7 +7,7 @@ import 'order_cart_state.dart';
 
 import 'dart:convert';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 
 class OrderCartNotifier extends StateNotifier<OrderCartState> {
   OrderCartNotifier() : super(const OrderCartState());

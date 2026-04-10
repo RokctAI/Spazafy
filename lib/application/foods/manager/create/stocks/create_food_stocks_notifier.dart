@@ -10,8 +10,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'create_food_stocks_state.dart';
 
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/domain/interface/manager_products.dart';
+
+
 import 'package:rokctapp/infrastructure/models/models.dart' hide Group, Extras;
 
 class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {

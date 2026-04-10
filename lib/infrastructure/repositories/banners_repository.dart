@@ -8,7 +8,7 @@ import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
+
 
 class BannersRepository implements BannersRepositoryFacade {
   @override

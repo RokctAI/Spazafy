@@ -1,7 +1,6 @@
 import 'package:rokctapp/domain/interface/manager_notification.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
-    hide AppHelpers;
+
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/infrastructure/models/data/count_of_notifications_data.dart';
@@ -9,7 +8,7 @@ import 'package:rokctapp/infrastructure/models/response/notification_response.da
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
 class NotificationRepository implements NotificationInterface {

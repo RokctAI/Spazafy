@@ -19,7 +19,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/auth/auth.dart';
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
-import 'package:rokctapp/infrastructure/models/data/user.dart';
+
 // ignore_for_file: unused_result
 
 @RoutePage()

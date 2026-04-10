@@ -43,7 +43,7 @@ import 'reservation_shops.dart';
 import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
 import 'widgets/wallet_topup_screen.dart';
 import 'widgets/wallet_send_screen.dart';
-import 'package:rokctapp/presentation/components/badges/alert_dialog.dart';
+
 
 @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {

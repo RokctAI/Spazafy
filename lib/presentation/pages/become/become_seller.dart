@@ -14,9 +14,9 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'package:rokctapp/application/profile/profile_notifier.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/application/profile/profile_state.dart';
-import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
+
+
+
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';

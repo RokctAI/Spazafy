@@ -8,7 +8,7 @@ import 'package:uuid/uuid.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+
 
 class BackgroundSyncService {
   final AppDatabase database;

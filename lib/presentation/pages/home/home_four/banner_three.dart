@@ -10,7 +10,7 @@ import 'package:rokctapp/application/home/home_notifier.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:rokctapp/presentation/pages/home/home_four/widgets/banner_item_three.dart';
-import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
+
 
 class BannerThree extends StatefulWidget {
   final RefreshController bannerController;

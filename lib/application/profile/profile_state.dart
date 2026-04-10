@@ -4,10 +4,10 @@ import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
-import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
-import 'package:rokctapp/infrastructure/models/data/referral_data.dart';
-import 'package:rokctapp/infrastructure/models/response/wallet_histories_response.dart';
+
+
+
+
 
 import 'package:rokctapp/infrastructure/models/data/translation.dart'
     hide Translation;

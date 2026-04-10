@@ -2,7 +2,7 @@ import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'extras_group_details_state.dart';
-import 'package:rokctapp/domain/interface/manager_products.dart';
+
 
 class ExtrasGroupDetailsNotifier
     extends StateNotifier<ExtrasGroupDetailsState> {

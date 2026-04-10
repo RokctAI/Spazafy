@@ -29,7 +29,7 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'login_state.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/location.dart';
-import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+
 
 class LoginNotifier extends StateNotifier<LoginState> {
   final AuthRepositoryFacade _authRepository;

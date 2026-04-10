@@ -2,7 +2,7 @@
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
-import 'package:rokctapp/domain/interface/manager_products.dart';
+
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType;
@@ -14,8 +14,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'create_food_addons_state.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/domain/interface/manager_products.dart';
+
+
 
 class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
   final ProductsInterface _productsRepository;

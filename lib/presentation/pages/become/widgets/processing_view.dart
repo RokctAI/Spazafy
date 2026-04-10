@@ -5,7 +5,7 @@ import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/presentation/pages/restaurant/manager/widgets/logout_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';

@@ -6,12 +6,12 @@ import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
-import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
-import 'package:rokctapp/infrastructure/models/data/story_data.dart';
-import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
+
+
+
+
+
+
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
     hide CategoryData;
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;

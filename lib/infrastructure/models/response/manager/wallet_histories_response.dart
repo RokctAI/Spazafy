@@ -1,6 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/user.dart';
 import 'package:rokctapp/infrastructure/models/data/help_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/meta.dart'
+import 'package:rokctapp/infrastructure/models/data/meta.dart'
     hide Meta;
 import 'package:rokctapp/infrastructure/models/data/manager/user.dart'
     hide UserModel;

@@ -9,8 +9,8 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:flutter/material.dart';
-import 'package:rokctapp/infrastructure/models/response/blog_details_response.dart';
-import 'package:rokctapp/infrastructure/models/response/blogs_paginate_response.dart';
+
+
 
 class BlogsRepository implements BlogsRepositoryFacade {
   @override

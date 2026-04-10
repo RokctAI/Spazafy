@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'view_map_state.dart';
 

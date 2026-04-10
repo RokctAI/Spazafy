@@ -10,7 +10,6 @@ import 'package:rokctapp/domain/interface/parcel.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/domain/handlers/handlers.dart';
 
 final parcelRepositoryFacade = driverParcelRepository;
 

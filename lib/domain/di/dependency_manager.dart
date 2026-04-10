@@ -67,13 +67,13 @@ import 'package:rokctapp/domain/interface/interfaces.dart' as driver_interfaces;
 import 'package:rokctapp/domain/interface/interfaces.dart'
     as manager_interfaces;
 import 'package:rokctapp/infrastructure/repositories/driver/repositories.dart'
-    as driver_repos;
+   ;
 import 'package:rokctapp/domain/interface/manager_payment.dart';
 import 'package:rokctapp/domain/interface/manager_subscription.dart';
 import 'package:rokctapp/domain/interface/manager_table.dart';
-import 'package:rokctapp/infrastructure/repositories/auth_repository.dart';
+
 import 'package:rokctapp/infrastructure/repositories/manager/catalog_repository.dart';
-import 'package:rokctapp/infrastructure/repositories/manager/notification_repository.dart';
+
 import 'package:rokctapp/infrastructure/repositories/manager/orders_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/manager/payment_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/manager/products_repository.dart';
@@ -83,42 +83,42 @@ import 'package:rokctapp/infrastructure/repositories/manager/subscription_reposi
 import 'package:rokctapp/infrastructure/repositories/manager/table_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/manager/users_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/driver/user_repository_impl.dart';
-import 'package:rokctapp/domain/interface/address.dart';
-import 'package:rokctapp/domain/interface/auth.dart';
-import 'package:rokctapp/domain/interface/banners.dart';
-import 'package:rokctapp/domain/interface/blogs.dart';
-import 'package:rokctapp/domain/interface/brands.dart';
-import 'package:rokctapp/domain/interface/cart.dart';
-import 'package:rokctapp/domain/interface/categories.dart';
-import 'package:rokctapp/domain/interface/currencies.dart';
-import 'package:rokctapp/domain/interface/delivery_points.dart';
-import 'package:rokctapp/domain/interface/draw.dart';
+
+
+
+
+
+
+
+
+
+
 import 'package:rokctapp/domain/interface/driver_draw.dart';
 import 'package:rokctapp/domain/interface/driver_settings.dart';
 import 'package:rokctapp/domain/interface/driver_user.dart';
-import 'package:rokctapp/domain/interface/gallery.dart';
-import 'package:rokctapp/domain/interface/loans.dart';
+
+
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:rokctapp/domain/interface/manager_notification.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
-import 'package:rokctapp/domain/interface/manager_payment.dart';
+
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
 import 'package:rokctapp/domain/interface/manager_shops.dart';
-import 'package:rokctapp/domain/interface/manager_subscription.dart';
-import 'package:rokctapp/domain/interface/manager_table.dart';
+
+
 import 'package:rokctapp/domain/interface/manager_users.dart';
-import 'package:rokctapp/domain/interface/notification.dart';
-import 'package:rokctapp/domain/interface/orders.dart';
-import 'package:rokctapp/domain/interface/parcel.dart';
-import 'package:rokctapp/domain/interface/payments.dart';
-import 'package:rokctapp/domain/interface/products.dart';
-import 'package:rokctapp/domain/interface/settings.dart';
-import 'package:rokctapp/domain/interface/shops.dart';
-import 'package:rokctapp/domain/interface/user.dart';
-import 'package:rokctapp/domain/interface/wallet.dart';
+
+
+
+
+
+
+
+
+
 import 'package:rokctapp/infrastructure/repositories/manager/repositories.dart'
-    as manager_repos;
+   ;
 
 final GetIt getIt = GetIt.instance;
 
@@ -135,7 +135,7 @@ Future<void> setUpDependencies() async {
     );
     getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
     getIt.registerSingleton<driver_interfaces.UserRepository>(
-      driver_repos.UserRepositoryImpl(),
+      UserRepositoryImpl(),
     );
     getIt.registerSingleton<DrawRepositoryFacade>(cust_draw.DrawRepository());
     getIt.registerSingleton<driver_interfaces.OrdersRepositoryFacade>(
@@ -150,32 +150,32 @@ Future<void> setUpDependencies() async {
   } else if (role == 'seller') {
     getIt.registerSingleton<AuthRepositoryFacade>(AuthRepository());
     getIt.registerSingleton<manager_interfaces.TableInterface>(
-      manager_repos.TableRepository(),
+      TableRepository(),
     );
     getIt.registerSingleton<manager_interfaces.UsersInterface>(
-      manager_repos.UsersRepository(),
+      UsersRepository(),
     );
     getIt.registerSingleton<manager_interfaces.ShopsInterface>(
-      manager_repos.ShopsRepository(),
+      ShopsRepository(),
     );
     getIt.registerSingleton<manager_interfaces.OrdersInterface>(
-      manager_repos.OrdersRepository(),
+      OrdersRepository(),
     );
     getIt.registerSingleton<manager_interfaces.CatalogInterface>(
-      manager_repos.CatalogRepository(),
+      CatalogRepository(),
     );
     getIt.registerSingleton<manager_interfaces.SettingsInterface>(
-      manager_repos.SettingsRepository(),
+      SettingsRepository(),
     );
     getIt.registerSingleton<manager_interfaces.ProductsInterface>(
-      manager_repos.ProductsRepository(),
+      ProductsRepository(),
     );
     getIt.registerSingleton<manager_interfaces.NotificationInterface>(
-      manager_repos.NotificationRepository(),
+      NotificationRepository(),
     );
-    getIt.registerSingleton<PaymentsFacade>(manager_repos.PaymentRepository());
+    getIt.registerSingleton<PaymentsFacade>(PaymentRepository());
     getIt.registerSingleton<SubscriptionsFacade>(
-      manager_repos.SubscriptionsRepository(),
+      SubscriptionsRepository(),
     );
   }
 

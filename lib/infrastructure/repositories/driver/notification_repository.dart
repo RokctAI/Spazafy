@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/models/data/count_of_notifications_data.
 import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/domain/handlers/driver/handlers.dart';
+
 import 'package:rokctapp/domain/interface/notification.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';

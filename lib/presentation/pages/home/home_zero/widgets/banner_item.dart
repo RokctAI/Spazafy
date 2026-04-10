@@ -7,7 +7,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'banner_screen.dart';
-import 'package:rokctapp/infrastructure/models/response/banners_paginate_response.dart';
+
 
 class BannerItem extends StatelessWidget {
   final BannerData banner;

@@ -16,7 +16,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
 import 'edit_profile_state.dart';
-import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
+
 
 class EditProfileNotifier extends StateNotifier<EditProfileState> {
   final UserRepositoryFacade _userRepository;

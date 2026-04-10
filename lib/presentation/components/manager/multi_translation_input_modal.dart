@@ -1,8 +1,7 @@
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/models/data/language.dart';
+import 'package:rokctapp/infrastructure/models/data/language_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +12,6 @@ import 'package:collection/collection.dart';
 import 'package:rokctapp/application/ai_translation/manager/ai_translation_provider.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart'
     hide LanguageData;
-import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
@@ -23,7 +19,6 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart'
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
-import 'package:rokctapp/infrastructure/models/data/language.dart';
 import 'package:rokctapp/infrastructure/models/request/manager/ai_translation_request.dart';
 
 class MultiTranslationInputModal extends ConsumerStatefulWidget {

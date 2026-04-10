@@ -6,7 +6,7 @@ import 'package:rokctapp/presentation/components/bodies/manager/products_body.da
 import 'package:rokctapp/presentation/components/list_items/manager/food_item.dart';
 import 'package:rokctapp/presentation/components/list_items/manager/order_food_item.dart';
 import 'package:rokctapp/presentation/components/loading/manager/loading_list.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+
 
 class ProductsBody extends StatelessWidget {
   final RefreshController refreshController;

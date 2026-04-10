@@ -19,10 +19,10 @@ import 'package:rokctapp/domain/interface/gallery.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'profile_state.dart';
-import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+
 import 'package:rokctapp/infrastructure/models/data/location.dart';
-import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
-import 'package:rokctapp/infrastructure/models/response/wallet_histories_response.dart';
+
+
 
 class ProfileNotifier extends StateNotifier<ProfileState> {
   final UserRepositoryFacade _userRepository;

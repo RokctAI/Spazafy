@@ -8,10 +8,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
-import 'package:rokctapp/infrastructure/models/data/brand_data.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
-import 'package:rokctapp/infrastructure/models/response/branches_response.dart';
+
+
+
+
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
     hide CategoryData;
 part 'shop_state.freezed.dart';

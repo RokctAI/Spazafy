@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'statistics_state.dart';
-import 'package:rokctapp/domain/interface/driver_user.dart';
+
 
 class StatisticsNotifier extends StateNotifier<StatisticsState> {
   final UserRepository _userRepository;

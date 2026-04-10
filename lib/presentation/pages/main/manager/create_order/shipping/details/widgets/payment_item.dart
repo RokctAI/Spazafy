@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';

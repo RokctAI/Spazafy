@@ -12,8 +12,8 @@ import 'package:rokctapp/domain/interface/products.dart';
 import 'products_state.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
+
+
 
 class ProductsNotifier extends StateNotifier<ProductsState> {
   final ProductsInterface _productsRepository;

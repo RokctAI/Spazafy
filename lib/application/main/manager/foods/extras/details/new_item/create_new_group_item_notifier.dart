@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'create_new_group_item_state.dart';
-import 'package:rokctapp/domain/interface/manager_products.dart';
+
 
 class CreateNewGroupItemNotifier
     extends StateNotifier<CreateNewGroupItemState> {

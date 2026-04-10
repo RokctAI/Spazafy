@@ -1,14 +1,14 @@
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/domain/interface/manager_products.dart';
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'foods_state.dart';
 
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/domain/interface/manager_products.dart';
+
+
 
 class FoodsNotifier extends StateNotifier<FoodsState> {
   final ProductsInterface _productsRepository;

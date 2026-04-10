@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart'
-    as driver;
+   ;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/models/data/address_information.dart';
@@ -73,7 +73,7 @@ abstract class LocalStorage {
     return ProfileData.fromJson(map);
   }
 
-  static driver.UserData? getDriver() {
+  static UserData? getDriver() {
     final savedString = _preferences?.getString(StorageKeys.keyUser);
     if (savedString == null) {
       return null;
@@ -82,7 +82,7 @@ abstract class LocalStorage {
     if (map == null) {
       return null;
     }
-    return driver.UserData.fromJson(map);
+    return UserData.fromJson(map);
   }
 
   static void _deleteUser() => _preferences?.remove(StorageKeys.keyUser);

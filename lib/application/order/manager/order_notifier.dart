@@ -1,13 +1,13 @@
 import 'package:rokctapp/domain/interface/manager_orders.dart';
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
-import 'package:rokctapp/domain/interface/manager_orders.dart';
+
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'order_state.dart';
 
-import 'package:rokctapp/infrastructure/models/data/order_data.dart';
-import 'package:rokctapp/domain/interface/manager_orders.dart';
+
+
 
 class OrderNotifier extends StateNotifier<OrderState> {
   final OrdersInterface _ordersRepository;

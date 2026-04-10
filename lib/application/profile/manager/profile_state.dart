@@ -3,9 +3,9 @@ import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
 import 'package:rokctapp/infrastructure/models/data/referral_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/data/referral_data.dart';
+
 import 'package:rokctapp/infrastructure/models/response/login_response.dart';
-import 'package:rokctapp/infrastructure/models/response/wallet_histories_response.dart';
+
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 part 'profile_state.freezed.dart';
 

@@ -1,4 +1,3 @@
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import 'package:rokctapp/presentation/app_assets.dart';
 import 'package:rokctapp/presentation/components/list_items/manager/category_tab_bar_item.dart';
 import 'package:rokctapp/presentation/components/tab_bars/manager/categories_tab_bar.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 

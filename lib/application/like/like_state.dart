@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+
 
 part 'like_state.freezed.dart';
 

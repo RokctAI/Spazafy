@@ -13,8 +13,8 @@ import 'package:rokctapp/infrastructure/models/response/manager/calculate_respon
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
-import 'package:rokctapp/infrastructure/models/response/products_paginate_response.dart';
-import 'package:rokctapp/infrastructure/models/response/single_product_response.dart';
+
+
 
 abstract class ProductsInterface {
   Future<ApiResult<void>> deleteExtrasGroup({String? groupId});

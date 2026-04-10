@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rokctapp/infrastructure/models/data/order_data.dart';
+
 
 part 'on_a_way_orders_state.freezed.dart';
 

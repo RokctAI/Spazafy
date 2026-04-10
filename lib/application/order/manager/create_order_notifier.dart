@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'create_order_state.dart';
 
 import 'package:rokctapp/infrastructure/models/response/login_response.dart';
-import 'package:rokctapp/domain/interface/manager_orders.dart';
+
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 
 class CreateOrderNotifier extends StateNotifier<CreateOrderState> {

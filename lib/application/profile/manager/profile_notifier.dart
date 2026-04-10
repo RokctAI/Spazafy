@@ -12,16 +12,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+
+
+
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
 import 'profile_state.dart';
 import 'package:rokctapp/infrastructure/models/response/login_response.dart';
-import 'package:rokctapp/domain/interface/manager_settings.dart';
-import 'package:rokctapp/domain/interface/manager_shops.dart';
-import 'package:rokctapp/domain/interface/manager_users.dart';
+
+
+
 
 class ProfileNotifier extends StateNotifier<ProfileState> {
   final SettingsInterface _settingsRepository;

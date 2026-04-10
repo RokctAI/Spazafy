@@ -1,7 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
-    as help;
-import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
+
+
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -12,8 +11,8 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart';
 
-import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
+
+
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
 @RoutePage()

@@ -16,8 +16,8 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/domain/interface/draw.dart';
 import 'parcel_state.dart';
-import 'package:rokctapp/infrastructure/models/data/location.dart';
-import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
+
+
 
 class ParcelNotifier extends StateNotifier<ParcelState> {
   final ParcelRepositoryFacade _parcelRepository;

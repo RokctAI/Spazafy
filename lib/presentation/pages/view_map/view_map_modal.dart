@@ -18,7 +18,7 @@ import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
 import 'package:rokctapp/presentation/components/text_fields/search_text_field.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
+
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 
 class ViewMapModal extends ConsumerStatefulWidget {

@@ -10,12 +10,12 @@ import 'package:rokctapp/domain/interface/manager_payment.dart';
 import 'package:rokctapp/domain/interface/manager_subscription.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+
+
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
 import 'subscriptions_state.dart';
-import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
+
 
 class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
   final SubscriptionsFacade _subscriptionRepository;

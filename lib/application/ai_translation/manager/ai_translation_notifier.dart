@@ -5,7 +5,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart'
     hide LanguageData;
 import 'ai_translation_state.dart';
-import 'package:rokctapp/infrastructure/models/data/language.dart';
+import 'package:rokctapp/infrastructure/models/data/language_data.dart';
 
 final settingsRepository = managerSettingsRepository;
 
