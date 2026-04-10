@@ -211,9 +211,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     DateTime? end,
   }) async {
     state = state.copyWith(historyOrders: [], isHistoryLoading: true);
-    final response = await _parcelRepo.getHistoryParcel(
-      1,
-    );
+    final response = await _parcelRepo.getHistoryParcel(1);
     response.when(
       success: (data) {
         state = state.copyWith(historyOrders: data, isHistoryLoading: false);
