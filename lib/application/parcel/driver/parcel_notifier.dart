@@ -85,7 +85,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     final response = await _parcelRepo.getActiveParcel(1);
     response.when(
       success: (data) {
-        state = state.copyWith(activeOrders: data, isActiveLoading: false);
+        state = state.copyWith(activeOrders: data.data ?? [], isActiveLoading: false);
       },
       failure: (failure, status) {
         state = state.copyWith(isActiveLoading: false);
@@ -104,7 +104,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     response.when(
       success: (data) {
         state = state.copyWith(
-          availableOrders: data,
+          availableOrders: data.data ?? [],
           isAvailableLoading: false,
         );
       },
@@ -133,12 +133,12 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     response.when(
       success: (data) {
         if (isRefresh) {
-          state = state.copyWith(activeOrders: data);
+          state = state.copyWith(activeOrders: data.data ?? []);
           controller.refreshCompleted();
         } else {
-          if (data.isNotEmpty) {
+          if ((data.data ?? []).isNotEmpty) {
             List<ParcelOrder> list = List.from(state.activeOrders);
-            list.addAll(data);
+            list.addAll(data.data ?? []);
             state = state.copyWith(activeOrders: list);
             controller.loadComplete();
           } else {
@@ -176,12 +176,12 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     response.when(
       success: (data) {
         if (isRefresh) {
-          state = state.copyWith(availableOrders: data);
+          state = state.copyWith(availableOrders: data.data ?? []);
           controller.refreshCompleted();
         } else {
-          if (data.isNotEmpty) {
+          if ((data.data ?? []).isNotEmpty) {
             List<ParcelOrder> list = List.from(state.availableOrders);
-            list.addAll(data);
+            list.addAll(data.data ?? []);
             state = state.copyWith(availableOrders: list);
             controller.loadComplete();
           } else {
@@ -216,7 +216,7 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     );
     response.when(
       success: (data) {
-        state = state.copyWith(historyOrders: data, isHistoryLoading: false);
+        state = state.copyWith(historyOrders: data.data ?? [], isHistoryLoading: false);
       },
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: true);

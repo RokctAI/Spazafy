@@ -30,7 +30,7 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         ref
             .read(orderProvider.notifier)
-            .showOrder(context, widget.order.id ?? 0);
+            .showOrder(context, int.tryParse(widget.order.id?.toString() ?? '0') ?? 0);
       });
     }
     super.initState();
@@ -75,12 +75,12 @@ class _FoodsPageState extends ConsumerState<FoodsPage> {
                                             .order
                                             .details?[index]
                                             .stock
-                                            ?.product)
+                                            ?.product as dynamic)
                                       : (state
                                             .order
                                             ?.details?[index]
                                             .stock
-                                            ?.product),
+                                            ?.product as dynamic),
                                   amount: hasData
                                       ? (widget.order.details?[index].quantity)
                                       : (state.order?.details?[index].quantity),
