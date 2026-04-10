@@ -11,5 +11,5 @@ export 'img_service.dart';
 export 'marker_image_cropper.dart';
 export '../../constants/storage_keys.dart';
 export '../time_service.dart';
-// export '../tpying_delay.dart'; // NOT FOUND IN PROJECT
+export '../typing_delay.dart'; 
 export '../../../../app_constants.dart';
