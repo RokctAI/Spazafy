@@ -41,6 +41,7 @@ export 'package:rokctapp/infrastructure/models/data/shop_delivery.dart';
 export 'package:rokctapp/infrastructure/models/response/single_address_response.dart';
 export 'package:rokctapp/infrastructure/models/data/chat_message_data.dart';
 export 'package:rokctapp/infrastructure/models/response/mobile_translations_response.dart';
+export 'package:rokctapp/infrastructure/models/data/language_data.dart';
 export 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 export 'package:rokctapp/infrastructure/models/response/shop_deliveries_response.dart';
 export 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
@@ -64,3 +65,4 @@ export 'package:rokctapp/infrastructure/models/data/story_data.dart';
 export 'package:rokctapp/infrastructure/models/response/tag_response.dart' hide Data;
 export 'package:rokctapp/infrastructure/models/data/cashback_model.dart';
 export 'package:rokctapp/infrastructure/models/response/multi_gallery_upload_response.dart';
+
