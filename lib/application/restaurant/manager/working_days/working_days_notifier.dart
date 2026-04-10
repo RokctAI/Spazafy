@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'working_days_state.dart';
 
-
 class WorkingDaysNotifier extends StateNotifier<WorkingDaysState> {
   final UsersInterface _usersRepository;
 

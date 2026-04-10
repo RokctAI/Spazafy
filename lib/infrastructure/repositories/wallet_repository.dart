@@ -10,8 +10,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/models/data/wallet_data.dart';
 
-
-
 // Copyright (c) 2024 RokctAI
 //
 // This program is free software: you can redistribute it and/or modify

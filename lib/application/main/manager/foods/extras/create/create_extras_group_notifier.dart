@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'create_extras_group_state.dart';
 
-
 class CreateExtrasGroupNotifier extends StateNotifier<CreateExtrasGroupState> {
   final ProductsInterface _productsRepository;
   String _title = '';

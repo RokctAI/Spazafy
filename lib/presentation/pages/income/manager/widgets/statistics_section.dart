@@ -1,11 +1,9 @@
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'statistics_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-
 
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'package:rokctapp/presentation/components/manager/title_icon.dart';

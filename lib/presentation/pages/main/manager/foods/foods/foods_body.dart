@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/components/bodies/manager/products_body.da
 import 'package:rokctapp/presentation/components/tab_bars/manager/categories_tab_bar.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
 class FoodsBody extends StatelessWidget {
