@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:rokctapp/infrastructure/models/data/language_data.dart';
 import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 part 'login_state.freezed.dart';
 
