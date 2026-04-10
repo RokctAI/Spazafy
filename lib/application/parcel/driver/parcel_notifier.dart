@@ -85,7 +85,10 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     final response = await _parcelRepo.getActiveParcel(1);
     response.when(
       success: (data) {
-        state = state.copyWith(activeOrders: data.data ?? [], isActiveLoading: false);
+        state = state.copyWith(
+          activeOrders: data.data ?? [],
+          isActiveLoading: false,
+        );
       },
       failure: (failure, status) {
         state = state.copyWith(isActiveLoading: false);
@@ -211,12 +214,13 @@ class ParcelNotifier extends StateNotifier<ParcelState> {
     DateTime? end,
   }) async {
     state = state.copyWith(historyOrders: [], isHistoryLoading: true);
-    final response = await _parcelRepo.getHistoryParcel(
-      1,
-    );
+    final response = await _parcelRepo.getHistoryParcel(1);
     response.when(
       success: (data) {
-        state = state.copyWith(historyOrders: data.data ?? [], isHistoryLoading: false);
+        state = state.copyWith(
+          historyOrders: data.data ?? [],
+          isHistoryLoading: false,
+        );
       },
       failure: (failure, status) {
         state = state.copyWith(isHistoryLoading: true);
