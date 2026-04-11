@@ -1,5 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/order_data.dart'
-    hide OrderData;
+import 'package:rokctapp/infrastructure/models/data/manager/order_data.dart';
 
 class OrdersPaginateResponse {
   OrdersPaginateResponse({OrderResponseData? data}) {

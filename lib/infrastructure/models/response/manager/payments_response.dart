@@ -1,5 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/payment_data.dart'
-    hide PaymentData;
+import 'package:rokctapp/infrastructure/models/data/manager/payment_data.dart';
 
 class PaymentsResponse {
   PaymentsResponse({List<PaymentData>? data}) {
