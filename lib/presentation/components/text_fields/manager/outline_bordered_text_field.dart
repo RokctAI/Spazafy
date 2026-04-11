@@ -121,12 +121,13 @@ class OutlinedBorderTextField extends StatelessWidget {
               SvgPicture.asset(
                 actionIcon ?? "assets/svgs/search.svg",
                 colorFilter: ColorFilter.mode(
-                    isError
-                        ? AppStyle.red
-                        : isSuccess
-                            ? AppStyle.green
-                            : AppHelpers.getManagerColor(),
-                    BlendMode.srcIn),
+                  isError
+                      ? AppStyle.red
+                      : isSuccess
+                      ? AppStyle.green
+                      : AppHelpers.getManagerColor(),
+                  BlendMode.srcIn,
+                ),
               ),
             ],
           ),
@@ -143,4 +144,3 @@ class OutlinedBorderTextField extends StatelessWidget {
     );
   }
 }
-

@@ -108,4 +108,3 @@ class LogoAndNameSection extends StatelessWidget {
     );
   }
 }
-

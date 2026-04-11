@@ -119,4 +119,3 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
     _title = value.trim();
   }
 }
-

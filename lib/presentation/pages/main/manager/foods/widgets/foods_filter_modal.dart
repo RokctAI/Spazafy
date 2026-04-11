@@ -11,8 +11,6 @@ import 'package:rokctapp/presentation/components/buttons/manager/custom_button.d
 import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
 import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
 
-
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FoodsFilterModal extends ConsumerStatefulWidget {
@@ -260,4 +258,3 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //   );
   // }
 }
-

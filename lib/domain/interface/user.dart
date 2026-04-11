@@ -6,10 +6,6 @@ import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-
-
-
-
 abstract class UserRepositoryFacade {
   Future<ApiResult<ProfileResponse>> getProfileDetails();
 

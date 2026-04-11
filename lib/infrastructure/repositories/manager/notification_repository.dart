@@ -116,4 +116,3 @@ class NotificationRepository implements NotificationInterface {
     }
   }
 }
-

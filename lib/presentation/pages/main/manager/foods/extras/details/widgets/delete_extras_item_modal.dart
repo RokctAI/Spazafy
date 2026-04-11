@@ -91,4 +91,3 @@ class DeleteExtrasItemModal extends StatelessWidget {
     );
   }
 }
-

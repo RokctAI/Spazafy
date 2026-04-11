@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -97,4 +96,3 @@ class IngredientItem extends ConsumerWidget {
     );
   }
 }
-

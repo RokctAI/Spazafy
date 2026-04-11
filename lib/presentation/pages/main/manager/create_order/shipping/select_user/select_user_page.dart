@@ -1,6 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
 
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +14,6 @@ import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart
 import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
 import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/search_text_field.dart';
-
-
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
@@ -141,4 +138,3 @@ class _SelectUserPageState extends ConsumerState<SelectUserPage> {
     );
   }
 }
-
