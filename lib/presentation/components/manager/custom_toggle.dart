@@ -93,4 +93,3 @@ class _CustomToggleState extends State<CustomToggle> {
     );
   }
 }
-

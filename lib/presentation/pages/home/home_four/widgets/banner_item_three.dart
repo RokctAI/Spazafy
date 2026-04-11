@@ -8,7 +8,6 @@ import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/pages/home/home_four/widgets/banner_screen.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
-
 class BannerItemThree extends StatelessWidget {
   final BannerData banner;
 

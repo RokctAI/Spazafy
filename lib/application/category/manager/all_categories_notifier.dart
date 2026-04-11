@@ -237,4 +237,3 @@ class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {
     );
   }
 }
-

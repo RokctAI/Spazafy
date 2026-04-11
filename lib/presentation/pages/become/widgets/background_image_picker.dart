@@ -166,4 +166,3 @@ class BackgroundImagePicker extends StatelessWidget {
     );
   }
 }
-

@@ -1,6 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
-
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
@@ -19,10 +18,7 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart'
 import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 
-
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-
 
 class EditAddonModal extends StatefulWidget {
   final ProductData addon;
@@ -243,4 +239,3 @@ class _EditAddonModalState extends State<EditAddonModal> {
     );
   }
 }
-

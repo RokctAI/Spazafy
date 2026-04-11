@@ -10,12 +10,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
-
-
-
 
 class CatalogRepository implements CatalogInterface {
   @override
@@ -210,4 +206,3 @@ class CatalogRepository implements CatalogInterface {
     }
   }
 }
-

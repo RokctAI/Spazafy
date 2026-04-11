@@ -11,7 +11,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 
-
 class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
   final OrdersInterface _ordersRepository;
 
@@ -74,4 +73,3 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
     );
   }
 }
-

@@ -106,4 +106,3 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
     }
   }
 }
-
