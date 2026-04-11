@@ -3,7 +3,6 @@ import 'package:rokctapp/infrastructure/models/response/banners_paginate_respons
 
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-
 abstract class BannersRepositoryFacade {
   Future<ApiResult<BannersPaginateResponse>> getBannersPaginate({
     required int page,

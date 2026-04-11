@@ -9,10 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'restaurant_state.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-
-
 
 class RestaurantNotifier extends StateNotifier<RestaurantState> {
   final UsersInterface _usersRepository;
@@ -174,4 +171,3 @@ class RestaurantNotifier extends StateNotifier<RestaurantState> {
     _usersRepository.setOnlineOffline();
   }
 }
-

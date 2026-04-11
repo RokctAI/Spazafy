@@ -87,4 +87,3 @@ class ProcessingView extends StatelessWidget {
     );
   }
 }
-

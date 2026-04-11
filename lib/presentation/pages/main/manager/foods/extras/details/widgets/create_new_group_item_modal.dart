@@ -14,7 +14,6 @@ import 'package:rokctapp/presentation/components/text_fields/manager/underlined_
 
 import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class CreateNewGroupItemModal extends StatefulWidget {
@@ -86,4 +85,3 @@ class _CreateNewGroupItemModalState extends State<CreateNewGroupItemModal> {
     );
   }
 }
-

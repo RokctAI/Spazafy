@@ -73,4 +73,3 @@ class AppbarScreen extends StatelessWidget {
     );
   }
 }
-

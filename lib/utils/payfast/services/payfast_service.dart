@@ -13,7 +13,6 @@ import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
-
 /// PayFast integration service
 class PayFastService {
   /// Generates a PayFast payment URL with proper signature

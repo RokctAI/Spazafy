@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
@@ -10,8 +9,6 @@ import 'package:rokctapp/presentation/components/buttons/manager/custom_button.d
 import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
-
-
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
@@ -80,4 +77,3 @@ class _CreateExtrasGroupModalState extends State<CreateExtrasGroupModal> {
     );
   }
 }
-

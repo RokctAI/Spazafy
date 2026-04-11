@@ -46,4 +46,3 @@ class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
     _title = value.trim();
   }
 }
-

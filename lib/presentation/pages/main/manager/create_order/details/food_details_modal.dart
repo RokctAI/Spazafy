@@ -1,6 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 import 'dart:io';
@@ -17,10 +16,8 @@ import 'package:rokctapp/presentation/components/helper/manager/common_image.dar
 import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'widgets/w_ingredient.dart';
-
 
 class FoodDetailsModal extends ConsumerStatefulWidget {
   final ProductData product;
@@ -260,4 +257,3 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
     );
   }
 }
-

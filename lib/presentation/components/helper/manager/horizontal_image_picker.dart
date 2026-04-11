@@ -194,4 +194,3 @@ class HorizontalImagePicker extends StatelessWidget {
     );
   }
 }
-
