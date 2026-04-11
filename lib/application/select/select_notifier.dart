@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'select_state.dart';
+import 'package:rokctapp/application/select/select_state.dart';
 
 class SelectNotifier extends StateNotifier<SelectState> {
   SelectNotifier() : super(const SelectState());

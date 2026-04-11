@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'products_state.dart';
+import 'package:rokctapp/application/product/driver/products_state.dart';
 
 class ProductsNotifier extends StateNotifier<ProductsState> {
   ProductsNotifier() : super(const ProductsState());

@@ -10,7 +10,7 @@ import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'notification_page.dart';
+import 'package:rokctapp/presentation/pages/setting/notification_page.dart';
 
 @RoutePage()
 class SettingPage extends ConsumerStatefulWidget {

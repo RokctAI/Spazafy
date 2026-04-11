@@ -1,4 +1,4 @@
-import 'user.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
 
 class ReviewData {
   ReviewData({

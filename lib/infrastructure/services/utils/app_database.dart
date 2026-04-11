@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/table_bookings_data.dart';
+import 'package:rokctapp/infrastructure/models/data/table_bookings_data.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'package:drift/drift.dart';
@@ -8,7 +8,7 @@ import 'package:path/path.dart' as p;
 import 'package:sqlite3/sqlite3.dart';
 import 'package:sqlite3_flutter_libs/sqlite3_flutter_libs.dart';
 import 'package:uuid/uuid.dart';
-import 'drift_tables.dart';
+import 'package:rokctapp/infrastructure/services/utils/drift_tables.dart';
 part 'app_database.g.dart';
 
 @DriftDatabase(

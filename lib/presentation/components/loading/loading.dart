@@ -1,27 +1,20 @@
-import 'dart:io' show Platform;
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'dart:io' show Platform;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class Loading extends StatelessWidget {
-  final int width;
+  final Color bgColor;
 
-  const Loading({super.key, this.width = 24});
+  const Loading({super.key, this.bgColor = AppStyle.textGrey});
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Platform.isAndroid
-          ? SizedBox(
-              height: width.r,
-              width: width.r,
-              child: CircularProgressIndicator(
-                color: AppStyle.blackColor,
-                strokeWidth: 3.r,
-              ),
-            )
-          : const CupertinoActivityIndicator(radius: 12),
+          ? const CircularProgressIndicator(color: AppStyle.primary)
+          : CupertinoActivityIndicator(color: bgColor, radius: 12),
     );
   }
 }

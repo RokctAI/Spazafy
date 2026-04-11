@@ -19,8 +19,8 @@ import 'package:rokctapp/presentation/components/manager/multi_translation_input
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/create/details/create_food_kitchens_modal.dart';
-import 'food_categories_modal.dart';
-import 'create_food_units_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/create/details/food_categories_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/create/details/create_food_units_modal.dart';
 
 class CreateFoodDetailsBody extends StatefulWidget {
   final Function() onSave;

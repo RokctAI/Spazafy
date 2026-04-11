@@ -13,10 +13,10 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:proste_indexed_stack/proste_indexed_stack.dart';
-import 'foods/foods_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/foods_page.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'orders/orders_home_page.dart';
-import 'billing/home_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/orders/orders_home_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/billing/home_page.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 import 'package:rokctapp/presentation/components/helper/blur_wrap.dart';
 import 'package:rokctapp/presentation/components/helper/common_image.dart';
@@ -24,13 +24,13 @@ import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
 import 'package:rokctapp/presentation/pages/main/widgets/bottom_navigator_item.dart';
 import 'package:rokctapp/presentation/pages/restaurant/manager/restaurant_page.dart';
 
-import 'foods/create/create_product_modal.dart';
-import 'foods/addons/create/create_addon_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/create/create_product_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/addons/create/create_addon_modal.dart';
 
 
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'foods/extras/create/create_extras_group_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/extras/create/create_extras_group_modal.dart';
 
 @RoutePage()
 class ManagerMainPage extends StatefulWidget {

@@ -9,7 +9,7 @@ import 'package:rokctapp/presentation/components/helper/common_image.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'checkout_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/billing/checkout_page.dart';
 
 class ManagerBillingPage extends ConsumerStatefulWidget {
   const ManagerBillingPage({super.key});

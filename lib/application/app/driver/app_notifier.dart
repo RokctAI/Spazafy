@@ -4,7 +4,7 @@ import 'package:rokctapp/infrastructure/models/models_driver.dart'
     hide LanguageData;
 import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'app_state.dart';
+import 'package:rokctapp/application/app/driver/app_state.dart';
 
 class AppNotifier extends StateNotifier<AppState> {
   AppNotifier() : super(const AppState()) {

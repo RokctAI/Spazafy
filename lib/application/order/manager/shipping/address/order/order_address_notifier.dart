@@ -1,7 +1,7 @@
-import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location_data.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'order_address_state.dart';
+import 'package:rokctapp/application/order/manager/shipping/address/order/order_address_state.dart';
 
 class OrderAddressNotifier extends StateNotifier<OrderAddressState> {
   OrderAddressNotifier()

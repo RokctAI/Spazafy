@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'food_tabs_state.dart';
+import 'package:rokctapp/application/main/manager/foods/tabs/food_tabs_state.dart';
 
 class FoodTabsNotifier extends StateNotifier<FoodTabsState> {
   FoodTabsNotifier() : super(const FoodTabsState());

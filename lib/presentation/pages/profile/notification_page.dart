@@ -15,7 +15,7 @@ import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/image/custom_network_image.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 // ignore_for_file: deprecated_member_use

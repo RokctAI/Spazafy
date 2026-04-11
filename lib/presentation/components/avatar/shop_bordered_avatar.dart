@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'blur_wrap.dart';
+import 'package:rokctapp/presentation/components/helper/blur_wrap.dart';
 import 'common_image.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 

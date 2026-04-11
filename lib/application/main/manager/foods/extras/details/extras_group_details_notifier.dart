@@ -1,7 +1,7 @@
 import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'extras_group_details_state.dart';
+import 'package:rokctapp/application/main/manager/foods/extras/details/extras_group_details_state.dart';
 
 
 class ExtrasGroupDetailsNotifier

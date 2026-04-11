@@ -26,7 +26,7 @@ import 'package:rokctapp/infrastructure/services/utils/background_sync_service.d
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 import 'dart:convert';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'login_state.dart';
+import 'package:rokctapp/application/auth/login/login_state.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 

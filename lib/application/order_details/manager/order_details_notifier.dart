@@ -5,11 +5,10 @@ import 'package:rokctapp/infrastructure/models/data/order_data.dart'
     hide OrderData;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'order_details_state.dart';
+import 'package:rokctapp/application/order_details/manager/order_details_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide OrderData;
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
-import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 
 
 class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {

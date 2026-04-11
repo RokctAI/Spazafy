@@ -13,7 +13,7 @@ import 'package:rokctapp/application/parcel/driver/parcel_provider.dart';
 import 'package:rokctapp/presentation/pages/parcel/driver/parcel_item.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/exports/components_driver.dart';
-import 'package:rokctapp/presentation/components/driver/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 // // // @RoutePage()

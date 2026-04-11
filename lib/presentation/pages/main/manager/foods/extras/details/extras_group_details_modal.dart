@@ -9,16 +9,16 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'widgets/edit_extras_item_modal.dart';
-import 'widgets/delete_extras_item_modal.dart';
-import 'widgets/group_detail_extras_item.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/extras/details/widgets/edit_extras_item_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/extras/details/widgets/delete_extras_item_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/extras/details/widgets/group_detail_extras_item.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/extras/delete/delete_extras_group_modal.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/extras/update/update_extras_group_modal.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
-import 'widgets/create_new_group_item_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/extras/details/widgets/create_new_group_item_modal.dart';
 
 
 

@@ -30,4 +30,4 @@ export 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/s
 export 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/select_section/select_section_page.dart';
 export 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/select_table/select_table_page.dart';
 export 'package:rokctapp/presentation/pages/restaurant/manager/subscriptions/subscriptions_page.dart';
-export 'package:rokctapp/presentation/components/manager/web_view_page.dart';
+export 'package:rokctapp/presentation/components/webview/web_view_page.dart';

@@ -1,5 +1,5 @@
-import 'image_data.dart';
-import 'user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/image_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user_data.dart';
 
 class ReviewData {
   ReviewData({

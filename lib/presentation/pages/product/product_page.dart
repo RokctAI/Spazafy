@@ -23,10 +23,10 @@ import 'package:rokctapp/presentation/pages/product/widgets/w_ingredient.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/shop/shop_state.dart';
 import 'package:rokctapp/presentation/pages/stores/widgets/bonus_screen.dart';
-import 'widgets/images_list_one.dart';
-import 'widgets/p_main_button.dart';
-import 'widgets/w_product_extras.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/pages/product/widgets/images_list_one.dart';
+import 'package:rokctapp/presentation/pages/product/widgets/p_main_button.dart';
+import 'package:rokctapp/presentation/pages/product/widgets/w_product_extras.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 
 class ProductScreen extends ConsumerStatefulWidget {
   final ProductData? data;

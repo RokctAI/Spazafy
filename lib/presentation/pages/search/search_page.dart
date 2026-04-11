@@ -22,12 +22,12 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/search/search_notifier.dart';
 import 'package:rokctapp/application/search/search_provider.dart';
 import 'package:rokctapp/application/main/main_provider.dart';
-import 'shimmer/category_shimmer.dart';
-import 'shimmer/search_product_shimmer.dart';
-import 'shimmer/search_shop_shimmer.dart';
-import 'widgets/product_item.dart';
-import 'widgets/restaurant_item.dart';
-import 'widgets/search_result.dart';
+import 'package:rokctapp/presentation/pages/search/shimmer/category_shimmer.dart';
+import 'package:rokctapp/presentation/pages/search/shimmer/search_product_shimmer.dart';
+import 'package:rokctapp/presentation/pages/search/shimmer/search_shop_shimmer.dart';
+import 'package:rokctapp/presentation/pages/search/widgets/product_item.dart';
+import 'package:rokctapp/presentation/pages/search/widgets/restaurant_item.dart';
+import 'package:rokctapp/presentation/pages/search/widgets/search_result.dart';
 
 @RoutePage()
 class SearchPage extends ConsumerStatefulWidget {

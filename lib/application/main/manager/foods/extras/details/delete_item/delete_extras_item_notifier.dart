@@ -4,7 +4,7 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'delete_extras_item_state.dart';
+import 'package:rokctapp/application/main/manager/foods/extras/details/delete_item/delete_extras_item_state.dart';
 
 
 class DeleteExtrasItemNotifier extends StateNotifier<DeleteExtrasItemState> {

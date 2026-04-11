@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'addons_data.dart';
-import 'product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 CartModel cartFromJson(String str) => CartModel.fromJson(json.decode(str));
 

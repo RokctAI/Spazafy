@@ -1,4 +1,4 @@
-import 'address_information.dart';
+import 'package:rokctapp/infrastructure/models/data/address_information.dart';
 
 class AddressNewModel {
   String? id;

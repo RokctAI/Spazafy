@@ -8,7 +8,6 @@ import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/components/toggle/manager_custom_toggle.dart';
 import 'package:rokctapp/presentation/components/manager/multi_translation_input_modal.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +21,8 @@ import 'package:rokctapp/application/foods/manager/edit/details/kitchen/edit_foo
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/edit/details/edit_food_kitchens_modal.dart';
-import 'edit_food_units_modal.dart';
-import 'edit_food_categories_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/edit/details/edit_food_units_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/edit/details/edit_food_categories_modal.dart';
 
 class EditFoodDetailsBody extends StatefulWidget {
   final Function() onSave;

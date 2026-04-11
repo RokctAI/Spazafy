@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/response/manager/subscriptions_response.dart';
+import 'package:rokctapp/infrastructure/models/response/subscriptions_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';

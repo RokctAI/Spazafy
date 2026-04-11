@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/order/driver/all_order/order_provider.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/exports/components_driver.dart';
 import 'package:rokctapp/presentation/components/loading/loading.dart';

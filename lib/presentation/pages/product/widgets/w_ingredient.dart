@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'ingredient_item.dart';
+import 'package:rokctapp/presentation/pages/product/widgets/ingredient_item.dart';
 
 class WIngredientScreen extends StatelessWidget {
   final List<Addons> list;

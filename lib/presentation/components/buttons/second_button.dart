@@ -1,7 +1,7 @@
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'animation_button_effect2.dart';
+import 'package:rokctapp/presentation/components/buttons/animation_button_effect2.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 class SecondButton extends StatelessWidget {

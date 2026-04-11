@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/models/response/transactions_response.da
 import 'package:rokctapp/infrastructure/models/data/refund_data.dart';
 import 'package:rokctapp/infrastructure/models/data/repeat_data.dart';
 
-import 'addons_data.dart';
+import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
 
 
 

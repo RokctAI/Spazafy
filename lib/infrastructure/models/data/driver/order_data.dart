@@ -1,9 +1,9 @@
-import 'addon_data.dart';
-import 'order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/addon_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'payment_data.dart';
-import 'user_data.dart';
-import 'shop_data.dart';
-import 'currency_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 
 class OrderData {
   OrderData({

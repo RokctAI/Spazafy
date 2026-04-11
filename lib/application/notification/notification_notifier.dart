@@ -5,7 +5,7 @@ import 'package:rokctapp/domain/interface/notification.dart';
 import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'notification_state.dart';
+import 'package:rokctapp/application/notification/notification_state.dart';
 
 class NotificationNotifier extends StateNotifier<NotificationState> {
   final NotificationRepositoryFacade _notificationRepository;

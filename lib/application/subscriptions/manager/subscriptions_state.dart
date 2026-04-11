@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/subscriptions_data.dart';
+import 'package:rokctapp/infrastructure/models/data/subscriptions_data.dart';
 import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

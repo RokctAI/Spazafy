@@ -1,5 +1,5 @@
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/category_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType;
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
-import 'all_categories_state.dart';
+import 'package:rokctapp/application/category/manager/all_categories_state.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
     hide CategoryData;
 

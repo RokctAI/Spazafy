@@ -7,7 +7,7 @@ import 'package:rokctapp/domain/interface/notification.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'notification_state.dart';
+import 'package:rokctapp/application/notification/manager/notification_state.dart';
 
 class NotificationNotifier extends StateNotifier<NotificationState> {
   final NotificationInterface _notificationRepository;

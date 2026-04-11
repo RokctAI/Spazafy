@@ -9,7 +9,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'view_map_state.dart';
+import 'package:rokctapp/application/map/view_map_state.dart';
 
 class ViewMapNotifier extends StateNotifier<ViewMapState> {
   final ShopsRepositoryFacade _shopsRepository;

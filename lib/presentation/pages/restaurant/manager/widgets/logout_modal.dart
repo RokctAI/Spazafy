@@ -10,7 +10,6 @@ import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 
 

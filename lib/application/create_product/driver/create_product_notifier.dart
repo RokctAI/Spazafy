@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'create_product_state.dart';
+import 'package:rokctapp/application/create_product/driver/create_product_state.dart';
 
 class CreateProductNotifier extends StateNotifier<CreateProductState> {
   CreateProductNotifier() : super(const CreateProductState());

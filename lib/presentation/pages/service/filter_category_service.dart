@@ -6,7 +6,7 @@ import 'package:rokctapp/application/home/home_notifier.dart';
 import 'package:rokctapp/application/home/home_state.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/components/market_item.dart';
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/pages/home/home_four/widgets/market_one_item.dart';
@@ -14,8 +14,8 @@ import 'package:rokctapp/presentation/pages/home/home_four/widgets/market_three_
 import 'package:rokctapp/presentation/pages/service/widgets/service_one_category.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/home/home_four/widgets/market_two_item.dart';
-import 'widgets/service_three_category.dart';
-import 'widgets/service_two_category.dart';
+import 'package:rokctapp/presentation/pages/service/widgets/service_three_category.dart';
+import 'package:rokctapp/presentation/pages/service/widgets/service_two_category.dart';
 
 class FilterCategoryService extends StatelessWidget {
   final HomeState state;

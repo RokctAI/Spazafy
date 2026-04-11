@@ -13,8 +13,8 @@ import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/market_item.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'market_two_item.dart';
-import 'recommended_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_four/widgets/market_two_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_four/widgets/recommended_item.dart';
 
 class RecommendedPage extends ConsumerStatefulWidget {
   final bool isNewsOfPage;

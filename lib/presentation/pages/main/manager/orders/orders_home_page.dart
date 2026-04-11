@@ -9,10 +9,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/main/manager/orders/cooking/cooking_orders_provider.dart';
 import 'package:rokctapp/presentation/pages/main/manager/orders/widgets/cooking_orders_body.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'widgets/new_orders_body.dart';
-import 'widgets/ready_orders_body.dart';
-import 'widgets/accepted_orders_body.dart';
-import 'widgets/on_a_way_orders_body.dart';
+import 'package:rokctapp/presentation/pages/main/manager/orders/widgets/new_orders_body.dart';
+import 'package:rokctapp/presentation/pages/main/manager/orders/widgets/ready_orders_body.dart';
+import 'package:rokctapp/presentation/pages/main/manager/orders/widgets/accepted_orders_body.dart';
+import 'package:rokctapp/presentation/pages/main/manager/orders/widgets/on_a_way_orders_body.dart';
 import 'package:rokctapp/presentation/components/tab_bars/custom_app_bar.dart';
 import 'package:rokctapp/presentation/components/tab_bars/manager/custom_tab_bar.dart';
 

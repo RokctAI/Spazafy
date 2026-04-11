@@ -16,10 +16,10 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart'
+import 'package:rokctapp/infrastructure/models/data/addon_data.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart'
     hide Extras;
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/extras.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart'
     hide Extras;

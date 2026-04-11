@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/subscriptions_data.dart';
+import 'package:rokctapp/infrastructure/models/data/subscriptions_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -14,7 +14,7 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
-import 'subscriptions_state.dart';
+import 'package:rokctapp/application/subscriptions/manager/subscriptions_state.dart';
 
 
 class SubscriptionNotifier extends StateNotifier<SubscriptionState> {

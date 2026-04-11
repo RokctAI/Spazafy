@@ -1,4 +1,4 @@
-import 'shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 
 class RefundOrdersModel {
   RefundOrdersModel({this.data});

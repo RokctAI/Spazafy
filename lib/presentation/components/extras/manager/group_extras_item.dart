@@ -1,8 +1,8 @@
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
+import 'package:rokctapp/infrastructure/models/data/group.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/extras.dart';
 
 class GroupExtrasItem extends StatelessWidget {
   final Extras extras;

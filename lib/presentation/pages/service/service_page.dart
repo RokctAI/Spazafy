@@ -12,7 +12,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'widgets/service_two_categories_item.dart';
+import 'package:rokctapp/presentation/pages/service/widgets/service_two_categories_item.dart';
 
 class ServicePage extends StatefulWidget {
   const ServicePage({super.key});

@@ -18,9 +18,9 @@ import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/chat/chat/chat_page.dart';
-import 'widgets/loan_contract_screen.dart';
-import 'widgets/loan_eligibility_screen.dart';
-import 'provider/loans_provider.dart';
+import 'package:rokctapp/presentation/pages/loans/widgets/loan_contract_screen.dart';
+import 'package:rokctapp/presentation/pages/loans/widgets/loan_eligibility_screen.dart';
+import 'package:rokctapp/presentation/pages/loans/provider/loans_provider.dart';
 
 @RoutePage()
 class LoanScreen extends ConsumerStatefulWidget {

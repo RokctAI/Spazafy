@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/interface/payments.dart';
-import 'payment_state.dart';
+import 'package:rokctapp/application/payment_methods/payment_state.dart';
 
 class PaymentNotifier extends StateNotifier<PaymentState> {
   final PaymentsRepositoryFacade _paymentsRepository;

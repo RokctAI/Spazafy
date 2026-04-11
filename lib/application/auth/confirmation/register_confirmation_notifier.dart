@@ -14,7 +14,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/domain/interface/user.dart';
 import 'package:rokctapp/application/main/main_provider.dart';
-import 'register_confirmation_state.dart';
+import 'package:rokctapp/application/auth/confirmation/register_confirmation_state.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 

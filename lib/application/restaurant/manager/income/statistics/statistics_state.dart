@@ -1,5 +1,5 @@
-import 'package:rokctapp/infrastructure/models/response/driver/statistics_income_response.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
+import 'package:rokctapp/infrastructure/models/response/statistics_income_response.dart';
+import 'package:rokctapp/infrastructure/models/response/statistics_order_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'statistics_state.freezed.dart';

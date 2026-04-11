@@ -13,7 +13,7 @@ import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 import 'package:rokctapp/application/auth/login/login_provider.dart';
 import 'package:rokctapp/presentation/pages/profile/language_page.dart';
-import 'login_screen.dart';
+import 'package:rokctapp/presentation/pages/auth/login/login_screen.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/components/buttons/second_button.dart';
 import 'package:rokctapp/presentation/pages/intro/intro_page.dart';

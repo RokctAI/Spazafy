@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/image_data.dart';
+import 'package:rokctapp/infrastructure/models/data/image_data.dart';
 
 class GalleryUploadResponse {
   GalleryUploadResponse({ImageData? imageData}) {

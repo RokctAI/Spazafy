@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 part 'home_state.freezed.dart';
 

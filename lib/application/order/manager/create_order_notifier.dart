@@ -1,9 +1,9 @@
-import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/domain/interface/manager_orders.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'create_order_state.dart';
+import 'package:rokctapp/application/order/manager/create_order_state.dart';
 
 import 'package:rokctapp/infrastructure/models/response/login_response.dart';
 

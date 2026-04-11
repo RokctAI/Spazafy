@@ -15,7 +15,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
-import 'edit_profile_state.dart';
+import 'package:rokctapp/application/edit_profile/edit_profile_state.dart';
 
 
 class EditProfileNotifier extends StateNotifier<EditProfileState> {

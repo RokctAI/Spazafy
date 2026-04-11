@@ -11,7 +11,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'details/food_details_modal.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/details/food_details_modal.dart';
 import 'package:rokctapp/presentation/components/bodies/products_body.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart';

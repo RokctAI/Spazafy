@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'order_payment_state.dart';
-import 'order_payment_notifier.dart';
+import 'package:rokctapp/application/order/manager/shipping/payment/order_payment_state.dart';
+import 'package:rokctapp/application/order/manager/shipping/payment/order_payment_notifier.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final orderPaymentProvider =

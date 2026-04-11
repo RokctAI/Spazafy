@@ -4,14 +4,14 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/exports/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'widgets/approve_dialog.dart';
-import 'widgets/foods_page.dart';
-import 'widgets/rate_customer.dart';
+import 'package:rokctapp/presentation/pages/home/driver/widgets/approve_dialog.dart';
+import 'package:rokctapp/presentation/pages/home/driver/widgets/foods_page.dart';
+import 'package:rokctapp/presentation/pages/home/driver/widgets/rate_customer.dart';
 
 class DeliverBottomSheetScreen extends StatefulWidget {
   final OrderDetailData order;

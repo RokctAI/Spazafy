@@ -6,9 +6,9 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'widgets/order_delivery.dart';
-import 'widgets/order_pick_up.dart';
-import 'widgets/order_pickup_point.dart';
+import 'package:rokctapp/presentation/pages/order/order_type/widgets/order_delivery.dart';
+import 'package:rokctapp/presentation/pages/order/order_type/widgets/order_pick_up.dart';
+import 'package:rokctapp/presentation/pages/order/order_type/widgets/order_pickup_point.dart';
 
 class OrderType extends StatefulWidget {
   final ValueChanged<bool> onChange;

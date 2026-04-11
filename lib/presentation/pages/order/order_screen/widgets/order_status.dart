@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'order_status_item.dart';
+import 'package:rokctapp/presentation/pages/order/order_screen/widgets/order_status_item.dart';
 
 class OrderStatusScreen extends StatelessWidget {
   final OrderStatus status;

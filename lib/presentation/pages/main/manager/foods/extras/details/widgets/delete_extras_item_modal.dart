@@ -12,7 +12,7 @@ import 'package:rokctapp/presentation/components/buttons/manager/custom_button.d
 import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/extras.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 

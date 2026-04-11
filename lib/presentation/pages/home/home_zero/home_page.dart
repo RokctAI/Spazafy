@@ -24,17 +24,17 @@ import 'package:rokctapp/presentation/pages/home/home_zero/widgets/door_to_door.
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/add_address.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'widgets/app_bar_home.dart';
-import 'widgets/category_screen.dart';
-import 'widgets/filter_category_shop.dart';
-import 'shimmer/all_shop_shimmer.dart';
-import 'shimmer/banner_shimmer.dart';
-import 'shimmer/news_shop_shimmer.dart';
-import 'shimmer/recommend_shop_shimmer.dart';
-import 'shimmer/shop_shimmer.dart';
-import 'widgets/banner_item.dart';
-import 'widgets/recommended_item.dart';
-import 'widgets/shop_bar_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/app_bar_home.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/category_screen.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/filter_category_shop.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/shimmer/all_shop_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/shimmer/banner_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/shimmer/news_shop_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/shimmer/recommend_shop_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/shimmer/shop_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/banner_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/recommended_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_zero/widgets/shop_bar_item.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});

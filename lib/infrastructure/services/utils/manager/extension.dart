@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/statistics_income_response.dart';
+import 'package:rokctapp/infrastructure/models/response/statistics_income_response.dart';
 
 extension BoolParsing on String {
   bool toBool() {

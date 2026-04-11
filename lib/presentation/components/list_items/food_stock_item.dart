@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/meta.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';

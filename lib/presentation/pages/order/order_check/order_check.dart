@@ -39,10 +39,10 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/presentation/pages/cards/payment_screen.dart';
-import 'widgets/card_and_promo.dart';
-import 'widgets/delivery_info.dart';
-import 'widgets/order_button.dart';
-import 'widgets/order_info.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/card_and_promo.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/delivery_info.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/order_button.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/order_info.dart';
 
 // Import the PreloadedWebView provider
 final preloadedWebViewProvider = StateProvider<PreloadedWebViewState?>(

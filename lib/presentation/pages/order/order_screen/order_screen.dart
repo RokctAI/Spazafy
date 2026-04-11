@@ -20,7 +20,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/components/avatar/shop_avarat.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/payment_methods/payment_provider.dart';
@@ -29,8 +29,8 @@ import 'package:rokctapp/presentation/pages/order/order_check/order_check.dart';
 import 'package:rokctapp/presentation/pages/order/order_type/widgets/order_map.dart';
 import 'package:rokctapp/presentation/pages/order/order_type/order_type.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/rating_page.dart';
-import 'widgets/order_carts.dart';
-import 'widgets/order_status.dart';
+import 'package:rokctapp/presentation/pages/order/order_screen/widgets/order_carts.dart';
+import 'package:rokctapp/presentation/pages/order/order_screen/widgets/order_status.dart';
 // ignore_for_file: unused_result
 
 @RoutePage()

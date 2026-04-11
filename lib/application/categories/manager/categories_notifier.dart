@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/category_data.dart';
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -7,7 +7,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'categories_state.dart';
+import 'package:rokctapp/application/categories/manager/categories_state.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
     hide CategoryData;
 

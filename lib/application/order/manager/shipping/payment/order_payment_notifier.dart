@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'order_payment_state.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
+import 'package:rokctapp/application/order/manager/shipping/payment/order_payment_state.dart';
+import 'package:rokctapp/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/payment_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
 
 class OrderPaymentNotifier extends StateNotifier<OrderPaymentState> {
   final OrdersInterface _ordersRepository;

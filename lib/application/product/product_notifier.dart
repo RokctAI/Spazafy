@@ -16,7 +16,7 @@ import 'package:rokctapp/domain/interface/cart.dart';
 import 'package:rokctapp/infrastructure/models/request/cart_request.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:rokctapp/app_constants.dart';
-import 'product_state.dart';
+import 'package:rokctapp/application/product/product_state.dart';
 
 
 

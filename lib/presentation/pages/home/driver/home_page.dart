@@ -16,7 +16,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/presentation/components/loading/loading.dart';
 
 import 'package:workmanager/workmanager.dart';
@@ -25,9 +25,9 @@ import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/main.dart';
 import 'package:rokctapp/presentation/components/exports/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'bottom_sheet_screen.dart';
-import 'delivery_bottom_sheet.dart';
-import 'parcel_bottom_sheet.dart';
+import 'package:rokctapp/presentation/pages/home/driver/bottom_sheet_screen.dart';
+import 'package:rokctapp/presentation/pages/home/driver/delivery_bottom_sheet.dart';
+import 'package:rokctapp/presentation/pages/home/driver/parcel_bottom_sheet.dart';
 
 final orderRepository = driverOrderRepository;
 

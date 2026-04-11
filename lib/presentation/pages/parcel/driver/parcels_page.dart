@@ -18,7 +18,7 @@ import 'package:rokctapp/infrastructure/services/utils/driver/services.dart'
     hide AppHelpers;
 import 'package:rokctapp/presentation/components/exports/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'parcel_item.dart';
+import 'package:rokctapp/presentation/pages/parcel/driver/parcel_item.dart';
 
 @RoutePage()
 class DriverParcelsPage extends ConsumerStatefulWidget {

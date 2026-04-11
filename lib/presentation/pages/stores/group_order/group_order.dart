@@ -18,8 +18,8 @@ import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/shop/shop_provider.dart';
 import 'package:share_plus/share_plus.dart';
-import 'widgets/check_status_dialog.dart';
-import 'widgets/group_item.dart';
+import 'package:rokctapp/presentation/pages/stores/group_order/widgets/check_status_dialog.dart';
+import 'package:rokctapp/presentation/pages/stores/group_order/widgets/group_item.dart';
 
 class GroupOrderScreen extends ConsumerStatefulWidget {
   final ShopData shop;

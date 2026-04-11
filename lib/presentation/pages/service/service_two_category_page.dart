@@ -8,7 +8,7 @@ import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'filter_category_service.dart';
+import 'package:rokctapp/presentation/pages/service/filter_category_service.dart';
 // ignore_for_file: deprecated_member_use
 
 @RoutePage()

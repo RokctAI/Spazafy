@@ -14,15 +14,15 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/pages/stores/group_order/widgets/check_status_dialog.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
-import 'widgets/cart_clear_dialog.dart';
-import 'widgets/cart_order_description.dart';
-import 'widgets/cart_order_item.dart';
+import 'package:rokctapp/presentation/pages/stores/cart/widgets/cart_clear_dialog.dart';
+import 'package:rokctapp/presentation/pages/stores/cart/widgets/cart_order_description.dart';
+import 'package:rokctapp/presentation/pages/stores/cart/widgets/cart_order_item.dart';
 
 class CartOrderPage extends ConsumerStatefulWidget {
   final bool isGroupOrder;

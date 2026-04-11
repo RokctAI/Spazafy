@@ -5,7 +5,7 @@ import 'package:rokctapp/application/order/order_state.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'widgets/title_price.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/title_price.dart';
 
 class PriceInformation extends StatelessWidget {
   final bool isOrder;

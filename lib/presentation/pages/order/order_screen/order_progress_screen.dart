@@ -15,7 +15,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/components/avatar/shop_avarat.dart';
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/order_check.dart';
@@ -26,7 +26,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/order/order_state.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/refund_info.dart';
-import 'widgets/order_status.dart';
+import 'package:rokctapp/presentation/pages/order/order_screen/widgets/order_status.dart';
 
 @RoutePage()
 class OrderProgressPage extends ConsumerStatefulWidget {

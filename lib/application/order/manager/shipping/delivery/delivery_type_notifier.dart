@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'delivery_type_state.dart';
+import 'package:rokctapp/application/order/manager/shipping/delivery/delivery_type_state.dart';
 
 class DeliveryTypeNotifier extends StateNotifier<DeliveryTypeState> {
   DeliveryTypeNotifier() : super(const DeliveryTypeState());

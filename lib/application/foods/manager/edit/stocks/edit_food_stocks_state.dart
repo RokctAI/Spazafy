@@ -1,6 +1,6 @@
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
+import 'package:rokctapp/infrastructure/models/data/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/group.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'edit_food_stocks_state.freezed.dart';
 

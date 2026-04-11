@@ -13,9 +13,9 @@ import 'package:rokctapp/presentation/components/text_fields/outline_bordered_te
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/loans/provider/loans_provider.dart';
-import 'loan_document_upload_screen.dart';
-import 'loan_ineligibility_dialog.dart';
-import 'loan_qualification_dialog.dart';
+import 'package:rokctapp/presentation/pages/loans/widgets/loan_document_upload_screen.dart';
+import 'package:rokctapp/presentation/pages/loans/widgets/loan_ineligibility_dialog.dart';
+import 'package:rokctapp/presentation/pages/loans/widgets/loan_qualification_dialog.dart';
 
 @RoutePage()
 class LoanEligibilityScreen extends ConsumerStatefulWidget {

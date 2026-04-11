@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location_data.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

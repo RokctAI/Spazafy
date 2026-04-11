@@ -1,5 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/driver/chart.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
+import 'package:rokctapp/infrastructure/models/data/chart.dart';
+import 'package:rokctapp/infrastructure/models/response/statistics_order_response.dart';
 import 'package:rokctapp/domain/interface/driver_user.dart';
 import 'package:community_charts_flutter/community_charts_flutter.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'statistics_state.dart';
+import 'package:rokctapp/application/statistics/driver/statistics_state.dart';
 
 
 class StatisticsNotifier extends StateNotifier<StatisticsState> {

@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart'
     hide Translation;
-import 'product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'dart:convert';
 
 // To parse this JSON data, do

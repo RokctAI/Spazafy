@@ -24,7 +24,7 @@ import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/badges/alert_dialog.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/image/custom_network_image.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/application/like/like_provider.dart';
 import 'package:rokctapp/presentation/pages/profile/delete_screen.dart';
 import 'package:rokctapp/presentation/pages/profile/help_page.dart';
@@ -35,14 +35,14 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/components/buttons/second_button.dart';
 import 'package:rokctapp/presentation/pages/cards/payment_screen.dart';
 import 'package:rokctapp/presentation/pages/become/become_driver.dart';
-import 'widgets/about_page.dart';
-import 'widgets/app_usage_badge.dart';
+import 'package:rokctapp/presentation/pages/profile/widgets/about_page.dart';
+import 'package:rokctapp/presentation/pages/profile/widgets/app_usage_badge.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rokctapp/presentation/pages/profile/widgets/my_account.dart';
-import 'reservation_shops.dart';
+import 'package:rokctapp/presentation/pages/profile/reservation_shops.dart';
 import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
-import 'widgets/wallet_topup_screen.dart';
-import 'widgets/wallet_send_screen.dart';
+import 'package:rokctapp/presentation/pages/profile/widgets/wallet_topup_screen.dart';
+import 'package:rokctapp/presentation/pages/profile/widgets/wallet_send_screen.dart';
 
 
 @RoutePage()

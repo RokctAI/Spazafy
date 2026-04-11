@@ -1,13 +1,13 @@
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
+import 'package:rokctapp/infrastructure/models/data/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/group.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType;
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'edit_food_stocks_state.dart';
+import 'package:rokctapp/application/foods/manager/edit/stocks/edit_food_stocks_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

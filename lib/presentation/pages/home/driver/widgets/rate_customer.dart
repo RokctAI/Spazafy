@@ -8,11 +8,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/exports/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'add_comment.dart';
+import 'package:rokctapp/presentation/pages/home/driver/widgets/add_comment.dart';
 
 class RateCustomer extends StatefulWidget {
   final OrderDetailData? order;

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/interface/orders.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'order_state.dart';
+import 'package:rokctapp/application/order/driver/all_order/order_state.dart';
 
 class OrderNotifier extends StateNotifier<OrderState> {
   final OrdersRepositoryFacade _orderRepository;

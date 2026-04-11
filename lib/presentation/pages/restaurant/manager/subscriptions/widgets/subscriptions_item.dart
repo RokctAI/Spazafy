@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/subscriptions_data.dart';
+import 'package:rokctapp/infrastructure/models/data/subscriptions_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 import 'package:flutter/material.dart';

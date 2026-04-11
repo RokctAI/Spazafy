@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
+import 'package:rokctapp/infrastructure/models/data/addon_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'ingredient_item.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/details/widgets/ingredient_item.dart';
 
 class WIngredientScreen extends StatelessWidget {
   final List<AddonData> list;

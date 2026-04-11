@@ -23,7 +23,7 @@ import 'package:auto_route/auto_route.dart';
 
 import 'package:rokctapp/domain/interface/brands.dart';
 import 'package:rokctapp/domain/interface/products.dart';
-import 'home_state.dart';
+import 'package:rokctapp/application/home/home_state.dart';
 
 
 

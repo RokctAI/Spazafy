@@ -1,4 +1,4 @@
-import 'location.dart';
+import 'package:rokctapp/infrastructure/models/data/location.dart';
 
 class AddressData {
   AddressData({

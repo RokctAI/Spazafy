@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/services/utils/typing_delay.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'filter_state.dart';
+import 'package:rokctapp/application/filter/filter_state.dart';
 
 class FilterNotifier extends StateNotifier<FilterState> {
   final ShopsRepositoryFacade _shopsRepository;

@@ -1,15 +1,15 @@
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/response/manager/create_group_extras_response.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart'
+import 'package:rokctapp/infrastructure/models/response/create_group_extras_response.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart'
     hide Stock;
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
-import 'package:rokctapp/infrastructure/models/response/manager/single_extras_group_response.dart';
-import 'package:rokctapp/infrastructure/models/response/manager/extras_groups_response.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
+import 'package:rokctapp/infrastructure/models/response/single_extras_group_response.dart';
+import 'package:rokctapp/infrastructure/models/response/extras_groups_response.dart';
 import 'package:rokctapp/infrastructure/models/response/products_paginate_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_product_response.dart';
-import 'package:rokctapp/infrastructure/models/response/manager/group_extras_response.dart';
-import 'package:rokctapp/infrastructure/models/response/manager/calculate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/group_extras_response.dart';
+import 'package:rokctapp/infrastructure/models/response/calculate_response.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';

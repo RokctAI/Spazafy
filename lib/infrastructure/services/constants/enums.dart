@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/extras.dart';
 
 enum ShopStatus { notRequested, newShop, edited, approved, rejected }
 

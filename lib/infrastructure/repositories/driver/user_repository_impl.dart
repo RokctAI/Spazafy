@@ -1,7 +1,7 @@
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/statistics_response.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/request_model_response.dart';
+import 'package:rokctapp/infrastructure/models/response/statistics_response.dart';
+import 'package:rokctapp/infrastructure/models/response/statistics_order_response.dart';
+import 'package:rokctapp/infrastructure/models/response/request_model_response.dart';
 import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     hide AppHelpers;
@@ -11,9 +11,9 @@ import 'package:rokctapp/domain/handlers/network_exceptions.dart'
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart'
     hide AppConnectivity;
 import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/statistics_income_response.dart';
+import 'package:rokctapp/infrastructure/models/response/statistics_income_response.dart';
 import 'package:rokctapp/infrastructure/models/response/driver_show_response.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/delivery_zone_paginate.dart';
+import 'package:rokctapp/infrastructure/models/response/delivery_zone_paginate.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';

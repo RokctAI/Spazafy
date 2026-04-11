@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'splash_state.dart';
+import 'package:rokctapp/application/splash/splash_state.dart';
 
 class SplashNotifier extends StateNotifier<SplashState> {
   final SettingsRepositoryFacade _settingsRepository;

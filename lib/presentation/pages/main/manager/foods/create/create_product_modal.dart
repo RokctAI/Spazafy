@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'stocks/create_food_stocks_body.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/create/stocks/create_food_stocks_body.dart';
 import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
-import 'details/create_food_details_body.dart';
+import 'package:rokctapp/presentation/pages/main/manager/foods/create/details/create_food_details_body.dart';
 
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';

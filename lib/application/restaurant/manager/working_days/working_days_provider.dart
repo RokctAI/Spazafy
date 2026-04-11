@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'working_days_state.dart';
-import 'working_days_notifier.dart';
+import 'package:rokctapp/application/restaurant/manager/working_days/working_days_state.dart';
+import 'package:rokctapp/application/restaurant/manager/working_days/working_days_notifier.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 final workingDaysProvider =

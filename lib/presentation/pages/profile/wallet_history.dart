@@ -16,11 +16,11 @@ import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/buttons/second_button.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
-import 'widgets/wallet_topup_screen.dart';
-import 'widgets/wallet_send_screen.dart';
+import 'package:rokctapp/presentation/pages/profile/widgets/wallet_topup_screen.dart';
+import 'package:rokctapp/presentation/pages/profile/widgets/wallet_send_screen.dart';
 import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
 
 // Add this extension for the capitalize method

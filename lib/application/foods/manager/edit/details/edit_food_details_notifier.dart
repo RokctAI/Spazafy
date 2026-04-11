@@ -1,17 +1,17 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/category_data.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType, UploadType;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/kitchen_data.dart';
+import 'package:rokctapp/infrastructure/models/data/kitchen_data.dart';
 import 'package:rokctapp/infrastructure/models/data/review_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/unit_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'edit_food_details_state.dart';
+import 'package:rokctapp/application/foods/manager/edit/details/edit_food_details_state.dart';
 
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 

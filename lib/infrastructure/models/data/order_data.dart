@@ -1,10 +1,10 @@
-import 'currency_data.dart';
-import 'user.dart';
-import 'product_data.dart';
-import 'shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
-import 'review_data.dart';
-import 'coupon_data.dart';
+import 'package:rokctapp/infrastructure/models/data/review_data.dart';
+import 'package:rokctapp/infrastructure/models/data/coupon_data.dart';
 
 class OrderData {
   OrderData({

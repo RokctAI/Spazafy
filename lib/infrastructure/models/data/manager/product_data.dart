@@ -1,12 +1,10 @@
-import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/category_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
-import 'galleries.dart';
-import 'kitchen_data.dart';
-import 'stock.dart';
-import 'unit_data.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
+import 'package:rokctapp/infrastructure/models/data/galleries.dart';
+import 'package:rokctapp/infrastructure/models/data/kitchen_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/unit_data.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
-import 'category_data.dart';
 
 class ProductData {
   ProductData({

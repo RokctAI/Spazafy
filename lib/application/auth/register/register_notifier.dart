@@ -25,7 +25,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'dart:convert';
-import 'register_state.dart';
+import 'package:rokctapp/application/auth/register/register_state.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 import 'package:rokctapp/infrastructure/models/data/user.dart';

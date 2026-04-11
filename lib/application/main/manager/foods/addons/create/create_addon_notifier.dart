@@ -3,9 +3,9 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'create_addon_state.dart';
+import 'package:rokctapp/application/main/manager/foods/addons/create/create_addon_state.dart';
 
 class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
   final ProductsInterface _productsRepository;

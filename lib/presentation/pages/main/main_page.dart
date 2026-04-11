@@ -34,7 +34,7 @@ import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/application/main/main_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'widgets/bottom_navigator_item.dart';
+import 'package:rokctapp/presentation/pages/main/widgets/bottom_navigator_item.dart';
 import 'package:rokctapp/utils/app_initializer.dart';
 import 'package:proste_indexed_stack/proste_indexed_stack.dart';
 // import 'widgets/bottom_navigator_one.dart'; // NOT FOUND IN PROJECT

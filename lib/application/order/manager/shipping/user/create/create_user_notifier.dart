@@ -5,9 +5,9 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart'
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'create_user_state.dart';
+import 'package:rokctapp/application/order/manager/shipping/user/create/create_user_state.dart';
 
 class CreateUserNotifier extends StateNotifier<CreateUserState> {
   final UsersInterface _usersRepository;

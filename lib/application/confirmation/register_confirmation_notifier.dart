@@ -10,7 +10,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/domain/interface/user.dart';
-import 'register_confirmation_state.dart';
+import 'package:rokctapp/application/confirmation/register_confirmation_state.dart';
 // ignore_for_file: use_build_context_synchronously
 
 class RegisterConfirmationNotifier

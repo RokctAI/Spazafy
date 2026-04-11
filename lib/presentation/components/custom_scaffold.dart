@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/presentation/pages/initial/no_connection/no_connection_page.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'keyboard_dismisser.dart';
+import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 
 class CustomScaffold extends ConsumerStatefulWidget {
   final Widget body;

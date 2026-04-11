@@ -1,4 +1,4 @@
-import 'local_location.dart';
+import 'package:rokctapp/infrastructure/models/data/local_location.dart';
 
 class LocalAddressData {
   LocalAddressData({

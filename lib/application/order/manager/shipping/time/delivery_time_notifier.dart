@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'delivery_time_state.dart';
+import 'package:rokctapp/application/order/manager/shipping/time/delivery_time_state.dart';
 
 class DeliveryTimeNotifier extends StateNotifier<DeliveryTimeState> {
   DeliveryTimeNotifier()

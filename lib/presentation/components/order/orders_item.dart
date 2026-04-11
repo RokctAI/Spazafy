@@ -4,12 +4,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/shimmer/shimmer.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
-import 'order_detail.dart';
+import 'package:rokctapp/presentation/components/order/order_detail.dart';
 
 class OrdersItem extends StatelessWidget {
   final OrderDetailData order;

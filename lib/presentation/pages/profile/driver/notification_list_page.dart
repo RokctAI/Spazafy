@@ -16,9 +16,9 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/application/notification/driver/notification_provider.dart';
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/presentation/components/common_app_bar.dart';
+import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/exports/components_driver.dart';
-import 'package:rokctapp/presentation/components/driver/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 // ignore_for_file: deprecated_member_use
 

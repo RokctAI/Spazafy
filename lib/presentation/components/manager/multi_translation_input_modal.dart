@@ -15,11 +15,10 @@ import 'package:rokctapp/infrastructure/models/models_manager.dart'
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
-import 'package:rokctapp/infrastructure/models/request/manager/ai_translation_request.dart';
+import 'package:rokctapp/infrastructure/models/request/ai_translation_request.dart';
 
 class MultiTranslationInputModal extends ConsumerStatefulWidget {
   final AiTranslationModel model;

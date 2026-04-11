@@ -5,7 +5,7 @@ import 'package:rokctapp/domain/interface/parcel.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'parcel_list_state.dart';
+import 'package:rokctapp/application/parcels_list/parcel_list_state.dart';
 
 class ParcelListNotifier extends StateNotifier<ParcelListState> {
   final ParcelRepositoryFacade _parcelRepo;

@@ -24,7 +24,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
-import 'shop_state.dart';
+import 'package:rokctapp/application/shop/shop_state.dart';
 
 
 

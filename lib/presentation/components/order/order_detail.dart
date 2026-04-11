@@ -12,11 +12,11 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/presentation/pages/home/driver/widgets/foods_page.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/buttons/driver/custom_button.dart';
 import 'image_dialog.dart';
-import 'order_item.dart';
+import 'package:rokctapp/presentation/components/order/order_item.dart';
 
 // ignore_for_file: use_build_context_synchronously
 

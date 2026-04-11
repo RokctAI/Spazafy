@@ -8,7 +8,7 @@ import 'package:rokctapp/application/shop/shop_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'category_tab_bar.widget.dart';
+import 'package:rokctapp/presentation/pages/stores/widgets/category_tab_bar.widget.dart';
 
 class TabSearch extends StatelessWidget {
   final TextEditingController? controller;

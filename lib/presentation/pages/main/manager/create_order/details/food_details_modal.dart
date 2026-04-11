@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'widgets/food_extras.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/details/widgets/food_extras.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'widgets/food_price_widget.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/details/widgets/food_price_widget.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/helper/common_image.dart';
@@ -19,7 +19,7 @@ import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'widgets/w_ingredient.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/details/widgets/w_ingredient.dart';
 
 
 class FoodDetailsModal extends ConsumerStatefulWidget {

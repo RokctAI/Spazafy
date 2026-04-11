@@ -1,13 +1,12 @@
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/extension.dart';
-import 'kitchen_data.dart';
-import 'payment_data.dart';
-import 'stock.dart';
-import 'table_data.dart';
-import 'user_data.dart';
-import 'shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/kitchen_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/payment_data.dart';
+import 'package:rokctapp/infrastructure/models/data/table_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
-import 'location_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location_data.dart';
 
 class OrderData {
   OrderData({

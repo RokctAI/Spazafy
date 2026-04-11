@@ -11,7 +11,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-import 'reset_password_state.dart';
+import 'package:rokctapp/application/auth/reset_password/reset_password_state.dart';
 
 class ResetPasswordNotifier extends StateNotifier<ResetPasswordState> {
   final AuthRepositoryFacade _authRepository;

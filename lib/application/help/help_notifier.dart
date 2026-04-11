@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/interface/settings.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
-import 'help_state.dart';
+import 'package:rokctapp/application/help/help_state.dart';
 
 class HelpNotifier extends StateNotifier<HelpState> {
   final SettingsRepositoryFacade _settingsRepository;

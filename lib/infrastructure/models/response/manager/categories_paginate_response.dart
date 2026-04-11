@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/category_data.dart';
 
 class CategoriesPaginateResponse {
   CategoriesPaginateResponse({List<CategoryData>? data}) {

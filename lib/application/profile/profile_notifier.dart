@@ -18,7 +18,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/domain/interface/gallery.dart';
 import 'package:rokctapp/domain/interface/shops.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'profile_state.dart';
+import 'package:rokctapp/application/profile/profile_state.dart';
 
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 

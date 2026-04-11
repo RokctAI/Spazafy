@@ -1,6 +1,6 @@
 import 'package:rokctapp/app_constants.dart';
 import 'package:dio/dio.dart';
-import 'token_interceptor.dart';
+import 'package:rokctapp/domain/handlers/manager/token_interceptor.dart';
 
 
 class HttpService {

@@ -5,7 +5,7 @@ import 'package:rokctapp/infrastructure/models/data/manager/unit_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'create_food_units_state.dart';
+import 'package:rokctapp/application/foods/manager/create/details/units/create_food_units_state.dart';
 
 
 class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {

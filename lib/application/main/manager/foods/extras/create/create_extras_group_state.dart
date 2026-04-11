@@ -1,5 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/group.dart';
+import 'package:rokctapp/infrastructure/models/data/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/group.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'create_extras_group_state.freezed.dart';
 

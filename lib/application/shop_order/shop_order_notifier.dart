@@ -14,7 +14,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/typing_delay.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'shop_order_state.dart';
+import 'package:rokctapp/application/shop_order/shop_order_state.dart';
 
 class ShopOrderNotifier extends StateNotifier<ShopOrderState> {
   final CartRepositoryFacade _cartRepository;

@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';

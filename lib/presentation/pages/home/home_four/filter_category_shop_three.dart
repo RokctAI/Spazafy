@@ -9,14 +9,14 @@ import 'package:rokctapp/application/home/home_state.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/pages/home/home_four/filter/filter_page.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'shimmer/news_shop_shimmer.dart';
-import 'widgets/market_three_item.dart';
-import 'widgets/tab_bar_item_three.dart';
+import 'package:rokctapp/presentation/pages/home/home_four/shimmer/news_shop_shimmer.dart';
+import 'package:rokctapp/presentation/pages/home/home_four/widgets/market_three_item.dart';
+import 'package:rokctapp/presentation/pages/home/home_four/widgets/tab_bar_item_three.dart';
 import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
 
 class FilterCategoryShopThree extends StatelessWidget {

@@ -15,7 +15,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/domain/interface/draw.dart';
-import 'parcel_state.dart';
+import 'package:rokctapp/application/parcel/parcel_state.dart';
 
 
 

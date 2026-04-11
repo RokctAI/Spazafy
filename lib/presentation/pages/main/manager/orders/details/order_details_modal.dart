@@ -1,6 +1,6 @@
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 
@@ -18,12 +18,11 @@ import 'package:rokctapp/presentation/components/helper/common_image.dart';
 import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/list_items/order_product_item.dart';
-import 'package:rokctapp/presentation/components/loading/loading.dart';
 
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'image_dialog.dart';
-import 'price_information.dart';
+import 'package:rokctapp/presentation/pages/main/manager/orders/details/image_dialog.dart';
+import 'package:rokctapp/presentation/pages/main/manager/orders/details/price_information.dart';
 
 
 class OrderDetailsModal extends ConsumerStatefulWidget {

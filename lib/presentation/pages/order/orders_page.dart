@@ -12,9 +12,9 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'widgets/orders_item.dart';
+import 'package:rokctapp/presentation/pages/order/widgets/orders_item.dart';
 import 'package:rokctapp/presentation/components/badges/empty_badge.dart';
 
 @RoutePage()

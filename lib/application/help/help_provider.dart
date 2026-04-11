@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'help_notifier.dart';
-import 'help_state.dart';
+import 'package:rokctapp/application/help/help_notifier.dart';
+import 'package:rokctapp/application/help/help_state.dart';
 
 final helpProvider = StateNotifierProvider<HelpNotifier, HelpState>(
   (ref) => HelpNotifier(settingsRepository),

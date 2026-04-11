@@ -1,8 +1,8 @@
-import 'package:rokctapp/infrastructure/models/data/manager/kitchen_data.dart';
+import 'package:rokctapp/infrastructure/models/data/kitchen_data.dart';
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'edit_food_kitchens_state.dart';
+import 'package:rokctapp/application/foods/manager/edit/details/kitchen/edit_food_kitchens_state.dart';
 
 
 class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {

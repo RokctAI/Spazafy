@@ -1,14 +1,14 @@
-import 'package:rokctapp/infrastructure/models/response/manager/orders_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/orders_paginate_response.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart'
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart'
     hide Stock;
-import 'package:rokctapp/infrastructure/models/data/manager/order_calculate_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
+import 'package:rokctapp/infrastructure/models/data/order_calculate_data.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/infrastructure/models/response/manager/payments_response.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart' as mgr;
-import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
-import 'package:rokctapp/infrastructure/models/response/manager/order_status_response.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/location_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user_data.dart';
+import 'package:rokctapp/infrastructure/models/response/order_status_response.dart';
+import 'package:rokctapp/infrastructure/models/data/location_data.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/response/create_order_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_order_response.dart';

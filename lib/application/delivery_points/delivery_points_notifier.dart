@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/delivery_points.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'delivery_points_state.dart';
+import 'package:rokctapp/application/delivery_points/delivery_points_state.dart';
 
 class DeliveryPointsNotifier extends StateNotifier<DeliveryPointsState> {
   final DeliveryPointsRepositoryFacade _deliveryPointsRepository;

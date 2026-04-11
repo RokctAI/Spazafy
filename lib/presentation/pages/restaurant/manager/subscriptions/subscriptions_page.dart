@@ -15,8 +15,8 @@ import 'package:rokctapp/presentation/components/helper/no_data_info.dart';
 import 'package:rokctapp/presentation/components/loading/loading_grid.dart';
 import 'package:rokctapp/presentation/pages/restaurant/manager/subscriptions/widgets/have_subscription.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'widgets/payment_dialog.dart';
-import 'widgets/subscriptions_item.dart';
+import 'package:rokctapp/presentation/pages/restaurant/manager/subscriptions/widgets/payment_dialog.dart';
+import 'package:rokctapp/presentation/pages/restaurant/manager/subscriptions/widgets/subscriptions_item.dart';
 
 @RoutePage()
 class SubscriptionsPage extends ConsumerStatefulWidget {

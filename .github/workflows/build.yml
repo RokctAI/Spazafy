@@ -10,7 +10,7 @@ concurrency:
 permissions: write-all
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, develop, 'build_*' ]
     paths-ignore:
       - '**.md'
   workflow_dispatch:
@@ -56,6 +56,10 @@ on:
         type: string
         default: '##.##.##'
         description: "Format for version bumping (e.g. ##.##.## or ##.##.#)"
+      run_import_healer:
+        type: boolean
+        default: true
+        description: "Auto-heal missing imports (Flutter only — commits fixes and reruns pipeline)"
 
 jobs:
   # --- 1. DETECT PROJECT TYPE ---
@@ -95,6 +99,7 @@ jobs:
       run_security: true
       run_lint: true
       run_ci: true
+      run_import_healer: ${{ inputs.run_import_healer || false }}
       # Deployment Configuration (Immediate release on Main)
       release_strategy: 'weekly'
       build_android: true

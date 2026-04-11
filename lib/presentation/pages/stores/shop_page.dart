@@ -11,7 +11,7 @@ import 'package:rokctapp/infrastructure/services/utils/time_service.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/application/like/like_notifier.dart';
 import 'package:rokctapp/application/like/like_provider.dart';
 import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
@@ -31,8 +31,8 @@ import 'package:rokctapp/presentation/components/helper/blur_wrap.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/application/home/home_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
-import 'cart/cart_order_page.dart';
-import 'widgets/shop_page_avatar.dart';
+import 'package:rokctapp/presentation/pages/stores/cart/cart_order_page.dart';
+import 'package:rokctapp/presentation/pages/stores/widgets/shop_page_avatar.dart';
 
 @RoutePage()
 class ShopPage extends ConsumerStatefulWidget {

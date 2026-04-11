@@ -4,7 +4,7 @@ import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'promo_code_state.dart';
+import 'package:rokctapp/application/promo_code/promo_code_state.dart';
 
 class PromoCodeNotifier extends StateNotifier<PromoCodeState> {
   final OrdersRepositoryFacade _orderRepository;

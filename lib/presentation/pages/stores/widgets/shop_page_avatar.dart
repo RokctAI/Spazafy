@@ -18,7 +18,7 @@ import 'package:rokctapp/presentation/pages/stores/group_order/group_order.dart'
 import 'package:rokctapp/presentation/theme/theme.dart';
 
 import 'package:rokctapp/infrastructure/models/data/bonus_data.dart';
-import 'bonus_screen.dart';
+import 'package:rokctapp/presentation/pages/stores/widgets/bonus_screen.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 //import 'package:remixicon/remixicon.dart';
 //import 'package:rokctapp/presentation/components/badges/badge_item.dart';

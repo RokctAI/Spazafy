@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'buttons/animation_button_effect2.dart';
+import 'package:rokctapp/presentation/components/buttons/animation_button_effect2.dart';
 
 class TitleWidget extends StatelessWidget {
   final String title;

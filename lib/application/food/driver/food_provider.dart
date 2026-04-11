@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'food_notifier.dart';
-import 'food_state.dart';
+import 'package:rokctapp/application/food/driver/food_notifier.dart';
+import 'package:rokctapp/application/food/driver/food_state.dart';
 
 final foodProvider = StateNotifierProvider<FoodNotifier, FoodState>(
   (ref) => FoodNotifier(),

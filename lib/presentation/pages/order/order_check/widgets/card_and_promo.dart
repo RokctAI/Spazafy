@@ -9,8 +9,8 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/promo_code.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'payment_method.dart';
-import 'order_payment_container.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/payment_method.dart';
+import 'package:rokctapp/presentation/pages/order/order_check/widgets/order_payment_container.dart';
 
 class CardAndPromo extends StatelessWidget {
   const CardAndPromo({super.key});

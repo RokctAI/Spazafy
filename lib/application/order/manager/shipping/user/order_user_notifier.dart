@@ -1,12 +1,12 @@
 import 'package:rokctapp/domain/interface/manager_users.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-import 'package:rokctapp/infrastructure/models/data/manager/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user_data.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'order_user_state.dart';
+import 'package:rokctapp/application/order/manager/shipping/user/order_user_state.dart';
 
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';

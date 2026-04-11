@@ -9,8 +9,8 @@ import 'package:rokctapp/presentation/components/image/custom_network_image.dart
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/utils/products/product_utils.dart';
 import 'package:remixicon/remixicon.dart';
-import 'brand_utils.dart';
-import 'product_ui_components.dart';
+import 'package:rokctapp/presentation/components/products/brand_utils.dart';
+import 'package:rokctapp/presentation/components/products/product_ui_components.dart';
 
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 

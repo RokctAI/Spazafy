@@ -19,8 +19,8 @@ import 'package:rokctapp/presentation/components/exports/components_driver.dart'
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
-import 'widgets/logout_modal.dart';
-import 'widgets/sections_item.dart';
+import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.dart';
+import 'package:rokctapp/presentation/pages/profile/driver/widgets/sections_item.dart';
 
 @RoutePage()
 class DriverProfilePage extends ConsumerStatefulWidget {

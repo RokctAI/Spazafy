@@ -1,12 +1,10 @@
-import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/category_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
-import 'payment_data.dart';
-import 'user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/stock.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/payment_data.dart';
+import 'package:rokctapp/infrastructure/models/data/user_data.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
-import 'product_data.dart';
-import 'location_data.dart';
-import 'category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/location_data.dart';
 
 class ShopData {
   ShopData({

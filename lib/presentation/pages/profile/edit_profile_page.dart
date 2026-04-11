@@ -15,13 +15,13 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/image/custom_network_image.dart';
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
-import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
 import 'package:rokctapp/presentation/components/text_fields/underline_drop_down.dart';
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/app_constants.dart';
-import 'phone_verify.dart';
+import 'package:rokctapp/presentation/pages/profile/phone_verify.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
 
 class EditProfileScreen extends ConsumerStatefulWidget {

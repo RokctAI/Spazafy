@@ -8,11 +8,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'home_state.dart';
+import 'package:rokctapp/application/home/driver/home_state.dart';
 
 final userRepository = driverUserRepository;
 final drawRepository = driverDrawRepository;

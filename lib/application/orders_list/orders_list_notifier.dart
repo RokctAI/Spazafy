@@ -6,7 +6,7 @@ import 'package:rokctapp/infrastructure/models/data/refund_data.dart';
 import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'orders_list_state.dart';
+import 'package:rokctapp/application/orders_list/orders_list_state.dart';
 
 class OrdersListNotifier extends StateNotifier<OrdersListState> {
   final OrdersRepositoryFacade _orderRepository;

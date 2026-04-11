@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/translation.dart';
-import 'local_location_data.dart';
+import 'package:rokctapp/infrastructure/models/data/local_location_data.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_delivery.dart';
 
 class ShopData {

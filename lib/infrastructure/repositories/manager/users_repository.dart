@@ -1,11 +1,11 @@
-import 'package:rokctapp/infrastructure/models/response/manager/users_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/users_paginate_response.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/statistics_response.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/statistics_order_response.dart';
+import 'package:rokctapp/infrastructure/models/response/statistics_response.dart';
+import 'package:rokctapp/infrastructure/models/response/statistics_order_response.dart';
 import 'package:rokctapp/infrastructure/models/request/edit_profile.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/category_data.dart';
+import 'package:rokctapp/infrastructure/models/data/category_data.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
-import 'package:rokctapp/infrastructure/models/response/driver/delivery_zone_paginate.dart';
+import 'package:rokctapp/infrastructure/models/response/delivery_zone_paginate.dart';
 import 'package:rokctapp/infrastructure/models/data/translation.dart' as mgr;
 import 'dart:convert';
 import 'package:flutter/material.dart';

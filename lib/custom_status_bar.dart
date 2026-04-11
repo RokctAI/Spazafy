@@ -4,7 +4,7 @@ import 'package:battery_plus/battery_plus.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:remixicon/remixicon.dart';
-import 'presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/theme/theme.dart';
 
 class CustomStatusBar extends StatefulWidget {
   final Widget child;
