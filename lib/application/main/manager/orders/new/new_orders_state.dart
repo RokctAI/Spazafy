@@ -2,7 +2,6 @@ import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'new_orders_state.freezed.dart';
 
 @freezed

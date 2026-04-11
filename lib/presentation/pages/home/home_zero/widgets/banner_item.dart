@@ -8,7 +8,6 @@ import 'package:rokctapp/presentation/components/custom_network_image.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'banner_screen.dart';
 
-
 class BannerItem extends StatelessWidget {
   final BannerData banner;
   final bool isAds;

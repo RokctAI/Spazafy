@@ -16,7 +16,6 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart'
 import 'package:rokctapp/presentation/components/list_items/manager/small_weekday_item.dart';
 import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
 class WorkingTimeModal extends ConsumerStatefulWidget {

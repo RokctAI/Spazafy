@@ -10,7 +10,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/order/manager/shipping/table/table_provider.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'widgets/table_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';

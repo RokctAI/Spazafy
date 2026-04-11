@@ -10,10 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_addon_state.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
-
-
 
 class EditAddonNotifier extends StateNotifier<EditAddonState> {
   final ProductsInterface _productsRepository;

@@ -13,8 +13,6 @@ import 'products_state.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
-
-
 class ProductsNotifier extends StateNotifier<ProductsState> {
   final ProductsInterface _productsRepository;
   ProductsNotifier(this._productsRepository) : super(const ProductsState());

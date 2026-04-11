@@ -9,7 +9,6 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
-
 class BackgroundSyncService {
   final AppDatabase database;
   final HttpService httpService;

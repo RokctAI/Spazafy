@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'delete_extras_group_state.dart';
 
-
 class DeleteExtrasGroupNotifier extends StateNotifier<DeleteExtrasGroupState> {
   final ProductsInterface _productsRepository;
 

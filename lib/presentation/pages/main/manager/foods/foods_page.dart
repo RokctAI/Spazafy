@@ -15,7 +15,6 @@ import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable
 import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/search_text_field.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
 class FoodsPage extends ConsumerStatefulWidget {

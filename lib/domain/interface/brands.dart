@@ -4,8 +4,6 @@ import 'package:rokctapp/infrastructure/models/response/brands_paginate_response
 
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-
-
 abstract class BrandsRepositoryFacade {
   Future<ApiResult<BrandsPaginateResponse>> getBrandsPaginate(int page);
 

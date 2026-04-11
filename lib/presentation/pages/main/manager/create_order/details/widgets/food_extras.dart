@@ -11,7 +11,6 @@ import 'package:rokctapp/presentation/components/extras/manager/text_extras.dart
 
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
 class FoodExtras extends ConsumerWidget {
   const FoodExtras({super.key});
 

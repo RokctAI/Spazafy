@@ -7,7 +7,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 import 'create_food_units_state.dart';
 
-
 class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
   final CatalogInterface _catalogRepository;
 

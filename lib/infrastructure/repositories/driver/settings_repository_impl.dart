@@ -13,7 +13,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
-
 import 'package:rokctapp/infrastructure/models/models_driver.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/domain/interface/driver_settings.dart';

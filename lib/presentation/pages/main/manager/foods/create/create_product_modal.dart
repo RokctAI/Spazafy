@@ -1,6 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +8,6 @@ import 'stocks/create_food_stocks_body.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
 import 'details/create_food_details_body.dart';
-
 
 import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
 
