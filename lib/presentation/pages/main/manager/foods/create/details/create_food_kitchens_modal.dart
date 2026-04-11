@@ -9,9 +9,9 @@ import 'package:rokctapp/application/foods/manager/create/details/kitchens/creat
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
-import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
-import 'package:rokctapp/presentation/components/list_items/manager/food_kitchen_item.dart';
+import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/list_items/food_kitchen_item.dart';
 
 class CreateFoodKitchensModal extends ConsumerStatefulWidget {
   const CreateFoodKitchensModal({super.key});

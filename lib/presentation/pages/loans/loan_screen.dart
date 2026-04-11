@@ -15,7 +15,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/chat/chat/chat_page.dart';
 import 'widgets/loan_contract_screen.dart';

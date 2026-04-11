@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/presentation/components/components_driver.dart';
+import 'package:rokctapp/presentation/components/exports/components_driver.dart';
 
 import 'package:rokctapp/presentation/theme/app_style.dart';
 

@@ -1,7 +1,7 @@
 import 'package:rokctapp/printer/models/data/printer_device.dart';
-import 'bluetooth.dart';
-import 'tcp.dart';
-import 'usb.dart';
+import 'package:rokctapp/printer/connectors/bluetooth.dart';
+import 'package:rokctapp/printer/connectors/tcp.dart';
+import 'package:rokctapp/printer/connectors/usb.dart';
 
 class PrinterDiscovery {
   static final PrinterDiscovery _instance = PrinterDiscovery._internal();

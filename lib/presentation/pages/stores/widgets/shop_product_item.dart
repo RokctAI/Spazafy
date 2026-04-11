@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
-import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:rokctapp/presentation/components/image/custom_network_image.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
 import 'bonus_screen.dart';

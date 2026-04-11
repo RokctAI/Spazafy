@@ -13,7 +13,7 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
-import 'package:rokctapp/presentation/components/driver/maps_list.dart';
+import 'package:rokctapp/presentation/components/maps_list.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
-import 'package:rokctapp/presentation/components/helper/manager/shop_bordered_avatar.dart';
+import 'package:rokctapp/presentation/components/helper/common_image.dart';
+import 'package:rokctapp/presentation/components/avatar/shop_bordered_avatar.dart';
 
 
 

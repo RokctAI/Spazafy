@@ -14,8 +14,8 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
+import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/pages/stores/group_order/widgets/check_status_dialog.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';

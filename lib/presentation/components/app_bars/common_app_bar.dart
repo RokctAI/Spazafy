@@ -1,4 +1,3 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
@@ -7,12 +6,14 @@ class CommonAppBar extends StatelessWidget {
   final Widget child;
   final double height;
   final bool isSearchPage;
+  final Color bgColor;
 
   const CommonAppBar({
     super.key,
     required this.child,
     this.height = 76,
     this.isSearchPage = false,
+    this.bgColor = AppStyle.transparent, // Set your default color here
   });
 
   @override
@@ -21,11 +22,11 @@ class CommonAppBar extends StatelessWidget {
       width: double.infinity,
       height:
           height.h +
-          ((MediaQuery.paddingOf(context).top > 34)
+          ((MediaQuery.of(context).padding.top > 34)
               ? 34.h
-              : MediaQuery.paddingOf(context).top),
+              : MediaQuery.of(context).padding.top),
       decoration: BoxDecoration(
-        color: AppStyle.white,
+        color: bgColor, // Use the bgColor property
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(16.r),
           bottomRight: Radius.circular(16.r),

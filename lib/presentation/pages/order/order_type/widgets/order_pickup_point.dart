@@ -9,7 +9,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/location_service.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 

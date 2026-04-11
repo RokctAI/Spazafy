@@ -11,9 +11,9 @@ import 'package:rokctapp/application/parcels_list/parcel_list_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/app_bars/common_app_bar2.dart';
-import 'package:rokctapp/presentation/components/custom_tab_bar.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
+import 'package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/orders_item.dart';
 import 'package:rokctapp/presentation/pages/parcel/parcel_item.dart';
@@ -59,7 +59,7 @@ class _MainPageState extends ConsumerState<OrdersMainPage>
         backgroundColor: isDarkMode ? AppStyle.mainBackDark : AppStyle.bgGrey,
         body: Column(
           children: [
-            CommonAppBar2(
+            CommonAppBar(
               bgColor: AppStyle.primary.withOpacity(
                 0.28,
               ), // Set the background color here

@@ -2,13 +2,13 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType;
 
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
-import 'package:rokctapp/presentation/components/helper/manager/multi_image_picker.dart';
-import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
-import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
+import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/image/multi_image_picker.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
+import 'package:rokctapp/presentation/components/toggle/manager_custom_toggle.dart';
 import 'package:rokctapp/presentation/components/manager/multi_translation_input_modal.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';

@@ -8,7 +8,7 @@ import 'package:rokctapp/application/filter/filter_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/market_one_item.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/market_three_item.dart';
 import 'package:rokctapp/application/filter/filter_notifier.dart';

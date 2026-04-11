@@ -18,7 +18,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/models/data/user.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/add_address.dart';
 import 'app_bar_home.dart';
 import 'category_screen.dart';

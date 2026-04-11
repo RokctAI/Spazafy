@@ -6,7 +6,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/presentation/components/components_driver.dart';
+import 'package:rokctapp/presentation/components/exports/components_driver.dart';
 
 class AddComment extends StatelessWidget {
   final ValueChanged<String> onChange;

@@ -17,8 +17,8 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/components/custom_network_image.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/components/image/custom_network_image.dart';
+import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/pages/product/widgets/w_ingredient.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/shop/shop_state.dart';
@@ -26,7 +26,7 @@ import 'package:rokctapp/presentation/pages/stores/widgets/bonus_screen.dart';
 import 'widgets/images_list_one.dart';
 import 'widgets/p_main_button.dart';
 import 'widgets/w_product_extras.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 
 class ProductScreen extends ConsumerStatefulWidget {
   final ProductData? data;

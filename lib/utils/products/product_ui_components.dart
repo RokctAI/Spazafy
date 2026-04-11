@@ -7,7 +7,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:rokctapp/infrastructure/models/data/cart_data.dart';
 import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
-import 'product_utils.dart';
+import 'package:rokctapp/utils/products/product_utils.dart';
 
 class ProductUIComponents {
   /// Build quantity control widget for product in cart

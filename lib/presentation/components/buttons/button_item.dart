@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect2.dart';
-import 'package:rokctapp/presentation/components/custom_toggle2.dart';
+import 'package:rokctapp/presentation/components/toggle/custom_toggle2.dart';
 import 'package:rokctapp/presentation/theme/theme.dart'; // Import the AppStyle class
 
 class ButtonItem extends StatelessWidget {

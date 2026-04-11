@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/badge_item.dart';
+import 'package:rokctapp/presentation/components/badges/badge_item.dart';
 import 'package:rokctapp/presentation/components/bonus_discount_popular.dart';
-import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:rokctapp/presentation/components/image/custom_network_image.dart';
 
 import 'package:rokctapp/presentation/theme/app_style.dart';
 

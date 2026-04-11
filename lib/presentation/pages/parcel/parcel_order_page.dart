@@ -15,7 +15,7 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/rating_page.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/title_price.dart';
 import 'package:rokctapp/presentation/pages/order/order_screen/widgets/order_status.dart';

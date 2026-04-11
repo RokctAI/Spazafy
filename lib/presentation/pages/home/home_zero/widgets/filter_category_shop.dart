@@ -8,10 +8,10 @@ import 'package:rokctapp/application/home/home_state.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 import 'package:rokctapp/presentation/components/market_item.dart';
-import 'package:rokctapp/presentation/components/tab_bar_item.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
+import 'package:rokctapp/presentation/components/tab_bars/tab_bar_item.dart';
+import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/filter/filter_page.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 

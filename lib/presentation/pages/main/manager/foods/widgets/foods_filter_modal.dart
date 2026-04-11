@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,8 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'foods_filter_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
-import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
+import 'package:rokctapp/presentation/components/toggle/manager_custom_toggle.dart';
 
 
 

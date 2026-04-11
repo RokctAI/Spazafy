@@ -10,9 +10,9 @@ import 'package:rokctapp/application/subscriptions/manager/subscriptions_provide
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
-import 'package:rokctapp/presentation/components/helper/manager/no_data_info.dart';
-import 'package:rokctapp/presentation/components/loading/manager/loading_grid.dart';
+import 'package:rokctapp/presentation/components/tab_bars/custom_app_bar.dart';
+import 'package:rokctapp/presentation/components/helper/no_data_info.dart';
+import 'package:rokctapp/presentation/components/loading/loading_grid.dart';
 import 'package:rokctapp/presentation/pages/restaurant/manager/subscriptions/widgets/have_subscription.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/payment_dialog.dart';

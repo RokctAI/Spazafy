@@ -5,7 +5,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/blur_wrap.dart';
+import 'package:rokctapp/presentation/components/helper/blur_wrap.dart';
 
 class PopButton extends StatelessWidget {
   final VoidCallback? onTap;

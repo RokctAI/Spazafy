@@ -10,7 +10,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/application/home/driver/home_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/presentation/components/buttons/driver/custom_button.dart';
-import 'package:rokctapp/presentation/components/driver/maps_list.dart';
+import 'package:rokctapp/presentation/components/maps_list.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';

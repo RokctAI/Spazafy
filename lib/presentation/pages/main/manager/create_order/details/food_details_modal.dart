@@ -13,9 +13,9 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'widgets/food_price_widget.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
-import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
-import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/helper/common_image.dart';
+import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';

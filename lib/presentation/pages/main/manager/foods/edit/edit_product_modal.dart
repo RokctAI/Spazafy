@@ -7,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'stocks/edit_food_stocks_body.dart';
 import 'details/edit_food_details_body.dart';
-import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
-import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';

@@ -2,7 +2,7 @@ import 'package:rokctapp/app_constants.dart';
 
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -18,13 +18,13 @@ import 'working_time_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/helper/manager/blur_wrap.dart';
-import 'package:rokctapp/presentation/components/helper/manager/horizontal_image_picker.dart';
-import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
-import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
-import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
-import 'package:rokctapp/presentation/components/helper/manager/shop_bordered_avatar.dart';
-import 'package:rokctapp/presentation/components/list_items/manager/small_weekday_item.dart';
+import 'package:rokctapp/presentation/components/helper/blur_wrap.dart';
+import 'package:rokctapp/presentation/components/image/horizontal_image_picker.dart';
+import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/avatar/shop_bordered_avatar.dart';
+import 'package:rokctapp/presentation/components/list_items/small_weekday_item.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 
 

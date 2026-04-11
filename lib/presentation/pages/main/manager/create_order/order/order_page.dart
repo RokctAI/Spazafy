@@ -1,5 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/presentation/components/loading/manager/loading_list.dart';
+import 'package:rokctapp/presentation/components/loading/loading_list.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
@@ -13,10 +13,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart';
-import 'package:rokctapp/presentation/components/helper/manager/shop_bordered_avatar.dart';
-import 'package:rokctapp/presentation/components/list_items/manager/food_stock_item.dart';
+import 'package:rokctapp/presentation/components/avatar/shop_bordered_avatar.dart';
+import 'package:rokctapp/presentation/components/list_items/food_stock_item.dart';
 
-import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
+import 'package:rokctapp/presentation/components/tab_bars/custom_app_bar.dart';
 
 
 

@@ -20,7 +20,7 @@ import 'package:rokctapp/infrastructure/models/data/remote_message_data.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/animation_button_effect.dart';
-import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:rokctapp/presentation/components/image/custom_network_image.dart';
 import 'package:rokctapp/presentation/components/keyboard_dismisser.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/home_page.dart';
 import 'package:rokctapp/app_constants.dart';

@@ -1,7 +1,7 @@
 
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/helper/driver/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,8 +10,8 @@ import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
-import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
+import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
+import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';

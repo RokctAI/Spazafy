@@ -10,8 +10,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart';
-import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
-import 'package:rokctapp/presentation/components/manager/filter_screen.dart';
+import 'package:rokctapp/presentation/components/tab_bars/custom_app_bar.dart';
+import 'package:rokctapp/presentation/components/filter/manager_filter_screen.dart';
 import 'package:rokctapp/presentation/components/tab_bars/manager/custom_tab_bar.dart';
 
 

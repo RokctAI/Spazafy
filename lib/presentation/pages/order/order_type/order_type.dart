@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/custom_tab_bar.dart';
+import 'package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'widgets/order_delivery.dart';
 import 'widgets/order_pick_up.dart';

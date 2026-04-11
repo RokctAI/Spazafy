@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:rokctapp/presentation/components/image/custom_network_image.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/utils/products/product_utils.dart';
 import 'package:remixicon/remixicon.dart';

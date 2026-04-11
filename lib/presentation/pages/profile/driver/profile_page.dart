@@ -15,7 +15,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/edit_profile_modal.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/presentation/components/components_driver.dart';
+import 'package:rokctapp/presentation/components/exports/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/profile/language_page.dart';
 import 'package:rokctapp/presentation/pages/profile/currency_page.dart';

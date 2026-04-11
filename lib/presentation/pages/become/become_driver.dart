@@ -14,8 +14,8 @@ import 'package:rokctapp/application/profile/driver/notifier/profile_edit_notifi
 import 'package:rokctapp/application/profile/driver/notifier/profile_image_notifier.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart'
     hide AppHelpers;
-import 'package:rokctapp/presentation/components/components_driver.dart';
-import 'package:rokctapp/presentation/components/driver/loading.dart';
+import 'package:rokctapp/presentation/components/exports/components_driver.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 

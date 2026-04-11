@@ -23,8 +23,8 @@ import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 
 import 'package:rokctapp/presentation/components/badges/alert_dialog.dart';
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
-import 'package:rokctapp/presentation/components/custom_network_image.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/image/custom_network_image.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 import 'package:rokctapp/application/like/like_provider.dart';
 import 'package:rokctapp/presentation/pages/profile/delete_screen.dart';
 import 'package:rokctapp/presentation/pages/profile/help_page.dart';

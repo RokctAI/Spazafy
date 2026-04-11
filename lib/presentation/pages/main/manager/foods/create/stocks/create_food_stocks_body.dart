@@ -8,9 +8,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'create_food_addons_modal.dart';
 import 'create_food_edit_extras_modal.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
-import 'package:rokctapp/presentation/components/list_items/manager/editable_food_stock_item.dart';
-import 'package:rokctapp/presentation/components/list_items/manager/extras_item.dart';
+import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/list_items/editable_food_stock_item.dart';
+import 'package:rokctapp/presentation/components/extras/manager/extras_item.dart';
 
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';

@@ -12,9 +12,9 @@ import 'package:rokctapp/application/foods/manager/create/details/kitchens/creat
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
-import 'package:rokctapp/presentation/components/helper/manager/multi_image_picker.dart';
-import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
+import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/image/multi_image_picker.dart';
+import 'package:rokctapp/presentation/components/toggle/manager_custom_toggle.dart';
 import 'package:rokctapp/presentation/components/manager/multi_translation_input_modal.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';

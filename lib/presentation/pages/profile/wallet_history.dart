@@ -16,7 +16,7 @@ import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:rokctapp/presentation/components/buttons/pop_button.dart';
 import 'package:rokctapp/presentation/components/buttons/second_button.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
 import 'widgets/wallet_topup_screen.dart';

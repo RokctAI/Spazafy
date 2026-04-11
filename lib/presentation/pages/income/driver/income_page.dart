@@ -14,7 +14,7 @@ import 'package:rokctapp/application/statistics/driver/statistics_state.dart'
     hide StatisticsState;
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart'
     hide AppHelpers;
-import 'package:rokctapp/presentation/components/components_driver.dart';
+import 'package:rokctapp/presentation/components/exports/components_driver.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'app_bar_screen.dart';
 import 'statistics_screen.dart';

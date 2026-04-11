@@ -9,7 +9,7 @@ import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/presentation/components/custom_network_image.dart';
+import 'package:rokctapp/presentation/components/image/custom_network_image.dart';
 import 'package:rokctapp/presentation/pages/stores/cart/widgets/note_product.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/infrastructure/models/data/cart_data.dart';

@@ -2,7 +2,7 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
 import 'package:rokctapp/infrastructure/models/response/notification_response.dart';
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
@@ -20,9 +20,9 @@ import 'package:rokctapp/application/notification/notification_provider.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart';
-import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
-import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
-import 'package:rokctapp/presentation/components/manager/common_app_bar.dart';
+import 'package:rokctapp/presentation/components/helper/common_image.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
+import 'package:rokctapp/presentation/components/common_app_bar.dart';
 import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_details_modal.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 

@@ -13,8 +13,8 @@ import 'package:rokctapp/infrastructure/services/utils/input_formatter.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
 import 'package:rokctapp/presentation/components/text_fields/outline_bordered_text_field.dart';
-import 'package:rokctapp/presentation/components/title_icon.dart';
-import 'package:rokctapp/presentation/components/web_view.dart';
+import 'package:rokctapp/presentation/components/title/title_icon.dart';
+import 'package:rokctapp/presentation/components/webview/web_view.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/payment_method.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';

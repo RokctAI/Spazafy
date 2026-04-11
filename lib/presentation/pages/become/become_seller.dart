@@ -2,7 +2,7 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
-import 'package:rokctapp/presentation/components/loading.dart';
+import 'package:rokctapp/presentation/components/loading/loading2.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_validators.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +19,9 @@ import 'package:rokctapp/application/profile/profile_state.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
-import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
-import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
-import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
+import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
+import 'package:rokctapp/presentation/components/tab_bars/custom_app_bar.dart';
 import 'package:rokctapp/presentation/pages/become/widgets/address_selector.dart';
 import 'package:rokctapp/presentation/pages/become/widgets/background_image_picker.dart';
 import 'package:rokctapp/presentation/pages/become/widgets/document_upload_section.dart';

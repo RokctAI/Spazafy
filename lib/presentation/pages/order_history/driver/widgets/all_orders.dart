@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/application/order/driver/all_order/order_provider.dart';
-import 'package:rokctapp/presentation/components/driver/loading.dart';
-import 'package:rokctapp/presentation/components/driver/orders_item.dart';
+import 'package:rokctapp/presentation/components/loading/loading.dart';
+import 'package:rokctapp/presentation/components/order/orders_item.dart';
 
 class AllOrdersBody extends ConsumerStatefulWidget {
   final RefreshController refreshController;
