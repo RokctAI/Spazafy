@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 abstract class AppValidators {
   AppValidators._();
@@ -79,3 +79,4 @@ abstract class AppValidators {
   static bool isValidPhone(String input) =>
       RegExp(r"^\+?[0-9]{7,15}$").hasMatch(input);
 }
+

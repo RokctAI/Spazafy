@@ -8,7 +8,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/order_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/order_paginate_response.dart';
 
 final ordersRepositoryFacade = driverOrderRepository;
 

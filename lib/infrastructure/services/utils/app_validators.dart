@@ -1,4 +1,4 @@
-import 'app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 abstract class AppValidators {
@@ -79,3 +79,4 @@ abstract class AppValidators {
     return null;
   }
 }
+
