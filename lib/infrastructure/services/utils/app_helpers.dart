@@ -1,323 +1,117 @@
-import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/setting.dart';
-import 'dart:math';
-import 'package:auto_route/auto_route.dart';
+// ignore_for_file: depend_on_referenced_packages
+
+import 'dart:ui' as ui;
+import 'dart:ui';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/services/utils/extension.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ftoast/ftoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/models/data/address_old_data.dart';
-import 'app_connectivity.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/addon_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart'
+    hide Extras;
+import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart'
+    hide Extras;
+import 'package:rokctapp/infrastructure/models/response/global_settings_response.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/models/response/global_settings_response.dart';
+import 'package:rokctapp/infrastructure/services/utils/img_service.dart';
+import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
+import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
+import 'package:rokctapp/presentation/components/components_driver.dart'
+    show BlurWrap, ButtonsBouncingEffect;
+import 'package:rokctapp/presentation/theme/app_style.dart';
 
-abstract class AppHelpers {
+/// Single unified AppHelpers used across user, driver, and manager flows.
+class AppHelpers {
   AppHelpers._();
 
-  static String numberFormat({num? number, String? symbol, bool? isOrder}) {
-    if (LocalStorage.getSelectedCurrency()?.position == "before") {
+  // ─────────────────────────────────────────────────────────────────────────
+  // NUMBER FORMATTING
+  // ─────────────────────────────────────────────────────────────────────────
+
+  /// Full-featured number formatter. [isOrder] suppresses the currency symbol
+  /// (driver variant behaviour). When omitted the selected currency is used.
+  static String numberFormat({
+    num? number,
+    String? symbol,
+    bool? isOrder,
+    int? maxLength,
+  }) {
+    symbol = (isOrder ?? false)
+        ? (symbol ?? '')
+        : (LocalStorage.getSelectedCurrency()?.symbol ?? '');
+
+    final bool isBefore =
+        LocalStorage.getSelectedCurrency()?.position == 'before';
+    final String beforeSymbol = isBefore ? symbol : '';
+    final String afterSymbol = isBefore ? '' : ' $symbol';
+
+    if (number.toString().length > 12) {
+      maxLength = maxLength;
+    } else {
+      maxLength = 16;
+    }
+
+    if ((number ?? 0) > 999999) {
+      return beforeSymbol +
+          NumberFormat.compact(
+            locale: LocalStorage.getLanguage()?.locale,
+          ).format(number) +
+          afterSymbol;
+    }
+
+    if (number.toString().length > (maxLength ?? 16)) {
+      return beforeSymbol +
+          (number?.toStringAsExponential(maxLength ?? 10) ?? '') +
+          afterSymbol;
+    }
+
+    if (isBefore) {
       return NumberFormat.currency(
         customPattern: '\u00a4#,###.#',
-        symbol: (isOrder ?? false)
-            ? symbol ?? LocalStorage.getSelectedCurrency()?.symbol
-            : LocalStorage.getSelectedCurrency()?.symbol,
+        symbol: symbol,
         decimalDigits: 2,
       ).format(number ?? 0);
     } else {
       return NumberFormat.currency(
         customPattern: '#,###.#\u00a4',
-        symbol: (isOrder ?? false)
-            ? symbol ?? LocalStorage.getSelectedCurrency()?.symbol
-            : LocalStorage.getSelectedCurrency()?.symbol,
+        symbol: symbol,
         decimalDigits: 2,
       ).format(number ?? 0);
     }
   }
 
-  static String generateNonce([int length = 32]) {
-    final charset =
-        '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-.';
-    final random = Random.secure();
-    return List.generate(
-      length,
-      (i) => charset[random.nextInt(charset.length)],
-    ).join();
-  }
+  // ─────────────────────────────────────────────────────────────────────────
+  // SETTINGS HELPERS
+  // ─────────────────────────────────────────────────────────────────────────
 
-  static bool checkYesterday(String? startTime, String? endTime) {
-    final now = DateTime.now().subtract(const Duration(days: 1));
-    final format = DateFormat('HH:mm');
-
-    DateTime start = format.parse(startTime.toSingleTime);
-    DateTime end = format.parse(endTime.toSingleTime);
-
-    start = DateTime(
-      now.year,
-      now.month,
-      now.day,
-      start.hour,
-      start.minute,
-      start.second,
-    );
-    end = DateTime(
-      now.year,
-      now.month,
-      now.day,
-      end.hour,
-      end.minute,
-      end.second,
-    );
-    return end.isBefore(start);
-  }
-
-  static showNoConnectionSnackBar(BuildContext context) {
-    ScaffoldMessenger.of(context).hideCurrentSnackBar();
-    final snackBar = SnackBar(
-      backgroundColor: AppStyle.primary,
-      behavior: SnackBarBehavior.floating,
-      duration: const Duration(seconds: 3),
-      content: Text(
-        'No internet connection',
-        style: AppStyle.interNoSemi(size: 14, color: AppStyle.white),
-      ),
-      action: SnackBarAction(
-        label: 'Close',
-        disabledTextColor: AppStyle.black,
-        textColor: AppStyle.black,
-        onPressed: () {
-          ScaffoldMessenger.of(context).hideCurrentSnackBar();
-        },
-      ),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
-
-  static ExtrasType getExtraTypeByValue(String? value) {
-    switch (value) {
-      case 'color':
-        return ExtrasType.color;
-      case 'text':
-        return ExtrasType.text;
-      case 'image':
-        return ExtrasType.image;
-      default:
-        return ExtrasType.text;
-    }
-  }
-
-  static OrderStatus getOrderStatus(String? value) {
-    switch (value) {
-      case 'new':
-        return OrderStatus.open;
-      case 'accepted':
-        return OrderStatus.accepted;
-      case 'ready':
-        return OrderStatus.ready;
-      case 'on_a_way':
-        return OrderStatus.onWay;
-      case 'delivered':
-        return OrderStatus.delivered;
-      case 'canceled':
-        return OrderStatus.canceled;
-      default:
-        return OrderStatus.accepted;
-    }
-  }
-
-  static String? getOrderByString(String value) {
-    switch (getTranslationReverse(value)) {
-      case "new":
-        return "new";
-      case "trust_you":
-        return "trust_you";
-      case 'highly_rated':
-        return "high_rating";
-      case 'best_sale':
-        return "best_sale";
-      case 'low_sale':
-        return "low_sale";
-      case 'low_rating':
-        return "low_rating";
-    }
-    return null;
-  }
-
-  static String getOrderStatusText(OrderStatus value) {
-    switch (value) {
-      case OrderStatus.open:
-        return "new";
-      case OrderStatus.accepted:
-        return "accepted";
-      case OrderStatus.ready:
-        return "ready";
-      case OrderStatus.onAWay:
-        return "on_a_way";
-      case OrderStatus.delivered:
-        return "delivered";
-      case OrderStatus.canceled:
-        return "canceled";
-      default:
-        return "new";
-    }
-  }
-
-  static showCheckTopSnackBar(BuildContext context, String text) {
-    return showTopSnackBar(
-      Overlay.of(context),
-      CustomSnackBar.error(
-        message: text.isEmpty
-            ? "Please check your credentials and try again"
-            : text,
-      ),
-      animationDuration: const Duration(milliseconds: 700),
-      reverseAnimationDuration: const Duration(milliseconds: 700),
-      displayDuration: const Duration(milliseconds: 700),
-    );
-  }
-
-  static showCheckTopSnackBarInfo(
-    BuildContext context,
-    String text, {
-    VoidCallback? onTap,
-  }) {
-    return showTopSnackBar(
-      Overlay.of(context),
-      CustomSnackBar.info(message: text),
-      animationDuration: const Duration(milliseconds: 700),
-      reverseAnimationDuration: const Duration(milliseconds: 700),
-      displayDuration: const Duration(milliseconds: 700),
-      onTap: onTap,
-    );
-  }
-
-  static showCheckTopSnackBarDone(BuildContext context, String text) {
-    return showTopSnackBar(
-      Overlay.of(context),
-      CustomSnackBar.success(message: text),
-      animationDuration: const Duration(milliseconds: 700),
-      reverseAnimationDuration: const Duration(milliseconds: 700),
-      displayDuration: const Duration(milliseconds: 700),
-    );
-  }
-
-  static showCheckTopSnackBarInfoCustom(
-    BuildContext context,
-    String text, {
-    VoidCallback? onTap,
-  }) {
-    return showTopSnackBar(
-      Overlay.of(context),
-      CustomSnackBar.info(
-        message: text,
-        icon: const SizedBox.shrink(),
-        backgroundColor: AppStyle.primary,
-        textStyle: AppStyle.interNormal(),
-      ),
-      animationDuration: const Duration(milliseconds: 700),
-      reverseAnimationDuration: const Duration(milliseconds: 700),
-      displayDuration: const Duration(milliseconds: 700),
-      onTap: onTap,
-    );
-  }
-
-  static double getOrderStatusProgress(String? status) {
-    switch (status) {
-      case 'new':
-        return 0.2;
-      case 'accepted':
-        return 0.4;
-      case 'ready':
-        return 0.6;
-      case 'on_a_way':
-        return 0.8;
-      case 'delivered':
-        return 1;
-      default:
-        return 0.4;
-    }
-  }
-
-  static String? getAppName() {
+  static SignUpType getAuthOption() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'title') {
-        return setting.value;
+      if (setting.key == 'auth_option') {
+        switch (setting.value) {
+          case 'phone':
+            return SignUpType.phone;
+          case 'email':
+            return SignUpType.email;
+          default:
+            return SignUpType.both;
+        }
       }
     }
-    return 'JUVO';
-  }
-
-  static String? getAppLogo() {
-    final List<SettingsData> settings = LocalStorage.getSettingsList();
-    for (final setting in settings) {
-      if (setting.key == 'logo') {
-        return setting.value;
-      }
-    }
-    return '';
-  }
-
-  static int getType() {
-    if (AppConstants.isDemo) {
-      return LocalStorage.getUiType() ?? 0;
-    }
-    final List<SettingsData> settings = LocalStorage.getSettingsList();
-    for (final setting in settings) {
-      if (setting.key == 'ui_type') {
-        return (int.tryParse(setting.value ?? "1") ?? 1) - 1;
-      }
-    }
-    return 0;
-  }
-
-  static bool getGroupOrder() {
-    final List<SettingsData> settings = LocalStorage.getSettingsList();
-    for (final setting in settings) {
-      if (setting.key == 'group_order') {
-        return setting.value == "1";
-      }
-    }
-    return true;
-  }
-
-  static bool getParcel() {
-    final List<SettingsData> settings = LocalStorage.getSettingsList();
-    for (final setting in settings) {
-      if (setting.key == 'active_parcel') {
-        return setting.value == "1";
-      }
-    }
-    return false;
-  }
-
-  static bool getLendingEnabled() {
-    final List<SettingsData> settings = LocalStorage.getSettingsList();
-    for (final setting in settings) {
-      if (setting.key == 'enable_paas_lending') {
-        return setting.value == "1";
-      }
-    }
-    return false;
-  }
-
-  static bool getReferralActive() {
-    final List<SettingsData> settings = LocalStorage.getSettingsList();
-    for (final setting in settings) {
-      if (setting.key == 'referral_active') {
-        return setting.value == "1";
-      }
-    }
-    return false;
+    return SignUpType.both;
   }
 
   static String? getAppPhone() {
@@ -330,34 +124,14 @@ abstract class AppHelpers {
     return '';
   }
 
-  static String? getPaymentType() {
+  static String getAppName() {
     final List<SettingsData> settings = LocalStorage.getSettingsList();
     for (final setting in settings) {
-      if (setting.key == 'payment_type') {
-        return setting.value;
+      if (setting.key == 'title') {
+        return setting.value ?? '';
       }
     }
-    return 'admin';
-  }
-
-  static bool getPhoneRequired() {
-    final List<SettingsData> settings = LocalStorage.getSettingsList();
-    for (final setting in settings) {
-      if (setting.key == 'before_order_phone_required') {
-        return setting.value == "1";
-      }
-    }
-    return false;
-  }
-
-  static bool getReservationEnable() {
-    final List<SettingsData> settings = LocalStorage.getSettingsList();
-    for (final setting in settings) {
-      if (setting.key == 'reservation_enable_for_user') {
-        return setting.value == "1";
-      }
-    }
-    return false;
+    return '';
   }
 
   static String? getAppAddressName() {
@@ -370,36 +144,25 @@ abstract class AppHelpers {
     return '';
   }
 
-  static String getTranslation(String trKey) {
-    final Map<String, dynamic> translations = LocalStorage.getTranslations();
-    return translations[trKey] ??
-        (trKey.isNotEmpty
-            ? trKey
-                  .replaceAll(".", " ")
-                  .replaceAll("_", " ")
-                  .replaceFirst(
-                    trKey.substring(0, 1),
-                    trKey.substring(0, 1).toUpperCase(),
-                  )
-            : '');
-  }
-
-  static String getTranslationReverse(String trKey) {
-    final Map<String, dynamic> translations = LocalStorage.getTranslations();
-    for (int i = 0; i < translations.values.length; i++) {
-      if (trKey == translations.values.elementAt(i)) {
-        return translations.keys.elementAt(i);
+  /// Returns true when the driver is NOT allowed to edit their own credentials.
+  static bool getDriverCantEdit() {
+    final List<SettingsData> settings = LocalStorage.getSettingsList();
+    for (final setting in settings) {
+      if (setting.key == 'driver_can_edit_credentials') {
+        return setting.value == '0';
       }
     }
-    return trKey;
+    return false;
   }
 
-  static bool checkIsSvg(String? url) {
-    if (url == null || (url.length) < 3) {
-      return false;
+  static int getAppDeliveryTime() {
+    final List<SettingsData> settings = LocalStorage.getSettingsList();
+    for (final setting in settings) {
+      if (setting.key == 'deliveryman_order_acceptance_time') {
+        return int.tryParse(setting.value ?? '30') ?? 30;
+      }
     }
-    final length = url.length;
-    return url.substring(length - 3, length) == 'svg';
+    return 30;
   }
 
   static double? getInitialLatitude() {
@@ -410,11 +173,8 @@ abstract class AppHelpers {
           0,
           setting.value?.indexOf(','),
         );
-        if (latString == null) {
-          return null;
-        }
-        final double? lat = double.tryParse(latString);
-        return lat;
+        if (latString == null) return null;
+        return double.tryParse(latString);
       }
     }
     return null;
@@ -428,29 +188,441 @@ abstract class AppHelpers {
           0,
           setting.value?.indexOf(','),
         );
-        if (latString == null) {
-          return null;
-        }
+        if (latString == null) return null;
         final String? lonString = setting.value?.substring(
           (latString.length) + 2,
           setting.value?.length,
         );
-        if (lonString == null) {
-          return null;
-        }
-        final double? lon = double.tryParse(lonString);
-        return lon;
+        if (lonString == null) return null;
+        return double.tryParse(lonString);
       }
     }
     return null;
   }
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // SHOP / ORDER HELPERS
+  // ─────────────────────────────────────────────────────────────────────────
+
+  static String getShopWorkingTimeForToday() {
+    final shop = LocalStorage.getShop();
+    if (shop == null) {
+      return getTranslation(TrKeys.theRestaurantIsClosedToday);
+    }
+    final currentWeekday =
+        DateFormat('EEEE').format(DateTime.now()).toLowerCase();
+    final List<ShopWorkingDays> workingDays = shop.shopWorkingDays ?? [];
+    for (final day in workingDays) {
+      if (day.day?.toLowerCase() == currentWeekday) {
+        if (day.disabled ?? false) {
+          return getTranslation(TrKeys.theRestaurantIsClosedToday);
+        }
+        return '${day.from?.substring(0, 2)}:${day.from?.substring(3, 5)}'
+            ' - ${day.to?.substring(0, 2)}:${day.to?.substring(3, 5)}';
+      }
+    }
+    return '';
+  }
+
+  /// Returns a comma-separated string of selected addon titles for [stock].
+  static String? selectedAddonsTitles(Stock stock) {
+    final List<AddonData> addons = stock.localAddons ?? [];
+    if (addons.isEmpty) return null;
+    String text = '${addons[0].product?.translation?.title}';
+    for (int i = 1; i < addons.length; i++) {
+      text =
+          '$text${i != addons.length ? ',' : ''} ${addons[i].product?.translation?.title} ';
+    }
+    return text;
+  }
+
+  static String getInitialAddonQuantity(ProductData addon) {
+    return addon.stock?.quantity == null
+        ? ''
+        : addon.stock?.quantity.toString() ?? '';
+  }
+
+  static String getInitialAddonPrice(ProductData addon) {
+    return addon.stock?.price.toString() ?? '';
+  }
+
+  static String truncate(String value, int length) {
+    return value.length > length ? value.substring(0, length) : value;
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // EXTRAS / ORDER STATUS HELPERS  (manager-specific)
+  // ─────────────────────────────────────────────────────────────────────────
+
+  static List<List<Extras>> cartesian(List<List<dynamic>> args) {
+    final List<List<Extras>> r = [];
+    final int max = args.length - 1;
+
+    void helper(List<Extras> arr, int i) {
+      for (int j = 0, l = args[i].length; j < l; j++) {
+        final List<Extras> a = List.from(arr);
+        a.add(args[i][j] as Extras);
+        if (i == max) {
+          r.add(a);
+        } else {
+          helper(a, i + 1);
+        }
+      }
+    }
+
+    helper([], 0);
+    return r;
+  }
+
+  static ExtrasType getExtraTypeByValue(String? value) {
+    switch (value) {
+      case 'color':
+        return ExtrasType.color;
+      case 'image':
+        return ExtrasType.image;
+      case 'text':
+      default:
+        return ExtrasType.text;
+    }
+  }
+
+  static OrderStatus getOrderStatus(String? value) {
+    switch (value) {
+      case 'new':
+        return OrderStatus.newOrder;
+      case 'accepted':
+        return OrderStatus.accepted;
+      case 'cooking':
+        return OrderStatus.cooking;
+      case 'ready':
+        return OrderStatus.ready;
+      case 'on_a_way':
+        return OrderStatus.onAWay;
+      case 'delivered':
+        return OrderStatus.delivered;
+      case 'canceled':
+        return OrderStatus.canceled;
+      default:
+        return OrderStatus.newOrder;
+    }
+  }
+
+  static OrderStatus getUpdatableStatus(String? value) {
+    switch (value) {
+      case 'new':
+        return OrderStatus.accepted;
+      case 'accepted':
+        return OrderStatus.cooking;
+      case 'cooking':
+        return OrderStatus.ready;
+      case 'ready':
+        return OrderStatus.onAWay;
+      case 'on_a_way':
+        return OrderStatus.delivered;
+      case 'delivered':
+        return OrderStatus.newOrder;
+      case 'canceled':
+        return OrderStatus.canceled;
+      default:
+        return OrderStatus.accepted;
+    }
+  }
+
+  static String changeStatusButtonText(String? value) {
+    switch (value) {
+      case 'new':
+        return getTranslation(TrKeys.swipeToAccept);
+      case 'accepted':
+        return getTranslation(TrKeys.swipeToCooking);
+      case 'cooking':
+        return getTranslation(TrKeys.swipeToReady);
+      case 'ready':
+        return getTranslation(TrKeys.swipeToWay);
+      case 'on_a_way':
+        return getTranslation(TrKeys.swipeToDelivered);
+      case 'delivered':
+      case 'canceled':
+      default:
+        return getTranslation(TrKeys.swipeToAccept);
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // TRANSLATION
+  // ─────────────────────────────────────────────────────────────────────────
+
+  /// Looks up [trKey] in stored translations.
+  /// Falls back to a humanised version of the key when not found.
+  static String getTranslation(String trKey) {
+    final Map<String, dynamic> translations = LocalStorage.getTranslations();
+    if (AppConstants.autoTrn) {
+      return translations[trKey] ??
+          (trKey.isNotEmpty
+              ? trKey
+                    .replaceAll('.', ' ')
+                    .replaceAll('_', ' ')
+                    .replaceFirst(
+                      trKey.substring(0, 1),
+                      trKey.substring(0, 1).toUpperCase(),
+                    )
+              : '');
+    } else {
+      return translations[trKey] ?? trKey;
+    }
+  }
+
+  static String getTranslationReverse(String trKey) {
+    final Map<String, dynamic> translations = LocalStorage.getTranslations();
+    for (int i = 0; i < translations.values.length; i++) {
+      if (trKey == translations.values.elementAt(i)) {
+        return translations.keys.elementAt(i);
+      }
+    }
+    return trKey;
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // SNACK BARS / TOASTS
+  // ─────────────────────────────────────────────────────────────────────────
+
+  static void showNoConnectionSnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: Colors.teal,
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 3),
+        content: Text(
+          'No internet connection',
+          style: GoogleFonts.inter(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: AppStyle.white,
+          ),
+        ),
+        action: SnackBarAction(
+          label: 'Close',
+          disabledTextColor: Colors.white,
+          textColor: Colors.yellow,
+          onPressed: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+        ),
+      ),
+    );
+  }
+
+  /// Unified snack-bar that supports [SnackBarType] (manager style) **and**
+  /// a plain positional [text] string (driver/user style).
+  ///
+  /// Usage examples:
+  /// ```dart
+  /// // manager style
+  /// AppHelpers.showCheckTopSnackBar(context, type: SnackBarType.error, text: 'Oops');
+  /// // driver / user style
+  /// AppHelpers.showCheckTopSnackBar(context, text: 'Oops');
+  /// ```
+  static void showCheckTopSnackBar(
+    BuildContext context, {
+    String? text,
+    SnackBarType type = SnackBarType.error,
+  }) {
+    showTopSnackBar(
+      Overlay.of(context),
+      type == SnackBarType.success
+          ? CustomSnackBar.success(
+              message: text ??
+                  getTranslation(TrKeys.successfullyCompleted),
+            )
+          : type == SnackBarType.info
+              ? CustomSnackBar.info(
+                  message:
+                      text ?? getTranslation(TrKeys.infoMessage),
+                )
+              : CustomSnackBar.error(
+                  message: text?.isNotEmpty == true
+                      ? text!
+                      : getTranslation(
+                          TrKeys.somethingWentWrongWithTheServer,
+                        ),
+                ),
+    );
+  }
+
+  /// Convenience wrapper — show a success snack bar.
+  static void showCheckTopSnackBarInfo(BuildContext context, String text) {
+    showTopSnackBar(Overlay.of(context), CustomSnackBar.success(message: text));
+  }
+
+  /// Manager-style ftoast error popup.
+  static void errorSnackBar(BuildContext context, {String? text}) {
+    FToast.toast(
+      context,
+      toast: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.all(16.r),
+            margin: EdgeInsets.only(
+              bottom: MediaQuery.sizeOf(context).height / 1.5,
+              left: 32.r,
+              right: 32.r,
+            ),
+            decoration: BoxDecoration(
+              color: AppStyle.primary,
+              borderRadius: BorderRadius.circular(
+                (AppConstants.radius / 2).r,
+              ),
+            ),
+            child: Text(
+              text ?? getTranslation(TrKeys.failed),
+              style: AppStyle.interNormal(color: AppStyle.white, size: 14),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // DIALOGS / BOTTOM SHEETS
+  // ─────────────────────────────────────────────────────────────────────────
+
+  /// Simple info dialog with a close button (manager style).
+  static Future<void> openDialog({
+    required BuildContext context,
+    required String title,
+  }) {
+    return showDialog(
+      context: context,
+      builder: (_) => Dialog(
+        backgroundColor: AppStyle.transparent,
+        insetPadding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Container(
+          margin: EdgeInsets.all(24.w),
+          width: double.infinity,
+          padding: EdgeInsets.all(24.w),
+          decoration: BoxDecoration(
+            color: AppStyle.white,
+            borderRadius: BorderRadius.circular(24.r),
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  getTranslation(title),
+                  textAlign: TextAlign.center,
+                  style: AppStyle.interNormal(size: 18),
+                ),
+                24.verticalSpace,
+                CustomButton(
+                  onPressed: () => Navigator.pop(context),
+                  title: getTranslation(TrKeys.close),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Image-picker dialog (driver/user style) with BlurWrap bottom sheet.
+  static Future<void> openDialogImagePicker({
+    required BuildContext context,
+    required ValueChanged<String> onSuccess,
+  }) {
+    return showDialog(
+      context: context,
+      builder: (_) => Builder(
+        builder: (colors) => Dialog(
+          backgroundColor: AppStyle.transparent,
+          insetPadding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Container(
+            margin: EdgeInsets.all(24.w),
+            width: double.infinity,
+            padding: EdgeInsets.all(24.w),
+            decoration: BoxDecoration(
+              color: AppStyle.white,
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  getTranslation(TrKeys.selectPhoto),
+                  textAlign: TextAlign.center,
+                  style: AppStyle.interNormal(size: 18),
+                ),
+                const Divider(),
+                8.verticalSpace,
+                ButtonsBouncingEffect(
+                  child: GestureDetector(
+                    onTap: () => ImgService.getPhotoCamera(onSuccess),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16.r,
+                        vertical: 8.r,
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(FlutterRemix.camera_lens_line),
+                          4.horizontalSpace,
+                          Text(
+                            getTranslation(TrKeys.takePhoto),
+                            textAlign: TextAlign.center,
+                            style: AppStyle.interNormal(size: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                8.verticalSpace,
+                ButtonsBouncingEffect(
+                  child: GestureDetector(
+                    onTap: () => ImgService.getPhotoGallery(onSuccess),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16.r,
+                        vertical: 8.r,
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(FlutterRemix.gallery_line),
+                          4.horizontalSpace,
+                          Text(
+                            getTranslation(TrKeys.chooseFromLibrary),
+                            textAlign: TextAlign.center,
+                            style: AppStyle.interNormal(size: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                12.verticalSpace,
+                CustomButton(
+                  background: AppStyle.shimmerBase,
+                  title: getTranslation(TrKeys.skip),
+                  onPressed: () => onSuccess.call(''),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Standard bottom sheet — uses [BlurWrap] for the driver/user glass effect.
   static void showCustomModalBottomSheet({
     required BuildContext context,
     required Widget modal,
-    required bool isDarkMode,
+    bool isDarkMode = false,
     double radius = 16,
     bool isDrag = true,
+    bool isExpanded = false,
     bool isDismissible = true,
     double paddingTop = 200,
   }) {
@@ -469,19 +641,65 @@ abstract class AppHelpers {
       ),
       backgroundColor: AppStyle.transparent,
       context: context,
-      builder: (context) => modal,
+      builder: (context) => BlurWrap(
+        radius: BorderRadius.only(
+          topRight: Radius.circular(12.r),
+          topLeft: Radius.circular(12.r),
+        ),
+        child: Container(
+          margin: EdgeInsets.only(
+            bottom: MediaQuery.viewInsetsOf(context).bottom,
+          ),
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.paddingOf(context).bottom,
+          ),
+          decoration: BoxDecoration(
+            color: AppStyle.white.withValues(alpha: 0.9),
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(12.r),
+              topLeft: Radius.circular(12.r),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: AppStyle.black.withValues(alpha: 0.25),
+                blurRadius: 40,
+                spreadRadius: 0,
+                offset: const Offset(0, -2),
+              ),
+            ],
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  height: 4.h,
+                  width: 48.w,
+                  decoration: BoxDecoration(
+                    color: AppStyle.dragElement,
+                    borderRadius: BorderRadius.circular(40.r),
+                  ),
+                  margin: EdgeInsets.only(top: 8.h, bottom: 16.h),
+                ),
+                modal,
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 
+  /// Draggable scrollable bottom sheet (manager style).
   static void showCustomModalBottomDragSheet({
     required BuildContext context,
     required Function(ScrollController controller) modal,
-    bool isDarkMode = false,
     double radius = 16,
     bool isDrag = true,
     bool isDismissible = true,
     double paddingTop = 100,
     double maxChildSize = 0.9,
+    double initSize = 0.9,
   }) {
     showModalBottomSheet(
       isDismissible: isDismissible,
@@ -499,13 +717,39 @@ abstract class AppHelpers {
       backgroundColor: AppStyle.transparent,
       context: context,
       builder: (context) => DraggableScrollableSheet(
-        initialChildSize: maxChildSize,
+        initialChildSize: initSize,
         maxChildSize: maxChildSize,
         expand: false,
-        builder: (BuildContext context, ScrollController scrollController) {
-          return modal(scrollController);
-        },
+        builder: (BuildContext context, ScrollController scrollController) =>
+            modal(scrollController),
       ),
+    );
+  }
+
+  /// Bottom sheet without the iOS drag indicator.
+  static void showCustomModalBottomSheetWithoutIosIcon({
+    required BuildContext context,
+    required Widget modal,
+    bool isDarkMode = false,
+    double radius = 16,
+    bool isDrag = true,
+    double paddingTop = 200,
+  }) {
+    showModalBottomSheet(
+      enableDrag: isDrag,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(radius.r),
+          topRight: Radius.circular(radius.r),
+        ),
+      ),
+      isScrollControlled: true,
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.sizeOf(context).height - paddingTop.r,
+      ),
+      backgroundColor: AppStyle.transparent,
+      context: context,
+      builder: (context) => modal,
     );
   }
 
@@ -513,263 +757,123 @@ abstract class AppHelpers {
     required BuildContext context,
     required Widget child,
     double radius = 16,
-    bool isDismissible = true,
   }) {
-    AlertDialog alert = AlertDialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(radius.r)),
-      ),
-      contentPadding: EdgeInsets.all(20.r),
-      iconPadding: EdgeInsets.zero,
-      content: child,
-    );
-
     showDialog(
       context: context,
-      barrierDismissible: isDismissible,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
-  }
-
-  static String errorHandler(e) {
-    try {
-      return (e.runtimeType == DioException)
-          ? ((e as DioException).response?.data["message"] == "Bad request."
-                ? (e.response?.data["params"] as Map).values.first[0]
-                : e.response?.data["message"])
-          : e.toString();
-    } catch (s) {
-      try {
-        return (e.runtimeType == DioException)
-            ? ((e as DioException).response?.data.toString().substring(
-                (e.response?.data.toString().indexOf("<title>") ?? 0) + 7,
-                e.response?.data.toString().indexOf("</title") ?? 0,
-              )).toString()
-            : e.toString();
-      } catch (r) {
-        try {
-          return (e.runtimeType == DioException)
-              ? ((e as DioException).response?.data["error"]["message"])
-                    .toString()
-              : e.toString();
-        } catch (f) {
-          return e.toString();
-        }
-      }
-    }
-  }
-
-  static String reviewText(num? review) {
-    if (review == null || review == 0) {
-      return AppHelpers.getTranslation(TrKeys.newKey);
-    }
-
-    if (review > 0 && review <= 1) {
-      return AppHelpers.getTranslation(TrKeys.veryBad);
-    }
-    if (review <= 2) {
-      return AppHelpers.getTranslation(TrKeys.bad);
-    }
-    if (review <= 3) {
-      return AppHelpers.getTranslation(TrKeys.notBad);
-    }
-    if (review <= 4) {
-      return AppHelpers.getTranslation(TrKeys.good);
-    }
-    if (review <= 4.5) {
-      return AppHelpers.getTranslation(TrKeys.veryGood);
-    }
-    if (review <= 5) {
-      return AppHelpers.getTranslation(TrKeys.exceptional);
-    }
-
-    // For any value greater than 5
-    return AppHelpers.getTranslation(TrKeys.newKey);
-  }
-
-  static openDialog({required BuildContext context, required String title}) {
-    return showDialog(
-      context: context,
-      builder: (_) {
-        return Dialog(
-          backgroundColor: AppStyle.transparent,
-          insetPadding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Container(
-            margin: EdgeInsets.all(24.w),
-            width: double.infinity,
-            padding: EdgeInsets.all(24.w),
-            decoration: BoxDecoration(
-              color: AppStyle.bgGrey,
-              borderRadius: BorderRadius.circular(16.r),
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: AppStyle.interNormal(
-                      color: AppStyle.textGrey,
-                      size: 18,
-                    ),
-                  ),
-                  24.verticalSpace,
-                  CustomButton(
-                    onPressed: () => Navigator.pop(context),
-                    title: AppHelpers.getTranslation(TrKeys.close),
-                    background: AppStyle.primary,
-                    textColor: AppStyle.white,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  static bool isUsingDefaultCoordinates() {
-    // Don't show the tooltip if user is logged in
-    if (LocalStorage.getToken().isNotEmpty) {
-      return false;
-    }
-
-    AddressData? addressData = LocalStorage.getAddressSelected();
-
-    // Get current coordinates
-    final double? currentLat = addressData?.location?.latitude;
-    final double? currentLng = addressData?.location?.longitude;
-
-    // Get default coordinates
-    final double defaultLat = AppConstants.demoLatitude;
-    final double defaultLng = AppConstants.demoLongitude;
-
-    // If location is null or coordinates are null, consider it as using default
-    if (addressData?.location == null ||
-        currentLat == null ||
-        currentLng == null) {
-      return true;
-    }
-
-    // Check if current coordinates match default coordinates
-    // Using a slightly larger epsilon for floating point comparison
-    const double epsilon = 0.01;
-    return ((currentLat - defaultLat).abs() < epsilon &&
-        (currentLng - defaultLng).abs() < epsilon);
-  }
-
-  static void showNoConnectionDialog(BuildContext context) {
-    showAlertDialog(
-      context: context,
-      isDismissible: false,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            FlutterRemix.wifi_off_fill,
-            size: 80.sp,
-            color: AppStyle.textGrey,
-          ),
-          24.verticalSpace,
-          Text(
-            AppHelpers.getTranslation(TrKeys.noInternetConnection),
-            style: AppStyle.interSemi(size: 18.sp),
-            textAlign: TextAlign.center,
-          ),
-          12.verticalSpace,
-          Text(
-            'Please check your internet connection and try again.',
-            style: AppStyle.interNormal(size: 14.sp, color: AppStyle.textGrey),
-            textAlign: TextAlign.center,
-          ),
-          32.verticalSpace,
-          CustomButton(
-            title: "Retry",
-            background: AppStyle.primary,
-            textColor: AppStyle.white,
-            onPressed: () async {
-              Navigator.of(context).pop(); // Close dialog first
-
-              try {
-                final hasConnection = await AppConnectivity.connectivity();
-
-                if (context.mounted && hasConnection) {
-                  // Connection restored
-                  AppHelpers.showCheckTopSnackBarDone(
-                    context,
-                    "Connection restored!",
-                  );
-                } else {
-                  // Still no connection, show dialog again
-                  Future.delayed(const Duration(milliseconds: 500), () {
-                    if (context.mounted) {
-                      AppHelpers.showNoConnectionDialog(context);
-                    }
-                  });
-                }
-              } catch (e) {
-                // Error checking connection, show dialog again
-                Future.delayed(const Duration(milliseconds: 500), () {
-                  if (context.mounted) {
-                    AppHelpers.showNoConnectionDialog(context);
-                  }
-                });
-              }
-            },
-          ),
-          16.verticalSpace,
-          CustomButton(
-            title: "Continue Offline",
-            background: AppStyle.transparent,
-            borderColor: AppStyle.black,
-            textColor: AppStyle.black,
-            onPressed: () {
-              Navigator.of(context).pop(); // Close dialog
-            },
-          ),
-        ],
+      useSafeArea: false,
+      builder: (BuildContext context) => Dialog(
+        backgroundColor: AppStyle.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radius.r),
+        ),
+        insetPadding: EdgeInsets.all(16.r),
+        child: child,
       ),
     );
   }
 
-  static void goHome(BuildContext context) {
-    final role = LocalStorage.getUser()?.role;
-    if (role == 'deliveryman') {
-      context.router.replaceNamed('/home');
-    } else if (role == 'seller' || role == 'manager') {
-      context.router.replaceNamed('/main');
-    } else {
-      if (AppConstants.enableMarketplace) {
-        context.router.replaceNamed('/main');
-      } else {
-        context.router.replaceNamed('/shop');
+  /// Popup context menu anchored to [context]'s render box.
+  static void showPopup({
+    required BuildContext context,
+    required Iterable<PopupMenuItem> items,
+    double radius = AppConstants.radius,
+    bool isRight = false,
+  }) {
+    final renderBox = context.findRenderObject() as RenderBox;
+    final size = renderBox.size;
+    final position = renderBox.localToGlobal(Offset.zero);
+    showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(
+        position.dx + (isRight ? size.width : 0),
+        position.dy + size.height / 3,
+        position.dx,
+        position.dy + (isRight ? size.width : 0),
+      ),
+      elevation: 3,
+      constraints: BoxConstraints(
+        minWidth: size.width / 2,
+        maxWidth: size.width,
+      ),
+      shadowColor: AppStyle.differBorderColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(radius.r),
+      ),
+      color: AppStyle.white,
+      items: items.toList(),
+    );
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // IMAGE / SVG UTILITIES
+  // ─────────────────────────────────────────────────────────────────────────
+
+  static bool checkIsSvg(String? url) {
+    if (url == null) return false;
+    final length = url.length;
+    return url.substring(length - 3, length) == 'svg';
+  }
+
+  static Future<Uint8List> getBytesFromAsset(String path, int width) async {
+    final ByteData data = await rootBundle.load(path);
+    final ui.Codec codec = await ui.instantiateImageCodec(
+      data.buffer.asUint8List(),
+      targetWidth: width,
+    );
+    final ui.FrameInfo fi = await codec.getNextFrame();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
+        .buffer
+        .asUint8List();
+  }
+
+  static Future<Uint8List> svgToPng(
+    String svgString, {
+    int? svgWidth,
+    int? svgHeight,
+  }) async {
+    final PictureInfo pictureInfo = await vg.loadPicture(
+      SvgAssetLoader(svgString),
+      null,
+    );
+    final image = await pictureInfo.picture.toImage(
+      svgWidth ?? pictureInfo.size.width.toInt(),
+      svgHeight ?? pictureInfo.size.height.toInt(),
+    );
+    final ByteData? bytes =
+        await image.toByteData(format: ImageByteFormat.png);
+    return bytes!.buffer.asUint8List();
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ERROR HANDLING
+  // ─────────────────────────────────────────────────────────────────────────
+
+  static String errorHandler(dynamic e) {
+    try {
+      return (e.runtimeType == DioException)
+          ? ((e as DioException).response?.data['message'] == 'Bad request.'
+                ? (e.response?.data['params'] as Map).values.first[0]
+                : e.response?.data['message'])
+          : e.toString();
+    } catch (_) {
+      try {
+        return (e.runtimeType == DioException)
+            ? ((e as DioException)
+                    .response
+                    ?.data
+                    .toString()
+                    .substring(
+                      (e.response?.data.toString().indexOf('<title>') ?? 0) + 7,
+                      e.response?.data.toString().indexOf('</title') ?? 0,
+                    ))
+                .toString()
+            : e.toString();
+      } catch (_) {
+        return (e.runtimeType == DioException)
+            ? ((e as DioException).response?.data['error']['message'])
+                  .toString()
+            : e.toString();
       }
     }
-  }
-}
-
-extension TimeOfDayExtension on TimeOfDay {
-  TimeOfDay plusMinutes({required int minute}) {
-    DateTime today = DateTime.now();
-    DateTime customDateTime = DateTime(
-      today.year,
-      today.month,
-      today.day,
-      hour,
-      this.minute,
-    );
-    return TimeOfDay.fromDateTime(
-      customDateTime.add(Duration(minutes: minute)),
-    );
-  }
-}
-
-extension ExtendedIterable<E> on Iterable<E> {
-  Iterable mapIndexed<T>(T Function(E e, int i) f) {
-    var i = 0;
-    return map((e) => f(e, i++));
   }
 }
