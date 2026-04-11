@@ -16,7 +16,7 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart'
 import 'package:rokctapp/presentation/components/list_items/manager/selectable_addon_item.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 
 class CreateFoodAddonsModal extends ConsumerStatefulWidget {
@@ -109,3 +109,4 @@ class _CreateFoodAddonsModalState extends ConsumerState<CreateFoodAddonsModal> {
     );
   }
 }
+

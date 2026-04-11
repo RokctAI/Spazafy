@@ -17,7 +17,7 @@ import 'package:rokctapp/application/notification/notification_provider.dart';
 
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart';
 import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
@@ -274,3 +274,4 @@ class _ManagerNotificationListPageState
     );
   }
 }
+

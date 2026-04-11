@@ -13,7 +13,7 @@ import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
 
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FoodsFilterModal extends ConsumerStatefulWidget {
   const FoodsFilterModal({super.key});
@@ -260,3 +260,4 @@ class _FoodsFilterModalState extends ConsumerState<FoodsFilterModal> {
   //   );
   // }
 }
+

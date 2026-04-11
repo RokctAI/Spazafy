@@ -21,7 +21,7 @@ import 'package:rokctapp/presentation/components/list_items/manager/order_produc
 import 'package:rokctapp/presentation/components/loading/manager/loading.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'image_dialog.dart';
 import 'price_information.dart';
 
@@ -679,3 +679,4 @@ class _OrderDetailsModalState extends ConsumerState<OrderDetailsModal> {
     );
   }
 }
+

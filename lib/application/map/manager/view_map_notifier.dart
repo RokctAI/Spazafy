@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'view_map_state.dart';
 
 class ViewMapNotifier extends StateNotifier<ViewMapState> {
@@ -30,3 +30,4 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     state = state.copyWith(isLoading: true);
   }
 }
+

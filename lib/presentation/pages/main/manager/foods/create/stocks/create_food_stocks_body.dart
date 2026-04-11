@@ -13,7 +13,7 @@ import 'package:rokctapp/presentation/components/list_items/manager/editable_foo
 import 'package:rokctapp/presentation/components/list_items/manager/extras_item.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class CreateFoodStocksBody extends ConsumerStatefulWidget {
   const CreateFoodStocksBody({super.key});
@@ -161,3 +161,4 @@ class _CreateFoodStocksBodyState extends ConsumerState<CreateFoodStocksBody> {
     );
   }
 }
+

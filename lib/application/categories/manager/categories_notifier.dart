@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'categories_state.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
     hide CategoryData;
@@ -106,3 +106,4 @@ class CategoriesNotifier extends StateNotifier<CategoriesState> {
     }
   }
 }
+

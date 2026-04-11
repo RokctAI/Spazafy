@@ -5,7 +5,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/app_connectivity.dart';
-import 'package:rokctapp/infrastructure/services/utils/driver/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 final orderRepository = driverOrderRepository;
 
@@ -62,3 +62,4 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
     );
   }
 }
+

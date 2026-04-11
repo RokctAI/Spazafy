@@ -12,7 +12,7 @@ import 'custom_date_picker.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/tab_bars/manager/custom_tab_bar.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FilterScreen extends StatefulWidget {
   final bool isTabBar;
@@ -149,3 +149,4 @@ class _FilterScreenState extends State<FilterScreen>
     );
   }
 }
+

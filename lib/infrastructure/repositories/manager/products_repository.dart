@@ -28,7 +28,7 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
 
@@ -542,3 +542,4 @@ class ProductsRepository implements ProductsInterface {
     }
   }
 }
+

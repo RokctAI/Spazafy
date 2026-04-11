@@ -6,7 +6,7 @@ import 'package:rokctapp/domain/interface/manager_products.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType;
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'edit_food_stocks_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -275,3 +275,4 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
     fetchGroups(product: product ?? ProductData());
   }
 }
+

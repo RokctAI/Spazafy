@@ -11,7 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'edit_addon_state.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 
 
@@ -155,3 +155,4 @@ class EditAddonNotifier extends StateNotifier<EditAddonState> {
     }
   }
 }
+

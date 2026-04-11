@@ -3,7 +3,7 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'edit_extras_item_state.dart';
 
 class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
@@ -46,3 +46,4 @@ class EditExtrasItemNotifier extends StateNotifier<EditExtrasItemState> {
     _title = value.trim();
   }
 }
+

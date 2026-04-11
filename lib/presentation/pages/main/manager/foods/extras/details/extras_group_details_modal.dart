@@ -22,7 +22,7 @@ import 'widgets/create_new_group_item_modal.dart';
 
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 
 class ExtrasGroupDetailsModal extends ConsumerStatefulWidget {
@@ -158,3 +158,4 @@ class _ExtrasGroupDetailsModalState
     );
   }
 }
+

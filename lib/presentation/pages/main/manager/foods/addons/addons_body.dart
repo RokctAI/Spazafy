@@ -8,7 +8,7 @@ import 'widgets/addon_item.dart';
 import 'edit/edit_addon_modal.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class AddonsBody extends StatelessWidget {
   final RefreshController addonsController;
@@ -64,3 +64,4 @@ class AddonsBody extends StatelessWidget {
     );
   }
 }
+

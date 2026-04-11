@@ -19,7 +19,7 @@ import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/domain/interface/manager_table.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class TableRepository extends TableInterface {
   @override
@@ -405,3 +405,4 @@ class TableRepository extends TableInterface {
     }
   }
 }
+

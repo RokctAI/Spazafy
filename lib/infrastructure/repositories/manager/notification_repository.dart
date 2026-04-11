@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class NotificationRepository implements NotificationInterface {
   @override
@@ -116,3 +116,4 @@ class NotificationRepository implements NotificationInterface {
     }
   }
 }
+

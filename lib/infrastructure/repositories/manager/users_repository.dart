@@ -13,7 +13,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' as root_models;
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/response/profile_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_shop_response.dart';
@@ -478,3 +478,4 @@ class UsersRepository implements UsersInterface {
     }
   }
 }
+

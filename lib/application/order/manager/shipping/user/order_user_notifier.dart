@@ -11,7 +11,7 @@ import 'order_user_state.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/response/login_response.dart'
     hide UserData;
 
@@ -176,3 +176,4 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
     );
   }
 }
+

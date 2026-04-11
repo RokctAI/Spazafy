@@ -18,7 +18,7 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart'
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'widgets/w_ingredient.dart';
 
 
@@ -260,3 +260,4 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
     );
   }
 }
+

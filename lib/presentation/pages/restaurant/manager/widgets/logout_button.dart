@@ -9,7 +9,7 @@ import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncin
 import 'package:rokctapp/presentation/components/helper/manager/blur_wrap.dart';
 import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class LogoutButton extends StatelessWidget {
   final bool isOpen;
@@ -74,3 +74,4 @@ class LogoutButton extends StatelessWidget {
     );
   }
 }
+

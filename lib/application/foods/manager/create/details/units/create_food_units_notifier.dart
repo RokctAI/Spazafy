@@ -4,7 +4,7 @@ import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/unit_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'create_food_units_state.dart';
 
 
@@ -49,3 +49,4 @@ class CreateFoodUnitsNotifier extends StateNotifier<CreateFoodUnitsState> {
     state.unitController?.text = state.units[index].translation?.title ?? '';
   }
 }
+

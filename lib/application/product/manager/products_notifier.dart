@@ -11,7 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/interface/products.dart';
 import 'products_state.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 
 
@@ -284,3 +284,4 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
     updateCart(newCount);
   }
 }
+

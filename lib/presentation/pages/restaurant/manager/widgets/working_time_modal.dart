@@ -17,7 +17,7 @@ import 'package:rokctapp/presentation/components/list_items/manager/small_weekda
 import 'package:rokctapp/presentation/components/manager/custom_toggle.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class WorkingTimeModal extends ConsumerStatefulWidget {
   const WorkingTimeModal({super.key});
@@ -288,3 +288,4 @@ class _WorkingTimeModalState extends ConsumerState<WorkingTimeModal> {
     }
   }
 }
+

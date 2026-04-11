@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class EditableFoodStockItem extends StatelessWidget {
   final Stock stock;
@@ -126,3 +126,4 @@ class EditableFoodStockItem extends StatelessWidget {
     );
   }
 }
+

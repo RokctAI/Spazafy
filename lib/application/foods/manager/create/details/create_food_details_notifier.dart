@@ -13,7 +13,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'create_food_details_state.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 
 
@@ -195,3 +195,4 @@ class CreateFoodDetailsNotifier extends StateNotifier<CreateFoodDetailsState> {
     state = state.copyWith(images: list, listOfUrls: urls);
   }
 }
+

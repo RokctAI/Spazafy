@@ -11,7 +11,7 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart'
 import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 
 class EditProductModal extends StatefulWidget {
@@ -101,3 +101,4 @@ class _EditProductModalState extends State<EditProductModal>
     );
   }
 }
+

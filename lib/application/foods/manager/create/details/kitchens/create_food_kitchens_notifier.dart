@@ -3,7 +3,7 @@ import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType;
 import 'create_food_kitchens_state.dart';
@@ -53,3 +53,4 @@ class CreateFoodKitchensNotifier
         state.kitchens[index].translation?.title ?? '';
   }
 }
+

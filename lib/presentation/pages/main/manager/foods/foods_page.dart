@@ -16,7 +16,7 @@ import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/search_text_field.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FoodsPage extends ConsumerStatefulWidget {
   const FoodsPage({super.key});
@@ -213,3 +213,4 @@ class _FoodsPageState extends ConsumerState<FoodsPage>
     );
   }
 }
+

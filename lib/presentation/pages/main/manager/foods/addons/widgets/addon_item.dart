@@ -8,7 +8,7 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncing_effect.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 
 class AddonItem extends StatelessWidget {
@@ -127,3 +127,4 @@ class AddonItem extends StatelessWidget {
     );
   }
 }
+

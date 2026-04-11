@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 
 class FoodPriceWidget extends StatelessWidget {
@@ -102,3 +102,4 @@ class FoodPriceWidget extends StatelessWidget {
                 ));
   }
 }
+

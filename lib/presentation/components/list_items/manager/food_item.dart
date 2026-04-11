@@ -8,7 +8,7 @@ import 'package:rokctapp/presentation/components/buttons/manager/buttons_bouncin
 import 'package:rokctapp/presentation/components/helper/manager/common_image.dart';
 import 'package:rokctapp/presentation/components/list_items/manager/food_item.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FoodItem extends StatelessWidget {
   final ProductData product;
@@ -165,3 +165,4 @@ class FoodItem extends StatelessWidget {
     );
   }
 }
+

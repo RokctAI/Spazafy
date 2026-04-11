@@ -13,7 +13,7 @@ import 'package:rokctapp/presentation/components/tab_bars/manager/categories_tab
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FoodsBody extends StatelessWidget {
   final RefreshController categoryController;
@@ -223,3 +223,4 @@ class FoodsBody extends StatelessWidget {
     );
   }
 }
+

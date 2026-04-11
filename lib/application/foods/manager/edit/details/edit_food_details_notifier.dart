@@ -15,7 +15,7 @@ import 'edit_food_details_state.dart';
 
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
@@ -267,3 +267,4 @@ class EditFoodDetailsNotifier extends StateNotifier<EditFoodDetailsState> {
     );
   }
 }
+

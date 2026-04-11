@@ -16,7 +16,7 @@ import 'package:rokctapp/presentation/components/text_fields/manager/underlined_
 
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'food_categories_modal.dart';
 
 class AddCategoryModal extends StatefulWidget {
@@ -147,3 +147,4 @@ class _AddCategoryModalState extends State<AddCategoryModal> {
     );
   }
 }
+

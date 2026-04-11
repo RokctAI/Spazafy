@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'create_food_addons_state.dart';
 
 
@@ -120,3 +120,4 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
     );
   }
 }
+

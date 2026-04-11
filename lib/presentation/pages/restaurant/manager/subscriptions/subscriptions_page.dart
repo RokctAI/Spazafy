@@ -7,7 +7,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/subscriptions/manager/subscriptions_provider.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/components/manager/custom_app_bar.dart';
@@ -173,3 +173,4 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
     );
   }
 }
+

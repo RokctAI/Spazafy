@@ -12,7 +12,7 @@ import 'package:rokctapp/domain/interface/manager_subscription.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 import 'subscriptions_state.dart';
 
@@ -151,3 +151,4 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
     state = state.copyWith(selectSubscribe: index);
   }
 }
+

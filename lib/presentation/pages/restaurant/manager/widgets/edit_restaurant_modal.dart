@@ -30,7 +30,7 @@ import 'package:rokctapp/presentation/components/text_fields/manager/underlined_
 
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class EditRestaurantModal extends ConsumerStatefulWidget {
   const EditRestaurantModal({super.key});
@@ -465,3 +465,4 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
     );
   }
 }
+

@@ -14,7 +14,7 @@ import 'package:rokctapp/presentation/components/list_items/manager/food_categor
 
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FoodCategoriesModal extends ConsumerStatefulWidget {
   final bool isSubCategory;
@@ -153,3 +153,4 @@ class _FoodCategoriesModalState extends ConsumerState<FoodCategoriesModal> {
     );
   }
 }
+

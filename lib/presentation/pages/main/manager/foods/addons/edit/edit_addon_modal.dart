@@ -21,7 +21,7 @@ import 'package:rokctapp/presentation/components/text_fields/manager/underlined_
 
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 
 class EditAddonModal extends StatefulWidget {
@@ -243,3 +243,4 @@ class _EditAddonModalState extends State<EditAddonModal> {
     );
   }
 }
+

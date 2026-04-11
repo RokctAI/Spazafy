@@ -10,7 +10,7 @@ import 'package:rokctapp/presentation/components/helper/manager/no_data_info.dar
 import 'details/extras_group_details_modal.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class ExtrasBody extends StatelessWidget {
   final RefreshController refreshController;
@@ -67,3 +67,4 @@ class ExtrasBody extends StatelessWidget {
     );
   }
 }
+

@@ -9,7 +9,7 @@ import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_de
 import 'package:rokctapp/presentation/components/list_items/manager/order_item.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class NewOrdersBody extends StatelessWidget {
   final ScrollController? scrollController;
@@ -71,3 +71,4 @@ class NewOrdersBody extends StatelessWidget {
     );
   }
 }
+

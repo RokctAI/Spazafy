@@ -11,7 +11,7 @@ import 'package:rokctapp/presentation/components/list_items/manager/group_extras
 
 import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class EditGroupExtrasModal extends ConsumerStatefulWidget {
   final int groupIndex;
@@ -92,3 +92,4 @@ class _EditGroupsExtrasModalState extends ConsumerState<EditGroupExtrasModal> {
     );
   }
 }
+

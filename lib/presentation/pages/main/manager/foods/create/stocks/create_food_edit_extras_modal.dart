@@ -11,7 +11,7 @@ import 'package:rokctapp/presentation/components/list_items/manager/group_extras
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class CreateFoodEditExtrasModal extends ConsumerStatefulWidget {
   final int groupIndex;
@@ -95,3 +95,4 @@ class _CreateFoodEditExtrasModalState
     );
   }
 }
+

@@ -12,7 +12,7 @@ import 'package:collection/collection.dart';
 import 'package:rokctapp/application/ai_translation/manager/ai_translation_provider.dart';
 import 'package:rokctapp/infrastructure/models/models_manager.dart'
     hide LanguageData;
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/helper/manager/modal_drag.dart';
@@ -231,3 +231,4 @@ class _MultiTranslationInputModalState
     );
   }
 }
+

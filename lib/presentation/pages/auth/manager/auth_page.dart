@@ -14,7 +14,7 @@ import 'package:rokctapp/presentation/components/buttons/manager/custom_button.d
 
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 @RoutePage()
 class ManagerAuthPage extends ConsumerStatefulWidget {
@@ -131,3 +131,4 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
     );
   }
 }
+

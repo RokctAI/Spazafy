@@ -10,7 +10,7 @@ import 'package:rokctapp/application/foods/manager/create/details/kitchens/creat
 
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/helper/manager/keyboard_disable.dart';
 import 'package:rokctapp/presentation/components/helper/manager/multi_image_picker.dart';
@@ -387,3 +387,4 @@ class _CreateFoodDetailsBodyState extends State<CreateFoodDetailsBody> {
     );
   }
 }
+

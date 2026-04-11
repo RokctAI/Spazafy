@@ -11,7 +11,7 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart'
 import 'details/create_food_details_body.dart';
 
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class CreateProductModal extends ConsumerStatefulWidget {
   const CreateProductModal({super.key});
@@ -100,3 +100,4 @@ class _CreateProductModalState extends ConsumerState<CreateProductModal>
     );
   }
 }
+

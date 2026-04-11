@@ -14,7 +14,7 @@ import 'package:rokctapp/presentation/components/helper/manager/modal_wrap.dart'
 
 import 'package:rokctapp/infrastructure/models/data/manager/extras.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class DeleteExtrasItemModal extends StatelessWidget {
   final Extras extras;
@@ -91,3 +91,4 @@ class DeleteExtrasItemModal extends StatelessWidget {
     );
   }
 }
+

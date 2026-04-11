@@ -4,7 +4,7 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/stock.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'create_addon_state.dart';
 
 class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
@@ -119,3 +119,4 @@ class CreateAddonNotifier extends StateNotifier<CreateAddonState> {
     _title = value.trim();
   }
 }
+

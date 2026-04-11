@@ -3,7 +3,7 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide SnackBarType;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'update_extras_group_state.dart';
 
 
@@ -45,3 +45,4 @@ class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
     _title = value.trim();
   }
 }
+

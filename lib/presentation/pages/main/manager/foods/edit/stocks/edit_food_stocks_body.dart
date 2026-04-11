@@ -13,7 +13,7 @@ import 'package:rokctapp/presentation/components/list_items/manager/editable_foo
 import 'package:rokctapp/presentation/components/list_items/manager/extras_item.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:rokctapp/infrastructure/services/utils/manager/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class EditFoodStocksBody extends ConsumerStatefulWidget {
   final ProductData product;
@@ -161,3 +161,4 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
     );
   }
 }
+
