@@ -7,11 +7,6 @@ import 'package:rokctapp/infrastructure/models/response/transactions_response.da
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/response/parcel_paginate_response.dart';
 
-
-
-
-
-
 abstract class ParcelRepositoryFacade {
   Future<ApiResult<ParcelTypeResponse>> getTypes();
 

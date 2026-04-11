@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 import 'package:flutter/material.dart';
@@ -92,4 +91,3 @@ class _EditGroupsExtrasModalState extends ConsumerState<EditGroupExtrasModal> {
     );
   }
 }
-

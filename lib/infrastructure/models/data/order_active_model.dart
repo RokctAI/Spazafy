@@ -8,12 +8,6 @@ import 'package:rokctapp/infrastructure/models/data/repeat_data.dart';
 
 import 'addons_data.dart';
 
-
-
-
-
-
-
 class OrderActiveModel {
   OrderActiveModel({
     this.id,

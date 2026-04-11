@@ -4,7 +4,6 @@ import 'package:rokctapp/infrastructure/models/response/manager/kitchens_paginat
 import 'package:rokctapp/infrastructure/models/response/manager/units_paginate_response.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-
 abstract class CatalogInterface {
   Future<ApiResult<UnitsPaginateResponse>> getUnits();
 

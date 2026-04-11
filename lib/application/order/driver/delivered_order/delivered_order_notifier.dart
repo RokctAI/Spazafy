@@ -62,4 +62,3 @@ class DeliveredOrderNotifier extends StateNotifier<DeliveredOrderState> {
     );
   }
 }
-

@@ -3,7 +3,6 @@ import 'package:rokctapp/domain/handlers/api_result.dart';
 
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-
 abstract class CurrenciesRepositoryFacade {
   Future<ApiResult<CurrenciesResponse>> getCurrencies();
 }

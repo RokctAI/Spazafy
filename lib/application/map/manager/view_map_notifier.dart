@@ -30,4 +30,3 @@ class ViewMapNotifier extends StateNotifier<ViewMapState> {
     state = state.copyWith(isLoading: true);
   }
 }
-

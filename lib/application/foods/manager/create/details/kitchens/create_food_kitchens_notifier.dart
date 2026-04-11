@@ -53,4 +53,3 @@ class CreateFoodKitchensNotifier
         state.kitchens[index].translation?.title ?? '';
   }
 }
-

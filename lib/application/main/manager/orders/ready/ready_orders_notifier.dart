@@ -7,9 +7,6 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'ready_orders_state.dart';
 
-
-
-
 class ReadyOrdersNotifier extends StateNotifier<ReadyOrdersState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;

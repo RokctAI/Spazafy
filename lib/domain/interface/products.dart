@@ -6,10 +6,6 @@ import 'package:rokctapp/infrastructure/models/data/cart_product_data.dart';
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-
-
-
-
 abstract class ProductsRepositoryFacade {
   Future<ApiResult<ProductsPaginateResponse>> searchProducts({
     required String text,
