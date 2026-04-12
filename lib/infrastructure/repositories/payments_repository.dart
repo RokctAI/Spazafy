@@ -11,9 +11,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/data/saved_card.dart';
 
-
-
-
 class PaymentsRepository implements PaymentsRepositoryFacade {
   @override
   Future<ApiResult<PaymentsResponse>> getPayments() async {

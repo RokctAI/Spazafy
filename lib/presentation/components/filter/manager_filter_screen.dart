@@ -148,4 +148,3 @@ class _FilterScreenState extends State<FilterScreen>
     );
   }
 }
-

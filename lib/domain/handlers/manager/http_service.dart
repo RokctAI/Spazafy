@@ -2,7 +2,6 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:rokctapp/domain/handlers/manager/token_interceptor.dart';
 
-
 class HttpService {
   Dio client({bool requireAuth = false}) =>
       Dio(

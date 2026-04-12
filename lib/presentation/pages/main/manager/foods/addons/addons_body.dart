@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/presentation/components/loading/loading_list.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -6,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/addons/widgets/addon_item.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/addons/edit/edit_addon_modal.dart';
-
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
@@ -64,4 +62,3 @@ class AddonsBody extends StatelessWidget {
     );
   }
 }
-

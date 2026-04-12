@@ -35,14 +35,16 @@ export 'package:rokctapp/infrastructure/models/data/meta.dart';
 export 'package:rokctapp/infrastructure/models/data/remote_message_data.dart';
 export 'package:rokctapp/infrastructure/models/data/manager/review_data.dart';
 export 'package:rokctapp/infrastructure/models/data/manager/shop_delivery.dart';
-export 'package:rokctapp/infrastructure/models/data/table_bookings_data.dart' hide Meta;
+export 'package:rokctapp/infrastructure/models/data/table_bookings_data.dart'
+    hide Meta;
 export 'package:rokctapp/infrastructure/models/data/table_info_data.dart';
 export 'package:rokctapp/infrastructure/models/data/table_statistics_data.dart';
 export 'package:rokctapp/infrastructure/models/data/working_day_data.dart';
 export 'package:rokctapp/infrastructure/models/data/maksekeskus_data.dart';
 export 'package:rokctapp/infrastructure/models/data/non_exist_payment.dart';
 export 'package:rokctapp/infrastructure/models/data/notification_data.dart';
-export 'package:rokctapp/infrastructure/models/data/manager/profile_data.dart' hide Wallet;
+export 'package:rokctapp/infrastructure/models/data/manager/profile_data.dart'
+    hide Wallet;
 export 'package:rokctapp/infrastructure/models/request/partners/edit_profile.dart';
 export 'package:rokctapp/infrastructure/models/request/sign_up_request.dart';
 export 'package:rokctapp/infrastructure/models/request/ai_translation_request.dart';

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/foods/manager/edit/details/kitchen/edit_food_kitchens_state.dart';
 
-
 class EditFoodKitchensNotifier extends StateNotifier<EditFoodKitchensState> {
   final CatalogInterface _catalogRepository;
 

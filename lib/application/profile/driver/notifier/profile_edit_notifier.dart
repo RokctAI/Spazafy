@@ -12,7 +12,6 @@ import 'package:rokctapp/application/profile/driver/state/profile_edit_state.dar
 import 'package:rokctapp/infrastructure/models/response/login_response.dart'
     hide UserData;
 
-
 class ProfileEditNotifier extends StateNotifier<ProfileEditState> {
   final UserRepository _userRepository;
 

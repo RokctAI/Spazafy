@@ -79,4 +79,3 @@ abstract class AppValidators {
   static bool isValidPhone(String input) =>
       RegExp(r"^\+?[0-9]{7,15}$").hasMatch(input);
 }
-

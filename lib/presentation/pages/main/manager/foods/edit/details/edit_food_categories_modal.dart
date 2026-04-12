@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 import 'package:flutter/material.dart';
@@ -7,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/list_items/food_category_item.dart';
-
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
@@ -78,4 +76,3 @@ class _EditFoodCategoriesScreenState
     );
   }
 }
-

@@ -4,7 +4,6 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/main/manager/foods/extras/extras_state.dart';
 
-
 class ExtrasNotifier extends StateNotifier<ExtrasState> {
   final ProductsInterface _productsRepository;
 

@@ -3,9 +3,6 @@ import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
-
-
 part 'product_state.freezed.dart';
 
 @freezed
