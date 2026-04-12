@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
-import 'common_image.dart';
+import 'package:rokctapp/presentation/components/image/common_image.dart';
 
 class DriverAvatar extends StatelessWidget {
   final String? imageUrl;
