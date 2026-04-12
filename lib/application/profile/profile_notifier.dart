@@ -22,8 +22,6 @@ import 'package:rokctapp/application/profile/profile_state.dart';
 
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 
-
-
 class ProfileNotifier extends StateNotifier<ProfileState> {
   final UserRepositoryFacade _userRepository;
   final ShopsRepositoryFacade _shopsRepository;

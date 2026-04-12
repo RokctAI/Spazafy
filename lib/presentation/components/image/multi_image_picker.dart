@@ -257,4 +257,3 @@ class MultiImagePicker extends StatelessWidget {
     );
   }
 }
-

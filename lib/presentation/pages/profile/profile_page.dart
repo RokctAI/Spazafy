@@ -44,7 +44,6 @@ import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
 import 'package:rokctapp/presentation/pages/profile/widgets/wallet_topup_screen.dart';
 import 'package:rokctapp/presentation/pages/profile/widgets/wallet_send_screen.dart';
 
-
 @RoutePage()
 class ProfilePage extends ConsumerStatefulWidget {
   final bool isBackButton;

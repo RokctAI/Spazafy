@@ -5,9 +5,6 @@ import 'package:rokctapp/infrastructure/models/response/verify_phone_response.da
 
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-
-
-
 abstract class AuthRepositoryFacade {
   Future<ApiResult<LoginResponse>> login({
     required String email,

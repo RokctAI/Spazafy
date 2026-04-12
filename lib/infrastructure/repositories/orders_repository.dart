@@ -1,7 +1,5 @@
-import 'package:rokctapp/domain/handlers/driver/handlers.dart'
-   ;
-import 'package:rokctapp/infrastructure/models/response/driver/order_paginate_response.dart'
-   ;
+import 'package:rokctapp/domain/handlers/driver/handlers.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/order_paginate_response.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
@@ -568,8 +566,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<OrderPaginateResponse>>
-  fetchCurrentOrder() async {
+  Future<ApiResult<OrderPaginateResponse>> fetchCurrentOrder() async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),
@@ -577,10 +574,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> updateOrder(
-    dynamic orderId,
-    String status,
-  ) async {
+  Future<ApiResult<dynamic>> updateOrder(dynamic orderId, String status) async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),
@@ -588,10 +582,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> uploadImage(
-    dynamic orderId,
-    String? image,
-  ) async {
+  Future<ApiResult<dynamic>> uploadImage(dynamic orderId, String? image) async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),
@@ -599,9 +590,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
   }
 
   @override
-  Future<ApiResult<dynamic>> setCurrentOrder(
-    String? orderId,
-  ) async {
+  Future<ApiResult<dynamic>> setCurrentOrder(String? orderId) async {
     return ApiResult.failure(
       error: "Not implemented",
       statusCode: NetworkExceptions.getDioStatus(404),

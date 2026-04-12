@@ -2,7 +2,6 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/presentation/components/loading/tab_bar_loading.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -20,9 +19,6 @@ import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
 import 'package:rokctapp/presentation/components/tab_bars/custom_app_bar.dart';
 import 'package:rokctapp/presentation/components/tab_bars/categories_tab_bar.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/search_text_field.dart';
-
-
-
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
@@ -421,4 +417,3 @@ class _ManagerCreateOrderPageState
     );
   }
 }
-

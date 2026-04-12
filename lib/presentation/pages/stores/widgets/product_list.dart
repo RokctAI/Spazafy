@@ -18,7 +18,6 @@ import 'package:rokctapp/utils/products/product_card.dart';
 import 'package:rokctapp/utils/products/product_utils.dart';
 import 'package:rokctapp/presentation/pages/product/product_page.dart';
 
-
 extension MyExtension1 on Iterable<Product> {
   List<Product> search(ShopState state) {
     return where((element) {

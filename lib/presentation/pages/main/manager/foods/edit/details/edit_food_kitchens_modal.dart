@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 import 'package:flutter/material.dart';
@@ -82,4 +81,3 @@ class _EditFoodKitchensModalState extends ConsumerState<EditFoodKitchensModal> {
     );
   }
 }
-

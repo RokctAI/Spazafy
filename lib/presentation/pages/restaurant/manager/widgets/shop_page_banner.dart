@@ -7,8 +7,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/helper/common_image.dart';
 import 'package:rokctapp/presentation/components/avatar/shop_bordered_avatar.dart';
 
-
-
 class ShopBanner extends StatelessWidget {
   const ShopBanner({super.key});
 

@@ -12,7 +12,6 @@ import 'package:rokctapp/presentation/components/bodies/products_body.dart';
 import 'package:rokctapp/presentation/components/tab_bars/categories_tab_bar.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class FoodsBody extends StatelessWidget {
@@ -223,4 +222,3 @@ class FoodsBody extends StatelessWidget {
     );
   }
 }
-

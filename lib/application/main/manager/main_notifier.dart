@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/main/manager/main_state.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
-
 class MainNotifier extends StateNotifier<MainState> {
   MainNotifier() : super(const MainState());
 
