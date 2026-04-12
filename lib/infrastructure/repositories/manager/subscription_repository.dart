@@ -9,9 +9,6 @@ import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
 import 'package:rokctapp/domain/interface/manager_subscription.dart';
 
-
-
-
 class SubscriptionsRepository implements SubscriptionsFacade {
   @override
   Future<ApiResult<SubscriptionResponse>> getSubscriptions({

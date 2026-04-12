@@ -2,7 +2,6 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-
 class TitleAndIcon extends StatelessWidget {
   final String title;
   final double titleSize;

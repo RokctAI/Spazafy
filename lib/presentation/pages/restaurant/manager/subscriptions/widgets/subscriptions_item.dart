@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/circle_button.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/second_button.dart';
@@ -90,4 +89,3 @@ class SubscriptionsItem extends StatelessWidget {
     );
   }
 }
-

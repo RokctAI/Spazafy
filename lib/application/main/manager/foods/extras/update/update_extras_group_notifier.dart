@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/application/main/manager/foods/extras/update/update_extras_group_state.dart';
 
-
 class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
   final ProductsInterface _productsRepository;
   String _title = '';
@@ -45,4 +44,3 @@ class UpdateExtrasGroupNotifier extends StateNotifier<UpdateExtrasGroupState> {
     _title = value.trim();
   }
 }
-

@@ -1,6 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/extras.dart'
-    hide Extras;
+import 'package:rokctapp/infrastructure/models/data/extras.dart' hide Extras;
 
 class ExtrasResponse {
   ExtrasResponse({List<Extras>? data}) {

@@ -7,9 +7,6 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/foods/manager/foods_state.dart';
 
-
-
-
 class FoodsNotifier extends StateNotifier<FoodsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;

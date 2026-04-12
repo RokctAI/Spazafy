@@ -9,8 +9,6 @@ import 'package:rokctapp/application/order_details/manager/order_details_state.d
 import 'package:rokctapp/infrastructure/models/models.dart' hide OrderData;
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
-
-
 class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
   final OrdersInterface _ordersRepository;
 
@@ -73,4 +71,3 @@ class OrderDetailsNotifier extends StateNotifier<OrderDetailsState> {
     );
   }
 }
-

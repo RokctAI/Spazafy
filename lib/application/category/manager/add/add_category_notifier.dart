@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/application/category/manager/add/add_category_state.dart';
 
-
 class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
   final CatalogInterface _catalogRepository;
   String _title = '';
@@ -49,4 +48,3 @@ class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
     _input = value.trim();
   }
 }
-

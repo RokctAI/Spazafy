@@ -1,6 +1,5 @@
 import 'package:rokctapp/app_constants.dart';
 
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
@@ -10,8 +9,6 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
@@ -274,4 +271,3 @@ class _SelectAddressPageState extends State<SelectAddressPage>
     );
   }
 }
-

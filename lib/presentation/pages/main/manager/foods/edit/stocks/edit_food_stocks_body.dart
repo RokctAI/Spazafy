@@ -161,4 +161,3 @@ class _EditFoodStocksBodyState extends ConsumerState<EditFoodStocksBody> {
     );
   }
 }
-

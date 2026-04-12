@@ -2,7 +2,6 @@ import 'package:rokctapp/infrastructure/models/response/orders_paginate_response
 import 'package:rokctapp/infrastructure/models/data/order_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'today_orders_state.freezed.dart';
 
 @freezed

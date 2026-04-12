@@ -14,7 +14,6 @@ import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/select/selectable_addon_item.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class EditFoodAddonsModal extends ConsumerStatefulWidget {
@@ -107,4 +106,3 @@ class _EditFoodAddonsModalState extends ConsumerState<EditFoodAddonsModal> {
     );
   }
 }
-

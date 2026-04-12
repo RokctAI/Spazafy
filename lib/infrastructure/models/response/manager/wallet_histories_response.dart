@@ -1,8 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/help_data.dart';
-import 'package:rokctapp/infrastructure/models/data/meta.dart'
-    hide Meta;
-import 'package:rokctapp/infrastructure/models/data/user.dart'
-    hide UserModel;
+import 'package:rokctapp/infrastructure/models/data/meta.dart' hide Meta;
+import 'package:rokctapp/infrastructure/models/data/user.dart' hide UserModel;
 
 class WalletHistoriesResponse {
   WalletHistoriesResponse({List<WalletData>? data, Meta? meta}) {
