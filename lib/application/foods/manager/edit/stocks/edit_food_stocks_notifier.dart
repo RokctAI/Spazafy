@@ -275,4 +275,3 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
     fetchGroups(product: product ?? ProductData());
   }
 }
-

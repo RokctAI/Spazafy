@@ -9,7 +9,6 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/helper/manager/no_data_info.dart';
 import 'details/extras_group_details_modal.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class ExtrasBody extends StatelessWidget {
@@ -67,4 +66,3 @@ class ExtrasBody extends StatelessWidget {
     );
   }
 }
-

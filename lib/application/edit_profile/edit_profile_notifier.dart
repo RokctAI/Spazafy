@@ -17,7 +17,6 @@ import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/marker_image_cropper.dart';
 import 'edit_profile_state.dart';
 
-
 class EditProfileNotifier extends StateNotifier<EditProfileState> {
   final UserRepositoryFacade _userRepository;
   final GalleryRepositoryFacade _galleryRepository;

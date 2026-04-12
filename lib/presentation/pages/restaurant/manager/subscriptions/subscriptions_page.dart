@@ -173,4 +173,3 @@ class _SubscriptionsPageState extends ConsumerState<SubscriptionsPage> {
     );
   }
 }
-

@@ -66,8 +66,7 @@ import 'package:rokctapp/domain/handlers/driver/handlers.dart'
 import 'package:rokctapp/domain/interface/interfaces.dart' as driver_interfaces;
 import 'package:rokctapp/domain/interface/interfaces.dart'
     as manager_interfaces;
-import 'package:rokctapp/infrastructure/repositories/driver/repositories.dart'
-   ;
+import 'package:rokctapp/infrastructure/repositories/driver/repositories.dart';
 import 'package:rokctapp/domain/interface/manager_payment.dart';
 import 'package:rokctapp/domain/interface/manager_subscription.dart';
 import 'package:rokctapp/domain/interface/manager_table.dart';
@@ -84,19 +83,9 @@ import 'package:rokctapp/infrastructure/repositories/manager/table_repository.da
 import 'package:rokctapp/infrastructure/repositories/manager/users_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/driver/user_repository_impl.dart';
 
-
-
-
-
-
-
-
-
-
 import 'package:rokctapp/domain/interface/driver_draw.dart';
 import 'package:rokctapp/domain/interface/driver_settings.dart';
 import 'package:rokctapp/domain/interface/driver_user.dart';
-
 
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
 import 'package:rokctapp/domain/interface/manager_notification.dart';
@@ -106,19 +95,9 @@ import 'package:rokctapp/domain/interface/manager_products.dart';
 import 'package:rokctapp/domain/interface/manager_settings.dart';
 import 'package:rokctapp/domain/interface/manager_shops.dart';
 
-
 import 'package:rokctapp/domain/interface/manager_users.dart';
 
-
-
-
-
-
-
-
-
-import 'package:rokctapp/infrastructure/repositories/manager/repositories.dart'
-   ;
+import 'package:rokctapp/infrastructure/repositories/manager/repositories.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -174,9 +153,7 @@ Future<void> setUpDependencies() async {
       NotificationRepository(),
     );
     getIt.registerSingleton<PaymentsFacade>(PaymentRepository());
-    getIt.registerSingleton<SubscriptionsFacade>(
-      SubscriptionsRepository(),
-    );
+    getIt.registerSingleton<SubscriptionsFacade>(SubscriptionsRepository());
   }
 
   // Common/Customer dependencies

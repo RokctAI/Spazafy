@@ -5,9 +5,6 @@ import 'package:rokctapp/infrastructure/models/response/addresses_response.dart'
 
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-
-
-
 abstract class AddressRepositoryFacade {
   Future<ApiResult<AddressesResponse>> getUserAddresses();
 
