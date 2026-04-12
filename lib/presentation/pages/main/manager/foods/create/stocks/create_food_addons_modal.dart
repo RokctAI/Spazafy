@@ -15,6 +15,7 @@ import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/select/selectable_addon_item.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/foods/manager/create/stocks/addons/create_food_addons_provider.dart';
 
 class CreateFoodAddonsModal extends ConsumerStatefulWidget {
   final Stock stock;

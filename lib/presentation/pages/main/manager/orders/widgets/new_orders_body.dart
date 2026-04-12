@@ -8,6 +8,8 @@ import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_de
 import 'package:rokctapp/presentation/components/list_items/order_item.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/main/manager/orders/new/new_orders_provider.dart';
+import 'package:rokctapp/application/main/manager/orders/appbar/home_appbar_provider.dart';
 
 class NewOrdersBody extends StatelessWidget {
   final ScrollController? scrollController;

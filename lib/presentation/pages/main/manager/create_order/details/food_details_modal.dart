@@ -18,6 +18,8 @@ import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/pages/main/manager/create_order/details/widgets/w_ingredient.dart';
+import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart';
+import 'package:rokctapp/application/order_products/manager/order_products_provider.dart';
 
 class FoodDetailsModal extends ConsumerStatefulWidget {
   final ProductData product;

@@ -21,6 +21,9 @@ import 'package:rokctapp/presentation/components/tab_bars/categories_tab_bar.dar
 import 'package:rokctapp/presentation/components/text_fields/manager/search_text_field.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/order_products/manager/order_products_provider.dart';
+import 'package:rokctapp/application/categories/manager/categories_provider.dart';
+import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart';
 
 @RoutePage()
 class ManagerCreateOrderPage extends ConsumerStatefulWidget {

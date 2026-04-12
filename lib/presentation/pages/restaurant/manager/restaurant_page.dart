@@ -22,6 +22,7 @@ import 'package:rokctapp/presentation/pages/restaurant/manager/widgets/edit_rest
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
+import 'package:rokctapp/application/restaurant/manager/restaurant_provider.dart';
 
 class RestaurantPage extends ConsumerStatefulWidget {
   const RestaurantPage({super.key});

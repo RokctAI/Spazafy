@@ -20,6 +20,7 @@ import 'package:rokctapp/presentation/components/text_fields/manager/underlined_
 import 'package:rokctapp/presentation/pages/main/manager/foods/extras/details/widgets/create_new_group_item_modal.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/main/manager/foods/extras/details/extras_group_details_provider.dart';
 
 class ExtrasGroupDetailsModal extends ConsumerStatefulWidget {
   final Group group;

@@ -7,6 +7,8 @@ import 'package:rokctapp/presentation/components/buttons/manager/custom_button.d
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/category/manager/add/add_category_provider.dart';
+import 'package:rokctapp/application/category/manager/all_categories_provider.dart';
 
 class AddFoodCategoryModal extends StatelessWidget {
   const AddFoodCategoryModal({super.key});

@@ -8,6 +8,7 @@ import 'package:rokctapp/presentation/pages/main/manager/orders/details/order_de
 import 'package:rokctapp/presentation/components/list_items/order_item.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/main/manager/orders/accepted/accepted_orders_provider.dart';
 
 class AcceptedOrdersBody extends StatefulWidget {
   final ScrollController? scrollController;

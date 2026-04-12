@@ -28,6 +28,8 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/home/driver/bottom_sheet_screen.dart';
 import 'package:rokctapp/presentation/pages/home/driver/delivery_bottom_sheet.dart';
 import 'package:rokctapp/presentation/pages/home/driver/parcel_bottom_sheet.dart';
+import 'package:rokctapp/application/profile/driver/provider/profile_settings_provider.dart';
+import 'package:rokctapp/application/profile/driver/provider/profile_image_provider.dart';
 
 final orderRepository = driverOrderRepository;
 

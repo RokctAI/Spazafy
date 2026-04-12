@@ -19,6 +19,15 @@ import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
 import 'package:rokctapp/presentation/components/select/select_date_modal.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/order/manager/shipping/payment/order_payment_provider.dart';
+import 'package:rokctapp/application/order/manager/shipping/delivery/delivery_type_provider.dart';
+import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart';
+import 'package:rokctapp/application/order/manager/shipping/address/order/order_address_provider.dart';
+import 'package:rokctapp/application/order/manager/shipping/time/delivery_time_provider.dart';
+import 'package:rokctapp/application/order/manager/shipping/user/order_user_provider.dart';
+import 'package:rokctapp/application/order/manager/create_order_provider.dart';
+import 'package:rokctapp/application/main/manager/orders/new/new_orders_provider.dart';
+import 'package:rokctapp/application/main/manager/orders/appbar/home_appbar_provider.dart';
 
 @RoutePage()
 class DeliveryTimePage extends ConsumerStatefulWidget {

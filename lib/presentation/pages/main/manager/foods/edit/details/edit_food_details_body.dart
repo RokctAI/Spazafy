@@ -21,6 +21,10 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/edit/details/edit_food_kitchens_modal.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/edit/details/edit_food_units_modal.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/edit/details/edit_food_categories_modal.dart';
+import 'package:rokctapp/application/foods/manager/edit/details/edit_food_details_provider.dart';
+import 'package:rokctapp/application/foods/manager/edit/details/category/edit_food_categories_provider.dart';
+import 'package:rokctapp/application/foods/manager/edit/details/units/edit_food_units_provider.dart';
+import 'package:rokctapp/application/foods/manager/foods_provider.dart';
 
 class EditFoodDetailsBody extends StatefulWidget {
   final Function() onSave;

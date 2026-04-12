@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/helper/common_image.dart';
 import 'package:rokctapp/presentation/components/avatar/shop_bordered_avatar.dart';
+import 'package:rokctapp/application/restaurant/manager/restaurant_provider.dart';
 
 class ShopBanner extends StatelessWidget {
   const ShopBanner({super.key});

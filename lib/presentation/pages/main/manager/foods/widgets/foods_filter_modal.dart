@@ -11,6 +11,7 @@ import 'package:rokctapp/presentation/components/buttons/manager/custom_button.d
 import 'package:rokctapp/presentation/components/toggle/manager_custom_toggle.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/foods/manager/filter/foods_filter_provider.dart';
 
 class FoodsFilterModal extends ConsumerStatefulWidget {
   const FoodsFilterModal({super.key});

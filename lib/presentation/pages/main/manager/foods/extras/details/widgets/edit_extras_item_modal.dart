@@ -16,6 +16,8 @@ import 'package:rokctapp/infrastructure/models/data/extras.dart';
 import 'package:rokctapp/infrastructure/models/data/group.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/main/manager/foods/extras/details/edit_item/edit_extras_item_provider.dart';
+import 'package:rokctapp/application/main/manager/foods/extras/details/extras_group_details_provider.dart';
 
 class EditExtrasItemModal extends ConsumerStatefulWidget {
   final Group group;

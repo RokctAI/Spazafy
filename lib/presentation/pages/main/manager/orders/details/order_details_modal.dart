@@ -21,6 +21,12 @@ import 'package:rokctapp/presentation/components/list_items/order_product_item.d
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/pages/main/manager/orders/details/image_dialog.dart';
 import 'package:rokctapp/presentation/pages/main/manager/orders/details/price_information.dart';
+import 'package:rokctapp/application/order_details/manager/order_details_provider.dart';
+import 'package:rokctapp/application/main/manager/orders/appbar/home_appbar_provider.dart';
+import 'package:rokctapp/application/main/manager/orders/new/new_orders_provider.dart';
+import 'package:rokctapp/application/main/manager/orders/accepted/accepted_orders_provider.dart';
+import 'package:rokctapp/application/main/manager/orders/ready/ready_orders_provider.dart';
+import 'package:rokctapp/application/main/manager/orders/on_a_way/on_a_way_orders_provider.dart';
 
 class OrderDetailsModal extends ConsumerStatefulWidget {
   final OrderData order;

@@ -15,6 +15,8 @@ import 'package:rokctapp/presentation/components/text_fields/manager/underlined_
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/create/details/food_categories_modal.dart';
+import 'package:rokctapp/application/category/manager/add/add_category_provider.dart';
+import 'package:rokctapp/application/category/manager/all_categories_provider.dart';
 
 class AddCategoryModal extends StatefulWidget {
   const AddCategoryModal({super.key});

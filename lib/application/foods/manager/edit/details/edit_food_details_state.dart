@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/response/languages_response.dart'
     hide LanguageData;
 import 'package:rokctapp/infrastructure/models/models.dart' hide LanguageData;
+import 'package:rokctapp/infrastructure/models/data/language_data.dart';
 part 'edit_food_details_state.freezed.dart';
 
 @freezed

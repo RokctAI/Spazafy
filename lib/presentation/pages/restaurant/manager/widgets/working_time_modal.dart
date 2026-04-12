@@ -16,6 +16,8 @@ import 'package:rokctapp/presentation/components/list_items/small_weekday_item.d
 import 'package:rokctapp/presentation/components/toggle/manager_custom_toggle.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/restaurant/manager/restaurant_provider.dart';
+import 'package:rokctapp/application/restaurant/manager/working_days/working_days_provider.dart';
 
 class WorkingTimeModal extends ConsumerStatefulWidget {
   const WorkingTimeModal({super.key});

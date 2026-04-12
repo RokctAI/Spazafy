@@ -18,6 +18,8 @@ import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart
 import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/address/searched_location_item.dart';
+import 'package:rokctapp/application/order/manager/shipping/address/select_address_provider.dart';
+import 'package:rokctapp/application/order/manager/shipping/address/order/order_address_provider.dart';
 
 @RoutePage()
 class SelectAddressPage extends StatefulWidget {

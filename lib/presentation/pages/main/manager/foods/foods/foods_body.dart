@@ -13,6 +13,11 @@ import 'package:rokctapp/presentation/components/tab_bars/categories_tab_bar.dar
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/foods/manager/foods_provider.dart';
+import 'package:rokctapp/application/categories/manager/categories_provider.dart';
+import 'package:rokctapp/application/foods/manager/edit/details/edit_food_details_provider.dart';
+import 'package:rokctapp/application/foods/manager/edit/details/units/edit_food_units_provider.dart';
+import 'package:rokctapp/application/foods/manager/edit/details/category/edit_food_categories_provider.dart';
 
 class FoodsBody extends StatelessWidget {
   final RefreshController categoryController;

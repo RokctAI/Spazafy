@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import 'package:spazafy/application/tasks/task_model.dart';
 import 'package:spazafy/infrastructure/tasks/task_service.dart';
+import 'package:rokctapp/application/tasks/task_model.dart';
 
 class TasksPage extends StatefulWidget {
   final String userType;

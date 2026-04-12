@@ -27,6 +27,8 @@ import 'package:rokctapp/presentation/components/list_items/small_weekday_item.d
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/restaurant/manager/restaurant_provider.dart';
+import 'package:rokctapp/application/restaurant/manager/working_days/working_days_provider.dart';
 
 class EditRestaurantModal extends ConsumerStatefulWidget {
   const EditRestaurantModal({super.key});

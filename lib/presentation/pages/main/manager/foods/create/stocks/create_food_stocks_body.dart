@@ -12,6 +12,10 @@ import 'package:rokctapp/presentation/components/list_items/editable_food_stock_
 import 'package:rokctapp/presentation/components/extras/manager/extras_item.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/foods/manager/create/stocks/create_food_stocks_provider.dart';
+import 'package:rokctapp/application/foods/manager/foods_provider.dart';
+import 'package:rokctapp/application/categories/manager/categories_provider.dart';
+import 'package:rokctapp/application/foods/manager/create/details/create_food_details_provider.dart';
 
 class CreateFoodStocksBody extends ConsumerStatefulWidget {
   const CreateFoodStocksBody({super.key});

@@ -14,6 +14,9 @@ import 'package:rokctapp/presentation/components/extras/manager/extras_item.dart
 
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/application/foods/manager/edit/stocks/edit_food_stocks_provider.dart';
+import 'package:rokctapp/application/foods/manager/foods_provider.dart';
+import 'package:rokctapp/application/category/manager/all_categories_provider.dart';
 
 class EditFoodStocksBody extends ConsumerStatefulWidget {
   final ProductData product;
