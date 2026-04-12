@@ -7,9 +7,6 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/main/manager/orders/accepted/accepted_orders_state.dart';
 
-
-
-
 class AcceptedOrdersNotifier extends StateNotifier<AcceptedOrdersState> {
   final OrdersInterface _ordersRepository;
   int _page = 0;

@@ -10,7 +10,6 @@ import 'package:intl/intl.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rokctapp/application/statistics/driver/statistics_state.dart';
 
-
 class StatisticsNotifier extends StateNotifier<StatisticsState> {
   final UserRepository _userRepository;
   int page = 1;

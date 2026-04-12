@@ -192,4 +192,3 @@ class OrderFoodItem extends StatelessWidget {
     );
   }
 }
-

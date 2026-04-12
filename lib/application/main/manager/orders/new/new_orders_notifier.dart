@@ -5,17 +5,12 @@ import 'package:rokctapp/domain/interface/manager_orders.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
     hide OrderStatus;
 
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/application/main/manager/orders/new/new_orders_state.dart';
-
-
-
-
 
 class NewOrdersNotifier extends StateNotifier<NewOrdersState> {
   final OrdersInterface _ordersRepository;

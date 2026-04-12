@@ -9,7 +9,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:flutter/material.dart';
 
-
 class BannersRepository implements BannersRepositoryFacade {
   @override
   Future<ApiResult<BannersPaginateResponse>> getBannersPaginate({

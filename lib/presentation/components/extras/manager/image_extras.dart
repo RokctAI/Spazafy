@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/helper/common_image.dart';
 
-
 class ImageExtras extends StatelessWidget {
   final int groupIndex;
   final List<UiExtra> uiExtras;

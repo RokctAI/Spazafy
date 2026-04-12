@@ -669,4 +669,3 @@ class OrderItem extends StatelessWidget {
     );
   }
 }
-

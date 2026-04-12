@@ -13,8 +13,6 @@ import 'package:rokctapp/application/product/manager/products_state.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
-
-
 class ProductsNotifier extends StateNotifier<ProductsState> {
   final ProductsInterface _productsRepository;
   ProductsNotifier(this._productsRepository) : super(const ProductsState());
@@ -284,4 +282,3 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
     updateCart(newCount);
   }
 }
-

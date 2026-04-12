@@ -1,7 +1,5 @@
-import 'package:rokctapp/domain/handlers/driver/handlers.dart'
-   ;
-import 'package:rokctapp/infrastructure/models/response/driver/order_paginate_response.dart'
-   ;
+import 'package:rokctapp/domain/handlers/driver/handlers.dart';
+import 'package:rokctapp/infrastructure/models/response/driver/order_paginate_response.dart';
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/get_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
@@ -107,18 +105,11 @@ abstract class OrdersRepositoryFacade {
     required double amount,
   });
 
-  Future<ApiResult<OrderPaginateResponse>>
-  fetchCurrentOrder();
+  Future<ApiResult<OrderPaginateResponse>> fetchCurrentOrder();
 
-  Future<ApiResult<dynamic>> updateOrder(
-    dynamic orderId,
-    String status,
-  );
+  Future<ApiResult<dynamic>> updateOrder(dynamic orderId, String status);
 
-  Future<ApiResult<dynamic>> uploadImage(
-    dynamic orderId,
-    String? image,
-  );
+  Future<ApiResult<dynamic>> uploadImage(dynamic orderId, String? image);
 
   Future<ApiResult<dynamic>> setCurrentOrder(String? orderId);
 

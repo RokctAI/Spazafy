@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/application/main/manager/foods/extras/details/new_item/create_new_group_item_state.dart';
 
-
 class CreateNewGroupItemNotifier
     extends StateNotifier<CreateNewGroupItemState> {
   final ProductsInterface _productsRepository;
@@ -46,4 +45,3 @@ class CreateNewGroupItemNotifier
     _title = value.trim();
   }
 }
-

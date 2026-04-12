@@ -8,9 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-
-
-
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/outline_bordered_text_field.dart';
 
@@ -211,4 +208,3 @@ class ShopFormFields extends StatelessWidget {
     );
   }
 }
-

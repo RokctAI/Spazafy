@@ -13,8 +13,6 @@ import 'package:rokctapp/presentation/pages/home/home_four/banner_screen.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 //import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-
-
 class BannerItem extends StatelessWidget {
   final BannerData banner;
   final bool isAds;
