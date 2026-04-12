@@ -70,4 +70,3 @@ class SecondButton extends StatelessWidget {
     );
   }
 }
-

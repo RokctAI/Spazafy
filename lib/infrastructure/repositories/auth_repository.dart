@@ -10,10 +10,6 @@ import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/domain/interface/auth.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
-
-
-
-
 class AuthRepository implements AuthRepositoryFacade {
   @override
   Future<ApiResult<LoginResponse>> login({

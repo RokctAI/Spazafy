@@ -27,8 +27,6 @@ import 'package:rokctapp/presentation/pages/restaurant/manager/restaurant_page.d
 import 'package:rokctapp/presentation/pages/main/manager/foods/create/create_product_modal.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/addons/create/create_addon_modal.dart';
 
-
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/extras/create/create_extras_group_modal.dart';
 
@@ -292,4 +290,3 @@ class _ManagerMainPageState extends State<ManagerMainPage> {
     );
   }
 }
-

@@ -209,8 +209,9 @@ class AppHelpers {
     if (shop == null) {
       return getTranslation(TrKeys.theRestaurantIsClosedToday);
     }
-    final currentWeekday =
-        DateFormat('EEEE').format(DateTime.now()).toLowerCase();
+    final currentWeekday = DateFormat(
+      'EEEE',
+    ).format(DateTime.now()).toLowerCase();
     final List<ShopWorkingDays> workingDays = shop.shopWorkingDays ?? [];
     for (final day in workingDays) {
       if (day.day?.toLowerCase() == currentWeekday) {
@@ -429,21 +430,17 @@ class AppHelpers {
       Overlay.of(context),
       type == SnackBarType.success
           ? CustomSnackBar.success(
-              message: text ??
-                  getTranslation(TrKeys.successfullyCompleted),
+              message: text ?? getTranslation(TrKeys.successfullyCompleted),
             )
           : type == SnackBarType.info
-              ? CustomSnackBar.info(
-                  message:
-                      text ?? getTranslation(TrKeys.infoMessage),
-                )
-              : CustomSnackBar.error(
-                  message: text?.isNotEmpty == true
-                      ? text!
-                      : getTranslation(
-                          TrKeys.somethingWentWrongWithTheServer,
-                        ),
-                ),
+          ? CustomSnackBar.info(
+              message: text ?? getTranslation(TrKeys.infoMessage),
+            )
+          : CustomSnackBar.error(
+              message: text?.isNotEmpty == true
+                  ? text!
+                  : getTranslation(TrKeys.somethingWentWrongWithTheServer),
+            ),
     );
   }
 
@@ -469,9 +466,7 @@ class AppHelpers {
             ),
             decoration: BoxDecoration(
               color: AppStyle.primary,
-              borderRadius: BorderRadius.circular(
-                (AppConstants.radius / 2).r,
-              ),
+              borderRadius: BorderRadius.circular((AppConstants.radius / 2).r),
             ),
             child: Text(
               text ?? getTranslation(TrKeys.failed),
@@ -821,9 +816,9 @@ class AppHelpers {
       targetWidth: width,
     );
     final ui.FrameInfo fi = await codec.getNextFrame();
-    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
-        .buffer
-        .asUint8List();
+    return (await fi.image.toByteData(
+      format: ui.ImageByteFormat.png,
+    ))!.buffer.asUint8List();
   }
 
   static Future<Uint8List> svgToPng(
@@ -839,8 +834,7 @@ class AppHelpers {
       svgWidth ?? pictureInfo.size.width.toInt(),
       svgHeight ?? pictureInfo.size.height.toInt(),
     );
-    final ByteData? bytes =
-        await image.toByteData(format: ImageByteFormat.png);
+    final ByteData? bytes = await image.toByteData(format: ImageByteFormat.png);
     return bytes!.buffer.asUint8List();
   }
 
@@ -858,15 +852,10 @@ class AppHelpers {
     } catch (_) {
       try {
         return (e.runtimeType == DioException)
-            ? ((e as DioException)
-                    .response
-                    ?.data
-                    .toString()
-                    .substring(
-                      (e.response?.data.toString().indexOf('<title>') ?? 0) + 7,
-                      e.response?.data.toString().indexOf('</title') ?? 0,
-                    ))
-                .toString()
+            ? ((e as DioException).response?.data.toString().substring(
+                (e.response?.data.toString().indexOf('<title>') ?? 0) + 7,
+                e.response?.data.toString().indexOf('</title') ?? 0,
+              )).toString()
             : e.toString();
       } catch (_) {
         return (e.runtimeType == DioException)

@@ -398,4 +398,3 @@ class OrderNotifier extends StateNotifier<OrderState> {
     }
   }
 }
-

@@ -14,8 +14,6 @@ import 'package:rokctapp/domain/handlers/handlers.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
-
-
 abstract class ProductsInterface {
   Future<ApiResult<void>> deleteExtrasGroup({String? groupId});
 

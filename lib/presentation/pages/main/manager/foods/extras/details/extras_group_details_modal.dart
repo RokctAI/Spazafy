@@ -1,6 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
@@ -20,10 +19,7 @@ import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/extras/details/widgets/create_new_group_item_modal.dart';
 
-
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-
 
 class ExtrasGroupDetailsModal extends ConsumerStatefulWidget {
   final Group group;
@@ -158,4 +154,3 @@ class _ExtrasGroupDetailsModalState
     );
   }
 }
-

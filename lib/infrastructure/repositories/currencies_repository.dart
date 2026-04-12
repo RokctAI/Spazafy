@@ -8,7 +8,6 @@ import 'package:rokctapp/domain/interface/currencies.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
-
 class CurrenciesRepository implements CurrenciesRepositoryFacade {
   @override
   Future<ApiResult<CurrenciesResponse>> getCurrencies() async {

@@ -1,6 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 
-
 class CurrenciesResponse {
   CurrenciesResponse({
     String? timestamp,

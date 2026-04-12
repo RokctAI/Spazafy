@@ -405,4 +405,3 @@ class TableRepository extends TableInterface {
     }
   }
 }
-

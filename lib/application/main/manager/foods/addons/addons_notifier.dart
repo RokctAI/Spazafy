@@ -8,8 +8,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/application/main/manager/foods/addons/addons_state.dart';
 
-
-
 class AddonsNotifier extends StateNotifier<AddonsState> {
   final ProductsInterface _productsRepository;
   int _page = 0;

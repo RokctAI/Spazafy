@@ -1,4 +1,3 @@
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,4 +31,3 @@ class NoOrders extends StatelessWidget {
     );
   }
 }
-

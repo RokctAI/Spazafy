@@ -26,9 +26,6 @@ import 'package:rokctapp/presentation/components/avatar/shop_bordered_avatar.dar
 import 'package:rokctapp/presentation/components/list_items/small_weekday_item.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 
-
-
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 class EditRestaurantModal extends ConsumerStatefulWidget {
@@ -464,4 +461,3 @@ class _EditRestaurantModalState extends ConsumerState<EditRestaurantModal> {
     );
   }
 }
-

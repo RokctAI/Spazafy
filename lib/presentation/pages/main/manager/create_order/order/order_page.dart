@@ -18,9 +18,6 @@ import 'package:rokctapp/presentation/components/list_items/food_stock_item.dart
 
 import 'package:rokctapp/presentation/components/tab_bars/custom_app_bar.dart';
 
-
-
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 @RoutePage()
@@ -174,4 +171,3 @@ class _ManagerOrderPageState extends ConsumerState<ManagerOrderPage> {
     );
   }
 }
-

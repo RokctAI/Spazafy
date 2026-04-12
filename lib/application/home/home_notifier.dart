@@ -25,11 +25,6 @@ import 'package:rokctapp/domain/interface/brands.dart';
 import 'package:rokctapp/domain/interface/products.dart';
 import 'package:rokctapp/application/home/home_state.dart';
 
-
-
-
-
-
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
 // Copyright (c) 2024 RokctAI
 //

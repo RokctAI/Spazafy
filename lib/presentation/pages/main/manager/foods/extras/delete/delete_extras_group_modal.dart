@@ -1,6 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
-
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 import 'package:flutter/material.dart';
@@ -13,9 +12,7 @@ import 'package:rokctapp/presentation/components/buttons/manager/custom_button.d
 import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-
 
 class DeleteExtrasGroupModal extends StatelessWidget {
   final Group group;
@@ -88,4 +85,3 @@ class DeleteExtrasGroupModal extends StatelessWidget {
     );
   }
 }
-
