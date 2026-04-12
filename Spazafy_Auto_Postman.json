@@ -1,4 +1,4 @@
-﻿{
+{
     "variable":  [
                      {
                          "key":  "baseUrl",
@@ -8,7 +8,7 @@
                  ],
     "info":  {
                  "description":  "Automatically extracted API endpoints from Flutter source code.",
-                 "name":  "Spazafy Auto-Generated API Collection",
+                 "name":  "rokctapp Auto-Generated API Collection",
                  "schema":  "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
              },
     "item":  [

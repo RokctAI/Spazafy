@@ -23,7 +23,7 @@ class OrderBadge extends StatelessWidget {
     return Row(
       children: [
         SvgPicture.asset(
-          //'assets/svgs/spazafy.svg', // Path to your updated SVG asset
+          //'assets/svgs/rokctapp.svg', // Path to your updated SVG asset
           'assets/svgs/brand_logo_rounded.svg',
           height: 24.h, // Adjust height as needed using ScreenUtil
           width: 24.w, // Adjust width as needed using ScreenUtil

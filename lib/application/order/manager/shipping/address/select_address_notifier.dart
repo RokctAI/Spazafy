@@ -27,7 +27,7 @@ class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
   Future<void> searchLocations() async {
     state = state.copyWith(isSearching: true, isSearchLoading: true);
     try {
-      final result = await Nominatim(userAgent: "Spazafy seller").searchByName(
+      final result = await Nominatim(userAgent: "rokctapp seller").searchByName(
         query: state.textController?.text.trim() ?? '',
         limit: 5,
         addressDetails: true,
@@ -76,7 +76,7 @@ class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
     state = state.copyWith(searchedPlaces: [], isSearching: false);
     Place? place;
     try {
-      place = await Nominatim(userAgent: "Spazafy seller").reverseSearch(
+      place = await Nominatim(userAgent: "rokctapp seller").reverseSearch(
         lat: locationData.latitude,
         lon: locationData.longitude,
         addressDetails: true,
@@ -152,7 +152,7 @@ class SelectAddressNotifier extends StateNotifier<SelectAddressState> {
     );
     Place? place;
     try {
-      place = await Nominatim(userAgent: "Spazafy seller").reverseSearch(
+      place = await Nominatim(userAgent: "rokctapp seller").reverseSearch(
         lat: latLng?.latitude,
         lon: latLng?.longitude,
         addressDetails: true,

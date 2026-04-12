@@ -80,7 +80,7 @@ class Assets {
   // Driver/Manager specific svgs
   static const String svgBalance = 'assets/svg/balance.svg';
   static const String svgMyLocation = 'assets/svg/my_location.svg';
-  static const String svgSpazafy = 'assets/svg/spazafy.svg';
+  static const String svgrokctapp = 'assets/svg/rokctapp.svg';
   static const String svgHome = 'assets/svg/home.svg';
   static const String svgLogoWhite = 'assets/svg/logoWhite.svg';
   static const String svgNoHome = 'assets/svg/noHome.svg';
