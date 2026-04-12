@@ -9,7 +9,6 @@ import 'package:rokctapp/application/restaurant/manager/income/statistics/statis
 
 // import 'package:charts_flutter_new/flutter.dart';
 
-
 class StatisticsNotifier extends StateNotifier<StatisticsState> {
   final UsersInterface _usersRepository;
   int page = 1;

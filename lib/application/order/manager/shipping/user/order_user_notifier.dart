@@ -15,7 +15,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/models/response/login_response.dart'
     hide UserData;
 
-
 class OrderUserNotifier extends StateNotifier<OrderUserState> {
   final UsersInterface _usersRepository;
   String _query = '';
@@ -176,4 +175,3 @@ class OrderUserNotifier extends StateNotifier<OrderUserState> {
     );
   }
 }
-

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/main/manager/foods/addons/edit/units/edit_addon_units_state.dart';
 
-
 class EditAddonUnitsNotifier extends StateNotifier<EditAddonUnitsState> {
   final CatalogInterface _catalogRepository;
 

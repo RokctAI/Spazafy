@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/main/manager/foods/addons/create/units/create_addon_units_state.dart';
 
-
 class CreateAddonUnitsNotifier extends StateNotifier<CreateAddonUnitsState> {
   final CatalogInterface _catalogRepository;
 

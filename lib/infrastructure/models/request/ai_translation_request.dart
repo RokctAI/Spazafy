@@ -2,7 +2,6 @@ import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/models/data/language_data.dart';
 
-
 class AiTranslationRequest {
   final AiTranslationModel model;
   final int? modelId;

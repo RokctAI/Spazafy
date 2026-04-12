@@ -30,7 +30,6 @@ import 'package:rokctapp/application/auth/login/login_state.dart';
 import 'package:rokctapp/infrastructure/models/data/address_new_data.dart';
 import 'package:rokctapp/infrastructure/models/data/location.dart';
 
-
 class LoginNotifier extends StateNotifier<LoginState> {
   final AuthRepositoryFacade _authRepository;
   final SettingsRepositoryFacade _settingsRepository;

@@ -15,8 +15,6 @@ import 'package:rokctapp/application/profile/profile_notifier.dart';
 import 'package:rokctapp/application/profile/profile_provider.dart';
 import 'package:rokctapp/application/profile/profile_state.dart';
 
-
-
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
 import 'package:rokctapp/presentation/components/tab_bars/custom_app_bar.dart';
@@ -303,4 +301,3 @@ class _CreateShopPageState extends ConsumerState<CreateShopPage> {
     );
   }
 }
-

@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/application/main/manager/foods/extras/delete/delete_extras_group_state.dart';
 
-
 class DeleteExtrasGroupNotifier extends StateNotifier<DeleteExtrasGroupState> {
   final ProductsInterface _productsRepository;
 
@@ -39,4 +38,3 @@ class DeleteExtrasGroupNotifier extends StateNotifier<DeleteExtrasGroupState> {
     );
   }
 }
-

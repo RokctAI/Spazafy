@@ -64,4 +64,3 @@ class CreateUserNotifier extends StateNotifier<CreateUserState> {
     );
   }
 }
-

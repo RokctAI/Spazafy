@@ -10,7 +10,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/order/manager/shipping/table/table_provider.dart';
 
-
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/select_table/widgets/table_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
@@ -130,4 +129,3 @@ class _SelectTablePageState extends ConsumerState<SelectTablePage> {
     );
   }
 }
-

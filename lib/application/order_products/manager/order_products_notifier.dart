@@ -4,15 +4,11 @@ import 'package:rokctapp/domain/interface/manager_products.dart';
 
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 
-
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/order_products/manager/order_products_state.dart';
-
-
-
 
 class OrderProductsNotifier extends StateNotifier<OrderProductsState> {
   final ProductsInterface _productsRepository;
