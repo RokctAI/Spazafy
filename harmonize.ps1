@@ -718,7 +718,7 @@ Get-ChildItem -Path "lib" -Recurse -Filter *.dart | ForEach-Object {
     $i = 0
     while ($i -lt $content.Count) {
 
-        $line    = $content[$i]
+        $line = $content[$i]
         $trimmed = $line.Trim()
 
         if ($trimmed.StartsWith("//") -or $trimmed -match "^part\s") { $i++; continue }
@@ -751,7 +751,7 @@ Get-ChildItem -Path "lib" -Recurse -Filter *.dart | ForEach-Object {
                 }
                 else {
                     $resolved = Resolve-DartPath -rawPath $rawPath -currentDir $currentDir
-                    $absPath  = if ($resolved) { $resolved.ToLower() } else { $rawPath.ToLower() }
+                    $absPath = if ($resolved) { $resolved.ToLower() } else { $rawPath.ToLower() }
                 }
 
                 # Parse-ImportDetails now receives the full joined line, so it
@@ -816,7 +816,7 @@ Get-ChildItem -Path "lib" -Recurse -Filter *.dart | ForEach-Object {
 
         $toRemove = @()
 
-        $plain   = $entries | Where-Object { -not $_.Alias }
+        $plain = $entries | Where-Object { -not $_.Alias }
         $aliased = $entries | Where-Object { $_.Alias }
 
         # Alias handling FIRST: keep used aliases, drop unused ones.
