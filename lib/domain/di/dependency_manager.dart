@@ -214,6 +214,11 @@ final translation = getIt.get<Map>();
 final walletRepository = getIt.get<WalletRepositoryFacade>();
 final loansRepository = getIt.get<LoansRepositoryFacade>();
 final deliveryPointsRepository = getIt.get<DeliveryPointsRepositoryFacade>();
+final backgroundSyncService = BackgroundSyncService(
+  database: appDatabase,
+  httpService: dioHttp,
+);
+
 
 // Driver specific accessors
 final driverSettingsRepository = getIt

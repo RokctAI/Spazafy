@@ -1,6 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/addon_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
-import 'payment_data.dart';
+import 'package:rokctapp/infrastructure/models/data/payment_data.dart';
+
 import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
 import 'package:rokctapp/infrastructure/models/data/driver/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';

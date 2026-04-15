@@ -5,5 +5,6 @@ import 'package:rokctapp/application/notification/manager/notification_state.dar
 
 final notificationProvider =
     StateNotifierProvider<NotificationNotifier, NotificationState>(
-      (ref) => NotificationNotifier(notificationRepository),
+      (ref) => NotificationNotifier(managerNotificationRepository),
+
     );
