@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/models/request/ai_translation_request.da
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart'
     hide LanguageData;
 import 'package:rokctapp/application/ai_translation/manager/ai_translation_state.dart';
 import 'package:rokctapp/infrastructure/models/data/language_data.dart';

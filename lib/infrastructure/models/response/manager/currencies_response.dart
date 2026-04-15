@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
+import 'package:rokctapp/infrastructure/models/data/currency_data.dart'
     hide CurrencyData;
 
 class CurrenciesResponse {

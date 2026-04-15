@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/currency_data.dart';
 import 'package:rokctapp/infrastructure/models/data/profile_data.dart';
-import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart';
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart'
     hide UserData;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:convert';

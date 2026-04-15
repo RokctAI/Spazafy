@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/settings_data.dart';
+import 'package:rokctapp/infrastructure/models/data/settings_data.dart'
     hide SettingsData;
 
 class SettingsResponse {

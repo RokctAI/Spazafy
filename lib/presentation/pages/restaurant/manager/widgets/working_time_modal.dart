@@ -15,7 +15,7 @@ import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/list_items/small_weekday_item.dart';
 import 'package:rokctapp/presentation/components/toggle/manager_custom_toggle.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 
 import 'package:rokctapp/application/restaurant/manager/restaurant_provider.dart';

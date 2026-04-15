@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rokctapp/infrastructure/models/data/language_data.dart';
-import 'package:rokctapp/infrastructure/models/models_manager.dart';
+import 'package:rokctapp/infrastructure/models/models_manager.dart'
     hide LanguageData;
 part 'ai_translation_state.freezed.dart';
 

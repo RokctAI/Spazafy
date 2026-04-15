@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/models/data/help_data.dart';
 import 'package:rokctapp/infrastructure/models/data/take_data.dart';
 import 'package:rokctapp/infrastructure/models/data/links.dart' hide Links;
 import 'package:rokctapp/infrastructure/models/data/meta.dart' hide Meta;
-import 'package:rokctapp/infrastructure/models/data/translation.dart';
+import 'package:rokctapp/infrastructure/models/data/translation.dart'
     hide Translation;
 
 class ParcelTypeResponse {
