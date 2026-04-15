@@ -84,7 +84,8 @@ class BannerScreen extends StatelessWidget {
                   child: CustomButton(
                     title: AppHelpers.getTranslation(TrKeys.orderNow),
                     onPressed: () {
-                      context.router.push(ShopsBannerRoute(bannerId: bannerId, title: desc),
+                      context.router.push(
+                        ShopsBannerRoute(bannerId: bannerId, title: desc),
                       );
                     },
                   ),

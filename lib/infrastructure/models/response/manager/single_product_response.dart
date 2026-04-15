@@ -1,5 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart'
-    hide ProductData;
+import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
+
 
 class SingleProductResponse {
   SingleProductResponse({ProductData? data}) {

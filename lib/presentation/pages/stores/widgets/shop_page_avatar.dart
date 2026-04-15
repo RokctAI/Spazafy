@@ -300,7 +300,8 @@ class ShopPageAvatar extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        context.router.push(ShopDetailRoute(shop: shop, workTime: workTime),
+                        context.router.push(
+                          ShopDetailRoute(shop: shop, workTime: workTime),
                         );
                       },
                       child: Text(
@@ -348,7 +349,8 @@ class ShopPageAvatar extends StatelessWidget {
                     context.router.replaceNamed('/login');
                     return;
                   }
-                  context.router.push(ChatRoute(
+                  context.router.push(
+                    ChatRoute(
                       roleId: shop.id.toString(),
                       name: shop.translation?.title ?? "",
                     ),

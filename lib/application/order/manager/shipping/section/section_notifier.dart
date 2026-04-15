@@ -31,7 +31,7 @@ class SectionNotifier extends StateNotifier<SectionState> {
     _page = 0;
     _hasMore = true;
     state = state.copyWith(isLoading: true);
-    final response = await tableRepository.getSection(
+    final response = await managerTableRepository.getSection(
       query: _query.isEmpty ? null : _query.trim(),
       page: ++_page,
     );
@@ -64,7 +64,7 @@ class SectionNotifier extends StateNotifier<SectionState> {
       refreshController?.loadNoData();
       return;
     }
-    final response = await tableRepository.getSection(
+    final response = await managerTableRepository.getSection(
       query: _query.isEmpty ? null : _query.trim(),
       page: ++_page,
     );
@@ -86,7 +86,7 @@ class SectionNotifier extends StateNotifier<SectionState> {
   Future<void> refreshSections({RefreshController? refreshController}) async {
     debugPrint('===> refresh sections function called');
     _page = 0;
-    final response = await tableRepository.getSection(
+    final response = await managerTableRepository.getSection(
       query: _query.isEmpty ? null : _query.trim(),
       page: ++_page,
     );
@@ -119,7 +119,7 @@ class SectionNotifier extends StateNotifier<SectionState> {
     _hasMore = true;
     _page = 0;
     state = state.copyWith(isLoading: true);
-    final response = await tableRepository.getSection(
+    final response = await managerTableRepository.getSection(
       query: _query.isEmpty ? null : _query.trim(),
       page: ++_page,
     );

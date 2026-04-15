@@ -12,8 +12,8 @@ import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/application/shop/shop_provider.dart';
 import 'package:rokctapp/application/shop/shop_state.dart';
 import 'package:rokctapp/application/shop_order/shop_order_provider.dart';
-import 'package:rokctapp/infrastructure/models/response/all_products_response.dart'
-    hide Product;
+import 'package:rokctapp/infrastructure/models/response/all_products_response.dart' hide Product;
+
 import 'package:rokctapp/utils/products/product_card.dart';
 import 'package:rokctapp/utils/products/product_utils.dart';
 import 'package:rokctapp/presentation/pages/product/product_page.dart';

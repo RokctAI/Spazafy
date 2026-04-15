@@ -1,6 +1,8 @@
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
@@ -21,6 +23,7 @@ class OutlinedBorderTextField extends StatelessWidget {
   final bool isSuccess;
   final TextCapitalization? textCapitalization;
   final TextInputAction? textInputAction;
+  final String? actionIcon;
 
   const OutlinedBorderTextField({
     super.key,
@@ -40,7 +43,9 @@ class OutlinedBorderTextField extends StatelessWidget {
     this.textCapitalization,
     this.textInputAction,
     this.hint,
+    this.actionIcon,
   });
+
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/help_data.dart';
 import 'package:rokctapp/infrastructure/models/data/meta.dart' hide Meta;
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart'
-    hide ProductData;
+import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 
 class ProductsPaginateResponse {
   ProductsPaginateResponse({List<ProductData>? data, Meta? meta}) {

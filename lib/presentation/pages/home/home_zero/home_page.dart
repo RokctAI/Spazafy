@@ -396,8 +396,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     isIcon: true,
                     title: AppHelpers.getTranslation(TrKeys.newsOfWeek),
                     onRightTap: () {
-                      context.router.push(RecommendedRoute(isNewsOfPage: true),
-                      );
+                      context.router.push(RecommendedRoute(isNewsOfPage: true));
                     },
                   ),
                   12.verticalSpace,

@@ -311,7 +311,9 @@ class TrKeys {
   static const String forgotPassword = 'forgot_password';
   static const String continueWithGoogle = 'continue_with_google';
   static const String dontHaveAnAcc = 'dont_have_an_account';
+  static const String tasks = 'tasks';
   static const String register = 'register';
+
   static const String enterADeliveryAddress = 'enter_a_delivery_address';
   static const String confirmLocation = 'confirm_location';
   static const String title = 'title';
