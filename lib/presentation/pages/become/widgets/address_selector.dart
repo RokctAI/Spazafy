@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class AddressSelector extends StatelessWidget {
   final AddressData? addressModel;
@@ -39,8 +40,7 @@ class AddressSelector extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.r),
           child: InkWell(
             onTap: () async {
-              final data = await context.router.pushNamed(
-                ViewMapRoute(isShopLocation: true, onChanged: () {}),
+              final data = await context.router.push(ViewMapRoute(isShopLocation: true, onChanged: () {}),
               );
               onAddressSelected(data);
             },

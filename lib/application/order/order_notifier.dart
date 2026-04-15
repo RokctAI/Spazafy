@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:rokctapp/infrastructure/models/data/shop_data.dart';
 import 'package:rokctapp/infrastructure/models/data/order_body_data.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
@@ -356,7 +357,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
         // Check if failure is due to network
         if (status ==
             NetworkExceptions.getDioStatus(
-              DioError(type: DioErrorType.other),
+              DioException(type: DioExceptionType.other),
             )) {
           // Provide an estimate to unblock checkout flow
           final estimate = ProductCalculateResponse(

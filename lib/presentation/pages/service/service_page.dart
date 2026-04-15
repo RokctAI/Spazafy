@@ -13,6 +13,7 @@ import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/service/widgets/service_two_categories_item.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class ServicePage extends StatefulWidget {
   const ServicePage({super.key});
@@ -101,8 +102,7 @@ class _ServicePageState extends State<ServicePage> {
                           notifier.setSelectCategory(index, context);
                         }
 
-                        context.router.pushNamed(
-                          ServiceTwoCategoryRoute(index: index),
+                        context.router.push(ServiceTwoCategoryRoute(index: index),
                         );
                       },
                     ),

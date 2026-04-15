@@ -2,8 +2,7 @@ import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
-import 'package:rokctapp/infrastructure/services/constants/enums.dart'
-    hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/addon_data.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';

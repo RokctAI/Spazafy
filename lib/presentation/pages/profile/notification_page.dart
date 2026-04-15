@@ -18,6 +18,7 @@ import 'package:rokctapp/presentation/components/image/custom_network_image.dart
 import 'package:rokctapp/presentation/components/loading/loading.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 // ignore_for_file: deprecated_member_use
 
 @RoutePage()

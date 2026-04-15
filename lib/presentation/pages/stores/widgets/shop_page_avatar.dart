@@ -29,6 +29,7 @@ import 'package:rokctapp/presentation/components/badges/distance_badge.dart';
 import 'package:rokctapp/presentation/components/badges/rating_badge.dart';
 import 'package:rokctapp/presentation/components/badges/storelogo_badge.dart';
 import 'package:rokctapp/presentation/components/bonus_discount_popular.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class ShopPageAvatar extends StatelessWidget {
   final ShopData shop;
@@ -299,8 +300,7 @@ class ShopPageAvatar extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        context.router.pushNamed(
-                          ShopDetailRoute(shop: shop, workTime: workTime),
+                        context.router.push(ShopDetailRoute(shop: shop, workTime: workTime),
                         );
                       },
                       child: Text(
@@ -348,8 +348,7 @@ class ShopPageAvatar extends StatelessWidget {
                     context.router.replaceNamed('/login');
                     return;
                   }
-                  context.router.pushNamed(
-                    ChatRoute(
+                  context.router.push(ChatRoute(
                       roleId: shop.id.toString(),
                       name: shop.translation?.title ?? "",
                     ),

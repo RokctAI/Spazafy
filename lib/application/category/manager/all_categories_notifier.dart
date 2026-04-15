@@ -5,8 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart'
-    hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/application/category/manager/all_categories_state.dart';
 import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'

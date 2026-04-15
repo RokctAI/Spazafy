@@ -20,6 +20,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/order/order_check/widgets/time_delivery.dart';
 import 'package:rokctapp/presentation/pages/order/order_type/widgets/order_container.dart';
 import 'package:rokctapp/presentation/components/select/select_address_screen.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class OrderDelivery extends StatefulWidget {
   final ValueChanged<bool> onChange;
@@ -98,8 +99,7 @@ class _OrderDeliveryState extends State<OrderDelivery> {
                       context: context,
                       modal: SelectAddressScreen(
                         addAddress: () async {
-                          await context.router.pushNamed(
-                            ViewMapRoute(shopId: widget.shopId),
+                          await context.router.push(ViewMapRoute(shopId: widget.shopId),
                           );
                           widget.getLocation();
                         },

@@ -17,6 +17,7 @@ import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/application/filter/filter_provider.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/filter/widgets/filter_item.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class FilterPage extends ConsumerStatefulWidget {
   final ScrollController controller;
@@ -244,8 +245,7 @@ class _FilterPageState extends ConsumerState<FilterPage> {
                           title:
                               "${AppHelpers.getTranslation(TrKeys.show)} ${state.shopCount} ${AppHelpers.getTranslation(TrKeys.shops)} ",
                           onPressed: () {
-                            context.router.pushNamed(
-                              ResultFilterRoute(categoryId: widget.categoryId),
+                            context.router.push(ResultFilterRoute(categoryId: widget.categoryId),
                             );
                           },
                         ),

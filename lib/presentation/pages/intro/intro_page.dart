@@ -15,7 +15,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 
 //import 'package:shared_preferences/shared_preferences.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class IntroPage extends ConsumerStatefulWidget {
   const IntroPage({super.key});
 

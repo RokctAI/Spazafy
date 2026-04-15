@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
-    hide SnackBarType, OrderStatus, ExtrasType;
+    , OrderStatus, ExtrasType;
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';

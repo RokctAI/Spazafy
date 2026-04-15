@@ -1,3 +1,4 @@
+import 'package:rokctapp/presentation/routes/app_router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class StoresPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.router.pushNamed(const StoryRoute());
+        context.router.push(const StoryListRoute());
       },
       child: Container(
         height: 176.h,

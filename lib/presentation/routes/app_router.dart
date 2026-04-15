@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/filter/result_filter.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/recommended_two_screen.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:rokctapp/presentation/pages/auth/login/login_screen.dart';
+import 'package:rokctapp/presentation/pages/auth/login/login_page.dart';
 import 'package:rokctapp/presentation/pages/auth/confirmation/register_confirmation_page.dart';
 import 'package:rokctapp/presentation/pages/auth/register/register_page.dart';
 import 'package:rokctapp/presentation/pages/auth/reset/reset_password_page.dart';
@@ -51,6 +51,36 @@ import 'package:rokctapp/presentation/pages/order/orders_main.dart';
 import 'package:rokctapp/presentation/pages/loans/widgets/loan_document_upload_screen.dart';
 import 'package:rokctapp/presentation/pages/loans/widgets/loan_eligibility_screen.dart';
 import 'package:rokctapp/presentation/pages/loans/loan_screen.dart';
+import 'package:rokctapp/presentation/pages/profile/driver/notification_list_page.dart';
+import 'package:rokctapp/presentation/pages/order_history/driver/order_history.dart';
+import 'package:rokctapp/presentation/pages/order/driver/orders_page.dart';
+import 'package:rokctapp/presentation/pages/parcel/driver/parcels_page.dart';
+import 'package:rokctapp/presentation/pages/profile/driver/profile_page.dart';
+import 'package:rokctapp/presentation/pages/story/driver/story_page.dart';
+import 'package:rokctapp/presentation/pages/view_map/driver_view_map_page.dart';
+import 'package:rokctapp/presentation/pages/auth/manager/auth_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/create_order_page.dart';
+import 'package:rokctapp/presentation/pages/restaurant/manager/delivery_zone/delivery_zone_page.dart';
+import 'package:rokctapp/presentation/pages/income/manager/income_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/main_page.dart';
+import 'package:rokctapp/presentation/pages/view_map/manager_map_search_page.dart';
+import 'package:rokctapp/presentation/pages/restaurant/manager/notification_list_page.dart';
+import 'package:rokctapp/presentation/pages/order_history/manager/order_history.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/order/order_page.dart';
+import 'package:rokctapp/presentation/pages/view_map/manager_view_map_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/address/select_address_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/select_section/select_section_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/select_table/select_table_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/select_user/select_user_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/shipping_address_page.dart';
+import 'package:rokctapp/presentation/pages/restaurant/manager/subscriptions/subscriptions_page.dart';
+import 'package:rokctapp/presentation/pages/webview/webview_page.dart';
+import 'package:rokctapp/presentation/pages/main/manager/create_order/shipping/details/delivery_time_page.dart';
+import 'package:rokctapp/presentation/pages/become/become_driver.dart';
+import 'package:rokctapp/presentation/pages/profile/driver/delivery_zone/delivery_zone_page.dart';
+import 'package:rokctapp/presentation/pages/home/driver/home_page.dart';
+import 'package:rokctapp/presentation/pages/income/driver/income_page.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 part 'app_router.gr.dart';
 
@@ -207,10 +237,10 @@ class AppRouter extends RootStackRouter {
       page: SelectSectionRoute.page,
     ),
     MaterialRoute(path: '/manager/select-table', page: SelectTableRoute.page),
-    MaterialRoute(path: '/manager/webview', page: ManagerWebViewRoute.page),
+    MaterialRoute(path: '/manager/webview', page: WebViewRoute.page),
     MaterialRoute(
       path: '/manager/subscription',
-      page: ManagerSubscriptionsRoute.page,
+      page: SubscriptionsRoute.page,
     ),
   ];
 }

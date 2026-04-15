@@ -16,6 +16,7 @@ import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:rokctapp/presentation/pages/parcel/widgets/custom_expanded.dart';
 
 import 'package:rokctapp/infrastructure/models/data/location.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class RecipientWidget extends StatelessWidget {
   final ParcelState state;
@@ -56,8 +57,7 @@ class RecipientWidget extends StatelessWidget {
           ),
         InkWell(
           onTap: () async {
-            final data = await context.router.pushNamed(
-              ViewMapRoute(isShopLocation: true, isParcel: true),
+            final data = await context.router.push(ViewMapRoute(isShopLocation: true, isParcel: true),
             );
             if (data.runtimeType == AddressNewModel) {
               if (context.mounted) {

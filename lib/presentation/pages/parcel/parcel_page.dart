@@ -23,7 +23,7 @@ import 'package:rokctapp/presentation/pages/parcel/widgets/parcel_payments.dart'
 import 'package:rokctapp/presentation/pages/parcel/widgets/time_and_type.dart';
 // ignore_for_file: unused_result
 
-// // // @RoutePage()
+@RoutePage()
 class ParcelPage extends ConsumerStatefulWidget {
   final bool isBackButton;
   const ParcelPage({super.key, this.isBackButton = true});

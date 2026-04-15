@@ -1,5 +1,5 @@
 import 'package:rokctapp/infrastructure/services/constants/enums.dart'
-    hide SnackBarType;
+    ;
 
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';

@@ -10,6 +10,7 @@ import 'package:rokctapp/presentation/components/title/title_icon.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
 import 'package:intl/intl.dart' as intl;
+import 'package:rokctapp/presentation/routes/app_router.dart';
 //import 'package:flutter/cupertino.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 //import 'package:rokctapp/presentation/components/avatar/shop_avarat.dart';
@@ -34,8 +35,7 @@ class OrdersItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.router.pushNamed(
-          OrderProgressRoute(
+        context.router.push(OrderProgressRoute(
             orderId: isRefund ? (refund?.order?.id ?? "") : (order?.id ?? ""),
           ),
         );
@@ -215,8 +215,7 @@ class OrdersItem extends StatelessWidget {
               isIcon: true,
               //title: AppHelpers.getTranslation(TrKeys.favouriteBrand),
               onRightTap: () {
-                context.router.pushNamed(
-                  OrderProgressRoute(
+                context.router.push(OrderProgressRoute(
                     orderId: isRefund
                         ? (refund?.order?.id ?? "")
                         : (order?.id ?? ""),

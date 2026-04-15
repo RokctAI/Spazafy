@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/services/constants/enums.dart'
-    hide SnackBarType;
+import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/application/foods/manager/create/details/kitchens/create_food_kitchens_state.dart';
 
 class CreateFoodKitchensNotifier

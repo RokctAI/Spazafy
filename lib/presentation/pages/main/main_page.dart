@@ -42,6 +42,7 @@ import 'package:proste_indexed_stack/proste_indexed_stack.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:rokctapp/presentation/pages/parcel/parcel_page.dart';
 import 'package:rokctapp/presentation/pages/profile/wallet_history.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 // Copyright (c) 2024 RokctAI
 //
 // This program is free software: you can redistribute it and/or modify

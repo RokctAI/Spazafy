@@ -35,6 +35,7 @@ import 'package:rokctapp/presentation/pages/home/home_zero/shimmer/shop_shimmer.
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/banner_item.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/recommended_item.dart';
 import 'package:rokctapp/presentation/pages/home/home_zero/widgets/shop_bar_item.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -268,7 +269,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     isIcon: true,
                     title: AppHelpers.getTranslation(TrKeys.favouriteBrand),
                     onRightTap: () {
-                      context.router.pushNamed(RecommendedRoute(isShop: true));
+                      context.router.push(RecommendedRoute(isShop: true));
                     },
                   ),
                   12.verticalSpace,
@@ -395,8 +396,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     isIcon: true,
                     title: AppHelpers.getTranslation(TrKeys.newsOfWeek),
                     onRightTap: () {
-                      context.router.pushNamed(
-                        RecommendedRoute(isNewsOfPage: true),
+                      context.router.push(RecommendedRoute(isNewsOfPage: true),
                       );
                     },
                   ),

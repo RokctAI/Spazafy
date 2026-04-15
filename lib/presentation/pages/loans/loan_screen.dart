@@ -21,6 +21,7 @@ import 'package:rokctapp/presentation/pages/chat/chat/chat_page.dart';
 import 'package:rokctapp/presentation/pages/loans/widgets/loan_contract_screen.dart';
 import 'package:rokctapp/presentation/pages/loans/widgets/loan_eligibility_screen.dart';
 import 'package:rokctapp/presentation/pages/loans/provider/loans_provider.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 @RoutePage()
 class LoanScreen extends ConsumerStatefulWidget {

@@ -10,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class AddAddress extends StatelessWidget {
   const AddAddress({super.key});
@@ -34,7 +35,7 @@ class AddAddress extends StatelessWidget {
                 background: AppStyle.transparent,
                 onPressed: () {
                   Navigator.pop(context);
-                  context.router.pushNamed(ViewMapRoute(onChanged: () {}));
+                  context.router.push(ViewMapRoute(onChanged: () {}));
                 },
               ),
             ),

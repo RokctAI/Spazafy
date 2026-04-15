@@ -6,6 +6,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_connectivity.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/application/chat/chat_state.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class ChatNotifier extends StateNotifier<ChatState> {
   final FirebaseFirestore _fireStore = FirebaseFirestore.instance;

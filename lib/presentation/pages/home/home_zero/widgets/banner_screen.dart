@@ -9,6 +9,7 @@ import 'package:rokctapp/presentation/components/image/custom_network_image.dart
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class BannerScreen extends StatelessWidget {
   final String image;
@@ -85,8 +86,7 @@ class BannerScreen extends StatelessWidget {
                   child: CustomButton(
                     title: AppHelpers.getTranslation(TrKeys.orderNow),
                     onPressed: () {
-                      context.router.pushNamed(
-                        ShopsBannerRoute(
+                      context.router.push(ShopsBannerRoute(
                           bannerId: bannerId,
                           title: desc,
                           isAds: isAds,

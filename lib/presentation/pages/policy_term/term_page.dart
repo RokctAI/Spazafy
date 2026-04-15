@@ -13,7 +13,7 @@ import 'package:rokctapp/presentation/components/app_bars/common_app_bar.dart';
 //import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 //import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
-// // // @RoutePage()
+@RoutePage()
 class TermPage extends ConsumerStatefulWidget {
   const TermPage({super.key});
 

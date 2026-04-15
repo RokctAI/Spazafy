@@ -6,6 +6,7 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 
 import 'package:rokctapp/presentation/theme/theme.dart';
+import 'package:rokctapp/presentation/routes/app_router.dart';
 
 class InfoItem extends StatelessWidget {
   final int index;
@@ -18,7 +19,7 @@ class InfoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.router.pushNamed(InfoRoute(index: index));
+        context.router.push(InfoRoute(index: index));
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 10.r),
