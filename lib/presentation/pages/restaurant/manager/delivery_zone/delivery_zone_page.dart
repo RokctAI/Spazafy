@@ -14,7 +14,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
 import 'package:rokctapp/application/restaurant/manager/delivery_zone/delivery_zone_provider.dart' as manager_delivery;
 
-import 'package:rokctapp/application/restaurant/manager/delivery_zone/delivery_zone_provider.dart' as manager_delivery;
 
 
 @RoutePage()
