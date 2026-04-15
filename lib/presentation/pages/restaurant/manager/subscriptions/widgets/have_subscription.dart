@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 
 import 'package:rokctapp/infrastructure/services/utils/manager/date_service.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';

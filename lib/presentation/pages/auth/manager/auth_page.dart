@@ -11,9 +11,9 @@ import 'package:rokctapp/presentation/pages/auth/login/login_screen.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/application/language/language_provider.dart';
-
 
 @RoutePage()
 class ManagerAuthPage extends ConsumerStatefulWidget {
@@ -29,7 +29,6 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => ref.read(languageProvider.notifier).checkLanguage(context),
-
     );
   }
 
@@ -51,7 +50,6 @@ class _ManagerAuthPageState extends ConsumerState<ManagerAuthPage> {
     final bool isLtr = LocalStorage.getLangLtr();
     ref.listen(languageProvider, (previous, next) {
       if (!next.isSelectLanguage &&
-
           !((previous?.isSelectLanguage ?? false) == next.isSelectLanguage)) {
         selectLanguage();
       }

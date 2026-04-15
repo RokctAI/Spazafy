@@ -1,6 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
 
-
 class SingleProductResponse {
   SingleProductResponse({ProductData? data}) {
     _data = data;
