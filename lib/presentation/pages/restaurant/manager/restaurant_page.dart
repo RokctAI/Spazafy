@@ -20,7 +20,9 @@ import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
 
 import 'package:rokctapp/presentation/pages/restaurant/manager/widgets/edit_restaurant_modal.dart';
 
+import 'package:rokctapp/presentation/pages/tasks/tasks_page.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+
 
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/application/restaurant/manager/restaurant_provider.dart';
@@ -325,7 +327,18 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
           onTap: () => context.router.pushNamed('/manager/order-history'),
         ),
         SectionsItem(
+          title: help.AppHelpers.getTranslation(TrKeys.tasks),
+          icon: FlutterRemix.task_line,
+          onTap: () => help.AppHelpers.showCustomModalBottomSheet(
+            paddingTop: MediaQuery.paddingOf(context).top + 60,
+            context: context,
+            modal: const TasksPage(userType: 'manager'),
+            isDarkMode: false,
+          ),
+        ),
+        SectionsItem(
           title: help.AppHelpers.getTranslation(TrKeys.notifications),
+
           icon: FlutterRemix.notification_2_line,
           onTap: () => context.router.pushNamed('/manager/list-notification'),
         ),
