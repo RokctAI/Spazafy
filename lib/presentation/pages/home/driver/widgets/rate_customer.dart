@@ -7,6 +7,8 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
+import 'package:rokctapp/application/home/driver/home_provider.dart' as driver_home;
+
 
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
@@ -78,7 +80,7 @@ class _RateCustomerState extends State<RateCustomer> {
                   Navigator.pop(context);
                   if (widget.order == null) {
                     ref
-                        .read(homeProvider.notifier)
+                        .read(driver_home.homeProvider.notifier)
                         .addReviewParcel(
                           context: context,
                           parcelId: widget.parcel?.id,
@@ -87,7 +89,7 @@ class _RateCustomerState extends State<RateCustomer> {
                         );
                   } else {
                     ref
-                        .read(homeProvider.notifier)
+                        .read(driver_home.homeProvider.notifier)
                         .addReview(
                           context: context,
                           orderId: widget.order?.id,

@@ -9,6 +9,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
+import 'package:rokctapp/application/home/driver/home_provider.dart' as driver_home;
+
 
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
@@ -65,10 +67,10 @@ class ApproveOrderDialog extends StatelessWidget {
                           Navigator.pop(context);
                           final ImageCropperMarker image = ImageCropperMarker();
                           ref
-                              .read(homeProvider.notifier)
+                              .read(driver_home.homeProvider.notifier)
                               .goClientParcel(context, parcel?.id);
                           ref
-                              .read(homeProvider.notifier)
+                              .read(driver_home.homeProvider.notifier)
                               .getRoutingAll(
                                 // ignore: use_build_context_synchronously
                                 context: context,
@@ -96,10 +98,10 @@ class ApproveOrderDialog extends StatelessWidget {
                           Navigator.pop(context);
                           final ImageCropperMarker image = ImageCropperMarker();
                           ref
-                              .read(homeProvider.notifier)
+                              .read(driver_home.homeProvider.notifier)
                               .goClient(context, order?.id);
                           ref
-                              .read(homeProvider.notifier)
+                              .read(driver_home.homeProvider.notifier)
                               .getRoutingAll(
                                 // ignore: use_build_context_synchronously
                                 context: context,
