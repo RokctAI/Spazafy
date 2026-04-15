@@ -8,7 +8,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/application/category/manager/all_categories_state.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
     hide CategoryData;
 
 class AllCategoriesNotifier extends StateNotifier<AllCategoriesState> {

@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/response/orders_paginate_response.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
-import 'package:rokctapp/infrastructure/models/data/order_detail.dart'
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
     hide Stock;
 import 'package:rokctapp/infrastructure/models/data/order_calculate_data.dart';
 import 'package:rokctapp/infrastructure/models/data/stock.dart';
@@ -13,9 +13,9 @@ import 'package:rokctapp/domain/handlers/handlers.dart';
 import 'package:rokctapp/infrastructure/models/response/create_order_response.dart';
 import 'package:rokctapp/infrastructure/models/response/single_order_response.dart';
 import 'package:rokctapp/infrastructure/models/response/transactions_response.dart';
-import 'package:rokctapp/infrastructure/models/models.dart'
+import 'package:rokctapp/infrastructure/models/models.dart';
     hide UserData, OrderPaginateResponse, PaymentsResponse, Stock;
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
     hide OrderStatus;
 
 abstract class OrdersInterface {

@@ -18,12 +18,12 @@ import 'package:rokctapp/infrastructure/models/data/location_data.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
-import 'package:rokctapp/infrastructure/models/models.dart'
+import 'package:rokctapp/infrastructure/models/models.dart';
     hide UserData, Stock, AddonData, OrderPaginateResponse, PaymentsResponse;
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-import 'package:rokctapp/infrastructure/models/response/login_response.dart'
+import 'package:rokctapp/infrastructure/models/response/login_response.dart';
     hide UserData;
 
 class OrdersRepository implements OrdersInterface {

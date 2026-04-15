@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:remixicon/remixicon.dart';
-import 'package:rokctapp/infrastructure/models/response/all_products_response.dart'
+import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
     hide Product;
 
 class OrganicTagBadge extends StatelessWidget {

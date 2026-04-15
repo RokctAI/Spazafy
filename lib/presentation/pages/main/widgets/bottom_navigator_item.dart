@@ -2,7 +2,7 @@ import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/theme/theme.dart';
-import 'package:rokctapp/app_constants.dart'; // Import AppConstants
+import 'package:rokctapp/app_constants.dart'; // Import AppConstants;
 
 class BottomNavigatorItem extends StatelessWidget {
   final VoidCallback selectItem;

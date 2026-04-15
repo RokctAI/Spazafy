@@ -9,7 +9,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/infrastructure/models/response/all_products_response.dart';
 
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart'
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
     hide CategoryData;
 part 'shop_state.freezed.dart';
 

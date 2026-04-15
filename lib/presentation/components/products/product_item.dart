@@ -2,7 +2,7 @@ import 'package:rokctapp/infrastructure/models/data/addons_data.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rokctapp/infrastructure/models/data/order_detail.dart'
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
     hide Product;
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';

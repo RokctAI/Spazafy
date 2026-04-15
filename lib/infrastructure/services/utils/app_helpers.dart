@@ -17,11 +17,11 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/models/data/addon_data.dart';
-import 'package:rokctapp/infrastructure/models/data/order_detail.dart'
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
     hide Extras;
 import 'package:rokctapp/infrastructure/models/data/extras.dart';
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart'
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
     hide Extras;
 import 'package:rokctapp/infrastructure/models/response/global_settings_response.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -29,7 +29,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/img_service.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/presentation/components/buttons/custom_button.dart';
-import 'package:rokctapp/presentation/components/exports/components_driver.dart'
+import 'package:rokctapp/presentation/components/exports/components_driver.dart';
     show BlurWrap, ButtonsBouncingEffect;
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
