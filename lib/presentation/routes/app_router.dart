@@ -238,9 +238,6 @@ class AppRouter extends RootStackRouter {
     ),
     MaterialRoute(path: '/manager/select-table', page: SelectTableRoute.page),
     MaterialRoute(path: '/manager/webview', page: WebViewRoute.page),
-    MaterialRoute(
-      path: '/manager/subscription',
-      page: SubscriptionsRoute.page,
-    ),
+    MaterialRoute(path: '/manager/subscription', page: SubscriptionsRoute.page),
   ];
 }

@@ -89,7 +89,8 @@ class BannerScreen extends StatelessWidget {
                   child: CustomButton(
                     title: buttonText ?? "View",
                     onPressed: () {
-                      context.router.push(ShopsBannerRoute(
+                      context.router.push(
+                        ShopsBannerRoute(
                           bannerId: bannerId,
                           title: desc,
                           isAds: isAds,

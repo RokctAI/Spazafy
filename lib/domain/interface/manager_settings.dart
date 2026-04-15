@@ -10,8 +10,7 @@ import 'package:rokctapp/infrastructure/models/response/multi_gallery_upload_res
 import 'package:rokctapp/infrastructure/models/response/languages_response.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/manager/services.dart'
-    ;
+import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 
 abstract class SettingsInterface {
   Future<ApiResult<GalleryUploadResponse>> uploadImage(

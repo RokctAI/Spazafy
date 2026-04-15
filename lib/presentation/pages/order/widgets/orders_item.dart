@@ -35,7 +35,8 @@ class OrdersItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.router.push(OrderProgressRoute(
+        context.router.push(
+          OrderProgressRoute(
             orderId: isRefund ? (refund?.order?.id ?? "") : (order?.id ?? ""),
           ),
         );
@@ -215,7 +216,8 @@ class OrdersItem extends StatelessWidget {
               isIcon: true,
               //title: AppHelpers.getTranslation(TrKeys.favouriteBrand),
               onRightTap: () {
-                context.router.push(OrderProgressRoute(
+                context.router.push(
+                  OrderProgressRoute(
                     orderId: isRefund
                         ? (refund?.order?.id ?? "")
                         : (order?.id ?? ""),

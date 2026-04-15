@@ -102,7 +102,8 @@ class _ServicePageState extends State<ServicePage> {
                           notifier.setSelectCategory(index, context);
                         }
 
-                        context.router.push(ServiceTwoCategoryRoute(index: index),
+                        context.router.push(
+                          ServiceTwoCategoryRoute(index: index),
                         );
                       },
                     ),
