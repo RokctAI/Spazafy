@@ -1,7 +1,5 @@
 import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
 
-
-
 class DeliveryZonePaginate {
   DeliveryZonePaginate({List<DeliveryZoneData>? data}) {
     _data = data;
