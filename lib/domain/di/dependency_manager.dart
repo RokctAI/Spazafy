@@ -219,7 +219,6 @@ final backgroundSyncService = BackgroundSyncService(
   httpService: dioHttp,
 );
 
-
 // Driver specific accessors
 final driverSettingsRepository = getIt
     .get<driver_interfaces.SettingsRepository>();
