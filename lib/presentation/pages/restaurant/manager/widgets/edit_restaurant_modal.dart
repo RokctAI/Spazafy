@@ -26,7 +26,8 @@ import 'package:rokctapp/presentation/components/avatar/shop_bordered_avatar.dar
 import 'package:rokctapp/presentation/components/list_items/small_weekday_item.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+
 import 'package:rokctapp/application/restaurant/manager/restaurant_provider.dart';
 import 'package:rokctapp/application/restaurant/manager/working_days/working_days_provider.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
