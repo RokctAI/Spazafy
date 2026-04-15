@@ -32,8 +32,8 @@ import 'package:rokctapp/infrastructure/repositories/cart_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/categories_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/currencies_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/draw_repository.dart'
+    as cust_draw
     hide DrawRepository;
-    as cust_draw;
 import 'package:rokctapp/infrastructure/repositories/gallery_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/notification_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/orders_repository.dart'
@@ -43,13 +43,14 @@ import 'package:rokctapp/infrastructure/repositories/payments_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/products_repository.dart'
     as cust;
 import 'package:rokctapp/infrastructure/repositories/settings_repository.dart'
+    as cust_settings
     hide SettingsRepository;
-    as cust_settings;
 import 'package:rokctapp/infrastructure/repositories/shops_repository.dart'
     as cust;
 import 'package:rokctapp/infrastructure/repositories/user_repository.dart'
+    as cust_user
     hide UserRepository;
-    as cust_user;
+
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/repositories/loans_repository.dart';
@@ -60,6 +61,7 @@ import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
 import 'package:rokctapp/domain/handlers/driver/handlers.dart'
     as driver_handlers
     hide ApiResult;
+
 import 'package:rokctapp/domain/interface/interfaces.dart' as driver_interfaces;
 import 'package:rokctapp/domain/interface/interfaces.dart'
     as manager_interfaces;
