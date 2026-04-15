@@ -357,7 +357,7 @@ class OrderNotifier extends StateNotifier<OrderState> {
         // Check if failure is due to network
         if (status ==
             NetworkExceptions.getDioStatus(
-              DioException(type: DioExceptionType.other),
+              DioException(type: DioExceptionType.unknown),
             )) {
           // Provide an estimate to unblock checkout flow
           final estimate = ProductCalculateResponse(
