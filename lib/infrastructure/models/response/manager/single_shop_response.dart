@@ -1,5 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart'
-    hide ShopData;
+import 'package:rokctapp/infrastructure/models/data/manager/shop_data.dart';
+
 
 class SingleShopResponse {
   SingleShopResponse({ShopData? data}) {

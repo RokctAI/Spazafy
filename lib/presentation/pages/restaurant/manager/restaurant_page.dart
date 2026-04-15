@@ -20,7 +20,8 @@ import 'package:rokctapp/presentation/pages/profile/currency_page.dart';
 
 import 'package:rokctapp/presentation/pages/restaurant/manager/widgets/edit_restaurant_modal.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/application/restaurant/manager/restaurant_provider.dart';
 
