@@ -17,8 +17,8 @@ import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/exports/components_driver.dart';
 import 'package:rokctapp/application/push_order/driver/push_order_provider.dart';
-import 'package:rokctapp/application/home/driver/home_provider.dart' as driver_home;
-
+import 'package:rokctapp/application/home/driver/home_provider.dart'
+    as driver_home;
 
 class PushOrder extends ConsumerStatefulWidget {
   final OrderDetailData pushModel;
@@ -150,7 +150,9 @@ class _PushOrderState extends ConsumerState<PushOrder> {
                                         notifier.changeLoading();
                                         Navigator.pop(context);
                                         ref
-                                            .read(driver_home.homeProvider.notifier)
+                                            .read(
+                                              driver_home.homeProvider.notifier,
+                                            )
                                             .getRoutingAll(
                                               // ignore: use_build_context_synchronously
                                               context: context,

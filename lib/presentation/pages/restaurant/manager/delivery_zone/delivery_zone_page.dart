@@ -12,10 +12,11 @@ import 'package:rokctapp/presentation/components/buttons/manager/pop_button.dart
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
-import 'package:rokctapp/application/restaurant/manager/delivery_zone/delivery_zone_provider.dart' as manager_delivery;
+import 'package:rokctapp/application/restaurant/manager/delivery_zone/delivery_zone_provider.dart'
+    as manager_delivery;
 
-import 'package:rokctapp/application/restaurant/manager/delivery_zone/delivery_zone_provider.dart' as manager_delivery;
-
+import 'package:rokctapp/application/restaurant/manager/delivery_zone/delivery_zone_provider.dart'
+    as manager_delivery;
 
 @RoutePage()
 class ManagerDeliveryZonePage extends ConsumerStatefulWidget {
@@ -32,7 +33,9 @@ class _ManagerDeliveryZonePageState
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
-      (_) => ref.read(manager_delivery.deliveryZoneProvider.notifier).fetchDeliveryZone(),
+      (_) => ref
+          .read(manager_delivery.deliveryZoneProvider.notifier)
+          .fetchDeliveryZone(),
     );
   }
 
@@ -44,7 +47,9 @@ class _ManagerDeliveryZonePageState
       body: Consumer(
         builder: (context, ref, child) {
           final state = ref.watch(manager_delivery.deliveryZoneProvider);
-          final event = ref.read(manager_delivery.deliveryZoneProvider.notifier);
+          final event = ref.read(
+            manager_delivery.deliveryZoneProvider.notifier,
+          );
           return Stack(
             children: [
               state.isLoading
