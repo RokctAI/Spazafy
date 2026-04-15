@@ -31,7 +31,7 @@ class ProductUIComponents {
           borderRadius: BorderRadius.circular(20.r),
           boxShadow: [
             BoxShadow(
-              color: AppStyle.black.withOpacity(0.1),
+              color: AppStyle.black.withValues(alpha: 0.1),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
@@ -58,7 +58,7 @@ class ProductUIComponents {
                             shopOrderNotifier.removeCount(
                               context,
                               i,
-                              cart.cartId ?? "",
+                              cart.id ?? "",
                             );
                             return;
                           }
@@ -108,7 +108,7 @@ class ProductUIComponents {
                             shopOrderNotifier.addCount(
                               context,
                               i,
-                              cart.cartId ?? "",
+                              cart.id ?? "",
                             );
                             return;
                           }
@@ -151,7 +151,7 @@ class ProductUIComponents {
         border: Border.all(color: Colors.white, width: 1.5),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -199,7 +199,7 @@ class ProductUIComponents {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 6.r, vertical: 2.r),
       decoration: BoxDecoration(
-        color: AppStyle.black.withOpacity(0.1),
+        color: AppStyle.black.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8.r),
       ),
       child: Text(

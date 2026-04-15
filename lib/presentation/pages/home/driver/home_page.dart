@@ -18,6 +18,10 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/presentation/components/loading/loading.dart';
+import 'package:rokctapp/application/home/driver/home_provider.dart' as driver_home;
+import 'package:rokctapp/application/order/driver/all_order/order_provider.dart' as driver_order;
+
+
 
 import 'package:workmanager/workmanager.dart';
 
@@ -196,7 +200,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
   void getSetProgressLocation() {
     timer = Timer.periodic(const Duration(seconds: 10), (Timer t) {
       ref
-          .read(homeProvider.notifier)
+          .read(driver_home.homeProvider.notifier)
           .getRouting(
             context: context,
             start: latLng,
@@ -238,14 +242,14 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
     );
     final ImageCropperMarker image = ImageCropperMarker();
     ref
-        .read(homeProvider.notifier)
+        .read(driver_home.homeProvider.notifier)
         .goMarket(
           context: context,
           orderId: (push?.id ?? 0).toString(),
           order: push,
           onSuccess: () async {
             ref
-                .read(homeProvider.notifier)
+                .read(driver_home.homeProvider.notifier)
                 .getRoutingAll(
                   // ignore: use_build_context_synchronously
                   context: context,
@@ -294,8 +298,8 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
       ref
           .read(profileSettingsProvider.notifier)
           .fetchRequestResponse(context: context);
-      ref.read(homeProvider.notifier).fetchCurrentOrder(context);
-      ref.read(orderProvider.notifier).fetchActiveOrders(context);
+      ref.read(driver_home.homeProvider.notifier).fetchCurrentOrder(context);
+      ref.read(driver_order.orderProvider.notifier).fetchActiveOrders(context);
     });
     if (LocalStorage.getOnline()) {
       Workmanager().registerPeriodicTask(
@@ -317,7 +321,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
       child: Scaffold(
         body: Consumer(
           builder: (context, ref, child) {
-            final state = ref.watch(homeProvider);
+            final state = ref.watch(driver_home.homeProvider);
             return Stack(
               children: [
                 _map(context, ref),
@@ -386,7 +390,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
                               right: 8.r,
                               child: Text(
                                 ref
-                                    .watch(orderProvider)
+                                    .watch(driver_order.orderProvider)
                                     .totalActiveOrder
                                     .toString(),
                                 style: AppStyle.interBold(
@@ -426,7 +430,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
                           Workmanager().cancelAll();
                         }
                         ref
-                            .read(homeProvider.notifier)
+                            .read(driver_home.homeProvider.notifier)
                             .setOnline(context: context);
                       },
                     ),
@@ -471,22 +475,22 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
               currentLocation?.longitude ?? latLng.longitude,
             ),
           ),
-          ...ref.watch(homeProvider).markers,
+          ...ref.watch(driver_home.homeProvider).markers,
         },
-        polygons: ref.watch(homeProvider).polygon,
+        polygons: ref.watch(driver_home.homeProvider).polygon,
         polylines:
-            ref.watch(homeProvider).isGoRestaurant ||
-                ref.watch(homeProvider).isGoUser
+            ref.watch(driver_home.homeProvider).isGoRestaurant ||
+                ref.watch(driver_home.homeProvider).isGoUser
             ? {
                 Polyline(
                   polylineId: const PolylineId("startLocation"),
-                  points: ref.watch(homeProvider).endPolylineCoordinates,
+                  points: ref.watch(driver_home.homeProvider).endPolylineCoordinates,
                   color: AppStyle.primary.withValues(alpha: 0.4),
                   width: 6,
                 ),
                 Polyline(
                   polylineId: const PolylineId("market"),
-                  points: ref.watch(homeProvider).polylineCoordinates,
+                  points: ref.watch(driver_home.homeProvider).polylineCoordinates,
                   color: AppStyle.primary,
                   width: 6,
                 ),
@@ -498,23 +502,23 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
           googleMapController = controller;
         },
         onCameraMoveStarted: () {
-          if (ref.watch(homeProvider).orderDetail != null) {
+          if (ref.watch(driver_home.homeProvider).orderDetail != null) {
             // if (!(LocalStorage.getUser()?.active ?? false)) {
-            ref.read(homeProvider.notifier).scrolling(true);
+            ref.read(driver_home.homeProvider.notifier).scrolling(true);
           }
         },
         onTap: (s) {
-          ref.read(homeProvider.notifier).scrolling(false);
+          ref.read(driver_home.homeProvider.notifier).scrolling(false);
         },
         onCameraIdle: () {
           _delayed.run(() {
-            ref.read(homeProvider.notifier).scrolling(false);
+            ref.read(driver_home.homeProvider.notifier).scrolling(false);
           });
         },
         padding: EdgeInsets.only(
-          bottom: ref.watch(homeProvider).isGoRestaurant
+          bottom: ref.watch(driver_home.homeProvider).isGoRestaurant
               ? 90.h
-              : ref.watch(homeProvider).isScrolling
+              : ref.watch(driver_home.homeProvider).isScrolling
               ? 60.h
               : 330.h,
         ),
@@ -538,7 +542,7 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
   Widget _myFindButton(WidgetRef ref) {
     return AnimatedPositioned(
       bottom: 342.h,
-      right: ref.watch(homeProvider).isScrolling ? -64.w : 16.w,
+      right: ref.watch(driver_home.homeProvider).isScrolling ? -64.w : 16.w,
       duration: const Duration(milliseconds: 400),
       child: GestureDetector(
         onTap: () async {

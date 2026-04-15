@@ -23,6 +23,9 @@ import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/sections_item.dart';
 import 'package:rokctapp/application/profile/driver/provider/profile_settings_provider.dart';
 import 'package:rokctapp/application/profile/driver/provider/profile_image_provider.dart';
+import 'package:rokctapp/application/app/driver/app_provider.dart' as driver_app;
+import 'package:rokctapp/application/home/driver/home_provider.dart' as driver_home;
+
 
 @RoutePage()
 class DriverProfilePage extends ConsumerStatefulWidget {
@@ -38,7 +41,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(profileSettingsProvider);
-    ref.watch(appProvider);
+    ref.watch(driver_app.appProvider);
     return Directionality(
       textDirection: isLtr ? TextDirection.ltr : TextDirection.rtl,
       child: Scaffold(
@@ -298,7 +301,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                     onTap: () async {
                       await context.router.pushNamed('/driver/delivery-zone');
                       ref
-                          .read(homeProvider.notifier)
+                          .read(driver_home.homeProvider.notifier)
                           .fetchDeliveryZone(isFetch: true);
                     },
                   ),
@@ -357,7 +360,7 @@ class _DriverProfilePageState extends ConsumerState<DriverProfilePage> {
                               onSave: () => Navigator.pop(context),
                               afterUpdate: (lang) {
                                 ref
-                                    .read(appProvider.notifier)
+                                    .read(driver_app.appProvider.notifier)
                                     .changeLanguage(lang);
                               },
                             ),

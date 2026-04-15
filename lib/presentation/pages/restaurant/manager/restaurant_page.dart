@@ -23,6 +23,8 @@ import 'package:rokctapp/presentation/pages/restaurant/manager/widgets/edit_rest
 import 'package:rokctapp/presentation/pages/tasks/tasks_page.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
+import 'package:rokctapp/application/main/manager/main_provider.dart' as manager_main;
+
 
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 import 'package:rokctapp/application/restaurant/manager/restaurant_provider.dart';
@@ -52,10 +54,11 @@ class _RestaurantPageState extends ConsumerState<RestaurantPage> {
   void listen(ScrollController controller) {
     final direction = controller.position.userScrollDirection;
     if (direction == ScrollDirection.reverse) {
-      ref.read(mainProvider.notifier).changeScrolling(true);
+      ref.read(manager_main.mainProvider.notifier).changeScrolling(true);
     } else if (direction == ScrollDirection.forward) {
-      ref.read(mainProvider.notifier).changeScrolling(false);
+      ref.read(manager_main.mainProvider.notifier).changeScrolling(false);
     }
+
   }
 
   @override
