@@ -11,7 +11,8 @@ import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 import 'package:rokctapp/application/restaurant/manager/income/statistics/statistics_provider.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 
 class MoreOrders extends ConsumerStatefulWidget {
   final DateTime? endTime;
@@ -258,11 +259,10 @@ class _MoreOrdersState extends ConsumerState<MoreOrders> {
                                     children: [
                                       Text(
                                         help.AppHelpers.numberFormat(
-                                          number:
-                                              ref
-                                                  .watch(statisticsProvider)
-                                                  .listOfOrder[i]
-                                                  .price,
+                                          number: ref
+                                              .watch(statisticsProvider)
+                                              .listOfOrder[i]
+                                              .price,
                                         ),
                                         style: AppStyle.interSemi(
                                           size: 12,
