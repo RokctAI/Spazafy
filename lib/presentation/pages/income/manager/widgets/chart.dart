@@ -8,7 +8,8 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/manager/extension.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
 class SalesChart extends StatelessWidget {
@@ -75,7 +76,7 @@ class SalesChart extends StatelessWidget {
     final style = AppStyle.interRegular(size: 12);
     return AutoSizeText(
       help.AppHelpers.numberFormat(
-        value.toInt() == 0 ? 0 : price[value.toInt() - 1],
+        number: value.toInt() == 0 ? 0 : price[value.toInt() - 1],
       ),
       style: style,
       textAlign: TextAlign.left,

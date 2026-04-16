@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rokctapp/application/restaurant/manager/income/statistics/statistics_provider.dart';
 import 'package:rokctapp/presentation/pages/income/manager/more_orders.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 
 class OrderPricesSection extends StatelessWidget {
   final DateTime? endTime;
@@ -43,7 +44,7 @@ class OrderPricesSection extends StatelessWidget {
                   16.verticalSpace,
                   Text(
                     help.AppHelpers.numberFormat(
-                      state.countData?.lastOrderTotalPrice ?? 0,
+                      number: state.countData?.lastOrderTotalPrice ?? 0,
                     ),
                     style: AppStyle.interSemi(
                       size: 32,
@@ -63,7 +64,7 @@ class OrderPricesSection extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: help.AppHelpers.numberFormat(
-                            state.countData?.lastOrderIncome ?? 0,
+                            number: state.countData?.lastOrderIncome ?? 0,
                           ),
                           style: AppStyle.interSemi(
                             size: 12,
@@ -103,7 +104,7 @@ class OrderPricesSection extends StatelessWidget {
                       ),
                       Text(
                         help.AppHelpers.numberFormat(
-                          state.countData?.totalPrice ?? 0,
+                          number: state.countData?.totalPrice ?? 0,
                         ),
                         style: AppStyle.interSemi(
                           size: 20,
@@ -134,7 +135,7 @@ class OrderPricesSection extends StatelessWidget {
                       ),
                       Text(
                         help.AppHelpers.numberFormat(
-                          state.countData?.fmTotalPrice ?? 0,
+                          number: state.countData?.fmTotalPrice ?? 0,
                         ),
                         style: AppStyle.interSemi(
                           size: 20,
