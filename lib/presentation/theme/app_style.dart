@@ -76,6 +76,7 @@ abstract class AppStyle {
   static const Color orderStatusProgressBack = Color(0xFFE7E7E7);
   static const Color shadow = Color(0x3FD8D8D8);
   static const Color shadowBottom = Color(0x33000000);
+  static const Color buttonFontColor = Color(0xFFFFFFFF);
 
   // --- Merged from Driver & Manager ---
   static const Color progressColor = Color(0xffF26110);
