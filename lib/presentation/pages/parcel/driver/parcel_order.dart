@@ -6,7 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:rokctapp/application/home/driver/home_provider.dart' as driver_home;
+import 'package:rokctapp/application/home/driver/home_provider.dart'
+    as driver_home;
 
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/app_constants.dart';
@@ -302,7 +303,9 @@ class ParcelOrderPage extends StatelessWidget {
                   Consumer(
                     builder: (context, ref, child) {
                       return CustomButton(
-                        isLoading: ref.watch(driver_home.homeProvider).isLoading,
+                        isLoading: ref
+                            .watch(driver_home.homeProvider)
+                            .isLoading,
                         title: help.AppHelpers.getTranslation(TrKeys.order),
                         onPressed: () async {
                           if (parcel?.deliveryman == null) {
