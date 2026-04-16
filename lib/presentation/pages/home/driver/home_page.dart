@@ -18,10 +18,10 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/presentation/components/loading/loading.dart';
-import 'package:rokctapp/application/home/driver/home_provider.dart' as driver_home;
-import 'package:rokctapp/application/order/driver/all_order/order_provider.dart' as driver_order;
-
-
+import 'package:rokctapp/application/home/driver/home_provider.dart'
+    as driver_home;
+import 'package:rokctapp/application/order/driver/all_order/order_provider.dart'
+    as driver_order;
 
 import 'package:workmanager/workmanager.dart';
 
@@ -484,13 +484,17 @@ class _DriverHomePageState extends ConsumerState<DriverHomePage> {
             ? {
                 Polyline(
                   polylineId: const PolylineId("startLocation"),
-                  points: ref.watch(driver_home.homeProvider).endPolylineCoordinates,
+                  points: ref
+                      .watch(driver_home.homeProvider)
+                      .endPolylineCoordinates,
                   color: AppStyle.primary.withValues(alpha: 0.4),
                   width: 6,
                 ),
                 Polyline(
                   polylineId: const PolylineId("market"),
-                  points: ref.watch(driver_home.homeProvider).polylineCoordinates,
+                  points: ref
+                      .watch(driver_home.homeProvider)
+                      .polylineCoordinates,
                   color: AppStyle.primary,
                   width: 6,
                 ),
