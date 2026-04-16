@@ -12,7 +12,8 @@ import 'package:rokctapp/presentation/components/bodies/products_body.dart';
 import 'package:rokctapp/presentation/components/tab_bars/categories_tab_bar.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/application/foods/manager/foods_provider.dart';
 import 'package:rokctapp/application/categories/manager/categories_provider.dart';
 import 'package:rokctapp/application/foods/manager/edit/details/edit_food_details_provider.dart';

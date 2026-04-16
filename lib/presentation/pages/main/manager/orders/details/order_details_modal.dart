@@ -18,7 +18,8 @@ import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/list_items/order_product_item.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/presentation/pages/main/manager/orders/details/image_dialog.dart';
 import 'package:rokctapp/presentation/pages/main/manager/orders/details/price_information.dart';
 import 'package:rokctapp/application/order_details/manager/order_details_provider.dart';
