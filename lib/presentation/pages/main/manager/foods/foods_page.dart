@@ -1,3 +1,4 @@
+import 'package:rokctapp/application/main/manager/main_provider.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
 import 'package:flutter/material.dart';
@@ -22,7 +23,6 @@ import 'package:rokctapp/application/foods/manager/foods_provider.dart';
 import 'package:rokctapp/application/main/manager/foods/addons/addons_provider.dart';
 import 'package:rokctapp/application/main/manager/foods/extras/extras_provider.dart';
 import 'package:rokctapp/application/category/manager/all_categories_provider.dart';
-import 'package:rokctapp/application/main/manager/main_provider.dart';
 
 class FoodsPage extends ConsumerStatefulWidget {
   const FoodsPage({super.key});

@@ -1,3 +1,4 @@
+import 'package:rokctapp/application/product/manager/products_provider.dart';
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/typed_extra.dart';
 
@@ -11,7 +12,6 @@ import 'package:rokctapp/presentation/components/extras/manager/text_extras.dart
 
 import 'package:rokctapp/infrastructure/services/utils/manager/services.dart';
 import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart';
-import 'package:rokctapp/application/product/manager/products_provider.dart';
 
 class FoodExtras extends ConsumerWidget {
   const FoodExtras({super.key});

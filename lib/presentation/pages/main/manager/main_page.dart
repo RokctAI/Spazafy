@@ -1,3 +1,4 @@
+import 'package:rokctapp/application/main/manager/main_provider.dart';
 import 'package:rokctapp/app_constants.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -32,7 +33,6 @@ import 'package:rokctapp/presentation/pages/main/manager/foods/extras/create/cre
 import 'package:rokctapp/application/main/manager/orders/new/new_orders_provider.dart';
 import 'package:rokctapp/application/main/manager/foods/tabs/food_tabs_provider.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/application/main/manager/main_provider.dart';
 
 @RoutePage()
 class ManagerMainPage extends StatefulWidget {

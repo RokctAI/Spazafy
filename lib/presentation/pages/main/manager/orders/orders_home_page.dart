@@ -1,3 +1,4 @@
+import 'package:rokctapp/application/main/manager/main_provider.dart';
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,6 @@ import 'package:rokctapp/application/main/manager/orders/accepted/accepted_order
 import 'package:rokctapp/application/main/manager/orders/ready/ready_orders_provider.dart';
 import 'package:rokctapp/application/main/manager/orders/on_a_way/on_a_way_orders_provider.dart';
 import 'package:rokctapp/application/main/manager/orders/appbar/home_appbar_provider.dart';
-import 'package:rokctapp/application/main/manager/main_provider.dart';
 
 class OrdersHomePage extends ConsumerStatefulWidget {
   const OrdersHomePage({super.key});

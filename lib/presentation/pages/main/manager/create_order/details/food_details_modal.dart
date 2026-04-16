@@ -1,3 +1,4 @@
+import 'package:rokctapp/application/product/manager/products_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
@@ -20,7 +21,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help
 import 'package:rokctapp/presentation/pages/main/manager/create_order/details/widgets/w_ingredient.dart';
 import 'package:rokctapp/application/order_cart/manager/order_cart_provider.dart';
 import 'package:rokctapp/application/order_products/manager/order_products_provider.dart';
-import 'package:rokctapp/application/product/manager/products_provider.dart';
 
 class FoodDetailsModal extends ConsumerStatefulWidget {
   final ProductData product;
@@ -114,7 +114,7 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                           child: const FoodExtras(),
                         ),
                       WIngredientScreen(
-                        list: state.selectedStock?.extras ?? [],
+                        list: state.selectedStock?.addons ?? [],
                         onChange: (int value) {
                           event.updateIngredient(context, value);
                         },
