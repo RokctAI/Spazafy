@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/application/foods/manager/create/details/kitchens/create_food_kitchens_provider.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
 import 'package:rokctapp/presentation/components/image/multi_image_picker.dart';

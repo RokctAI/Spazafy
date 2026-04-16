@@ -11,7 +11,7 @@ import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
 import 'package:rokctapp/presentation/components/list_items/editable_food_stock_item.dart';
 import 'package:rokctapp/presentation/components/extras/manager/extras_item.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
 import 'package:rokctapp/application/foods/manager/create/stocks/create_food_stocks_provider.dart';
 import 'package:rokctapp/application/foods/manager/foods_provider.dart';
 import 'package:rokctapp/application/categories/manager/categories_provider.dart';
