@@ -11,7 +11,10 @@ import 'package:rokctapp/presentation/pages/income/manager/widgets/chart.dart';
 import 'package:rokctapp/presentation/pages/income/manager/widgets/statistics_section.dart';
 import 'package:rokctapp/presentation/pages/income/manager/widgets/order_prices_section.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
+import 'package:rokctapp/application/restaurant/manager/income/statistics/statistics_provider.dart' as manager_statistics;
+
 import 'package:rokctapp/presentation/pages/income/manager/app_bar_screen.dart';
 
 // import 'package:charts_flutter_new/flutter.dart';
@@ -40,21 +43,21 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
     _tabController.addListener(() {
       if (_tabController.index == 0) {
         ref
-            .read(statisticsProvider.notifier)
+            .read(manager_statistics.statisticsProvider.notifier)
             .fetchStatistics(
               startTime: DateTime.now(),
               endTime: DateTime.now(),
             );
       } else if (_tabController.index == 1) {
         ref
-            .read(statisticsProvider.notifier)
+            .read(manager_statistics.statisticsProvider.notifier)
             .fetchStatistics(
               startTime: DateTime.now(),
               endTime: DateTime.now().subtract(const Duration(days: 7)),
             );
       } else {
         ref
-            .read(statisticsProvider.notifier)
+            .read(manager_statistics.statisticsProvider.notifier)
             .fetchStatistics(
               startTime: DateTime.now(),
               endTime: DateTime.now().subtract(const Duration(days: 30)),
@@ -63,7 +66,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
     });
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref
-          .read(statisticsProvider.notifier)
+          .read(manager_statistics.statisticsProvider.notifier)
           .fetchStatistics(startTime: DateTime.now(), endTime: DateTime.now());
     });
     super.initState();
@@ -81,7 +84,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
       backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
-          AppbarScreen(event: ref.read(statisticsProvider.notifier)),
+          AppbarScreen(event: ref.read(manager_statistics.statisticsProvider.notifier)),
           16.verticalSpace,
           Expanded(
             child: SingleChildScrollView(
@@ -108,7 +111,7 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
                     ),
                   ),
                   if (ref
-                          .watch(statisticsProvider)
+                          .watch(manager_statistics.statisticsProvider)
                           .countData
                           ?.chart
                           ?.isNotEmpty ??
@@ -149,9 +152,9 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
             borderRadius: BorderRadius.circular(12.r),
           ),
           child: SalesChart(
-            price: ref.watch(statisticsProvider).prices,
-            chart: ref.watch(statisticsProvider).countData?.chart ?? [],
-            times: ref.watch(statisticsProvider).time,
+            price: ref.watch(manager_statistics.statisticsProvider).prices,
+            chart: ref.watch(manager_statistics.statisticsProvider).countData?.chart ?? [],
+            times: ref.watch(manager_statistics.statisticsProvider).time,
             isDay: _tabController.index == 0,
             isLoading: false,
           ),

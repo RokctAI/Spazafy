@@ -6,10 +6,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:rokctapp/application/home/driver/home_provider.dart';
+import 'package:rokctapp/application/home/driver/home_provider.dart' as driver_home;
+
 import 'package:rokctapp/infrastructure/models/data/parcel_order.dart';
 import 'package:rokctapp/app_constants.dart';
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
+
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/marker_image_cropper.dart';
 import 'package:rokctapp/presentation/components/maps_list.dart';
@@ -299,14 +302,14 @@ class ParcelOrderPage extends StatelessWidget {
                   Consumer(
                     builder: (context, ref, child) {
                       return CustomButton(
-                        isLoading: ref.watch(homeProvider).isLoading,
+                        isLoading: ref.watch(driver_home.homeProvider).isLoading,
                         title: help.AppHelpers.getTranslation(TrKeys.order),
                         onPressed: () async {
                           if (parcel?.deliveryman == null) {
                             final ImageCropperMarker image =
                                 ImageCropperMarker();
                             ref
-                                .read(homeProvider.notifier)
+                                .read(driver_home.homeProvider.notifier)
                                 .goMarketParcel(
                                   context: context,
                                   parcelId: parcel?.id.toString(),
@@ -314,7 +317,7 @@ class ParcelOrderPage extends StatelessWidget {
                                   parcel: parcel,
                                 );
                             ref
-                                .read(homeProvider.notifier)
+                                .read(driver_home.homeProvider.notifier)
                                 .getRoutingAll(
                                   // ignore: use_build_context_synchronously
                                   context: context,
@@ -348,7 +351,7 @@ class ParcelOrderPage extends StatelessWidget {
 
                             if (parcel?.status != "on_a_way") {
                               ref
-                                  .read(homeProvider.notifier)
+                                  .read(driver_home.homeProvider.notifier)
                                   .goMarketParcel(
                                     context: context,
                                     parcelId: "",
@@ -356,7 +359,7 @@ class ParcelOrderPage extends StatelessWidget {
                                     setOrder: isSet,
                                   );
                               ref
-                                  .read(homeProvider.notifier)
+                                  .read(driver_home.homeProvider.notifier)
                                   .getRoutingAll(
                                     // ignore: use_build_context_synchronously
                                     context: context,
@@ -386,14 +389,14 @@ class ParcelOrderPage extends StatelessWidget {
                                   );
                             } else {
                               ref
-                                  .read(homeProvider.notifier)
+                                  .read(driver_home.homeProvider.notifier)
                                   .goClientParcel(
                                     context,
                                     parcel?.id,
                                     parcel: parcel,
                                   );
                               ref
-                                  .read(homeProvider.notifier)
+                                  .read(driver_home.homeProvider.notifier)
                                   .getRoutingAll(
                                     // ignore: use_build_context_synchronously
                                     context: context,
