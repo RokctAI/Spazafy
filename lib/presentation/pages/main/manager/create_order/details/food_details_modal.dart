@@ -114,7 +114,7 @@ class _FoodDetailsModalState extends ConsumerState<FoodDetailsModal> {
                           child: const FoodExtras(),
                         ),
                       WIngredientScreen(
-                        list: state.selectedStock?.addons ?? [],
+                        list: state.selectedStock?.extras ?? [],
                         onChange: (int value) {
                           event.updateIngredient(context, value);
                         },
