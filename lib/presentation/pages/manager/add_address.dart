@@ -13,7 +13,6 @@ import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help
 import 'package:rokctapp/presentation/components/buttons/manager/custom_button.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/routes/app_router.dart';
-import 'package:rokctapp/presentation/routes/app_router.gr.dart';
 
 class AddAddress extends StatelessWidget {
   const AddAddress({super.key});
@@ -52,7 +51,7 @@ class AddAddress extends StatelessWidget {
                       Navigator.pop(context);
                       LocalStorage.setAddressSelected(
                         AddressData(
-                          location: LocationData(
+                          location: LocationModel(
                             latitude:
                                 (help.AppHelpers.getInitialLatitude() ??
                                 AppConstants.demoLatitude),
