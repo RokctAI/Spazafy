@@ -16,7 +16,7 @@ import 'package:rokctapp/application/home/driver/home_provider.dart';
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/presentation/components/buttons/driver/custom_button.dart';
-import 'image_dialog.dart';
+import 'package:rokctapp/presentation/components/image/image_dialog.dart';
 import 'package:rokctapp/presentation/components/order/order_item.dart';
 
 // ignore_for_file: use_build_context_synchronously
