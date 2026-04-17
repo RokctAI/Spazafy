@@ -36,6 +36,7 @@ class ProductData {
     List<Galleries>? galleries,
     List<DiscountData>? discounts,
     int? count,
+    bool? isSelectedAddon,
   }) {
     _id = id;
     _uuid = uuid;
@@ -65,6 +66,7 @@ class ProductData {
     _count = count;
     _stock = stock;
     _discounts = discounts;
+    _isSelectedAddon = isSelectedAddon;
   }
 
   ProductData.fromJson(dynamic json) {
@@ -138,6 +140,7 @@ class ProductData {
   List<DiscountData>? _discounts;
 
   int? _count;
+  bool? _isSelectedAddon;
 
   ProductData copyWith({
     String? id,
@@ -166,6 +169,7 @@ class ProductData {
     Unit? unit,
     List<ReviewData>? reviews,
     List<Galleries>? galleries,
+    bool? isSelectedAddon,
   }) => ProductData(
     id: id ?? _id,
     uuid: uuid ?? _uuid,
@@ -193,6 +197,7 @@ class ProductData {
     unit: unit ?? _unit,
     reviews: reviews ?? _reviews,
     galleries: galleries ?? _galleries,
+    isSelectedAddon: isSelectedAddon ?? _isSelectedAddon,
   );
 
   String? get id => _id;
@@ -250,6 +255,8 @@ class ProductData {
   List<ReviewData>? get reviews => _reviews;
 
   List<Galleries>? get galleries => _galleries;
+
+  bool? get isSelectedAddon => _isSelectedAddon;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
