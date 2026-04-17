@@ -32,8 +32,7 @@ import 'package:rokctapp/infrastructure/repositories/cart_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/categories_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/currencies_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/draw_repository.dart'
-    as cust_draw
-    hide DrawRepository;
+    as cust_draw;
 import 'package:rokctapp/infrastructure/repositories/gallery_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/notification_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/orders_repository.dart'
@@ -43,8 +42,7 @@ import 'package:rokctapp/infrastructure/repositories/payments_repository.dart';
 import 'package:rokctapp/infrastructure/repositories/products_repository.dart'
     as cust;
 import 'package:rokctapp/infrastructure/repositories/settings_repository.dart'
-    as cust_settings
-    hide SettingsRepository;
+    as cust_settings;
 import 'package:rokctapp/infrastructure/repositories/shops_repository.dart'
     as cust;
 import 'package:rokctapp/infrastructure/repositories/user_repository.dart'
@@ -58,6 +56,7 @@ import 'package:rokctapp/infrastructure/repositories/wallet_repository.dart';
 import 'package:rokctapp/domain/handlers/http_service.dart';
 import 'package:rokctapp/infrastructure/repositories/delivery_points_repository.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_database.dart';
+import 'package:rokctapp/infrastructure/services/utils/background_sync_service.dart';
 import 'package:rokctapp/domain/handlers/driver/handlers.dart'
     as driver_handlers
     hide ApiResult;
@@ -83,7 +82,7 @@ import 'package:rokctapp/infrastructure/repositories/manager/users_repository.da
 import 'package:rokctapp/infrastructure/repositories/driver/user_repository_impl.dart';
 
 import 'package:rokctapp/domain/interface/driver_draw.dart';
-import 'package:rokctapp/domain/interface/driver_settings.dart';
+import 'package:rokctapp/domain/interface/driver_settings.dart' hide SettingsRepository;
 import 'package:rokctapp/domain/interface/driver_user.dart';
 
 import 'package:rokctapp/domain/interface/manager_catalog.dart';
