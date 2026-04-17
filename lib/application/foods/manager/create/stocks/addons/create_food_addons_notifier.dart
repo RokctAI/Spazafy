@@ -54,7 +54,7 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
         debugPrint('===> fetch more addons fail $fail');
         AppHelpers.showCheckTopSnackBar(
           context,
-          fail,
+          text: fail,
           type: SnackBarType.error,
         );
         refreshController?.loadFailed();
@@ -108,7 +108,7 @@ class CreateFoodAddonsNotifier extends StateNotifier<CreateFoodAddonsState> {
         debugPrint('===> fetch addons fail $fail');
         AppHelpers.showCheckTopSnackBar(
           context,
-          fail,
+          text: fail,
           type: SnackBarType.error,
         );
         state = state.copyWith(isLoading: false, addons: []);
