@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/extras.dart';
 import 'package:rokctapp/infrastructure/models/data/group.dart';
-import 'package:rokctapp/infrastructure/models/data/manager/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart' hide Group, Extras;
 import 'package:rokctapp/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
@@ -181,7 +181,7 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          fail.toString(),
+          text: fail.toString(),
           type: SnackBarType.error,
         );
         debugPrint('===> group extras fetching failed $fail');
@@ -191,7 +191,7 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
 
   void deleteStock(int index) {
     List<int> list = List.from(state.deleteStocks);
-    list.add(_localStocks[index].id ?? 0);
+    list.add(int.tryParse(_localStocks[index].id ?? '0') ?? 0);
     _localStocks.removeAt(index);
     state = state.copyWith(stocks: _localStocks, deleteStocks: list);
   }
@@ -222,7 +222,7 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
     final response = await _productsRepository.updateStocks(
       stocks: _localStocks,
       uuid: uuid,
-      deletedStocks: state.deleteStocks,
+      deletedStocks: state.deleteStocks.map((e) => e.toString()).toList(),
     );
     response.when(
       success: (data) {
