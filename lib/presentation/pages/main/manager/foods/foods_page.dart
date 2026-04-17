@@ -16,7 +16,8 @@ import 'package:rokctapp/presentation/components/helper/keyboard_disable.dart';
 import 'package:rokctapp/presentation/components/tab_bars/custom_app_bar.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/search_text_field.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/application/main/manager/foods/tabs/food_tabs_provider.dart';
 import 'package:rokctapp/application/categories/manager/categories_provider.dart';
 import 'package:rokctapp/application/foods/manager/foods_provider.dart';

@@ -12,7 +12,8 @@ import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 import 'package:rokctapp/presentation/components/text_fields/manager/underlined_text_field.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/application/main/manager/foods/extras/update/update_extras_group_provider.dart';
 import 'package:rokctapp/application/main/manager/foods/extras/extras_provider.dart';
 

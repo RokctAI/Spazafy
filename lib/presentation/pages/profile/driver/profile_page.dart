@@ -2,7 +2,8 @@ import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
-import 'package:rokctapp/presentation/components/buttons/pop_button.dart' hide PopButton;
+import 'package:rokctapp/presentation/components/buttons/pop_button.dart'
+    hide PopButton;
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:rokctapp/presentation/app_assets.dart';
@@ -23,9 +24,10 @@ import 'package:rokctapp/presentation/pages/profile/driver/widgets/logout_modal.
 import 'package:rokctapp/presentation/pages/profile/driver/widgets/sections_item.dart';
 import 'package:rokctapp/application/profile/driver/provider/profile_settings_provider.dart';
 import 'package:rokctapp/application/profile/driver/provider/profile_image_provider.dart';
-import 'package:rokctapp/application/app/driver/app_provider.dart' as driver_app;
-import 'package:rokctapp/application/home/driver/home_provider.dart' as driver_home;
-
+import 'package:rokctapp/application/app/driver/app_provider.dart'
+    as driver_app;
+import 'package:rokctapp/application/home/driver/home_provider.dart'
+    as driver_home;
 
 @RoutePage()
 class DriverProfilePage extends ConsumerStatefulWidget {

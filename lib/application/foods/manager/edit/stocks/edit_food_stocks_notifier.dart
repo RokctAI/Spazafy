@@ -1,6 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/extras.dart';
 import 'package:rokctapp/infrastructure/models/data/group.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart' hide Group, Extras;
+import 'package:rokctapp/infrastructure/models/data/product_data.dart'
+    hide Group, Extras;
 import 'package:rokctapp/infrastructure/models/data/stock.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 

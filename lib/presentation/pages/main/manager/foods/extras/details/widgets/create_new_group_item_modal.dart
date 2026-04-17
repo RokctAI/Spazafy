@@ -14,7 +14,8 @@ import 'package:rokctapp/presentation/components/text_fields/manager/underlined_
 
 import 'package:rokctapp/infrastructure/models/data/group.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/application/main/manager/foods/extras/details/new_item/create_new_group_item_provider.dart';
 import 'package:rokctapp/application/main/manager/foods/extras/details/extras_group_details_provider.dart';
 

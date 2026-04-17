@@ -6,7 +6,8 @@ import 'package:rokctapp/application/restaurant/manager/income/statistics/statis
 import 'package:rokctapp/presentation/pages/income/manager/widgets/statistics_item.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/presentation/components/title/manager_title_icon.dart';
 
 class StatisticsSection extends StatelessWidget {
