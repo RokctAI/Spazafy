@@ -233,7 +233,7 @@ class EditFoodStocksNotifier extends StateNotifier<EditFoodStocksState> {
         state = state.copyWith(isSaving: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          fail.toString(),
+          text: fail.toString(),
           type: SnackBarType.error,
         );
         failed?.call();
