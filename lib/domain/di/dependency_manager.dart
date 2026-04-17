@@ -46,8 +46,7 @@ import 'package:rokctapp/infrastructure/repositories/settings_repository.dart'
 import 'package:rokctapp/infrastructure/repositories/shops_repository.dart'
     as cust;
 import 'package:rokctapp/infrastructure/repositories/user_repository.dart'
-    as cust_user
-    hide UserRepository;
+    as cust_user;
 
 import 'package:rokctapp/app_constants.dart';
 import 'package:rokctapp/infrastructure/services/utils/local_storage.dart';
