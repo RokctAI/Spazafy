@@ -10,7 +10,8 @@ import 'package:rokctapp/presentation/components/extras/manager/group_extras_ite
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/application/foods/manager/create/stocks/create_food_stocks_provider.dart';
 
 class CreateFoodEditExtrasModal extends ConsumerStatefulWidget {

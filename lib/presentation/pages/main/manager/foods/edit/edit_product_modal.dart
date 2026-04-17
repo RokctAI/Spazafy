@@ -10,7 +10,8 @@ import 'package:rokctapp/presentation/pages/main/manager/foods/edit/details/edit
 import 'package:rokctapp/presentation/components/helper/modal_drag.dart';
 import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 
 class EditProductModal extends StatefulWidget {
   final ProductData product;

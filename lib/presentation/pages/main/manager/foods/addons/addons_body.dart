@@ -6,7 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/addons/widgets/addon_item.dart';
 import 'package:rokctapp/presentation/pages/main/manager/foods/addons/edit/edit_addon_modal.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/application/main/manager/foods/addons/addons_provider.dart';
 import 'package:rokctapp/application/main/manager/foods/addons/edit/edit_addon_provider.dart';
 import 'package:rokctapp/application/main/manager/foods/addons/edit/units/edit_addon_units_provider.dart';

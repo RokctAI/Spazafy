@@ -82,7 +82,8 @@ import 'package:rokctapp/infrastructure/repositories/manager/users_repository.da
 import 'package:rokctapp/infrastructure/repositories/driver/user_repository_impl.dart';
 
 import 'package:rokctapp/domain/interface/driver_draw.dart';
-import 'package:rokctapp/domain/interface/driver_settings.dart' hide SettingsRepository;
+import 'package:rokctapp/domain/interface/driver_settings.dart'
+    hide SettingsRepository;
 import 'package:rokctapp/domain/interface/driver_user.dart';
 
 import 'package:rokctapp/domain/interface/manager_catalog.dart';

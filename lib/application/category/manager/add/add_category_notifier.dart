@@ -21,7 +21,6 @@ class AddCategoryNotifier extends StateNotifier<AddCategoryState> {
     final response = await _catalogRepository.createCategory(
       title: _title,
       input: _input.isEmpty ? null : _input,
-
     );
     response.when(
       success: (data) {

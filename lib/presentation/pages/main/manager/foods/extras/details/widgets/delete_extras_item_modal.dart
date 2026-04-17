@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/product_data.dart' hide Extras;
+import 'package:rokctapp/infrastructure/models/data/product_data.dart'
+    hide Extras;
 
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
@@ -14,7 +15,8 @@ import 'package:rokctapp/presentation/components/helper/modal_wrap.dart';
 
 import 'package:rokctapp/infrastructure/models/data/extras.dart';
 
-import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart' as help;
+import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
+    as help;
 import 'package:rokctapp/application/main/manager/foods/extras/details/delete_item/delete_extras_item_provider.dart';
 import 'package:rokctapp/application/main/manager/foods/extras/details/extras_group_details_provider.dart';
 
