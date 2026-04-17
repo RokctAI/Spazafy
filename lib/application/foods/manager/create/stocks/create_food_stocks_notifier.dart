@@ -1,6 +1,7 @@
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart'
     hide Group, Extras;
-import 'package:rokctapp/infrastructure/models/data/product_data.dart' hide Group, Extras;
+import 'package:rokctapp/infrastructure/models/data/product_data.dart'
+    hide Group, Extras;
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
