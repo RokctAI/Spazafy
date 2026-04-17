@@ -12,7 +12,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
 import 'package:rokctapp/infrastructure/services/utils/driver/services.dart';
 import 'package:rokctapp/application/profile/driver/state/profile_settings_state.dart';
-import 'package:rokctapp/infrastructure/models/response/login_response.dart';
+import 'package:rokctapp/infrastructure/models/response/login_response.dart' hide UserData;
+
 
 class ProfileSettingsNotifier extends StateNotifier<ProfileSettingsState> {
   final UserRepository _userRepository;
