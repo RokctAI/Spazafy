@@ -11,7 +11,7 @@ import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 import 'package:rokctapp/presentation/theme/app_style.dart';
 import 'package:rokctapp/presentation/components/buttons/driver/custom_button.dart';
 import 'package:rokctapp/presentation/components/datetime/custom_date_picker.dart';
-import 'package:rokctapp/presentation/components/tab_bars/driver/custom_tab_bar.dart';
+import 'package:rokctapp/presentation/components/tab_bars/custom_tab_bar.dart';
 import 'package:rokctapp/presentation/components/title/title_icon.dart';
 
 class FilterScreen extends StatefulWidget {
