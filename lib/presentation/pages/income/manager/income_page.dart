@@ -13,7 +13,8 @@ import 'package:rokctapp/presentation/pages/income/manager/widgets/order_prices_
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart'
     as help;
-import 'package:rokctapp/application/restaurant/manager/income/statistics/statistics_provider.dart' as manager_statistics;
+import 'package:rokctapp/application/restaurant/manager/income/statistics/statistics_provider.dart'
+    as manager_statistics;
 
 import 'package:rokctapp/presentation/pages/income/manager/app_bar_screen.dart';
 
@@ -84,7 +85,9 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
       backgroundColor: AppStyle.bgGrey,
       body: Column(
         children: [
-          AppbarScreen(event: ref.read(manager_statistics.statisticsProvider.notifier)),
+          AppbarScreen(
+            event: ref.read(manager_statistics.statisticsProvider.notifier),
+          ),
           16.verticalSpace,
           Expanded(
             child: SingleChildScrollView(
@@ -153,7 +156,12 @@ class _ManagerIncomePageState extends ConsumerState<ManagerIncomePage>
           ),
           child: SalesChart(
             price: ref.watch(manager_statistics.statisticsProvider).prices,
-            chart: ref.watch(manager_statistics.statisticsProvider).countData?.chart ?? [],
+            chart:
+                ref
+                    .watch(manager_statistics.statisticsProvider)
+                    .countData
+                    ?.chart ??
+                [],
             times: ref.watch(manager_statistics.statisticsProvider).time,
             isDay: _tabController.index == 0,
             isLoading: false,

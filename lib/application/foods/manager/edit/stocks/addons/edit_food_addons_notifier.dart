@@ -58,7 +58,8 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
       for (int i = 0; i < addons.length; i++) {
         addons[i] = addons[i].copyWith(isSelectedAddon: false);
       }
-      final List<AddonData> productAddons = (stock.addons ?? []).cast<AddonData>();
+      final List<AddonData> productAddons = (stock.addons ?? [])
+          .cast<AddonData>();
       for (final productAddon in productAddons) {
         for (int i = 0; i < addons.length; i++) {
           if (addons[i].id == productAddon.product?.id) {
@@ -84,7 +85,8 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
         for (int i = 0; i < addons.length; i++) {
           addons[i] = addons[i].copyWith(isSelectedAddon: false);
         }
-        final List<AddonData> productAddons = (stock.addons ?? []).cast<AddonData>();
+        final List<AddonData> productAddons = (stock.addons ?? [])
+            .cast<AddonData>();
         for (final productAddon in productAddons) {
           for (int i = 0; i < addons.length; i++) {
             if (addons[i].id == productAddon.product?.id) {
