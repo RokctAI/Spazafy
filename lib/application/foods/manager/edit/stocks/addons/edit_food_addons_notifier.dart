@@ -1,7 +1,7 @@
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
 import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
-import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 
 import 'package:rokctapp/infrastructure/models/data/addon_data.dart';
 import 'dart:async';
@@ -52,13 +52,13 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
     );
   }
 
-  Future<void> initialFetchAddons(Stock stock) async {
+  Future<void> initialFetchAddons(Stocks stock) async {
     if (state.addons.isNotEmpty) {
       List<ProductData> addons = List.from(state.addons);
       for (int i = 0; i < addons.length; i++) {
         addons[i] = addons[i].copyWith(isSelectedAddon: false);
       }
-      final List<AddonData> productAddons = stock.localAddons ?? [];
+      final List<AddonData> productAddons = (stock.addons ?? []).cast<AddonData>();
       for (final productAddon in productAddons) {
         for (int i = 0; i < addons.length; i++) {
           if (addons[i].id == productAddon.product?.id) {
@@ -84,7 +84,7 @@ class EditFoodAddonsNotifier extends StateNotifier<EditFoodAddonsState> {
         for (int i = 0; i < addons.length; i++) {
           addons[i] = addons[i].copyWith(isSelectedAddon: false);
         }
-        final List<AddonData> productAddons = stock.addons ?? [];
+        final List<AddonData> productAddons = (stock.addons ?? []).cast<AddonData>();
         for (final productAddon in productAddons) {
           for (int i = 0; i < addons.length; i++) {
             if (addons[i].id == productAddon.product?.id) {
