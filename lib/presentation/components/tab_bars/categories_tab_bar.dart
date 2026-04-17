@@ -9,7 +9,8 @@ import 'package:rokctapp/presentation/components/app_bars/category_tab_bar_item.
 import 'package:rokctapp/presentation/components/tab_bars/categories_tab_bar.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' hide CategoryData;
+
 
 class CategoriesTabBar extends StatelessWidget {
   final List<CategoryData> categories;
