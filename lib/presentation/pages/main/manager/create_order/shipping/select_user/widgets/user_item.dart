@@ -1,4 +1,5 @@
-import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart' hide UserData;
+import 'package:rokctapp/infrastructure/models/data/driver/user_data.dart'
+    hide UserData;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

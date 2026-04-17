@@ -1,4 +1,5 @@
-import 'package:rokctapp/domain/handlers/driver/handlers.dart' hide NetworkExceptions;
+import 'package:rokctapp/domain/handlers/driver/handlers.dart'
+    hide NetworkExceptions;
 import 'package:rokctapp/infrastructure/models/response/driver/order_paginate_response.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart';
@@ -12,7 +13,8 @@ import 'package:rokctapp/infrastructure/models/data/local_location.dart';
 import 'package:rokctapp/domain/di/dependency_manager.dart';
 import 'package:rokctapp/domain/interface/orders.dart';
 import 'package:rokctapp/infrastructure/models/data/order_active_model.dart';
-import 'package:rokctapp/infrastructure/models/models.dart' hide OrderPaginateResponse;
+import 'package:rokctapp/infrastructure/models/models.dart'
+    hide OrderPaginateResponse;
 
 import 'package:rokctapp/infrastructure/services/utils/app_helpers.dart';
 import 'package:rokctapp/domain/handlers/handlers.dart';

@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rokctapp/application/order/manager/create_order_state.dart';
 
-import 'package:rokctapp/infrastructure/models/response/login_response.dart' hide UserData;
-
+import 'package:rokctapp/infrastructure/models/response/login_response.dart'
+    hide UserData;
 
 import 'package:rokctapp/infrastructure/models/models.dart' hide UserData;
-import 'package:rokctapp/infrastructure/models/data/order_detail.dart' show Stock;
-
+import 'package:rokctapp/infrastructure/models/data/order_detail.dart'
+    show Stock;
 
 class CreateOrderNotifier extends StateNotifier<CreateOrderState> {
   final OrdersInterface _ordersRepository;
