@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/extras.dart';
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
-import 'package:rokctapp/infrastructure/models/data/group.dart' hide Group;
+import 'package:rokctapp/infrastructure/models/data/product_data.dart' hide Group;
+import 'package:rokctapp/infrastructure/models/data/group.dart';
 
 class ExtrasGroupsResponse {
   ExtrasGroupsResponse({List<Group>? data}) {
