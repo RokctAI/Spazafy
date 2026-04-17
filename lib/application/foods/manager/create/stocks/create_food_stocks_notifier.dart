@@ -1,6 +1,6 @@
 import 'package:rokctapp/infrastructure/models/data/order_detail.dart'
     hide Group, Extras;
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart' hide Group, Extras;
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
@@ -180,7 +180,7 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
         state = state.copyWith(isLoading: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          fail,
+          text: fail,
           type: SnackBarType.error,
         );
         debugPrint('===> group extras fetching failed $fail');
@@ -230,7 +230,7 @@ class CreateFoodStocksNotifier extends StateNotifier<CreateFoodStocksState> {
         state = state.copyWith(isSaving: false);
         AppHelpers.showCheckTopSnackBar(
           context,
-          fail,
+          text: fail,
           type: SnackBarType.error,
         );
         failed?.call();
