@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rokctapp/domain/handlers/api_result.dart';
 import 'package:rokctapp/infrastructure/models/data/category_data.dart';
 import 'package:rokctapp/domain/handlers/network_exceptions.dart';
-import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart';
+import 'package:rokctapp/infrastructure/models/response/categories_paginate_response.dart' hide CategoryData;
 import 'package:rokctapp/domain/interface/categories.dart';
 import 'package:rokctapp/infrastructure/models/models.dart' hide CategoryData;
 import 'package:rokctapp/domain/handlers/handlers.dart';
