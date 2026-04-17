@@ -83,7 +83,7 @@ class OrdersRepository implements OrdersRepositoryFacade {
           return ApiResult.success(
             data: OrderPaginateResponse(
               data: localOrders
-                  .map((e) => OrderActiveModel.fromJson(jsonDecode(e.data)))
+                  .map((e) => OrderDetailData.fromJson(jsonDecode(e.data)))
                   .toList(),
             ),
           );
