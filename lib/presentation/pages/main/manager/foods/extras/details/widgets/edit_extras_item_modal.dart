@@ -1,4 +1,4 @@
-import 'package:rokctapp/infrastructure/models/data/product_data.dart';
+import 'package:rokctapp/infrastructure/models/data/product_data.dart' hide Group, Extras;
 
 import 'package:rokctapp/infrastructure/services/constants/tr_keys.dart';
 
