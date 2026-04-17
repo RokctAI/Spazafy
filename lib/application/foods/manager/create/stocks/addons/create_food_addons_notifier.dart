@@ -3,7 +3,7 @@ import 'package:rokctapp/infrastructure/models/data/product_data.dart';
 import 'package:rokctapp/domain/interface/manager_products.dart';
 
 import 'package:rokctapp/infrastructure/services/constants/enums.dart';
-import 'package:rokctapp/infrastructure/models/data/addon_data.dart';
+// AddonData provided by stock.dart
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
